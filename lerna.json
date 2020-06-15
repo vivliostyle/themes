@@ -1,0 +1,13 @@
+{
+  "name": "theme",
+  "version": "independent",
+  "packages": ["packages/*"],
+  "useWorkspaces": true,
+  "npmClient": "yarn",
+  "command": {
+    "version": {
+      "message": "chore(release): publish %s",
+      "conventionalCommits": true
+    }
+  }
+}
