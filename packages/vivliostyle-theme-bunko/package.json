@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-bunko",
   "description": "Bunko theme for Vivliostyle.",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "author": "Shinyu Murakami <murakami@vivliostyle.org>",
   "files": [
     "*.css"
