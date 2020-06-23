@@ -2,13 +2,20 @@
   "name": "theme",
   "description": "Central source of official themes.",
   "scripts": {
-    "bump": "lerna version",
+    "bump": "lerna version --conventional-commits --no-changelog",
     "ship": "lerna publish from-package"
   },
   "devDependencies": {
-    "lerna": "^3.22.1"
+    "lerna": "^3.22.1",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1"
   },
   "repository": "git@github.com:vivliostyle/theme.git",
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "license": "Apache-2.0",
   "private": true,
   "workspaces": [
