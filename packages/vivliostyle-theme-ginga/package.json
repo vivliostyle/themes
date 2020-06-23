@@ -1,15 +1,21 @@
 {
   "name": "@vivliostyle/theme-ginga",
+  "description": "Ginga theme for Vivliostyle.",
   "version": "0.0.0",
+  "author": "Shinyu Murakami <murakami@vivliostyle.org>",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vivliostyle/theme.git",
+    "url": "https://github.com/vivliostyle/themes.git",
     "directory": "packages/vivliostyle-theme-ginga"
   },
-  "private": true,
+  "keywords": [
+    "vivliostyle-theme"
+  ],
+  "license": "",
+  "homepage": "https://github.com/vivliostyle/themes",
   "vivliostyle": {
     "theme": {
       "title": "Ginga",
