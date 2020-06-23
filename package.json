@@ -1,6 +1,10 @@
 {
   "name": "theme",
   "description": "Central source of official themes.",
+  "scripts": {
+    "bump": "lerna version",
+    "ship": "lerna publish from-package"
+  },
   "devDependencies": {
     "lerna": "^3.22.1"
   },
