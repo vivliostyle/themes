@@ -4,11 +4,15 @@
   "version": "0.0.0",
   "author": "Shinyu Murakami <murakami@vivliostyle.org>",
   "scripts": {
-    "build": "node-sass scss/style.scss > wood.css"
+    "build": "node-sass scss/style.scss > wood.css",
+    "prepublish": "yarn build"
   },
   "devDependencies": {
     "node-sass": "^4.14.1"
   },
+  "files": [
+    "*.css"
+  ],
   "publishConfig": {
     "access": "public"
   },
