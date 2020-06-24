@@ -34,7 +34,7 @@ vivliostyle-theme-academic
 ```jsonc
 {
   "name": "vivliostyle-theme-academic",
-  "author": "John Doe <john@",
+  "author": "John Doe <john@example.com>",
   "keywords": ["vivliostyle", "vivliostyle-theme"],
   "vivliostyle": {
     "theme": {
