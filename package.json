@@ -1,21 +1,27 @@
 {
   "name": "theme",
   "description": "Central source of official themes.",
-  "scripts": {
-    "bump": "lerna version --conventional-commits --no-changelog",
-    "ship": "lerna publish from-package"
-  },
+  "scripts": {},
   "devDependencies": {
+    "doctoc": "^1.4.0",
+    "husky": "^4.2.5",
     "lerna": "^3.22.1",
+    "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1"
   },
-  "repository": "git@github.com:vivliostyle/theme.git",
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged"
+      "pre-commit": "lint-staged && pretty-quick --staged"
     }
   },
+  "lint-staged": {
+    "*.md": [
+      "doctoc",
+      "git add"
+    ]
+  },
+  "repository": "git@github.com:vivliostyle/theme.git",
   "license": "Apache-2.0",
   "private": true,
   "workspaces": [
