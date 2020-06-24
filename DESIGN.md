@@ -5,15 +5,11 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Name resolution](#name-resolution)
-  - [npm](#npm)
-  - [single-source CSS](#single-source-css)
-  - [local](#local)
-- [Theme package](#theme-package)
+- [Package structure](#package-structure)
   - [package.json](#packagejson)
-  - [`vivliostyle` (recommended)](#vivliostyle-recommended)
-  - [`style` (2nd-tier)](#style-2nd-tier)
-  - [`main` (3rd-tier)](#main-3rd-tier)
+    - [`vivliostyle` (recommended)](#vivliostyle-recommended)
+    - [`style` (2nd-tier)](#style-2nd-tier)
+    - [`main` (3rd-tier)](#main-3rd-tier)
 - [CSS Design Guide](#css-design-guide)
   - [Data URL for smaller images](#data-url-for-smaller-images)
   - [`role` first, then custom classes](#role-first-then-custom-classes)
@@ -23,47 +19,14 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Name resolution
+## Package structure
 
-### npm
-
-`vivliostyle-theme-` prefix will be omitted.
-
-```js
-module.exports = {
-  theme: 'academic', // npm i vivliostyle-theme-academic
-  // or theme: 'vivliostyle-theme-academic'
-};
-```
-
-```js
-module.exports = {
-  theme: '@vivliostyle/theme-academic', // npm i @vivliostyle/theme-academic
-};
-```
-
-### single-source CSS
-
-```js
-module.exports = {
-  theme: 'https://example.com/theme.css',
-};
-```
-
-### local
-
-```js
-module.exports = {
-  theme: './vivliostyle-theme-academic',
-};
-```
-
-## Theme package
-
-```
+```bash
 vivliostyle-theme-academic
-|- theme.css
-|- package.json
+├── LICENSE # optional
+├── README.md # optional
+├── package.json # required
+└── theme.css
 ```
 
 ### package.json
@@ -73,7 +36,7 @@ vivliostyle-theme-academic
   "name": "vivliostyle-theme-academic",
   "vivliostyle": {
     "theme": {
-      "stylesheet": "./theme.css", // required
+      "style": "./theme.css", // required
       "title": "Academic", // optional
       "author": "John Doe <john@example.com>" // optional
     }
@@ -81,7 +44,7 @@ vivliostyle-theme-academic
 }
 ```
 
-### `vivliostyle` (recommended)
+#### `vivliostyle` (recommended)
 
 ```json
 {
@@ -95,7 +58,7 @@ vivliostyle-theme-academic
 }
 ```
 
-### `style` (2nd-tier)
+#### `style` (2nd-tier)
 
 ```js
 module.exports = {
@@ -103,7 +66,7 @@ module.exports = {
 };
 ```
 
-### `main` (3rd-tier)
+#### `main` (3rd-tier)
 
 ```js
 module.exports = {
