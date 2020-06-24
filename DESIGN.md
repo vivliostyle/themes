@@ -36,9 +36,11 @@ vivliostyle-theme-academic
   "name": "vivliostyle-theme-academic",
   "author": "John Doe <john@example.com>",
   "keywords": ["vivliostyle", "vivliostyle-theme"],
+  "files": ["*.css"],
   "vivliostyle": {
     "theme": {
-      "style": "./theme.css"
+      "style": "./theme.css",
+      "title": "Academic"
     }
   }
 }

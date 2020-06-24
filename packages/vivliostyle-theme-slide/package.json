@@ -21,5 +21,10 @@
     "vivliostyle-theme"
   ],
   "license": "CC0-1.0",
-  "style": "./theme.css"
+  "vivliostyle": {
+    "theme": {
+      "title": "Slide",
+      "style": "./theme.css"
+    }
+  }
 }

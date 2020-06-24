@@ -1,4 +1,6 @@
-# Vivliostyle Themes
+![Vivliostyle Theme](./assets/cover.jpg)
+
+<div align="center"><b>Center of Vivliostyle official themes.</b></div>
 
 ## Table of contents
 
@@ -17,5 +19,6 @@
 
 ## Create a theme
 
-- [Theme Design Guidelines](DESIGN.md)
-- [Contribution Guide](CONTRIBUTING.md)
+- [Theme Design Guidelines](https://github.com/vivliostyle/themes/blob/master/DESIGN.md)
+- [Contribution Guide](https://github.com/vivliostyle/themes/blob/master/CONTRIBUTING.md)
+- [Donate your theme⚡️](https://github.com/vivliostyle/themes/blob/master/CONTRIBUTING.md#donating-your-theme)
