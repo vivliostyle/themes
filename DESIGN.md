@@ -31,7 +31,7 @@ vivliostyle-theme-academic
 
 ### package.json
 
-```json
+```jsonc
 {
   "name": "vivliostyle-theme-academic",
   "author": "John Doe <john@",
@@ -46,7 +46,7 @@ vivliostyle-theme-academic
 
 #### `vivliostyle` (recommended)
 
-```json
+```jsonc
 {
   "vivliostyle": {
     "theme": {
@@ -60,18 +60,18 @@ vivliostyle-theme-academic
 
 #### `style` (2nd-tier)
 
-```js
-module.exports = {
-  style: 'theme.css',
-};
+```jsonc
+{
+  "style": "theme.css"
+}
 ```
 
 #### `main` (3rd-tier)
 
-```js
-module.exports = {
-  main: 'theme.css',
-};
+```jsonc
+{
+  "main": "theme.css"
+}
 ```
 
 ## CSS Design Guide
