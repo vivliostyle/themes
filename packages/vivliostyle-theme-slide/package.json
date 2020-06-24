@@ -1,0 +1,25 @@
+{
+  "name": "@vivliostyle/theme-slide",
+  "description": "Slide theme for Vivliostyle.",
+  "version": "0.1.0",
+  "author": "Shinyu Murakami <murakami@vivliostyle.org>",
+  "files": [
+    "img",
+    "*.css"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/vivliostyle-theme-slide"
+  },
+  "homepage": "https://github.com/vivliostyle/themes",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "license": "CC0-1.0",
+  "style": "./theme.css"
+}
