@@ -23,7 +23,7 @@
   "vivliostyle": {
     "theme": {
       "title": "Bunko",
-      "stylesheet": "./theme.css"
+      "style": "./theme.css"
     }
   }
 }

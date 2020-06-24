@@ -34,11 +34,11 @@ vivliostyle-theme-academic
 ```json
 {
   "name": "vivliostyle-theme-academic",
+  "author": "John Doe <john@",
+  "keywords": ["vivliostyle", "vivliostyle-theme"],
   "vivliostyle": {
     "theme": {
-      "style": "./theme.css", // required
-      "title": "Academic", // optional
-      "author": "John Doe <john@example.com>" // optional
+      "style": "./theme.css"
     }
   }
 }
