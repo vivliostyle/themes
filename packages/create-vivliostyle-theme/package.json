@@ -20,5 +20,17 @@
     "lib",
     "templates"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/create-vivliostyle-theme"
+  },
+  "bugs": {
+    "url": "https://github.com/vivliostyle/themes/issues"
+  },
+  "homepage": "https://github.com/vivliostyle/themes",
+  "keywords": [
+    "vivliostyle"
+  ],
   "license": "Apache-2.0"
 }
