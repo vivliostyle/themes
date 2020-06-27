@@ -1,6 +1,6 @@
 {
   "name": "@vivliostyle/theme-slide",
-  "description": "Slide theme for Vivliostyle.",
+  "description": "Slide theme",
   "version": "0.1.0",
   "author": "Shinyu Murakami <murakami@vivliostyle.org>",
   "files": [
