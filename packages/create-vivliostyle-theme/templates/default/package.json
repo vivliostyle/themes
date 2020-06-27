@@ -1,0 +1,20 @@
+{
+  "name": "{{kebab name}}",
+  "description": "{{description}}",
+  "version": "0.0.0",
+  "author": "{{contact}}",
+  "files": [
+    "*.css"
+  ],
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "license": "{{license}}",
+  "vivliostyle": {
+    "theme": {
+      "title": "{{capital name space=true}}",
+      "style": "./theme.css"
+    }
+  }
+}

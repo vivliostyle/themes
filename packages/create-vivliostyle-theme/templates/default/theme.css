@@ -1,0 +1,52 @@
+/*
+ * {{capital name space=true}}
+ * author: {{contact}}
+ */
+
+html {
+  orphans: 1;
+  widows: 1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@page {
+  size: 148mm 210mm;
+  width: 360pt;
+  height: 468pt;
+}
+
+@page :left {
+  @top-left {
+    content: counter(page) '　' env(doc-title);
+  }
+}
+
+@page :right {
+  @top-right {
+    content: counter(page);
+  }
+}
+
+html {
+  font-family: sans-serif;
+  line-height: 1.666rem;
+}
+
+h1 {
+  break-after: avoid;
+}
+
+h2 {
+  font-size: 1.18rem;
+  text-indent: 3rem;
+  break-after: avoid;
+}
+
+[role='doc-appendix'] {
+  margin-block-start: 6rem;
+  break-inside: avoid;
+}
