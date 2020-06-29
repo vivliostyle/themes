@@ -22,7 +22,7 @@
   "license": "CC0-1.0",
   "vivliostyle": {
     "theme": {
-      "title": "Bunko",
+      "name": "Bunko",
       "style": "./theme.css"
     }
   }

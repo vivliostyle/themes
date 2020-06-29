@@ -23,7 +23,7 @@
   "license": "CC0-1.0",
   "vivliostyle": {
     "theme": {
-      "title": "Slide",
+      "name": "Slide",
       "style": "./theme.css"
     }
   }

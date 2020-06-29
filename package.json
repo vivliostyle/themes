@@ -4,20 +4,28 @@
   "version": "0.0.0",
   "scripts": {
     "release": "lerna publish from-package",
+    "top": "node -r ts-node/register scripts/top.ts",
     "up": "lerna version --conventional-commits"
   },
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  },
   "devDependencies": {
+    "@types/node-fetch": "^2.5.7",
     "doctoc": "^1.4.0",
+    "esm": "^3.2.25",
+    "globby": "^11.0.1",
     "husky": "^4.2.5",
     "lerna": "^3.22.1",
     "lint-staged": "^10.2.11",
-    "pkgtoc": "^0.5.1",
     "prettier": "^2.0.5",
-    "pretty-quick": "^2.0.1"
+    "pretty-quick": "^2.0.1",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "doctoc {README,DESIGN}.md && pkgtoc --shields && git add {README,DESIGN}.md && pretty-quick --staged"
+      "pre-commit": "doctoc {README,DESIGN}.md && git add {README,DESIGN}.md && pretty-quick --staged"
     }
   },
   "repository": "git@github.com:vivliostyle/theme.git",
