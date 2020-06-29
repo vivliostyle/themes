@@ -13,7 +13,7 @@
   "license": "{{license}}",
   "vivliostyle": {
     "theme": {
-      "title": "{{capital name space=true}}",
+      "name": "{{capital name space=true}}",
       "style": "./theme.css"
     }
   }
