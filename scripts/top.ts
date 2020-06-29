@@ -6,28 +6,53 @@ import {join} from 'path';
 import globby from 'globby';
 import fetch from 'node-fetch';
 
-function isTheme(pkg: any): boolean {
-  return pkg?.vivliostyle?.theme ?? pkg?.style ?? pkg?.main?.endsWith('.css');
+interface PackageJson {
+  [index: string]: unknown;
+  name: string;
+  author?: string;
+  description?: string;
+  style?: string;
+  main?: string;
+  vivliostyle?: {
+    theme?: {
+      name?: string;
+      author?: string;
+      style?: string;
+    };
+  };
 }
 
-function getTitle(pkg: any) {
+interface Package {
+  path: string;
+  meta: PackageJson;
+}
+
+function isTheme(pkg: PackageJson): boolean {
+  return (
+    typeof pkg?.vivliostyle?.theme?.style === 'string' ||
+    pkg?.style?.endsWith('.css') === true ||
+    pkg?.main?.endsWith('.css') === true
+  );
+}
+
+function getTitle(pkg: Package): string {
   return pkg.meta?.vivliostyle?.theme?.name || pkg.meta?.name;
 }
 
-function getAuthor(pkg: any) {
+function getAuthor(pkg: Package): string | undefined {
   return pkg.meta?.vivliostyle?.theme?.author || pkg.meta.author;
 }
 
-function badge(name: string) {
+function badge(name: string): string {
   return `[![](https://img.shields.io/npm/v/${name}.svg)](https://npmjs.com/package/${name})
 [![npm: total downloads](https://flat.badgen.net/npm/dt/${name})](https://npmjs.com/package/${name})`;
 }
 
-function descFirst(a: any, b: any) {
+function descFirst<T extends readonly [number, {}]>(a: T, b: T) {
   return b[0] - a[0];
 }
 
-async function downloadCount(pkgName: string) {
+async function downloadCount(pkgName: string): Promise<number> {
   const {downloads} = await fetch(
     `https://api.npmjs.org/downloads/point/last-month/${pkgName}`,
   ).then((res) => res.json());
@@ -38,7 +63,9 @@ async function createToP(): Promise<string> {
   const packages = (await globby(['packages/*'], {onlyDirectories: true})).map(
     (p) => ({
       path: p,
-      meta: JSON.parse(fs.readFileSync(join(p, 'package.json'), 'utf8')),
+      meta: JSON.parse(
+        fs.readFileSync(join(p, 'package.json'), 'utf8'),
+      ) as PackageJson,
     }),
   );
   const tools = packages.filter((pkg) => !isTheme(pkg.meta));
@@ -73,7 +100,7 @@ npm install --save ${pkg.meta.name}
 yarn add ${pkg.meta.name}
 \`\`\`
 
-> original author: \`${author}\``;
+${author && `> original author: \`${author}\``}`;
     })
     .join('\n\n');
 
