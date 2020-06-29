@@ -5,12 +5,16 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Package structure](#package-structure)
-  - [package.json](#packagejson)
-    - [`vivliostyle` (recommended)](#vivliostyle-recommended)
-    - [`style` (2nd-tier)](#style-2nd-tier)
-    - [`main` (3rd-tier)](#main-3rd-tier)
-- [CSS Design Guide](#css-design-guide)
+- [Package directory](#package-directory)
+- [`package.json`](#packagejson)
+  - [Style locator (required)](#style-locator-required)
+    - [`vivliostyle.theme.style` (recommended)](#vivliostylethemestyle-recommended)
+    - [`style`](#style)
+    - [`main`](#main)
+  - [Keywords (recommended)](#keywords-recommended)
+  - [Category (optional)](#category-optional)
+  - [Topics (optional)](#topics-optional)
+- [`theme.css`](#themecss)
   - [Data URL for smaller images](#data-url-for-smaller-images)
   - [`role` first, then custom classes](#role-first-then-custom-classes)
     - [Example usage](#example-usage)
@@ -19,7 +23,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Package structure
+## Package directory
 
 ```bash
 vivliostyle-theme-academic
@@ -29,7 +33,7 @@ vivliostyle-theme-academic
 └── theme.css
 ```
 
-### package.json
+## `package.json`
 
 ```jsonc
 {
@@ -39,28 +43,33 @@ vivliostyle-theme-academic
   "files": ["*.css"],
   "vivliostyle": {
     "theme": {
-      "style": "./theme.css",
-      "title": "Academic"
+      "style": "./theme.css", // see below
+      "name": "Academic Journal", // optional
+      "author": "John Doe", // optional
+      "category": "journal", // optional
+      "topics": ["論文", "2カラム", "Academic"] // optional
     }
   }
 }
 ```
 
-#### `vivliostyle` (recommended)
+### Style locator (required)
+
+You must define **style file location** by adding one of the following style locators. If more than one is defined, only one will be selected according to the priority level. (`vivliostyle.theme.style` > `style` > `main`)
+
+#### `vivliostyle.theme.style` (recommended)
 
 ```jsonc
 {
   "vivliostyle": {
     "theme": {
-      "style": "theme.css", // required
-      "title": "Academic", // optional
-      "author": "John Doe <john@example.com>" // optional
+      "style": "theme.css"
     }
   }
 }
 ```
 
-#### `style` (2nd-tier)
+#### `style`
 
 ```jsonc
 {
@@ -68,7 +77,7 @@ vivliostyle-theme-academic
 }
 ```
 
-#### `main` (3rd-tier)
+#### `main`
 
 ```jsonc
 {
@@ -76,7 +85,33 @@ vivliostyle-theme-academic
 }
 ```
 
-## CSS Design Guide
+### Keywords (recommended)
+
+We maintain the list of Vivliostyle themes by searching `vivliostyle-theme` keyword on npm. If you want your theme being listed, please make sure to add `vivliostyle-theme` to `keywords` field.
+
+```jsonc
+{
+  "keywords": ["vivliostyle-theme"]
+}
+```
+
+### Category (optional)
+
+`category` should be one of the followings:
+
+- novel
+- magazine
+- journal
+- report
+- misc
+
+This list might be updated in the future.
+
+### Topics (optional)
+
+`topics` is an array of strings describing your theme.
+
+## `theme.css`
 
 ### Data URL for smaller images
 

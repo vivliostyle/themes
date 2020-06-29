@@ -3,6 +3,9 @@
   "description": "Slide theme",
   "version": "0.1.0",
   "author": "Shinyu Murakami <murakami@vivliostyle.org>",
+  "devDependencies": {
+    "@vivliostyle/theme": "^0.0.0"
+  },
   "files": [
     "img",
     "*.css"

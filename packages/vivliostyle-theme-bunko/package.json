@@ -3,6 +3,9 @@
   "description": "文庫用のテーマ",
   "version": "0.1.0",
   "author": "Shinyu Murakami <murakami@vivliostyle.org>",
+  "devDependencies": {
+    "@vivliostyle/theme": "^0.0.0"
+  },
   "files": [
     "*.css"
   ],
@@ -23,7 +26,12 @@
   "vivliostyle": {
     "theme": {
       "name": "Bunko",
-      "style": "./theme.css"
+      "style": "./theme.css",
+      "category": "novel",
+      "topics": [
+        "小説",
+        "縦書き"
+      ]
     }
   }
 }
