@@ -5,8 +5,8 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Package directory](#package-directory)
-- [`package.json`](#packagejson)
+- [Package config](#package-config)
+  - [Directory structure](#directory-structure)
   - [Style locator (required)](#style-locator-required)
     - [`vivliostyle.theme.style` (recommended)](#vivliostylethemestyle-recommended)
     - [`style`](#style)
@@ -14,7 +14,8 @@
   - [Keywords (recommended)](#keywords-recommended)
   - [Category (optional)](#category-optional)
   - [Topics (optional)](#topics-optional)
-- [`theme.css`](#themecss)
+- [CSS](#css)
+  - [VFM compatibility](#vfm-compatibility)
   - [Data URL for smaller images](#data-url-for-smaller-images)
   - [`role` first, then custom classes](#role-first-then-custom-classes)
     - [Example usage](#example-usage)
@@ -23,17 +24,17 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Package directory
+## Package config
+
+### Directory structure
 
 ```bash
 vivliostyle-theme-academic
 ├── LICENSE # optional
 ├── README.md # optional
 ├── package.json # required
-└── theme.css
+└── theme.css # required (name and location is arbitrary)
 ```
-
-## `package.json`
 
 ```jsonc
 {
@@ -111,7 +112,13 @@ This list might be updated in the future.
 
 `topics` is an array of strings describing your theme.
 
-## `theme.css`
+## CSS
+
+### VFM compatibility
+
+Vivliostyle theme styles should be compatible with HTML structure coming from `@vivliostyle/vfm` compiler. See [VFM spec](https://vivliostyle.github.io/vfm/#/vfm) for further details.
+
+> Vivliostyle CLI also generates HTML compiled with VFM backend.
 
 ### Data URL for smaller images
 
@@ -131,6 +138,8 @@ body: {
 
 Take advantage of Digital Publishing WAI-ARIA `role` based blocks.
 If these roles would not satisfy your use cases, now then consider using custom classes. Keep in mind that the users have to stick with your theme manual and memorize the list of class names available in your theme, which produces extra learning cost.
+
+See [VFM `role` syntax](https://vivliostyle.github.io/vfm/#/vfm#wai-aria-role) to understand how VFM treats these elements.
 
 #### Example usage
 
