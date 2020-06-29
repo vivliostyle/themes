@@ -108,6 +108,8 @@ ${author && `> original author: \`${author}\``}`;
     .map(
       (pkg) => `### [${pkg.meta.name}](${pkg.path})
 
+${badge(pkg.meta.name)}
+
 ${pkg.meta.description}`,
     )
     .join('\n\n');
