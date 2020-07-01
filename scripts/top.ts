@@ -45,7 +45,8 @@ function getAuthor(pkg: Package): string | undefined {
 
 function badge(name: string): string {
   return `[![](https://img.shields.io/npm/v/${name}.svg)](https://npmjs.com/package/${name})
-[![npm: total downloads](https://flat.badgen.net/npm/dt/${name})](https://npmjs.com/package/${name})`;
+[![npm: total downloads](https://flat.badgen.net/npm/dt/${name})](https://npmjs.com/package/${name})
+![npm: license](https://flat.badgen.net/npm/license/${name})`;
 }
 
 function descFirst<T extends readonly [number, {}]>(a: T, b: T) {

@@ -1,14 +1,13 @@
-# vivliostyle-theme
+# vivliostyle-theme-scripts
+
+[![](https://img.shields.io/npm/v/vivliostyle-theme-scripts.svg)](https://npmjs.com/package/vivliostyle-theme-scripts)
+[![npm: total downloads](https://flat.badgen.net/npm/dt/vivliostyle-theme-scripts)](https://npmjs.com/package/vivliostyle-theme-scripts)
 
 Theme dev toolbox.
 
 ## Use
 
 ```bash
-vivliostyle-theme preview [package.json]
-vivliostyle-theme verify
-```
-
-```
-http://localhost:1234/#uri=http://localhost:8080/assets/default.html&style=http://localhost:8080/assets/default.css
+vivliostyle-theme preview theme.css
+vivliostyle-theme validate
 ```

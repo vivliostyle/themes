@@ -39,6 +39,7 @@
 
 [![](https://img.shields.io/npm/v/@vivliostyle/theme-bunko.svg)](https://npmjs.com/package/@vivliostyle/theme-bunko)
 [![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-bunko)](https://npmjs.com/package/@vivliostyle/theme-bunko)
+![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-bunko)
 
 ```bash
 npm install --save @vivliostyle/theme-bunko
@@ -54,6 +55,7 @@ Slide theme
 
 [![](https://img.shields.io/npm/v/@vivliostyle/theme-slide.svg)](https://npmjs.com/package/@vivliostyle/theme-slide)
 [![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-slide)](https://npmjs.com/package/@vivliostyle/theme-slide)
+![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-slide)
 
 ```bash
 npm install --save @vivliostyle/theme-slide
@@ -69,6 +71,7 @@ yarn add @vivliostyle/theme-slide
 
 [![](https://img.shields.io/npm/v/create-vivliostyle-theme.svg)](https://npmjs.com/package/create-vivliostyle-theme)
 [![npm: total downloads](https://flat.badgen.net/npm/dt/create-vivliostyle-theme)](https://npmjs.com/package/create-vivliostyle-theme)
+![npm: license](https://flat.badgen.net/npm/license/create-vivliostyle-theme)
 
 Create Vivliostyle theme at ease
 
@@ -76,6 +79,7 @@ Create Vivliostyle theme at ease
 
 [![](https://img.shields.io/npm/v/vivliostyle-theme-scripts.svg)](https://npmjs.com/package/vivliostyle-theme-scripts)
 [![npm: total downloads](https://flat.badgen.net/npm/dt/vivliostyle-theme-scripts)](https://npmjs.com/package/vivliostyle-theme-scripts)
+![npm: license](https://flat.badgen.net/npm/license/vivliostyle-theme-scripts)
 
 theme library and scripts
 
