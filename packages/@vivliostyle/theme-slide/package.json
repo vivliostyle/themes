@@ -4,13 +4,12 @@
   "version": "0.2.0",
   "author": "Shinyu Murakami <murakami@vivliostyle.org>",
   "scripts": {
-    "preview": "vivliostyle-theme-scripts theme.css --layout example/slide.md"
+    "dev": "vivliostyle-theme-scripts preview theme.css --layout example/slide.md"
   },
   "devDependencies": {
-    "vivliostyle-theme-scripts": "^0.1.0"
+    "vivliostyle-theme-scripts": "^0.2.0"
   },
   "files": [
-    "img",
     "*.css"
   ],
   "publishConfig": {
@@ -30,7 +29,11 @@
   "vivliostyle": {
     "theme": {
       "name": "Slide",
-      "style": "./theme.css"
+      "category": "misc",
+      "style": "./theme.css",
+      "topics": [
+        "Slide"
+      ]
     }
   }
 }
