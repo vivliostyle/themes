@@ -1,8 +1,5 @@
-@charset "UTF-8";
-
 html {
-  font-family: 'Optima', 'Candara', 'YuGothic', 'Yu Gothic', 'Meiryo',
-    sans-serif;
+  font-family: 'Noto', 'YuGothic', 'Yu Gothic', 'Meiryo', sans-serif;
   font-feature-settings: 'palt' on;
   font-size: 150%;
   font-weight: 500;
@@ -16,8 +13,6 @@ html {
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: contain;
-  font-family: 'Optima', 'Candara', 'YuGothic', 'Yu Gothic', 'Meiryo',
-    sans-serif;
   font-size: 11pt;
   line-height: 1.2;
 
@@ -39,7 +34,6 @@ html {
 @page :first {
   margin: 0;
   padding: 0;
-  background-color: #0b6bb1;
 
   @top-right-corner {
     content: none;
@@ -50,92 +44,84 @@ html {
   }
 }
 
-/* reset */
-
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 /* 表紙 */
 
-#cover {
-  background-color: #0b6bb1;
+[role='doc-cover'] {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #212057;
   color: #fff;
-  text-align: center;
 }
 
-#cover h1 {
+[role='doc-cover'] h1 {
   font-weight: 600;
-  font-size: 170%;
+  font-size: 280%;
   text-align: center;
-  color: #fff;
-  padding-top: 25mm;
-  margin: 0;
 }
 
-#cover .event {
-  font-size: 100%;
-  text-align: center;
-  color: #fff;
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-
-#cover .author {
+[role='doc-cover'] [role='doc-subtitle'] {
   font-size: 125%;
+  font-weight: 500;
   text-align: center;
 }
 
-#cover a {
+[role='doc-cover'] a {
   color: inherit;
 }
 
 /* 目次 */
 
-#toc {
+[role='doc-toc'] {
   page-break-before: always;
   padding: 0 15mm;
 }
 
-#toc > h2 {
+[role='doc-toc'] > h2 {
   color: #06a;
   font-size: 120%;
   font-weight: 600;
   margin: 0;
 }
 
-#toc > ol {
+[role='doc-toc'] > ol {
   font-size: 83%;
   margin: 0;
 }
 
-#toc > ol > li {
+[role='doc-toc'] > ol > li {
   padding-top: 0.125em;
   padding-bottom: 0.125em;
 }
 
-#toc li a {
+[role='doc-toc'] li a {
   text-decoration: none;
 }
 
-#toc ol li a::after {
+[role='doc-toc'] ol li a::after {
   content: '　' target-counter(attr(href url), page);
 }
 
-#toc > ol > li > ol {
+[role='doc-toc'] > ol > li > ol {
   font-size: 83%;
 }
 
 /* Section */
 
-body > section {
+body > div {
   padding: 0 15mm;
   page-break-before: always;
 }
 
-body > section > h2 {
-  color: #06a;
+body > div > h2 {
+  color: #e84e39;
   font-size: 250%;
   font-weight: 600;
   padding-top: 30mm;
@@ -147,7 +133,7 @@ body > section > h2 {
 /* Subsections */
 
 h3 {
-  color: #06a;
+  color: #e84e39;
   font-size: 150%;
   font-weight: 600;
   page-break-after: avoid;
@@ -156,9 +142,10 @@ h3 {
 }
 
 h4 {
-  color: #06a;
+  color: #e84e39;
   font-size: 133%;
   font-weight: 600;
+  text-align: center;
   page-break-after: avoid;
   page-break-before: always;
   page-break-inside: avoid;
