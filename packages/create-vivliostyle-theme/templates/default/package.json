@@ -4,10 +4,11 @@
   "version": "0.1.0",
   "author": "{{contact}}",
   "scripts": {
-    "preview": "vivliostyle-theme-scripts theme.css --layout example/default.md"
+    "dev": "vivliostyle-theme-scripts preview theme.css --layout example/default.md",
+    "validate": "vivliostyle-theme-scripts validate"
   },
   "devDependencies": {
-    "vivliostyle-theme-scripts": "^0.1.0"
+    "vivliostyle-theme-scripts": "^0.2.0"
   },
   "files": [
     "*.css"

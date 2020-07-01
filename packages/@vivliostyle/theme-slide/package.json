@@ -7,7 +7,7 @@
     "dev": "vivliostyle-theme-scripts preview theme.css --layout example/slide.md"
   },
   "devDependencies": {
-    "vivliostyle-theme-scripts": "^0.2.0"
+    "vivliostyle-theme-scripts": "^0.1.0"
   },
   "files": [
     "*.css"
