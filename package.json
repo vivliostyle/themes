@@ -6,6 +6,7 @@
     "bootstrap": "lerna bootstrap && lerna link",
     "build": "lerna run build",
     "format": "lerna exec fixpack && yarn top",
+    "lint": "lerna exec vivliostyle-theme-scripts validate --scope '@vivliostyle/theme-*'",
     "release": "lerna publish from-package",
     "test": "lerna run test",
     "top": "node -r ts-node/register scripts/top.ts",
