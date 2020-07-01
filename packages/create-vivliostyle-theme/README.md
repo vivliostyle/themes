@@ -5,7 +5,7 @@
 ## Use
 
 ```bash
-yarn create vivliostyle-theme vivliostyle-theme-<theme name>
+yarn create vivliostyle-theme <theme name>
 # or
-npm create vivliostyle-theme vivliostyle-theme-<theme name>
+npm create vivliostyle-theme <theme name>
 ```
