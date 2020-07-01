@@ -1,13 +1,13 @@
 {
   "name": "@vivliostyle/theme-slide",
   "description": "Slide theme",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Shinyu Murakami <murakami@vivliostyle.org>",
   "scripts": {
     "dev": "vivliostyle-theme-scripts preview theme.css --layout example/slide.md"
   },
   "devDependencies": {
-    "vivliostyle-theme-scripts": "^0.1.0"
+    "vivliostyle-theme-scripts": "^0.2.0"
   },
   "files": [
     "*.css"

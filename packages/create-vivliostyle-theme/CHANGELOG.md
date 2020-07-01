@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/vivliostyle/themes/compare/create-vivliostyle-theme@0.1.0...create-vivliostyle-theme@0.1.1) (2020-07-01)
+
+
+### Bug Fixes
+
+* omit prefix ([a5fe184](https://github.com/vivliostyle/themes/commit/a5fe1849567eaf1b16f701679d6f15606ab552da))
+
+
+
+
+
 # 0.1.0 (2020-07-01)
 
 
