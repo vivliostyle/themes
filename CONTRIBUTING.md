@@ -22,3 +22,11 @@ We appreciate your donation to the list of our official themes!
   - Push to the repository
   - Triage issues
   - Review and merge pull-requests
+
+## Release process (for Maintainers)
+
+```bash
+export GH_TOKEN=<github-token>
+yarn up
+yarn release
+```
