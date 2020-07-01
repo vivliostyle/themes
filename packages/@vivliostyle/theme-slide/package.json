@@ -3,11 +3,11 @@
   "description": "Slide theme",
   "version": "0.2.0",
   "author": "Shinyu Murakami <murakami@vivliostyle.org>",
-  "devDependencies": {
-    "vivliostyle-theme-scripts": "^0.1.0"
-  },
   "scripts": {
     "preview": "vivliostyle-theme-scripts theme.css --layout example/slide.md"
+  },
+  "devDependencies": {
+    "vivliostyle-theme-scripts": "^0.1.0"
   },
   "files": [
     "img",

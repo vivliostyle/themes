@@ -72,10 +72,10 @@ yarn add @vivliostyle/theme-slide
 
 Create Vivliostyle theme at ease
 
-### [@vivliostyle/theme](packages/vivliostyle-theme)
+### [vivliostyle-theme-scripts](packages/vivliostyle-theme-scripts)
 
-[![](https://img.shields.io/npm/v/@vivliostyle/theme.svg)](https://npmjs.com/package/@vivliostyle/theme)
-[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme)](https://npmjs.com/package/@vivliostyle/theme)
+[![](https://img.shields.io/npm/v/vivliostyle-theme-scripts.svg)](https://npmjs.com/package/vivliostyle-theme-scripts)
+[![npm: total downloads](https://flat.badgen.net/npm/dt/vivliostyle-theme-scripts)](https://npmjs.com/package/vivliostyle-theme-scripts)
 
 theme library and scripts
 
