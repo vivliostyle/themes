@@ -1,14 +1,15 @@
 #!/usr/bin/env node
-import fs from 'fs';
-import serve from 'serve-handler';
-import path, { resolve, dirname, basename, relative } from 'path';
-import http from 'http';
-import resolvePkg from 'resolve-pkg';
-import { join } from 'path';
-import getPort from 'get-port';
-import chalk from 'chalk';
-import minimist from 'minimist';
+
 import { stringify } from '@vivliostyle/vfm';
+import chalk from 'chalk';
+import chokidar from 'chokidar';
+import fs from 'fs';
+import getPort from 'get-port';
+import http from 'http';
+import minimist from 'minimist';
+import path, { basename, dirname, join, relative, resolve } from 'path';
+import resolvePkg from 'resolve-pkg';
+import serve from 'serve-handler';
 
 (async function (argv) {
   const stylePath = argv['_'][0];
@@ -55,8 +56,10 @@ import { stringify } from '@vivliostyle/vfm';
   const sourceServer = http
     .createServer(async function (req, res) {
       res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Cache-Control', 'no-store');
       await serve(req, res, {
         public: sourceRoot,
+        etag: true,
       });
     })
     .listen(sourcePort);
@@ -65,22 +68,41 @@ import { stringify } from '@vivliostyle/vfm';
     ? `${sourcePrefix}/${layout}`
     : `${assetPrefix}/default.html`;
 
+  const styleURL = `${sourcePrefix}/${stylePath}`;
+
+  function recompile(tmpHTMLPath: string) {
+    const convertedHTML = stringify(fs.readFileSync(layout, 'utf8'));
+    fs.writeFileSync(tmpHTMLPath, convertedHTML);
+    console.log(`${chalk.yellow('[vfm]')} compiled`, tmpHTMLPath);
+  }
+
   const isVFM = layout && layout.endsWith('.md');
   if (isVFM) {
-    const convertedHTML = stringify(fs.readFileSync(layout, 'utf8'));
     const layoutDir = dirname(resolve(layout));
     const tmpHTMLName = basename(layout, '.md') + '.html';
     const tmpHTMLPath = relative(baseDir, join(layoutDir, tmpHTMLName));
-    fs.writeFileSync(tmpHTMLPath, convertedHTML);
+
+    chokidar
+      .watch('**', {
+        ignored: (p: string) => {
+          return /node_modules|\.git/.test(p);
+        },
+        cwd: layoutDir,
+      })
+      .on('change', (path) => {
+        if (!path || !/\.(md|markdown)$/i.test(path)) return;
+        recompile(tmpHTMLPath);
+      });
+    recompile(tmpHTMLPath);
+
     layoutURL = `${sourcePrefix}/${tmpHTMLPath}`;
   }
 
-  const styleURL = `${sourcePrefix}/${stylePath}`;
-  const entrypoint = `${viewerPrefix}/#src=${layoutURL}&style=${styleURL}`;
-
-  console.log('watching', chalk.green(baseDir));
+  const entrypoint = `${viewerPrefix}/#src=${layoutURL}&style=${styleURL}&bookMode=true`;
   console.log(
-    `open ${chalk.green.bold(entrypoint)} in the browser and test your theme`,
+    `open preview in the browser and test your theme ([ctrl+c] to quit)
+${chalk.bold.green(entrypoint)}
+`,
   );
 })(
   minimist(process.argv.slice(2), {
