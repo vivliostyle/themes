@@ -32,8 +32,8 @@
     "ts-node": "^8.10.2",
     "typescript": "^3.9.5"
   },
-  "types": "lib/cli.d.ts",
-  "main": "lib/cli.ts",
+  "types": "lib/index.d.ts",
+  "main": "lib/index.ts",
   "bin": "lib/cli.js",
   "files": [
     "lib",
