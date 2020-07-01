@@ -3,7 +3,11 @@
   "description": "Central source of official themes.",
   "version": "0.0.0",
   "scripts": {
+    "bootstrap": "lerna bootstrap && lerna link",
+    "build": "lerna run build",
+    "format": "lerna exec fixpack && yarn top",
     "release": "lerna publish from-package",
+    "test": "lerna run test",
     "top": "node -r ts-node/register scripts/top.ts",
     "up": "lerna version --conventional-commits"
   },
@@ -32,6 +36,7 @@
   "license": "Apache-2.0",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "packages/*/*"
   ]
 }

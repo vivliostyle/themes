@@ -5,7 +5,7 @@ Theme dev toolbox.
 ## Use
 
 ```bash
-vivliostyle-theme start [package.json]
+vivliostyle-theme preview [package.json]
 vivliostyle-theme verify
 ```
 

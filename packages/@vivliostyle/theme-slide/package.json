@@ -4,7 +4,10 @@
   "version": "0.1.0",
   "author": "Shinyu Murakami <murakami@vivliostyle.org>",
   "devDependencies": {
-    "@vivliostyle/theme": "^0.0.0"
+    "vivliostyle-theme-scripts": "^0.0.0"
+  },
+  "scripts": {
+    "preview": "vivliostyle-theme-scripts theme.css --layout example/slide.md"
   },
   "files": [
     "img",
@@ -16,7 +19,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/vivliostyle/themes.git",
-    "directory": "packages/vivliostyle-theme-slide"
+    "directory": "packages/@vivliostyle/theme-slide"
   },
   "homepage": "https://github.com/vivliostyle/themes",
   "keywords": [

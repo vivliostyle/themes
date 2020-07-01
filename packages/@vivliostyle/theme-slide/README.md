@@ -2,11 +2,11 @@
 
 A slide theme for Vivliostyle.
 
-> Author: Shinyu Murakami, Yasuaki Uechi
-
 ## Install
 
-```
+```bash
+npm install --save @vivliostyle/theme-slide
+# or
 yarn add @vivliostyle/theme-slide
 ```
 
@@ -19,3 +19,9 @@ module.exports = {
   theme: '@vivliostyle/theme-slide',
 };
 ```
+
+## License
+
+CC0 1.0
+
+> Original author: Shinyu Murakami

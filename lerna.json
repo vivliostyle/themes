@@ -1,7 +1,7 @@
 {
   "name": "theme",
   "version": "independent",
-  "packages": ["packages/*"],
+  "packages": ["packages/*", "packages/*/*"],
   "useWorkspaces": true,
   "npmClient": "yarn",
   "command": {

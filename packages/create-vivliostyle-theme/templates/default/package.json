@@ -14,7 +14,10 @@
   "vivliostyle": {
     "theme": {
       "name": "{{capital name space=true}}",
-      "style": "./theme.css"
+      "author": "{{contact}}",
+      "style": "./theme.css",
+      "category": "{{category}}",
+      "topics": []
     }
   }
 }

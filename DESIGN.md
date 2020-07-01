@@ -106,6 +106,8 @@ We maintain the list of Vivliostyle themes by searching `vivliostyle-theme` keyw
 - report
 - misc
 
+<!-- sync with packages/create-vivliostyle-theme/src/cli.ts -->
+
 This list might be updated in the future.
 
 ### Topics (optional)

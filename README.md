@@ -33,7 +33,7 @@
 
 ## Official Themes
 
-### [Bunko](packages/vivliostyle-theme-bunko)
+### [Bunko](packages/@vivliostyle/theme-bunko)
 
 文庫用のテーマ
 
@@ -48,7 +48,7 @@ yarn add @vivliostyle/theme-bunko
 
 > original author: `Shinyu Murakami <murakami@vivliostyle.org>`
 
-### [Slide](packages/vivliostyle-theme-slide)
+### [Slide](packages/@vivliostyle/theme-slide)
 
 Slide theme
 

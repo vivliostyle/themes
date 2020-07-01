@@ -5,9 +5,9 @@
 ## Install
 
 ```bash
-yarn add {{kebab name}}
-# or
 npm install --save {{kebab name}}
+# or
+yarn add {{kebab name}}
 ```
 
 ## Use

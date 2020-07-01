@@ -3,8 +3,11 @@
   "description": "文庫用のテーマ",
   "version": "0.1.0",
   "author": "Shinyu Murakami <murakami@vivliostyle.org>",
+  "scripts": {
+    "preview": "vivliostyle-theme-scripts theme.css --layout example/bunko.md"
+  },
   "devDependencies": {
-    "@vivliostyle/theme": "^0.0.0"
+    "vivliostyle-theme-scripts": "^0.0.0"
   },
   "files": [
     "*.css"
@@ -15,7 +18,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/vivliostyle/themes.git",
-    "directory": "packages/vivliostyle-theme-bunko"
+    "directory": "packages/@vivliostyle/theme-bunko"
   },
   "homepage": "https://github.com/vivliostyle/themes",
   "keywords": [

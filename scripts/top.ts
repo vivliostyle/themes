@@ -2,7 +2,7 @@
 // Table of Packages (ToP)
 
 import fs from 'fs';
-import {join} from 'path';
+import { join } from 'path';
 import globby from 'globby';
 import fetch from 'node-fetch';
 
@@ -53,21 +53,24 @@ function descFirst<T extends readonly [number, {}]>(a: T, b: T) {
 }
 
 async function downloadCount(pkgName: string): Promise<number> {
-  const {downloads} = await fetch(
+  const { downloads } = await fetch(
     `https://api.npmjs.org/downloads/point/last-month/${pkgName}`,
   ).then((res) => res.json());
   return downloads as number;
 }
 
 async function createToP(): Promise<string> {
-  const packages = (await globby(['packages/*'], {onlyDirectories: true})).map(
-    (p) => ({
-      path: p,
-      meta: JSON.parse(
-        fs.readFileSync(join(p, 'package.json'), 'utf8'),
-      ) as PackageJson,
-    }),
-  );
+  const packages = (
+    await globby(['packages/!(@vivliostyle)', 'packages/@vivliostyle/*'], {
+      onlyDirectories: true,
+    })
+  ).map((p) => ({
+    path: p,
+    meta: JSON.parse(
+      fs.readFileSync(join(p, 'package.json'), 'utf8'),
+    ) as PackageJson,
+  }));
+  console.log(packages.map((pkg) => [pkg.meta.name, pkg.path]));
   const tools = packages.filter((pkg) => !isTheme(pkg.meta));
   const themes = packages.filter((pkg) => isTheme(pkg.meta));
 
@@ -85,7 +88,7 @@ async function createToP(): Promise<string> {
       const author = getAuthor(pkg);
       const {
         path,
-        meta: {name, description},
+        meta: { name, description },
       } = pkg;
 
       return `### [${title}](${path})
