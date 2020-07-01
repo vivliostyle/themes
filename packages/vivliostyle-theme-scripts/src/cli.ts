@@ -2,8 +2,8 @@
 
 import { program } from 'commander';
 
-import preview from './preview';
-import validate from './validate';
+import preview from './commands/preview';
+import validate from './commands/validate';
 
 program.addCommand(preview());
 program.addCommand(validate());

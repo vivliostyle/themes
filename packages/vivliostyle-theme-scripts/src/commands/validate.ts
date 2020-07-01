@@ -1,7 +1,7 @@
 import { Command } from 'commander';
 import chalk from 'chalk';
 import { join } from 'path';
-import { validatePackage } from '.';
+import { validatePackage } from '..';
 
 async function validate() {
   const pkgJsonPath = join(process.cwd(), 'package.json');
@@ -16,6 +16,10 @@ async function validate() {
         } ${res.message}`,
       ),
     );
+
+    if (result.some((res) => res.type === 'error')) {
+      process.exit(1);
+    }
   } else {
     console.log(chalk.bold.blue('Your package is valid'));
   }
