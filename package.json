@@ -10,7 +10,7 @@
     "release": "lerna publish from-package",
     "test": "lerna run test",
     "top": "node -r ts-node/register scripts/top.ts",
-    "up": "lerna version --conventional-commits --create-release github"
+    "up": "yarn build && yarn lint && lerna version --conventional-commits --create-release github"
   },
   "dependencies": {
     "node-fetch": "^2.6.0"
