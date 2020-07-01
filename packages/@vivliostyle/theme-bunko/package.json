@@ -1,13 +1,13 @@
 {
   "name": "@vivliostyle/theme-bunko",
   "description": "文庫用のテーマ",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Shinyu Murakami <murakami@vivliostyle.org>",
   "scripts": {
     "preview": "vivliostyle-theme-scripts theme.css --layout example/bunko.md"
   },
   "devDependencies": {
-    "vivliostyle-theme-scripts": "^0.0.0"
+    "vivliostyle-theme-scripts": "^0.1.0"
   },
   "files": [
     "*.css"
