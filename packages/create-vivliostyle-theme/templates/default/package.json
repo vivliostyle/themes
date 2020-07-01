@@ -1,8 +1,14 @@
 {
   "name": "{{kebab name}}",
   "description": "{{description}}",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "author": "{{contact}}",
+  "scripts": {
+    "preview": "vivliostyle-theme-scripts theme.css --layout example/default.md"
+  },
+  "devDependencies": {
+    "vivliostyle-theme-scripts": "^0.1.0"
+  },
   "files": [
     "*.css"
   ],
