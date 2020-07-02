@@ -1,0 +1,105 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "styleLocator": {
+      "description": "CSS theme file.",
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\.css$"
+    },
+    "vivliostyleConfig": {
+      "type": "object",
+      "properties": {
+        "vivliostyle": {
+          "type": "object",
+          "properties": {
+            "theme": {
+              "$ref": "#/definitions/vivliostyleTheme"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "vivliostyleTheme": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the theme.",
+          "type": "string",
+          "maxLength": 214,
+          "minLength": 1
+        },
+        "author": {
+          "description": "Author of the theme.",
+          "type": "string",
+          "minLength": 1
+        },
+        "style": {
+          "$ref": "#/definitions/styleLocator"
+        },
+        "category": {
+          "type": "string",
+          "minLength": 1
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "https://json.schemastore.org/package#/definitions/coreProperties"
+    },
+    {
+      "$ref": "#/definitions/vivliostyleConfig"
+    },
+    {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "vivliostyle": {
+              "type": "object",
+              "properties": {
+                "theme": {
+                  "type": "object",
+                  "properties": {
+                    "style": {
+                      "$ref": "#/definitions/styleLocator"
+                    }
+                  },
+                  "required": ["style"]
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "style": {
+              "$ref": "#/definitions/styleLocator"
+            }
+          },
+          "required": ["style"]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "main": {
+              "$ref": "#/definitions/styleLocator"
+            }
+          },
+          "required": ["main"]
+        }
+      ]
+    }
+  ]
+}
