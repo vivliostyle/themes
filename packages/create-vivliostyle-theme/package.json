@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "shx": "^0.3.2",
-    "typescript": "^3.6.3"
+    "typescript": "^3.9.6"
   },
   "bin": "lib/cli.js",
   "files": [

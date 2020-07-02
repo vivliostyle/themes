@@ -12,7 +12,7 @@
   - [Slide](#slide)
 - [Tools](#tools)
   - [create-vivliostyle-theme](#create-vivliostyle-theme)
-  - [@vivliostyle/theme](#vivliostyletheme)
+  - [vivliostyle-theme-scripts](#vivliostyle-theme-scripts)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
