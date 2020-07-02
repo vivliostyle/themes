@@ -103,8 +103,3 @@ em.sesame_dot {
   font-weight: bold;
   letter-spacing: 0.125em;
 }
-
-/* 非表示 */
-[hidden] {
-  display: none;
-}

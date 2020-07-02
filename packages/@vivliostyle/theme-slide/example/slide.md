@@ -3,18 +3,11 @@ title: Slideshow
 theme: '@vivliostyle/theme-slide'
 ---
 
-:::@cover
+# Brief History of JavaScript {@cover}
 
-# Brief History of JavaScript
+## from Wikipedia <https://en.wikipedia.org/wiki/JavaScript>
 
-::::@subtitle
-from Wikipedia
-<https://en.wikipedia.org/wiki/JavaScript>
-::::
-
-:::
-
-:::@toc
+# ToC {@toc hidden}
 
 1. History
 2. Trademark
@@ -29,19 +22,11 @@ from Wikipedia
 11. Further reading
 12. External links
 
-:::
-
-:::
-
 # JavaScript
 
 **JavaScript** (`/ˈdʒɑːvəˌskrɪpt/`),often abbreviated as JS, is a programming language that conforms to the ECMAScript specification.
 
 JavaScript is _high-level_, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.
-
-:::
-
-:::
 
 # Weakly typed
 
@@ -51,13 +36,11 @@ JavaScript is weakly typed, which means certain types are implicitly cast depend
 - The binary `-` operator always casts both operands to a number
 - Both unary operators (+, -) always cast the operand to a number
 
-:::
-
-:::
+# -{hidden}
 
 #### JavaScript includes a number of quirks that have been subject to criticism
 
-<div style="display: flex; justify-content: center">
+:::center
 
 | left operand     | operator | right operand     | result                     |
 | ---------------- | -------- | ----------------- | -------------------------- |
@@ -67,18 +50,10 @@ JavaScript is weakly typed, which means certain types are implicitly cast depend
 | "123"(string)    | +        | 1 (number)        | "1231" (string)            |
 | "123" (string)   | -        | 1 (number)        | 122 (number)               |
 
-</div>
-
 :::
 
-:::
-
-<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+# -{hidden}
 
 ```javascript
 ('b' + 'a' + +'a' + 'a').toLowerCase(); // "banana"
 ```
-
-</div>
-
-:::
