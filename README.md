@@ -1,7 +1,5 @@
 ![Vivliostyle Theme](./assets/cover.jpg)
 
-<div align="center"><b>Center of Vivliostyle official themes.</b></div>
-
 ## Table of contents
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
