@@ -8,6 +8,7 @@
     "dev": "run-p dev:*",
     "dev:ts": "tsc -w --preserveWatchOutput",
     "dev:watch": "nodemon lib/cli.js preview tests/fixtures/default.css --layout assets/default.html",
+    "prepublishOnly": "yarn build",
     "test": "jest"
   },
   "dependencies": {

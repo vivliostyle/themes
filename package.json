@@ -6,7 +6,8 @@
     "bootstrap": "lerna bootstrap && lerna link",
     "build": "lerna run build",
     "format": "lerna exec fixpack && yarn top",
-    "lint": "lerna exec vivliostyle-theme-scripts validate --scope '@vivliostyle/theme-*'",
+    "lint": "run-p lint:*",
+    "lint:theme": "lerna exec vivliostyle-theme-scripts validate --scope '@vivliostyle/theme-*'",
     "release": "lerna publish from-package",
     "test": "lerna run test",
     "top": "node -r ts-node/register scripts/top.ts",
@@ -17,12 +18,13 @@
   },
   "devDependencies": {
     "@types/node-fetch": "^2.5.7",
-    "doctoc": "^1.4.0",
+    "@uetchy/doctoc": "^1.5.0",
     "esm": "^3.2.25",
     "globby": "^11.0.1",
     "husky": "^4.2.5",
     "lerna": "^3.22.1",
     "lint-staged": "^10.2.11",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
     "ts-node": "^8.10.2",
@@ -30,8 +32,14 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "doctoc {README,DESIGN}.md && git add {README,DESIGN}.md && pretty-quick --staged"
+      "pre-commit": "lint-staged && pretty-quick --staged"
     }
+  },
+  "lint-staged": {
+    "*.md": [
+      "doctoc -p",
+      "git add"
+    ]
   },
   "repository": "git@github.com:vivliostyle/theme.git",
   "license": "Apache-2.0",

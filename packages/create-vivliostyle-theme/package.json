@@ -5,7 +5,8 @@
   "author": "Yasuaki Uechi <y@uechi.io>",
   "scripts": {
     "build": "shx rm -rf lib && NODE_ENV=production tsc && shx chmod +x lib/cli.js",
-    "dev": "tsc -w"
+    "dev": "tsc -w",
+    "prepublishOnly": "yarn build"
   },
   "dependencies": {
     "chalk": "^4.1.0",

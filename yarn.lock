@@ -1587,6 +1587,18 @@
   dependencies:
     "@types/yargs-parser" "*"
 
+"@uetchy/doctoc@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@uetchy/doctoc/-/doctoc-1.5.0.tgz#57ce52f1f7b9567dd8d7a6e9003baa91454f68b3"
+  integrity sha512-GJSTqqyd2jJbRHeoS4hg7E9CONQTi1HUYhHD/ZtIBG4//8cIhw7ylRrmYyeKLJxSkcNw0C8B3zL3pIACujQGgQ==
+  dependencies:
+    "@textlint/markdown-to-ast" "~6.0.9"
+    anchor-markdown-header "^0.5.5"
+    htmlparser2 "~3.9.2"
+    minimist "~1.2.0"
+    underscore "~1.8.3"
+    update-section "^0.3.0"
+
 "@vivliostyle/core@^2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@vivliostyle/core/-/core-2.1.1.tgz#d0be87d6d62e8d48ccfb6773d67d3b6b898af5a0"
@@ -3139,18 +3151,6 @@ dir-glob@^3.0.1:
   integrity sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==
   dependencies:
     path-type "^4.0.0"
-
-doctoc@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/doctoc/-/doctoc-1.4.0.tgz#3115aa61d0a92f0abb0672036918ea904f5b9e02"
-  integrity sha512-8IAq3KdMkxhXCUF+xdZxdJxwuz8N2j25sMgqiu4U4JWluN9tRKMlAalxGASszQjlZaBprdD2YfXpL3VPWUD4eg==
-  dependencies:
-    "@textlint/markdown-to-ast" "~6.0.9"
-    anchor-markdown-header "^0.5.5"
-    htmlparser2 "~3.9.2"
-    minimist "~1.2.0"
-    underscore "~1.8.3"
-    update-section "^0.3.0"
 
 doctype@^2.0.0:
   version "2.0.4"
