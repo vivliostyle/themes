@@ -28,4 +28,4 @@ module.exports = {
 
 CC0 1.0
 
-> Original author: Shinyu Murakami
+> Original author: Vivliostyle project team
