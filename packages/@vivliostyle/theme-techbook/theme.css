@@ -196,19 +196,25 @@ a[data-ref=cite] {
 }
 
 a[data-ref=sec]::before {
-  content: target-counter(attr(href), section) "章";
+  content: "§" target-counter(attr(href), section);
 }
 
 a[data-ref=subsec]::before {
-  content: target-counter(attr(href), section) "." target-counter(attr(href url), subsection) "章";
+  content: "§" target-counter(attr(href), section) "." target-counter(attr(href url), subsection);
 }
 
 a[data-ref=fig]::before {
+  content: "Fig. " target-counter(attr(href), fig);
+}
+:root:lang(ja) a[data-ref=fig]::before {
   content: "図" target-counter(attr(href), fig);
 }
 
 a[data-ref=tbl]::before {
-  content: "表" target-counter(attr(href), tbl);
+  content: "Table " target-counter(attr(href), tbl);
+}
+:root:lang(ja) a[data-ref=tbl]::before {
+  content: "表" target-counter(attr(href), fig);
 }
 
 a[data-ref=cite]::before {
@@ -227,6 +233,9 @@ figure.fig {
   counter-increment: fig;
 }
 figure.fig figcaption::before {
+  content: "Fig. " counter(fig) ": ";
+}
+:root:lang(ja) figure.fig figcaption::before {
   content: "図" counter(fig) ": ";
 }
 
@@ -234,6 +243,9 @@ figure.tbl {
   counter-increment: tbl;
 }
 figure.tbl figcaption::before {
+  content: "Table " counter(tbl) ": ";
+}
+:root:lang(ja) figure.tbl figcaption::before {
   content: "表" counter(tbl) ": ";
 }
 
@@ -304,18 +316,24 @@ a[data-ref=cite] {
   }
 
   a[data-ref=sec]::before {
-    content: "XXX 章";
+    content: "§ XXX";
   }
 
   a[data-ref=subsec]::before {
-    content: "XXX.XXX 章";
+    content: "§ XXX.XXX";
   }
 
   a[data-ref=fig]::before {
+    content: "Fig. XXX";
+  }
+  :root:lang(ja) a[data-ref=fig]::before {
     content: "図 XXX";
   }
 
   a[data-ref=tbl]::before {
+    content: "Table XXX";
+  }
+  :root:lang(ja) a[data-ref=tbl]::before {
     content: "表 XXX";
   }
 

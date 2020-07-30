@@ -13,19 +13,25 @@ a[data-ref="cite"] {
 }
 
 a[data-ref="sec"]::before {
-  content: target-counter(attr(href), section) '章';
+  content: '§' target-counter(attr(href), section);
 }
 
 a[data-ref="subsec"]::before {
-  content: target-counter(attr(href), section) '.' target-counter(attr(href url), subsection) '章';
+  content: '§' target-counter(attr(href), section) '.' target-counter(attr(href url), subsection);
 }
 
 a[data-ref="fig"]::before {
-  content: '図' target-counter(attr(href), fig);
+  content: 'Fig. ' target-counter(attr(href), fig);
+  :root:lang(ja) & {
+    content: '図' target-counter(attr(href), fig);
+  }
 }
 
 a[data-ref="tbl"]::before {
-  content: '表' target-counter(attr(href), tbl);
+  content: 'Table ' target-counter(attr(href), tbl);
+  :root:lang(ja) & {
+    content: '表' target-counter(attr(href), fig);
+  }
 }
 
 a[data-ref="cite"]::before {
@@ -43,14 +49,20 @@ section {
 figure.fig {
   counter-increment: fig;
   figcaption::before {
-    content: '図' counter(fig) ': ';
+    content: 'Fig. ' counter(fig) ': ';
+    :root:lang(ja) & {
+      content: '図' counter(fig) ': ';
+    }
   }
 }
 
 figure.tbl {
   counter-increment: tbl;
   figcaption::before {
-    content: '表' counter(tbl) ': ';
+    content: 'Table ' counter(tbl) ': ';
+    :root:lang(ja) & {
+      content: '表' counter(tbl) ': ';
+    }
   }
 }
 

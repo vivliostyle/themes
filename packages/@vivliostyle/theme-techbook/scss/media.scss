@@ -43,16 +43,22 @@
     background-color: rgba(255, 0, 0, 0.3);
   }
   a[data-ref='sec']::before {
-    content: 'XXX 章';
+    content: '§ XXX';
   }
   a[data-ref='subsec']::before {
-    content: 'XXX.XXX 章';
+    content: '§ XXX.XXX';
   }
   a[data-ref='fig']::before {
-    content: '図 XXX';
+    content: 'Fig. XXX';
+    :root:lang(ja) & {
+      content: '図 XXX';
+    }
   }
   a[data-ref='tbl']::before {
-    content: '表 XXX';
+    content: 'Table XXX';
+    :root:lang(ja) & {
+      content: '表 XXX';
+    }
   }
   a[data-ref='cite']::before {
     content: '[XXX]';
