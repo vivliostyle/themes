@@ -1,0 +1,87 @@
+body {
+  counter-reset: section subsection fig tbl footnote cite;
+}
+
+a[data-ref="sec"],
+a[data-ref="subsec"],
+a[data-ref="fig"],
+a[data-ref="tbl"],
+a[data-ref="cite"] {
+  text-decoration: none;
+  color: inherit;
+  margin: 0 .15em;
+}
+
+a[data-ref="sec"]::before {
+  content: target-counter(attr(href), section) '章';
+}
+
+a[data-ref="subsec"]::before {
+  content: target-counter(attr(href), section) '.' target-counter(attr(href url), subsection) '章';
+}
+
+a[data-ref="fig"]::before {
+  content: '図' target-counter(attr(href), fig);
+}
+
+a[data-ref="tbl"]::before {
+  content: '表' target-counter(attr(href), tbl);
+}
+
+a[data-ref="cite"]::before {
+  content: '[' target-counter(attr(href), cite) ']';
+}
+
+section {
+  counter-increment: section;
+  counter-reset: subsection;
+  article {
+    counter-increment: subsection
+  }
+}
+
+figure.fig {
+  counter-increment: fig;
+  figcaption::before {
+    content: '図' counter(fig) ': ';
+  }
+}
+
+figure.tbl {
+  counter-increment: tbl;
+  figcaption::before {
+    content: '表' counter(tbl) ': ';
+  }
+}
+
+.footnote {
+  counter-increment: footnote;
+  &::footnote-call,
+  &::footnote-marker {
+    content: '[' counter(footnote) ']';
+  }
+
+  &::footnote-call {
+    font-size: 80%;
+    margin: 0 .3rem;
+  }
+
+  &::footnote-marker {
+    margin-right: .2rem;
+  }
+}
+
+ol.cite-items {
+  padding-left: 2rem;
+  list-style: none;
+
+  li {
+    counter-increment: cite;
+    position: relative;
+    &::before {
+      content: '[' counter(cite) '] ';
+      position: absolute;
+      left: -2rem;
+    }
+  }
+}

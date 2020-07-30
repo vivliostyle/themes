@@ -1,0 +1,39 @@
+$color_white: #ffffff;
+$color_black: #34495e;
+$color_black_dark: #2c3e50;
+$color_gray: #95a5a6;
+$color_gray_dark: #7f8c8d;
+$color_silver: #ecf0f1;
+$color_silver_dark: #bdc3c7;
+$color_red: #e74c3c;
+$color_red_dark: #c0392b;
+$color_purple: #9b59b6;
+$color_purple_dark: #8e44ad;
+$color_orange: #e67e22;
+$color_orange_dark: #d35400;
+$color_yellow: #f1c40f;
+$color_yellow_dark: #f39c12;
+$color_blue: #3498db;
+$color_blue_dark: #2980b9;
+$color_green: #2ecc71;
+$color_green_dark: #27ae60;
+$color_green2: #1abc9c;
+$color_green2_dark: #16a085;
+
+$color_page_back: #fbfcfa;
+$color_page_text: #34495e;
+
+$font-family: 'Neue Frutiger World', 'Verdana', 'Yakumono', 'body', 'Hiragino Sans', sans-serif;
+
+$master-font-size-for-print: 75%;
+
+// B5
+$page-width: 182mm;
+$page-height: 257mm;
+$page-bleed: 3mm;
+
+// Page
+$page-margin-top: 25mm;
+$page-margin-bottom: 39mm;
+$page-margin-outer: 18mm;
+$page-margin-inner: 35mm;
