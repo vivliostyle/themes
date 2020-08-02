@@ -2,8 +2,7 @@
 
 @mixin page-top-style() {
   content: '';
-  margin-bottom: 8mm;
-  background-color: $color_black;
+  margin-bottom: 4mm;
 }
 
 @media screen {
@@ -98,7 +97,6 @@
   size: $page-width $page-height;
   margin-top: $page-margin-top;
   margin-bottom: $page-margin-bottom - 6mm;
-  marks: crop cross;
 
   @top-left-corner {
     @include page-top-style();
@@ -137,80 +135,40 @@
   }
 }
 
-// Cover page
-@page :first {
-  margin: 0;
-  background-color: $color_red;
-
-  @top-left {
-    content: '';
-  }
-  @top-center {
-    content: none;
-  }
-  @top-right {
-    content: '';
-  }
-
-  @bottom-center {
-    content: none;
-  }
-  @bottom-left {
-    content: '';
-    border: none;
-  }
-  @bottom-right {
-    content: '';
-    border: none;
-  }
-}
-
 @page :left {
+  font-family: $font-family;
   margin-left: $page-margin-outer;
   margin-right: $page-margin-inner;
 
   @top-center {
     content: env(pub-title);
-    color: $color_white;
+    font-size: 75%;
     text-align: left;
-    padding-top: 12mm;
+    padding: 12mm 2mm 0 2mm;
   }
   @bottom-left {
     content: counter(page);
-    border-left: 1px solid;
     margin-top: 15mm;
     margin-bottom: -$page-bleed;
-    padding: 0 4mm 15mm 4mm;
-    background-color: $color_white;
+    padding: 0 2mm 15mm 2mm;
   }
 }
 
 @page :right {
+  font-family: $font-family;
   margin-left: $page-margin-inner;
   margin-right: $page-margin-outer;
 
   @top-center {
     content: env(doc-title);
-    color: white;
+    font-size: 75%;
     text-align: right;
-    padding-top: 12mm;
+    padding: 12mm 2mm 0 2mm;
   }
   @bottom-right {
     content: counter(page);
-    border-right: 1px solid;
     margin-top: 15mm;
     margin-bottom: -$page-bleed;
-    padding: 0 4mm 15mm 4mm;
-    background-color: white;
+    padding: 0 2mm 15mm 2mm;
   }
-}
-
-// style for footnote top borders
-@-adapt-footnote-area::before {
-  margin-inline-start: -1000px;
-  margin-inline-end: 70%;
-  margin-block-end: 0.8em;
-}
-@-adapt-footnote-area {
-  word-break: break-all;
 }

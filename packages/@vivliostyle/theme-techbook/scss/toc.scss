@@ -1,6 +1,7 @@
 @import './variables.scss';
 
-nav#toc {
+nav#toc,
+nav[role='doc-toc'] {
   break-before: page;
   font-size: 120%;
 
