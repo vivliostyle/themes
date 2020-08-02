@@ -4,12 +4,12 @@
  * Loosely based on Monokai textmate theme by http://www.monokai.nl/
  * @author ocodia
  */
-code[class*=language-],
-pre[class*=language-] {
+code[class*='language-'],
+pre[class*='language-'] {
   color: #f8f8f2;
   background: none;
   text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   font-size: 1em;
   text-align: left;
   white-space: pre;
@@ -27,20 +27,20 @@ pre[class*=language-] {
 }
 
 /* Code blocks */
-pre[class*=language-] {
+pre[class*='language-'] {
   padding: 1em;
   margin: 0.5em 0;
   overflow: auto;
   border-radius: 0.3em;
 }
 
-:not(pre) > code[class*=language-],
-pre[class*=language-] {
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
   background: #272822;
 }
 
 /* Inline code */
-:not(pre) > code[class*=language-] {
+:not(pre) > code[class*='language-'] {
   padding: 0.1em;
   border-radius: 0.3em;
   white-space: normal;
@@ -121,8 +121,8 @@ pre[class*=language-] {
   cursor: help;
 }
 
-code[class*=language-],
-pre[class*=language-] {
+code[class*='language-'],
+pre[class*='language-'] {
   line-height: 1.2 !important;
   letter-spacing: 0.03rem !important;
   border-radius: 0.2rem !important;
@@ -144,7 +144,7 @@ pre[class*=language-] {
 h1,
 h2,
 h3 {
-  font-feature-settings: "palt", "calt";
+  font-feature-settings: 'palt', 'calt';
 }
 
 h1 {
@@ -177,7 +177,7 @@ a:hover {
 }
 
 p {
-  font-feature-settings: "calt";
+  font-feature-settings: 'calt';
   text-align: justify;
 }
 
@@ -185,39 +185,41 @@ body {
   counter-reset: section subsection fig tbl footnote cite;
 }
 
-a[data-ref=sec],
-a[data-ref=subsec],
-a[data-ref=fig],
-a[data-ref=tbl],
-a[data-ref=cite] {
+a[data-ref="sec"],
+a[data-ref="subsec"],
+a[data-ref="fig"],
+a[data-ref="tbl"],
+a[data-ref="cite"] {
   text-decoration: none;
   color: inherit;
-  margin: 0 0.15em;
+  margin: 0 .15em;
 }
 
-a[data-ref=sec]::before {
+a[data-ref="sec"]::before {
   content: "§" target-counter(attr(href), section);
 }
 
-a[data-ref=subsec]::before {
+a[data-ref="subsec"]::before {
   content: "§" target-counter(attr(href), section) "." target-counter(attr(href url), subsection);
 }
 
-a[data-ref=fig]::before {
+a[data-ref="fig"]::before {
   content: "Fig. " target-counter(attr(href), fig);
 }
-:root:lang(ja) a[data-ref=fig]::before {
+
+:root:lang(ja) a[data-ref="fig"]::before {
   content: "図" target-counter(attr(href), fig);
 }
 
-a[data-ref=tbl]::before {
+a[data-ref="tbl"]::before {
   content: "Table " target-counter(attr(href), tbl);
 }
-:root:lang(ja) a[data-ref=tbl]::before {
+
+:root:lang(ja) a[data-ref="tbl"]::before {
   content: "表" target-counter(attr(href), fig);
 }
 
-a[data-ref=cite]::before {
+a[data-ref="cite"]::before {
   content: "[" target-counter(attr(href), cite) "]";
 }
 
@@ -225,6 +227,7 @@ section {
   counter-increment: section;
   counter-reset: subsection;
 }
+
 section article {
   counter-increment: subsection;
 }
@@ -232,9 +235,11 @@ section article {
 figure.fig {
   counter-increment: fig;
 }
+
 figure.fig figcaption::before {
   content: "Fig. " counter(fig) ": ";
 }
+
 :root:lang(ja) figure.fig figcaption::before {
   content: "図" counter(fig) ": ";
 }
@@ -242,9 +247,11 @@ figure.fig figcaption::before {
 figure.tbl {
   counter-increment: tbl;
 }
+
 figure.tbl figcaption::before {
   content: "Table " counter(tbl) ": ";
 }
+
 :root:lang(ja) figure.tbl figcaption::before {
   content: "表" counter(tbl) ": ";
 }
@@ -252,25 +259,30 @@ figure.tbl figcaption::before {
 .footnote {
   counter-increment: footnote;
 }
+
 .footnote::footnote-call, .footnote::footnote-marker {
   content: "[" counter(footnote) "]";
 }
+
 .footnote::footnote-call {
   font-size: 80%;
-  margin: 0 0.3rem;
+  margin: 0 .3rem;
 }
+
 .footnote::footnote-marker {
-  margin-right: 0.2rem;
+  margin-right: .2rem;
 }
 
 ol.cite-items {
   padding-left: 2rem;
   list-style: none;
 }
+
 ol.cite-items li {
   counter-increment: cite;
   position: relative;
 }
+
 ol.cite-items li::before {
   content: "[" counter(cite) "] ";
   position: absolute;
@@ -282,20 +294,16 @@ ol.cite-items li::before {
     margin: auto 4rem;
     padding-bottom: 4rem;
   }
-
   article {
     margin: 0 auto;
     max-width: 60rem;
   }
-
   section {
     clear: both;
   }
-
   figure {
     max-width: 50rem;
   }
-
   .footnote {
     vertical-align: super;
     background-color: rgba(214, 255, 0, 0.4);
@@ -305,42 +313,37 @@ ol.cite-items li::before {
   .footnote a {
     word-break: break-all;
   }
-
-  a[data-ref=sec],
-a[data-ref=subsec],
-a[data-ref=fig],
-a[data-ref=tbl],
-a[data-ref=cite] {
+  a[data-ref='sec'],
+  a[data-ref='subsec'],
+  a[data-ref='fig'],
+  a[data-ref='tbl'],
+  a[data-ref='cite'] {
     color: #e74c3c;
     background-color: rgba(255, 0, 0, 0.3);
   }
-
-  a[data-ref=sec]::before {
-    content: "§ XXX";
+  a[data-ref='sec']::before {
+    content: '§ XXX';
   }
-
-  a[data-ref=subsec]::before {
-    content: "§ XXX.XXX";
+  a[data-ref='subsec']::before {
+    content: '§ XXX.XXX';
   }
-
-  a[data-ref=fig]::before {
-    content: "Fig. XXX";
+  a[data-ref='fig']::before {
+    content: 'Fig. XXX';
   }
-  :root:lang(ja) a[data-ref=fig]::before {
-    content: "図 XXX";
+  :root:lang(ja) a[data-ref='fig']::before {
+    content: '図 XXX';
   }
-
-  a[data-ref=tbl]::before {
-    content: "Table XXX";
+  a[data-ref='tbl']::before {
+    content: 'Table XXX';
   }
-  :root:lang(ja) a[data-ref=tbl]::before {
-    content: "表 XXX";
+  :root:lang(ja) a[data-ref='tbl']::before {
+    content: '表 XXX';
   }
-
-  a[data-ref=cite]::before {
-    content: "[XXX]";
+  a[data-ref='cite']::before {
+    content: '[XXX]';
   }
 }
+
 @media print {
   :root {
     widows: 3;
@@ -348,41 +351,39 @@ a[data-ref=cite] {
     hyphens: auto;
     font-size: 75%;
   }
-
   h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     break-after: avoid;
   }
-
   tr,
-th,
-td {
+  th,
+  td {
     break-inside: avoid;
   }
-
   .footnote {
     float: footnote;
     text-align: left;
   }
 }
+
 @page {
   size: 182mm 257mm;
   margin-top: 25mm;
   margin-bottom: 33mm;
   marks: crop cross;
   @top-left-corner {
-    content: "";
+    content: '';
     margin-bottom: 8mm;
     background-color: #34495e;
     margin-top: -3mm;
     margin-left: -3mm;
   }
   @top-center {
-    content: "";
+    content: '';
     margin-bottom: 8mm;
     background-color: #34495e;
     margin-top: -3mm;
@@ -392,14 +393,14 @@ td {
     padding-right: 1mm;
   }
   @top-right-corner {
-    content: "";
+    content: '';
     margin-bottom: 8mm;
     background-color: #34495e;
     margin-top: -3mm;
     margin-right: -3mm;
   }
   @bottom-left-corner {
-    content: "";
+    content: '';
     margin-top: -8mm;
     margin-bottom: -3mm;
     margin-left: -3mm;
@@ -407,7 +408,7 @@ td {
     z-index: 1000;
   }
   @bottom-right-corner {
-    content: "";
+    content: '';
     margin-top: -8mm;
     margin-bottom: -3mm;
     margin-right: -3mm;
@@ -415,30 +416,32 @@ td {
     z-index: 1000;
   }
 }
+
 @page :first {
   margin: 0;
   background-color: #e74c3c;
   @top-left {
-    content: "";
+    content: '';
   }
   @top-center {
     content: none;
   }
   @top-right {
-    content: "";
+    content: '';
   }
   @bottom-center {
     content: none;
   }
   @bottom-left {
-    content: "";
+    content: '';
     border: none;
   }
   @bottom-right {
-    content: "";
+    content: '';
     border: none;
   }
 }
+
 @page :left {
   margin-left: 18mm;
   margin-right: 35mm;
@@ -457,6 +460,7 @@ td {
     background-color: #ffffff;
   }
 }
+
 @page :right {
   margin-left: 35mm;
   margin-right: 18mm;
@@ -475,14 +479,17 @@ td {
     background-color: white;
   }
 }
+
 @-adapt-footnote-area ::before {
   margin-inline-start: -1000px;
   margin-inline-end: 70%;
   margin-block-end: 0.8em;
 }
+
 @-adapt-footnote-area {
   word-break: break-all;
 }
+
 #cover h1 {
   color: #ffffff;
 }
@@ -491,9 +498,11 @@ nav#toc {
   break-before: page;
   font-size: 120%;
 }
+
 nav#toc li a::after {
   content: target-counter(attr(href), page);
 }
+
 nav#toc li a {
   display: inline-flex;
   width: 100%;
@@ -501,14 +510,16 @@ nav#toc li a {
   color: currentColor;
   align-items: baseline;
 }
+
 nav#toc li a::before {
   margin-left: 0.5em;
   margin-right: 0.5em;
   border-bottom: solid 1px;
-  content: "";
+  content: '';
   order: 1;
   flex: auto;
 }
+
 nav#toc li a::after {
   text-align: right;
   content: target-counter(attr(href), page);

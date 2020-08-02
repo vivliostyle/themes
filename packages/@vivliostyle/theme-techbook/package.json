@@ -4,13 +4,20 @@
   "version": "0.0.0",
   "author": "Vivliostyle <mail@vivliostyle.org>",
   "scripts": {
-    "dev": "vivliostyle-theme-scripts preview theme.css --layout example/techbook.md"
+    "build": "run-p build:scss",
+    "build:scss": "node-sass scss/app.scss theme.css -r --source-map true --output-style expanded",
+    "dev": "run-p preview watch:scss",
+    "preview": "vivliostyle-theme-scripts preview theme.css --layout example/techbook.md",
+    "watch:scss": "node-sass scss/app.scss theme.css -w -r -q --source-map true --output-style expanded"
   },
   "devDependencies": {
+    "node-sass": "^4.14.1",
+    "npm-run-all": "^4.1.5",
     "vivliostyle-theme-scripts": "^0.3.0"
   },
   "files": [
-    "*.css"
+    "*.css",
+    "*.css.map"
   ],
   "publishConfig": {
     "access": "public"
