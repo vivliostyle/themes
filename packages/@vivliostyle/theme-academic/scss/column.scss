@@ -1,0 +1,17 @@
+/* ----------
+ * Column
+ * ----------
+*/
+
+.twocolumn {
+  columns: 2;
+  column-gap: 5mm;
+}
+
+.spanner {
+  column-span: all;
+
+  img {
+    max-width: 100%;
+  }
+}

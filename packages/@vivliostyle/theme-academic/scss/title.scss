@@ -1,0 +1,38 @@
+/* ----------
+ * Title
+ * ----------
+*/
+
+.author {
+  ul {
+    list-style: none;
+    text-align: right;
+    margin: 10pt 0;
+  }
+}
+
+@page {
+  @top-left {
+    font-family: $font-serif;
+    font-size: $page-header-font-size;
+    content: $page-top-left;
+  }
+
+  @top-right {
+    font-family: $font-serif;
+    font-size: $page-header-font-size;
+    content: $page-top-right;
+  }
+
+  @bottom-left {
+    font-family: $font-serif;
+    font-size: $page-footer-font-size;
+    content: $page-bottom-left;
+  }
+
+  @bottom-right {
+    font-family: $font-serif;
+    font-size: $page-footer-font-size;
+    content: $page-bottom-right;
+  }
+}
