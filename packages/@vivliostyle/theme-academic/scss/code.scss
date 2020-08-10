@@ -1,0 +1,27 @@
+/* ----------
+ * Code
+ * ----------
+*/
+
+
+code,
+kbd,
+pre,
+samp {
+  font-family: $font-monospace;
+}
+
+pre {
+  tab-size: 4;
+  box-decoration-break: clone;
+  text-align: left;
+  white-space: pre-wrap;
+}
+
+*:not(pre) > code {
+  color: $color-gray;
+  font-weight: bold;
+  padding: 0pt 2pt;
+  border-radius: 1pt;
+  background-color: $color-light-gray;
+}

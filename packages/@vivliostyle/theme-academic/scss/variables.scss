@@ -1,10 +1,12 @@
 // Color
 $color-black: #000000;
+$color-gray: #666666;
+$color-light-gray: #eeeeee;
 
 // Font
 $font-serif: 'Hiragino Mincho ProN', serif;
 $font-sans-serif: 'Hiragino Kaku Gothic ProN', sans-serif;
-$font-monospace: 'Osaka', monospace;
+$font-monospace: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 $body-font-family: $font-serif;
 $nonbre-font-family: $font-serif;
 
@@ -31,3 +33,6 @@ $page-top-left: "vivliostyle-theme-report のサンプル";
 $page-top-right: "";
 $page-bottom-left: "";
 $page-bottom-right: "";
+
+// Cover
+$cover: true;

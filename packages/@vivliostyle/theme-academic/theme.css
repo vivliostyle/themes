@@ -20,8 +20,42 @@
   /* nonbre */
   @bottom-center {
     font-size: 9pt;
-    content: counter(page);
     font-family: "Hiragino Mincho ProN", serif;
+  }
+  @top-left {
+    font-family: "Hiragino Mincho ProN", serif;
+    font-size: 10pt;
+    content: "vivliostyle-theme-report のサンプル";
+  }
+  @top-right {
+    font-family: "Hiragino Mincho ProN", serif;
+    font-size: 10pt;
+    content: "";
+  }
+  @bottom-left {
+    font-family: "Hiragino Mincho ProN", serif;
+    font-size: 10pt;
+    content: "";
+  }
+  @bottom-right {
+    font-family: "Hiragino Mincho ProN", serif;
+    font-size: 10pt;
+    content: "";
+  }
+}
+
+@page :first {
+  @top-left {
+    content: "";
+  }
+  @top-right {
+    content: "";
+  }
+  @bottom-left {
+    content: "";
+  }
+  @bottom-right {
+    content: "";
   }
 }
 
@@ -32,6 +66,25 @@ html {
   line-height: 1.8;
   orphans: 1;
   widows: 1;
+}
+
+/* ----------
+ * Counter - Page
+ * ----------
+ * p
+*/
+@page {
+  counter-increment: p;
+  @bottom-center {
+    content: counter(p);
+  }
+}
+
+@page :first {
+  counter-increment: none;
+  @bottom-center {
+    content: "";
+  }
 }
 
 /* ----------
@@ -370,45 +423,32 @@ a:visited {
   text-decoration: none;
 }
 
-code,
-kbd,
-pre,
-samp {
-  font-family: "Osaka", monospace;
-}
-
-pre {
-  position: relative;
-  padding: 1em 0 1em 0.5em;
-  margin: 3pt 0;
-  background-color: #fefefe;
-  white-space: pre;
-  tab-size: 4;
-  box-decoration-break: clone;
-  margin-right: -50em;
-  padding-right: 50em;
-  margin-left: -49.854in;
-  padding-left: 50in;
-}
-
-*:not(pre) > code {
-  color: #555;
-  font-weight: bold;
-  margin: 0 0.2em;
-  padding: 0.2em 0.3em 0.1em;
-  border-radius: 0.2em;
-  background-color: rgba(133, 119, 116, 0.25);
+/* ----------
+ * Title
+ * ----------
+*/
+.author ul {
+  list-style: none;
+  text-align: right;
+  margin: 10pt 0;
+  padding: 0;
 }
 
 /* ----------
- * Base - Frame
+ * Cover
  * ----------
 */
-.frame {
-  border: 2px solid;
-  border-radius: 2px;
-  padding: 1em 0.5em;
-  font-weight: bold;
+/* cannot use named page */
+.cover {
+  break-after: page;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cover .author ul {
+  text-align: center;
 }
 
 /* ----------
@@ -434,36 +474,40 @@ pre {
 */
 /* use katex*/
 /* ----------
- * Title
+ * Code
  * ----------
 */
-.author ul {
-  list-style: none;
-  text-align: right;
-  margin: 10pt 0;
+code,
+kbd,
+pre,
+samp {
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 }
 
-@page {
-  @top-left {
-    font-family: "Hiragino Mincho ProN", serif;
-    font-size: 10pt;
-    content: "vivliostyle-theme-report のサンプル";
-  }
-  @top-right {
-    font-family: "Hiragino Mincho ProN", serif;
-    font-size: 10pt;
-    content: "";
-  }
-  @bottom-left {
-    font-family: "Hiragino Mincho ProN", serif;
-    font-size: 10pt;
-    content: "";
-  }
-  @bottom-right {
-    font-family: "Hiragino Mincho ProN", serif;
-    font-size: 10pt;
-    content: "";
-  }
+pre {
+  tab-size: 4;
+  box-decoration-break: clone;
+  text-align: left;
+  white-space: pre-wrap;
+}
+
+*:not(pre) > code {
+  color: #666666;
+  font-weight: bold;
+  padding: 0pt 2pt;
+  border-radius: 1pt;
+  background-color: #eeeeee;
+}
+
+/* ----------
+ * Frame
+ * ----------
+*/
+.frame {
+  border: 1pt solid;
+  padding: 10pt;
+  margin: 10pt auto;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=theme.css.map */

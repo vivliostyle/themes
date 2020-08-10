@@ -20,8 +20,51 @@
   /* nonbre */
   @bottom-center {
     font-size: $nonbre-font-size;
-    content: counter(page);
     font-family: $nonbre-font-family;
+  }
+
+  @top-left {
+    font-family: $font-serif;
+    font-size: $page-header-font-size;
+    content: $page-top-left;
+  }
+
+  @top-right {
+    font-family: $font-serif;
+    font-size: $page-header-font-size;
+    content: $page-top-right;
+  }
+
+  @bottom-left {
+    font-family: $font-serif;
+    font-size: $page-footer-font-size;
+    content: $page-bottom-left;
+  }
+
+  @bottom-right {
+    font-family: $font-serif;
+    font-size: $page-footer-font-size;
+    content: $page-bottom-right;
+  }
+}
+
+@page :first {
+  @if $cover {
+    @top-left {
+      content: "";
+    }
+
+    @top-right {
+      content: "";
+    }
+
+    @bottom-left {
+      content: "";
+    }
+
+    @bottom-right {
+      content: "";
+    }
   }
 }
 
