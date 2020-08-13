@@ -1,0 +1,79 @@
+/* ----------
+ * Page
+ * ----------
+*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-break: strict;
+}
+
+@page {
+  /* JIS A4 */
+  size: $page-width $page-height;
+  margin: $page-margin-top $page-margin-right $page-margin-bottom $page-margin-left;
+
+  /* nonbre */
+  @bottom-center {
+    font-size: $nonbre-font-size;
+    font-family: $nonbre-font-family;
+  }
+
+  @top-left {
+    font-family: $font-serif;
+    font-size: $page-header-font-size;
+    content: $page-top-left;
+  }
+
+  @top-right {
+    font-family: $font-serif;
+    font-size: $page-header-font-size;
+    content: $page-top-right;
+  }
+
+  @bottom-left {
+    font-family: $font-serif;
+    font-size: $page-footer-font-size;
+    content: $page-bottom-left;
+  }
+
+  @bottom-right {
+    font-family: $font-serif;
+    font-size: $page-footer-font-size;
+    content: $page-bottom-right;
+  }
+}
+
+@page :first {
+  @if $cover {
+    @top-left {
+      content: "";
+    }
+
+    @top-right {
+      content: "";
+    }
+
+    @bottom-left {
+      content: "";
+    }
+
+    @bottom-right {
+      content: "";
+    }
+  }
+}
+
+html {
+  font-family: $body-font-family;
+  font-size: $body-font-size;
+  color: $color-black;
+  line-height: $body-line-height;
+
+  orphans: 1;
+  widows: 1;
+}

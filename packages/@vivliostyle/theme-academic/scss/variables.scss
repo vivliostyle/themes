@@ -1,0 +1,38 @@
+// Color
+$color-black: #000000;
+$color-gray: #666666;
+$color-light-gray: #eeeeee;
+
+// Font
+$font-serif: 'Hiragino Mincho ProN', serif;
+$font-sans-serif: 'Hiragino Kaku Gothic ProN', sans-serif;
+$font-monospace: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+$body-font-family: $font-serif;
+$nonbre-font-family: $font-serif;
+
+// A4
+$page-width: 210mm;
+$page-height: 297mm;
+
+$page-margin-top: 25mm;
+$page-margin-bottom: 25mm;
+$page-margin-left: 20mm;
+$page-margin-right: 20mm;
+
+// Size
+$body-font-size: 10pt;
+$nonbre-font-size: 9pt;
+$body-line-height: 1.8;
+$img-max-width: 10cm;
+$img-max-height: 8cm;
+$page-header-font-size: 10pt;
+$page-footer-font-size: 10pt;
+
+// Page Header, Footer
+$page-top-left: "vivliostyle-theme-academic のサンプル";
+$page-top-right: "";
+$page-bottom-left: "";
+$page-bottom-right: "";
+
+// Cover
+$cover: true;

@@ -1,0 +1,28 @@
+/* ----------
+ * Cover
+ * ----------
+*/
+
+/* cannot use named page */
+// @page cover {
+  // counter-increment: none;
+
+  // @bottom-center {
+    // content: none;
+  // }
+// }
+
+.cover {
+  // page: cover;
+  break-after: page;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .author {
+    ul {
+      text-align: center;
+    }
+  }
+}

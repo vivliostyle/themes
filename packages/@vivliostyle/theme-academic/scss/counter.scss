@@ -1,0 +1,151 @@
+/* ----------
+ * Counter - Page
+ * ----------
+ * p
+*/
+
+@page {
+  counter-increment: p;
+
+  @bottom-center {
+    content: counter(p);
+  }
+}
+
+@page :first {
+  @if $cover {
+    counter-increment: none;
+
+    @bottom-center {
+      content: "";
+    }
+  }
+}
+
+
+/* ----------
+ * Counter - Headings
+ * ----------
+ * h1: chapter
+ * h2: section
+ * h3: subsection
+ * h4: subsubsection
+*/
+
+h1 {
+  counter-reset: section table figure footnote ref; /* reset all counters */
+}
+
+h2 {
+  counter-reset: subsection; /* reset counters of lower levels */
+  counter-increment: section; /* increment counters of current level */
+
+  &:before {
+    content: counter(section);
+  }
+}
+
+h3 {
+  counter-reset: subsubsection; /* reset counters of lower levels */
+  counter-increment: subsection; /* increment counters of current level */
+
+  &:before {
+    content: counter(section) "." counter(subsection);
+  }
+}
+
+h4 {
+  counter-increment: subsubsection; /* increment counters of current level */
+
+  &:before {
+    content: counter(section) "." counter(subsection) "." counter(subsubsection);
+  }
+}
+
+
+/* ----------
+ * Counter - Captions
+ * ----------
+ * table
+ * figure
+*/
+
+table caption {
+  counter-increment: table;
+
+  &:before {
+    content: "表 " counter(table);
+  }
+}
+
+[data-ref="table"]::after {
+  content: "表 " target-counter(attr(href), table);
+}
+
+figure figcaption {
+  counter-increment: figure;
+
+  &:before {
+    content: "図 " counter(figure);
+  }
+}
+
+[data-ref="fig"]::after {
+  content: "図 " target-counter(attr(href), figure);
+}
+
+
+/* ----------
+ * Counter - References
+ * ----------
+ * ref
+*/
+
+.reference li {
+  counter-increment: ref;
+
+  &:before {
+    content: "[" counter(ref) "]";
+  }
+}
+
+[data-ref="ref"]::after {
+  content: " [" target-counter(attr(href), ref) "]";
+}
+
+
+/* ----------
+ * Counter - Footnotes
+ * ----------
+ * footnote
+*/
+
+.footnotes li {
+  counter-increment: footnote;
+
+  &:before {
+    content: "*" counter(footnote);
+  }
+}
+
+.footnote-ref {
+  &:before {
+    content: "*";
+    /* content: "*" target-counter(attr(href), footnote); */
+  }
+}
+
+
+/* ----------
+ * Nocounter
+ * ----------
+ * don't increment any counters
+*/
+
+.nocounter {
+  counter-increment: none;
+
+  &:before {
+    content: "";
+  }
+}

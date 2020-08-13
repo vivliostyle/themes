@@ -1,0 +1,227 @@
+/* ----------
+ * Base - Headings
+ * ----------
+*/
+
+h1 {
+  margin: 8pt auto 4pt;
+  font-size: 20pt;
+  line-height: 1.5;
+  text-align: center;
+}
+
+h2 {
+  margin: 8pt auto 4pt;
+  font-size: 14pt;
+
+  &:before {
+    font-size: 14pt;
+  }
+}
+
+h3 {
+  margin: 4pt auto 2pt;
+  font-size: 12pt;
+
+  &:before {
+    font-size: 12pt;
+  }
+}
+
+h4 {
+  margin: 4pt auto 2pt;
+  font-size: 10pt;
+
+  &:before {
+    font-size: 10pt;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  font-family: $font-sans-serif;
+  font-weight: bold;
+  break-after: avoid;
+}
+
+h2::before,
+h3::before,
+h4::before {
+  line-height: 0;
+  margin-right: 5pt;
+}
+
+
+/* ----------
+ * Base - Table, Figure
+ * ----------
+*/
+
+table {
+  border-collapse: collapse;
+
+  thead {
+    border-bottom: 1px solid;
+  }
+
+  tr {
+    &:first-of-type {
+      border-top: 1px solid;
+    }
+
+    &:last-of-type {
+      border-bottom: 1px solid;
+    }
+  }
+
+  th {
+    text-align: center;
+    font-family: $font-sans-serif;
+  }
+
+  th,
+  td {
+    padding-right: 5pt;
+
+    &:first-child {
+      padding-left: 5pt;
+    }
+  }
+}
+
+figure {
+  text-align: center;
+
+  img {
+    max-width: $img-max-width;
+    max-height: $img-max-height;
+  }
+}
+
+table,
+figure {
+  margin: 10pt auto;
+
+  caption,
+  figcaption {
+    &:before {
+      margin-right: 1rem;
+    }
+  }
+}
+
+[data-ref] {
+  color: inherit;
+}
+
+
+/* ----------
+ * Base - List
+ * ----------
+*/
+
+ol,
+ul {
+  padding-left: 20pt;
+}
+
+ol.nostyle,
+ul.nostyle {
+  list-style: none;
+}
+
+.reference {
+  padding-left: 0;
+
+  li {
+    display: flex;
+    list-style: none;
+    word-break: break-all;
+
+    &:before {
+      display: marker;
+      margin-right: 5pt;
+      word-break: normal;
+    }
+  }
+}
+
+
+/* ----------
+ * Base - Footnotes
+ * ----------
+*/
+
+.footnotes {
+  hr {
+    border: 0;
+    border-top: 1px solid $color-black;
+    margin: 5pt auto;
+  }
+
+  ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    display: flex;
+
+    &:before {
+      display: marker;
+      margin-right: 5pt;
+    }
+  }
+}
+
+
+/* ----------
+ * Base - Nocounter
+ * ----------
+*/
+
+.nocounter {
+  &:before {
+    margin-right: 0;
+  }
+}
+
+
+/* ----------
+ * Base - Text
+ * ----------
+*/
+
+.right {
+  text-align: right;
+}
+.left {
+  text-align: left;
+}
+.center {
+  text-align: center;
+}
+
+p {
+  margin: 0;
+  text-align: justify;
+  text-indent: 1em;
+}
+
+strong {
+  font-family: $font-sans-serif;
+  font-weight: bold;
+}
+
+a,
+a:hover,
+a:focus,
+a:visited {
+  color: $color-black;
+  text-decoration: none;
+}
