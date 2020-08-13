@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-academic",
   "description": "Academic theme",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "author": "Vivliostyle <mail@vivliostyle.org>",
   "scripts": {
     "build": "run-p build:scss",
