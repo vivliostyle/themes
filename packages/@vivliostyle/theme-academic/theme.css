@@ -452,23 +452,6 @@ a:visited {
 }
 
 /* ----------
- * Column
- * ----------
-*/
-.twocolumn {
-  columns: 2;
-  column-gap: 5mm;
-}
-
-.spanner {
-  column-span: all;
-}
-
-.spanner img {
-  max-width: 100%;
-}
-
-/* ----------
  * Math
  * ----------
 */
