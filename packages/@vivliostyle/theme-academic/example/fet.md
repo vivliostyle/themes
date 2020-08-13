@@ -31,10 +31,8 @@ FET には3本の端子が出ており、それぞれゲート (G)、ドレイ�
     - 参照先: <span id="id"></span>
 -->
 
-:::twocolumn
 ![n チャネル型 FET](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808190103.png) <span id="n_fet"></span>
 ![p チャネル型 FET](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808190107.png) <span id="p_fet"></span>
-:::
 
 ## 実験方法
 
@@ -188,9 +186,9 @@ $$
 
 <h2 class="nocounter">参考文献</h2>
 
-:::references
-- TOKYO ELECTRON, 半導体の原理, http://origin.tel.co.jp/museum/exhibition/principle/, 参照2020/08/08
-- 19章 電界効果トランジスタ, http://windofweef.web.fc2.com/library/preinform/5/54/549/img/549_30a_20.pdf, 参照2020/08/08
-- マルツエレック株式会社, MOS FET, http://www.marutsu.co.jp/contents/shop/marutsu/mame/56.html, 参照2020/08/08
-- 山形大学大学院理工学研究科 廣瀬文研究室, 第 6 章 MOSFET, http://fhirose.yz.yamagata-u.ac.jp/text/mos6.pdf, 参照2020/08/08
-:::
+<ol class="reference">
+  <li>TOKYO ELECTRON, 半導体の原理, http://origin.tel.co.jp/museum/exhibition/principle/, 参照2020/08/08</li>
+  <li>19章 電界効果トランジスタ, http://windofweef.web.fc2.com/library/preinform/5/54/549/img/549_30a_20.pdf, 参照2020/08/08</li>
+  <li>マルツエレック株式会社, MOS FET, http://www.marutsu.co.jp/contents/shop/marutsu/mame/56.html, 参照2020/08/08</li>
+  <li>山形大学大学院理工学研究科 廣瀬文研究室, 第 6 章 MOSFET, http://fhirose.yz.yamagata-u.ac.jp/text/mos6.pdf, 参照2020/08/08</li>
+</ol>
