@@ -1,7 +1,7 @@
 {
   "name": "create-vivliostyle-theme",
   "description": "Create Vivliostyle theme at ease",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "author": "Yasuaki Uechi <y@uechi.io>",
   "scripts": {
     "build": "shx rm -rf lib && NODE_ENV=production tsc && shx chmod +x lib/cli.js",

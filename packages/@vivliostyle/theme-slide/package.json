@@ -1,13 +1,13 @@
 {
   "name": "@vivliostyle/theme-slide",
   "description": "Slide theme",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "author": "Vivliostyle <mail@vivliostyle.org>",
   "scripts": {
     "dev": "vivliostyle-theme-scripts preview theme.css --layout example/slide.md"
   },
   "devDependencies": {
-    "vivliostyle-theme-scripts": "^0.3.0"
+    "vivliostyle-theme-scripts": "^0.3.1"
   },
   "files": [
     "*.css",
