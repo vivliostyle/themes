@@ -11,7 +11,10 @@
     "vivliostyle-theme-scripts": "^0.2.0"
   },
   "files": [
-    "*.css"
+    "*.css",
+    "*.css.map",
+    "scss",
+    "example"
   ],
   "keywords": [
     "vivliostyle",
