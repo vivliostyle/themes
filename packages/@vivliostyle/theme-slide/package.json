@@ -10,7 +10,8 @@
     "vivliostyle-theme-scripts": "^0.3.0"
   },
   "files": [
-    "*.css"
+    "*.css",
+    "example"
   ],
   "publishConfig": {
     "access": "public"
