@@ -22,5 +22,5 @@ create('create-vivliostyle-theme', {
     },
   },
   caveat,
-  handleName: (name) => `vivliostyle-theme-${name}`,
+  modifyName: (name) => `vivliostyle-theme-${name}`,
 });
