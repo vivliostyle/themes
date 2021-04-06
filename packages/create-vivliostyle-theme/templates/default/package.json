@@ -8,7 +8,7 @@
     "validate": "vivliostyle-theme-scripts validate"
   },
   "devDependencies": {
-    "vivliostyle-theme-scripts": "^0.2.0"
+    "vivliostyle-theme-scripts": "^0.3.1"
   },
   "files": [
     "*.css",
