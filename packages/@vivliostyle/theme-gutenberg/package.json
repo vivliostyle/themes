@@ -1,0 +1,41 @@
+{
+  "name": "vivliostyle-theme-gutenberg",
+  "description": "book theme for latin font",
+  "version": "0.0.1",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "scripts": {
+    "build": "run-p build:scss",
+    "build:scss": "sass scss:.",
+    "dev": "run-p preview watch:scss",
+    "preview": "vivliostyle preview",
+    "validate": "vivliostyle-theme-scripts validate",
+    "watch:scss": "sass --watch scss:."
+  },
+  "devDependencies": {
+    "@vivliostyle/cli": "^3.3.0",
+    "sass": "^1.32.8",
+    "npm-run-all": "^4.1.5",
+    "vivliostyle-theme-scripts": "^0.3.1"
+  },
+  "files": [
+    "*.css",
+    "*.css.map",
+    "scss",
+    "example",
+    "vivliostyle.config.js"
+  ],
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "license": "CC0-1.0",
+  "vivliostyle": {
+    "theme": {
+      "name": "Vivliostyle Theme Gutenberg",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "./theme.css",
+      "category": "novel",
+      "topics": []
+    }
+  }
+}
