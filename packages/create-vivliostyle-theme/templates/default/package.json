@@ -4,10 +4,16 @@
   "version": "0.1.0",
   "author": "{{contact}}",
   "scripts": {
-    "dev": "vivliostyle-theme-scripts preview theme.css",
-    "validate": "vivliostyle-theme-scripts validate"
+    "build": "run-p build:scss",
+    "build:scss": "sass scss:.",
+    "dev": "run-p preview watch:scss",
+    "preview": "vivliostyle-theme-scripts preview theme_print.css --layout example/default.md",
+    "validate": "vivliostyle-theme-scripts validate",
+    "watch:scss": "sass --watch scss:."
   },
   "devDependencies": {
+    "sass": "^1.32.8",
+    "npm-run-all": "^4.1.5",
     "vivliostyle-theme-scripts": "^0.3.1"
   },
   "files": [

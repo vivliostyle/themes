@@ -1,0 +1,11 @@
+@import 'theme_common';
+
+@page {
+  size: A5;
+  marks: crop cross;
+  bleed: 3mm;
+
+  @top-left {
+    content: 'For print';
+  }
+}

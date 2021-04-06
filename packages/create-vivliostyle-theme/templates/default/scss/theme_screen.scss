@@ -1,0 +1,9 @@
+@import 'theme_common';
+
+@page {
+  width: 800px;
+
+  @top-left {
+    content: 'For screen';
+  }
+}
