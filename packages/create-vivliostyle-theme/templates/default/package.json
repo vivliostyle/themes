@@ -33,7 +33,7 @@
     "theme": {
       "name": "{{capital name space=true}}",
       "author": "{{contact}}",
-      "style": "./theme.css",
+      "style": "./theme_print.css",
       "category": "{{category}}",
       "topics": []
     }
