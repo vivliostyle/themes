@@ -1,3 +1,7 @@
+/*
+ * For all media (print, screen)
+ */
+
 html {
   orphans: 1;
   widows: 1;
@@ -9,9 +13,7 @@ html {
 }
 
 @page {
-  size: 148mm 210mm;
-  width: 360pt;
-  height: 468pt;
+  size: A5;
 }
 
 @page :left {
@@ -45,3 +47,5 @@ h2 {
   margin-block-start: 6rem;
   break-inside: avoid;
 }
+
+/* and more... 🖋 */
