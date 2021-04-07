@@ -2,23 +2,27 @@
  * For all media (print, screen)
  */
 
+/* you can import partial SCSS files */
+/* @import '_valiables'; */
+/* @import '_toc'; */
+/* ... */
+
 html {
   orphans: 1;
   widows: 1;
-}
-
-* {
-  margin: 0;
-  padding: 0;
 }
 
 @page {
   size: A5;
 }
 
+title {
+  string-set: doc-title content();
+}
+
 @page :left {
   @top-left {
-    content: counter(page) '　' env(doc-title);
+    content: counter(page) '　' string(doc-title);
   }
 }
 
@@ -41,11 +45,6 @@ h2 {
   font-size: 1.18rem;
   text-indent: 3rem;
   break-after: avoid;
-}
-
-[role='doc-appendix'] {
-  margin-block-start: 6rem;
-  break-inside: avoid;
 }
 
 /* and more... 🖋 */
