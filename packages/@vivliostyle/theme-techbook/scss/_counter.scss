@@ -2,39 +2,40 @@ body {
   counter-reset: section subsection fig tbl footnote cite;
 }
 
-a[data-ref="sec"],
-a[data-ref="subsec"],
-a[data-ref="fig"],
-a[data-ref="tbl"],
-a[data-ref="cite"] {
+a[data-ref='sec'],
+a[data-ref='subsec'],
+a[data-ref='fig'],
+a[data-ref='tbl'],
+a[data-ref='cite'] {
   text-decoration: none;
   color: inherit;
-  margin: 0 .15em;
+  margin: 0 0.15em;
 }
 
-a[data-ref="sec"]::before {
+a[data-ref='sec']::before {
   content: '§' target-counter(attr(href), section);
 }
 
-a[data-ref="subsec"]::before {
-  content: '§' target-counter(attr(href), section) '.' target-counter(attr(href url), subsection);
+a[data-ref='subsec']::before {
+  content: '§' target-counter(attr(href), section) '.'
+    target-counter(attr(href url), subsection);
 }
 
-a[data-ref="fig"]::before {
+a[data-ref='fig']::before {
   content: 'Fig. ' target-counter(attr(href), fig);
   :root:lang(ja) & {
     content: '図' target-counter(attr(href), fig);
   }
 }
 
-a[data-ref="tbl"]::before {
+a[data-ref='tbl']::before {
   content: 'Table ' target-counter(attr(href), tbl);
   :root:lang(ja) & {
     content: '表' target-counter(attr(href), fig);
   }
 }
 
-a[data-ref="cite"]::before {
+a[data-ref='cite']::before {
   content: '[' target-counter(attr(href), cite) ']';
 }
 
@@ -42,7 +43,7 @@ section {
   counter-increment: section;
   counter-reset: subsection;
   article {
-    counter-increment: subsection
+    counter-increment: subsection;
   }
 }
 
@@ -75,11 +76,11 @@ figure.tbl {
 
   &::footnote-call {
     font-size: 80%;
-    margin: 0 .3rem;
+    margin: 0 0.3rem;
   }
 
   &::footnote-marker {
-    margin-right: .2rem;
+    margin-right: 0.2rem;
   }
 }
 

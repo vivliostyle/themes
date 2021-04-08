@@ -137,7 +137,8 @@ pre[class*='language-'] {
 }
 
 :root {
-  font-family: "Neue Frutiger World", "Verdana", "Yakumono", "body", "Hiragino Sans", sans-serif;
+  font-family: 'Neue Frutiger World', 'Verdana', 'Yakumono', 'body',
+    'Hiragino Sans', sans-serif;
   font-weight: 400;
   line-height: 1.7;
 }
@@ -187,7 +188,8 @@ pre {
   box-decoration-break: clone;
 }
 
-ul, ol {
+ul,
+ol {
   padding-inline-start: 1.5em;
 }
 
@@ -195,19 +197,16 @@ figure {
   margin: 1.5rem auto;
   text-align: center;
 }
-
 figure img {
   max-width: 100%;
   margin: 0.5rem auto;
 }
-
 figure figcaption {
-  margin: .5rem auto;
+  margin: 0.5rem auto;
   width: 90%;
   font-size: 90%;
   break-inside: avoid;
 }
-
 figure img[src$='.png'],
 figure img[src$='.jpg'],
 figure img[src$='.jpeg'],
@@ -223,37 +222,33 @@ table {
   border-color: currentColor;
   border-collapse: collapse;
 }
-
-table th, table td {
-  padding: .25rem 1rem .25rem 0;
+table th,
+table td {
+  padding: 0.25rem 1rem 0.25rem 0;
   background-color: transparent;
   border: 0;
 }
-
-table th:first-child, table td:first-child {
+table th:first-child,
+table td:first-child {
   padding-left: 1rem;
 }
-
 table th {
   border-top: 1px solid;
   border-bottom: 1px solid;
 }
-
 table tr {
   box-shadow: 0 0.7px 0 -0.3px currentColor;
 }
-
 table tr:last-child {
   border-bottom: 1px solid;
 }
 
 blockquote {
-  margin: 1.5rem .5rem;
+  margin: 1.5rem 0.5rem;
   background-color: #ecf0f1;
   padding: 0.5em 1em;
   border-radius: 0.2rem;
 }
-
 blockquote :not(pre) > code {
   padding: 0;
   word-break: break-all;
@@ -267,49 +262,47 @@ body {
   counter-reset: section subsection fig tbl footnote cite;
 }
 
-a[data-ref="sec"],
-a[data-ref="subsec"],
-a[data-ref="fig"],
-a[data-ref="tbl"],
-a[data-ref="cite"] {
+a[data-ref='sec'],
+a[data-ref='subsec'],
+a[data-ref='fig'],
+a[data-ref='tbl'],
+a[data-ref='cite'] {
   text-decoration: none;
   color: inherit;
-  margin: 0 .15em;
+  margin: 0 0.15em;
 }
 
-a[data-ref="sec"]::before {
-  content: "§" target-counter(attr(href), section);
+a[data-ref='sec']::before {
+  content: '§' target-counter(attr(href), section);
 }
 
-a[data-ref="subsec"]::before {
-  content: "§" target-counter(attr(href), section) "." target-counter(attr(href url), subsection);
+a[data-ref='subsec']::before {
+  content: '§' target-counter(attr(href), section) '.'
+    target-counter(attr(href url), subsection);
 }
 
-a[data-ref="fig"]::before {
-  content: "Fig. " target-counter(attr(href), fig);
+a[data-ref='fig']::before {
+  content: 'Fig. ' target-counter(attr(href), fig);
+}
+:root:lang(ja) a[data-ref='fig']::before {
+  content: '図' target-counter(attr(href), fig);
 }
 
-:root:lang(ja) a[data-ref="fig"]::before {
-  content: "図" target-counter(attr(href), fig);
+a[data-ref='tbl']::before {
+  content: 'Table ' target-counter(attr(href), tbl);
+}
+:root:lang(ja) a[data-ref='tbl']::before {
+  content: '表' target-counter(attr(href), fig);
 }
 
-a[data-ref="tbl"]::before {
-  content: "Table " target-counter(attr(href), tbl);
-}
-
-:root:lang(ja) a[data-ref="tbl"]::before {
-  content: "表" target-counter(attr(href), fig);
-}
-
-a[data-ref="cite"]::before {
-  content: "[" target-counter(attr(href), cite) "]";
+a[data-ref='cite']::before {
+  content: '[' target-counter(attr(href), cite) ']';
 }
 
 section {
   counter-increment: section;
   counter-reset: subsection;
 }
-
 section article {
   counter-increment: subsection;
 }
@@ -317,56 +310,48 @@ section article {
 figure.fig {
   counter-increment: fig;
 }
-
 figure.fig figcaption::before {
-  content: "Fig. " counter(fig) ": ";
+  content: 'Fig. ' counter(fig) ': ';
 }
-
 :root:lang(ja) figure.fig figcaption::before {
-  content: "図" counter(fig) ": ";
+  content: '図' counter(fig) ': ';
 }
 
 figure.tbl {
   counter-increment: tbl;
 }
-
 figure.tbl figcaption::before {
-  content: "Table " counter(tbl) ": ";
+  content: 'Table ' counter(tbl) ': ';
 }
-
 :root:lang(ja) figure.tbl figcaption::before {
-  content: "表" counter(tbl) ": ";
+  content: '表' counter(tbl) ': ';
 }
 
 .footnote {
   counter-increment: footnote;
 }
-
-.footnote::footnote-call, .footnote::footnote-marker {
-  content: "[" counter(footnote) "]";
+.footnote::footnote-call,
+.footnote::footnote-marker {
+  content: '[' counter(footnote) ']';
 }
-
 .footnote::footnote-call {
   font-size: 80%;
-  margin: 0 .3rem;
+  margin: 0 0.3rem;
 }
-
 .footnote::footnote-marker {
-  margin-right: .2rem;
+  margin-right: 0.2rem;
 }
 
 ol.cite-items {
   padding-left: 2rem;
   list-style: none;
 }
-
 ol.cite-items li {
   counter-increment: cite;
   position: relative;
 }
-
 ol.cite-items li::before {
-  content: "[" counter(cite) "] ";
+  content: '[' counter(cite) '] ';
   position: absolute;
   left: -2rem;
 }
@@ -376,16 +361,20 @@ ol.cite-items li::before {
     margin: auto 4rem;
     padding-bottom: 4rem;
   }
+
   article {
     margin: 0 auto;
     max-width: 60rem;
   }
+
   section {
     clear: both;
   }
+
   figure {
     max-width: 50rem;
   }
+
   .footnote {
     vertical-align: super;
     background-color: rgba(214, 255, 0, 0.4);
@@ -395,6 +384,7 @@ ol.cite-items li::before {
   .footnote a {
     word-break: break-all;
   }
+
   a[data-ref='sec'],
   a[data-ref='subsec'],
   a[data-ref='fig'],
@@ -403,29 +393,33 @@ ol.cite-items li::before {
     color: #e74c3c;
     background-color: rgba(255, 0, 0, 0.3);
   }
+
   a[data-ref='sec']::before {
     content: '§ XXX';
   }
+
   a[data-ref='subsec']::before {
     content: '§ XXX.XXX';
   }
+
   a[data-ref='fig']::before {
     content: 'Fig. XXX';
   }
   :root:lang(ja) a[data-ref='fig']::before {
     content: '図 XXX';
   }
+
   a[data-ref='tbl']::before {
     content: 'Table XXX';
   }
   :root:lang(ja) a[data-ref='tbl']::before {
     content: '表 XXX';
   }
+
   a[data-ref='cite']::before {
     content: '[XXX]';
   }
 }
-
 @media print {
   :root {
     widows: 3;
@@ -433,6 +427,7 @@ ol.cite-items li::before {
     hyphens: auto;
     font-size: 75%;
   }
+
   h1,
   h2,
   h3,
@@ -441,17 +436,18 @@ ol.cite-items li::before {
   h6 {
     break-after: avoid;
   }
+
   tr,
   th,
   td {
     break-inside: avoid;
   }
+
   .footnote {
     float: footnote;
     text-align: left;
   }
 }
-
 @page {
   size: 182mm 257mm;
   margin-top: 25mm;
@@ -494,9 +490,9 @@ ol.cite-items li::before {
     z-index: 1000;
   }
 }
-
 @page :left {
-  font-family: "Neue Frutiger World", "Verdana", "Yakumono", "body", "Hiragino Sans", sans-serif;
+  font-family: 'Neue Frutiger World', 'Verdana', 'Yakumono', 'body',
+    'Hiragino Sans', sans-serif;
   margin-left: 18mm;
   margin-right: 35mm;
   @top-center {
@@ -512,9 +508,9 @@ ol.cite-items li::before {
     padding: 0 2mm 15mm 2mm;
   }
 }
-
 @page :right {
-  font-family: "Neue Frutiger World", "Verdana", "Yakumono", "body", "Hiragino Sans", sans-serif;
+  font-family: 'Neue Frutiger World', 'Verdana', 'Yakumono', 'body',
+    'Hiragino Sans', sans-serif;
   margin-left: 35mm;
   margin-right: 18mm;
   @top-center {
@@ -530,18 +526,15 @@ ol.cite-items li::before {
     padding: 0 2mm 15mm 2mm;
   }
 }
-
 nav#toc,
 nav[role='doc-toc'] {
   break-before: page;
   font-size: 120%;
 }
-
 nav#toc li a::after,
 nav[role='doc-toc'] li a::after {
   content: target-counter(attr(href), page);
 }
-
 nav#toc li a,
 nav[role='doc-toc'] li a {
   display: inline-flex;
@@ -550,7 +543,6 @@ nav[role='doc-toc'] li a {
   color: currentColor;
   align-items: baseline;
 }
-
 nav#toc li a::before,
 nav[role='doc-toc'] li a::before {
   margin-left: 0.5em;
@@ -560,7 +552,6 @@ nav[role='doc-toc'] li a::before {
   order: 1;
   flex: auto;
 }
-
 nav#toc li a::after,
 nav[role='doc-toc'] li a::after {
   text-align: right;
