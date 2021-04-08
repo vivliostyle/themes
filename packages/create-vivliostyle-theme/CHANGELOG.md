@@ -3,9 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.2.1](https://github.com/vivliostyle/themes/compare/create-vivliostyle-theme@0.2.0...create-vivliostyle-theme@0.2.1) (2021-04-08)
+# [0.3.0](https://github.com/vivliostyle/themes/compare/create-vivliostyle-theme@0.2.0...create-vivliostyle-theme@0.3.0) (2021-04-08)
 
-**Note:** Version bump only for package create-vivliostyle-theme
+### Features
+
+- create-vivliostyle-theme: use scss by default ([37adfc3](https://github.com/vivliostyle/themes/commit/37adfc3a0ce5b7e6c392e710ca465cfab003c697))
+- create-vivliostyle-theme: include vivliostyle.config.js to theme packages ([e560db6](https://github.com/vivliostyle/themes/commit/e560db6a045c8e0503f358cb46e56ffd2f8a65d8))
+- create-vivliostyle-theme: set theme_print.css as a default style ([7eb3a49](https://github.com/vivliostyle/themes/commit/7eb3a49f21660c4dcc07e4e535d131e02399742c))
 
 # [0.2.0](https://github.com/vivliostyle/themes/compare/create-vivliostyle-theme@0.1.2...create-vivliostyle-theme@0.2.0) (2020-08-28)
 
