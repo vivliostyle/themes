@@ -12,13 +12,10 @@ module.exports = {
     },
   ],
   output: [
-    "book.pdf",
+    'book.pdf',
     {
       path: './book',
       format: 'webpub',
     },
   ],
-  vfm: {
-    hardLineBreaks: true,
-  }
-}
+};
