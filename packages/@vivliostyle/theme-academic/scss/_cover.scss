@@ -3,17 +3,32 @@
  * ----------
 */
 
-/* cannot use named page */
-// @page cover {
-  // counter-increment: none;
+@page cover {
+  counter-increment: none;
 
-  // @bottom-center {
-    // content: none;
-  // }
-// }
+  @top-left {
+    content: '';
+  }
+
+  @top-right {
+    content: '';
+  }
+
+  @bottom-left {
+    content: '';
+  }
+
+  @bottom-right {
+    content: '';
+  }
+
+  @bottom-center {
+    content: '';
+  }
+}
 
 .cover {
-  // page: cover;
+  page: cover;
   break-after: page;
   height: 100vh;
   display: flex;
@@ -25,32 +40,4 @@
       text-align: center;
     }
   }
-}
-
-@page :nth(1) {
-  counter-increment: none;
-
-  @top-left {
-    content: "";
-  }
-
-  @top-right {
-    content: "";
-  }
-
-  @bottom-left {
-    content: "";
-  }
-
-  @bottom-right {
-    content: "";
-  }
-
-  @bottom-center {
-    content: "";
-  }
-}
-
-@page :nth(2) {
-  counter-reset: p;
 }

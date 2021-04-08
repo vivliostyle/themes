@@ -3,7 +3,7 @@
  * Page
  * ----------
 */
-@import "https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css";
+@import 'https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css';
 *,
 *::before,
 *::after {
@@ -20,31 +20,31 @@
   /* nonbre */
   @bottom-center {
     font-size: 9pt;
-    font-family: "Hiragino Mincho ProN", serif;
+    font-family: 'Hiragino Mincho ProN', serif;
   }
   @top-left {
-    font-family: "Hiragino Mincho ProN", serif;
+    font-family: 'Hiragino Mincho ProN', serif;
     font-size: 10pt;
-    content: "vivliostyle-theme-academic のサンプル";
+    content: 'vivliostyle-theme-academic のサンプル';
   }
   @top-right {
-    font-family: "Hiragino Mincho ProN", serif;
+    font-family: 'Hiragino Mincho ProN', serif;
     font-size: 10pt;
-    content: "";
+    content: '';
   }
   @bottom-left {
-    font-family: "Hiragino Mincho ProN", serif;
+    font-family: 'Hiragino Mincho ProN', serif;
     font-size: 10pt;
-    content: "";
+    content: '';
   }
   @bottom-right {
-    font-family: "Hiragino Mincho ProN", serif;
+    font-family: 'Hiragino Mincho ProN', serif;
     font-size: 10pt;
-    content: "";
+    content: '';
   }
 }
 html {
-  font-family: "Hiragino Mincho ProN", serif;
+  font-family: 'Hiragino Mincho ProN', serif;
   font-size: 10pt;
   color: #000000;
   line-height: 1.8;
@@ -96,7 +96,7 @@ h3 {
   /* increment counters of current level */
 }
 h3:before {
-  content: counter(section) "." counter(subsection);
+  content: counter(section) '.' counter(subsection);
 }
 
 h4 {
@@ -104,7 +104,7 @@ h4 {
   /* increment counters of current level */
 }
 h4:before {
-  content: counter(section) "." counter(subsection) "." counter(subsubsection);
+  content: counter(section) '.' counter(subsection) '.' counter(subsubsection);
 }
 
 /* ----------
@@ -117,22 +117,22 @@ table caption {
   counter-increment: table;
 }
 table caption:before {
-  content: "表 " counter(table);
+  content: '表 ' counter(table);
 }
 
-[data-ref=table]::after {
-  content: "表 " target-counter(attr(href), table);
+[data-ref='table']::after {
+  content: '表 ' target-counter(attr(href), table);
 }
 
 figure figcaption {
   counter-increment: figure;
 }
 figure figcaption:before {
-  content: "図 " counter(figure);
+  content: '図 ' counter(figure);
 }
 
-[data-ref=fig]::after {
-  content: "図 " target-counter(attr(href), figure);
+[data-ref='fig']::after {
+  content: '図 ' target-counter(attr(href), figure);
 }
 
 /* ----------
@@ -144,11 +144,11 @@ figure figcaption:before {
   counter-increment: ref;
 }
 .reference li:before {
-  content: "[" counter(ref) "]";
+  content: '[' counter(ref) ']';
 }
 
-[data-ref=ref]::after {
-  content: " [" target-counter(attr(href), ref) "]";
+[data-ref='ref']::after {
+  content: ' [' target-counter(attr(href), ref) ']';
 }
 
 /* ----------
@@ -160,11 +160,11 @@ figure figcaption:before {
   counter-increment: footnote;
 }
 .footnotes li:before {
-  content: "*" counter(footnote);
+  content: '*' counter(footnote);
 }
 
 .footnote-ref:before {
-  content: "*";
+  content: '*';
   /* content: "*" target-counter(attr(href), footnote); */
 }
 
@@ -177,7 +177,7 @@ figure figcaption:before {
   counter-increment: none;
 }
 .nocounter:before {
-  content: "";
+  content: '';
 }
 
 /* ----------
@@ -222,7 +222,7 @@ h4,
 h5,
 h6 {
   padding: 0;
-  font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+  font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
   font-weight: bold;
   break-after: avoid;
 }
@@ -252,7 +252,7 @@ table tr:last-of-type {
 }
 table th {
   text-align: center;
-  font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+  font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
 }
 table th,
 table td {
@@ -366,7 +366,7 @@ p {
 }
 
 strong {
-  font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+  font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
   font-weight: bold;
 }
 
@@ -412,7 +412,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
 
 pre {
@@ -445,8 +445,26 @@ pre {
  * Cover
  * ----------
 */
-/* cannot use named page */
+@page cover {
+  counter-increment: none;
+  @top-left {
+    content: '';
+  }
+  @top-right {
+    content: '';
+  }
+  @bottom-left {
+    content: '';
+  }
+  @bottom-right {
+    content: '';
+  }
+  @bottom-center {
+    content: '';
+  }
+}
 .cover {
+  page: cover;
   break-after: page;
   height: 100vh;
   display: flex;
@@ -455,28 +473,6 @@ pre {
 }
 .cover .author ul {
   text-align: center;
-}
-
-@page :nth(1) {
-  counter-increment: none;
-  @top-left {
-    content: "";
-  }
-  @top-right {
-    content: "";
-  }
-  @bottom-left {
-    content: "";
-  }
-  @bottom-right {
-    content: "";
-  }
-  @bottom-center {
-    content: "";
-  }
-}
-@page :nth(2) {
-  counter-reset: p;
 }
 
 /*# sourceMappingURL=theme_cover.css.map */
