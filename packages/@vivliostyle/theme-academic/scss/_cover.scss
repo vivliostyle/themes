@@ -26,3 +26,31 @@
     }
   }
 }
+
+@page :nth(1) {
+  counter-increment: none;
+
+  @top-left {
+    content: "";
+  }
+
+  @top-right {
+    content: "";
+  }
+
+  @bottom-left {
+    content: "";
+  }
+
+  @bottom-right {
+    content: "";
+  }
+
+  @bottom-center {
+    content: "";
+  }
+}
+
+@page :nth(2) {
+  counter-reset: p;
+}

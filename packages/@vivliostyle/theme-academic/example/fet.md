@@ -1,13 +1,11 @@
----
-lang: ja
----
-
 # FET の特性
 
-:::author
+<div class="author">
+
 - 2020/08/10
 - びぶりお　ゆたか
-:::
+
+</div>
 
 ## 目的
 FETの特性を調査するとともに、FETを用いた回路の作製に習熟することを目的とする。
@@ -22,7 +20,7 @@ FETの特性を調査するとともに、FETを用いた回路の作製に習�
 ### 電界効果トランジスタの動作原理
 p 型半導体と n 型半導体を接合することを pn 接合という。pn 接合すると、p 型半導体と n 型半導体の境界部分で電子と正孔が結合し、境界部分の n 側に＋、p 側に − の電気を帯びた領域ができる。この2つの領域は**空乏層**と呼ばれ、電流が流れない領域である。しかし、 p 側から n 側に電圧をかけると、空乏層で結合できなかった電子と正孔が接近し、一時的に空乏層が小さくなる。空乏層の厚さが十分に小さくなった時、電子と正孔がそれぞれ空乏層を越えられるようになるため、拡散電流が流れる。この p 側から n 側に電流が流れる方向を順方向という。逆方向に電圧をかけると空乏層は大きくなり、拡散電流は流れない。このように、pn 接合によって整流を行う素子をダイオードと呼ぶ。
 
-FET には3本の端子が出ており、それぞれゲート (G)、ドレイン (D)、ソース (S)と名前がついている。FET は n 型半導体と p 型半導体の組み合わせでできており、チャネルの物質的性質によって n チャネル型 FET と p チャネル型 FET に分類できる。n チャネル型 FET はドレインとソースの電極周辺が n 型半導体で、その間が p 型半導体である。p チャネル型 FET はドレインとソースの電極周辺が p 型半導体で、その間が n 型半導体である。<a href="#n_fet" data-ref="fig"></a> に n チャネル型 FET、<a href="#p_fet" data-ref="fig"></a> に p チャネル型 FET の構造を簡略化して示した。
+FET には 3 本の端子が出ており、それぞれゲート (G)、ドレイン (D)、ソース (S) と名前がついている。FET は n 型半導体と p 型半導体の組み合わせでできており、チャネルの物質的性質によって n チャネル型 FET と p チャネル型 FET に分類できる。n チャネル型 FET はドレインとソースの電極周辺が n 型半導体で、その間が p 型半導体である。p チャネル型 FET はドレインとソースの電極周辺が p 型半導体で、その間が n 型半導体である。<a href="#n_fet" data-ref="fig"></a> に n チャネル型 FET、<a href="#p_fet" data-ref="fig"></a> に p チャネル型 FET の構造を簡略化して示した。
 
 <!--
   【図表の参照】 https://github.com/vivliostyle/vfm/issues/11
@@ -31,15 +29,28 @@ FET には3本の端子が出ており、それぞれゲート (G)、ドレイ�
     - 参照先: <span id="id"></span>
 -->
 
-![n チャネル型 FET](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808190103.png) <span id="n_fet"></span>
-![p チャネル型 FET](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808190107.png) <span id="p_fet"></span>
+<!-- 図 -->
+![n チャネル型 FET](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808190103.png)
+
+<span id="n_fet"></span>
+<!-- ここまで図 -->
+
+<!-- 図 -->
+![p チャネル型 FET](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808190107.png)
+
+<span id="p_fet"></span>
+<!-- ここまで図 -->
 
 ## 実験方法
 
 ### 静特性実験
 <a href="#circuit_static" data-ref="fig"></a> に示す回路を作製した。
 
-![静特性実験の回路](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808194807.png) <span id="circuit_static"></span>
+<!-- 図 -->
+![静特性実験の回路](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808194807.png)
+
+<span id="circuit_static"></span>
+<!-- ここまで図 -->
 
 #### $V_{GS} - I_{D}$ 特性
 $V_{GS}$ を 0 V から 4.5 V まで変化させたときの $I_{D}$ の値を測定した。 $V_{DS}$ が 3 V、10 V の場合のそれぞれについて行った。
@@ -50,7 +61,11 @@ $V_{DS}$ を 0 V から 18 V まで変化させたときの $I_{D}$ の値を測
 ### 動特性実験
 <a href="#circuit_dynamic" data-ref="fig"></a> に示す回路を作製した。
 
-![動特性実験の回路](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808205247.png) <span id="circuit_dynamic"></span>
+<!-- 図 -->
+![動特性実験の回路](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808205247.png)
+
+<span id="circuit_dynamic"></span>
+<!-- ここまで図 -->
 
 #### 30 V を印加したときのゲート電圧 $V_{GS}$
 回路に入力電圧として 30 V 加えた時のソースに対するゲートの電圧 $V_{GS}$ を調べた。
@@ -67,6 +82,8 @@ $V_{DS}$ を 0 V から 18 V まで変化させたときの $I_{D}$ の値を測
   【表のキャプション】
     記法が未実装のため、HTMLで書いている
     表の記法は使用できる
+    表内の別のVFM記法は未対応
+    https://github.com/vivliostyle/vfm/issues/35
 -->
 
 <table>
@@ -125,42 +142,56 @@ $V_{GS}$ の値は 1.42 V であった。
 #### 電圧増幅率 $\mu$ の周波数特性
 実験結果を <a href="#f_mu" data-ref="fig"></a> に示す。周波数 $f$ が 10 Hz 以上 50 kHz 以下の時に電圧増幅率 $\mu$ は一定 (17〜18 V)となった。周波数 $f$ が 10 Hz 以下及び 50 kHz 以上の時に電圧増幅率 $\mu$ は低下した。
 
-![$V_{DS}$ を固定した時の $V_{GS}$ に対する $I_{D}$ の変化](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808211415.png) <span id="vgs_id"></span>
-![$V_{GS}$ を固定した時の $V_{DS}$ に対する $I_{D}$ の変化](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808211420.png) <span id="vds_id"></span>
-![入力信号 $f =$ 1 kHz に対する出力 $v_{D}$ の変化](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808211425.png) <span id="f_vd"></span>
-![電圧増幅率 $\mu$ の周波数特性](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808211430.png) <span id="f_mu"></span>
+<!-- 図 -->
+![$V_{DS}$ を固定した時の $V_{GS}$ に対する $I_{D}$ の変化](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808211415.png)
+
+<span id="vgs_id"></span>
+<!-- ここまで図 -->
+
+
+<!-- 図 -->
+![$V_{GS}$ を固定した時の $V_{DS}$ に対する $I_{D}$ の変化](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808211420.png)
+
+<span id="vds_id"></span>
+<!-- ここまで図 -->
+
+<!-- 図 -->
+![入力信号 $f =$ 1 kHz に対する出力 $v_{D}$ の変化](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808211425.png)
+
+<span id="f_vd"></span>
+<!-- ここまで図 -->
+
+<!-- 図 -->
+![電圧増幅率 $\mu$ の周波数特性](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808211430.png)
+
+<span id="f_mu"></span>
+<!-- ここまで図 -->
 
 ## 考察
 
 ### 電圧増幅率 $\mu$ の計算
+<!--
+  【ディスプレイ数式モード】
+    数式の次の行が新しい<p></p>になってしまうので、インライン数式を使っている（本当はすべて1つの<p></p>の中に収まってほしい）
+    https://github.com/vivliostyle/vfm/issues/37
+-->
+
 <a href="#vgs_id" data-ref="fig"></a> の $V_{GS} - I_{D}$ 特性（$V_{DS}$ = 3 V）のグラフを 0 V $\leq V_{GS} \leq$ 2.5 V の範囲で抜き出し、二次式
-$$
-  I_{D} = {0.549 (V_{GS} + 0.649)^2 - 3.389 (V_{GS} + 0.381) + 4.297 } \times 10^{-3}
-$$
+$$I_{D} = {0.549 (V_{GS} + 0.649)^2 - 3.389 (V_{GS} + 0.381) + 4.297 } \times 10^{-3}$$
 で近似したものを <a href="#vgs" data-ref="fig"></a> に示す。 $V_{GS} =$ 1.42 V での傾きは、
-$$
-  I_{D}^{'} (1.098 V_{GS} - 2.676) \times 10^{-3}
-$$
+$$I_{D}^{'} (1.098 V_{GS} - 2.676) \times 10^{-3}$$
 より
-$$
-  I_{D}^{'} (1.42) = -1.117 [\mathrm{mS}]
-$$
+$$I_{D}^{'} (1.42) = -1.117 [\mathrm{mS}]$$
 と求められる。これを相互コンダクタンス $g_m$ とする。
 
 次に <a href="#vds_id" data-ref="fig"></a> の $V_{DS} - I_{D}$ 特性（$V_{DS} =$ 0.8 V）のグラフにおいて、傾きが小さい 6.0 $\leq V_{DS} \leq$ 8.0 V の範囲で傾きを求める。
-$$
-  \frac{0.70 - 0.69}{8.0 - 6.0} \times 10^{-3} = 5.0 \times 10^{-6}
-$$
+$$\frac{0.70 - 0.69}{8.0 - 6.0} \times 10^{-3} = 5.0 \times 10^{-6}$$
 逆数をとり、
-$$
-  \frac{1}{5.0 \times 10^{-6}}  = 2.0 \times 10^{5} [Ω]
-$$
+$$\frac{1}{5.0 \times 10^{-6}}  = 2.0 \times 10^{5} [Ω]$$
 これをドレイン抵抗 $r_d$ とする。
 
 相互コンダクタンス $g_m$ とドレイン抵抗 $r_d$ から電圧増幅率 $\mu$ を求めると、
-$$
-  \mu = g_m \times r_d = -2.234 \times 10^2
-$$
+$$\mu = g_m \times r_d = -2.234 \times 10^2$$
 となる。
 
 ### 出力が歪みだす原因
@@ -168,16 +199,17 @@ $$
 
 ### 周波数帯域
 電圧増幅率の最大値の $2^{-0.5}$ 倍以上の周波数範囲（周波数帯域）を求める。<a href="#vds_id" data-ref="fig"></a> より $\mu$ の最大値は 17 なので
-$$
-  17 \times 2^{-0.5} = 12
-$$
+$$17 \times 2^{-0.5} = 12$$
 よって周波数帯域は
-$$
-  10 \mathrm{Hz} \leq f \leq 100 \mathrm{kHz}
-$$
+$$10 \mathrm{Hz} \leq f \leq 100 \mathrm{kHz}$$
 となる。
 
-![$V_{GS} - I_{D}$ 特性の近似](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808222501.png) <span id="vgs"></span>
+
+<!-- 図 -->
+![$V_{GS} - I_{D}$ 特性の近似](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808222501.png)
+
+<span id="vgs"></span>
+<!-- ここまで図 -->
 
 <!--
   【カウンタを使わない】

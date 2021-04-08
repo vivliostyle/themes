@@ -1,14 +1,13 @@
----
-lang: ja
----
-
 # マイコン制御 {.cover}
 
-:::author
+
+<div class="author">
+
 - 実験日 2020/08/06
 - 提出日 2020/08/10
 - びぶりお　ゆたか
-:::
+
+</div>
 
 # -{hidden}
 
@@ -72,7 +71,7 @@ LED ドットマトリクスの LED を点滅させるプログラムを作成�
 ### 課題 1 LED の点滅
 LED マトリクスの左下にある LED が点滅した。周期は 0.5 秒より若干長かった。
 
-:::frame
+<div class="frame">
 
 ```c
 #include<3048f.h>
@@ -100,12 +99,12 @@ int main(void)
 }
 ```
 
-:::
+</div>
 
 ### 課題 2 SW 入力
 プッシュ SW 押下時、LED マトリクスの右端 1 列を除いた全ての LED が点灯した。
 
-:::frame
+<div class="frame">
 
 ```c
 #include<3048f.h>
@@ -127,12 +126,12 @@ int main(void)
 }
 ```
 
-:::
+</div>
 
 ### 課題 3 サーボモータの制御
 プッシュ SW1 押下時に左方向、プッシュ SW2 押下時に右方向に回転した。同時押しで基点に戻った。
 
-:::frame
+<div class="frame">
 
 ```c
 #include<3048f.h>
@@ -168,4 +167,4 @@ int main(void)
 }
 ```
 
-:::
+</div>

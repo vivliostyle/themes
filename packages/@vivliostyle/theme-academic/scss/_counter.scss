@@ -4,21 +4,15 @@
  * p
 */
 
+@page :nth(1) {
+  counter-reset: p;
+}
+
 @page {
   counter-increment: p;
 
   @bottom-center {
     content: counter(p);
-  }
-}
-
-@page :first {
-  @if $cover {
-    counter-increment: none;
-
-    @bottom-center {
-      content: "";
-    }
   }
 }
 
