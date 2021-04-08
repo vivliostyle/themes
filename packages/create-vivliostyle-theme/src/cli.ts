@@ -8,7 +8,7 @@ const templateRoot = resolve(__dirname, '../templates');
 
 const caveat = ({ name }: AfterHookOptions) => `
 ${chalk.gray('1.')} cd ${chalk.bold.green(name)}
-${chalk.gray('2.')} edit ${chalk.bold.green('theme.css')}
+${chalk.gray('2.')} edit ${chalk.bold.green('scss/*.scss')}
 ${chalk.gray('3.')} publish to npm (${chalk.cyan('$ npm publish')})
 `;
 
@@ -22,5 +22,5 @@ create('create-vivliostyle-theme', {
     },
   },
   caveat,
-  handleName: (name) => `vivliostyle-theme-${name}`,
+  modifyName: (name) => `vivliostyle-theme-${name}`,
 });
