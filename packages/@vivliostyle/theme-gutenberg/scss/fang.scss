@@ -1,0 +1,46 @@
+@import 'theme_common';
+
+@font-face {
+  font-family: 'FPL Neu';
+  src: url('https://github.com/vivliostyle/vivliostyle_doc/blob/gh-pages/samples/gutenberg/fonts/fp9r8a.ttf?raw=true');
+}
+
+@font-face {
+  font-family: 'FPL Neu';
+  src: url('https://github.com/vivliostyle/vivliostyle_doc/blob/gh-pages/samples/gutenberg/fonts/fp9b8a.ttf?raw=true');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'FPL Neu';
+  src: url('https://github.com/vivliostyle/vivliostyle_doc/blob/gh-pages/samples/gutenberg/fonts/fp9ri8a.ttf?raw=true');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'FPL Neu';
+  src: url('https://github.com/vivliostyle/vivliostyle_doc/blob/gh-pages/samples/gutenberg/fonts/fp9bi8a.ttf?raw=true');
+  font-weight: bold;
+  font-style: italic;
+}
+
+html {
+  font-family: 'Palatino Linotype', 'FPL Neu', Palatino, Georgia, serif;
+}
+
+@page {
+  font-family: 'Palatino Linotype', 'FPL Neu', Palatino, Georgia, serif;
+  @top-center {
+    content: 'White Fang';
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-variant: small-caps;
+}
+
+h3 .chap-num::after {
+  content: '—';
+}
