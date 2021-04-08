@@ -3,16 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.2.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-academic@0.1.0...@vivliostyle/theme-academic@0.2.0) (2020-08-28)
+# [0.3.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-academic@0.2.0...@vivliostyle/theme-academic@0.3.0) (2021-04-08)
 
+### Bug Fixes
+
+- **@vivliostyle/theme-academic:** use \$\$ for display math ([1f50b5d](https://github.com/vivliostyle/themes/commit/1f50b5d9a4f5e4f1c5aacd9c52d0310ec3ed362f))
+- **@vivliostyle/theme-academic:** use named page ([5a79a46](https://github.com/vivliostyle/themes/commit/5a79a467290c7786742a2ab0071137715ad8d519))
 
 ### Features
 
-* include scss and example files to packages ([d9694af](https://github.com/vivliostyle/themes/commit/d9694afea56d95569f707c19106b42ba56c28964))
+- **@vivliostyle/theme-academic:** follow create-vivliostyle-theme v0.3.0 ([62fbf4d](https://github.com/vivliostyle/themes/commit/62fbf4d264f3a5ff28088a0da7e4bdac21c28e08))
 
+# [0.2.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-academic@0.1.0...@vivliostyle/theme-academic@0.2.0) (2020-08-28)
 
+### Features
 
-
+- include scss and example files to packages ([d9694af](https://github.com/vivliostyle/themes/commit/d9694afea56d95569f707c19106b42ba56c28964))
 
 ## 0.1.0 (2020-08-13)
 
