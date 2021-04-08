@@ -48,26 +48,6 @@
   }
 }
 
-@page :first {
-  @if $cover {
-    @top-left {
-      content: "";
-    }
-
-    @top-right {
-      content: "";
-    }
-
-    @bottom-left {
-      content: "";
-    }
-
-    @bottom-right {
-      content: "";
-    }
-  }
-}
-
 html {
   font-family: $body-font-family;
   font-size: $body-font-size;

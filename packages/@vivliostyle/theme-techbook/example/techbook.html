@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>Brief History of JavaScript</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../theme.css" />
+  </head>
+  <body>
+    <section id="brief-history-of-javascript">
+      <h1>Brief History of JavaScript</h1>
+      <p>
+        from Wikipedia
+        <a href="https://en.wikipedia.org/wiki/JavaScript"
+          >https://en.wikipedia.org/wiki/JavaScript</a
+        >
+      </p>
+      <nav id="toc" role="doc-toc"></nav>
+      <section id="javascript">
+        <h2>JavaScript</h2>
+        <p>
+          <strong>JavaScript</strong> (<code>/ˈdʒɑːvəˌskrɪpt/</code>),often
+          abbreviated as JS, is a programming language that conforms to the
+          ECMAScript specification.
+        </p>
+        <p>
+          JavaScript is <em>high-level</em>, often just-in-time compiled, and
+          multi-paradigm. It has curly-bracket syntax, dynamic typing,
+          prototype-based object-orientation, and first-class functions.
+        </p>
+        <section id="weakly-typed">
+          <h3>Weakly typed</h3>
+          <p>
+            JavaScript is weakly typed, which means certain types are implicitly
+            cast depending on the operation used.
+          </p>
+          <ul>
+            <li>
+              The binary <code>+</code> operator casts both operands to a string
+              unless both operands are numbers. This is because the addition
+              operator doubles as a concatenation operator
+            </li>
+            <li>
+              The binary <code>-</code> operator always casts both operands to a
+              number
+            </li>
+            <li>
+              Both unary operators (+, -) always cast the operand to a number
+            </li>
+          </ul>
+          <section
+            id="javascript-includes-a-number-of-quirks-that-have-been-subject-to-criticism"
+          >
+            <h4>
+              JavaScript includes a number of quirks that have been subject to
+              criticism
+            </h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>left operand</th>
+                  <th>operator</th>
+                  <th>right operand</th>
+                  <th>result</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>[](empty array)</td>
+                  <td>+</td>
+                  <td>[](empty array)</td>
+                  <td>""(empty string)</td>
+                </tr>
+                <tr>
+                  <td>[] (empty array)</td>
+                  <td>+</td>
+                  <td>{} (empty object)</td>
+                  <td>"[object Object]" (string)</td>
+                </tr>
+                <tr>
+                  <td>false (boolean)</td>
+                  <td>+</td>
+                  <td>[] (empty array)</td>
+                  <td>"false" (string)</td>
+                </tr>
+                <tr>
+                  <td>"123"(string)</td>
+                  <td>+</td>
+                  <td>1 (number)</td>
+                  <td>"1231" (string)</td>
+                </tr>
+                <tr>
+                  <td>"123" (string)</td>
+                  <td>-</td>
+                  <td>1 (number)</td>
+                  <td>122 (number)</td>
+                </tr>
+              </tbody>
+            </table>
+            <pre
+              class="language-javascript"
+            ><code class="language-javascript"><span class="token punctuation">(</span><span class="token string">'b'</span> <span class="token operator">+</span> <span class="token string">'a'</span> <span class="token operator">+</span> <span class="token operator">+</span><span class="token string">'a'</span> <span class="token operator">+</span> <span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "banana"</span></code></pre>
+          </section>
+        </section>
+      </section>
+    </section>
+  </body>
+</html>

@@ -43,22 +43,6 @@
     content: "";
   }
 }
-
-@page :first {
-  @top-left {
-    content: "";
-  }
-  @top-right {
-    content: "";
-  }
-  @bottom-left {
-    content: "";
-  }
-  @bottom-right {
-    content: "";
-  }
-}
-
 html {
   font-family: "Hiragino Mincho ProN", serif;
   font-size: 10pt;
@@ -73,20 +57,15 @@ html {
  * ----------
  * p
 */
+@page :nth(1) {
+  counter-reset: p;
+}
 @page {
   counter-increment: p;
   @bottom-center {
     content: counter(p);
   }
 }
-
-@page :first {
-  counter-increment: none;
-  @bottom-center {
-    content: "";
-  }
-}
-
 /* ----------
  * Counter - Headings
  * ----------
@@ -106,7 +85,6 @@ h2 {
   counter-increment: section;
   /* increment counters of current level */
 }
-
 h2:before {
   content: counter(section);
 }
@@ -117,7 +95,6 @@ h3 {
   counter-increment: subsection;
   /* increment counters of current level */
 }
-
 h3:before {
   content: counter(section) "." counter(subsection);
 }
@@ -126,7 +103,6 @@ h4 {
   counter-increment: subsubsection;
   /* increment counters of current level */
 }
-
 h4:before {
   content: counter(section) "." counter(subsection) "." counter(subsubsection);
 }
@@ -140,24 +116,22 @@ h4:before {
 table caption {
   counter-increment: table;
 }
-
 table caption:before {
   content: "表 " counter(table);
 }
 
-[data-ref="table"]::after {
+[data-ref=table]::after {
   content: "表 " target-counter(attr(href), table);
 }
 
 figure figcaption {
   counter-increment: figure;
 }
-
 figure figcaption:before {
   content: "図 " counter(figure);
 }
 
-[data-ref="fig"]::after {
+[data-ref=fig]::after {
   content: "図 " target-counter(attr(href), figure);
 }
 
@@ -169,12 +143,11 @@ figure figcaption:before {
 .reference li {
   counter-increment: ref;
 }
-
 .reference li:before {
   content: "[" counter(ref) "]";
 }
 
-[data-ref="ref"]::after {
+[data-ref=ref]::after {
   content: " [" target-counter(attr(href), ref) "]";
 }
 
@@ -186,7 +159,6 @@ figure figcaption:before {
 .footnotes li {
   counter-increment: footnote;
 }
-
 .footnotes li:before {
   content: "*" counter(footnote);
 }
@@ -204,7 +176,6 @@ figure figcaption:before {
 .nocounter {
   counter-increment: none;
 }
-
 .nocounter:before {
   content: "";
 }
@@ -224,7 +195,6 @@ h2 {
   margin: 8pt auto 4pt;
   font-size: 14pt;
 }
-
 h2:before {
   font-size: 14pt;
 }
@@ -233,7 +203,6 @@ h3 {
   margin: 4pt auto 2pt;
   font-size: 12pt;
 }
-
 h3:before {
   font-size: 12pt;
 }
@@ -242,7 +211,6 @@ h4 {
   margin: 4pt auto 2pt;
   font-size: 10pt;
 }
-
 h4:before {
   font-size: 10pt;
 }
@@ -273,29 +241,23 @@ h4::before {
 table {
   border-collapse: collapse;
 }
-
 table thead {
   border-bottom: 1px solid;
 }
-
 table tr:first-of-type {
   border-top: 1px solid;
 }
-
 table tr:last-of-type {
   border-bottom: 1px solid;
 }
-
 table th {
   text-align: center;
   font-family: "Hiragino Kaku Gothic ProN", sans-serif;
 }
-
 table th,
 table td {
   padding-right: 5pt;
 }
-
 table th:first-child,
 table td:first-child {
   padding-left: 5pt;
@@ -304,7 +266,6 @@ table td:first-child {
 figure {
   text-align: center;
 }
-
 figure img {
   max-width: 10cm;
   max-height: 8cm;
@@ -314,7 +275,6 @@ table,
 figure {
   margin: 10pt auto;
 }
-
 table caption:before,
 table figcaption:before,
 figure caption:before,
@@ -343,13 +303,11 @@ ul.nostyle {
 .reference {
   padding-left: 0;
 }
-
 .reference li {
   display: flex;
   list-style: none;
   word-break: break-all;
 }
-
 .reference li:before {
   display: marker;
   margin-right: 5pt;
@@ -365,16 +323,13 @@ ul.nostyle {
   border-top: 1px solid #000000;
   margin: 5pt auto;
 }
-
 .footnotes ol {
   padding: 0;
   list-style: none;
 }
-
 .footnotes li {
   display: flex;
 }
-
 .footnotes li:before {
   display: marker;
   margin-right: 5pt;
@@ -435,27 +390,20 @@ a:visited {
 }
 
 /* ----------
- * Cover
- * ----------
-*/
-/* cannot use named page */
-.cover {
-  break-after: page;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.cover .author ul {
-  text-align: center;
-}
-
-/* ----------
  * Math
  * ----------
 */
 /* use katex*/
+br + .math-inline {
+  display: block;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.math-inline + br {
+  display: none;
+}
+
 /* ----------
  * Code
  * ----------
@@ -493,4 +441,4 @@ pre {
   font-weight: bold;
 }
 
-/*# sourceMappingURL=theme.css.map */
+/*# sourceMappingURL=theme_common.css.map */

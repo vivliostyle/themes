@@ -1,13 +1,12 @@
 ---
 title: Slideshow
-theme: '@vivliostyle/theme-slide'
 ---
 
-# Brief History of JavaScript {@cover}
+# Brief History of JavaScript {.cover}
 
 ## from Wikipedia <https://en.wikipedia.org/wiki/JavaScript>
 
-# ToC {@toc hidden}
+# ToC {.toc hidden}
 
 1. History
 2. Trademark
@@ -40,7 +39,7 @@ JavaScript is weakly typed, which means certain types are implicitly cast depend
 
 #### JavaScript includes a number of quirks that have been subject to criticism
 
-:::center
+<div class="center">
 
 | left operand     | operator | right operand     | result                     |
 | ---------------- | -------- | ----------------- | -------------------------- |
@@ -50,7 +49,7 @@ JavaScript is weakly typed, which means certain types are implicitly cast depend
 | "123"(string)    | +        | 1 (number)        | "1231" (string)            |
 | "123" (string)   | -        | 1 (number)        | 122 (number)               |
 
-:::
+</div>
 
 # -{hidden}
 

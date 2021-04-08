@@ -1,5 +1,3 @@
-@import './variables.scss';
-
 :root {
   font-family: $font-family;
   font-weight: 400;
@@ -51,10 +49,10 @@ pre {
   box-decoration-break: clone;
 }
 
-ul, ol {
+ul,
+ol {
   padding-inline-start: 1.5em;
 }
-
 
 figure {
   margin: 1.5rem auto;
@@ -64,7 +62,7 @@ figure {
     margin: 0.5rem auto;
   }
   figcaption {
-    margin: .5rem auto;
+    margin: 0.5rem auto;
     width: 90%;
     font-size: 90%;
     break-inside: avoid;
@@ -84,8 +82,9 @@ table {
   margin: 1.5rem auto;
   border-color: currentColor;
   border-collapse: collapse;
-  th, td {
-    padding: .25rem 1rem .25rem 0;
+  th,
+  td {
+    padding: 0.25rem 1rem 0.25rem 0;
     &:first-child {
       padding-left: 1rem;
     }
@@ -98,8 +97,8 @@ table {
   }
   tr {
     // border-bottom: .5px solid
-    $narrow-border-width: .4px;
-    box-shadow: 0 $narrow-border-width+.3px 0 -.3px currentColor;
+    $narrow-border-width: 0.4px;
+    box-shadow: 0 $narrow-border-width + 0.3px 0 -0.3px currentColor;
   }
   tr:last-child {
     border-bottom: 1px solid;
@@ -107,7 +106,7 @@ table {
 }
 
 blockquote {
-  margin: 1.5rem .5rem;
+  margin: 1.5rem 0.5rem;
   background-color: $color_silver;
   padding: 0.5em 1em;
   border-radius: 0.2rem;
