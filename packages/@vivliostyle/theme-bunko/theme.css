@@ -11,9 +11,9 @@ html {
 }
 
 @page {
-  size: 148mm 210mm;
-  width: 360pt;
-  height: 468pt;
+  size: 105mm 148mm;
+  width: 234pt;
+  height: 360pt;
   margin: auto;
   font-size: 8.5pt;
   font-family: "游明朝", "YuMincho", serif;
