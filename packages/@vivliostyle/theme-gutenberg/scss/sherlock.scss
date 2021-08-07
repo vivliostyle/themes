@@ -37,6 +37,42 @@
   }
 }
 
+// https://vivliostyle.github.io/vivliostyle_doc/ja/events/vivliostyle-css-paged-media-20210410/slide.html#use-css-paged-media
+@page :first {
+  counter-reset: part;
+}
+
+@page part:nth(1) {
+  counter-increment: part;
+}
+
+.part section.level2 {
+  page: part;
+
+  h2 {
+    counter-reset: chapter;
+    &::before {
+      content: 'Adventure ' counter(part, upper-roman) '. ';
+      margin-right: 1ch;
+    }
+  }
+
+  h3 {
+    counter-increment: chapter;
+    &::before {
+      content: counter(chapter, upper-roman) '.';
+    }
+  }
+}
+
+.part.part-adventure section.level2 {
+  h2 {
+    &::before {
+      content: counter(part, upper-roman) '. ';
+    }
+  }
+}
+
 header {
   font-family: 'Quattrocento', baskerville, 'Libre Baskerville', Georgia, serif;
   font-size-adjust: none;
@@ -115,11 +151,6 @@ h3 {
   font-size: 1em;
 }
 
-.chap-num {
-  display: inline-block;
-  margin-right: 1ch;
-}
-
 p:first-of-type::first-letter {
   font-weight: normal;
 }
@@ -141,7 +172,7 @@ p:first-of-type::first-letter {
   text-align: center;
   white-space: pre-wrap;
   break-inside: avoid;
-  line-height: inherit;
+  line-height: normal;
 }
 
 blockquote {

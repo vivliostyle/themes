@@ -1,9 +1,8 @@
-@charset "UTF-8";
 /*
   Original version:
   https://github.com/vivliostyle/vivliostyle_doc/blob/gh-pages/samples/gutenberg/gutenberg.css
 */
-@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:500");
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:500');
 html {
   max-width: 90ch;
   margin: auto;
@@ -84,7 +83,7 @@ nav li a::before {
   margin-left: 1px;
   margin-right: 1px;
   border-bottom: solid 1px lightgray;
-  content: "";
+  content: '';
   order: 1;
   flex: auto;
 }
@@ -102,7 +101,7 @@ nav li a::after {
   }
   nav li::before {
     counter-increment: chap;
-    content: counter(chap, upper-roman) ".";
+    content: counter(chap, upper-roman) '.';
     float: left;
     width: 3em;
     margin-left: -3em;
@@ -164,33 +163,24 @@ p:first-of-type::first-letter {
   padding-right: 1px;
 }
 
-main > section:last-child::after {
-  break-before: avoid;
-  break-inside: avoid;
-  margin: 2em 0;
-  text-align: center;
-  font-size: 2em;
-  font-weight: bold;
-  font-variant: small-caps;
-  content: "\a✢";
-  white-space: pre;
-  display: block;
-}
-
 pre,
 .pre {
-  font-family: "Source Code Pro", monaco, monospace;
+  font-family: 'Source Code Pro', monaco, monospace;
   font-size-adjust: none;
   font-weight: 500;
   font-size: 0.75em;
-  margin-left: 2em;
-  white-space: pre-line;
+  margin: 1em auto 1em 2em;
+  white-space: pre-wrap;
   line-height: 1.45;
   hyphens: none;
 }
+pre .language-text,
+.pre .language-text {
+  font-family: 'Source Code Pro', monaco, monospace;
+}
 
 /** Legal Sections **/
-.pre.legal {
+.legal pre {
   font-size: xx-small;
   margin: 0 -1em;
 }

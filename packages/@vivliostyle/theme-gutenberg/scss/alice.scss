@@ -29,7 +29,26 @@
   }
 }
 
-.chap-num,
+// https://vivliostyle.github.io/vivliostyle_doc/ja/events/vivliostyle-css-paged-media-20210410/slide.html#use-css-paged-media
+@page :first {
+  counter-reset: chapter;
+}
+
+@page story:nth(1) {
+  counter-increment: chapter;
+}
+
+.story section {
+  page: story;
+
+  h2 {
+    &::before {
+      content: 'Chapter ' counter(chapter, upper-roman) '.';
+      display: block;
+    }
+  }
+}
+
 h1,
 h2 {
   font-feature-settings: 'smcp';

@@ -35,12 +35,36 @@ html {
   }
 }
 
+// https://vivliostyle.github.io/vivliostyle_doc/ja/events/vivliostyle-css-paged-media-20210410/slide.html#use-css-paged-media
+@page :first {
+  counter-reset: part;
+}
+
+@page part:nth(1) {
+  counter-increment: part;
+}
+
+.part section.level2 {
+  page: part;
+
+  h2 {
+    counter-reset: chapter;
+    &::before {
+      content: 'Part ' counter(part, upper-roman);
+      display: block;
+    }
+  }
+
+  h3 {
+    counter-increment: chapter;
+    &::before {
+      content: 'Chapter ' counter(chapter, upper-roman) '—';
+    }
+  }
+}
+
 h1,
 h2,
 h3 {
   font-variant: small-caps;
-}
-
-h3 .chap-num::after {
-  content: '—';
 }

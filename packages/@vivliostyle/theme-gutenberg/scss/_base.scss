@@ -58,19 +58,6 @@ p {
   }
 }
 
-main > section:last-child::after {
-  break-before: avoid;
-  break-inside: avoid;
-  margin: 2em 0;
-  text-align: center;
-  font-size: 2em;
-  font-weight: bold;
-  font-variant: small-caps;
-  content: '\a\002722';
-  white-space: pre;
-  display: block;
-}
-
 // TODO: https://github.com/vivliostyle/vfm/issues/77
 pre,
 .pre {
@@ -78,9 +65,12 @@ pre,
   font-size-adjust: none;
   font-weight: 500;
   font-size: 0.75em;
-  margin-left: 2em;
-  white-space: pre-line;
-  // white-space: pre-wrap;
+  margin: 1em auto 1em 2em;
+  white-space: pre-wrap;
   line-height: $body-line-height;
   hyphens: none;
+
+  .language-text {
+    font-family: $pre-font-family;
+  }
 }
