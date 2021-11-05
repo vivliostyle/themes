@@ -1,5 +1,7 @@
 @charset "UTF-8";
-
+/*
+ * For all media (print, screen)
+ */
 html {
   writing-mode: vertical-rl;
   orphans: 1;
@@ -19,7 +21,6 @@ html {
   font-size: 8.5pt;
   font-family: '游明朝', 'YuMincho', serif;
 }
-
 @page :left {
   @top-left {
     content: counter(page) '　' env(doc-title);
@@ -28,7 +29,6 @@ html {
     writing-mode: horizontal-tb;
   }
 }
-
 @page :right {
   @top-right {
     content: counter(page);
@@ -37,7 +37,6 @@ html {
     writing-mode: horizontal-tb;
   }
 }
-
 html {
   font-family: '游明朝', 'YuMincho', serif;
   text-align: justify;
@@ -103,3 +102,5 @@ em.sesame_dot {
   font-weight: bold;
   letter-spacing: 0.125em;
 }
+
+/*# sourceMappingURL=theme_common.css.map */

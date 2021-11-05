@@ -1,5 +1,9 @@
 @charset "UTF-8";
 /*
+ * For browser viewing:
+ * load this style in Web publications (format: webpub)
+ */
+/*
  * For all media (print, screen)
  */
 /* ----------
@@ -487,4 +491,18 @@ pre {
   font-weight: bold;
 }
 
-/*# sourceMappingURL=theme_common.css.map */
+body {
+  max-width: 800px;
+  margin: 2rem auto 2rem;
+}
+
+.footnote {
+  vertical-align: super;
+  background-color: aliceblue;
+  color: gray;
+}
+.footnote a {
+  word-break: break-all;
+}
+
+/*# sourceMappingURL=theme_screen.css.map */

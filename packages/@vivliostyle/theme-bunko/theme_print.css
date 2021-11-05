@@ -1,4 +1,11 @@
 @charset "UTF-8";
+/*
+ * For PDF publications or Vivliostyle Viewer:
+ * load this style in PDF publicatoins (format: pdf)
+ */
+/*
+ * For all media (print, screen)
+ */
 html {
   writing-mode: vertical-rl;
   orphans: 1;
@@ -16,11 +23,11 @@ html {
   height: 468pt;
   margin: auto;
   font-size: 8.5pt;
-  font-family: "游明朝", "YuMincho", serif;
+  font-family: '游明朝', 'YuMincho', serif;
 }
 @page :left {
   @top-left {
-    content: counter(page) "　" env(doc-title);
+    content: counter(page) '　' env(doc-title);
     margin-left: 7pt;
     margin-top: 8.5mm;
     writing-mode: horizontal-tb;
@@ -35,7 +42,7 @@ html {
   }
 }
 html {
-  font-family: "游明朝", "YuMincho", serif;
+  font-family: '游明朝', 'YuMincho', serif;
   text-align: justify;
   line-height: 2rem;
 }
@@ -70,7 +77,7 @@ p.q {
 }
 
 /* 奥付 */
-[role=doc-colophon] {
+[role='doc-colophon'] {
   font-size: 0.824rem;
   line-height: 1.5rem;
   margin-block-start: 6rem;
@@ -100,4 +107,4 @@ em.sesame_dot {
   letter-spacing: 0.125em;
 }
 
-/*# sourceMappingURL=theme.css.map */
+/*# sourceMappingURL=theme_print.css.map */

@@ -1,14 +1,13 @@
 module.exports = {
   language: 'ja',
   size: 'A4',
+  theme: 'theme_print.css',
   entry: [
     {
       path: 'example/fet.md',
-      theme: 'theme_common.css',
     },
     {
       path: 'example/microcomputer.md',
-      theme: 'theme_cover.css',
     },
   ],
   output: [

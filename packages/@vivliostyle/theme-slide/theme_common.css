@@ -1,0 +1,289 @@
+@charset "UTF-8";
+/*
+ * For all media (print, screen)
+ */
+/* you can import partial SCSS files */
+/* @import '_valiables'; */
+/* @import '_toc'; */
+/* ... */
+html {
+  font-family: 'Noto', 'YuGothic', 'Yu Gothic', 'Meiryo', sans-serif;
+  font-feature-settings: 'palt' on;
+  font-size: 150%;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+@page {
+  size: 210mm 148mm;
+  margin: 12mm 0 0;
+  padding: 0 0 18mm;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  font-size: 11pt;
+  line-height: 1.2;
+  @top-right-corner {
+    margin-top: 7mm;
+    margin-bottom: 1mm;
+    margin-left: -10mm;
+    content: counter(page);
+  }
+  @top-right {
+    margin-top: 7mm;
+    margin-bottom: 1mm;
+    margin-right: 15mm;
+    content: env(pub-title);
+  }
+}
+@page :first {
+  margin: 0;
+  padding: 0;
+  @top-right-corner {
+    content: none;
+  }
+  @top-right {
+    content: none;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 表紙 */
+.cover {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #212057;
+  color: #fff;
+}
+.cover h1 {
+  font-weight: 600;
+  font-size: 280%;
+  text-align: center;
+}
+.cover h2 {
+  font-size: 125%;
+  font-weight: 500;
+  text-align: center;
+}
+.cover a {
+  color: inherit;
+}
+
+/* 目次 */
+.toc {
+  page-break-before: always;
+  padding: 0 15mm;
+}
+.toc h2 {
+  color: #06a;
+  font-size: 120%;
+  font-weight: 600;
+  margin: 0;
+}
+.toc > ol {
+  font-size: 83%;
+  margin: 0;
+}
+.toc > ol > li {
+  padding-top: 0.125em;
+  padding-bottom: 0.125em;
+}
+.toc li a {
+  text-decoration: none;
+}
+.toc ol li a::after {
+  content: '　' target-counter(attr(href url), page);
+}
+.toc > ol > li > ol {
+  font-size: 83%;
+}
+
+/* Section */
+body > section {
+  padding: 15mm;
+  page-break-before: always;
+  height: 100vh;
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body > section > h2 {
+  color: #e84e39;
+  font-size: 250%;
+  font-weight: 600;
+  padding-top: 30mm;
+  page-break-after: avoid;
+  page-break-before: always;
+  page-break-inside: avoid;
+}
+
+/* Subsections */
+h3 {
+  color: #e84e39;
+  font-size: 150%;
+  font-weight: 600;
+  page-break-after: avoid;
+  page-break-before: always;
+  page-break-inside: avoid;
+}
+
+h4 {
+  color: #e84e39;
+  font-size: 133%;
+  font-weight: 600;
+  text-align: center;
+  page-break-after: avoid;
+  page-break-before: always;
+  page-break-inside: avoid;
+}
+
+p {
+  margin-top: 0.67em;
+  page-break-inside: avoid;
+}
+
+table p {
+  margin-top: 0;
+  text-align: left;
+}
+
+table {
+  margin-top: 0.67em;
+  max-width: 100%;
+  border: 1px solid gray;
+  border-collapse: collapse;
+  font-size: 0.83rem;
+}
+
+td,
+th {
+  border: 1px solid gray;
+  padding: 2px 4px;
+}
+
+thead {
+  background: #f6f6f6;
+}
+
+code,
+pre {
+  font-family: 'Source Code Pro', 'Andale Mono', 'Courier', 'Courier New',
+    'Yu Gothic', 'YuGothic', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN',
+    'Meiryo', monospace;
+  font-weight: bold;
+}
+
+pre {
+  background-color: #f6f6f6;
+  font-size: 83%;
+  margin-top: 0.5em;
+  padding: 0.5em 0.5em;
+}
+
+code {
+  font-size: 83%;
+  background-color: #f6f6f6;
+  padding: 0.125em;
+}
+
+ol,
+ul {
+  margin-top: 0.67em;
+  padding-left: 1em;
+}
+
+li ol,
+li ul {
+  margin-top: 0;
+}
+
+figure {
+  margin-top: 0.67em;
+  page-break-inside: avoid;
+  text-align: center;
+}
+
+figcaption {
+  font-size: 83%;
+  text-align: center;
+}
+
+blockquote {
+  line-height: 1.33;
+  margin-left: 1em;
+  margin-top: 0.67em;
+}
+
+blockquote::before {
+  color: #d6a;
+  content: '❝';
+  float: left;
+  font-size: 200%;
+  margin-left: -0.83em;
+  margin-top: -0.25em;
+}
+
+a[href^='#'] {
+  color: forestgreen;
+  text-decoration: none;
+}
+
+a[href^='#']::after {
+  content: '(p.' target-counter(attr(href url), page) ')';
+  font-size: 90%;
+}
+
+strong,
+b,
+th,
+dt {
+  font-weight: bold;
+}
+
+#table-projects th {
+  white-space: nowrap;
+}
+
+#table-projects td:last-child {
+  text-align: center;
+}
+
+#table-projects td:first-child {
+  font-weight: 600;
+}
+
+p.project-desc {
+  margin-top: 0.3em;
+  font-size: 83%;
+}
+
+p.project-desc + ul {
+  margin-top: 0.25em;
+}
+
+p.issues-note {
+  margin: 0;
+  font-size: 90%;
+}
+
+ul + p.issues-note {
+  margin-top: 0.25em;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* and more... 🖋 */
+
+/*# sourceMappingURL=theme_common.css.map */

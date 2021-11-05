@@ -43,7 +43,7 @@
     "theme": {
       "name": "Techbook",
       "category": "misc",
-      "style": "./theme.css",
+      "style": "./theme_common.css",
       "topics": [
         "Techbook"
       ]

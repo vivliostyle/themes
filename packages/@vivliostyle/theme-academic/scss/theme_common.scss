@@ -1,10 +1,21 @@
-@import "_variables";
+/*
+ * For all media (print, screen)
+ */
 
-@import "_page";
-@import "_counter";
+/* you can import partial SCSS files */
+/* @import '_valiables'; */
+/* @import '_toc'; */
+/* ... */
 
-@import "_base";
-@import "_title";
-@import "_math";
-@import "_code";
-@import "_frame";
+@import '_variables';
+
+@import '_page';
+@import '_counter';
+
+@import '_base';
+@import '_title';
+@import '_math';
+@import '_code';
+@import '_frame';
+
+/* and more... 🖋 */

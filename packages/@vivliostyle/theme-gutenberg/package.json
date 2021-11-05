@@ -1,6 +1,6 @@
 {
-  "name": "vivliostyle-theme-gutenberg",
-  "description": "book theme for latin font",
+  "name": "@vivliostyle/theme-gutenberg",
+  "description": "Book theme for latin font",
   "version": "0.0.1",
   "author": "Vivliostyle <mail@vivliostyle.org>",
   "scripts": {
@@ -32,9 +32,9 @@
   "license": "CC0-1.0",
   "vivliostyle": {
     "theme": {
-      "name": "Vivliostyle Theme Gutenberg",
+      "name": "Gutenberg",
       "author": "Vivliostyle <mail@vivliostyle.org>",
-      "style": "./theme.css",
+      "style": "./theme_common.css",
       "category": "novel",
       "topics": []
     }

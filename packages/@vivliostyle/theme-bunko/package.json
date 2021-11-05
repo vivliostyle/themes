@@ -42,7 +42,7 @@
   "vivliostyle": {
     "theme": {
       "name": "Bunko",
-      "style": "./theme.css",
+      "style": "./theme_common.css",
       "category": "novel",
       "topics": [
         "小説",

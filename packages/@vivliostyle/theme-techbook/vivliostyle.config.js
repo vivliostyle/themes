@@ -1,6 +1,6 @@
 module.exports = {
   language: 'ja',
-  theme: 'theme.css',
+  theme: 'theme_print.css',
   entry: ['example/techbook.md'],
   output: [
     'book.pdf',

@@ -43,7 +43,7 @@
     "theme": {
       "name": "Slide",
       "category": "misc",
-      "style": "./theme.css",
+      "style": "./theme_common.css",
       "topics": [
         "Slide"
       ]
