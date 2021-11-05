@@ -1,0 +1,20 @@
+/*
+ * For PDF publications or Vivliostyle Viewer:
+ * load this style in PDF publicatoins (format: pdf)
+ */
+
+/* common styles */
+@import 'theme_common';
+
+@page {
+  /* show bleeds */
+  marks: crop cross;
+  bleed: 3mm;
+
+  /* if you open the publication on Vivliostyle Viewer, this message will be shown */
+  @top-left {
+    content: 'theme_print';
+  }
+}
+
+/* and more... 🖋 */

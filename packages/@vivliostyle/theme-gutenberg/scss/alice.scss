@@ -1,0 +1,75 @@
+@import 'theme_common';
+
+@font-face {
+  font-family: 'Crimson Text';
+  src: url('https://github.com/vivliostyle/vivliostyle_doc/blob/gh-pages/samples/gutenberg/fonts/Crimson-Roman.ttf?raw=true');
+}
+
+@font-face {
+  font-family: 'Crimson Text';
+  src: url('https://github.com/vivliostyle/vivliostyle_doc/blob/gh-pages/samples/gutenberg/fonts/Crimson-Semibold.ttf?raw=true');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Crimson Text';
+  src: url('https://github.com/vivliostyle/vivliostyle_doc/blob/gh-pages/samples/gutenberg/fonts/Crimson-Italic.ttf?raw=true');
+  font-style: italic;
+}
+
+:root {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-feature-settings: 'onum', 'swsh';
+}
+
+@page {
+  font-family: 'Crimson Text', Georgia, serif;
+  @top-center {
+    content: 'Alice’s Adventures in Wonderland';
+  }
+}
+
+// https://vivliostyle.github.io/vivliostyle_doc/ja/events/vivliostyle-css-paged-media-20210410/slide.html#use-css-paged-media
+@page :first {
+  counter-reset: chapter;
+}
+
+@page story:nth(1) {
+  counter-increment: chapter;
+}
+
+.story section {
+  page: story;
+
+  h2 {
+    &::before {
+      content: 'Chapter ' counter(chapter, upper-roman) '.';
+      display: block;
+    }
+  }
+}
+
+h1,
+h2 {
+  font-feature-settings: 'smcp';
+  font-variant: small-caps;
+}
+
+header {
+  font-size: 1.3em;
+}
+
+h2 {
+  font-weight: normal;
+}
+
+.chap-num::after {
+  content: '\a';
+  white-space: pre-wrap;
+}
+
+.stars {
+  margin-left: 0;
+  text-align: center;
+  break-inside: avoid;
+}
