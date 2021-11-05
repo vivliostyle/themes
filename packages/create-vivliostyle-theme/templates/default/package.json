@@ -4,8 +4,9 @@
   "version": "0.1.0",
   "author": "{{contact}}",
   "scripts": {
-    "build": "run-p build:scss",
+    "build": "run-p build:scss build:vivliostyle",
     "build:scss": "sass scss:.",
+    "build:vivliostyle": "vivliostyle build",
     "dev": "run-p preview watch:scss",
     "preview": "vivliostyle preview",
     "validate": "vivliostyle-theme-scripts validate",
