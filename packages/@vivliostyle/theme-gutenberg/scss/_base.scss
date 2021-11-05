@@ -1,0 +1,76 @@
+/** Titles **/
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 2em 0;
+  hyphens: none;
+  break-after: avoid;
+}
+
+h1,
+h2 {
+  margin: 2em 0;
+}
+
+h3,
+h4 {
+  margin: 1em 0;
+}
+
+h2 {
+  break-before: right;
+}
+
+h3 {
+  break-before: page;
+}
+
+h2 + section h3 {
+  break-before: auto;
+}
+
+.author {
+  hyphens: none;
+}
+
+/** Body text **/
+
+p {
+  text-indent: 1.5em;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  hyphens: auto;
+  line-height: $body-line-height;
+  orphans: 2;
+  widows: 2;
+
+  &:first-of-type {
+    text-indent: 0;
+
+    &::first-letter {
+      font-weight: bold;
+      font-size: 1.8em;
+      line-height: 1;
+      padding-right: 1px;
+    }
+  }
+}
+
+// TODO: https://github.com/vivliostyle/vfm/issues/77
+pre,
+.pre {
+  font-family: $pre-font-family;
+  font-size-adjust: none;
+  font-weight: 500;
+  font-size: 0.75em;
+  margin: 1em auto 1em 2em;
+  white-space: pre-wrap;
+  line-height: $body-line-height;
+  hyphens: none;
+
+  .language-text {
+    font-family: $pre-font-family;
+  }
+}
