@@ -1,0 +1,62 @@
+html {
+  max-width: 90ch;
+  margin: auto;
+  font-family: Georgia, serif;
+}
+
+body {
+  margin: 0 2em;
+}
+
+@media (max-width: 400px) {
+  body {
+    margin: 0 1em;
+  }
+}
+
+@page {
+  font-size: $body-font-size;
+  font-family: $body-font-family;
+  margin: 4rem 10%;
+
+  @top-center {
+    color: gray;
+    font-variant: small-caps;
+  }
+}
+
+@page :right {
+  @bottom-right {
+    content: counter(page);
+  }
+}
+
+@page :left {
+  @bottom-left {
+    content: counter(page);
+  }
+}
+
+@page :first {
+  @bottom-left {
+    content: normal;
+  }
+  @bottom-right {
+    content: normal;
+  }
+  @top-center {
+    content: normal;
+  }
+}
+
+@page :blank {
+  @bottom-left {
+    content: normal;
+  }
+  @bottom-right {
+    content: normal;
+  }
+  @top-center {
+    content: normal;
+  }
+}

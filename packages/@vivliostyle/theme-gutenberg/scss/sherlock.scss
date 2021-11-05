@@ -1,0 +1,203 @@
+@import 'theme_common';
+
+@font-face {
+  font-family: 'Quattrocento';
+  src: url('https://github.com/vivliostyle/vivliostyle_doc/blob/gh-pages/samples/gutenberg/fonts/Quattrocento-Regular.ttf?raw=true');
+}
+
+@font-face {
+  font-family: 'Libre Baskerville';
+  src: url('https://github.com/vivliostyle/vivliostyle_doc/blob/gh-pages/samples/gutenberg/fonts/LibreBaskerville-Regular.ttf?raw=true');
+}
+
+@font-face {
+  font-family: 'Libre Baskerville';
+  src: url('https://github.com/vivliostyle/vivliostyle_doc/blob/gh-pages/samples/gutenberg/fonts/LibreBaskerville-Bold.ttf?raw=true');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Libre Baskerville';
+  src: url('https://github.com/vivliostyle/vivliostyle_doc/blob/gh-pages/samples/gutenberg/fonts/LibreBaskerville-Italic.ttf?raw=true');
+  font-style: italic;
+}
+
+:root {
+  font-family: baskerville, 'Libre Baskerville', Georgia, serif;
+  font-size-adjust: 0.42;
+}
+
+@page {
+  font-size: small;
+  font-family: 'Quattrocento', baskerville, 'Libre Baskerville', Georgia, serif;
+  letter-spacing: 0.1em;
+
+  @top-center {
+    content: 'The Adventures of Sherlock Holmes';
+  }
+}
+
+// https://vivliostyle.github.io/vivliostyle_doc/ja/events/vivliostyle-css-paged-media-20210410/slide.html#use-css-paged-media
+@page :first {
+  counter-reset: part;
+}
+
+@page part:nth(1) {
+  counter-increment: part;
+}
+
+.part section.level2 {
+  page: part;
+
+  h2 {
+    counter-reset: chapter;
+    &::before {
+      content: 'Adventure ' counter(part, upper-roman) '. ';
+      margin-right: 1ch;
+    }
+  }
+
+  h3 {
+    counter-increment: chapter;
+    &::before {
+      content: counter(chapter, upper-roman) '.';
+    }
+  }
+}
+
+.part.part-adventure section.level2 {
+  h2 {
+    &::before {
+      content: counter(part, upper-roman) '. ';
+    }
+  }
+}
+
+header {
+  font-family: 'Quattrocento', baskerville, 'Libre Baskerville', Georgia, serif;
+  font-size-adjust: none;
+  font-size: 1.2em;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #333;
+  margin: -1rem;
+
+  > * {
+    font-weight: normal;
+    margin: 1.7em 0;
+    break-inside: avoid;
+  }
+
+  h1 {
+    break-after: auto;
+    span {
+      display: inline-block;
+    }
+  }
+
+  div {
+    break-before: auto;
+    font-size: 1.2em;
+  }
+
+  .author {
+    break-before: avoid;
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 400px) {
+  header {
+    font-size: 1.1em;
+    letter-spacing: 0.2em;
+
+    > * {
+      margin: 1.5em 0;
+    }
+
+    h1 {
+      font-size: 1.8em;
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  header {
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    > * {
+      margin: 1em 0;
+    }
+  }
+}
+
+h2,
+h3 {
+  font-family: 'Quattrocento', baskerville, 'Libre Baskerville', Georgia, serif;
+  letter-spacing: 0.05em;
+  font-size-adjust: none;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 2em 0;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 1.2em;
+}
+
+h3 {
+  font-size: 1em;
+}
+
+p:first-of-type::first-letter {
+  font-weight: normal;
+}
+
+.sign {
+  break-before: avoid;
+  margin: 1em 1em 2em auto;
+}
+
+.to {
+  break-after: avoid;
+  margin: 2em 1em -1em auto;
+}
+
+.sign,
+.to {
+  display: table;
+  width: max-content;
+  text-align: center;
+  white-space: pre-wrap;
+  break-inside: avoid;
+  line-height: normal;
+}
+
+blockquote {
+  margin: 2em 1em 1em 2em;
+
+  p:first-of-type {
+    &::first-letter {
+      font-size: 1em;
+      padding-right: 0;
+      font-weight: normal;
+    }
+
+    &:before {
+      content: '“';
+      font-weight: bold;
+      float: left;
+      font-size: 3em;
+      margin-left: -1.5ch;
+      line-height: 1;
+    }
+  }
+}
+
+@media (max-width: 27em) {
+  .adventure {
+    display: none;
+  }
+}

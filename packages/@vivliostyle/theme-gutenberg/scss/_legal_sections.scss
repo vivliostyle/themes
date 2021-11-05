@@ -1,0 +1,19 @@
+/** Legal Sections **/
+
+.legal pre {
+  font-size: xx-small;
+  margin: 0 -1em;
+}
+
+.copyright {
+  break-before: right;
+  break-after: page;
+}
+
+.copyright .legal {
+  padding-top: 10rem;
+}
+
+body > footer {
+  break-before: left;
+}
