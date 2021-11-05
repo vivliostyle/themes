@@ -1,0 +1,26 @@
+/*
+ * For browser viewing:
+ * load this style in Web publications (format: webpub)
+ */
+
+/* common styles */
+@import 'theme_common';
+
+/* for wide screen */
+body {
+  max-width: 800px;
+  margin: 2rem auto 2rem;
+}
+
+/* highlight footnote */
+.footnote {
+  vertical-align: super;
+  background-color: aliceblue;
+  color: gray;
+
+  a {
+    word-break: break-all;
+  }
+}
+
+/* and more... 🖋 */

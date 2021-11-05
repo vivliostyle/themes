@@ -56,7 +56,6 @@ h4::before {
   margin-right: 5pt;
 }
 
-
 /* ----------
  * Base - Table, Figure
  * ----------
@@ -119,7 +118,6 @@ figure {
   color: inherit;
 }
 
-
 /* ----------
  * Base - List
  * ----------
@@ -135,11 +133,20 @@ ul.nostyle {
   list-style: none;
 }
 
+// @counter-style is not implemented yet.
+// https://github.com/vivliostyle/vivliostyle.js/issues/731
+// @counter-style reference-counter {
+// system: extends decimal;
+// prefix: "[";
+// suffix: "]";
+// }
+
 .reference {
   padding-left: 0;
 
   li {
     display: flex;
+    // list-style: reference-counter;
     list-style: none;
     word-break: break-all;
 
@@ -150,7 +157,6 @@ ul.nostyle {
     }
   }
 }
-
 
 /* ----------
  * Base - Footnotes
@@ -179,7 +185,6 @@ ul.nostyle {
   }
 }
 
-
 /* ----------
  * Base - Nocounter
  * ----------
@@ -190,7 +195,6 @@ ul.nostyle {
     margin-right: 0;
   }
 }
-
 
 /* ----------
  * Base - Text

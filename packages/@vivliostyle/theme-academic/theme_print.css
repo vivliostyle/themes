@@ -1,9 +1,15 @@
 @charset "UTF-8";
+/*
+ * For PDF publications or Vivliostyle Viewer:
+ * load this style in PDF publicatoins (format: pdf)
+ */
+/*
+ * For all media (print, screen)
+ */
 /* ----------
  * Page
  * ----------
 */
-@import 'https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css';
 *,
 *::before,
 *::after {
@@ -14,7 +20,6 @@
 }
 
 @page {
-  /* JIS A4 */
   size: 210mm 297mm;
   margin: 25mm 20mm 25mm 20mm;
   /* nonbre */
@@ -117,10 +122,16 @@ table caption {
   counter-increment: table;
 }
 table caption:before {
+  content: 'Table ' counter(table);
+}
+:root:lang(ja) table caption:before {
   content: '表 ' counter(table);
 }
 
 [data-ref='table']::after {
+  content: 'Table ' target-counter(attr(href), table);
+}
+:root:lang(ja) [data-ref='table']::after {
   content: '表 ' target-counter(attr(href), table);
 }
 
@@ -128,10 +139,16 @@ figure figcaption {
   counter-increment: figure;
 }
 figure figcaption:before {
+  content: 'Figure ' counter(figure);
+}
+:root:lang(ja) figure figcaption:before {
   content: '図 ' counter(figure);
 }
 
 [data-ref='fig']::after {
+  content: 'Figure ' target-counter(attr(href), figure);
+}
+:root:lang(ja) [data-ref='fig']::after {
   content: '図 ' target-counter(attr(href), figure);
 }
 
@@ -390,10 +407,43 @@ a:visited {
 }
 
 /* ----------
+ * Cover
+ * ----------
+*/
+@page cover {
+  counter-increment: none;
+  @top-left {
+    content: '';
+  }
+  @top-right {
+    content: '';
+  }
+  @bottom-left {
+    content: '';
+  }
+  @bottom-right {
+    content: '';
+  }
+  @bottom-center {
+    content: '';
+  }
+}
+.cover {
+  page: cover;
+  break-after: page;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.cover .author ul {
+  text-align: center;
+}
+
+/* ----------
  * Math
  * ----------
 */
-/* use katex*/
 br + .math-inline {
   display: block;
   text-align: center;
@@ -441,38 +491,4 @@ pre {
   font-weight: bold;
 }
 
-/* ----------
- * Cover
- * ----------
-*/
-@page cover {
-  counter-increment: none;
-  @top-left {
-    content: '';
-  }
-  @top-right {
-    content: '';
-  }
-  @bottom-left {
-    content: '';
-  }
-  @bottom-right {
-    content: '';
-  }
-  @bottom-center {
-    content: '';
-  }
-}
-.cover {
-  page: cover;
-  break-after: page;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.cover .author ul {
-  text-align: center;
-}
-
-/*# sourceMappingURL=theme_cover.css.map */
+/*# sourceMappingURL=theme_print.css.map */

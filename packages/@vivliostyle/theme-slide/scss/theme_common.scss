@@ -1,4 +1,12 @@
-@charset "UTF-8";
+/*
+ * For all media (print, screen)
+ */
+
+/* you can import partial SCSS files */
+/* @import '_valiables'; */
+/* @import '_toc'; */
+/* ... */
+
 html {
   font-family: 'Noto', 'YuGothic', 'Yu Gothic', 'Meiryo', sans-serif;
   font-feature-settings: 'palt' on;
@@ -16,12 +24,14 @@ html {
   background-size: contain;
   font-size: 11pt;
   line-height: 1.2;
+
   @top-right-corner {
     margin-top: 7mm;
     margin-bottom: 1mm;
     margin-left: -10mm;
     content: counter(page);
   }
+
   @top-right {
     margin-top: 7mm;
     margin-bottom: 1mm;
@@ -29,16 +39,20 @@ html {
     content: env(pub-title);
   }
 }
+
 @page :first {
   margin: 0;
   padding: 0;
+
   @top-right-corner {
     content: none;
   }
+
   @top-right {
     content: none;
   }
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -46,6 +60,7 @@ html {
 }
 
 /* 表紙 */
+
 .cover {
   height: 100vh;
   display: flex;
@@ -53,51 +68,62 @@ html {
   justify-content: center;
   background-color: #212057;
   color: #fff;
-}
-.cover h1 {
-  font-weight: 600;
-  font-size: 280%;
-  text-align: center;
-}
-.cover h2 {
-  font-size: 125%;
-  font-weight: 500;
-  text-align: center;
-}
-.cover a {
-  color: inherit;
+
+  h1 {
+    font-weight: 600;
+    font-size: 280%;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 125%;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  a {
+    color: inherit;
+  }
 }
 
 /* 目次 */
+
 .toc {
   page-break-before: always;
   padding: 0 15mm;
-}
-.toc h2 {
-  color: #06a;
-  font-size: 120%;
-  font-weight: 600;
-  margin: 0;
-}
-.toc > ol {
-  font-size: 83%;
-  margin: 0;
-}
-.toc > ol > li {
-  padding-top: 0.125em;
-  padding-bottom: 0.125em;
-}
-.toc li a {
-  text-decoration: none;
-}
-.toc ol li a::after {
-  content: '　' target-counter(attr(href url), page);
-}
-.toc > ol > li > ol {
-  font-size: 83%;
+
+  h2 {
+    color: #06a;
+    font-size: 120%;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  > ol {
+    font-size: 83%;
+    margin: 0;
+
+    > li {
+      padding-top: 0.125em;
+      padding-bottom: 0.125em;
+    }
+  }
+
+  li a {
+    text-decoration: none;
+  }
+
+  ol li a::after {
+    content: '　' target-counter(attr(href url), page);
+  }
+
+  > ol > li > ol {
+    font-size: 83%;
+  }
 }
 
 /* Section */
+
 body > section {
   padding: 15mm;
   page-break-before: always;
@@ -107,18 +133,20 @@ body > section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-body > section > h2 {
-  color: #e84e39;
-  font-size: 250%;
-  font-weight: 600;
-  padding-top: 30mm;
-  page-break-after: avoid;
-  page-break-before: always;
-  page-break-inside: avoid;
+
+  > h2 {
+    color: #e84e39;
+    font-size: 250%;
+    font-weight: 600;
+    padding-top: 30mm;
+    page-break-after: avoid;
+    page-break-before: always;
+    page-break-inside: avoid;
+  }
 }
 
 /* Subsections */
+
 h3 {
   color: #e84e39;
   font-size: 150%;
@@ -217,7 +245,7 @@ blockquote {
 
 blockquote::before {
   color: #d6a;
-  content: '❝';
+  content: '\275d';
   float: left;
   font-size: 200%;
   margin-left: -0.83em;
@@ -244,29 +272,23 @@ dt {
 #table-projects th {
   white-space: nowrap;
 }
-
 #table-projects td:last-child {
   text-align: center;
 }
-
 #table-projects td:first-child {
   font-weight: 600;
 }
-
 p.project-desc {
   margin-top: 0.3em;
   font-size: 83%;
 }
-
 p.project-desc + ul {
   margin-top: 0.25em;
 }
-
 p.issues-note {
   margin: 0;
   font-size: 90%;
 }
-
 ul + p.issues-note {
   margin-top: 0.25em;
 }
@@ -277,4 +299,4 @@ ul + p.issues-note {
   align-items: center;
 }
 
-/*# sourceMappingURL=theme.css.map */
+/* and more... 🖋 */

@@ -7,16 +7,12 @@
 /* @import '_toc'; */
 /* ... */
 
-/*
-  Original version:
-  https://github.com/vivliostyle/vivliostyle_doc/blob/gh-pages/samples/gutenberg/gutenberg.css
-*/
-
 @import '_variables';
-@import '_font';
-@import '_page';
-@import '_toc';
+@import '_lib-prism-okaidia';
+@import '_lib-override';
 @import '_base';
-@import '_legal_sections';
+@import '_counter';
+@import '_media';
+@import '_toc';
 
 /* and more... 🖋 */

@@ -1,0 +1,15 @@
+/*
+ * For browser viewing:
+ * load this style in Web publications (format: webpub)
+ */
+
+/* common styles */
+@import 'theme_common';
+
+/* for wide screen */
+body {
+  max-height: 800px;
+  margin: 2rem;
+}
+
+/* and more... 🖋 */

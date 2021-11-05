@@ -1,4 +1,11 @@
 @charset "UTF-8";
+/*
+ * For all media (print, screen)
+ */
+/* you can import partial SCSS files */
+/* @import '_valiables'; */
+/* @import '_toc'; */
+/* ... */
 /**
  * okaidia theme for JavaScript, CSS and HTML
  * Loosely based on Monokai textmate theme by http://www.monokai.nl/
@@ -561,4 +568,6 @@ nav[role='doc-toc'] li a::after {
   order: 2;
 }
 
-/*# sourceMappingURL=theme.css.map */
+/* and more... 🖋 */
+
+/*# sourceMappingURL=theme_common.css.map */

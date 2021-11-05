@@ -13,9 +13,9 @@
 }
 
 @page {
-  /* JIS A4 */
   size: $page-width $page-height;
-  margin: $page-margin-top $page-margin-right $page-margin-bottom $page-margin-left;
+  margin: $page-margin-top $page-margin-right $page-margin-bottom
+    $page-margin-left;
 
   /* nonbre */
   @bottom-center {
