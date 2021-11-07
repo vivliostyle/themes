@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/vivliostyle/themes/compare/create-vivliostyle-theme@0.3.1...create-vivliostyle-theme@0.4.0) (2021-11-07)
+
+### Features
+
+- **create-vivliostle-theme:** include .gitignore in the default template ([2157e8c](https://github.com/vivliostyle/themes/commit/2157e8caf7b3679b9e55a4a6372314f10cb00a5f))
+- **create-vivliostyle-theme:** build pdf and webpub by default ([03afcd9](https://github.com/vivliostyle/themes/commit/03afcd9035b0729a5b35685770e1626cbbc7724c))
+- **create-vivliostyle-theme:** update default theme example based on VFM document ([efb6aae](https://github.com/vivliostyle/themes/commit/efb6aae6019eee618cfcfc15d709a86c18219959))
+- use the latest version of cli when creating a new theme ([e4e40a0](https://github.com/vivliostyle/themes/commit/e4e40a0abb6064fe60689341d560a883cc519332))
+
 ## [0.3.1](https://github.com/vivliostyle/themes/compare/create-vivliostyle-theme@0.3.0...create-vivliostyle-theme@0.3.1) (2021-06-19)
 
 **Note:** Version bump only for package create-vivliostyle-theme
