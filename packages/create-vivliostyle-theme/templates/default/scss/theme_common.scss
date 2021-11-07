@@ -10,15 +10,25 @@
 html {
   orphans: 1;
   widows: 1;
+  font-family: sans-serif;
+  font-size: 10pt;
+}
+
+title {
+  // Named strings
+  // https://vivliostyle.github.io/vivliostyle_doc/ja/events/vivliostyle-css-paged-media-20210410/slide.html#named-strings
+  string-set: doc-title content();
 }
 
 @page {
   size: A5;
 }
 
-title {
-  string-set: doc-title content();
-}
+// Left/right page layout
+// https://vivliostyle.github.io/vivliostyle_doc/ja/vivliostyle-user-group-vol1/shinyu/index.html#%E5%B7%A6%E5%8F%B3%E3%83%9A%E3%83%BC%E3%82%B8%E3%81%AE%E3%83%AC%E3%82%A4%E3%82%A2%E3%82%A6%E3%83%88-page-left-%E3%81%A8-page-right
+
+// Page header/footer (page mergin box)
+// https://vivliostyle.github.io/vivliostyle_doc/ja/vivliostyle-user-group-vol1/shinyu/index.html#%E3%83%9A%E3%83%BC%E3%82%B8%E3%83%98%E3%83%83%E3%83%80%E3%83%BC%EF%BC%8F%E3%83%95%E3%83%83%E3%82%BF%E3%83%BC%EF%BC%88%E3%83%9A%E3%83%BC%E3%82%B8%E3%83%9E%E3%83%BC%E3%82%B8%E3%83%B3%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9%EF%BC%89
 
 @page :left {
   @top-left {
@@ -32,19 +42,15 @@ title {
   }
 }
 
-html {
-  font-family: sans-serif;
-  line-height: 1.666rem;
-}
-
-h1 {
-  break-after: avoid;
-}
-
-h2 {
-  font-size: 1.18rem;
-  text-indent: 3rem;
-  break-after: avoid;
-}
+@import '_variables';
+@import '_vfm_code';
+@import '_vfm_footnotes';
+@import '_vfm_frontmatter';
+@import '_vfm_hard_new_line';
+@import '_vfm_image';
+@import '_vfm_math_equation';
+@import '_vfm_raw_html';
+@import '_vfm_ruby';
+@import '_vfm_sectionization';
 
 /* and more... 🖋 */

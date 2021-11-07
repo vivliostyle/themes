@@ -1,0 +1,13 @@
+p {
+  margin: 0;
+  text-align: justify;
+  text-indent: 3em;
+
+  &:first-of-type {
+    text-indent: 0;
+  }
+
+  :root:lang(ja) & {
+    text-indent: 1em;
+  }
+}
