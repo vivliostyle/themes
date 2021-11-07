@@ -1,0 +1,24 @@
+img {
+  max-width: 100%;
+}
+
+figure {
+  img {
+  }
+
+  figcaption {
+    text-align: center;
+
+    // counter
+    counter-increment: figure;
+
+    &:before {
+      margin-right: 1rem;
+      content: 'Figure' counter(figure) '.';
+
+      :root:lang(ja) & {
+        content: '図' counter(figure) '.';
+      }
+    }
+  }
+}

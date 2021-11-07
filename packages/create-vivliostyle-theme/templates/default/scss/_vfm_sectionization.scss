@@ -1,0 +1,62 @@
+body > section {
+  margin: 10px auto;
+}
+
+html {
+  // counter
+  counter-reset: section subsection figure;
+}
+
+section > {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    padding: 0;
+    font-weight: bold;
+    break-after: avoid;
+  }
+
+  h1 {
+    margin: 10pt auto 5pt;
+    font-size: 14pt;
+    line-height: 1.5;
+
+    // counter
+    counter-increment: section;
+    counter-reset: subsection;
+
+    &:before {
+      margin-right: 1rem;
+      content: counter(section) '.';
+    }
+  }
+
+  h2 {
+    margin: 8pt auto 4pt;
+    font-size: 12pt;
+
+    // counter
+    counter-increment: subsection;
+
+    &:before {
+      margin-right: 1rem;
+      content: counter(section) '.' counter(subsection) '.';
+    }
+  }
+}
+
+section.title {
+  color: $color--red;
+}
+
+blockquote > h1 {
+  font-size: inherit;
+}
+
+.level1 {
+}
+.level2 {
+}
