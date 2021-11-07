@@ -8,8 +8,11 @@
 - [Find themes](#find-themes)
 - [Create a theme](#create-a-theme)
 - [Official Themes](#official-themes)
+  - [Techbook](#techbook)
   - [Bunko](#bunko)
   - [Slide](#slide)
+  - [Academic](#academic)
+  - [Gutenberg](#gutenberg)
 - [Tools](#tools)
   - [create-vivliostyle-theme](#create-vivliostyle-theme)
   - [vivliostyle-theme-scripts](#vivliostyle-theme-scripts)
@@ -31,6 +34,22 @@
 
 ## Official Themes
 
+### [Techbook](packages/@vivliostyle/theme-techbook)
+
+Techbook (技術同人誌) theme
+
+[![](https://img.shields.io/npm/v/@vivliostyle/theme-techbook.svg)](https://npmjs.com/package/@vivliostyle/theme-techbook)
+[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-techbook)](https://npmjs.com/package/@vivliostyle/theme-techbook)
+![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-techbook)
+
+```bash
+npm install --save @vivliostyle/theme-techbook
+# or
+yarn add @vivliostyle/theme-techbook
+```
+
+> original author: `Vivliostyle <mail@vivliostyle.org>`
+
 ### [Bunko](packages/@vivliostyle/theme-bunko)
 
 文庫用のテーマ
@@ -45,7 +64,7 @@ npm install --save @vivliostyle/theme-bunko
 yarn add @vivliostyle/theme-bunko
 ```
 
-> original author: `Shinyu Murakami <murakami@vivliostyle.org>`
+> original author: `Vivliostyle <mail@vivliostyle.org>`
 
 ### [Slide](packages/@vivliostyle/theme-slide)
 
@@ -61,7 +80,39 @@ npm install --save @vivliostyle/theme-slide
 yarn add @vivliostyle/theme-slide
 ```
 
-> original author: `Shinyu Murakami <murakami@vivliostyle.org>`
+> original author: `Vivliostyle <mail@vivliostyle.org>`
+
+### [Academic](packages/@vivliostyle/theme-academic)
+
+Academic theme
+
+[![](https://img.shields.io/npm/v/@vivliostyle/theme-academic.svg)](https://npmjs.com/package/@vivliostyle/theme-academic)
+[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-academic)](https://npmjs.com/package/@vivliostyle/theme-academic)
+![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-academic)
+
+```bash
+npm install --save @vivliostyle/theme-academic
+# or
+yarn add @vivliostyle/theme-academic
+```
+
+> original author: `Vivliostyle <mail@vivliostyle.org>`
+
+### [Gutenberg](packages/@vivliostyle/theme-gutenberg)
+
+Book theme for latin font
+
+[![](https://img.shields.io/npm/v/@vivliostyle/theme-gutenberg.svg)](https://npmjs.com/package/@vivliostyle/theme-gutenberg)
+[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-gutenberg)](https://npmjs.com/package/@vivliostyle/theme-gutenberg)
+![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-gutenberg)
+
+```bash
+npm install --save @vivliostyle/theme-gutenberg
+# or
+yarn add @vivliostyle/theme-gutenberg
+```
+
+> original author: `Vivliostyle <mail@vivliostyle.org>`
 
 ## Tools
 
