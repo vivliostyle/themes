@@ -1,4 +1,13 @@
 /*
+ * For all media (print, screen)
+ */
+
+/* you can import partial SCSS files */
+/* @import '_valiables'; */
+/* @import '_toc'; */
+/* ... */
+
+/*
   Original version:
   https://github.com/vivliostyle/vivliostyle_doc/blob/gh-pages/samples/gutenberg/gutenberg.css
 */
@@ -9,3 +18,5 @@
 @import '_toc';
 @import '_base';
 @import '_legal_sections';
+
+/* and more... 🖋 */

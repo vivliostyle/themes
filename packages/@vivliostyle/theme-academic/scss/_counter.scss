@@ -16,7 +16,6 @@
   }
 }
 
-
 /* ----------
  * Counter - Headings
  * ----------
@@ -44,7 +43,7 @@ h3 {
   counter-increment: subsection; /* increment counters of current level */
 
   &:before {
-    content: counter(section) "." counter(subsection);
+    content: counter(section) '.' counter(subsection);
   }
 }
 
@@ -52,10 +51,9 @@ h4 {
   counter-increment: subsubsection; /* increment counters of current level */
 
   &:before {
-    content: counter(section) "." counter(subsection) "." counter(subsubsection);
+    content: counter(section) '.' counter(subsection) '.' counter(subsubsection);
   }
 }
-
 
 /* ----------
  * Counter - Captions
@@ -68,26 +66,41 @@ table caption {
   counter-increment: table;
 
   &:before {
-    content: "表 " counter(table);
+    content: 'Table ' counter(table);
+
+    :root:lang(ja) & {
+      content: '表 ' counter(table);
+    }
   }
 }
 
-[data-ref="table"]::after {
-  content: "表 " target-counter(attr(href), table);
+[data-ref='table']::after {
+  content: 'Table ' target-counter(attr(href), table);
+
+  :root:lang(ja) & {
+    content: '表 ' target-counter(attr(href), table);
+  }
 }
 
 figure figcaption {
   counter-increment: figure;
 
   &:before {
-    content: "図 " counter(figure);
+    content: 'Figure ' counter(figure);
+
+    :root:lang(ja) & {
+      content: '図 ' counter(figure);
+    }
   }
 }
 
-[data-ref="fig"]::after {
-  content: "図 " target-counter(attr(href), figure);
-}
+[data-ref='fig']::after {
+  content: 'Figure ' target-counter(attr(href), figure);
 
+  :root:lang(ja) & {
+    content: '図 ' target-counter(attr(href), figure);
+  }
+}
 
 /* ----------
  * Counter - References
@@ -99,14 +112,13 @@ figure figcaption {
   counter-increment: ref;
 
   &:before {
-    content: "[" counter(ref) "]";
+    content: '[' counter(ref) ']';
   }
 }
 
-[data-ref="ref"]::after {
-  content: " [" target-counter(attr(href), ref) "]";
+[data-ref='ref']::after {
+  content: ' [' target-counter(attr(href), ref) ']';
 }
-
 
 /* ----------
  * Counter - Footnotes
@@ -118,17 +130,16 @@ figure figcaption {
   counter-increment: footnote;
 
   &:before {
-    content: "*" counter(footnote);
+    content: '*' counter(footnote);
   }
 }
 
 .footnote-ref {
   &:before {
-    content: "*";
+    content: '*';
     /* content: "*" target-counter(attr(href), footnote); */
   }
 }
-
 
 /* ----------
  * Nocounter
@@ -140,6 +151,6 @@ figure figcaption {
   counter-increment: none;
 
   &:before {
-    content: "";
+    content: '';
   }
 }

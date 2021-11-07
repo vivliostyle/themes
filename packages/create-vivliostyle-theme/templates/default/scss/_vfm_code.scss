@@ -1,0 +1,20 @@
+// Syntax highlighting
+// https://prismjs.com
+@import 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css';
+
+code {
+  background-color: $color--gray-light;
+  padding: 0 3pt;
+}
+
+figure[class^='language-'] {
+  margin: 0.5em 0;
+
+  figcaption {
+    background-color: $color--gray;
+  }
+
+  pre {
+    margin: 0pt;
+  }
+}
