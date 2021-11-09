@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Vivliostyle Themes</title>
+    <link rel="stylesheet" href="https://unpkg.com/docute@4/dist/docute.css" />
+  </head>
+  <body>
+    <div id="docute"></div>
+    <script src="https://unpkg.com/docute@4/dist/docute.js"></script>
+    <script>
+      new Docute({
+        title: 'Vivliostyle Themes',
+        target: '#docute',
+        plugins: [],
+        nav: [
+          {
+            title: 'Home',
+            link: '/',
+          },
+          {
+            title: 'Vivliostyle',
+            link: 'https://vivliostyle.org',
+          },
+          {
+            title: 'GitHub',
+            link: 'https://github.com/vivliostyle/themes',
+          },
+        ],
+        sidebar: [
+          {
+            title: 'Development',
+            link: '/development',
+          },
+          {
+            title: 'Themeの運用',
+            link: '/development',
+          },
+          {
+            title: 'Community',
+            children: [
+              {
+                title: 'GitHub',
+                link: 'https://github.com/vivliostyle',
+              },
+              {
+                title: 'Twitter',
+                link: 'https://twitter.com/vivliostyle',
+              },
+              {
+                title: 'Slack',
+                link:
+                  'https://join.slack.com/t/vivliostyle/shared_invite/enQtNzc1NjE4ODk1ODI5LWQxZjM4YTZjMmQ0ZTUyNmUyOGZlMzIwZjQ5OWYwYjkyZDZmOTIwNGMwOWU5NDc0NjE5OTAyMmVhZTRhYTAyNWQ',
+              },
+            ],
+          },
+        ],
+        overrides: {
+          '/': {
+            language: 'English',
+          },
+          '/ja/': {
+            language: '日本語',
+            sidebar: [
+              {
+                title: '開発ガイドライン',
+                children: [
+                  {
+                    title: '仕様',
+                    link: '/ja/spec',
+                  },
+                  {
+                    title: '開発チュートリアル',
+                    link: '/ja/tutorial',
+                  },
+                ],
+              },
+              {
+                title: '運用ガイドライン',
+                children: [
+                  {
+                    title: '公式Theme',
+                    link: '/ja/official',
+                  },
+                  {
+                    title: 'Themeギャラリー',
+                    link: '/ja/gallery',
+                  },
+                ],
+              },
+              {
+                title: 'Community',
+                children: [
+                  {
+                    title: 'GitHub',
+                    link: 'https://github.com/vivliostyle',
+                  },
+                  {
+                    title: 'Twitter',
+                    link: 'https://twitter.com/vivliostyle',
+                  },
+                  {
+                    title: 'Slack',
+                    link:
+                      'https://join.slack.com/t/vivliostyle/shared_invite/enQtNzc1NjE4ODk1ODI5LWQxZjM4YTZjMmQ0ZTUyNmUyOGZlMzIwZjQ5OWYwYjkyZDZmOTIwNGMwOWU5NDc0NjE5OTAyMmVhZTRhYTAyNWQ',
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
