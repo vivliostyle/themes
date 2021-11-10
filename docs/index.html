@@ -16,6 +16,7 @@
       new Docute({
         title: 'Vivliostyle Themes',
         target: '#docute',
+        highlight: ['bash', 'markdown', 'js', 'json', 'scss'],
         plugins: [],
         nav: [
           {
@@ -67,15 +68,39 @@
             language: '日本語',
             sidebar: [
               {
-                title: '開発ガイドライン',
+                title: '仕様',
+                link: '/ja/spec',
+              },
+              {
+                title: '開発チュートリアル',
                 children: [
                   {
-                    title: '仕様',
-                    link: '/ja/spec',
+                    title: 'はじめに',
+                    link: '/ja/tutorial/step0.md',
                   },
                   {
-                    title: '開発チュートリアル',
-                    link: '/ja/tutorial',
+                    title: 'Step 1. 雛形の生成',
+                    link: '/ja/tutorial/step1.md',
+                  },
+                  {
+                    title: 'Step 2. サンプル原稿の用意',
+                    link: '/ja/tutorial/step2.md',
+                  },
+                  {
+                    title: 'Step 3. カウンタの表示',
+                    link: '/ja/tutorial/step3.md',
+                  },
+                  {
+                    title: 'Step 4. 目次の表示',
+                    link: '/ja/tutorial/step4.md',
+                  },
+                  {
+                    title: 'Step 5. 原稿ごとのスタイルの設定',
+                    link: '/ja/tutorial/step5.md',
+                  },
+                  {
+                    title: 'Step 6. 完成！',
+                    link: '/ja/tutorial/step6.md',
                   },
                 ],
               },

@@ -9,6 +9,7 @@
     - [`keywords` プロパティ](#keywords-%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3)
     - [`vivliostyle.theme` プロパティ](#vivliostyletheme-%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3)
       - [`style` プロパティ](#style-%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3)
+      - [`author` プロパティ](#author-%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3)
       - [`category` プロパティ](#category-%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3)
       - [`topics` プロパティ](#topics-%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3)
   - [example/](#example)
@@ -72,31 +73,33 @@ vivliostyle-theme-mybook/
 
 ## package.json
 
-```package.json
+```json
 {
   "name": "vivliostyle-theme-mybook",
   "author": "John Doe <john@example.com>",
-  "keywords": [                      // 以下で説明
+  "keywords": [
+    // 以下で説明
     "vivliostyle",
     "vivliostyle-theme"
   ],
-  "files": [
-    "*.css",
-    "*.css.map",
-    "scss",
-    "example",
-    "vivliostyle.config.js"
-  ],
-  "vivliostyle": {                   // 以下で説明
+  "files": ["*.css", "*.css.map", "scss", "example", "vivliostyle.config.js"],
+  "vivliostyle": {
+    // 以下で説明
     "theme": {
       "style": "./theme_print.css", // required
       "name": "Mybook",
-      "author": "John Doe",
+      "author": "John Doe", // required
       "category": "novel",
       "topics": ["paperback"]
     }
   }
 }
+```
+
+[vivliostyle-theme-scripts](https://github.com/vivliostyle/themes/tree/master/packages/vivliostyle-theme-scripts) を使うと、作成した Theme の package.json が仕様に従っているかをチェックできます。
+
+```bash
+$ vivliostyle-theme validate
 ```
 
 ### `keywords` プロパティ
@@ -115,17 +118,21 @@ Theme は Vivliostyle に関連する npm package であるため、`"vivliostyl
 
 package.json のトップレベルに `style` や `main` を指定することもできます。`vivliostyle.theme.style` と同じ意味を持ちますが、優先順位は `vivliostyle.theme.style` > `style` > `main` です。
 
-```package.json
+```json
 {
   "style": "theme_print.css"
 }
 ```
 
-```package.json
+```json
 {
   "main": "theme_print.css"
 }
 ```
+
+#### `author` プロパティ
+
+必須。
 
 #### `category` プロパティ
 
@@ -165,16 +172,16 @@ scss/ ディレクトリのスタイルシートから生成された CSS ファ
 
 ## vivliostyle.config.js
 
-```vivliostyle.config.js
+```js
 module.exports = {
-  language: "ja",
-  theme: "theme_print.css",
-  entry: ["example/default.md"],
+  language: 'ja',
+  theme: 'theme_print.css',
+  entry: ['example/default.md'],
   output: [
-    "book.pdf",
+    'book.pdf',
     {
-      path: "./book",
-      format: "webpub",
+      path: './book',
+      format: 'webpub',
     },
   ],
 };
@@ -182,5 +189,5 @@ module.exports = {
 
 example/ 内の Markdown ファイルから出版物を生成するための設定ファイルです。開発者が Theme を開発する際に使うほか、Theme を使うユーザがサンプル出版物を生成する際にも使います。
 
-[create-vivliostyle-theme]: /ja/development
+[create-vivliostyle-theme]: https://github.com/vivliostyle/themes/tree/master/packages/create-vivliostyle-theme
 [create book]: https://github.com/vivliostyle/create-book
