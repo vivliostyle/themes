@@ -7,6 +7,6 @@
 
 # Vivliostyle Themes とは
 
-![Vivliostyle Themes のロゴ](/assets/themes-logo.jpg)
+![Vivliostyle Themes のロゴ](./assets/themes-logo.jpg)
 
 Vivliostyle Theme は、Vivliostyle で出版物を作る際に使うスタイルテーマです。Theme の実体は、スタイルファイル、サンプル原稿、package.json です。

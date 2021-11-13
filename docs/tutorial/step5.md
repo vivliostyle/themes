@@ -60,7 +60,7 @@ html {
 
 You can now see the borderlines in the chapter title area. In the following section, we will set the color of these borderlines for each manuscript file.
 
-![Looks a bit like an old textbook](/assets/step5-ver1.png)
+![Looks a bit like an old textbook](./assets/step5-ver1.png)
 
 ## Setting the signature color
 
@@ -113,4 +113,4 @@ html.akutagawa {
 
 By using this method, you can change not only the color but also the size and typeface of the text in each manuscript file.
 
-![For example, pink for Natsume, light blue for Akutagawa](/assets/step5-ver2.png)
+![For example, pink for Natsume, light blue for Akutagawa](./assets/step5-ver2.png)

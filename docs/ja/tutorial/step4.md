@@ -63,7 +63,7 @@ $ touch scss/theme_toc.scss
 
 以下のような見た目になりました。
 
-![シンプルな目次](/assets/step4-toc-ver1.png)
+![シンプルな目次](./assets/step4-toc-ver1.png)
 
 もうすこしシュッとした見た目にしてみましょう。まず、不要な部分を隠します。
 
@@ -97,7 +97,7 @@ nav ol {
 }
 ```
 
-![素っ気ない目次](/assets/step4-toc-ver2.png)
+![素っ気ない目次](./assets/step4-toc-ver2.png)
 
 目次にも対応するページ番号と章番号を表示してみましょう。
 
@@ -123,4 +123,4 @@ nav ol {
 
 一気に本らしくなりましたね！
 
-![便利な目次](/assets/step4-toc-ver3.png)
+![便利な目次](./assets/step4-toc-ver3.png)

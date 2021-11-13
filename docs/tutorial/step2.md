@@ -60,4 +60,4 @@ Now, let's apply the template style (theme_print.scss) to the sample manuscripts
 $ yarn dev # Not necessary if preview is already running.
 ```
 
-![Step2 preview screen](/assets/step2.png)
+![Step2 preview screen](./assets/step2.png)

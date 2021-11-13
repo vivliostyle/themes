@@ -10,31 +10,31 @@ npm package として公開されている Theme のギャラリーです。新�
 
 日本語の縦書き小説などに向いています。ルビ、縦中横にも対応しています。
 
-<img src="/assets/official-bunko.png" alt="theme-bunkoのサンプル画像。原稿は「吾輩は猫である」。" style="max-width:500px">
+<img src="./assets/official-bunko.png" alt="theme-bunkoのサンプル画像。原稿は「吾輩は猫である」。" style="max-width:500px">
 
 ### [@vivliostyle/theme-slide](https://www.npmjs.com/package/@vivliostyle/theme-slide)
 
 スライド資料などに向いています。表紙ページと一般ページでスタイルが変わります。
 
-<img src="/assets/official-slide.png" alt="theme-slideのサンプル画像。左は表紙ページで背景が青く、右は一般ページで背景が白い。" style="max-width:500px">
+<img src="./assets/official-slide.png" alt="theme-slideのサンプル画像。左は表紙ページで背景が青く、右は一般ページで背景が白い。" style="max-width:500px">
 
 ### [@vivliostyle/theme-techbook](https://www.npmjs.com/package/@vivliostyle/theme-techbook)
 
 印刷を意識した技術書（小口・ノドの余白調整など）。ソースコードや目次にも対応しています。
 
-<img src="/assets/official-techbook.png" alt="theme-techbookのサンプル画像。テキストのほか、表、ソースコードが載っている。" style="max-width:500px">
+<img src="./assets/official-techbook.png" alt="theme-techbookのサンプル画像。テキストのほか、表、ソースコードが載っている。" style="max-width:500px">
 
 ### [@vivliostyle/theme-academic](https://www.npmjs.com/package/@vivliostyle/theme-academic)
 
 学生が書くレポートなどに向いています。自動で章・節番号がつきます。
 
-<img src="/assets/official-academic.png" alt="theme-academicのサンプル画像。テキストのほか、図、表が載っている。" style="max-width:500px">
+<img src="./assets/official-academic.png" alt="theme-academicのサンプル画像。テキストのほか、図、表が載っている。" style="max-width:500px">
 
 ### [@vivliostyle/theme-gutenberg](https://www.npmjs.com/package/@vivliostyle/theme-gutenberg)
 
 英語の横書き小説などに向いています。
 
-<img src="/assets/official-gutenberg.png" alt="theme-gutenbergのサンプル画像。原稿は「Alice's Adventures in Wonderland」。" style="max-width:500px">
+<img src="./assets/official-gutenberg.png" alt="theme-gutenbergのサンプル画像。原稿は「Alice's Adventures in Wonderland」。" style="max-width:500px">
 
 ## 公式でない Theme
 

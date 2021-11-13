@@ -7,6 +7,6 @@
 
 # Vivliostyle Themes
 
-![Vivliostyle Themes logo](/assets/themes-logo.jpg)
+![Vivliostyle Themes logo](./assets/themes-logo.jpg)
 
 Vivliostyle Theme is a style theme to create publications in Vivliostyle. A Theme package consists of style files, sample manuscripts, and package.json.

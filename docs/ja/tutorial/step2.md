@@ -1,8 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
-
 - [Step 2. サンプル原稿の用意](#step-2-%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E5%8E%9F%E7%A8%BF%E3%81%AE%E7%94%A8%E6%84%8F)
   - [サンプル原稿](#%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E5%8E%9F%E7%A8%BF)
   - [プレビュー](#%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC)
@@ -62,4 +60,4 @@ module.exports = {
 $ yarn dev # すでにプレビューが起動している場合は必要ない
 ```
 
-![Step2のプレビュー画面](/assets/step2.png)
+![Step2のプレビュー画面](./assets/step2.png)

@@ -63,7 +63,7 @@ $ touch scss/theme_toc.scss
 
 Now, it looks like the following:
 
-![Simple table of contents](/assets/step4-toc-ver1.png)
+![Simple table of contents](./assets/step4-toc-ver1.png)
 
 Let's try to make it look a little neat. First, hide the unnecessary parts.
 
@@ -97,7 +97,7 @@ nav ol {
 }
 ```
 
-![plain table of contents](/assets/step4-toc-ver2.png)
+![plain table of contents](./assets/step4-toc-ver2.png)
 
 Let's display the page and chapter numbers that also correspond to the table of contents.
 
@@ -123,4 +123,4 @@ nav ol {
 
 Now it looks like a book at once!
 
-![Useful table of contents](/assets/step4-toc-ver3.png)
+![Useful table of contents](./assets/step4-toc-ver3.png)

@@ -119,4 +119,4 @@ section > {
 
 Based on the changes made so far, the preview should look like the following. If it doesn't auto-reload, try `yarn dev` again.
 
-![Page and chapter numbers are now displayed](/assets/step3.png)
+![Page and chapter numbers are now displayed](./assets/step3.png)

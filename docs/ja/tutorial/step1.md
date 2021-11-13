@@ -1,8 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
-
 - [Step 1. 雛形の生成](#step-1-%E9%9B%9B%E5%BD%A2%E3%81%AE%E7%94%9F%E6%88%90)
   - [雛形に含まれるファイル](#%E9%9B%9B%E5%BD%A2%E3%81%AB%E5%90%AB%E3%81%BE%E3%82%8C%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB)
   - [雛形のプレビュー](#%E9%9B%9B%E5%BD%A2%E3%81%AE%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC)
@@ -15,9 +13,9 @@
 
 ```bash
 $ yarn create vivliostyle-theme my-doujin
-? description すごい合同誌のTheme
-? author name わたし
-? author email watashi@example.com
+? description awesome theme
+? author name John Doe
+? author email john@example.com
 ? license AGPL-3.0
 ? choose category novel
 
@@ -48,6 +46,7 @@ $ tree . -I node_modules
 │   ├── theme_common.scss    🖋 Themeの共通部分
 │   ├── theme_print.scss     🖋 出版物 (PDFなど) 印刷用スタイル
 │   └── theme_screen.scss    🖋 出版物 (HTMLなど) 閲覧用スタイル
+├── *.css
 ├── vivliostyle.config.js    🖋 Themeプレビュー用設定ファイル
 └── yarn.lock
 ```
@@ -70,6 +69,6 @@ $ yarn dev
 
 雛形には、組版に使う基本的なスタイルがすでに定義されています。以下がそのプレビュー画面です。デフォルトでは scss/theme_print.scss が適用されています。このスタイルファイルには、トンボや左上の theme_print という文字を表示するようなスタイルが定義されています。雛形で定義されているスタイルは自由に書き換えてかまいません。
 
-![雛形のプレビュー画面](/assets/theme-sample.png)
+![雛形のプレビュー画面](./assets/theme-sample.png)
 
 [create-vivliostyle-theme]: https://github.com/vivliostyle/themes/tree/master/packages/create-vivliostyle-theme

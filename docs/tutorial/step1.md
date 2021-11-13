@@ -46,6 +46,7 @@ $ tree . -I node_modules
 │   ├── theme_common.scss    🖋 Theme's common styles
 │   ├── theme_print.scss     🖋 Printing (PDF, etc.) style
 │   └── theme_screen.scss    🖋 Viewing (HTML, etc.) style
+├── *.css
 ├── vivliostyle.config.js    🖋 Configuration file for theme preview
 └── yarn.lock
 ```
@@ -68,6 +69,6 @@ $ yarn dev
 
 The template already defines the basic styles to be used for typesetting. Here is a preview of what you will see. By default, scss/theme_print.scss is applied. This style file is defined to display the trim marks and the text ("theme_print") in the upper left corner. You are free to rewrite the styles defined in the template.
 
-![preview screen of the template](/assets/theme-sample.png)
+![preview screen of the template](./assets/theme-sample.png)
 
 [create-vivliostyle-theme]: https://github.com/vivliostyle/themes/tree/master/packages/create-vivliostyle-theme
