@@ -11,17 +11,17 @@
 - Contributor License Agreement に署名すること
 - [Code of Conduct](https://github.com/vivliostyle/themes/blob/master/CODE_OF_CONDUCT.md) に従うこと
 
-[vivliostyle/themes レポジトリ]: https://github.com/vivliostyle/themes
-
 ## 採用方法
 
 [vivliostyle/themes レポジトリ][] に pull request を送ってください。
 
 - Theme 名は `@vivliostyle/theme-*` とすること
-- ソースコードを packages/@vivliostyle/theme-\* に含めること
+- ソースコードを packages/@vivliostyle/theme-\*/ に含めること
 
 公式 Theme に採用された場合、[vivliostyle/themes レポジトリ][]のメンテナとして以下の権限が与えられます。
 
 - レポジトリへの push
 - issue のトリアージ
 - pull request の review と merge
+
+[vivliostyle/themes レポジトリ]: https://github.com/vivliostyle/themes

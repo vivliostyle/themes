@@ -1,8 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
-
 - [Step 3. カウンタの表示](#step-3-%E3%82%AB%E3%82%A6%E3%83%B3%E3%82%BF%E3%81%AE%E8%A1%A8%E7%A4%BA)
   - [ページ番号](#%E3%83%9A%E3%83%BC%E3%82%B8%E7%95%AA%E5%8F%B7)
   - [章番号](#%E7%AB%A0%E7%95%AA%E5%8F%B7)
@@ -64,7 +62,7 @@ $ touch scss/_my_style.scss
 
 しかし、カウンタの挙動を変えたい場合（たとえば、目次ではページ番号をインクリメントしたくない場合など）は自分でカウンタ変数を定義する必要があります。このチュートリアルでは目次のページ番号をインクリメントしたくないので、以下のように自分で定義したカウンタ変数 `p` を使うことにします。
 
-```scss {highlight: ['3-22']}
+```scss {highlight: ['3-25']}
 // scss/_my_style.scss
 
 // 一番最初のページでリセット
@@ -98,7 +96,7 @@ $ touch scss/_my_style.scss
 
 `@page :first {}` は出版物全体を通して最初のページを指します。一方で `@page :nth(1) {}` は、vivliostyle.config.js の `entry` で指定した原稿ファイルそれぞれの最初のページを指します（これは Vivliostyle 独自の挙動です）。
 
-```scss {highlight: ['3-14']}
+```scss {highlight: ['3-16']}
 // scss/_my_style.scss
 
 // 章番号

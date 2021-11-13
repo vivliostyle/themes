@@ -21,8 +21,6 @@
 
 CSS やサンプル原稿などの具体的な部分は Theme ごとに変わりますが、作成手順はどの Theme も同じです。なお、このチュートリアルで作成する Theme の完成品は [yamasy1549/vivliostyle-theme-my-doujin](https://github.com/yamasy1549/vivliostyle-theme-my-doujin) にあります。
 
-<!-- このチュートリアルは、[Vivliostyle で本を作ろう Vol.5](https://vivliostyle.org/ja/make-books-with-vivliostyle/#vivliostyle-%E3%81%A7%E6%9C%AC%E3%82%92%E4%BD%9C%E3%82%8D%E3%81%86-vol52021%E5%B9%B47%E6%9C%8811%E6%97%A5) の[Vivliostyle Theme のつくりかた](https://vivliostyle.github.io/vivliostyle_doc/ja/vivliostyle-user-group-vol5/content/yamasy/index.html)をもとにしています。 -->
-
 ## バージョン情報
 
 - [create-vivliostyle-theme][]: 0.4.0
@@ -38,3 +36,5 @@ CSS やサンプル原稿などの具体的な部分は Theme ごとに変わり
 - 見た目は統一するが、章（原稿ファイル）ごとに**テーマカラー**を変えたい
 
 [create-vivliostyle-theme]: https://github.com/vivliostyle/themes/tree/master/packages/create-vivliostyle-theme
+
+このチュートリアルは、[Vivliostyle で本を作ろう Vol.5](https://vivliostyle.org/ja/make-books-with-vivliostyle/#vivliostyle-%E3%81%A7%E6%9C%AC%E3%82%92%E4%BD%9C%E3%82%8D%E3%81%86-vol52021%E5%B9%B47%E6%9C%8811%E6%97%A5) の[Vivliostyle Theme のつくりかた](https://vivliostyle.github.io/vivliostyle_doc/ja/vivliostyle-user-group-vol5/content/yamasy/index.html)をもとにしています。

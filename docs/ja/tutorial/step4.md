@@ -1,8 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
-
 - [Step 4. 目次の表示](#step-4-%E7%9B%AE%E6%AC%A1%E3%81%AE%E8%A1%A8%E7%A4%BA)
   - [目次の自動生成](#%E7%9B%AE%E6%AC%A1%E3%81%AE%E8%87%AA%E5%8B%95%E7%94%9F%E6%88%90)
   - [プレビュー](#%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC)
@@ -17,7 +15,7 @@
 
 Vivliostyle には `<h1>` 見出しをもとに目次を自動生成する機能があります。`<h1>` 以外の見出しが必要な場合は自分で目次を作ることもできますが、今回はこの機能を使ってみましょう。
 
-vivliostyle.config.js に以下の記述を加えて再度 `yarn dev` します。すると、一番最初のページに目次が表示されるようになります。
+vivliostyle.config.js に以下の記述を加えます。すると、一番最初のページに目次が表示されるようになります。
 
 ```js {highlight:[6,10,11]}
 // vivliostyle.config.js
@@ -69,7 +67,7 @@ $ touch scss/theme_toc.scss
 
 もうすこしシュッとした見た目にしてみましょう。まず、不要な部分を隠します。
 
-```scss {highlight: ['7-24']}
+```scss {highlight: ['7-27']}
 // scss/theme_toc.scss
 
 @import 'theme_common';
