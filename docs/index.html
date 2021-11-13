@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Vivliostyle Themes</title>
+    <link rel="stylesheet" href="https://unpkg.com/docute@4/dist/docute.css" />
+  </head>
+  <body>
+    <div id="docute"></div>
+    <script src="https://unpkg.com/docute@4/dist/docute.js"></script>
+    <script>
+      new Docute({
+        title: 'Vivliostyle Themes',
+        target: '#docute',
+        highlight: ['bash', 'markdown', 'js', 'json', 'scss'],
+        plugins: [],
+        nav: [
+          {
+            title: 'Home',
+            link: '/',
+          },
+          {
+            title: 'Vivliostyle',
+            link: 'https://vivliostyle.org',
+          },
+          {
+            title: 'GitHub',
+            link: 'https://github.com/vivliostyle/themes',
+          },
+        ],
+        sidebar: [
+          {
+            title: 'Spec',
+            link: '/spec',
+          },
+          {
+            title: 'Development Tutorial',
+            children: [
+              {
+                title: 'Introduction',
+                link: '/tutorial/step0.md',
+              },
+              {
+                title: 'Step 1. Generating a template',
+                link: '/tutorial/step1.md',
+              },
+              {
+                title: 'Step 2. Preparing sample manuscripts',
+                link: '/tutorial/step2.md',
+              },
+              {
+                title: 'Step 3. Displaying counters',
+                link: '/tutorial/step3.md',
+              },
+              {
+                title: 'Step 4. Displaying ToC',
+                link: '/tutorial/step4.md',
+              },
+              {
+                title: 'Step 5. Styling for each manuscript',
+                link: '/tutorial/step5.md',
+              },
+              {
+                title: 'Step 6. Completed!',
+                link: '/tutorial/step6.md',
+              },
+            ],
+          },
+          {
+            title: 'Operational Guidelines',
+            children: [
+              {
+                title: 'Adoption of the Official Theme',
+                link: '/official',
+              },
+              {
+                title: 'Theme Gallery',
+                link: '/gallery',
+              },
+            ],
+          },
+          {
+            title: 'Community',
+            children: [
+              {
+                title: 'GitHub',
+                link: 'https://github.com/vivliostyle',
+              },
+              {
+                title: 'Twitter',
+                link: 'https://twitter.com/vivliostyle',
+              },
+              {
+                title: 'Slack',
+                link:
+                  'https://join.slack.com/t/vivliostyle/shared_invite/enQtNzc1NjE4ODk1ODI5LWQxZjM4YTZjMmQ0ZTUyNmUyOGZlMzIwZjQ5OWYwYjkyZDZmOTIwNGMwOWU5NDc0NjE5OTAyMmVhZTRhYTAyNWQ',
+              },
+            ],
+          },
+        ],
+        overrides: {
+          '/': {
+            language: 'English',
+          },
+          '/ja/': {
+            language: '日本語',
+            sidebar: [
+              {
+                title: '仕様',
+                link: '/ja/spec',
+              },
+              {
+                title: '開発チュートリアル',
+                children: [
+                  {
+                    title: 'はじめに',
+                    link: '/ja/tutorial/step0.md',
+                  },
+                  {
+                    title: 'Step 1. 雛形の生成',
+                    link: '/ja/tutorial/step1.md',
+                  },
+                  {
+                    title: 'Step 2. サンプル原稿の用意',
+                    link: '/ja/tutorial/step2.md',
+                  },
+                  {
+                    title: 'Step 3. カウンタの表示',
+                    link: '/ja/tutorial/step3.md',
+                  },
+                  {
+                    title: 'Step 4. 目次の表示',
+                    link: '/ja/tutorial/step4.md',
+                  },
+                  {
+                    title: 'Step 5. 原稿ごとのスタイルの設定',
+                    link: '/ja/tutorial/step5.md',
+                  },
+                  {
+                    title: 'Step 6. 完成！',
+                    link: '/ja/tutorial/step6.md',
+                  },
+                ],
+              },
+              {
+                title: '運用ガイドライン',
+                children: [
+                  {
+                    title: '公式 Theme の採用',
+                    link: '/ja/official',
+                  },
+                  {
+                    title: 'Theme ギャラリー',
+                    link: '/ja/gallery',
+                  },
+                ],
+              },
+              {
+                title: 'コミュニティ',
+                children: [
+                  {
+                    title: 'GitHub',
+                    link: 'https://github.com/vivliostyle',
+                  },
+                  {
+                    title: 'Twitter',
+                    link: 'https://twitter.com/vivliostyle',
+                  },
+                  {
+                    title: 'Slack',
+                    link:
+                      'https://join.slack.com/t/vivliostyle/shared_invite/enQtNzc1NjE4ODk1ODI5LWQxZjM4YTZjMmQ0ZTUyNmUyOGZlMzIwZjQ5OWYwYjkyZDZmOTIwNGMwOWU5NDc0NjE5OTAyMmVhZTRhYTAyNWQ',
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

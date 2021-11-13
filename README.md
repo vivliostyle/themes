@@ -26,7 +26,7 @@
 
 ## Create a theme
 
-- [Theme Design Guidelines](https://github.com/vivliostyle/themes/blob/master/DESIGN.md)
+- [Theme Spec](https://vivliostyle.github.io/themes/#/spec)
 - [Contribution Guide](https://github.com/vivliostyle/themes/blob/master/CONTRIBUTING.md)
 - [Donate your theme⚡️](https://github.com/vivliostyle/themes/blob/master/CONTRIBUTING.md#donating-your-theme)
 
