@@ -17,7 +17,7 @@ A theme should include styles for the entire publication, not just for specific 
 
 The following are typical styles that should be included in a theme. The theme template created with [create-vivliostyle-theme][] contains these styles.
 
-- Page (margin, header, footer, etc.)
+- Page (margin, running header/footer, etc.)
 - Heading
 - Paragraph
 - Math expression
