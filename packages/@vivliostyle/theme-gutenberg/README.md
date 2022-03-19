@@ -9,9 +9,9 @@ book theme for latin font
 ## Install
 
 ```bash
-npm install --save vivliostyle-theme-gutenberg
+npm install --save @vivliostyle/theme-gutenberg
 # or
-yarn add vivliostyle-theme-gutenberg
+yarn add @vivliostyle/theme-gutenberg
 ```
 
 ## Use
