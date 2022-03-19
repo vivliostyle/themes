@@ -23,6 +23,7 @@
     "*.css.map",
     "scss",
     "example",
+    "config",
     "vivliostyle.config.js"
   ],
   "keywords": [
