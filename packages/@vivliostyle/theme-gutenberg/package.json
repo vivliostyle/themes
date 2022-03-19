@@ -39,5 +39,10 @@
       "category": "novel",
       "topics": []
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-gutenberg"
   }
 }
