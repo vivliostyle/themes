@@ -50,7 +50,9 @@ html {
 html {
   font-family: '游明朝', 'YuMincho', serif;
   text-align: justify;
-  line-height: 2rem;
+  /* 約物の調整、和欧文間スペース */
+  text-spacing: space-first allow-end ideograph-alpha ideograph-numeric;
+  line-height: 2;
 }
 
 h1 {
@@ -75,11 +77,8 @@ ruby > rt {
 
 p {
   text-indent: 1em;
-}
-
-/* 括弧で始まる段落 */
-p.q {
-  text-indent: 0;
+  /* 段落先頭約物の調整、行末句読点ぶら下げあり */
+  hanging-punctuation: first allow-end;
 }
 
 /* 奥付 */
