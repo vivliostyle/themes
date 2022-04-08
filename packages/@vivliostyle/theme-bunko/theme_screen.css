@@ -3,9 +3,14 @@
  * For browser viewing:
  * load this style in Web publications (format: webpub)
  */
+/* common styles */
 /*
  * For all media (print, screen)
  */
+/* you can import partial SCSS files */
+/* @import '_variables'; */
+/* @import '_toc'; */
+/* ... */
 html {
   writing-mode: vertical-rl;
   orphans: 1;
@@ -23,11 +28,11 @@ html {
   height: 468pt;
   margin: auto;
   font-size: 8.5pt;
-  font-family: '游明朝', 'YuMincho', serif;
+  font-family: "游明朝", "YuMincho", serif;
 }
 @page :left {
   @top-left {
-    content: counter(page) '　' env(doc-title);
+    content: counter(page) "　" env(doc-title);
     margin-left: 7pt;
     margin-top: 8.5mm;
     writing-mode: horizontal-tb;
@@ -42,9 +47,11 @@ html {
   }
 }
 html {
-  font-family: '游明朝', 'YuMincho', serif;
+  font-family: "游明朝", "YuMincho", serif;
   text-align: justify;
-  line-height: 2rem;
+  /* 約物の調整、和欧文間スペース */
+  text-spacing: space-first allow-end ideograph-alpha ideograph-numeric;
+  line-height: 2;
 }
 
 h1 {
@@ -69,15 +76,12 @@ ruby > rt {
 
 p {
   text-indent: 1em;
-}
-
-/* 括弧で始まる段落 */
-p.q {
-  text-indent: 0;
+  /* 段落先頭約物の調整、行末句読点ぶら下げあり */
+  hanging-punctuation: first allow-end;
 }
 
 /* 奥付 */
-[role='doc-colophon'] {
+[role=doc-colophon] {
   font-size: 0.824rem;
   line-height: 1.5rem;
   margin-block-start: 6rem;
@@ -107,9 +111,13 @@ em.sesame_dot {
   letter-spacing: 0.125em;
 }
 
+/* and more... 🖋 */
+/* for wide screen */
 body {
   max-height: 800px;
   margin: 2rem;
 }
+
+/* and more... 🖋 */
 
 /*# sourceMappingURL=theme_screen.css.map */
