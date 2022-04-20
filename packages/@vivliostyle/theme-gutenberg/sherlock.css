@@ -1,5 +1,12 @@
 @charset "UTF-8";
 /*
+ * For all media (print, screen)
+ */
+/* you can import partial SCSS files */
+/* @import '_variables'; */
+/* @import '_toc'; */
+/* ... */
+/*
   Original version:
   https://github.com/vivliostyle/vivliostyle_doc/blob/gh-pages/samples/gutenberg/gutenberg.css
 */
@@ -199,6 +206,7 @@ body > footer {
   break-before: left;
 }
 
+/* and more... 🖋 */
 @font-face {
   font-family: 'Quattrocento';
   src: url('https://github.com/vivliostyle/vivliostyle_doc/blob/gh-pages/samples/gutenberg/fonts/Quattrocento-Regular.ttf?raw=true');

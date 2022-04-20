@@ -3,9 +3,14 @@
  * For browser viewing:
  * load this style in Web publications (format: webpub)
  */
+/* common styles */
 /*
  * For all media (print, screen)
  */
+/* you can import partial SCSS files */
+/* @import '_variables'; */
+/* @import '_toc'; */
+/* ... */
 /* ----------
  * Page
  * ----------
@@ -491,6 +496,8 @@ pre {
   font-weight: bold;
 }
 
+/* and more... 🖋 */
+/* for wide screen */
 body {
   max-width: 800px;
   margin: 2rem auto 2rem;
@@ -504,5 +511,7 @@ body {
 .footnote a {
   word-break: break-all;
 }
+
+/* and more... 🖋 */
 
 /*# sourceMappingURL=theme_screen.css.map */
