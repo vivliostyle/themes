@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-slide@0.5.0...@vivliostyle/theme-slide@0.5.1) (2022-04-20)
+
+**Note:** Version bump only for package @vivliostyle/theme-slide
+
 # [0.5.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-slide@0.4.1...@vivliostyle/theme-slide@0.5.0) (2021-11-07)
 
 ### Features

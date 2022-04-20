@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/vivliostyle/themes/compare/create-vivliostyle-theme@0.4.0...create-vivliostyle-theme@0.4.1) (2022-04-20)
+
+**Note:** Version bump only for package create-vivliostyle-theme
+
 # [0.4.0](https://github.com/vivliostyle/themes/compare/create-vivliostyle-theme@0.3.1...create-vivliostyle-theme@0.4.0) (2021-11-07)
 
 ### Features
