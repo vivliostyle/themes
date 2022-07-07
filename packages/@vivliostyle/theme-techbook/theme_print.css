@@ -149,7 +149,7 @@ pre[class*='language-'] {
 }
 
 :root {
-  font-family: 'Neue Frutiger World', 'Verdana', 'Yakumono', 'body',
+  font-family: 'Neue Frutiger World', 'Verdana',  'body',
     'Hiragino Sans', sans-serif;
   font-weight: 400;
   line-height: 1.7;
@@ -503,7 +503,7 @@ ol.cite-items li::before {
   }
 }
 @page :left {
-  font-family: 'Neue Frutiger World', 'Verdana', 'Yakumono', 'body',
+  font-family: 'Neue Frutiger World', 'Verdana',  'body',
     'Hiragino Sans', sans-serif;
   margin-left: 18mm;
   margin-right: 35mm;
@@ -521,7 +521,7 @@ ol.cite-items li::before {
   }
 }
 @page :right {
-  font-family: 'Neue Frutiger World', 'Verdana', 'Yakumono', 'body',
+  font-family: 'Neue Frutiger World', 'Verdana',  'body',
     'Hiragino Sans', sans-serif;
   margin-left: 35mm;
   margin-right: 18mm;
