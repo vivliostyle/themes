@@ -1,0 +1,252 @@
+:root {
+  /**
+   * Typography
+   */
+  --vs-font-family: sans-serif;
+  --vs-font-family-body: var(--vs-font-family);
+  --vs-font-family-heading: var(--vs-font-family);
+  --vs-font-family-monospace: monospace;
+  --vs-font-feature-settings: 'kern', 'liga', 'calt';
+  --vs-font-feature-settings-body: var(--vs-font-feature-settings);
+  --vs-font-feature-settings-heading: var(--vs-font-feature-settings);
+  --vs-font-feature-settings-monospace: normal;
+  --vs-font-size: 16px;
+  --vs-font-size-body: var(--vs-font-size);
+  --vs-font-size-monospace: var(--vs-font-size);
+  --vs-font-size-h1: 2em;
+  --vs-font-size-h2: 1.5em;
+  --vs-font-size-h3: 1.17em;
+  --vs-font-size-h4: 1em;
+  --vs-font-size-h5: 0.83em;
+  --vs-font-size-h6: 0.67em;
+  --vs-font-size-big: 1.17em;
+  --vs-font-size-small: 0.83em;
+  --vs-font-size-sub: var(--vs-font-size-small);
+  --vs-font-size-sup: var(--vs-font-size-small);
+  --vs-font-size-rt: 50%;
+  --vs-font-size-blockquote: 100%;
+  --vs-font-size-figcaption: 100%;
+  --vs-font-style: normal;
+  --vs-font-style-emphasis: italic;
+  --vs-font-weight: 400;
+  --vs-font-weight-bold: 700;
+  --vs-font-weight-body: var(--vs-font-weight);
+  --vs-font-weight-heading: var(--vs-font-weight-bold);
+  --vs-font-weight-monospace: var(--vs-font-weight);
+  --vs-hanging-punctuation: allow-end;
+  --vs-hyphens: auto;
+  --vs-line-break: strict;
+  --vs-line-height: 1.5;
+  --vs-line-height-body: var(--vs-line-height);
+  --vs-line-height-heading: var(--vs-line-height);
+  --vs-line-height-monospace: var(--vs-line-height);
+  --vs-letter-spacing: 0;
+  --vs-letter-spacing-body: var(--vs-letter-spacing);
+  --vs-letter-spacing-heading: var(--vs-letter-spacing);
+  --vs-letter-spacing-monospace: var(--vs-letter-spacing);
+  --vs-overflow-wrap: break-word;
+  --vs-tab-size: 4;
+  --vs-text-align: auto;
+  --vs-text-align-last: auto;
+  /* https://drafts.csswg.org/css-text-4/#text-spacing-property */
+  --vs-text-spacing: space-first allow-end ideograph-alpha ideograph-numeric;
+  --vs-text-spacing-body: var(--vs-text-spacing);
+  --vs-text-spacing-heading: var(--vs-text-spacing);
+  --vs-text-spacing-monospace: none;
+  --vs-text-underline-offset: auto;
+  --vs-text-underline-position: left;
+  --vs-word-break: normal;
+  --vs-inset-bottom-sub: -0.25em;
+  --vs-inset-top-sup: -0.5em;
+
+  /**
+   * Layout
+   */
+  --vs-column-count: 1;
+  --vs-column-gap: 1rem;
+  --vs-column-width: auto;
+  --vs-orphans: var(--vs-widows-orphans);
+  --vs-text-orientation: unset;
+  --vs-widows-orphans: 1;
+  --vs-widows: var(--vs-widows-orphans);
+  --vs-writing-mode: horizontal-tb;
+  --vs-writing-mode-blockquote: unset;
+  --vs-writing-mode-figure: unset;
+  --vs-writing-mode-pre: unset;
+  --vs-writing-mode-table: unset;
+
+  /**
+   * Colors
+   */
+  --vs-color-background: transparent;
+  --vs-color-body: #000;
+  --vs-color-link: inherit;
+  --vs-color-border: currentColor;
+  --vs-color-border-hr: var(--vs-color-border);
+  --vs-color-border-table: var(--vs-color-border);
+  --vs-color-page-margin-background: var(--vs-color-background);
+  --vs-color-page-margin-body: var(--vs-color-body);
+
+  /**
+   * Spacing meta variable
+   */
+  --vs-unit-sp: 0.25rem;
+  --vs-unit-nbsp: 0.5ch;
+  --vs-margin-display-block-start: calc(var(--vs-unit-sp) * 4);
+  --vs-margin-display-block-end: calc(var(--vs-unit-sp) * 4);
+
+  /**
+   * Spacing
+   */
+  --vs-margin-h1-block-start: calc(var(--vs-unit-sp) * 8);
+  --vs-margin-h1-block-end: calc(var(--vs-unit-sp) * 8);
+  --vs-margin-h1-inline-start: 0;
+  --vs-margin-h1-inline-end: 0;
+  --vs-margin-h2-block-start: calc(var(--vs-unit-sp) * 6);
+  --vs-margin-h2-block-end: calc(var(--vs-unit-sp) * 6);
+  --vs-margin-h2-inline-start: 0;
+  --vs-margin-h2-inline-end: 0;
+  --vs-margin-h3-block-start: calc(var(--vs-unit-sp) * 5);
+  --vs-margin-h3-block-end: calc(var(--vs-unit-sp) * 5);
+  --vs-margin-h3-inline-start: 0;
+  --vs-margin-h3-inline-end: 0;
+  --vs-margin-h4-block-start: calc(var(--vs-unit-sp) * 4);
+  --vs-margin-h4-block-end: calc(var(--vs-unit-sp) * 4);
+  --vs-margin-h4-inline-start: 0;
+  --vs-margin-h4-inline-end: 0;
+  --vs-margin-h5-block-start: calc(var(--vs-unit-sp) * 4);
+  --vs-margin-h5-block-end: calc(var(--vs-unit-sp) * 4);
+  --vs-margin-h5-inline-start: 0;
+  --vs-margin-h5-inline-end: 0;
+  --vs-margin-h6-block-start: calc(var(--vs-unit-sp) * 4);
+  --vs-margin-h6-block-end: calc(var(--vs-unit-sp) * 4);
+  --vs-margin-h6-inline-start: 0;
+  --vs-margin-h6-inline-end: 0;
+  --vs-margin-hr-block-start: calc(var(--vs-unit-sp) * 4);
+  --vs-margin-hr-block-end: calc(var(--vs-unit-sp) * 4);
+  --vs-margin-hr-inline-start: 0;
+  --vs-margin-hr-inline-end: 0;
+  --vs-margin-p-block-start: var(--vs-margin-display-block-start);
+  --vs-margin-p-block-end: var(--vs-margin-display-block-end);
+  --vs-margin-p-inline-start: 0;
+  --vs-margin-p-inline-end: 0;
+  --vs-margin-blockquote-block-start: var(--vs-margin-display-block-start);
+  --vs-margin-blockquote-block-end: var(--vs-margin-display-block-end);
+  --vs-margin-blockquote-inline-start: calc(var(--vs-unit-sp) * 8);
+  --vs-margin-blockquote-inline-end: calc(var(--vs-unit-sp) * 8);
+  --vs-margin-figure-block-start: var(--vs-margin-display-block-start);
+  --vs-margin-figure-block-end: var(--vs-margin-display-block-end);
+  --vs-margin-figure-inline-start: calc(var(--vs-unit-sp) * 8);
+  --vs-margin-figure-inline-end: calc(var(--vs-unit-sp) * 8);
+  --vs-margin-figcaption-block-start: var(--vs-margin-display-block-start);
+  --vs-margin-figcaption-block-end: var(--vs-margin-display-block-end);
+  --vs-margin-figcaption-inline-start: 0;
+  --vs-margin-figcaption-inline-end: 0;
+  --vs-margin-list-block-start: var(--vs-margin-display-block-start);
+  --vs-margin-list-block-end: var(--vs-margin-display-block-end);
+  --vs-margin-list-inline-start: 0;
+  --vs-margin-list-inline-end: 0;
+  --vs-margin-dd-inline-start: calc(var(--vs-unit-sp) * 8);
+  --vs-margin-pre-block-start: var(--vs-margin-display-block-start);
+  --vs-margin-pre-block-end: var(--vs-margin-display-block-end);
+  --vs-margin-pre-inline-start: 0;
+  --vs-margin-pre-inline-end: 0;
+  --vs-margin-table-block-start: var(--vs-margin-display-block-start);
+  --vs-margin-table-block-end: var(--vs-margin-display-block-end);
+  --vs-margin-table-inline-start: 0;
+  --vs-margin-table-inline-end: 0;
+  --vs-padding-list-inline-start: calc(var(--vs-unit-sp) * 6);
+  --vs-padding-table-cell-block-start: var(--vs-unit-sp);
+  --vs-padding-table-cell-block-end: var(--vs-unit-sp);
+  --vs-padding-table-cell-inline-start: calc(var(--vs-unit-sp) * 2);
+  --vs-padding-table-cell-inline-end: calc(var(--vs-unit-sp) * 2);
+
+  /**
+   * Borders
+   */
+  --vs-unit-bd: 1px;
+  --vs-border-width-hr: var(--vs-unit-bd);
+  --vs-border-width-table: var(--vs-unit-bd);
+
+  /**
+   * Lists
+   */
+  --vs-list-style-type-ul: disc;
+  --vs-list-style-type-ol: decimal;
+
+  /**
+   * Text decoration
+   */
+  --vs-text-decoration-del: line-through;
+  --vs-text-decoration-link: underline;
+  --vs-text-decoration-link-hover: none;
+
+  /**
+   * Images
+   */
+  --vs-image-resolution: from-image;
+
+  /**
+   * Page layout
+   */
+  --vs-page-size: auto;
+  --vs-page-marks: none;
+  --vs-page-bleed: 0;
+  --vs-page-margin-top: 22mm;
+  --vs-page-margin-bottom: 22mm;
+  --vs-page-margin-inner: 18mm;
+  --vs-page-margin-outer: 18mm;
+  --vs-page-margin-font-size: var(--vs-font-size-body);
+
+  /**
+   * Footnotes
+   */
+  --vs-footnote-font-size: var(--vs-font-size-body);
+  --vs-footnote-call-content: '[' counter(footnote) ']';
+  --vs-footnote-marker-content: '[' counter(footnote) ']';
+  --vs-footnote-call-font-size: var(--vs-font-size-small);
+  --vs-footnote-call-margin-inline: var(--vs-unit-nbsp);
+  --vs-footnote-marker-margin-inline: var(--vs-unit-nbsp);
+  --vs-footnote-area-margin-block-start: calc(var(--vs-unit-sp) * 2);
+  --vs-footnote-area-margin-block-end: calc(var(--vs-unit-sp) * 2);
+  --vs-footnote-area-before-border-color: var(--vs-color-border);
+  --vs-footnote-area-before-border-width: var(--vs-unit-bd);
+
+  /**
+   * Section counters
+   */
+  --vs-section-call-display: inline;
+  --vs-section-marker-display: none;
+  --vs-section-call-sec-content: '§' target-counter(attr(href), section);
+  --vs-section-call-subsec-content: '§' target-counter(attr(href), section) '.'
+    target-counter(attr(href url), subsection);
+  --vs-section-call-subsubsec-content: '§' target-counter(attr(href), section)
+    '.' target-counter(attr(href url), subsection) '.'
+    target-counter(attr(href url), subsubsection);
+  --vs-section-call-margin-inline: var(--vs-unit-nbsp);
+  --vs-section-marker-sec-content: counter(section);
+  --vs-section-marker-subsec-content: counter(section) '.' counter(subsection);
+  --vs-section-marker-subsubsec-content: counter(section) '.'
+    counter(subsection) '.' counter(subsubsection);
+  --vs-section-marker-margin-inline: calc(var(--vs-unit-nbsp) * 4);
+
+  /**
+   * Crossref counters
+   */
+  --vs-crossref-call-display: inline;
+  --vs-crossref-marker-display: inline;
+  --vs-crossref-call-fig-content: 'Fig. ' target-counter(attr(href), fig);
+  --vs-crossref-call-tbl-content: 'Table ' target-counter(attr(href), tbl);
+  --vs-crossref-call-cite-content: '[' target-counter(attr(href), cite) ']';
+  --vs-crossref-call-margin-inline: var(--vs-unit-nbsp);
+  --vs-crossref-marker-fig-content: 'Fig. ' counter(fig) ': ';
+  --vs-crossref-marker-tbl-content: 'Table ' counter(tbl) ': ';
+  --vs-crossref-marker-cite-content: '[' counter(cite) ']';
+}
+
+:lang(ja) {
+  --vs-crossref-call-fig-content: '図' target-counter(attr(href), fig);
+  --vs-crossref-call-tbl-content: '表' target-counter(attr(href), tbl);
+  --vs-crossref-marker-fig-content: '図' counter(fig) ': ';
+  --vs-crossref-marker-tbl-content: '表' counter(tbl) ': ';
+}

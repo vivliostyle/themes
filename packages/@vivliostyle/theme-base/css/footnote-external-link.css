@@ -1,0 +1,22 @@
+
+@media print {
+  :not(.footnote) > a[href^="http"] {
+    color: initial;
+    text-decoration: initial;
+    counter-increment: footnote;
+  }
+
+  :not(.footnote) > a[href^="http"]::before {
+    content: '[' counter(footnote) '] ' attr(href);
+    display: block;
+    font-size: var(--vs-footnote-font-size);
+    float: footnote;
+    word-break: break-all;
+  }
+
+  :not(.footnote) > a[href^="http"]::after {
+    font-size: 80%;
+    margin: 0 .2rem;
+    content: '[' counter(footnote) ']';
+  }
+}

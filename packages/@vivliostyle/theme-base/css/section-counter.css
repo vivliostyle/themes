@@ -1,0 +1,59 @@
+body {
+  counter-reset: section subsection subsubsection;
+}
+
+section.level1 {
+  counter-increment: section;
+  counter-reset: subsection subsubsection;
+}
+
+section.level2 {
+  counter-increment: subsection;
+  counter-reset: subsubsection;
+}
+
+section.level3 {
+  counter-increment: subsubsection;
+}
+
+a[data-ref='sec'],
+a[data-ref='subsec'],
+a[data-ref='subsubsec'] {
+  text-decoration: none;
+  color: inherit;
+  margin-inline-start: var(--vs-section-call-margin-inline);
+  margin-inline-end: var(--vs-section-call-margin-inline);
+}
+
+a[data-ref='sec']::before {
+  display: var(--vs-section-call-display, inline);
+  content: var(--vs-section-call-sec-content);
+}
+
+a[data-ref='subsec']::before {
+  display: var(--vs-section-call-display, inline);
+  content: var(--vs-section-call-subsec-content);
+}
+
+a[data-ref='subsubsec']::before {
+  display: var(--vs-section-call-display, inline);
+  content: var(--vs-section-call-subsubsec-content);
+}
+
+section.level1 > h1::before {
+  display: var(--vs-section-marker-display, none);
+  content: var(--vs-section-marker-sec-content);
+  margin-inline-end: var(--vs-section-marker-margin-inline);
+}
+
+section.level2 > h2::before {
+  display: var(--vs-section-marker-display, none);
+  content: var(--vs-section-marker-subsec-content);
+  margin-inline-end: var(--vs-section-marker-margin-inline);
+}
+
+section.level3 > h3::before {
+  display: var(--vs-section-marker-display, none);
+  content: var(--vs-section-marker-subsubsec-content);
+  margin-inline-end: var(--vs-section-marker-margin-inline);
+}

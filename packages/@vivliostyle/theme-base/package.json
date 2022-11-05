@@ -1,0 +1,44 @@
+{
+  "name": "@vivliostyle/theme-base",
+  "description": "Base theme and CSS toolkit for Vivliostyle themes",
+  "version": "0.1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "scripts": {
+    "build": "vivliostyle build",
+    "dev": "vivliostyle preview",
+    "validate": "vivliostyle-theme-scripts validate"
+  },
+  "devDependencies": {
+    "@vivliostyle/cli": "latest",
+    "vivliostyle-theme-scripts": "^0.3.1"
+  },
+  "files": [
+    "*.css",
+    "css",
+    "example",
+    "lib",
+    "vivliostyle.config.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-base"
+  },
+  "homepage": "https://github.com/vivliostyle/themes",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "license": "CC0-1.0",
+  "vivliostyle": {
+    "theme": {
+      "name": "Vivliostyle Base theme",
+      "style": "./theme-all.css",
+      "category": "misc",
+      "topics": []
+    }
+  }
+}

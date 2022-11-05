@@ -1,0 +1,43 @@
+body {
+  counter-reset: footnote;
+}
+
+.footnote {
+  counter-increment: footnote;
+  font-size: var(--vs-footnote-font-size);
+}
+
+.footnote::footnote-call {
+  content: var(--vs-footnote-call-content, counter(footnote));
+}
+
+.footnote::footnote-marker {
+  content: var(--vs-footnote-marker-content, counter(footnote));
+}
+
+.footnote::footnote-call {
+  font-size: var(--vs-footnote-call-font-size);
+  margin-inline-start: var(--vs-footnote-call-margin-inline);
+  margin-inline-end: var(--vs-footnote-call-margin-inline);
+}
+
+.footnote::footnote-marker {
+  margin-inline-end: var(--vs-footnote-marker-margin-inline);
+}
+
+@media print {
+  .footnote {
+    float: footnote;
+  }
+}
+
+@-adapt-footnote-area {
+  margin-block-start: var(--vs-footnote-area-margin-block-start);
+  margin-block-end: var(--vs-footnote-area-margin-block-end);
+}
+
+@-adapt-footnote-area ::before {
+  display: block;
+  border-block-start-color: var(--vs-footnote-area-before-border-color);
+  border-block-start-width: var(--vs-footnote-area-before-border-width);
+}

@@ -1,0 +1,73 @@
+body {
+  counter-reset: fig tbl cite;
+}
+
+a[data-ref='fig'],
+a[data-ref='tbl'],
+a[data-ref='cite'] {
+  text-decoration: none;
+  color: inherit;
+  margin-inline-start: var(--vs-crossref-call-margin-inline);
+  margin-inline-end: var(--vs-crossref-call-margin-inline);
+}
+
+/**
+ * Figure
+ */
+
+a[data-ref='fig']::before {
+  display: var(--vs-section-call-display, inline);
+  content: var(--vs-crossref-call-fig-content);
+}
+
+figure.fig {
+  counter-increment: fig;
+}
+
+figure.fig figcaption::before {
+  display: var(--vs-crossref-marker-display, inline);
+  content: var(--vs-crossref-marker-fig-content);
+}
+
+/**
+ * Table
+ */
+
+a[data-ref='tbl']::before {
+  display: var(--vs-section-call-display, inline);
+  content: var(--vs-crossref-call-tbl-content);
+}
+
+figure.tbl {
+  counter-increment: tbl;
+}
+
+figure.tbl figcaption::before {
+  display: var(--vs-crossref-marker-display, inline);
+  content: var(--vs-crossref-marker-tbl-content);
+}
+
+/*
+ * Citation
+ */
+
+a[data-ref='cite']::before {
+  display: var(--vs-section-call-display, inline);
+  content: var(--vs-crossref-call-cite-content);
+}
+
+ol.cite-items {
+  list-style: none;
+}
+
+ol.cite-items > li {
+  counter-increment: cite;
+  position: relative;
+}
+
+ol.cite-items > li::before {
+  position: absolute;
+  left: -2rem;
+  display: var(--vs-crossref-marker-display, inline);
+  content: var(--vs-crossref-marker-cite-content);
+}

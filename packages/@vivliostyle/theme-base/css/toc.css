@@ -1,0 +1,22 @@
+[role=doc-toc] ul,
+[role=doc-toc] ol,
+#toc ul,
+#toc ol {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+[role=doc-toc] li > a,
+#toc li > a {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+}
+
+[role=doc-toc] li > a::after,
+#toc li > a::after {
+  content: target-counter(attr(href), page);
+  text-align: right;
+}

@@ -1,0 +1,170 @@
+@page {
+  size: var(--vs-page-size, auto);
+  marks: var(--vs-page-marks, none);
+  bleed: var(--vs-page-bleed, 0);
+  margin-top: var(--vs-page-margin-top);
+  margin-bottom: var(--vs-page-margin-bottom);
+}
+
+@page :left {
+  margin-left: var(--vs-page-margin-outer);
+  margin-right: var(--vs-page-margin-inner);
+}
+
+@page :right {
+  margin-left: var(--vs-page-margin-inner);
+  margin-right: var(--vs-page-margin-outer);
+}
+
+@page {
+  @top-left-corner {
+    content: '';
+    background-color: var(--vs-color-page-margin-background);
+    color: var(--vs-color-page-margin-body);
+    margin-top: calc(var(--vs-page-bleed) * -1);
+    margin-left: calc(var(--vs-page-bleed) * -1);
+    padding-top: var(--vs-page-bleed);
+    padding-left: var(--vs-page-bleed);
+    font-size: var(--vs-page-margin-font-size);
+  }
+
+  @top-left {
+    content: '';
+    background-color: var(--vs-color-page-margin-background);
+    color: var(--vs-color-page-margin-body);
+    margin-top: calc(var(--vs-page-bleed) * -1);
+    padding-top: var(--vs-page-bleed);
+    font-size: var(--vs-page-margin-font-size);
+  }
+
+  @top-center {
+    content: '';
+    background-color: var(--vs-color-page-margin-background);
+    color: var(--vs-color-page-margin-body);
+    margin-top: calc(var(--vs-page-bleed) * -1);
+    padding-top: var(--vs-page-bleed);
+    font-size: var(--vs-page-margin-font-size);
+  }
+
+  @top-right {
+    content: '';
+    background-color: var(--vs-color-page-margin-background);
+    color: var(--vs-color-page-margin-body);
+    margin-top: calc(var(--vs-page-bleed) * -1);
+    padding-top: var(--vs-page-bleed);
+    font-size: var(--vs-page-margin-font-size);
+  }
+
+  @top-right-corner {
+    content: '';
+    background-color: var(--vs-color-page-margin-background);
+    color: var(--vs-color-page-margin-body);
+    margin-top: calc(var(--vs-page-bleed) * -1);
+    margin-right: calc(var(--vs-page-bleed) * -1);
+    padding-top: var(--vs-page-bleed);
+    padding-right: var(--vs-page-bleed);
+    font-size: var(--vs-page-margin-font-size);
+  }
+
+  @left-top {
+    content: '';
+    background-color: var(--vs-color-page-margin-background);
+    color: var(--vs-color-page-margin-body);
+    margin-left: calc(var(--vs-page-bleed) * -1);
+    padding-left: var(--vs-page-bleed);
+    font-size: var(--vs-page-margin-font-size);
+  }
+
+  @left-middle {
+    content: '';
+    background-color: var(--vs-color-page-margin-background);
+    color: var(--vs-color-page-margin-body);
+    margin-left: calc(var(--vs-page-bleed) * -1);
+    padding-left: var(--vs-page-bleed);
+    font-size: var(--vs-page-margin-font-size);
+  }
+
+  @left-bottom {
+    content: '';
+    background-color: var(--vs-color-page-margin-background);
+    color: var(--vs-color-page-margin-body);
+    margin-left: calc(var(--vs-page-bleed) * -1);
+    padding-left: var(--vs-page-bleed);
+    font-size: var(--vs-page-margin-font-size);
+  }
+
+  @right-top {
+    content: '';
+    background-color: var(--vs-color-page-margin-background);
+    color: var(--vs-color-page-margin-body);
+    margin-right: calc(var(--vs-page-bleed) * -1);
+    padding-right: var(--vs-page-bleed);
+    font-size: var(--vs-page-margin-font-size);
+  }
+
+  @right-middle {
+    content: '';
+    background-color: var(--vs-color-page-margin-background);
+    color: var(--vs-color-page-margin-body);
+    margin-right: calc(var(--vs-page-bleed) * -1);
+    padding-right: var(--vs-page-bleed);
+    font-size: var(--vs-page-margin-font-size);
+  }
+
+  @right-bottom {
+    content: '';
+    background-color: var(--vs-color-page-margin-background);
+    color: var(--vs-color-page-margin-body);
+    margin-right: calc(var(--vs-page-bleed) * -1);
+    padding-right: var(--vs-page-bleed);
+    font-size: var(--vs-page-margin-font-size);
+  }
+  @bottom-left-corner {
+    content: '';
+    background-color: var(--vs-color-page-margin-background);
+    color: var(--vs-color-page-margin-body);
+    margin-bottom: calc(var(--vs-page-bleed) * -1);
+    margin-left: calc(var(--vs-page-bleed) * -1);
+    padding-bottom: var(--vs-page-bleed);
+    padding-left: var(--vs-page-bleed);
+    font-size: var(--vs-page-margin-font-size);
+  }
+
+  @bottom-left {
+    content: '';
+    background-color: var(--vs-color-page-margin-background);
+    color: var(--vs-color-page-margin-body);
+    margin-bottom: calc(var(--vs-page-bleed) * -1);
+    padding-bottom: var(--vs-page-bleed);
+    font-size: var(--vs-page-margin-font-size);
+  }
+
+  @bottom-center {
+    content: '';
+    background-color: var(--vs-color-page-margin-background);
+    color: var(--vs-color-page-margin-body);
+    margin-bottom: calc(var(--vs-page-bleed) * -1);
+    padding-bottom: var(--vs-page-bleed);
+    font-size: var(--vs-page-margin-font-size);
+  }
+
+  @bottom-right {
+    content: '';
+    background-color: var(--vs-color-page-margin-background);
+    color: var(--vs-color-page-margin-body);
+    margin-bottom: calc(var(--vs-page-bleed) * -1);
+    padding-bottom: var(--vs-page-bleed);
+    font-size: var(--vs-page-margin-font-size);
+  }
+
+  @bottom-right-corner {
+    content: '';
+    background-color: var(--vs-color-page-margin-background);
+    color: var(--vs-color-page-margin-body);
+    margin-bottom: calc(var(--vs-page-bleed) * -1);
+    margin-right: calc(var(--vs-page-bleed) * -1);
+    padding-bottom: var(--vs-page-bleed);
+    padding-right: var(--vs-page-bleed);
+    font-size: var(--vs-page-margin-font-size);
+  }
+}
