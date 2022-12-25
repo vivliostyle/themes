@@ -7,7 +7,7 @@
   --vs-page--margin-inner: 18mm;
   --vs-page--margin-outer: 18mm;
   --vs-page--margin-box-font-size: inherit;
-  --vs-page--margin-box-color-bg: var(--vs--color-bg);
+  --vs-page--margin-box-color-bg: var(--vs-color-bg);
   --vs-page--margin-box-color-body: inherit;
 }
 

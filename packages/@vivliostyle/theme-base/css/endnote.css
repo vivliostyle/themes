@@ -1,12 +1,12 @@
 :root {
   --vs-endnote--anchor-text-decoration: none;
   --vs-endnote--anchor-text-decoration-on-hover: underline;
-  --vs-endnote--call-font-size: var(--vs--font-size-smaller);
+  --vs-endnote--call-font-size: var(--vs-font-size-smaller);
   --vs-endnote--call-margin-inline: 0;
   --vs-endnote--section-font-size: inherit;
-  --vs-endnote--section-margin-block: var(--vs--spacing-rlh);
-  --vs-endnote--section-hr-border-color: var(--vs-hr-border-color);
-  --vs-endnote--section-hr-border-width: var(--vs--border-width);
+  --vs-endnote--section-margin-block: var(--vs-spacing-rlh);
+  --vs-endnote--section-hr-border-color: var(--vs--hr-border-color);
+  --vs-endnote--section-hr-border-width: var(--vs-border-width);
   --vs-endnote--section-hr-margin-block: var(--vs-margin-hr-block);
   --vs-endnote--section-hr-margin-inline: var(--vs-margin-hr-inline);
   --vs-endnote--section-ol-padding-inline-start: var(--vs-padding-list-inline-start);

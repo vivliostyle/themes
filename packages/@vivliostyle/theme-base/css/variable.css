@@ -2,54 +2,55 @@
   /**
    * Typography
    */
-  --vs--font-family: sans-serif;
-  --vs--font-feature-settings: 'kern', 'liga', 'calt';
-  --vs--font-size: 16px;
-  --vs--font-size-smaller: calc(var(--vs--font-size) * 0.8);
-  --vs--font-style: normal;
-  --vs--font-weight: 400;
-  --vs--hanging-punctuation: allow-end;
-  --vs--hyphens: auto;
-  --vs--line-break: strict;
-  --vs--line-height: 1.5;
-  --vs--letter-spacing: 0;
-  --vs--overflow-wrap: break-word;
-  --vs--tab-size: 4;
-  --vs--text-align: auto;
-  --vs--text-align-last: auto;
+  --vs-font-family: sans-serif;
+  --vs-font-feature-settings: 'kern', 'liga', 'calt';
+  --vs-font-size: 16px;
+  --vs-font-size-smaller: calc(var(--vs-font-size) * 0.8);
+  --vs-font-style: normal;
+  --vs-font-weight-normal: 400;
+  --vs-font-weight-bold: 700;
+  --vs-hanging-punctuation: allow-end;
+  --vs-hyphens: auto;
+  --vs-line-break: strict;
+  --vs-line-height: 1.5;
+  --vs-letter-spacing: 0;
+  --vs-overflow-wrap: break-word;
+  --vs-tab-size: 4;
+  --vs-text-align: auto;
+  --vs-text-align-last: auto;
   /* https://drafts.csswg.org/css-text-4/#text-spacing-property */
-  --vs--text-spacing: space-first allow-end ideograph-alpha ideograph-numeric;
-  --vs--text-underline-offset: auto;
-  --vs--text-underline-position: left;
-  --vs--word-break: normal;
+  --vs-text-spacing: space-first allow-end ideograph-alpha ideograph-numeric;
+  --vs-text-underline-offset: auto;
+  --vs-text-underline-position: left;
+  --vs-word-break: normal;
 
   /**
    * Layout
    */
-  --vs--column-count: 1;
-  --vs--column-gap: 1rem;
-  --vs--column-width: auto;
-  --vs--text-orientation: unset;
-  --vs--orphans: var(--vs--widows-orphans);
-  --vs--widows: var(--vs--widows-orphans);
-  --vs--widows-orphans: 1;
-  --vs--writing-mode: horizontal-tb;
+  --vs-column-count: 1;
+  --vs-column-gap: 1rem;
+  --vs-column-width: auto;
+  --vs-text-orientation: unset;
+  --vs-orphans: var(--vs-widows-orphans);
+  --vs-widows: var(--vs-widows-orphans);
+  --vs-widows-orphans: 1;
+  --vs-writing-mode: horizontal-tb;
 
   /**
    * Colors
    */
-  --vs--color-bg: transparent;
-  --vs--color-body: #000;
-  --vs--color-border: currentColor;
+  --vs-color-bg: transparent;
+  --vs-color-body: #000;
+  --vs-color-border: currentColor;
 
   /**
    * Spacing
    */
-  --vs--spacing-rlh: calc(var(--vs--line-height) * 1rem);
-  --vs--spacing-inline-indent: min(2ch, 5vw);
+  --vs-spacing-rlh: calc(var(--vs-line-height) * 1rem);
+  --vs-spacing-inline-indent: min(2ch, 5vw);
 
   /**
    * Borders
    */
-  --vs--border-width: 1px;
+  --vs-border-width: 1px;
 }

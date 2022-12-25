@@ -1,16 +1,16 @@
 :root {
   --vs-footnote--font-size: inherit;
   --vs-footnote--call-content: '[' counter(footnote, var(--vs-footnote--counter-style)) ']';
-  --vs-footnote--call-font-size: var(--vs--font-size-smaller);
+  --vs-footnote--call-font-size: var(--vs-font-size-smaller);
   --vs-footnote--call-margin-inline: 0;
   --vs-footnote--counter-style: decimal;
   --vs-footnote--marker-content: '[' counter(footnote, var(--vs-footnote--counter-style)) '] ';
-  --vs-footnote--area-margin-block: var(--vs--spacing-rlh);
+  --vs-footnote--area-margin-block: var(--vs-spacing-rlh);
   --vs-footnote--area-before-display: block;
-  --vs-footnote--area-before-border-color: var(--vs-hr-border-color);
-  --vs-footnote--area-before-border-width: var(--vs--border-width);
-  --vs-footnote--area-before-margin-block: var(--vs-hr-margin-block);
-  --vs-footnote--area-before-margin-inline: var(--vs-hr-margin-inline);
+  --vs-footnote--area-before-border-color: var(--vs--hr-border-color);
+  --vs-footnote--area-before-border-width: var(--vs-border-width);
+  --vs-footnote--area-before-margin-block: var(--vs--hr-margin-block);
+  --vs-footnote--area-before-margin-inline: var(--vs--hr-margin-inline);
   --vs-footnote--item-margin-block: 0;
   --vs-footnote--item-margin-inline: 0;
 }
