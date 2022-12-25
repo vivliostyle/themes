@@ -1,5 +1,0 @@
-@page {
-  @bottom-center {
-    content: counter(page);
-  }
-}

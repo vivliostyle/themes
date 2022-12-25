@@ -1,4 +1,3 @@
-
 @media print {
   :not(.footnote) > a[href^="http"] {
     color: unset;
