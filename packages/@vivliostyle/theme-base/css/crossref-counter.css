@@ -1,14 +1,36 @@
+:root {
+  --vs-crossref--anchor-text-decoration: none;
+  --vs-crossref--anchor-text-decoration-on-hover: underline;
+  --vs-crossref--call-display: inline;
+  --vs-crossref--call-fig-content: 'Fig. ' target-counter(attr(href), fig, var(--vs-crossref--counter-style));
+  --vs-crossref--call-tbl-content: 'Table ' target-counter(attr(href), tbl, var(--vs-crossref--counter-style));
+  --vs-crossref--call-cite-content: '[' target-counter(attr(href), cite) ']';
+  --vs-crossref--call-margin-inline: 0;
+  --vs-crossref--counter-style: decimal;
+  --vs-crossref--marker-display: inline;
+  --vs-crossref--marker-fig-content: 'Fig. ' counter(fig, var(--vs-crossref--counter-style)) ': ';
+  --vs-crossref--marker-tbl-content: 'Table ' counter(tbl, var(--vs-crossref--counter-style)) ': ';
+  --vs-crossref--marker-cite-content: '[' counter(cite) ']';
+}
+
+:lang(ja) {
+  --vs-crossref--call-fig-content: '図' target-counter(attr(href), fig, var(--vs-crossref--counter-style));
+  --vs-crossref--call-tbl-content: '表' target-counter(attr(href), tbl, var(--vs-crossref--counter-style));
+  --vs-crossref--marker-fig-content: '図' counter(fig, var(--vs-crossref--counter-style)) ': ';
+  --vs-crossref--marker-tbl-content: '表' counter(tbl, var(--vs-crossref--counter-style)) ': ';
+}
+
 body {
   counter-reset: fig tbl cite;
 }
 
-a[data-ref='fig'],
-a[data-ref='tbl'],
-a[data-ref='cite'] {
-  text-decoration: none;
-  color: inherit;
-  margin-inline-start: var(--vs-crossref-call-margin-inline);
-  margin-inline-end: var(--vs-crossref-call-margin-inline);
+a:is([data-ref='fig'], a[data-ref='tbl'], a[data-ref='cite']) {
+  text-decoration: var(--vs-crossref--anchor-text-decoration);
+  margin-inline: var(--vs-crossref--call-margin-inline);
+}
+
+a:is([data-ref='fig'], a[data-ref='tbl'], a[data-ref='cite']):hover {
+  text-decoration: var(--vs-crossref--anchor-text-decoration-on-hover);
 }
 
 /**
@@ -16,8 +38,8 @@ a[data-ref='cite'] {
  */
 
 a[data-ref='fig']::before {
-  display: var(--vs-section-call-display, inline);
-  content: var(--vs-crossref-call-fig-content);
+  display: var(--vs-crossref--call-display);
+  content: var(--vs-crossref--call-fig-content);
 }
 
 figure.fig {
@@ -25,8 +47,8 @@ figure.fig {
 }
 
 figure.fig figcaption::before {
-  display: var(--vs-crossref-marker-display, inline);
-  content: var(--vs-crossref-marker-fig-content);
+  display: var(--vs-crossref--marker-display);
+  content: var(--vs-crossref--marker-fig-content);
 }
 
 /**
@@ -34,8 +56,8 @@ figure.fig figcaption::before {
  */
 
 a[data-ref='tbl']::before {
-  display: var(--vs-section-call-display, inline);
-  content: var(--vs-crossref-call-tbl-content);
+  display: var(--vs-crossref--call-display);
+  content: var(--vs-crossref--call-tbl-content);
 }
 
 figure.tbl {
@@ -43,8 +65,8 @@ figure.tbl {
 }
 
 figure.tbl figcaption::before {
-  display: var(--vs-crossref-marker-display, inline);
-  content: var(--vs-crossref-marker-tbl-content);
+  display: var(--vs-crossref--marker-display);
+  content: var(--vs-crossref--marker-tbl-content);
 }
 
 /*
@@ -52,22 +74,22 @@ figure.tbl figcaption::before {
  */
 
 a[data-ref='cite']::before {
-  display: var(--vs-section-call-display, inline);
-  content: var(--vs-crossref-call-cite-content);
+  display: var(--vs-crossref--call-display);
+  content: var(--vs-crossref--call-cite-content);
 }
 
 ol.cite-items {
   list-style: none;
 }
 
-ol.cite-items > li {
+ol.cite-items>li {
   counter-increment: cite;
   position: relative;
 }
 
-ol.cite-items > li::before {
+ol.cite-items>li::before {
   position: absolute;
   left: -2rem;
-  display: var(--vs-crossref-marker-display, inline);
-  content: var(--vs-crossref-marker-cite-content);
+  display: var(--vs-crossref--marker-display);
+  content: var(--vs-crossref--marker-cite-content);
 }

@@ -2,6 +2,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  border-color: currentColor;
   border-width: 0;
   border-style: solid;
 }

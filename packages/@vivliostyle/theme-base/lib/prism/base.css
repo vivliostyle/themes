@@ -87,10 +87,10 @@ pre[class*='language-'] {
 }
 
 .token.bold {
-  font-weight: var(--vs-font-weight-bold, bold);
+  font-weight: var(--vs-bold-font-weight, bold);
 }
 .token.italic {
-  font-style: var(--vs-font-style-emphasis, italic);
+  font-style: var(--vs-emphasis-font-style, italic);
 }
 .token.entity {
   cursor: help;
