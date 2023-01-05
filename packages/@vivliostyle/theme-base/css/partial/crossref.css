@@ -2,22 +2,30 @@
   --vs-crossref--anchor-text-decoration: none;
   --vs-crossref--anchor-text-decoration-on-hover: underline;
   --vs-crossref--call-display: inline;
-  --vs-crossref--call-fig-content: 'Fig. ' target-counter(attr(href), fig, var(--vs-crossref--counter-style));
-  --vs-crossref--call-tbl-content: 'Table ' target-counter(attr(href), tbl, var(--vs-crossref--counter-style));
+  --vs-crossref--call-fig-content: 'Figure '
+    target-counter(attr(href), fig, var(--vs-crossref--counter-style));
+  --vs-crossref--call-tbl-content: 'Table '
+    target-counter(attr(href), tbl, var(--vs-crossref--counter-style));
   --vs-crossref--call-cite-content: '[' target-counter(attr(href), cite) ']';
   --vs-crossref--call-margin-inline: 0;
   --vs-crossref--counter-style: decimal;
   --vs-crossref--marker-display: inline;
-  --vs-crossref--marker-fig-content: 'Fig. ' counter(fig, var(--vs-crossref--counter-style)) ': ';
-  --vs-crossref--marker-tbl-content: 'Table ' counter(tbl, var(--vs-crossref--counter-style)) ': ';
+  --vs-crossref--marker-fig-content: 'Figure '
+    counter(fig, var(--vs-crossref--counter-style)) ': ';
+  --vs-crossref--marker-tbl-content: 'Table '
+    counter(tbl, var(--vs-crossref--counter-style)) ': ';
   --vs-crossref--marker-cite-content: '[' counter(cite) ']';
 }
 
 :lang(ja) {
-  --vs-crossref--call-fig-content: '図' target-counter(attr(href), fig, var(--vs-crossref--counter-style));
-  --vs-crossref--call-tbl-content: '表' target-counter(attr(href), tbl, var(--vs-crossref--counter-style));
-  --vs-crossref--marker-fig-content: '図' counter(fig, var(--vs-crossref--counter-style)) ': ';
-  --vs-crossref--marker-tbl-content: '表' counter(tbl, var(--vs-crossref--counter-style)) ': ';
+  --vs-crossref--call-fig-content: '図'
+    target-counter(attr(href), fig, var(--vs-crossref--counter-style));
+  --vs-crossref--call-tbl-content: '表'
+    target-counter(attr(href), tbl, var(--vs-crossref--counter-style));
+  --vs-crossref--marker-fig-content: '図'
+    counter(fig, var(--vs-crossref--counter-style)) ': ';
+  --vs-crossref--marker-tbl-content: '表'
+    counter(tbl, var(--vs-crossref--counter-style)) ': ';
 }
 
 body {
@@ -82,12 +90,12 @@ ol.cite-items {
   list-style: none;
 }
 
-ol.cite-items>li {
+ol.cite-items > li {
   counter-increment: cite;
   position: relative;
 }
 
-ol.cite-items>li::before {
+ol.cite-items > li::before {
   position: absolute;
   left: -2rem;
   display: var(--vs-crossref--marker-display);
