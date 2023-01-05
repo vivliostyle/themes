@@ -49,13 +49,13 @@
 
   --vs--small-font-size: 0.83em;
 
-  --vs-sub-font-size: var(--vs-font-size-smaller);
-  --vs-sub-inset-bottom: -0.25em;
+  --vs--sub-font-size: var(--vs-font-size-smaller);
+  --vs--sub-inset-bottom: -0.25em;
 
-  --vs-sup-font-size: var(--vs-font-size-smaller);
-  --vs-sup-inset-top: -0.5em;
+  --vs--sup-font-size: var(--vs-font-size-smaller);
+  --vs--sup-inset-top: -0.5em;
 
-  --vs-rt-font-size: 50%;
+  --vs--rt-font-size: 50%;
 
   --vs--hr-border-color: var(--vs-color-border);
   --vs--hr-border-width: var(--vs-border-width);
@@ -96,11 +96,11 @@
   --vs--lists-margin-inline: 0;
 
   --vs--ul-list-style-type: disc;
-  --vs--ul-minumum-inline-indent-size: 2rem;
+  --vs--ul-minimum-inline-indent-size: 2rem;
   --vs--ul-padding-inline-start: var(--vs-spacing-inline-indent);
 
   --vs--ol-list-style-type: decimal;
-  --vs--ol-minumum-inline-indent-size: 2rem;
+  --vs--ol-minimum-inline-indent-size: 2rem;
   --vs--ol-padding-inline-start: var(--vs-spacing-inline-indent);
 
   --vs--dt-dd-display: block;
@@ -249,17 +249,17 @@ small {
 }
 
 sub {
-  font-size: var(--vs-sub-font-size);
-  bottom: var(--vs-sub-inset-bottom);
+  font-size: var(--vs--sub-font-size);
+  bottom: var(--vs--sub-inset-bottom);
 }
 
 sup {
-  font-size: var(--vs-sup-font-size);
-  top: var(--vs-sup-inset-top);
+  font-size: var(--vs--sup-font-size);
+  top: var(--vs--sup-inset-top);
 }
 
 rt {
-  font-size: var(--vs-rt-font-size);
+  font-size: var(--vs--rt-font-size);
 }
 
 hr {
@@ -343,7 +343,7 @@ ul {
 ul:not(:is(ul *, ol *)) {
   padding-inline-start: max(
     var(--vs--ul-padding-inline-start),
-    var(--vs--ul-minumum-inline-indent-size)
+    var(--vs--ul-minimum-inline-indent-size)
   );
 }
 
@@ -355,7 +355,7 @@ ol {
 ol:not(:is(ul *, ol *)) {
   padding-inline-start: max(
     var(--vs--ol-padding-inline-start),
-    var(--vs--ol-minumum-inline-indent-size)
+    var(--vs--ol-minimum-inline-indent-size)
   );
 }
 
@@ -424,7 +424,10 @@ table {
   }
 }
 
-table, tr, th, td {
+table,
+tr,
+th,
+td {
   border-color: var(--vs--table-border-color);
 }
 
