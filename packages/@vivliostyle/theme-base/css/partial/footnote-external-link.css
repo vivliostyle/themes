@@ -1,11 +1,11 @@
 @media print {
-  :not(.footnote) > a[href^="http"] {
+  :not(.footnote) > a[href^='http'] {
     color: unset;
     text-decoration: unset;
     counter-increment: footnote;
   }
 
-  :not(.footnote) > a[href^="http"]::before {
+  :not(.footnote) > a[href^='http']::before {
     content: var(--vs-footnote--marker-content) attr(href);
     display: block;
     font-size: var(--vs-footnote--font-size);
@@ -13,9 +13,11 @@
     word-break: break-all;
   }
 
-  :not(.footnote) > a[href^="http"]::after {
+  :not(.footnote) > a[href^='http']::after {
     content: var(--vs-footnote--call-content);
     font-size: var(--vs-footnote--call-font-size);
     margin-inline: var(--vs-footnote--call-margin-inline);
+    position: relative;
+    top: var(--vs-footnote--call-inset-top);
   }
 }
