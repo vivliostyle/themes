@@ -33,10 +33,10 @@
   --vs-prism--color-variable: var(--vs-prism--color);
   --vs-prism--text-shadow: none;
 
-  --vs-prism--border-radius-code-block: 0.3em;
-  --vs-prism--border-radius-code-inline: 0.3em;
-  --vs-prism--padding-code-block: 1em;
-  --vs-prism--padding-code-inline: 0.1em;
+  --vs-prism--block-code-border-radius: 0.3em;
+  --vs-prism--block-code-padding: 1em;
+  --vs-prism--inline-code-border-radius: 0.3em;
+  --vs-prism--inline-code-padding: 0.1em;
 }
 
 code,
@@ -62,9 +62,9 @@ pre[class*='language-'] {
 
 /* Code blocks */
 pre[class*='language-'] {
-  padding: var(--vs-prism--padding-code-block);
+  padding: var(--vs-prism--block-code-padding);
   overflow: auto;
-  border-radius: var(--vs-prism--border-radius-code-block);
+  border-radius: var(--vs-prism--block-code-border-radius);
 }
 
 @media print {
@@ -81,8 +81,8 @@ pre[class*='language-'] {
 
 /* Inline code */
 :not(pre) > code {
-  padding: var(--vs-prism--padding-code-inline);
-  border-radius: var(--vs-prism--border-radius-code-inline);
+  padding: var(--vs-prism--inline-code-padding);
+  border-radius: var(--vs-prism--inline-code-border-radius);
   white-space: normal;
 }
 
