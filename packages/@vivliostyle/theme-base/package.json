@@ -9,14 +9,21 @@
     "validate": "vivliostyle-theme-scripts validate"
   },
   "devDependencies": {
-    "@vivliostyle/cli": "latest",
+    "@vivliostyle/cli": ">=6",
     "vivliostyle-theme-scripts": "^0.3.1"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=6"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
   },
   "files": [
     "*.css",
     "css",
     "example",
-    "lib",
     "vivliostyle.config.js"
   ],
   "publishConfig": {
@@ -35,7 +42,8 @@
   "license": "CC0-1.0",
   "vivliostyle": {
     "theme": {
-      "name": "Vivliostyle Base theme",
+      "name": "Vivliostyle Base Theme",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
       "style": "./theme-all.css",
       "category": "misc",
       "topics": []
