@@ -18,8 +18,8 @@
   --vs-tab-size: 4;
   --vs-text-align: auto;
   --vs-text-align-last: auto;
-  /* https://drafts.csswg.org/css-text-4/#text-spacing-property */
-  --vs-text-spacing: space-first allow-end ideograph-alpha ideograph-numeric;
+  --vs-text-spacing: space-first trim-end trim-adjacent ideograph-alpha
+    ideograph-numeric;
   --vs-text-underline-offset: auto;
   --vs-text-underline-position: left;
   --vs-word-break: normal;
