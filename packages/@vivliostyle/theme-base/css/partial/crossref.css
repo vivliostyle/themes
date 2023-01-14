@@ -3,33 +3,38 @@
   --vs-crossref--anchor-text-decoration-on-hover: underline;
   --vs-crossref--call-display: inline;
   --vs-crossref--call-fig-content: 'Figure '
-    target-counter(attr(href), fig, var(--vs-crossref--counter-style));
+    target-counter(attr(href), vs-counter-fig, var(--vs-crossref--counter-style));
   --vs-crossref--call-tbl-content: 'Table '
-    target-counter(attr(href), tbl, var(--vs-crossref--counter-style));
-  --vs-crossref--call-cite-content: '[' target-counter(attr(href), cite) ']';
+    target-counter(attr(href), vs-counter-tbl, var(--vs-crossref--counter-style));
+  --vs-crossref--call-cite-content: '[' target-counter(attr(href), vs-counter-cite) ']';
   --vs-crossref--call-margin-inline: 0;
   --vs-crossref--counter-style: decimal;
   --vs-crossref--marker-display: inline;
   --vs-crossref--marker-fig-content: 'Figure '
-    counter(fig, var(--vs-crossref--counter-style)) ': ';
+    counter(vs-counter-fig, var(--vs-crossref--counter-style)) ': ';
   --vs-crossref--marker-tbl-content: 'Table '
-    counter(tbl, var(--vs-crossref--counter-style)) ': ';
-  --vs-crossref--marker-cite-content: '[' counter(cite) ']';
+    counter(vs-counter-tbl, var(--vs-crossref--counter-style)) ': ';
+  --vs-crossref--marker-cite-content: '[' counter(vs-counter-cite) ']';
+  --vs-crossref--marker-margin-inline: 0;
+  --vs-crossref--root-counter-reset: vs-counter-fig vs-counter-tbl vs-counter-cite;
+
+  /* displays dummy content on screen media that doesn't support target-counter() */
+  --vs-crossref--call-fig-content-on-screen: 'Figure ???';
+  --vs-crossref--call-tbl-content-on-screen: 'Table ???';
+  --vs-crossref--call-cite-content-on-screen: '[???]';
 }
 
 :lang(ja) {
   --vs-crossref--call-fig-content: '図'
-    target-counter(attr(href), fig, var(--vs-crossref--counter-style));
+    target-counter(attr(href), vs-counter-fig, var(--vs-crossref--counter-style));
   --vs-crossref--call-tbl-content: '表'
-    target-counter(attr(href), tbl, var(--vs-crossref--counter-style));
+    target-counter(attr(href), vs-counter-tbl, var(--vs-crossref--counter-style));
   --vs-crossref--marker-fig-content: '図'
-    counter(fig, var(--vs-crossref--counter-style)) ': ';
+    counter(vs-counter-fig, var(--vs-crossref--counter-style)) ': ';
   --vs-crossref--marker-tbl-content: '表'
-    counter(tbl, var(--vs-crossref--counter-style)) ': ';
-}
-
-body {
-  counter-reset: fig tbl cite;
+    counter(vs-counter-tbl, var(--vs-crossref--counter-style)) ': ';
+  --vs-crossref--call-fig-content-on-screen: '図???';
+  --vs-crossref--call-tbl-content-on-screen: '表???';
 }
 
 a:is([data-ref='fig'], a[data-ref='tbl'], a[data-ref='cite']) {
@@ -50,13 +55,23 @@ a[data-ref='fig']::before {
   content: var(--vs-crossref--call-fig-content);
 }
 
-figure.fig {
-  counter-increment: fig;
+@media screen {
+  a[data-ref='fig']::before {
+    content: var(--vs-crossref--call-fig-content-on-screen);
+  }
 }
 
-figure.fig figcaption::before {
+figure:is(.fig, :has(> :is(img, picture))) {
+  counter-increment: vs-counter-fig;
+}
+
+figure:is(.fig, :has(> :is(img, picture))) figcaption::before {
   display: var(--vs-crossref--marker-display);
   content: var(--vs-crossref--marker-fig-content);
+  margin-inline: var(
+    --vs-crossref--marker-fig-margin-inline,
+    var(--vs-crossref--marker-margin-inline)
+  );
 }
 
 /**
@@ -68,13 +83,25 @@ a[data-ref='tbl']::before {
   content: var(--vs-crossref--call-tbl-content);
 }
 
-figure.tbl {
-  counter-increment: tbl;
+@media screen {
+  a[data-ref='tbl']::before {
+    content: var(--vs-crossref--call-tbl-content-on-screen);
+  }
 }
 
-figure.tbl figcaption::before {
+figure:is(.tbl, :has(table)),
+table:has(caption) {
+  counter-increment: vs-counter-tbl;
+}
+
+figure:is(.tbl, :has(table)) figcaption::before,
+table caption::before {
   display: var(--vs-crossref--marker-display);
   content: var(--vs-crossref--marker-tbl-content);
+  margin-inline: var(
+    --vs-crossref--marker-tbl-margin-inline,
+    var(--vs-crossref--marker-margin-inline)
+  );
 }
 
 /*
@@ -91,13 +118,17 @@ ol.cite-items {
 }
 
 ol.cite-items > li {
-  counter-increment: cite;
+  counter-increment: vs-counter-cite;
   position: relative;
 }
 
 ol.cite-items > li::before {
   position: absolute;
-  left: -2rem;
+  inset-inline-start: -2rem;
   display: var(--vs-crossref--marker-display);
   content: var(--vs-crossref--marker-cite-content);
+  margin-inline: var(
+    --vs-crossref--marker-cite-margin-inline,
+    var(--vs-crossref--marker-margin-inline)
+  );
 }

@@ -5,7 +5,7 @@
   "author": "Vivliostyle <mail@vivliostyle.org>",
   "scripts": {
     "build": "vivliostyle build",
-    "dev": "vivliostyle preview",
+    "preview": "vivliostyle preview",
     "validate": "vivliostyle-theme-scripts validate"
   },
   "devDependencies": {

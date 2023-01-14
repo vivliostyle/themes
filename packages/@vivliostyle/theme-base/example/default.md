@@ -78,11 +78,11 @@ const html = Prism.highlight(code, Prism.languages.javascript, 'javascript');
 
 ## Figure
 
-![Vivliostyle Logo](<./assets/Logo%20(Mark%20+%20Type).png>){.fig #figure1}
+![Vivliostyle Logo](<./assets/Logo%20(Mark%20+%20Type).png>){#figure1}
 
 ## Table
 
-<figure id="table1" class="tbl">
+<figure id="table1">
 <figcaption>Markdown table</figcaption>
 <div>
 
@@ -93,7 +93,7 @@ const html = Prism.highlight(code, Prism.languages.javascript, 'javascript');
 </div>
 </figure>
 
-<figure id="table2" class="tbl">
+<figure id="table2">
 <figcaption>HTML complex table</figcaption>
 
 <table>

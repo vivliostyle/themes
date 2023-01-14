@@ -3,26 +3,33 @@
    * Typography
    */
   --vs-font-family: sans-serif;
-  --vs-font-feature-settings: 'kern', 'liga', 'calt';
+  --vs-font-feature-settings: normal;
+  --vs-font-kerning: auto;
   --vs-font-size: 16px;
-  --vs-font-size-smaller: calc(var(--vs-font-size) * 0.8);
+  --vs-font-size-on-screen: var(--vs-font-size);
+  --vs-font-size-on-print: var(--vs-font-size);
+  --vs-font-stretch: normal;
   --vs-font-style: normal;
-  --vs-font-weight-normal: 400;
+  --vs-font-synthesis: weight style;
+  --vs-font-variant: normal;
+  --vs-font-variation-settings: normal;
+  --vs-font-weight: 400;
   --vs-font-weight-bold: 700;
-  --vs-hanging-punctuation: allow-end;
+  --vs-hanging-punctuation: none;
   --vs-hyphens: auto;
   --vs-line-break: strict;
   --vs-line-height: 1.5;
   --vs-letter-spacing: 0;
-  --vs-overflow-wrap: break-word;
+  --vs-overflow-wrap: anywhere;
   --vs-tab-size: 4;
-  --vs-text-align: auto;
+  --vs-text-align: start;
   --vs-text-align-last: auto;
   --vs-text-spacing: space-first trim-end trim-adjacent ideograph-alpha
     ideograph-numeric;
   --vs-text-underline-offset: auto;
   --vs-text-underline-position: left;
   --vs-word-break: normal;
+  --vs-word-spacing: normal;
 
   /**
    * Layout
@@ -41,7 +48,6 @@
    */
   --vs-color-bg: transparent;
   --vs-color-body: #000;
-  --vs-color-border: currentColor;
 
   /**
    * Spacing
@@ -52,5 +58,16 @@
   /**
    * Borders
    */
+  --vs-border-color: currentColor;
   --vs-border-width: 1px;
+
+  /**
+   * Counter resets
+   * It is used for resetting CSS counters on a root element or a first page
+   * Caution: Don't set counter-reset directly otherwise all other counters will be ignored.
+   * OK: :root { --vs-document-root-counter-reset: foo bar };
+   * NG: :root { counter-reset: foo bar };
+   */
+  --vs-document-root-counter-reset: var(--vs-document-root-counter-reset, );
+  --vs-first-page-counter-reset: var(--vs-first-page-counter-reset, );
 }

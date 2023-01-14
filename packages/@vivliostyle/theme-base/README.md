@@ -148,13 +148,13 @@ module.exports = {
 
 /* Configuration examples */
 :root {
-  --vs-page--margin-box-content-bottom-center: counter(page);
+  --vs-page--mbox-content-bottom-center: counter(page);
   /*
    * Vivliostyle.js provides env(doc-title) and env(pub-title)
    * https://docs.vivliostyle.org/#/supported-css-features#values
    */
-  --vs-page--margin-box-content-top-left: env(doc-title);
-  --vs-page--margin-box-content-top-right: string(section-title);
+  --vs-page--mbox-content-top-left: env(doc-title);
+  --vs-page--mbox-content-top-right: string(section-title);
 }
 /*
  * Setting named string
