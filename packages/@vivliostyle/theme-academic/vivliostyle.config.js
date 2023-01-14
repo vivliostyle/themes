@@ -1,7 +1,8 @@
 module.exports = {
+  title: 'vivliostyle-theme-academic のサンプル',
   language: 'ja',
   size: 'A4',
-  theme: 'theme_print.css',
+  theme: 'theme.css',
   entry: [
     {
       path: 'example/fet.md',

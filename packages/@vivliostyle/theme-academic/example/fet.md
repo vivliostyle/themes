@@ -34,17 +34,13 @@ FET には 3 本の端子が出ており、それぞれゲート (G)、ドレイ
 
 <!-- 図 -->
 
-![n チャネル型 FET](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808190103.png)
-
-<span id="n_fet"></span>
+![n チャネル型 FET](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808190103.png){#n_fet}
 
 <!-- ここまで図 -->
 
 <!-- 図 -->
 
-![p チャネル型 FET](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808190107.png)
-
-<span id="p_fet"></span>
+![p チャネル型 FET](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808190107.png){#p_fet}
 
 <!-- ここまで図 -->
 
@@ -56,9 +52,7 @@ FET には 3 本の端子が出ており、それぞれゲート (G)、ドレイ
 
 <!-- 図 -->
 
-![静特性実験の回路](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808194807.png)
-
-<span id="circuit_static"></span>
+![静特性実験の回路](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808194807.png){#circuit_static}
 
 <!-- ここまで図 -->
 
@@ -76,9 +70,7 @@ $V_{DS}$ を 0 V から 18 V まで変化させたときの $I_{D}$ の値を測
 
 <!-- 図 -->
 
-![動特性実験の回路](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808205247.png)
-
-<span id="circuit_dynamic"></span>
+![動特性実験の回路](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808205247.png){#circuit_dynamic}
 
 <!-- ここまで図 -->
 
@@ -104,8 +96,8 @@ $V_{DS}$ を 0 V から 18 V まで変化させたときの $I_{D}$ の値を測
     https://github.com/vivliostyle/vfm/issues/35
 -->
 
-<table>
-  <caption id="instruments">実験器具</caption>
+<table id="instruments">
+  <caption>実験器具</caption>
   <thead>
     <tr>
       <th>名称</th> <th>製造会社</th> <th>型番</th> <th>製造番号</th> <th>規格</th>
@@ -167,33 +159,25 @@ $V_{GS}$ の値は 1.42 V であった。
 
 <!-- 図 -->
 
-![$V_{DS}$ を固定した時の $V_{GS}$ に対する $I_{D}$ の変化](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808211415.png)
-
-<span id="vgs_id"></span>
+![$V_{DS}$ を固定した時の $V_{GS}$ に対する $I_{D}$ の変化](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808211415.png){#vgs_id}
 
 <!-- ここまで図 -->
 
 <!-- 図 -->
 
-![$V_{GS}$ を固定した時の $V_{DS}$ に対する $I_{D}$ の変化](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808211420.png)
-
-<span id="vds_id"></span>
+![$V_{GS}$ を固定した時の $V_{DS}$ に対する $I_{D}$ の変化](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808211420.png){#vds_id}
 
 <!-- ここまで図 -->
 
 <!-- 図 -->
 
-![入力信号 $f =$ 1 kHz に対する出力 $v_{D}$ の変化](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808211425.png)
-
-<span id="f_vd"></span>
+![入力信号 $f =$ 1 kHz に対する出力 $v_{D}$ の変化](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808211425.png){#f_vd}
 
 <!-- ここまで図 -->
 
 <!-- 図 -->
 
-![電圧増幅率 $\mu$ の周波数特性](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808211430.png)
-
-<span id="f_mu"></span>
+![電圧増幅率 $\mu$ の周波数特性](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808211430.png){#f_mu}
 
 <!-- ここまで図 -->
 
@@ -265,13 +249,17 @@ $$
 
 <!-- 図 -->
 
-![$V_{GS} - I_{D}$ 特性の近似](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808222501.png)
-
-<span id="vgs"></span>
+![$V_{GS} - I_{D}$ 特性の近似](https://cdn-ak.f.st-hatena.com/images/fotolife/y/yamasy1549/20200808/20200808222501.png){#vgs}
 
 <!-- ここまで図 -->
 
-## 参考文献 {.nocounter}
+
+<!--
+  section囲みを回避するために直接h2タグを挿入する
+  将来的には末尾に # を挿入することで制御可能になる
+  https://github.com/vivliostyle/vfm/issues/155
+-->
+<h2>参考文献</h2>
 
 <ol class="reference">
   <li>TOKYO ELECTRON, 半導体の原理, http://origin.tel.co.jp/museum/exhibition/principle/, 参照2020/08/08</li>

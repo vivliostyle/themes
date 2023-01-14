@@ -1,7 +1,8 @@
 module.exports = {
+  title: 'White Fang',
   language: 'en',
   size: 'A5',
-  theme: 'fang.css',
+  theme: ['theme.css', 'fang.css'],
   entry: [
     'example/fang/cover.md',
     'example/fang/copyright.md',
@@ -17,9 +18,9 @@ module.exports = {
     'example/fang/contentinfo.md',
   ],
   output: [
-    'book.pdf',
+    'fang.pdf',
     {
-      path: './book',
+      path: './fang',
       format: 'webpub',
     },
   ],

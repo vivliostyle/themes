@@ -1,0 +1,218 @@
+@import url(../theme-base/theme-basic.css);
+@import url(../theme-base/css/partial/page.css);
+@import url(../theme-base/css/partial/utility-classes.css);
+@import url(../theme-base/css/lib/prism/base.css);
+@import url(../theme-base/css/lib/prism/theme-prism.css);
+
+/**
+ * Theme variables
+ */
+:root {
+  --vs-theme--color-bg: #fff;
+  --vs-theme--color-body: #000;
+  --vs-theme--section-align-items: center;
+  --vs-theme--section-justify-content: center;
+  --vs-theme--h1-color: #212057;
+  --vs-theme--h2-color: #e84e39;
+  --vs-theme--h3-color: #e84e39;
+  --vs-theme--h4-color: #e84e39;
+  --vs-theme--anchor-color: #3498db;
+  --vs-theme--blockquote-mark-color: #d6a;
+  --vs-theme--table-heading-color-bg: rgb(0, 0, 0, 0.1);
+  --vs-theme--page-ref-call-color: forestgreen;
+  --vs-theme--page-ref-call-content: '(p.' target-counter(attr(href url), page) ')';
+  --vs-theme--max-inline-size-on-screen: 40rem;
+  --vs-theme--cover-page-color-bg: #212057;
+  --vs-theme--cover-page-color-body: #fff;
+  --vs-theme--cover-page-align-items: center;
+  --vs-theme--cover-page-justify-content: center;
+  --vs-theme--image-full-page-margin: 0;
+  --vs-theme--image-full-page-object-fit: cover;
+}
+
+:root {
+  --vs-font-family: 'Noto', 'YuGothic', 'Yu Gothic', 'Meiryo', sans-serif;
+  --vs-font-size: 16pt;
+  --vs-color-bg: var(--vs-theme--color-bg);
+  --vs-color-body: var(--vs-theme--color-body);
+
+  --vs--heading-text-align: var(--vs-theme--section-align-items, center);
+  --vs--monospace-font-family: 'Source Code Pro', 'Andale Mono', 'Courier', 'Courier New', 'Yu Gothic', 'YuGothic', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo', monospace;
+  --vs--monospace-font-weight: var(--vs-font-weight-bold);
+  --vs--h1-font-size: 2em;
+  --vs--h2-font-size: 1.8em;
+  --vs--h3-font-size: 1.5em;
+  --vs--h4-font-size: 1.33em;
+  --vs--h5-font-size: 1.17em;
+  --vs--h6-font-size: 1em;
+  --vs--anchor-color: var(--vs-theme--anchor-color);
+  --vs--blockquote-margin-inline: 2em var(--vs-spacing-inline-indent);
+  --vs--pre-font-size: 0.83rem;
+  --vs--figcaption-font-size: 0.83rem;
+  --vs--figcaption-margin-block: 0;
+  --vs--table-font-size: 0.83rem;
+
+  --vs-page--mbox-content-top-right: env(pub-title);
+  --vs-page--mbox-content-top-right-corner: counter(page);
+  --vs-page--mbox-font-size: 11pt;
+  --vs-page--mbox-padding-right-inner: 3mm;
+  --vs-page--mbox-padding-right-outer: 2mm;
+  --vs-page--margin-top: 15mm;
+  --vs-page--margin-bottom: 15mm;
+  --vs-page--margin-inner: 15mm;
+  --vs-page--margin-outer: 15mm;
+}
+
+h1 {
+  color: var(--vs-theme--h1-color);
+}
+
+h2 {
+  color: var(--vs-theme--h2-color);
+}
+
+h3 {
+  color: var(--vs-theme--h3-color);
+}
+
+h4 {
+  color: var(--vs-theme--h4-color);
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: var(--vs-theme--section-align-items);
+  justify-content: var(--vs-theme--section-justify-content);
+  width: 100%;
+}
+
+section > *:not(:last-child) {
+  margin-block-end: 0;
+}
+
+@media print {
+  section:first-child,
+  :not(:is(h1, h2, h3, h4, h5, h6)) + section {
+    break-before: page;
+    height: 100vh;
+  }
+}
+
+@media screen {
+  section:first-child,
+  :not(:is(h1, h2, h3, h4, h5, h6)) + section {
+    padding: 0 max(calc(50vw - var(--vs-theme--max-inline-size-on-screen) * 0.5), var(--vs-spacing-inline-indent));
+  }
+}
+
+p {
+  break-inside: avoid;
+}
+
+section > hr {
+  align-self: stretch;
+}
+
+
+blockquote::before {
+  color: var(--vs-theme--blockquote-mark-color);
+  content: '❝';
+  float: left;
+  font-size: 250%;
+  margin-left: -0.83em;
+  margin-top: -0.25em;
+}
+
+thead, tfoot {
+  background: var(--vs-theme--table-heading-color-bg);
+}
+
+a[href^='#'] {
+  color: var(--vs-theme--page-ref-call-color);
+  --vs--anchor-text-decoration: none;
+}
+
+a[href^='#']::after {
+  content: var(--vs-theme--page-ref-call-content);
+}
+
+@media screen {
+  a[href^='#']::after {
+    content: '(p.XXX)';
+  }
+}
+
+/*
+ * cover pages
+ */
+
+.cover {
+  --vs--h1-font-size: 2.8rem;
+  --vs--h1-font-weight: 600;
+  --vs--h1-text-align: var(--vs-theme--cover-page-align-items, center);;
+  --vs--h2-font-size: 1.25rem;
+  --vs--h2-font-weight: 500;
+  --vs--h2-text-align: var(--vs-theme--cover-page-align-items, center);;
+  --vs--anchor-color: var(--vs-theme--cover-page-color-body);
+  --vs-theme--h1-color: var(--vs-theme--cover-page-color-body);
+  --vs-theme--h2-color: var(--vs-theme--cover-page-color-body);
+  --vs-theme--h3-color: var(--vs-theme--cover-page-color-body);
+  --vs-theme--h4-color: var(--vs-theme--cover-page-color-body);
+  --vs-color-body: var(--vs-theme--cover-page-color-body);
+  --vs-color-bg: var(--vs-theme--cover-page-color-bg);
+  background-color: var(--vs-theme--cover-page-color-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: var(--vs-theme--cover-page-align-items);
+  justify-content: var(--vs-theme--cover-page-justify-content);
+}
+
+.cover h1 {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: var(--vs-theme--cover-page-align-items);
+  justify-content: var(--vs-theme--cover-page-justify-content);
+}
+
+.cover .author ul {
+  text-align: center;
+}
+
+@page cover {
+  background-color: var(--vs-theme--cover-page-color-bg);
+
+  .cover {
+    height: 100vh;
+  }
+}
+
+/*
+ * image full pages
+ */
+
+:is(
+  section:not(:has(> :is(h1, h2, h3, h4, h5, h6):first-child)),
+  section:has(> :is(h1, h2, h3, h4, h5, h6)[hidden]:first-child)
+):has(> p > img:only-child) {
+  page: image-full;
+}
+
+
+@media print {
+  :is(
+    section:not(:has(> :is(h1, h2, h3, h4, h5, h6):first-child)),
+    section:has(> :is(h1, h2, h3, h4, h5, h6)[hidden]:first-child)
+  ) > p > img:only-child {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    object-fit: var(--vs-theme--image-full-page-object-fit);
+  }
+}
+
+@page image-full {
+  --vs-page--mbox-visibility: hidden;
+  margin: var(--vs-theme--image-full-page-margin);
+}
