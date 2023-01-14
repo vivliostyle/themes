@@ -10,7 +10,7 @@
   --vs-font-size-on-print: var(--vs-font-size);
   --vs-font-stretch: normal;
   --vs-font-style: normal;
-  --vs-font-synthesis: weight style;
+  --vs-font-synthesis: weight style small-caps;
   --vs-font-variant: normal;
   --vs-font-variation-settings: normal;
   --vs-font-weight: 400;
