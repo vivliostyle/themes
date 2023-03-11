@@ -23,7 +23,6 @@
   --vs-overflow-wrap: anywhere;
   --vs-tab-size: 4;
   --vs-text-align: start;
-  --vs-text-align-last: auto;
   --vs-text-spacing: space-first trim-end trim-adjacent ideograph-alpha
     ideograph-numeric;
   --vs-text-underline-offset: auto;

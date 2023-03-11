@@ -101,7 +101,6 @@
   --vs--pre-padding-block: 0;
   --vs--pre-padding-inline: 0;
   --vs--pre-text-align: start;
-  --vs--pre-text-align-last: start;
   --vs--pre-white-space-on-screen: pre;
   --vs--pre-white-space-on-print: pre-wrap;
   --vs--pre-word-break: break-all;
@@ -170,7 +169,6 @@ html {
   text-spacing: var(--vs-text-spacing);
   hanging-punctuation: var(--vs-hanging-punctuation);
   text-align: var(--vs-text-align);
-  text-align-last: var(--vs-text-align-last);
   word-spacing: var(--vs-word-spacing);
 }
 
@@ -217,7 +215,6 @@ h1 {
   margin-block: var(--vs--h1-margin-block, var(--vs--heading-margin-block));
   margin-inline: var(--vs--h1-margin-inline, var(--vs--heading-margin-inline));
   text-align: var(--vs--h1-text-align, var(--vs--heading-text-align));
-  text-align-last: var(--vs--h1-text-align-last, var(--vs--heading-text-align-last));
   text-indent: var(--vs--h1-text-indent, var(--vs--heading-text-indent));
   text-spacing: var(--vs--h1-text-spacing, var(--vs--heading-text-spacing));
   word-break: var(--vs--h1-word-break, var(--vs--heading-word-break));
@@ -241,7 +238,6 @@ h2 {
   margin-block: var(--vs--h2-margin-block, var(--vs--heading-margin-block));
   margin-inline: var(--vs--h2-margin-inline, var(--vs--heading-margin-inline));
   text-align: var(--vs--h2-text-align, var(--vs--heading-text-align));
-  text-align-last: var(--vs--h2-text-align-last, var(--vs--heading-text-align-last));
   text-indent: var(--vs--h2-text-indent, var(--vs--heading-text-indent));
   text-spacing: var(--vs--h2-text-spacing, var(--vs--heading-text-spacing));
   word-break: var(--vs--h2-word-break, var(--vs--heading-word-break));
@@ -265,7 +261,6 @@ h3 {
   margin-block: var(--vs--h3-margin-block, var(--vs--heading-margin-block));
   margin-inline: var(--vs--h3-margin-inline, var(--vs--heading-margin-inline));
   text-align: var(--vs--h3-text-align, var(--vs--heading-text-align));
-  text-align-last: var(--vs--h3-text-align-last, var(--vs--heading-text-align-last));
   text-indent: var(--vs--h3-text-indent, var(--vs--heading-text-indent));
   text-spacing: var(--vs--h3-text-spacing, var(--vs--heading-letter-spacing));
   word-break: var(--vs--h3-word-break, var(--vs--heading-word-break));
@@ -289,7 +284,6 @@ h4 {
   margin-block: var(--vs--h4-margin-block, var(--vs--heading-margin-block));
   margin-inline: var(--vs--h4-margin-inline, var(--vs--heading-margin-inline));
   text-align: var(--vs--h4-text-align, var(--vs--heading-text-align));
-  text-align-last: var(--vs--h4-text-align-last, var(--vs--heading-text-align-last));
   text-indent: var(--vs--h4-text-indent, var(--vs--heading-text-indent));
   text-spacing: var(--vs--h4-text-spacing, var(--vs--heading-text-spacing));
   word-break: var(--vs--h4-word-break, var(--vs--heading-word-break));
@@ -313,7 +307,6 @@ h5 {
   margin-block: var(--vs--h5-margin-block, var(--vs--heading-margin-block));
   margin-inline: var(--vs--h5-margin-inline, var(--vs--heading-margin-inline));
   text-align: var(--vs--h5-text-align, var(--vs--heading-text-align));
-  text-align-last: var(--vs--h5-text-align-last, var(--vs--heading-text-align-last));
   text-indent: var(--vs--h5-text-indent, var(--vs--heading-text-indent));
   text-spacing: var(--vs--h5-text-spacing, var(--vs--heading-text-spacing));
   word-break: var(--vs--h5-word-break, var(--vs--heading-word-break));
@@ -337,7 +330,6 @@ h6 {
   margin-block: var(--vs--h6-margin-block, var(--vs--heading-margin-block));
   margin-inline: var(--vs--h6-margin-inline, var(--vs--heading-margin-inline));
   text-align: var(--vs--h6-text-align, var(--vs--heading-text-align));
-  text-align-last: var(--vs--h6-text-align-last, var(--vs--heading-text-align-last));
   text-indent: var(--vs--h6-text-indent, var(--vs--heading-text-indent));
   text-spacing: var(--vs--h6-text-spacing, var(--vs--heading-text-spacing));
   word-break: var(--vs--h6-word-break, var(--vs--heading-word-break));
@@ -451,7 +443,6 @@ p {
   margin-block: var(--vs--p-margin-block);
   margin-inline: var(--vs--p-margin-inline);
   text-align: var(--vs--p-text-align);
-  text-align-last: var(--vs--p-text-align-last);
   text-indent: var(--vs--p-text-indent);
   text-spacing: var(--vs--p-text-spacing);
   word-break: var(--vs--p-word-break);
@@ -495,7 +486,6 @@ figcaption {
   margin-block: var(--vs--figcaption-margin-block);
   margin-inline: var(--vs--figcaption-margin-inline);
   text-align: var(--vs--figcaption-text-align);
-  text-align-last: var(--vs--figcaption-text-align-last);
   text-indent: var(--vs--figcaption-text-indent);
 }
 
@@ -516,7 +506,6 @@ ul {
   list-style-type: var(--vs--ul-list-style-type);
   padding-inline-start: var(--vs--ul-padding-inline-start);
   text-align: var(--vs--ul-text-align, var(--vs--lists-text-align));
-  text-align-last: var(--vs--ul-text-align-last, var(--vs--lists-text-align-last));
   text-indent: var(--vs--ul-text-indent, var(--vs--lists-text-indent));
 }
 
@@ -531,7 +520,6 @@ ol {
   list-style-type: var(--vs--ol-list-style-type);
   padding-inline-start: var(--vs--ol-padding-inline-start);
   text-align: var(--vs--ol-text-align, var(--vs--lists-text-align));
-  text-align-last: var(--vs--ol-text-align-last, var(--vs--lists-text-align-last));
   text-indent: var(--vs--ol-text-indent, var(--vs--lists-text-indent));
 }
 
@@ -545,7 +533,6 @@ ol:not(:is(ul *, ol *)) {
 dt {
   display: var(--vs--dt-dd-display);
   text-align: var(--vs--dt-text-align, var(--vs--lists-text-align));
-  text-align-last: var(--vs--dt-text-align-last, var(--vs--lists-text-align-last));
   text-indent: var(--vs--dt-text-indent, var(--vs--lists-text-indent));
 }
 
@@ -553,7 +540,6 @@ dd {
   display: var(--vs--dt-dd-display);
   margin-inline-start: var(--vs--dd-margin-inline-start);
   text-align: var(--vs--dd-text-align, var(--vs--lists-text-align));
-  text-align-last: var(--vs--dd-text-align-last, var(--vs--lists-text-align-last));
   text-indent: var(--vs--dd-text-indent, var(--vs--lists-text-indent));
 }
 
@@ -565,7 +551,6 @@ pre {
   padding-block: var(--vs--pre-padding-block);
   padding-inline: var(--vs--pre-padding-inline);
   text-align: var(--vs--pre-text-align);
-  text-align-last: var(--vs--pre-text-align-last);
   word-break: var(--vs--pre-word-break);
   writing-mode: var(--vs--pre-writing-mode);
 }
@@ -641,12 +626,10 @@ th {
   font-variation-settings: var(--vs--th-font-variation-settings, var(--vs--bold-font-variation-settings, var(--vs--heading-font-variation-settings)));
   font-weight: var(--vs--th-font-weight, var(--vs--bold-font-weight));
   text-align: var(--vs--th-text-align, var(--vs--table-text-align, center));
-  text-align-last: var(--vs--th-text-align-last, var(--vs--table-text-align-last));
 }
 
 td {
   text-align: var(--vs--td-text-align, var(--vs--table-text-align));
-  text-align-last: var(--vs--td-text-align-last, var(--vs--table-text-align-last));
 }
 
 tr:not(:last-child) {
@@ -680,17 +663,14 @@ td:not(:last-child) {
 
 :is(tr, th, td, tbody, thead, tfoot, col, colgroup)[align="left"] {
   text-align: left;
-  text-align-last: left;
 }
 
 :is(tr, th, td, tbody, thead, tfoot, col, colgroup)[align="right"] {
   text-align: right;
-  text-align-last: right;
 }
 
 :is(tr, th, td, tbody, thead, tfoot, col, colgroup)[align="center"] {
   text-align: center;
-  text-align-last: center;
 }
 
 :is(tr, th, td, tbody, thead, tfoot, col, colgroup)[align="justify"] {
