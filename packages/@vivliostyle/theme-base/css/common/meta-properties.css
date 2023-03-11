@@ -65,9 +65,9 @@
    * Counter resets
    * It is used for resetting CSS counters on a root element or a first page
    * Caution: Don't set counter-reset directly otherwise all other counters will be ignored.
-   * OK: :root { --vs-document-root-counter-reset: foo bar };
-   * NG: :root { counter-reset: foo bar };
+   * OK: :root { --vs-document-root-counter-reset: foo bar; }
+   * NG: :root { counter-reset: foo bar; }
    */
-  --vs-document-root-counter-reset: var(--vs-document-root-counter-reset, );
-  --vs-first-page-counter-reset: var(--vs-first-page-counter-reset, );
+  --vs-document-root-counter-reset: ;
+  --vs-first-page-counter-reset: ;
 }
