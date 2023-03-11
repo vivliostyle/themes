@@ -3,10 +3,19 @@
   --vs-crossref--anchor-text-decoration-on-hover: underline;
   --vs-crossref--call-display: inline;
   --vs-crossref--call-fig-content: 'Figure '
-    target-counter(attr(href), vs-counter-fig, var(--vs-crossref--counter-style));
+    target-counter(
+      attr(href),
+      vs-counter-fig,
+      var(--vs-crossref--counter-style)
+    );
   --vs-crossref--call-tbl-content: 'Table '
-    target-counter(attr(href), vs-counter-tbl, var(--vs-crossref--counter-style));
-  --vs-crossref--call-cite-content: '[' target-counter(attr(href), vs-counter-cite) ']';
+    target-counter(
+      attr(href),
+      vs-counter-tbl,
+      var(--vs-crossref--counter-style)
+    );
+  --vs-crossref--call-cite-content: '['
+    target-counter(attr(href), vs-counter-cite) ']';
   --vs-crossref--call-margin-inline: 0;
   --vs-crossref--counter-style: decimal;
   --vs-crossref--marker-display: inline;
@@ -16,7 +25,8 @@
     counter(vs-counter-tbl, var(--vs-crossref--counter-style)) ': ';
   --vs-crossref--marker-cite-content: '[' counter(vs-counter-cite) ']';
   --vs-crossref--marker-margin-inline: 0;
-  --vs-crossref--root-counter-reset: vs-counter-fig vs-counter-tbl vs-counter-cite;
+  --vs-crossref--root-counter-reset: vs-counter-fig vs-counter-tbl
+    vs-counter-cite;
 
   /* displays dummy content on screen media that doesn't support target-counter() */
   --vs-crossref--call-fig-content-on-screen: 'Figure ???';
@@ -26,9 +36,17 @@
 
 :lang(ja) {
   --vs-crossref--call-fig-content: '図'
-    target-counter(attr(href), vs-counter-fig, var(--vs-crossref--counter-style));
+    target-counter(
+      attr(href),
+      vs-counter-fig,
+      var(--vs-crossref--counter-style)
+    );
   --vs-crossref--call-tbl-content: '表'
-    target-counter(attr(href), vs-counter-tbl, var(--vs-crossref--counter-style));
+    target-counter(
+      attr(href),
+      vs-counter-tbl,
+      var(--vs-crossref--counter-style)
+    );
   --vs-crossref--marker-fig-content: '図'
     counter(vs-counter-fig, var(--vs-crossref--counter-style)) ': ';
   --vs-crossref--marker-tbl-content: '表'

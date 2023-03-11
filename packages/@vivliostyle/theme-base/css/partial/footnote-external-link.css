@@ -13,16 +13,31 @@
 
     color: var(--vs-footnote--color-body, var(--vs-color-body));
     font-family: var(--vs-footnote--font-family, var(--vs-font-family));
-    font-feature-settings: var(--vs-footnote--font-feature-settings, var(--vs-font-feature-settings));
+    font-feature-settings: var(
+      --vs-footnote--font-feature-settings,
+      var(--vs-font-feature-settings)
+    );
     font-kerning: var(--vs-footnote--font-kerning, var(--vs-font-kerning));
     font-size: var(--vs-footnote--font-size, var(--vs-font-size));
-    font-stretch: var(--vs-footnote--font-stretch, var(--vs-footnote--font-stretch));
+    font-stretch: var(
+      --vs-footnote--font-stretch,
+      var(--vs-footnote--font-stretch)
+    );
     font-style: var(--vs-footnote--font-style, var(--vs-font-style));
-    font-synthesis: var(--vs-footnote--font-synthesize, var(--vs-font-synthesis));
+    font-synthesis: var(
+      --vs-footnote--font-synthesize,
+      var(--vs-font-synthesis)
+    );
     font-variant: var(--vs-footnote--font-variant, var(--vs-font-variant));
-    font-variation-settings: var(--vs-footnote--font-variation-settings, var(--vs-font-variation-settings));
+    font-variation-settings: var(
+      --vs-footnote--font-variation-settings,
+      var(--vs-font-variation-settings)
+    );
     font-weight: var(--vs-footnote--font-weight, var(--vs-font-weight));
-    letter-spacing: var(--vs-footnote--letter-spacing, var(--vs-letter-spacing));
+    letter-spacing: var(
+      --vs-footnote--letter-spacing,
+      var(--vs-letter-spacing)
+    );
     line-height: var(--vs-footnote--line-height, var(--vs-line-height));
     text-align: var(--vs-footnote--text-align, var(--vs-text-align));
     text-spacing: var(--vs-footnote--text-spacing, var(--vs-text-spacing));

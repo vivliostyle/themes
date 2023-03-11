@@ -175,9 +175,8 @@ html {
 }
 
 body {
-  counter-reset: var(--vs-crossref--root-counter-reset, )
-    var(--vs-footnote--root-counter-reset, )
-    var(--vs-document-root-counter-reset, );
+  counter-reset: var(--vs-crossref--root-counter-reset)
+    var(--vs-footnote--root-counter-reset) var(--vs-document-root-counter-reset);
 }
 
 code,
@@ -204,15 +203,24 @@ h1 {
   break-after: var(--vs--h1-break-after, var(--vs--heading-break-after));
   break-inside: var(--vs--h1-break-inside, var(--vs--heading-break-inside));
   font-family: var(--vs--h1-font-family, var(--vs--heading-font-family));
-  font-feature-settings: var(--vs--h1-font-feature-settings, var(--vs--heading-font-feature-settings));
+  font-feature-settings: var(
+    --vs--h1-font-feature-settings,
+    var(--vs--heading-font-feature-settings)
+  );
   font-kerning: var(--vs--h1-font-kerning, var(--vs--heading-font-kerning));
   font-size: var(--vs--h1-font-size);
   font-stretch: var(--vs--h1-font-stretch, var(--vs--heading-font-stretch));
   font-variant: var(--vs--h1-font-variant, var(--vs--heading-font-variant));
-  font-variation-settings: var(--vs--h1-font-variation-settings, var(--vs--heading-font-variation-settings));
+  font-variation-settings: var(
+    --vs--h1-font-variation-settings,
+    var(--vs--heading-font-variation-settings)
+  );
   font-weight: var(--vs--h1-font-weight, var(--vs--heading-font-weight));
   hyphens: var(--vs--h1-hyphens, var(--vs--heading-hyphens));
-  letter-spacing: var(--vs--h1-letter-spacing, var(--vs--heading-letter-spacing));
+  letter-spacing: var(
+    --vs--h1-letter-spacing,
+    var(--vs--heading-letter-spacing)
+  );
   line-height: var(--vs--h1-line-height, var(--vs--heading-line-height));
   margin-block: var(--vs--h1-margin-block, var(--vs--heading-margin-block));
   margin-inline: var(--vs--h1-margin-inline, var(--vs--heading-margin-inline));
@@ -227,15 +235,24 @@ h2 {
   break-after: var(--vs--h2-break-after, var(--vs--heading-break-after));
   break-inside: var(--vs--h2-break-inside, var(--vs--heading-break-inside));
   font-family: var(--vs--h2-font-family, var(--vs--heading-font-family));
-  font-feature-settings: var(--vs--h2-font-feature-settings, var(--vs--heading-font-feature-settings));
+  font-feature-settings: var(
+    --vs--h2-font-feature-settings,
+    var(--vs--heading-font-feature-settings)
+  );
   font-kerning: var(--vs--h2-font-kerning, var(--vs--heading-font-kerning));
   font-size: var(--vs--h2-font-size);
   font-stretch: var(--vs--h2-font-stretch, var(--vs--heading-font-stretch));
   font-variant: var(--vs--h2-font-variant, var(--vs--heading-font-variant));
-  font-variation-settings: var(--vs--h2-font-variation-settings, var(--vs--heading-font-variation-settings));
+  font-variation-settings: var(
+    --vs--h2-font-variation-settings,
+    var(--vs--heading-font-variation-settings)
+  );
   font-weight: var(--vs--h2-font-weight, var(--vs--heading-font-weight));
   hyphens: var(--vs--h2-hyphens, var(--vs--heading-hyphens));
-  letter-spacing: var(--vs--h2-letter-spacing, var(--vs--heading-letter-spacing));
+  letter-spacing: var(
+    --vs--h2-letter-spacing,
+    var(--vs--heading-letter-spacing)
+  );
   line-height: var(--vs--h2-line-height, var(--vs--heading-line-height));
   margin-block: var(--vs--h2-margin-block, var(--vs--heading-margin-block));
   margin-inline: var(--vs--h2-margin-inline, var(--vs--heading-margin-inline));
@@ -250,15 +267,24 @@ h3 {
   break-after: var(--vs--h3-break-after, var(--vs--heading-break-after));
   break-inside: var(--vs--h3-break-inside, var(--vs--heading-break-inside));
   font-family: var(--vs--h3-font-family, var(--vs--heading-font-family));
-  font-feature-settings: var(--vs--h3-font-feature-settings, var(--vs--heading-font-feature-settings));
+  font-feature-settings: var(
+    --vs--h3-font-feature-settings,
+    var(--vs--heading-font-feature-settings)
+  );
   font-kerning: var(--vs--h3-font-kerning, var(--vs--heading-font-kerning));
   font-size: var(--vs--h3-font-size);
   font-stretch: var(--vs--h3-font-stretch, var(--vs--heading-font-stretch));
   font-variant: var(--vs--h3-font-variant, var(--vs--heading-font-variant));
-  font-variation-settings: var(--vs--h3-font-variation-settings, var(--vs--heading-font-variation-settings));
+  font-variation-settings: var(
+    --vs--h3-font-variation-settings,
+    var(--vs--heading-font-variation-settings)
+  );
   font-weight: var(--vs--h3-font-weight, var(--vs--heading-font-weight));
   hyphens: var(--vs--h3-hyphens, var(--vs--heading-hyphens));
-  letter-spacing: var(--vs--h3-letter-spacing, var(--vs--heading-letter-spacing));
+  letter-spacing: var(
+    --vs--h3-letter-spacing,
+    var(--vs--heading-letter-spacing)
+  );
   line-height: var(--vs--h3-line-height, var(--vs--heading-line-height));
   margin-block: var(--vs--h3-margin-block, var(--vs--heading-margin-block));
   margin-inline: var(--vs--h3-margin-inline, var(--vs--heading-margin-inline));
@@ -273,15 +299,24 @@ h4 {
   break-after: var(--vs--h4-break-after, var(--vs--heading-break-after));
   break-inside: var(--vs--h4-break-inside, var(--vs--heading-break-inside));
   font-family: var(--vs--h4-font-family, var(--vs--heading-font-family));
-  font-feature-settings: var(--vs--h4-font-feature-settings, var(--vs--heading-font-feature-settings));
+  font-feature-settings: var(
+    --vs--h4-font-feature-settings,
+    var(--vs--heading-font-feature-settings)
+  );
   font-kerning: var(--vs--h4-font-kerning, var(--vs--heading-font-kerning));
   font-size: var(--vs--h4-font-size);
   font-stretch: var(--vs--h4-font-stretch, var(--vs--heading-font-stretch));
   font-variant: var(--vs--h4-font-variant, var(--vs--heading-font-variant));
-  font-variation-settings: var(--vs--h4-font-variation-settings, var(--vs--heading-font-variation-settings));
+  font-variation-settings: var(
+    --vs--h4-font-variation-settings,
+    var(--vs--heading-font-variation-settings)
+  );
   font-weight: var(--vs--h4-font-weight, var(--vs--heading-font-weight));
   hyphens: var(--vs--h4-hyphens, var(--vs--heading-hyphens));
-  letter-spacing: var(--vs--h4-letter-spacing, var(--vs--heading-letter-spacing));
+  letter-spacing: var(
+    --vs--h4-letter-spacing,
+    var(--vs--heading-letter-spacing)
+  );
   line-height: var(--vs--h4-line-height, var(--vs--heading-line-height));
   margin-block: var(--vs--h4-margin-block, var(--vs--heading-margin-block));
   margin-inline: var(--vs--h4-margin-inline, var(--vs--heading-margin-inline));
@@ -296,15 +331,24 @@ h5 {
   break-after: var(--vs--h5-break-after, var(--vs--heading-break-after));
   break-inside: var(--vs--h5-break-inside, var(--vs--heading-break-inside));
   font-family: var(--vs--h5-font-family, var(--vs--heading-font-family));
-  font-feature-settings: var(--vs--h5-font-feature-settings, var(--vs--heading-font-feature-settings));
+  font-feature-settings: var(
+    --vs--h5-font-feature-settings,
+    var(--vs--heading-font-feature-settings)
+  );
   font-kerning: var(--vs--h5-font-kerning, var(--vs--heading-font-kerning));
   font-size: var(--vs--h5-font-size);
   font-stretch: var(--vs--h5-font-stretch, var(--vs--heading-font-stretch));
   font-variant: var(--vs--h5-font-variant, var(--vs--heading-font-variant));
-  font-variation-settings: var(--vs--h5-font-variation-settings, var(--vs--heading-font-variation-settings));
+  font-variation-settings: var(
+    --vs--h5-font-variation-settings,
+    var(--vs--heading-font-variation-settings)
+  );
   font-weight: var(--vs--h5-font-weight, var(--vs--heading-font-weight));
   hyphens: var(--vs--h5-hyphens, var(--vs--heading-hyphens));
-  letter-spacing: var(--vs--h5-letter-spacing, var(--vs--heading-letter-spacing));
+  letter-spacing: var(
+    --vs--h5-letter-spacing,
+    var(--vs--heading-letter-spacing)
+  );
   line-height: var(--vs--h5-line-height, var(--vs--heading-line-height));
   margin-block: var(--vs--h5-margin-block, var(--vs--heading-margin-block));
   margin-inline: var(--vs--h5-margin-inline, var(--vs--heading-margin-inline));
@@ -319,15 +363,24 @@ h6 {
   break-after: var(--vs--h6-break-after, var(--vs--heading-break-after));
   break-inside: var(--vs--h6-break-inside, var(--vs--heading-break-inside));
   font-family: var(--vs--h6-font-family, var(--vs--heading-font-family));
-  font-feature-settings: var(--vs--h6-font-feature-settings, var(--vs--heading-font-feature-settings));
+  font-feature-settings: var(
+    --vs--h6-font-feature-settings,
+    var(--vs--heading-font-feature-settings)
+  );
   font-kerning: var(--vs--h6-font-kerning, var(--vs--heading-font-kerning));
   font-size: var(--vs--h6-font-size);
   font-stretch: var(--vs--h6-font-stretch, var(--vs--heading-font-stretch));
   font-variant: var(--vs--h6-font-variant, var(--vs--heading-font-variant));
-  font-variation-settings: var(--vs--h6-font-variation-settings, var(--vs--heading-font-variation-settings));
+  font-variation-settings: var(
+    --vs--h6-font-variation-settings,
+    var(--vs--heading-font-variation-settings)
+  );
   font-weight: var(--vs--h6-font-weight, var(--vs--heading-font-weight));
   hyphens: var(--vs--h6-hyphens, var(--vs--heading-hyphens));
-  letter-spacing: var(--vs--h6-letter-spacing, var(--vs--heading-letter-spacing));
+  letter-spacing: var(
+    --vs--h6-letter-spacing,
+    var(--vs--heading-letter-spacing)
+  );
   line-height: var(--vs--h6-line-height, var(--vs--heading-line-height));
   margin-block: var(--vs--h6-margin-block, var(--vs--heading-margin-block));
   margin-inline: var(--vs--h6-margin-inline, var(--vs--heading-margin-inline));
@@ -341,12 +394,18 @@ h6 {
 b,
 strong {
   font-family: var(--vs--bold-font-family, var(--vs--heading-font-family));
-  font-feature-settings: var(--vs--bold-font-feature-settings, var(--vs--heading-font-feature-settings));
+  font-feature-settings: var(
+    --vs--bold-font-feature-settings,
+    var(--vs--heading-font-feature-settings)
+  );
   font-kerning: var(--vs--bold-font-kerning, var(--vs--heading-font-kerning));
   font-size: var(--vs--bold-font-size);
   font-stretch: var(--vs--bold-font-stretch, var(--vs--heading-font-stretch));
   font-variant: var(--vs--bold-font-variant, var(--vs--heading-font-variant));
-  font-variation-settings: var(--vs--bold-font-variation-settings, var(--vs--heading-font-variation-settings));
+  font-variation-settings: var(
+    --vs--bold-font-variation-settings,
+    var(--vs--heading-font-variation-settings)
+  );
   font-weight: var(--vs--bold-font-weight);
   vertical-align: var(--vs--bold-vertical-align);
 }
@@ -369,26 +428,68 @@ em {
 }
 
 :is(b, strong) em {
-  font-family: var(--vs--bold-emphasis-font-family, var(--vs--emphasis-font-family));
-  font-feature-settings: var(--vs--bold-emphasis-font-feature-settings, var(--vs--emphasis-font-feature-settings));
-  font-kerning: var(--vs--bold-emphasis-font-kerning, var(--vs--emphasis-font-kerning));
+  font-family: var(
+    --vs--bold-emphasis-font-family,
+    var(--vs--emphasis-font-family)
+  );
+  font-feature-settings: var(
+    --vs--bold-emphasis-font-feature-settings,
+    var(--vs--emphasis-font-feature-settings)
+  );
+  font-kerning: var(
+    --vs--bold-emphasis-font-kerning,
+    var(--vs--emphasis-font-kerning)
+  );
   font-size: var(--vs--bold-emphasis-font-size, var(--vs--emphasis-font-size));
-  font-stretch: var(--vs--bold-emphasis-font-stretch, var(--vs--emphasis-font-stretch));
-  font-variant: var(--vs--bold-emphasis-font-variant, var(--vs--emphasis-font-variant));
-  font-variation-settings: var(--vs--bold-emphasis-font-variation-settings, var(--vs--emphasis-font-variation-settings));
-  font-weight: var(--vs--bold-emphasis-font-weight, var(--vs--emphasis-font-weight));
+  font-stretch: var(
+    --vs--bold-emphasis-font-stretch,
+    var(--vs--emphasis-font-stretch)
+  );
+  font-variant: var(
+    --vs--bold-emphasis-font-variant,
+    var(--vs--emphasis-font-variant)
+  );
+  font-variation-settings: var(
+    --vs--bold-emphasis-font-variation-settings,
+    var(--vs--emphasis-font-variation-settings)
+  );
+  font-weight: var(
+    --vs--bold-emphasis-font-weight,
+    var(--vs--emphasis-font-weight)
+  );
   vertical-align: var(--vs--bold-emphasis-vertical-align, unset);
 }
 
 em :is(b, strong) {
-  font-family: var(--vs--bold-emphasis-font-family, var(--vs--bold-font-family));
-  font-feature-settings: var(--vs--bold-emphasis-font-feature-settings, var(--vs--bold-font-feature-settings));
-  font-kerning: var(--vs--bold-emphasis-font-kerning, var(--vs--bold-font-kerning));
+  font-family: var(
+    --vs--bold-emphasis-font-family,
+    var(--vs--bold-font-family)
+  );
+  font-feature-settings: var(
+    --vs--bold-emphasis-font-feature-settings,
+    var(--vs--bold-font-feature-settings)
+  );
+  font-kerning: var(
+    --vs--bold-emphasis-font-kerning,
+    var(--vs--bold-font-kerning)
+  );
   font-size: var(--vs--bold-emphasis-font-size, var(--vs--bold-font-size));
-  font-stretch: var(--vs--bold-emphasis-font-stretch, var(--vs--bold-font-stretch));
-  font-variant: var(--vs--bold-emphasis-font-variant, var(--vs--bold-font-variant));
-  font-variation-settings: var(--vs--bold-emphasis-font-variation-settings, var(--vs--bold-font-variation-settings));
-  font-weight: var(--vs--bold-emphasis-font-weight, var(--vs--bold-font-weight));
+  font-stretch: var(
+    --vs--bold-emphasis-font-stretch,
+    var(--vs--bold-font-stretch)
+  );
+  font-variant: var(
+    --vs--bold-emphasis-font-variant,
+    var(--vs--bold-font-variant)
+  );
+  font-variation-settings: var(
+    --vs--bold-emphasis-font-variation-settings,
+    var(--vs--bold-font-variation-settings)
+  );
+  font-weight: var(
+    --vs--bold-emphasis-font-weight,
+    var(--vs--bold-font-weight)
+  );
   vertical-align: var(--vs--bold-emphasis-vertical-align, unset);
 }
 
@@ -619,13 +720,37 @@ td {
 }
 
 th {
-  font-family: var(--vs--th-font-family, var(--vs--bold-font-family, var(--vs--heading-font-family)));
-  font-feature-settings: var(--vs--th-font-feature-settings, var(--vs--bold-font-feature-settings, var(--vs--heading-font-feature-settings)));
-  font-kerning: var(--vs--th-font-kerning, var(--vs--bold-font-kerning, var(--vs--heading-font-kerning)));
+  font-family: var(
+    --vs--th-font-family,
+    var(--vs--bold-font-family, var(--vs--heading-font-family))
+  );
+  font-feature-settings: var(
+    --vs--th-font-feature-settings,
+    var(
+      --vs--bold-font-feature-settings,
+      var(--vs--heading-font-feature-settings)
+    )
+  );
+  font-kerning: var(
+    --vs--th-font-kerning,
+    var(--vs--bold-font-kerning, var(--vs--heading-font-kerning))
+  );
   font-size: var(--vs--th-font-size, var(--vs--bold-font-size));
-  font-stretch: var(--vs--th-font-stretch, var(--vs--bold-font-stretch, var(--vs--heading-font-stretch)));
-  font-variant: var(--vs--th-font-variant, var(--vs--bold-font-variant, var(--vs--heading-font-variant)));
-  font-variation-settings: var(--vs--th-font-variation-settings, var(--vs--bold-font-variation-settings, var(--vs--heading-font-variation-settings)));
+  font-stretch: var(
+    --vs--th-font-stretch,
+    var(--vs--bold-font-stretch, var(--vs--heading-font-stretch))
+  );
+  font-variant: var(
+    --vs--th-font-variant,
+    var(--vs--bold-font-variant, var(--vs--heading-font-variant))
+  );
+  font-variation-settings: var(
+    --vs--th-font-variation-settings,
+    var(
+      --vs--bold-font-variation-settings,
+      var(--vs--heading-font-variation-settings)
+    )
+  );
   font-weight: var(--vs--th-font-weight, var(--vs--bold-font-weight));
   text-align: var(--vs--th-text-align, var(--vs--table-text-align, center));
 }
@@ -663,19 +788,19 @@ td:not(:last-child) {
   );
 }
 
-:is(tr, th, td, tbody, thead, tfoot, col, colgroup)[align="left"] {
+:is(tr, th, td, tbody, thead, tfoot, col, colgroup)[align='left'] {
   text-align: left;
 }
 
-:is(tr, th, td, tbody, thead, tfoot, col, colgroup)[align="right"] {
+:is(tr, th, td, tbody, thead, tfoot, col, colgroup)[align='right'] {
   text-align: right;
 }
 
-:is(tr, th, td, tbody, thead, tfoot, col, colgroup)[align="center"] {
+:is(tr, th, td, tbody, thead, tfoot, col, colgroup)[align='center'] {
   text-align: center;
 }
 
-:is(tr, th, td, tbody, thead, tfoot, col, colgroup)[align="justify"] {
+:is(tr, th, td, tbody, thead, tfoot, col, colgroup)[align='justify'] {
   text-align: justify;
   text-align-last: justify;
 }

@@ -6,7 +6,7 @@
   --vs-footnote--call-inset-block-start: var(--vs--sup-inset-block-start);
   --vs-footnote--counter-style: decimal;
   --vs-footnote--marker-content: counter(
-     vs-counter-footnote,
+      vs-counter-footnote,
       var(--vs-footnote--counter-style)
     )
     '. ';
@@ -20,19 +20,29 @@
   --vs-footnote--root-counter-reset: vs-counter-footnote;
 }
 
-.footnote, [role=doc-footnote] {
+.footnote,
+[role='doc-footnote'] {
   counter-increment: vs-counter-footnote;
 
   color: var(--vs-footnote--color-body, var(--vs-color-body));
   font-family: var(--vs-footnote--font-family, var(--vs-font-family));
-  font-feature-settings: var(--vs-footnote--font-feature-settings, var(--vs-font-feature-settings));
+  font-feature-settings: var(
+    --vs-footnote--font-feature-settings,
+    var(--vs-font-feature-settings)
+  );
   font-kerning: var(--vs-footnote--font-kerning, var(--vs-font-kerning));
   font-size: var(--vs-footnote--font-size, var(--vs-font-size));
-  font-stretch: var(--vs-footnote--font-stretch, var(--vs-footnote--font-stretch));
+  font-stretch: var(
+    --vs-footnote--font-stretch,
+    var(--vs-footnote--font-stretch)
+  );
   font-style: var(--vs-footnote--font-style, var(--vs-font-style));
   font-synthesis: var(--vs-footnote--font-synthesize, var(--vs-font-synthesis));
   font-variant: var(--vs-footnote--font-variant, var(--vs-font-variant));
-  font-variation-settings: var(--vs-footnote--font-variation-settings, var(--vs-font-variation-settings));
+  font-variation-settings: var(
+    --vs-footnote--font-variation-settings,
+    var(--vs-font-variation-settings)
+  );
   font-weight: var(--vs-footnote--font-weight, var(--vs-font-weight));
   letter-spacing: var(--vs-footnote--letter-spacing, var(--vs-letter-spacing));
   line-height: var(--vs-footnote--line-height, var(--vs-line-height));
@@ -42,7 +52,7 @@
 }
 
 .footnote::footnote-call,
-[role=doc-footnote]::footnote-call {
+[role='doc-footnote']::footnote-call {
   content: var(--vs-footnote--call-content);
   font-size: var(--vs-footnote--call-font-size);
   margin-inline: var(--vs-footnote--call-margin-inline);
@@ -51,13 +61,14 @@
 }
 
 .footnote::footnote-marker,
-[role=doc-footnote]::footnote-marker {
+[role='doc-footnote']::footnote-marker {
   content: var(--vs-footnote--marker-content);
   margin-inline: var(--vs-footnote--marker-margin-inline);
 }
 
 @media print {
-  .footnote, [role=doc-footnote] {
+  .footnote,
+  [role='doc-footnote'] {
     float: footnote;
     margin-block: var(--vs-footnote--item-margin-block);
     margin-inline: var(--vs-footnote--item-margin-inline);

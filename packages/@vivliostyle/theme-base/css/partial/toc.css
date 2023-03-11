@@ -12,23 +12,24 @@
   --vs-toc--page-leader-content: leader('.') ' ';
 }
 
-#toc, [role=doc-toc] {
+#toc,
+[role='doc-toc'] {
   --vs--ol-padding-inline-start: var(--vs-toc--ol-indent-size);
   --vs--ol-minimum-inline-indent-size: 0rem;
 }
 
-:is(#toc, [role=doc-toc]) ol {
+:is(#toc, [role='doc-toc']) ol {
   counter-reset: vs-counter-toc;
   list-style: none;
 }
 
-:is(#toc, [role=doc-toc]) li {
+:is(#toc, [role='doc-toc']) li {
   counter-increment: vs-counter-toc;
   break-inside: avoid;
   position: relative;
 }
 
-:is(#toc, [role=doc-toc]) li::before {
+:is(#toc, [role='doc-toc']) li::before {
   content: var(--vs-toc--marker-content);
   display: var(--vs-toc--marker-display);
   position: absolute;
@@ -37,17 +38,17 @@
   width: var(--vs-toc--ol-indent-size);
 }
 
-:is(#toc, [role=doc-toc]) li > a {
+:is(#toc, [role='doc-toc']) li > a {
   align-items: var(--vs-toc--anchor-align-items);
   text-decoration: var(--vs-toc--anchor-text-decoration);
   text-indent: var(--vs-toc--anchor-text-indent);
 }
 
-:is(#toc, [role=doc-toc]) li > a:hover {
+:is(#toc, [role='doc-toc']) li > a:hover {
   text-decoration: var(--vs-toc--anchor-text-decoration-on-hover);
 }
 
-:is(#toc, [role=doc-toc]) li > a::after {
+:is(#toc, [role='doc-toc']) li > a::after {
   content: var(--vs-toc--page-leader-content)
     target-counter(attr(href), page, var(--vs-toc--page-counter-style));
   display: var(--vs-toc--page-counter-display);

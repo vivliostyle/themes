@@ -419,14 +419,16 @@
 
 @page :first {
   counter-reset: vs-counter-doc vs-counter-part vs-counter-chapter
-    var(--vs-first-page-counter-reset, );
+    var(--vs-first-page-counter-reset);
 }
 
 /*
  * document counters
  */
 
-html.part, body.part, [role=doc-part] {
+html.part,
+body.part,
+[role='doc-part'] {
   page: part;
 }
 
@@ -453,7 +455,10 @@ html.part, body.part, [role=doc-part] {
 }
 
 @page cover {
-  --vs-page--mbox-visibility: var(--vs-page--cover-page-mbox-visibility, hidden);
+  --vs-page--mbox-visibility: var(
+    --vs-page--cover-page-mbox-visibility,
+    hidden
+  );
 }
 
 /*
@@ -461,74 +466,110 @@ html.part, body.part, [role=doc-part] {
  * https://kb.daisy.org/publishing/docs/html/dpub-aria/index.html
  */
 
-html.acknowledgments, body.acknowledgments, [role=doc-acknowledgments] {
+html.acknowledgments,
+body.acknowledgments,
+[role='doc-acknowledgments'] {
   page: acknowledgments;
 }
 
-html.afterword, body.afterword, [role=doc-afterword] {
+html.afterword,
+body.afterword,
+[role='doc-afterword'] {
   page: afterword;
 }
 
-html.appendix, body.appendix, [role=doc-appendix] {
+html.appendix,
+body.appendix,
+[role='doc-appendix'] {
   page: appendix;
 }
 
-html.bibliography, body.bibliography, [role=doc-bibliography] {
+html.bibliography,
+body.bibliography,
+[role='doc-bibliography'] {
   page: bibliography;
 }
 
-html.chapter, body.chapter, [role=doc-chapter] {
+html.chapter,
+body.chapter,
+[role='doc-chapter'] {
   page: chapter;
 }
 
-html.conclusion, body.conclusion, [role=doc-conclusion] {
+html.conclusion,
+body.conclusion,
+[role='doc-conclusion'] {
   page: conclusion;
 }
 
-html.colophon, body.colophon, [role=doc-colophon] {
+html.colophon,
+body.colophon,
+[role='doc-colophon'] {
   page: colophon;
 }
 
-html.credits, body.credits, [role=doc-credits] {
+html.credits,
+body.credits,
+[role='doc-credits'] {
   page: credits;
 }
 
-html.dedication, body.dedication, [role=doc-dedication] {
+html.dedication,
+body.dedication,
+[role='doc-dedication'] {
   page: dedication;
 }
 
-html.epigraph, body.epigraph, [role=doc-epigraph] {
+html.epigraph,
+body.epigraph,
+[role='doc-epigraph'] {
   page: epigraph;
 }
 
-html.epilogue, body.epilogue, [role=doc-epilogue] {
+html.epilogue,
+body.epilogue,
+[role='doc-epilogue'] {
   page: epilogue;
 }
 
-html.errata, body.errata, [role=doc-errata] {
+html.errata,
+body.errata,
+[role='doc-errata'] {
   page: errata;
 }
 
-html.foreword, body.foreword, [role=doc-foreword] {
+html.foreword,
+body.foreword,
+[role='doc-foreword'] {
   page: foreword;
 }
 
-html.glossary, body.glossary, [role=doc-glossary] {
+html.glossary,
+body.glossary,
+[role='doc-glossary'] {
   page: glossary;
 }
 
-html.index, body.index, [role=doc-index] {
+html.index,
+body.index,
+[role='doc-index'] {
   page: index;
 }
 
-html.introduction, body.introduction, [role=doc-introduction] {
+html.introduction,
+body.introduction,
+[role='doc-introduction'] {
   page: introduction;
 }
 
-html.preface, body.preface, [role=doc-preface] {
+html.preface,
+body.preface,
+[role='doc-preface'] {
   page: preface;
 }
 
-html.prologue, body.prologue, [role=doc-prologue] {
+html.prologue,
+body.prologue,
+[role='doc-prologue'] {
   page: prologue;
 }

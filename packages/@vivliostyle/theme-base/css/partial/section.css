@@ -4,8 +4,7 @@
   --vs-section--counter-delimiter: '.';
   --vs-section--counter-style: decimal;
   --vs-section--call-display: inline;
-  --vs-section--call-content:
-    '§'
+  --vs-section--call-content: '§'
     target-counters(
       attr(href),
       vs-counter-sections,
@@ -14,18 +13,16 @@
     );
   --vs-section--call-margin-inline: 0;
   --vs-section--marker-display: none;
-  --vs-section--marker-content:
-    counters(
-      vs-counter-sections,
-      var(--vs-section--counter-delimiter),
-      var(--vs-section--counter-style)
-    );
+  --vs-section--marker-content: counters(
+    vs-counter-sections,
+    var(--vs-section--counter-delimiter),
+    var(--vs-section--counter-style)
+  );
   --vs-section--marker-margin-inline: 1ch;
 }
 
 :lang(ja) {
-  --vs-section--call-content:
-    target-counters(
+  --vs-section--call-content: target-counters(
       attr(href),
       vs-counter-sections,
       var(--vs-section--counter-delimiter),
