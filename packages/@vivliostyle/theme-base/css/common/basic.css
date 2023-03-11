@@ -153,7 +153,6 @@ html {
   line-height: var(--vs-line-height);
   background-color: var(--vs-color-bg);
   color: var(--vs-color-body);
-  -moz-tab-size: var(--vs-tab-size);
   tab-size: var(--vs-tab-size);
   hyphens: var(--vs-hyphens);
   line-break: var(--vs-line-break);
