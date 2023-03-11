@@ -5,7 +5,7 @@
   --vs-font-family: sans-serif;
   --vs-font-feature-settings: normal;
   --vs-font-kerning: auto;
-  --vs-font-size: 16px;
+  --vs-font-size: 100%;
   --vs-font-size-on-screen: var(--vs-font-size);
   --vs-font-size-on-print: var(--vs-font-size);
   --vs-font-stretch: normal;

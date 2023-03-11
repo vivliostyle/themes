@@ -1,4 +1,6 @@
 :root {
+  --vs--html-font-size: var(--vs-font-size);
+
   --vs--heading-break-after: avoid;
   --vs--heading-break-inside: avoid;
   --vs--heading-font-weight: var(--vs-font-weight-bold);
@@ -122,12 +124,12 @@
 
 @media screen {
   :root {
-    --vs-font-size: var(--vs-font-size-on-screen);
+    --vs--html-font-size: var(--vs-font-size-on-screen);
   }
 }
 @media print {
   :root {
-    --vs-font-size: var(--vs-font-size-on-print);
+    --vs--html-font-size: var(--vs-font-size-on-print);
   }
 }
 
@@ -141,7 +143,7 @@ html {
   font-family: var(--vs-font-family);
   font-feature-settings: var(--vs-font-feature-settings);
   font-kerning: var(--vs-font-kerning);
-  font-size: var(--vs-font-size);
+  font-size: var(--vs--html-font-size);
   font-stretch: var(--vs-font-stretch);
   font-style: var(--vs-font-style);
   font-synthesis: var(--vs-font-synthesis);
