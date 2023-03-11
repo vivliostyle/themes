@@ -23,8 +23,7 @@
   --vs-overflow-wrap: anywhere;
   --vs-tab-size: 4;
   --vs-text-align: start;
-  --vs-text-spacing: space-first trim-end trim-adjacent ideograph-alpha
-    ideograph-numeric;
+  --vs-text-spacing: auto;
   --vs-text-underline-offset: auto;
   --vs-text-underline-position: left;
   --vs-word-break: normal;
