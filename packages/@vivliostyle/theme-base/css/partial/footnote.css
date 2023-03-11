@@ -75,4 +75,4 @@
   border-block-start-width: var(--vs-footnote--area-before-border-width, var(--vs--hr-border-width, var(--vs-border-width)));
   margin-block: var(--vs-footnote--area-before-margin-block);
   margin-inline: var(--vs-footnote--area-before-margin-inline);
-} ;
+}
