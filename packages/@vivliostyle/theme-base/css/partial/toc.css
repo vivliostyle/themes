@@ -7,7 +7,9 @@
   --vs-toc--marker-display: none;
   --vs-toc--marker-text-align: start;
   --vs-toc--ol-indent-size: 2rem;
+  --vs-toc--page-counter-display: inline;
   --vs-toc--page-counter-style: decimal;
+  --vs-toc--page-leader-content: leader('.') ' ';
 }
 
 #toc, [role=doc-toc] {
@@ -36,9 +38,6 @@
 }
 
 :is(#toc, [role=doc-toc]) li > a {
-  display: inline-flex;
-  width: 100%;
-  justify-content: space-between;
   align-items: var(--vs-toc--anchor-align-items);
   text-decoration: var(--vs-toc--anchor-text-decoration);
   text-indent: var(--vs-toc--anchor-text-indent);
@@ -49,6 +48,7 @@
 }
 
 :is(#toc, [role=doc-toc]) li > a::after {
-  content: target-counter(attr(href), page, var(--vs-toc--page-counter-style));
-  text-align: end;
+  content: var(--vs-toc--page-leader-content)
+    target-counter(attr(href), page, var(--vs-toc--page-counter-style));
+  display: var(--vs-toc--page-counter-display);
 }
