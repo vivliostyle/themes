@@ -9,6 +9,7 @@
   --vs-section--h2-marker-content: 'Part ' counter(vs-counter-part, upper-roman);
 
   --vs-section--h3-marker-display: inline;
-  --vs-section--h3-marker-content: 'Chapter ' counter(vs-counter-sec-h3, upper-roman) '—';
+  --vs-section--h3-marker-content: 'Chapter '
+    counter(vs-counter-sec-h3, upper-roman) '—';
   --vs-section--h3-marker-margin-inline: 0;
 }

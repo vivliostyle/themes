@@ -20,7 +20,8 @@
   --vs-theme--blockquote-mark-color: #d6a;
   --vs-theme--table-heading-color-bg: rgb(0, 0, 0, 0.1);
   --vs-theme--page-ref-call-color: forestgreen;
-  --vs-theme--page-ref-call-content: '(p.' target-counter(attr(href url), page) ')';
+  --vs-theme--page-ref-call-content: '(p.' target-counter(attr(href url), page)
+    ')';
   --vs-theme--max-inline-size-on-screen: 40rem;
   --vs-theme--cover-page-color-bg: #212057;
   --vs-theme--cover-page-color-body: #fff;
@@ -37,7 +38,9 @@
   --vs-color-body: var(--vs-theme--color-body);
 
   --vs--heading-text-align: var(--vs-theme--section-align-items, center);
-  --vs--monospace-font-family: 'Source Code Pro', 'Andale Mono', 'Courier', 'Courier New', 'Yu Gothic', 'YuGothic', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo', monospace;
+  --vs--monospace-font-family: 'Source Code Pro', 'Andale Mono', 'Courier',
+    'Courier New', 'Yu Gothic', 'YuGothic', 'Hiragino Sans',
+    'Hiragino Kaku Gothic ProN', 'Meiryo', monospace;
   --vs--monospace-font-weight: var(--vs-font-weight-bold);
   --vs--h1-font-size: 2em;
   --vs--h2-font-size: 1.8em;
@@ -102,7 +105,11 @@ section > *:not(:last-child) {
 @media screen {
   section:first-child,
   :not(:is(h1, h2, h3, h4, h5, h6)) + section {
-    padding: 0 max(calc(50vw - var(--vs-theme--max-inline-size-on-screen) * 0.5), var(--vs-spacing-inline-indent));
+    padding: 0
+      max(
+        calc(50vw - var(--vs-theme--max-inline-size-on-screen) * 0.5),
+        var(--vs-spacing-inline-indent)
+      );
   }
 }
 
@@ -114,7 +121,6 @@ section > hr {
   align-self: stretch;
 }
 
-
 blockquote::before {
   color: var(--vs-theme--blockquote-mark-color);
   content: '❝';
@@ -124,7 +130,8 @@ blockquote::before {
   margin-top: -0.25em;
 }
 
-thead, tfoot {
+thead,
+tfoot {
   background: var(--vs-theme--table-heading-color-bg);
 }
 
@@ -150,10 +157,10 @@ a[href^='#']::after {
 .cover {
   --vs--h1-font-size: 2.8rem;
   --vs--h1-font-weight: 600;
-  --vs--h1-text-align: var(--vs-theme--cover-page-align-items, center);;
+  --vs--h1-text-align: var(--vs-theme--cover-page-align-items, center);
   --vs--h2-font-size: 1.25rem;
   --vs--h2-font-weight: 500;
-  --vs--h2-text-align: var(--vs-theme--cover-page-align-items, center);;
+  --vs--h2-text-align: var(--vs-theme--cover-page-align-items, center);
   --vs--anchor-color: var(--vs-theme--cover-page-color-body);
   --vs-theme--h1-color: var(--vs-theme--cover-page-color-body);
   --vs-theme--h2-color: var(--vs-theme--cover-page-color-body);
@@ -193,18 +200,19 @@ a[href^='#']::after {
  */
 
 :is(
-  section:not(:has(> :is(h1, h2, h3, h4, h5, h6):first-child)),
-  section:has(> :is(h1, h2, h3, h4, h5, h6)[hidden]:first-child)
-):has(> p > img:only-child) {
+    section:not(:has(> :is(h1, h2, h3, h4, h5, h6):first-child)),
+    section:has(> :is(h1, h2, h3, h4, h5, h6)[hidden]:first-child)
+  ):has(> p > img:only-child) {
   page: image-full;
 }
 
-
 @media print {
   :is(
-    section:not(:has(> :is(h1, h2, h3, h4, h5, h6):first-child)),
-    section:has(> :is(h1, h2, h3, h4, h5, h6)[hidden]:first-child)
-  ) > p > img:only-child {
+      section:not(:has(> :is(h1, h2, h3, h4, h5, h6):first-child)),
+      section:has(> :is(h1, h2, h3, h4, h5, h6)[hidden]:first-child)
+    )
+    > p
+    > img:only-child {
     display: block;
     width: 100vw;
     height: 100vh;

@@ -45,7 +45,9 @@
   --vs--figcaption-margin-block: 1rem;
 
   /* Adding extra 1px to avoid unexpected page feeds */
-  --vs-page--width: calc(1rem * var(--vs-line-height) * var(--vs-theme--num-of-line) + 1px);
+  --vs-page--width: calc(
+    1rem * var(--vs-line-height) * var(--vs-theme--num-of-line) + 1px
+  );
   --vs-page--height: calc(1rem * var(--vs-theme--num-of-character));
   --vs-page--margin-top: auto;
   --vs-page--margin-bottom: auto;
@@ -75,11 +77,16 @@
   --vs-section--counter-delimiter: '・';
 }
 
-h1, h2 {
+h1,
+h2 {
   break-after: avoid;
 }
 
-h2, h3, h4, h5, h6 {
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-indent: var(--vs-theme--subsection-text-indent);
 }
 
@@ -110,7 +117,8 @@ figure > picture > img {
 }
 
 /* 圏点（ゴマ） */
-.sesame, .sesame_dot {
+.sesame,
+.sesame_dot {
   font-style: normal;
   text-emphasis-style: sesame;
 }
@@ -123,7 +131,7 @@ figure > picture > img {
 }
 
 /* 奥付 */
-[role=doc-colophon] {
+[role='doc-colophon'] {
   font-size: 0.824rem;
   line-height: 1.5rem;
   margin-block-start: 6rem;

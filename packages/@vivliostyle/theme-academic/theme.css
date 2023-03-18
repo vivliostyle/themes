@@ -22,7 +22,8 @@
 
   --vs--heading-font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
   --vs--heading-margin-block: 0;
-  --vs--monospace-font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  --vs--monospace-font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
+    monospace;
   --vs--h1-font-size: 2em;
   --vs--h1-margin-block: 0.8rem 0.4rem;
   --vs--h1-text-align: center;
@@ -51,22 +52,32 @@
   --vs-page--mbox-content-bottom-center: counter(page);
   --vs-page--mbox-content-top-left: env(pub-title);
 
-  --vs-crossref--marker-fig-content: 'Figure ' counter(vs-counter-fig, var(--vs-crossref--counter-style));
-  --vs-crossref--marker-tbl-content: 'Table ' counter(vs-counter-tbl, var(--vs-crossref--counter-style));
+  --vs-crossref--marker-fig-content: 'Figure '
+    counter(vs-counter-fig, var(--vs-crossref--counter-style));
+  --vs-crossref--marker-tbl-content: 'Table '
+    counter(vs-counter-tbl, var(--vs-crossref--counter-style));
   --vs-crossref--marker-margin-inline: 0 1rem;
 
   --vs-section--marker-display: inline;
   --vs-section--h1-marker-display: none;
   --vs-section--h2-marker-content: counter(vs-counter-sec-h2);
-  --vs-section--h3-marker-content: counter(vs-counter-sec-h2) '.' counter(vs-counter-sec-h3);
-  --vs-section--h4-marker-content: counter(vs-counter-sec-h2) '.' counter(vs-counter-sec-h3) '.' counter(vs-counter-sec-h4);
-  --vs-section--h5-marker-content: counter(vs-counter-sec-h2) '.' counter(vs-counter-sec-h3) '.' counter(vs-counter-sec-h4) '.' counter(vs-counter-sec-h5);
-  --vs-section--h6-marker-content: counter(vs-counter-sec-h2) '.' counter(vs-counter-sec-h3) '.' counter(vs-counter-sec-h4) '.' counter(vs-counter-sec-h5) '.' counter(vs-counter-sec-h6);
+  --vs-section--h3-marker-content: counter(vs-counter-sec-h2) '.'
+    counter(vs-counter-sec-h3);
+  --vs-section--h4-marker-content: counter(vs-counter-sec-h2) '.'
+    counter(vs-counter-sec-h3) '.' counter(vs-counter-sec-h4);
+  --vs-section--h5-marker-content: counter(vs-counter-sec-h2) '.'
+    counter(vs-counter-sec-h3) '.' counter(vs-counter-sec-h4) '.'
+    counter(vs-counter-sec-h5);
+  --vs-section--h6-marker-content: counter(vs-counter-sec-h2) '.'
+    counter(vs-counter-sec-h3) '.' counter(vs-counter-sec-h4) '.'
+    counter(vs-counter-sec-h5) '.' counter(vs-counter-sec-h6);
 }
 
 :lang(ja) {
-  --vs-crossref--marker-fig-content: '図 ' counter(vs-counter-fig, var(--vs-crossref--counter-style));
-  --vs-crossref--marker-tbl-content: '表 ' counter(vs-counter-tbl, var(--vs-crossref--counter-style));
+  --vs-crossref--marker-fig-content: '図 '
+    counter(vs-counter-fig, var(--vs-crossref--counter-style));
+  --vs-crossref--marker-tbl-content: '表 '
+    counter(vs-counter-tbl, var(--vs-crossref--counter-style));
 }
 
 figure img {

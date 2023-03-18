@@ -63,7 +63,7 @@ section > :is(h1, h2):first-child + section:has(> :is(h2, h3):first-child) {
   --vs-section--h3-break-before: auto;
 }
 
-:is(#toc, [role=doc-toc]) {
+:is(#toc, [role='doc-toc']) {
   break-before: page;
 }
 
@@ -82,7 +82,8 @@ p:first-of-type::first-letter {
   padding-inline-end: 1px;
 }
 
-pre, .pre {
+pre,
+.pre {
   font-size: 0.75em;
   line-height: 1.45;
   hyphens: none;
@@ -131,15 +132,16 @@ body {
 }
 
 @media print {
-  :is(#toc, [role=doc-toc]) li > a::before {
+  :is(#toc, [role='doc-toc']) li > a::before {
     margin-inline: 1px;
-    border-bottom: solid var(--vs-border-width) var(--vs-theme--toc-border-color);
+    border-bottom: solid var(--vs-border-width)
+      var(--vs-theme--toc-border-color);
     content: '';
     order: 1;
     flex: auto;
   }
 
-  :is(#toc, [role=doc-toc]) li > a::after {
+  :is(#toc, [role='doc-toc']) li > a::after {
     order: 2;
   }
 }

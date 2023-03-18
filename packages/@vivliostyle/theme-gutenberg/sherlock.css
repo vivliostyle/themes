@@ -5,7 +5,8 @@
 
   --vs-theme--dropcap-font-weight: initial;
 
-  --vs--heading-font-family: 'Quattrocento', baskerville, 'Libre Baskerville', Georgia, serif;
+  --vs--heading-font-family: 'Quattrocento', baskerville, 'Libre Baskerville',
+    Georgia, serif;
   --vs--heading-font-weight: initial;
   --vs--heading-letter-spacing: 0.05em;
   --vs--heading-margin-block: 2rem;
@@ -22,7 +23,8 @@
 
 .part {
   --vs-section--h2-marker-display: inline;
-  --vs-section--h2-marker-content: 'Adventure ' counter(vs-counter-part, upper-roman) '. ';
+  --vs-section--h2-marker-content: 'Adventure '
+    counter(vs-counter-part, upper-roman) '. ';
 
   --vs-section--h3-marker-display: inline;
   --vs-section--h3-marker-content: counter(vs-counter-sec-h3, upper-roman) '.';

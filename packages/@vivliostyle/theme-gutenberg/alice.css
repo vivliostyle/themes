@@ -11,7 +11,8 @@
 
 .chapter {
   --vs-section--h2-marker-display: block;
-  --vs-section--h2-marker-content: 'Chapter ' counter(vs-counter-chapter, upper-roman) '.';
+  --vs-section--h2-marker-content: 'Chapter '
+    counter(vs-counter-chapter, upper-roman) '.';
 }
 
 .stars {
@@ -21,5 +22,5 @@
 }
 
 header {
-  font-size: 1.3em;;
+  font-size: 1.3em;
 }

@@ -18,13 +18,15 @@
 }
 
 :root {
-  --vs-font-family: 'Neue Frutiger World', 'Verdana', 'Hiragino Sans', sans-serif;
+  --vs-font-family: 'Neue Frutiger World', 'Verdana', 'Hiragino Sans',
+    sans-serif;
   --vs-font-size-on-print: 12px;
   --vs-line-height: 1.7;
   --vs-widows-orphans: 3;
 
   --vs--heading-line-height: 1.2;
-  --vs--monospace-font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  --vs--monospace-font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
+    monospace;
   --vs--h1-font-size: 2.4em;
   --vs--h2-font-size: 1.8em;
   --vs--h3-font-size: 1.4em;
@@ -77,8 +79,18 @@ blockquote > p:last-child {
  * We set image-resolution only for images with raster image extensions.
  * https://docs.vivliostyle.org/#/supported-css-features#css-images-3
  */
-figure img:is([src$=.png], [src$=.jpg], [src$=.jpeg], [src$=.gif], [src$=.webp], [src$=.apng]) {
-  --vs--img-image-resolution: var(--vs-theme--image-resolution-for-figure-image);
+figure
+  img:is(
+    [src$='.png'],
+    [src$='.jpg'],
+    [src$='.jpeg'],
+    [src$='.gif'],
+    [src$='.webp'],
+    [src$='.apng']
+  ) {
+  --vs--img-image-resolution: var(
+    --vs-theme--image-resolution-for-figure-image
+  );
 }
 
 /* format for inline code */
@@ -122,13 +134,14 @@ figure img:is([src$=.png], [src$=.jpg], [src$=.jpeg], [src$=.gif], [src$=.webp],
   --vs-page--mbox-content-bottom-right: counter(page);
 }
 
-#toc, nav[role=doc-toc] {
+#toc,
+nav[role='doc-toc'] {
   break-before: page;
   font-size: 120%;
 }
 
 @media print {
-  :is(#toc, [role=doc-toc]) li > a::before {
+  :is(#toc, [role='doc-toc']) li > a::before {
     margin-inline: 0.5em;
     border-bottom: solid var(--vs-border-width);
     content: '';
@@ -136,7 +149,7 @@ figure img:is([src$=.png], [src$=.jpg], [src$=.jpeg], [src$=.gif], [src$=.webp],
     flex: auto;
   }
 
-  :is(#toc, [role=doc-toc]) li > a::after {
+  :is(#toc, [role='doc-toc']) li > a::after {
     order: 2;
   }
 }
