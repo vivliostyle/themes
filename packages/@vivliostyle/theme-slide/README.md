@@ -86,7 +86,7 @@ A paragraph with only one image will appear as an image covering the entire page
 ```md
 Look at the image on next page!
 
-![fullscreen image](./image.png)
+![](./fullscreen.png)
 ```
 
 ## License
