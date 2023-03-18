@@ -2,7 +2,7 @@ module.exports = {
   title: 'Alice’s Adventures in Wonderland',
   language: 'en',
   size: 'A5',
-  theme: ['theme.css', 'alice.css'],
+  theme: 'alice.css',
   entry: [
     'example/alice/cover.md',
     'example/alice/copyright.md',

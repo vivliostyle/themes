@@ -2,7 +2,7 @@ module.exports = {
   title: 'White Fang',
   language: 'en',
   size: 'A5',
-  theme: ['theme.css', 'fang.css'],
+  theme: 'fang.css',
   entry: [
     'example/fang/cover.md',
     'example/fang/copyright.md',

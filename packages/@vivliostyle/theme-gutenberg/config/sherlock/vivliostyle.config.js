@@ -2,7 +2,7 @@ module.exports = {
   title: 'The Adventures of Sherlock Holmes',
   language: 'en',
   size: 'A5',
-  theme: ['theme.css', 'sherlock.css'],
+  theme: 'sherlock.css',
   entry: [
     'example/sherlock/cover.md',
     'example/sherlock/copyright.md',
