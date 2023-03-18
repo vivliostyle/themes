@@ -1870,13 +1870,13 @@
     update-section "^0.3.0"
 
 "@vivliostyle/cli@>=6":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@vivliostyle/cli/-/cli-6.0.0.tgz#e99acaa47cc9b6b804275fdec987cdfa8856b105"
-  integrity sha512-+FQ5wUASFdz6g3QXqRMglglT++GdhLdRAQFheztdF1bl6OwgCnM4u0iITyntRKIZm9vNW/7kq+tSaB76dbJ9Ng==
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@vivliostyle/cli/-/cli-7.0.0.tgz#afaf8dbdb2cdef6322007273cadf0036f3362ee2"
+  integrity sha512-KE5Uu/F+516L6hSbHarNHATCY/YWBnoIcYCuw28kCSd9r3dARAfPJT9PukUsGkoAt/eJfkdBiox+FzghCTkq/w==
   dependencies:
     "@npmcli/arborist" "^6.1.3"
-    "@vivliostyle/vfm" "1.2.2"
-    "@vivliostyle/viewer" "2.20.0"
+    "@vivliostyle/vfm" "2.1.0"
+    "@vivliostyle/viewer" "2.23.0"
     ajv "^8.11.2"
     ajv-formats "^2.1.1"
     better-ajv-errors "^1.2.0"
@@ -1898,7 +1898,7 @@
     node-stream-zip "^1.14.0"
     ora "^5.4.1"
     pdf-lib "^1.16.0"
-    playwright-core "1.28.0"
+    playwright-core "1.31.1"
     portfinder "^1.0.28"
     press-ready "^4.0.3"
     prettier "^2.3.2"
@@ -1918,29 +1918,31 @@
   dependencies:
     fast-diff "^1.2.0"
 
-"@vivliostyle/core@^2.20.0":
-  version "2.20.0"
-  resolved "https://registry.yarnpkg.com/@vivliostyle/core/-/core-2.20.0.tgz#17883ce711d6dd32f549016c2a875858b1f4dfb6"
-  integrity sha512-yyCWR0b83Y/yEBmwTsHWhdmv+VhjBvqD27S2OekR/jPza113AzaDLVr+cjvOeEKoc1aAqWxIdyeHosqhWEA1uw==
+"@vivliostyle/core@^2.23.0":
+  version "2.23.0"
+  resolved "https://registry.yarnpkg.com/@vivliostyle/core/-/core-2.23.0.tgz#dc8a544c7fee76918cfe2c49d8a2ae8c72746bb0"
+  integrity sha512-h2IFaSi4G6m9uQMflG/Mq4cUHFdIg29L/Xwq36o6hr+fpvtykRaFaA2Q/Na0QsSwNeTLAc4oihqKWtmgIIqqaA==
   dependencies:
     fast-diff "^1.2.0"
 
-"@vivliostyle/theme-base@file:packages/@vivliostyle/theme-base":
-  version "0.1.0"
+"@vivliostyle/theme-base@beta":
+  version "1.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@vivliostyle/theme-base/-/theme-base-1.0.0-beta.1.tgz#e3d738f14428bde0296e489c3685e8824c623a2d"
+  integrity sha512-mGDreDuIwTbg3pB4V6I8n8ri2KRl/POzkt6Gs8iIbnEIn1Lfuy2h18bTXkFRyUxm01/zeHHtM1MNdgavjaBm8A==
 
-"@vivliostyle/vfm@1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@vivliostyle/vfm/-/vfm-1.2.2.tgz#ae8fa4ed44b3bcf2d033e74f2b61d115994645fe"
-  integrity sha512-M8iGJ2wbJfrYUlvciZj1N234qnJIuX6ui7sywZr0RXlh7SbhKvOEQsezLKy00/TT2VSF0R+pVRnxMVBDSy6iag==
+"@vivliostyle/vfm@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@vivliostyle/vfm/-/vfm-2.1.0.tgz#8d4e068123cffe1c2081ce3a1389c4fbe003d42d"
+  integrity sha512-qs26plUnRTd/XGQd7iLVkpSIY3pYPxwvYty8QJsSt+i9uS5W+LEY3QSRoWvbJTHco0IS8mmPmmf4XouABSQaQg==
   dependencies:
     debug "^4.3.1"
     doctype "^2.0.4"
-    github-slugger "^1.3.0"
+    github-slugger "^1.4.0"
     hast-util-find-and-replace "^3.2.0"
     hast-util-is-element "^1.1.0"
     hast-util-select "^4.0.2"
     hastscript "^6.0.0"
-    js-yaml "^4.0.0"
+    js-yaml "^4.1.0"
     mdast-util-find-and-replace "^1.1.1"
     mdast-util-to-hast "^10.1.1"
     mdast-util-to-string "^2.0.0"
@@ -2006,12 +2008,12 @@
     unist-util-visit "^2.0.3"
     unist-util-visit-parents "^3.1.1"
 
-"@vivliostyle/viewer@2.20.0":
-  version "2.20.0"
-  resolved "https://registry.yarnpkg.com/@vivliostyle/viewer/-/viewer-2.20.0.tgz#f35a0ab883c44bcd08d0ad22e74504a216381fff"
-  integrity sha512-yNqoO0ObgEff3wLhUNcZmYyqEjF8GCvY5Fhfsjvvcjnf6AKTsfhPQncNaNBSEIVRIHPF7UMSa1iy5A5avCCa5A==
+"@vivliostyle/viewer@2.23.0":
+  version "2.23.0"
+  resolved "https://registry.yarnpkg.com/@vivliostyle/viewer/-/viewer-2.23.0.tgz#9917997433643294a10c06f1b5c11613cec4eae4"
+  integrity sha512-n/yzH7hdGzVfT8w/6JQ3827lRDmr7hSG7JTvu/Zt5GVZSLKH+c1da9kXFqTTMnhdVqA0d0AURl/j0JvT5RFCBw==
   dependencies:
-    "@vivliostyle/core" "^2.20.0"
+    "@vivliostyle/core" "^2.23.0"
     font-awesome "^4.7.0"
     knockout "^3.5.0"
 
@@ -4968,6 +4970,11 @@ github-slugger@^1.3.0:
   resolved "https://registry.yarnpkg.com/github-slugger/-/github-slugger-1.4.0.tgz#206eb96cdb22ee56fdc53a28d5a302338463444e"
   integrity sha512-w0dzqw/nt51xMVmlaV1+JRzN+oCa1KfcgGEWhxUG16wbdA+Xnt/yoFO8Z8x/V82ZcZ0wy6ln9QDup5avbhiDhQ==
 
+github-slugger@^1.4.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/github-slugger/-/github-slugger-1.5.0.tgz#17891bbc73232051474d68bd867a34625c955f7d"
+  integrity sha512-wIh+gKBI9Nshz2o46B0B3f5k/W+WI9ZAv6y5Dn5WJ5SK1t0TnDimB4WE5rmTD05ZAIn8HALCZVmCsvj0w0v0lw==
+
 glob-parent@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/glob-parent/-/glob-parent-3.1.0.tgz#9e6af6299d8d3bd2bd40430832bd113df906c5ae"
@@ -6580,7 +6587,7 @@ js-yaml@^3.13.1:
     argparse "^1.0.7"
     esprima "^4.0.0"
 
-js-yaml@^4.0.0:
+js-yaml@^4.0.0, js-yaml@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-4.1.0.tgz#c1fb65f8f5017901cdd2c951864ba18458a10602"
   integrity sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==
@@ -8597,10 +8604,10 @@ pkg-up@^3.1.0:
   dependencies:
     find-up "^3.0.0"
 
-playwright-core@1.28.0:
-  version "1.28.0"
-  resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.28.0.tgz#61df5c714f45139cca07095eccb4891e520e06f2"
-  integrity sha512-nJLknd28kPBiCNTbqpu6Wmkrh63OEqJSFw9xOfL9qxfNwody7h6/L3O2dZoWQ6Oxcm0VOHjWmGiCUGkc0X3VZA==
+playwright-core@1.31.1:
+  version "1.31.1"
+  resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.31.1.tgz#4deeebbb8fb73b512593fe24bea206d8fd85ff7f"
+  integrity sha512-JTyX4kV3/LXsvpHkLzL2I36aCdml4zeE35x+G5aPc4bkLsiRiQshU5lWeVpHFAuC8xAcbI6FDcw/8z3q2xtJSQ==
 
 please-upgrade-node@^3.2.0:
   version "3.2.0"
