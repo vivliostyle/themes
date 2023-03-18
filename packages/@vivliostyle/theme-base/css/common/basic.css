@@ -175,8 +175,11 @@ html {
 }
 
 body {
-  counter-reset: var(--vs-crossref--root-counter-reset)
-    var(--vs-footnote--root-counter-reset) var(--vs-document-root-counter-reset);
+  /* TODO: Remove prettier-ignore after Prettier v3
+  https://github.com/prettier/prettier/issues/13202 */
+  /* prettier-ignore */
+  counter-reset: var(--vs-crossref--root-counter-reset,)
+    var(--vs-footnote--root-counter-reset,) var(--vs-document-root-counter-reset,);
 }
 
 code,
