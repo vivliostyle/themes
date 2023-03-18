@@ -1,0 +1,71 @@
+:root {
+  /**
+   * Typography
+   */
+  --vs-font-family: sans-serif;
+  --vs-font-feature-settings: normal;
+  --vs-font-kerning: auto;
+  --vs-font-size: 100%;
+  --vs-font-size-on-screen: var(--vs-font-size);
+  --vs-font-size-on-print: var(--vs-font-size);
+  --vs-font-stretch: normal;
+  --vs-font-style: normal;
+  --vs-font-synthesis: weight style small-caps;
+  --vs-font-variant: normal;
+  --vs-font-variation-settings: normal;
+  --vs-font-weight: 400;
+  --vs-font-weight-bold: 700;
+  --vs-hanging-punctuation: none;
+  --vs-hyphens: auto;
+  --vs-line-break: strict;
+  --vs-line-height: 1.5;
+  --vs-letter-spacing: 0;
+  --vs-overflow-wrap: anywhere;
+  --vs-tab-size: 4;
+  --vs-text-align: start;
+  --vs-text-spacing: auto;
+  --vs-text-underline-offset: auto;
+  --vs-text-underline-position: left;
+  --vs-word-break: normal;
+  --vs-word-spacing: normal;
+
+  /**
+   * Layout
+   */
+  --vs-column-count: 1;
+  --vs-column-gap: 1rem;
+  --vs-column-width: auto;
+  --vs-text-orientation: unset;
+  --vs-orphans: var(--vs-widows-orphans);
+  --vs-widows: var(--vs-widows-orphans);
+  --vs-widows-orphans: 1;
+  --vs-writing-mode: horizontal-tb;
+
+  /**
+   * Colors
+   */
+  --vs-color-bg: transparent;
+  --vs-color-body: #000;
+
+  /**
+   * Spacing
+   */
+  --vs-spacing-rlh: calc(var(--vs-line-height) * 1rem);
+  --vs-spacing-inline-indent: min(2ch, 5vw);
+
+  /**
+   * Borders
+   */
+  --vs-border-color: currentColor;
+  --vs-border-width: 1px;
+
+  /**
+   * Counter resets
+   * It is used for resetting CSS counters on a root element or a first page
+   * Caution: Don't set counter-reset directly otherwise all other counters will be ignored.
+   * OK: :root { --vs-document-root-counter-reset: foo bar; }
+   * NG: :root { counter-reset: foo bar; }
+   */
+  --vs-document-root-counter-reset: ;
+  --vs-first-page-counter-reset: ;
+}

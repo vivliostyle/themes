@@ -1,0 +1,578 @@
+:root {
+  --vs-page--size: auto;
+  --vs-page--width: auto;
+  --vs-page--height: auto;
+  --vs-page--marks: none;
+  --vs-page--bleed: 0;
+  --vs-page--color-bg: var(--vs-color-bg);
+  --vs-page--margin-top: 22mm;
+  --vs-page--margin-bottom: 22mm;
+  --vs-page--margin-inner: 18mm;
+  --vs-page--margin-outer: 18mm;
+  --vs-page--mbox-color-bg: transparent;
+  --vs-page--mbox-color-body: inherit;
+  --vs-page--mbox-content-top-left-corner: none;
+  --vs-page--mbox-content-top-left: none;
+  --vs-page--mbox-content-top-center: none;
+  --vs-page--mbox-content-top-right: none;
+  --vs-page--mbox-content-top-right-corner: none;
+  --vs-page--mbox-content-left-top: none;
+  --vs-page--mbox-content-left-middle: none;
+  --vs-page--mbox-content-left-bottom: none;
+  --vs-page--mbox-content-right-top: none;
+  --vs-page--mbox-content-right-middle: none;
+  --vs-page--mbox-content-right-bottom: none;
+  --vs-page--mbox-content-bottom-left-corner: none;
+  --vs-page--mbox-content-bottom-left: none;
+  --vs-page--mbox-content-bottom-center: none;
+  --vs-page--mbox-content-bottom-right: none;
+  --vs-page--mbox-content-bottom-right-corner: none;
+  --vs-page--mbox-padding-left-inner: 0;
+  --vs-page--mbox-padding-left-outer: 0;
+  --vs-page--mbox-padding-right-inner: 0;
+  --vs-page--mbox-padding-right-outer: 0;
+  --vs-page--mbox-padding-top-inner: 0;
+  --vs-page--mbox-padding-bottom-inner: 0;
+  --vs-page--mbox-visibility: visible;
+  --vs-page--mbox-writing-mode: horizontal-tb;
+  --vs-page--cover-break-after: page;
+  --vs-page--cover-break-before: page;
+}
+
+@page {
+  size: var(--vs-page--size);
+  width: var(--vs-page--width);
+  height: var(--vs-page--height);
+  marks: var(--vs-page--marks);
+  bleed: var(--vs-page--bleed);
+  background-color: var(--vs-page--color-bg);
+  margin-top: var(--vs-page--margin-top);
+  margin-bottom: var(--vs-page--margin-bottom);
+}
+
+@page :left {
+  margin-left: var(--vs-page--margin-outer);
+  margin-right: var(--vs-page--margin-inner);
+}
+
+@page :right {
+  margin-left: var(--vs-page--margin-inner);
+  margin-right: var(--vs-page--margin-outer);
+}
+
+@page {
+  @top-left-corner {
+    content: var(--vs-page--mbox-content-top-left-corner);
+    margin-top: calc(var(--vs-page--bleed) * -1);
+    margin-left: calc(var(--vs-page--bleed) * -1);
+    padding-top: var(--vs-page--bleed);
+    padding-left: var(--vs-page--bleed);
+    padding-right: var(--vs-page--mbox-padding-left-outer);
+
+    background-color: var(--vs-page--mbox-color-bg);
+    color: var(--vs-page--mbox-color-body);
+    font-family: var(--vs-page--mbox-font-family);
+    font-feature-settings: var(--vs-page--mbox-font-feature-settings);
+    font-kerning: var(--vs-page--mbox-font-kerning);
+    font-size: var(--vs-page--mbox-font-size);
+    font-stretch: var(--vs-page--mbox-font-stretch);
+    font-variant: var(--vs-page--mbox-font-variant);
+    font-variation-settings: var(--vs-page--mbox-font-variation-settings);
+    font-weight: var(--vs-page--mbox-font-weight);
+    letter-spacing: var(--vs-page--mbox-letter-spacing);
+    text-spacing: var(--vs-page--mbox-text-spacing);
+    visibility: var(--vs-page--mbox-visibility);
+    writing-mode: var(--vs-page--mbox-writing-mode);
+  }
+
+  @top-left {
+    content: var(--vs-page--mbox-content-top-left);
+    margin-top: calc(var(--vs-page--bleed) * -1);
+    padding-top: var(--vs-page--bleed);
+    padding-left: var(--vs-page--mbox-padding-left-inner);
+
+    background-color: var(--vs-page--mbox-color-bg);
+    color: var(--vs-page--mbox-color-body);
+    font-family: var(--vs-page--mbox-font-family);
+    font-feature-settings: var(--vs-page--mbox-font-feature-settings);
+    font-kerning: var(--vs-page--mbox-font-kerning);
+    font-size: var(--vs-page--mbox-font-size);
+    font-stretch: var(--vs-page--mbox-font-stretch);
+    font-variant: var(--vs-page--mbox-font-variant);
+    font-variation-settings: var(--vs-page--mbox-font-variation-settings);
+    font-weight: var(--vs-page--mbox-font-weight);
+    letter-spacing: var(--vs-page--mbox-letter-spacing);
+    text-spacing: var(--vs-page--mbox-text-spacing);
+    visibility: var(--vs-page--mbox-visibility);
+    writing-mode: var(--vs-page--mbox-writing-mode);
+  }
+
+  @top-center {
+    content: var(--vs-page--mbox-content-top-center);
+    margin-top: calc(var(--vs-page--bleed) * -1);
+    padding-top: var(--vs-page--bleed);
+
+    background-color: var(--vs-page--mbox-color-bg);
+    color: var(--vs-page--mbox-color-body);
+    font-family: var(--vs-page--mbox-font-family);
+    font-feature-settings: var(--vs-page--mbox-font-feature-settings);
+    font-kerning: var(--vs-page--mbox-font-kerning);
+    font-size: var(--vs-page--mbox-font-size);
+    font-stretch: var(--vs-page--mbox-font-stretch);
+    font-variant: var(--vs-page--mbox-font-variant);
+    font-variation-settings: var(--vs-page--mbox-font-variation-settings);
+    font-weight: var(--vs-page--mbox-font-weight);
+    letter-spacing: var(--vs-page--mbox-letter-spacing);
+    text-spacing: var(--vs-page--mbox-text-spacing);
+    visibility: var(--vs-page--mbox-visibility);
+    writing-mode: var(--vs-page--mbox-writing-mode);
+  }
+
+  @top-right {
+    content: var(--vs-page--mbox-content-top-right);
+    margin-top: calc(var(--vs-page--bleed) * -1);
+    padding-top: var(--vs-page--bleed);
+    padding-right: var(--vs-page--mbox-padding-right-inner);
+
+    background-color: var(--vs-page--mbox-color-bg);
+    color: var(--vs-page--mbox-color-body);
+    font-family: var(--vs-page--mbox-font-family);
+    font-feature-settings: var(--vs-page--mbox-font-feature-settings);
+    font-kerning: var(--vs-page--mbox-font-kerning);
+    font-size: var(--vs-page--mbox-font-size);
+    font-stretch: var(--vs-page--mbox-font-stretch);
+    font-variant: var(--vs-page--mbox-font-variant);
+    font-variation-settings: var(--vs-page--mbox-font-variation-settings);
+    font-weight: var(--vs-page--mbox-font-weight);
+    letter-spacing: var(--vs-page--mbox-letter-spacing);
+    text-spacing: var(--vs-page--mbox-text-spacing);
+    visibility: var(--vs-page--mbox-visibility);
+    writing-mode: var(--vs-page--mbox-writing-mode);
+  }
+
+  @top-right-corner {
+    content: var(--vs-page--mbox-content-top-right-corner);
+    margin-top: calc(var(--vs-page--bleed) * -1);
+    margin-right: calc(var(--vs-page--bleed) * -1);
+    padding-top: var(--vs-page--bleed);
+    padding-right: var(--vs-page--bleed);
+    padding-left: var(--vs-page--mbox-padding-right-outer);
+
+    background-color: var(--vs-page--mbox-color-bg);
+    color: var(--vs-page--mbox-color-body);
+    font-family: var(--vs-page--mbox-font-family);
+    font-feature-settings: var(--vs-page--mbox-font-feature-settings);
+    font-kerning: var(--vs-page--mbox-font-kerning);
+    font-size: var(--vs-page--mbox-font-size);
+    font-stretch: var(--vs-page--mbox-font-stretch);
+    font-variant: var(--vs-page--mbox-font-variant);
+    font-variation-settings: var(--vs-page--mbox-font-variation-settings);
+    font-weight: var(--vs-page--mbox-font-weight);
+    letter-spacing: var(--vs-page--mbox-letter-spacing);
+    text-spacing: var(--vs-page--mbox-text-spacing);
+    visibility: var(--vs-page--mbox-visibility);
+    writing-mode: var(--vs-page--mbox-writing-mode);
+  }
+
+  @left-top {
+    content: var(--vs-page--mbox-content-left-top);
+    margin-left: calc(var(--vs-page--bleed) * -1);
+    padding-left: var(--vs-page--bleed);
+    padding-top: var(--vs-page--mbox-padding-top-inner);
+
+    background-color: var(--vs-page--mbox-color-bg);
+    color: var(--vs-page--mbox-color-body);
+    font-family: var(--vs-page--mbox-font-family);
+    font-feature-settings: var(--vs-page--mbox-font-feature-settings);
+    font-kerning: var(--vs-page--mbox-font-kerning);
+    font-size: var(--vs-page--mbox-font-size);
+    font-stretch: var(--vs-page--mbox-font-stretch);
+    font-variant: var(--vs-page--mbox-font-variant);
+    font-variation-settings: var(--vs-page--mbox-font-variation-settings);
+    font-weight: var(--vs-page--mbox-font-weight);
+    letter-spacing: var(--vs-page--mbox-letter-spacing);
+    text-spacing: var(--vs-page--mbox-text-spacing);
+    visibility: var(--vs-page--mbox-visibility);
+    writing-mode: var(--vs-page--mbox-writing-mode);
+  }
+
+  @left-middle {
+    content: var(--vs-page--mbox-content-left-middle);
+    margin-left: calc(var(--vs-page--bleed) * -1);
+    padding-left: var(--vs-page--bleed);
+
+    background-color: var(--vs-page--mbox-color-bg);
+    color: var(--vs-page--mbox-color-body);
+    font-family: var(--vs-page--mbox-font-family);
+    font-feature-settings: var(--vs-page--mbox-font-feature-settings);
+    font-kerning: var(--vs-page--mbox-font-kerning);
+    font-size: var(--vs-page--mbox-font-size);
+    font-stretch: var(--vs-page--mbox-font-stretch);
+    font-variant: var(--vs-page--mbox-font-variant);
+    font-variation-settings: var(--vs-page--mbox-font-variation-settings);
+    font-weight: var(--vs-page--mbox-font-weight);
+    letter-spacing: var(--vs-page--mbox-letter-spacing);
+    text-spacing: var(--vs-page--mbox-text-spacing);
+    visibility: var(--vs-page--mbox-visibility);
+    writing-mode: var(--vs-page--mbox-writing-mode);
+  }
+
+  @left-bottom {
+    content: var(--vs-page--mbox-content-left-bottom);
+    margin-left: calc(var(--vs-page--bleed) * -1);
+    padding-left: var(--vs-page--bleed);
+    padding-bottom: var(--vs-page--mbox-padding-bottom-inner);
+
+    background-color: var(--vs-page--mbox-color-bg);
+    color: var(--vs-page--mbox-color-body);
+    font-family: var(--vs-page--mbox-font-family);
+    font-feature-settings: var(--vs-page--mbox-font-feature-settings);
+    font-kerning: var(--vs-page--mbox-font-kerning);
+    font-size: var(--vs-page--mbox-font-size);
+    font-stretch: var(--vs-page--mbox-font-stretch);
+    font-variant: var(--vs-page--mbox-font-variant);
+    font-variation-settings: var(--vs-page--mbox-font-variation-settings);
+    font-weight: var(--vs-page--mbox-font-weight);
+    letter-spacing: var(--vs-page--mbox-letter-spacing);
+    text-spacing: var(--vs-page--mbox-text-spacing);
+    visibility: var(--vs-page--mbox-visibility);
+    writing-mode: var(--vs-page--mbox-writing-mode);
+  }
+
+  @right-top {
+    content: var(--vs-page--mbox-content-right-top);
+    margin-right: calc(var(--vs-page--bleed) * -1);
+    padding-right: var(--vs-page--bleed);
+    padding-top: var(--vs-page--mbox-padding-top-inner);
+
+    background-color: var(--vs-page--mbox-color-bg);
+    color: var(--vs-page--mbox-color-body);
+    font-family: var(--vs-page--mbox-font-family);
+    font-feature-settings: var(--vs-page--mbox-font-feature-settings);
+    font-kerning: var(--vs-page--mbox-font-kerning);
+    font-size: var(--vs-page--mbox-font-size);
+    font-stretch: var(--vs-page--mbox-font-stretch);
+    font-variant: var(--vs-page--mbox-font-variant);
+    font-variation-settings: var(--vs-page--mbox-font-variation-settings);
+    font-weight: var(--vs-page--mbox-font-weight);
+    letter-spacing: var(--vs-page--mbox-letter-spacing);
+    text-spacing: var(--vs-page--mbox-text-spacing);
+    visibility: var(--vs-page--mbox-visibility);
+    writing-mode: var(--vs-page--mbox-writing-mode);
+  }
+
+  @right-middle {
+    content: var(--vs-page--mbox-content-right-middle);
+    margin-right: calc(var(--vs-page--bleed) * -1);
+    padding-right: var(--vs-page--bleed);
+
+    background-color: var(--vs-page--mbox-color-bg);
+    color: var(--vs-page--mbox-color-body);
+    font-family: var(--vs-page--mbox-font-family);
+    font-feature-settings: var(--vs-page--mbox-font-feature-settings);
+    font-kerning: var(--vs-page--mbox-font-kerning);
+    font-size: var(--vs-page--mbox-font-size);
+    font-stretch: var(--vs-page--mbox-font-stretch);
+    font-variant: var(--vs-page--mbox-font-variant);
+    font-variation-settings: var(--vs-page--mbox-font-variation-settings);
+    font-weight: var(--vs-page--mbox-font-weight);
+    letter-spacing: var(--vs-page--mbox-letter-spacing);
+    text-spacing: var(--vs-page--mbox-text-spacing);
+    visibility: var(--vs-page--mbox-visibility);
+    writing-mode: var(--vs-page--mbox-writing-mode);
+  }
+
+  @right-bottom {
+    content: var(--vs-page--mbox-content-right-bottom);
+    margin-right: calc(var(--vs-page--bleed) * -1);
+    padding-right: var(--vs-page--bleed);
+    padding-bottom: var(--vs-page--mbox-padding-bottom-inner);
+
+    background-color: var(--vs-page--mbox-color-bg);
+    color: var(--vs-page--mbox-color-body);
+    font-family: var(--vs-page--mbox-font-family);
+    font-feature-settings: var(--vs-page--mbox-font-feature-settings);
+    font-kerning: var(--vs-page--mbox-font-kerning);
+    font-size: var(--vs-page--mbox-font-size);
+    font-stretch: var(--vs-page--mbox-font-stretch);
+    font-variant: var(--vs-page--mbox-font-variant);
+    font-variation-settings: var(--vs-page--mbox-font-variation-settings);
+    font-weight: var(--vs-page--mbox-font-weight);
+    letter-spacing: var(--vs-page--mbox-letter-spacing);
+    text-spacing: var(--vs-page--mbox-text-spacing);
+    visibility: var(--vs-page--mbox-visibility);
+    writing-mode: var(--vs-page--mbox-writing-mode);
+  }
+  @bottom-left-corner {
+    content: var(--vs-page--mbox-content-bottom-left-corner);
+    margin-bottom: calc(var(--vs-page--bleed) * -1);
+    margin-left: calc(var(--vs-page--bleed) * -1);
+    padding-bottom: var(--vs-page--bleed);
+    padding-left: var(--vs-page--bleed);
+    padding-right: var(--vs-page--mbox-padding-left-outer);
+
+    background-color: var(--vs-page--mbox-color-bg);
+    color: var(--vs-page--mbox-color-body);
+    font-family: var(--vs-page--mbox-font-family);
+    font-feature-settings: var(--vs-page--mbox-font-feature-settings);
+    font-kerning: var(--vs-page--mbox-font-kerning);
+    font-size: var(--vs-page--mbox-font-size);
+    font-stretch: var(--vs-page--mbox-font-stretch);
+    font-variant: var(--vs-page--mbox-font-variant);
+    font-variation-settings: var(--vs-page--mbox-font-variation-settings);
+    font-weight: var(--vs-page--mbox-font-weight);
+    letter-spacing: var(--vs-page--mbox-letter-spacing);
+    text-spacing: var(--vs-page--mbox-text-spacing);
+    visibility: var(--vs-page--mbox-visibility);
+    writing-mode: var(--vs-page--mbox-writing-mode);
+  }
+
+  @bottom-left {
+    content: var(--vs-page--mbox-content-bottom-left);
+    margin-bottom: calc(var(--vs-page--bleed) * -1);
+    padding-bottom: var(--vs-page--bleed);
+    padding-left: var(--vs-page--mbox-padding-left-inner);
+
+    background-color: var(--vs-page--mbox-color-bg);
+    color: var(--vs-page--mbox-color-body);
+    font-family: var(--vs-page--mbox-font-family);
+    font-feature-settings: var(--vs-page--mbox-font-feature-settings);
+    font-kerning: var(--vs-page--mbox-font-kerning);
+    font-size: var(--vs-page--mbox-font-size);
+    font-stretch: var(--vs-page--mbox-font-stretch);
+    font-variant: var(--vs-page--mbox-font-variant);
+    font-variation-settings: var(--vs-page--mbox-font-variation-settings);
+    font-weight: var(--vs-page--mbox-font-weight);
+    letter-spacing: var(--vs-page--mbox-letter-spacing);
+    text-spacing: var(--vs-page--mbox-text-spacing);
+    visibility: var(--vs-page--mbox-visibility);
+    writing-mode: var(--vs-page--mbox-writing-mode);
+  }
+
+  @bottom-center {
+    content: var(--vs-page--mbox-content-bottom-center);
+    margin-bottom: calc(var(--vs-page--bleed) * -1);
+    padding-bottom: var(--vs-page--bleed);
+
+    background-color: var(--vs-page--mbox-color-bg);
+    color: var(--vs-page--mbox-color-body);
+    font-family: var(--vs-page--mbox-font-family);
+    font-feature-settings: var(--vs-page--mbox-font-feature-settings);
+    font-kerning: var(--vs-page--mbox-font-kerning);
+    font-size: var(--vs-page--mbox-font-size);
+    font-stretch: var(--vs-page--mbox-font-stretch);
+    font-variant: var(--vs-page--mbox-font-variant);
+    font-variation-settings: var(--vs-page--mbox-font-variation-settings);
+    font-weight: var(--vs-page--mbox-font-weight);
+    letter-spacing: var(--vs-page--mbox-letter-spacing);
+    text-spacing: var(--vs-page--mbox-text-spacing);
+    visibility: var(--vs-page--mbox-visibility);
+    writing-mode: var(--vs-page--mbox-writing-mode);
+  }
+
+  @bottom-right {
+    content: var(--vs-page--mbox-content-bottom-right);
+    margin-bottom: calc(var(--vs-page--bleed) * -1);
+    padding-bottom: var(--vs-page--bleed);
+    padding-right: var(--vs-page--mbox-padding-right-inner);
+
+    background-color: var(--vs-page--mbox-color-bg);
+    color: var(--vs-page--mbox-color-body);
+    font-family: var(--vs-page--mbox-font-family);
+    font-feature-settings: var(--vs-page--mbox-font-feature-settings);
+    font-kerning: var(--vs-page--mbox-font-kerning);
+    font-size: var(--vs-page--mbox-font-size);
+    font-stretch: var(--vs-page--mbox-font-stretch);
+    font-variant: var(--vs-page--mbox-font-variant);
+    font-variation-settings: var(--vs-page--mbox-font-variation-settings);
+    font-weight: var(--vs-page--mbox-font-weight);
+    letter-spacing: var(--vs-page--mbox-letter-spacing);
+    text-spacing: var(--vs-page--mbox-text-spacing);
+    visibility: var(--vs-page--mbox-visibility);
+    writing-mode: var(--vs-page--mbox-writing-mode);
+  }
+
+  @bottom-right-corner {
+    content: var(--vs-page--mbox-content-bottom-right-corner);
+    margin-bottom: calc(var(--vs-page--bleed) * -1);
+    margin-right: calc(var(--vs-page--bleed) * -1);
+    padding-bottom: var(--vs-page--bleed);
+    padding-right: var(--vs-page--bleed);
+    padding-left: var(--vs-page--mbox-padding-right-outer);
+
+    background-color: var(--vs-page--mbox-color-bg);
+    color: var(--vs-page--mbox-color-body);
+    font-family: var(--vs-page--mbox-font-family);
+    font-feature-settings: var(--vs-page--mbox-font-feature-settings);
+    font-kerning: var(--vs-page--mbox-font-kerning);
+    font-size: var(--vs-page--mbox-font-size);
+    font-stretch: var(--vs-page--mbox-font-stretch);
+    font-variant: var(--vs-page--mbox-font-variant);
+    font-variation-settings: var(--vs-page--mbox-font-variation-settings);
+    font-weight: var(--vs-page--mbox-font-weight);
+    letter-spacing: var(--vs-page--mbox-letter-spacing);
+    text-spacing: var(--vs-page--mbox-text-spacing);
+    visibility: var(--vs-page--mbox-visibility);
+    writing-mode: var(--vs-page--mbox-writing-mode);
+  }
+}
+
+@page :first {
+  /* TODO: Remove prettier-ignore after Prettier v3
+  https://github.com/prettier/prettier/issues/13202 */
+  /* prettier-ignore */
+  counter-reset: vs-counter-doc vs-counter-part vs-counter-chapter
+    var(--vs-first-page-counter-reset,);
+}
+
+/*
+ * document counters
+ */
+
+html.part,
+body.part,
+[role='doc-part'] {
+  page: part;
+}
+
+@page :nth(1) {
+  counter-increment: vs-counter-doc;
+}
+
+@page part:nth(1) {
+  counter-increment: vs-counter-doc vs-counter-part;
+}
+
+@page chapter:nth(1) {
+  counter-increment: vs-counter-doc vs-counter-chapter;
+}
+
+/*
+ * cover pages
+ */
+
+.cover {
+  page: cover;
+  break-after: var(--vs-cover--break-after);
+  break-before: var(--vs-cover--break-before);
+}
+
+@page cover {
+  --vs-page--mbox-visibility: var(
+    --vs-page--cover-page-mbox-visibility,
+    hidden
+  );
+}
+
+/*
+ * named page for other common roles
+ * https://kb.daisy.org/publishing/docs/html/dpub-aria/index.html
+ */
+
+html.acknowledgments,
+body.acknowledgments,
+[role='doc-acknowledgments'] {
+  page: acknowledgments;
+}
+
+html.afterword,
+body.afterword,
+[role='doc-afterword'] {
+  page: afterword;
+}
+
+html.appendix,
+body.appendix,
+[role='doc-appendix'] {
+  page: appendix;
+}
+
+html.bibliography,
+body.bibliography,
+[role='doc-bibliography'] {
+  page: bibliography;
+}
+
+html.chapter,
+body.chapter,
+[role='doc-chapter'] {
+  page: chapter;
+}
+
+html.conclusion,
+body.conclusion,
+[role='doc-conclusion'] {
+  page: conclusion;
+}
+
+html.colophon,
+body.colophon,
+[role='doc-colophon'] {
+  page: colophon;
+}
+
+html.credits,
+body.credits,
+[role='doc-credits'] {
+  page: credits;
+}
+
+html.dedication,
+body.dedication,
+[role='doc-dedication'] {
+  page: dedication;
+}
+
+html.epigraph,
+body.epigraph,
+[role='doc-epigraph'] {
+  page: epigraph;
+}
+
+html.epilogue,
+body.epilogue,
+[role='doc-epilogue'] {
+  page: epilogue;
+}
+
+html.errata,
+body.errata,
+[role='doc-errata'] {
+  page: errata;
+}
+
+html.foreword,
+body.foreword,
+[role='doc-foreword'] {
+  page: foreword;
+}
+
+html.glossary,
+body.glossary,
+[role='doc-glossary'] {
+  page: glossary;
+}
+
+html.index,
+body.index,
+[role='doc-index'] {
+  page: index;
+}
+
+html.introduction,
+body.introduction,
+[role='doc-introduction'] {
+  page: introduction;
+}
+
+html.preface,
+body.preface,
+[role='doc-preface'] {
+  page: preface;
+}
+
+html.prologue,
+body.prologue,
+[role='doc-prologue'] {
+  page: prologue;
+}

@@ -8,6 +8,7 @@
 - [Find themes](#find-themes)
 - [Create a theme](#create-a-theme)
 - [Official Themes](#official-themes)
+  - [Base](#base)
   - [Techbook](#techbook)
   - [Bunko](#bunko)
   - [Slide](#slide)
@@ -33,6 +34,22 @@
 <!-- START top -->
 
 ## Official Themes
+
+### [Base](packages/@vivliostyle/theme-base)
+
+[![](https://img.shields.io/npm/v/@vivliostyle/theme-base.svg)](https://npmjs.com/package/@vivliostyle/theme-base)
+[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-base)](https://npmjs.com/package/@vivliostyle/theme-base)
+![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-base)
+
+Base theme and CSS toolkit for Vivliostyle themes
+
+```bash
+npm install --save @vivliostyle/theme-base
+# or
+yarn add @vivliostyle/theme-base
+```
+
+> original author: `Vivliostyle <mail@vivliostyle.org>`
 
 ### [Techbook](packages/@vivliostyle/theme-techbook)
 

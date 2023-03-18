@@ -1,0 +1,69 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-color: currentColor;
+  border-width: 0;
+  border-style: solid;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  line-height: inherit;
+}
+
+hr {
+  height: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+sub,
+sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+table {
+  text-indent: 0;
+  border-color: inherit;
+  border-collapse: collapse;
+}
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img,
+video {
+  max-width: 100%;
+  max-height: 100%;
+}

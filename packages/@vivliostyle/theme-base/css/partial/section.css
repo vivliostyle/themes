@@ -1,0 +1,176 @@
+:root {
+  --vs-section--anchor-text-decoration: none;
+  --vs-section--anchor-text-decoration-on-hover: underline;
+  --vs-section--counter-delimiter: '.';
+  --vs-section--counter-style: decimal;
+  --vs-section--call-display: inline;
+  --vs-section--call-content: '§'
+    target-counters(
+      attr(href),
+      vs-counter-sections,
+      var(--vs-section--counter-delimiter),
+      var(--vs-section--counter-style)
+    );
+  --vs-section--call-margin-inline: 0;
+  --vs-section--marker-display: none;
+  --vs-section--marker-content: counters(
+    vs-counter-sections,
+    var(--vs-section--counter-delimiter),
+    var(--vs-section--counter-style)
+  );
+  --vs-section--marker-margin-inline: 1ch;
+}
+
+:lang(ja) {
+  --vs-section--call-content: target-counters(
+      attr(href),
+      vs-counter-sections,
+      var(--vs-section--counter-delimiter),
+      var(--vs-section--counter-style)
+    )
+    '章';
+}
+
+a[data-ref='sec'] {
+  text-decoration: var(--vs-section--anchor-text-decoration);
+  margin-inline: var(--vs-section--call-margin-inline);
+}
+
+a[data-ref='sec']:hover {
+  text-decoration: var(--vs-section--anchor-text-decoration-on-hover);
+}
+
+a[data-ref='sec']::before {
+  content: var(--vs-section--call-content);
+  display: var(--vs-section--call-display);
+}
+
+section > h1:first-child::before {
+  content: var(
+    --vs-section--h1-marker-content,
+    var(--vs-section--marker-content)
+  );
+  display: var(
+    --vs-section--h1-marker-display,
+    var(--vs-section--marker-display)
+  );
+  margin-inline-end: var(
+    --vs-section--h1-marker-margin-inline,
+    var(--vs-section--marker-margin-inline)
+  );
+}
+
+section > h2:first-child::before {
+  content: var(
+    --vs-section--h2-marker-content,
+    var(--vs-section--marker-content)
+  );
+  display: var(
+    --vs-section--h2-marker-display,
+    var(--vs-section--marker-display)
+  );
+  margin-inline-end: var(
+    --vs-section--h2-marker-margin-inline,
+    var(--vs-section--marker-margin-inline)
+  );
+}
+
+section > h3:first-child::before {
+  content: var(
+    --vs-section--h3-marker-content,
+    var(--vs-section--marker-content)
+  );
+  display: var(
+    --vs-section--h3-marker-display,
+    var(--vs-section--marker-display)
+  );
+  margin-inline-end: var(
+    --vs-section--h3-marker-margin-inline,
+    var(--vs-section--marker-margin-inline)
+  );
+}
+
+section > h4:first-child::before {
+  content: var(
+    --vs-section--h4-marker-content,
+    var(--vs-section--marker-content)
+  );
+  display: var(
+    --vs-section--h4-marker-display,
+    var(--vs-section--marker-display)
+  );
+  margin-inline-end: var(
+    --vs-section--h4-marker-margin-inline,
+    var(--vs-section--marker-margin-inline)
+  );
+}
+
+section > h5:first-child::before {
+  content: var(
+    --vs-section--h5-marker-content,
+    var(--vs-section--marker-content)
+  );
+  display: var(
+    --vs-section--h5-marker-display,
+    var(--vs-section--marker-display)
+  );
+  margin-inline-end: var(
+    --vs-section--h5-marker-margin-inline,
+    var(--vs-section--marker-margin-inline)
+  );
+}
+
+section > h6:first-child::before {
+  content: var(
+    --vs-section--h6-marker-content,
+    var(--vs-section--marker-content)
+  );
+  display: var(
+    --vs-section--h6-marker-display,
+    var(--vs-section--marker-display)
+  );
+  margin-inline-end: var(
+    --vs-section--h6-marker-margin-inline,
+    var(--vs-section--marker-margin-inline)
+  );
+}
+
+section:has(> h1:first-child) {
+  counter-increment: vs-counter-sections vs-counter-sec-h1;
+  break-after: var(--vs-section--h1-break-after);
+  break-before: var(--vs-section--h1-break-before);
+}
+
+section:has(> h2:first-child) {
+  counter-increment: vs-counter-sections vs-counter-sec-h2;
+  break-after: var(--vs-section--h2-break-after);
+  break-before: var(--vs-section--h2-break-before);
+}
+
+section:has(> h3:first-child) {
+  counter-increment: vs-counter-sections vs-counter-sec-h3;
+  break-after: var(--vs-section--h3-break-after);
+  break-before: var(--vs-section--h3-break-before);
+}
+
+section:has(> h4:first-child) {
+  counter-increment: vs-counter-sections vs-counter-sec-h4;
+  break-after: var(--vs-section--h4-break-after);
+  break-before: var(--vs-section--h4-break-before);
+}
+
+section:has(> h5:first-child) {
+  counter-increment: vs-counter-sections vs-counter-sec-h5;
+  break-after: var(--vs-section--h5-break-after);
+  break-before: var(--vs-section--h5-break-before);
+}
+
+section:has(> h6:first-child) {
+  counter-increment: vs-counter-sections vs-counter-sec-h6;
+  break-after: var(--vs-section--h6-break-after);
+  break-before: var(--vs-section--h6-break-before);
+}
+
+section > :is(h1, h2, h3, h4, h5, h6):first-child + * {
+  counter-reset: vs-counter-sections;
+}
