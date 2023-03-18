@@ -12,11 +12,11 @@
     "@vivliostyle/theme-base": "beta"
   },
   "devDependencies": {
-    "@vivliostyle/cli": ">=6",
+    "@vivliostyle/cli": ">=7",
     "vivliostyle-theme-scripts": "^0.3.5"
   },
   "peerDependencies": {
-    "@vivliostyle/cli": ">=6"
+    "@vivliostyle/cli": ">=7"
   },
   "peerDependenciesMeta": {
     "@vivliostyle/cli": {

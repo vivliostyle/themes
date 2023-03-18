@@ -1869,7 +1869,7 @@
     underscore "~1.8.3"
     update-section "^0.3.0"
 
-"@vivliostyle/cli@>=6":
+"@vivliostyle/cli@>=7":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@vivliostyle/cli/-/cli-7.0.0.tgz#afaf8dbdb2cdef6322007273cadf0036f3362ee2"
   integrity sha512-KE5Uu/F+516L6hSbHarNHATCY/YWBnoIcYCuw28kCSd9r3dARAfPJT9PukUsGkoAt/eJfkdBiox+FzghCTkq/w==

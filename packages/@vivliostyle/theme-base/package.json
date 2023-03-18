@@ -9,11 +9,11 @@
     "validate": "vivliostyle-theme-scripts validate"
   },
   "devDependencies": {
-    "@vivliostyle/cli": ">=6",
+    "@vivliostyle/cli": ">=7",
     "vivliostyle-theme-scripts": "^0.3.1"
   },
   "peerDependencies": {
-    "@vivliostyle/cli": ">=6"
+    "@vivliostyle/cli": ">=7"
   },
   "peerDependenciesMeta": {
     "@vivliostyle/cli": {
