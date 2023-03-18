@@ -15,7 +15,7 @@
 :root {
   --vs-border-width: 0.5px;
   --vs-font-family: '游明朝', 'YuMincho', serif;
-  --vs-font-size-on-print: 10pt;
+  --vs-font-size-on-print: 83.33%;
   --vs-line-height: 2;
   --vs-spacing-rlh: 0;
   --vs-text-align: justify;

@@ -110,25 +110,29 @@ figure img {
  * ----------
  */
 
-.cover {
+.cover,
+section:has(> .cover:first-child) {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.cover h1 {
+.cover h1,
+section:has(> .cover:first-child) h1 {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.cover .author ul {
+.cover .author ul,
+section:has(> .cover:first-child) .author ul {
   text-align: center;
 }
 
 @page cover {
-  .cover {
+  .cover:not(h1),
+  section:has(> .cover:first-child) {
     height: 100vh;
   }
 }

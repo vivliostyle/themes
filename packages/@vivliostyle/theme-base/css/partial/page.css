@@ -451,10 +451,9 @@ body.part,
  * cover pages
  */
 
-.cover {
+.cover,
+section:has(> .cover:first-child) {
   page: cover;
-  break-after: var(--vs-cover--break-after);
-  break-before: var(--vs-cover--break-before);
 }
 
 @page cover {

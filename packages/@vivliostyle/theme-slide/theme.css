@@ -154,7 +154,8 @@ a[href^='#']::after {
  * cover pages
  */
 
-.cover {
+.cover,
+section:has(> .cover:first-child) {
   --vs--h1-font-size: 2.8rem;
   --vs--h1-font-weight: 600;
   --vs--h1-text-align: var(--vs-theme--cover-page-align-items, center);
@@ -175,7 +176,8 @@ a[href^='#']::after {
   justify-content: var(--vs-theme--cover-page-justify-content);
 }
 
-.cover h1 {
+.cover h1,
+section:has(> .cover:first-child) h1 {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
@@ -183,14 +185,16 @@ a[href^='#']::after {
   justify-content: var(--vs-theme--cover-page-justify-content);
 }
 
-.cover .author ul {
+.cover .author ul,
+section:has(> .cover:first-child) .author ul {
   text-align: center;
 }
 
 @page cover {
   background-color: var(--vs-theme--cover-page-color-bg);
 
-  .cover {
+  .cover:not(h1),
+  section:has(> .cover:first-child) {
     height: 100vh;
   }
 }
