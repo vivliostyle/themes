@@ -23,7 +23,7 @@ This theme imports [`theme-prism`](../theme-base/css/lib/prism/theme-prism.css) 
 ```js
 module.exports = {
   theme: [
-    '@vivliostyle/theme-techbook@beta',
+    '@vivliostyle/theme-slide@beta',
     {
       specifier: '@vivliostyle/theme-base@beta',
       import: 'css/lib/prism/theme-okaidia.css',
