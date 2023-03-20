@@ -139,17 +139,3 @@ nav[role='doc-toc'] {
   break-before: page;
   font-size: 120%;
 }
-
-@media print {
-  :is(#toc, [role='doc-toc']) li > a::before {
-    margin-inline: 0.5em;
-    border-bottom: solid var(--vs-border-width);
-    content: '';
-    order: 1;
-    flex: auto;
-  }
-
-  :is(#toc, [role='doc-toc']) li > a::after {
-    order: 2;
-  }
-}
