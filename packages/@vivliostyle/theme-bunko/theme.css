@@ -18,9 +18,6 @@
   --vs-font-size-on-print: 83.33%;
   --vs-line-height: 2;
   --vs-spacing-rlh: 0;
-  --vs-text-align: justify;
-  /* 約物の調整、和欧文間スペース */
-  --vs-text-spacing: space-first allow-end ideograph-alpha ideograph-numeric;
   --vs-writing-mode: vertical-rl;
 
   --vs--heading-font-weight: var(--vs-font-weight);
@@ -41,7 +38,10 @@
   --vs--rt-font-size: 0.5rem;
   /* 段落先頭約物の調整、行末句読点ぶら下げあり */
   --vs--p-hanging-punctuation: first allow-end;
+  --vs--p-text-align: justify;
   --vs--p-text-indent: 1em;
+  /* 約物の調整、和欧文間スペース */
+  --vs--p-text-spacing: space-first allow-end ideograph-alpha ideograph-numeric;
   --vs--figcaption-margin-block: 1rem;
 
   /* Adding extra 1px to avoid unexpected page feeds */
