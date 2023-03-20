@@ -15,6 +15,9 @@
   --vs-theme--crossref-anchor-color-bg-on-screen: rgba(255, 0, 0, 0.3);
   --vs-theme--crossref-anchor-color-body-on-screen: #e74c3c;
   --vs-theme--image-resolution-for-figure-image: 300dpi;
+  --vs-theme--page-top-left-content: env(pub-title);
+  --vs-theme--page-top-right-content: env(doc-title);
+  --vs-theme--page-bottom-content: counter(page);
 }
 
 :root {
@@ -127,11 +130,13 @@ figure
 }
 
 @page :left {
-  --vs-page--mbox-content-bottom-left: counter(page);
+  --vs-page--mbox-content-top-left: var(--vs-theme--page-top-left-content);
+  --vs-page--mbox-content-bottom-left: var(--vs-theme--page-bottom-content);
 }
 
 @page :right {
-  --vs-page--mbox-content-bottom-right: counter(page);
+  --vs-page--mbox-content-top-right: var(--vs-theme--page-top-right-content);
+  --vs-page--mbox-content-bottom-right: var(--vs-theme--page-bottom-content);
 }
 
 #toc,

@@ -50,6 +50,12 @@ module.exports = {
    *  Displaying image resolution of raster images
    */
   --vs-theme--image-resolution-for-figure-image: 300dpi;
+  /**
+   *  Styles for page top/bottom contents
+   */
+  --vs-theme--page-top-left-content: env(pub-title);
+  --vs-theme--page-top-right-content: env(doc-title);
+  --vs-theme--page-bottom-content: counter(page);
 }
 ```
 
