@@ -13,7 +13,6 @@
   --vs-theme--page-top-content: env(pub-title);
   --vs-theme--page-top-color-body: gray;
   --vs-theme--page-bottom-content: counter(page);
-  --vs-theme--toc-border-color: lightgray;
 }
 
 :root {
@@ -56,6 +55,7 @@
   --vs-toc--marker-content: counter(vs-counter-toc, upper-roman) '.';
   --vs-toc--marker-display: inline;
   --vs-toc--ol-indent-size: 3rem;
+  --vs-toc--page-leader-content: leader('_') ' ';
 }
 
 section > :is(h1, h2):first-child + section:has(> :is(h2, h3):first-child) {
@@ -128,21 +128,6 @@ body {
 @media screen and (max-width: 400px) {
   body {
     padding: 0 1em;
-  }
-}
-
-@media print {
-  :is(#toc, [role='doc-toc']) li > a::before {
-    margin-inline: 1px;
-    border-bottom: solid var(--vs-border-width)
-      var(--vs-theme--toc-border-color);
-    content: '';
-    order: 1;
-    flex: auto;
-  }
-
-  :is(#toc, [role='doc-toc']) li > a::after {
-    order: 2;
   }
 }
 

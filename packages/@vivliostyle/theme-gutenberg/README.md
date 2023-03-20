@@ -68,10 +68,6 @@ module.exports = {
   --vs-theme--page-top-content: env(pub-title);
   --vs-theme--page-top-color-body: gray;
   --vs-theme--page-bottom-content: counter(page);
-  /**
-   *  Color of page leaders
-   */
-  --vs-theme--toc-border-color: lightgray;
 }
 ```
 
