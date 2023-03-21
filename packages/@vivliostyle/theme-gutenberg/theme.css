@@ -55,7 +55,6 @@
   --vs-toc--marker-content: counter(vs-counter-toc, upper-roman) '.';
   --vs-toc--marker-display: inline;
   --vs-toc--ol-indent-size: 3rem;
-  --vs-toc--page-leader-content: leader('_') ' ';
 }
 
 section > :is(h1, h2):first-child + section:has(> :is(h2, h3):first-child) {
