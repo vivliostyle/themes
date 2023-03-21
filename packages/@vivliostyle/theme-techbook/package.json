@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-techbook",
   "description": "Techbook (技術同人誌) theme",
-  "version": "0.4.1",
+  "version": "1.0.0-beta.1",
   "author": "Vivliostyle <mail@vivliostyle.org>",
   "scripts": {
     "build": "vivliostyle build",

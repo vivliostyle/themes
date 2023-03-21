@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.0-beta.1](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-bunko@0.5.1...@vivliostyle/theme-bunko@1.0.0-beta.1) (2023-03-21)
+
+### Feature
+
+- Rewrite the theme with @vivliostyle/theme-base
+
 ## [0.5.1](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-bunko@0.5.0...@vivliostyle/theme-bunko@0.5.1) (2022-04-20)
 
 **Note:** Version bump only for package @vivliostyle/theme-bunko
