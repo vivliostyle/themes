@@ -1,4 +1,5 @@
 module.exports = {
+  title: 'Alice’s Adventures in Wonderland',
   language: 'en',
   size: 'A5',
   theme: 'alice.css',
@@ -24,9 +25,9 @@ module.exports = {
     'example/alice/contentinfo.md',
   ],
   output: [
-    'book.pdf',
+    'alice.pdf',
     {
-      path: './book',
+      path: './alice',
       format: 'webpub',
     },
   ],

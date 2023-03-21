@@ -1,0 +1,146 @@
+@import url(../theme-base/theme-all.css);
+@import url(../theme-base/css/lib/prism/base.css);
+@import url(../theme-base/css/lib/prism/theme-okaidia.css);
+
+/**
+ * Theme variables
+*/
+:root {
+  --vs-theme--anchor-color-body: #3498db;
+  --vs-theme--blockquote-color-bg: #ecf0f1;
+  --vs-theme--blockquote-color-body: #34495e;
+  --vs-theme--inline-code-color-bg: #ecf0f1;
+  --vs-theme--inline-code-color-body: #34495e;
+  --vs-theme--footnote-color-bg-on-screen: #e6f6d7;
+  --vs-theme--crossref-anchor-color-bg-on-screen: rgba(255, 0, 0, 0.3);
+  --vs-theme--crossref-anchor-color-body-on-screen: #e74c3c;
+  --vs-theme--image-resolution-for-figure-image: 300dpi;
+  --vs-theme--page-top-left-content: env(pub-title);
+  --vs-theme--page-top-right-content: env(doc-title);
+  --vs-theme--page-bottom-content: counter(page);
+}
+
+:root {
+  --vs-font-family: 'Neue Frutiger World', 'Verdana', 'Hiragino Sans',
+    sans-serif;
+  --vs-font-size-on-print: 75%;
+  --vs-line-height: 1.7;
+  --vs-widows-orphans: 3;
+
+  --vs--heading-line-height: 1.2;
+  --vs--monospace-font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
+    monospace;
+  --vs--h1-font-size: 2.4em;
+  --vs--h2-font-size: 1.8em;
+  --vs--h3-font-size: 1.4em;
+  --vs--h4-font-size: 1.2em;
+  --vs--h5-font-size: 1em;
+  --vs--h6-font-size: 0.83em;
+  --vs--blockquote-margin-inline: 0;
+  --vs--ul-minimum-inline-indent-size: 1rem;
+  --vs--table-border-width-block-start: 1px;
+  --vs--table-border-width-block-end: 1px;
+  --vs--table-border-width-inline-start: 0;
+  --vs--table-border-width-inline-end: 0;
+  --vs--table-border-width-thead-inner: 1px;
+  --vs--table-border-width-tfoot-inner: 1px;
+  --vs--table-border-width-column: 0;
+  --vs--table-border-width-row: 0.4px;
+  --vs--table-cell-padding-inline: 1rem;
+
+  --vs-footnote--area-before-margin-block: calc(var(--vs-spacing-rlh) * 0.25);
+  --vs-footnote--area-before-margin-inline: 0 70%;
+  --vs-footnote--area-margin-block: var(--vs-spacing-rlh) 0;
+
+  --vs-page--margin-top: 25mm;
+  --vs-page--margin-bottom: 25mm;
+  --vs-page--margin-inner: 22mm;
+  --vs-page--margin-outer: 22mm;
+
+  --vs-prism--inline-code-padding: 0.1em 0.3em;
+  --vs-prism--text-shadow: none;
+}
+
+blockquote {
+  background-color: var(--vs-theme--blockquote-color-bg);
+  border-radius: var(--vs-prism--block-code-border-radius);
+  color: var(--vs-theme--blockquote-color-body);
+  padding: var(--vs-prism--block-code-padding);
+}
+
+blockquote > p:first-child {
+  margin-block-start: unset;
+}
+
+blockquote > p:last-child {
+  margin-block-end: unset;
+}
+
+/*
+ * According to the specification, image-resolution is not applied to vector images,
+ * but Vivliostyle applies it to vector images as well.
+ * We set image-resolution only for images with raster image extensions.
+ * https://docs.vivliostyle.org/#/supported-css-features#css-images-3
+ */
+figure
+  img:is(
+    [src$='.png'],
+    [src$='.jpg'],
+    [src$='.jpeg'],
+    [src$='.gif'],
+    [src$='.webp'],
+    [src$='.apng']
+  ) {
+  --vs--img-image-resolution: var(
+    --vs-theme--image-resolution-for-figure-image
+  );
+}
+
+/* format for inline code */
+:not(pre) > code {
+  --vs-prism--background: var(--vs-theme--inline-code-color-bg);
+  --vs-prism--color: var(--vs-theme--inline-code-color-body);
+}
+
+@media screen {
+  :root {
+    --vs--anchor-color: var(--vs-theme--anchor-color-body);
+    --vs--anchor-text-decoration: none;
+    --vs--anchor-text-decoration-on-hover: underline;
+  }
+
+  body {
+    max-inline-size: 50rem;
+    margin: 2rem auto 2rem;
+    padding: 0 var(--vs-spacing-inline-indent);
+  }
+
+  .footnote {
+    display: block;
+    background-color: var(--vs-theme--footnote-color-bg-on-screen);
+    border-radius: var(--vs-prism--block-code-border-radius);
+    margin-block: var(--vs--blockquote-margin-block);
+    padding: var(--vs-prism--block-code-padding);
+  }
+
+  a[data-ref] {
+    color: var(--vs-theme--crossref-anchor-color-body-on-screen);
+    background-color: var(--vs-theme--crossref-anchor-color-bg-on-screen);
+  }
+}
+
+@page :left {
+  --vs-page--mbox-content-top-left: var(--vs-theme--page-top-left-content);
+  --vs-page--mbox-content-bottom-left: var(--vs-theme--page-bottom-content);
+}
+
+@page :right {
+  --vs-page--mbox-content-top-right: var(--vs-theme--page-top-right-content);
+  --vs-page--mbox-content-bottom-right: var(--vs-theme--page-bottom-content);
+}
+
+#toc,
+nav[role='doc-toc'] {
+  break-before: page;
+  font-size: 120%;
+}

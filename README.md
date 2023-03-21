@@ -43,10 +43,10 @@
 
 Base theme and CSS toolkit for Vivliostyle themes
 
-```bash
-npm install --save @vivliostyle/theme-base
-# or
-yarn add @vivliostyle/theme-base
+```js
+module.exports = {
+  theme: '@vivliostyle/theme-base@beta',
+};
 ```
 
 > original author: `Vivliostyle <mail@vivliostyle.org>`
@@ -59,10 +59,10 @@ Techbook (技術同人誌) theme
 [![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-techbook)](https://npmjs.com/package/@vivliostyle/theme-techbook)
 ![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-techbook)
 
-```bash
-npm install --save @vivliostyle/theme-techbook
-# or
-yarn add @vivliostyle/theme-techbook
+```js
+module.exports = {
+  theme: '@vivliostyle/theme-techbook@beta',
+};
 ```
 
 > original author: `Vivliostyle <mail@vivliostyle.org>`
@@ -75,10 +75,10 @@ yarn add @vivliostyle/theme-techbook
 [![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-bunko)](https://npmjs.com/package/@vivliostyle/theme-bunko)
 ![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-bunko)
 
-```bash
-npm install --save @vivliostyle/theme-bunko
-# or
-yarn add @vivliostyle/theme-bunko
+```js
+module.exports = {
+  theme: '@vivliostyle/theme-bunko@beta',
+};
 ```
 
 > original author: `Vivliostyle <mail@vivliostyle.org>`
@@ -91,10 +91,10 @@ Slide theme
 [![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-slide)](https://npmjs.com/package/@vivliostyle/theme-slide)
 ![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-slide)
 
-```bash
-npm install --save @vivliostyle/theme-slide
-# or
-yarn add @vivliostyle/theme-slide
+```js
+module.exports = {
+  theme: '@vivliostyle/theme-slide@beta',
+};
 ```
 
 > original author: `Vivliostyle <mail@vivliostyle.org>`
@@ -107,10 +107,10 @@ Academic theme
 [![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-academic)](https://npmjs.com/package/@vivliostyle/theme-academic)
 ![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-academic)
 
-```bash
-npm install --save @vivliostyle/theme-academic
-# or
-yarn add @vivliostyle/theme-academic
+```js
+module.exports = {
+  theme: '@vivliostyle/theme-academic@beta',
+};
 ```
 
 > original author: `Vivliostyle <mail@vivliostyle.org>`
@@ -123,10 +123,10 @@ Book theme for latin font
 [![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-gutenberg)](https://npmjs.com/package/@vivliostyle/theme-gutenberg)
 ![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-gutenberg)
 
-```bash
-npm install --save @vivliostyle/theme-gutenberg
-# or
-yarn add @vivliostyle/theme-gutenberg
+```js
+module.exports = {
+  theme: '@vivliostyle/theme-gutenberg@beta',
+};
 ```
 
 > original author: `Vivliostyle <mail@vivliostyle.org>`

@@ -1,0 +1,157 @@
+@import url(../theme-base/theme-all.css);
+
+/**
+ * Theme variables
+ */
+:root {
+  --vs-theme--figure-img-max-height: 8cm;
+  --vs-theme--figure-img-max-width: 10cm;
+  --vs-theme--frame-border: var(--vs-border-width) solid;
+  --vs-theme--frame-box-decoration-break: slice;
+  --vs-theme--frame-margin-block: var(--vs-spacing-rlh);
+  --vs-theme--frame-margin-inline: 0;
+  --vs-theme--frame-padding: 1rem;
+}
+
+:root {
+  --vs-font-family: 'Hiragino Mincho ProN', serif;
+  --vs-font-size: 10pt;
+  --vs-line-height: 1.8;
+  --vs-text-align: justify;
+  --vs-widows-orphans: 2;
+
+  --vs--heading-font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
+  --vs--heading-margin-block: 0;
+  --vs--monospace-font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
+    monospace;
+  --vs--h1-font-size: 2em;
+  --vs--h1-margin-block: 0.8rem 0.4rem;
+  --vs--h1-text-align: center;
+  --vs--h2-font-size: 1.4em;
+  --vs--h2-margin-block: 0.8rem 0.4rem;
+  --vs--h3-font-size: 1.2em;
+  --vs--h3-margin-block: 0.4rem 0.2rem;
+  --vs--h4-font-size: 1em;
+  --vs--h4-margin-block: 0.4rem 0.2rem;
+  --vs--p-margin-block: 0;
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 1em;
+  --vs--figcaption-margin-block: 0;
+  --vs--table-border-width-cell: 0;
+  --vs--table-border-width-inline-start: 0;
+  --vs--table-border-width-inline-end: 0;
+  --vs--table-border-width-thead-inner: var(--vs--table-border-width);
+  --vs--table-border-width-tfoot-inner: var(--vs--table-border-width);
+  --vs--table-cell-padding-block: 0;
+  --vs--table-cell-padding-inline: 0.5rem;
+
+  --vs-page--margin-top: 25mm;
+  --vs-page--margin-bottom: 25mm;
+  --vs-page--margin-inner: 20mm;
+  --vs-page--margin-outer: 20mm;
+  --vs-page--mbox-content-bottom-center: counter(page);
+  --vs-page--mbox-content-top-left: env(pub-title);
+
+  --vs-crossref--marker-fig-content: 'Figure '
+    counter(vs-counter-fig, var(--vs-crossref--counter-style));
+  --vs-crossref--marker-tbl-content: 'Table '
+    counter(vs-counter-tbl, var(--vs-crossref--counter-style));
+  --vs-crossref--marker-margin-inline: 0 1rem;
+
+  --vs-section--marker-display: inline;
+  --vs-section--h1-marker-display: none;
+  --vs-section--h2-marker-content: counter(vs-counter-sec-h2);
+  --vs-section--h3-marker-content: counter(vs-counter-sec-h2) '.'
+    counter(vs-counter-sec-h3);
+  --vs-section--h4-marker-content: counter(vs-counter-sec-h2) '.'
+    counter(vs-counter-sec-h3) '.' counter(vs-counter-sec-h4);
+  --vs-section--h5-marker-content: counter(vs-counter-sec-h2) '.'
+    counter(vs-counter-sec-h3) '.' counter(vs-counter-sec-h4) '.'
+    counter(vs-counter-sec-h5);
+  --vs-section--h6-marker-content: counter(vs-counter-sec-h2) '.'
+    counter(vs-counter-sec-h3) '.' counter(vs-counter-sec-h4) '.'
+    counter(vs-counter-sec-h5) '.' counter(vs-counter-sec-h6);
+}
+
+:lang(ja) {
+  --vs-crossref--marker-fig-content: '図 '
+    counter(vs-counter-fig, var(--vs-crossref--counter-style));
+  --vs-crossref--marker-tbl-content: '表 '
+    counter(vs-counter-tbl, var(--vs-crossref--counter-style));
+}
+
+figure img {
+  max-height: var(--vs-theme--figure-img-max-height);
+  max-width: var(--vs-theme--figure-img-max-width);
+}
+
+@media screen {
+  body {
+    max-inline-size: 50rem;
+    margin: 2rem auto 2rem;
+    padding: 0 var(--vs-spacing-inline-indent);
+  }
+}
+
+/* ----------
+ * Title
+ * ----------
+ */
+
+.author ul {
+  list-style: none;
+  text-align: right;
+  margin-block: var(--vs-spacing-rlh);
+  padding: 0;
+}
+
+/* ----------
+ * Cover
+ * ----------
+ */
+
+.cover,
+section:has(> .cover:first-child) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cover h1,
+section:has(> .cover:first-child) h1 {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cover .author ul,
+section:has(> .cover:first-child) .author ul {
+  text-align: center;
+}
+
+@page cover {
+  .cover:not(h1),
+  section:has(> .cover:first-child) {
+    height: 100vh;
+  }
+}
+
+/* ----------
+ * Frame
+ * ----------
+ */
+
+.frame {
+  --vs--blockquote-margin-block: 0;
+  --vs--blockquote-margin-inline: 0;
+  --vs--figure-margin-block: 0;
+  --vs--figure-margin-inline: 0;
+  --vs--pre-margin-block: 0;
+  --vs--pre-margin-inline: 0;
+  border: var(--vs-theme--frame-border);
+  box-decoration-break: var(--vs-theme--frame-box-decoration-break);
+  margin-block: var(--vs-theme--frame-margin-block);
+  margin-inline: var(--vs-theme--frame-margin-inline);
+  padding: var(--vs-theme--frame-padding);
+}

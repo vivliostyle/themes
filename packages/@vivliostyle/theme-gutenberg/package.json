@@ -4,24 +4,27 @@
   "version": "0.1.1",
   "author": "Vivliostyle <mail@vivliostyle.org>",
   "scripts": {
-    "build": "run-p build:scss build:vivliostyle",
-    "build:scss": "sass scss:.",
-    "build:vivliostyle": "vivliostyle build",
-    "dev": "run-p preview watch:scss",
+    "build": "vivliostyle build",
     "preview": "vivliostyle preview",
-    "validate": "vivliostyle-theme-scripts validate",
-    "watch:scss": "sass --watch scss:."
+    "validate": "vivliostyle-theme-scripts validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "beta"
   },
   "devDependencies": {
-    "@vivliostyle/cli": "^4.3.2",
-    "npm-run-all": "^4.1.5",
-    "sass": "^1.32.8",
+    "@vivliostyle/cli": ">=7",
     "vivliostyle-theme-scripts": "^0.3.5"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=7"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
   },
   "files": [
     "*.css",
-    "*.css.map",
-    "scss",
     "example",
     "config",
     "vivliostyle.config.js"
@@ -35,7 +38,7 @@
     "theme": {
       "name": "Gutenberg",
       "author": "Vivliostyle <mail@vivliostyle.org>",
-      "style": "./theme_common.css",
+      "style": "./theme.css",
       "category": "novel",
       "topics": []
     }

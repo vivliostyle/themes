@@ -1,0 +1,145 @@
+@import url(../theme-base/theme-all.css);
+
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:500');
+
+/**
+ * Theme variables
+ */
+:root {
+  --vs-theme--dropcap-font-size: 1.8em;
+  --vs-theme--dropcap-font-weight: var(--vs-font-weight-bold);
+  --vs-theme--dropcap-line-height: 1;
+  --vs-theme--dropcap-text-indent: 0;
+  --vs-theme--page-top-content: env(pub-title);
+  --vs-theme--page-top-color-body: gray;
+  --vs-theme--page-bottom-content: counter(page);
+}
+
+:root {
+  --vs-font-family: Georgia, serif;
+  --vs-widows-orphans: 2;
+
+  --vs--h1-font-size: 2rem;
+  --vs--h1-line-height: 1.5;
+  --vs--h1-margin-block: 2rem;
+  --vs--h2-font-size: 1.5rem;
+  --vs--h2-line-height: 1.333;
+  --vs--h2-margin-block: 2rem;
+  --vs--h3-font-size: 1.17rem;
+  --vs--h3-line-height: 1.282;
+  --vs--h3-margin-block: 1.5rem 1rem;
+  --vs--h4-margin-block: 1.5rem 1rem;
+  --vs--monospace-font-family: 'Source Code Pro', monaco, monospace;
+  --vs--monospace-font-weight: 500;
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 1.5em;
+
+  --vs-page--margin-top: 4rem;
+  --vs-page--margin-bottom: 4rem;
+  --vs-page--margin-outer: 10%;
+  --vs-page--margin-inner: 10%;
+  --vs-page--mbox-color-body: var(--vs-theme--page-top-color-body);
+  --vs-page--mbox-font-feature-settings: 'smcp';
+  --vs-page--mbox-font-size: calc(var(--vs-font-size) * 0.8);
+  --vs-page--mbox-font-variant: small-caps;
+  --vs-page--mbox-content-top-center: var(--vs-theme--page-top-content);
+
+  --vs-footnote--font-size: 0.667rem;
+  --vs-footnote--area-before-margin-block: 0.25rem;
+  --vs-footnote--area-before-margin-inline: 0 70%;
+
+  --vs-section--h1-break-before: page;
+  --vs-section--h2-break-before: page;
+  --vs-section--h3-break-before: page;
+
+  --vs-toc--marker-content: counter(vs-counter-toc, upper-roman) '.';
+  --vs-toc--marker-display: inline;
+  --vs-toc--ol-indent-size: 3rem;
+}
+
+section > :is(h1, h2):first-child + section:has(> :is(h2, h3):first-child) {
+  --vs-section--h2-break-before: auto;
+  --vs-section--h3-break-before: auto;
+}
+
+:is(#toc, [role='doc-toc']) {
+  break-before: page;
+}
+
+.author {
+  hyphens: none;
+}
+
+p:first-of-type {
+  --vs--p-text-indent: var(--vs-theme--dropcap-text-indent);
+}
+
+p:first-of-type::first-letter {
+  font-size: var(--vs-theme--dropcap-font-size);
+  font-weight: var(--vs-theme--dropcap-font-weight);
+  line-height: var(--vs-theme--dropcap-line-height);
+  padding-inline-end: 1px;
+}
+
+pre,
+.pre {
+  font-size: 0.75em;
+  line-height: 1.45;
+  hyphens: none;
+}
+
+/** Legal Sections **/
+.legal pre {
+  font-size: 0.5em;
+  margin: 0 -1em;
+}
+
+.copyright {
+  break-before: right;
+  break-after: page;
+}
+
+.copyright .legal {
+  padding-top: 10rem;
+}
+
+body > footer {
+  break-before: left;
+}
+
+@media (min-width: 375px) {
+  :root {
+    --vs-toc--list-item-before-display: inline;
+  }
+}
+
+body {
+  padding: 0 2em;
+}
+
+@media screen {
+  body {
+    max-width: 90ch;
+    margin: 2rem auto 2rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  body {
+    padding: 0 1em;
+  }
+}
+
+@page :left {
+  --vs-page--mbox-content-bottom-left: var(--vs-theme--page-bottom-content);
+}
+
+@page :right {
+  --vs-page--mbox-content-bottom-right: var(--vs-theme--page-bottom-content);
+}
+
+@page :first {
+  --vs-page--mbox-content-bottom-right: normal;
+  --vs-page--mbox-content-bottom-left: normal;
+  --vs-page--mbox-content-top-center: normal;
+}

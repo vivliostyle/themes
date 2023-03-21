@@ -1,0 +1,187 @@
+@import url(../theme-base/theme-all.css);
+
+/**
+ * Theme variables
+ */
+:root {
+  --vs-theme--num-of-line: 15;
+  --vs-theme--num-of-character: 39;
+  --vs-theme--page-top-left-content: counter(page) '　' env(doc-title);
+  --vs-theme--page-top-right-content: counter(page);
+  --vs-theme--subsection-text-indent: 3rem;
+  --vs-theme--anchor-color-body: darkblue;
+}
+
+:root {
+  --vs-border-width: 0.5px;
+  --vs-font-family: '游明朝', 'YuMincho', serif;
+  --vs-font-size-on-print: 83.33%;
+  --vs-line-height: 2;
+  --vs-spacing-rlh: 0;
+  --vs-writing-mode: vertical-rl;
+
+  --vs--heading-font-weight: var(--vs-font-weight);
+  --vs--h1-font-size: 1.35rem;
+  --vs--h1-font-weight: var(--vs-font-weight-bold);
+  --vs--h1-letter-spacing: 0.125em;
+  --vs--h1-line-height: 6rem;
+  --vs--h2-font-size: 1.18rem;
+  --vs--h2-line-height: 4rem;
+  --vs--h3-font-size: 1rem;
+  --vs--h3-line-height: 2rem;
+  --vs--h4-font-size: 0.9375rem;
+  --vs--h4-line-height: 2rem;
+  --vs--h5-font-size: 0.875rem;
+  --vs--h5-line-height: 2rem;
+  --vs--h6-font-size: 0.75rem;
+  --vs--h6-line-height: 2rem;
+  --vs--rt-font-size: 0.5rem;
+  /* 段落先頭約物の調整、行末句読点ぶら下げあり */
+  --vs--p-hanging-punctuation: first allow-end;
+  --vs--p-text-align: justify;
+  --vs--p-text-indent: 1em;
+  /* 約物の調整、和欧文間スペース */
+  --vs--p-text-spacing: space-first allow-end ideograph-alpha ideograph-numeric;
+  --vs--figcaption-margin-block: 1rem;
+
+  /* Adding extra 1px to avoid unexpected page feeds */
+  --vs-page--width: calc(
+    1rem * var(--vs-line-height) * var(--vs-theme--num-of-line) + 1px
+  );
+  --vs-page--height: calc(1rem * var(--vs-theme--num-of-character));
+  --vs-page--margin-top: auto;
+  --vs-page--margin-bottom: auto;
+  --vs-page--margin-inner: auto;
+  --vs-page--margin-outer: auto;
+  --vs-page--mbox-font-size: 8.5pt;
+
+  --vs-footnote--font-size: 0.667rem;
+  --vs-footnote--line-height: 1rem;
+  --vs-footnote--area-before-margin-block: 0.25rem;
+  --vs-footnote--area-before-margin-inline: 0 70%;
+}
+
+:lang(ja) {
+  --vs-crossref--counter-style: cjk-ideographic;
+  --vs-crossref--call-fig-content: '図'
+    target-counter(attr(href), fig, var(--vs-crossref--counter-style));
+  --vs-crossref--call-tbl-content: '表'
+    target-counter(attr(href), tbl, var(--vs-crossref--counter-style));
+  --vs-crossref--marker-display: none;
+  --vs-crossref--marker-fig-content: '図'
+    counter(fig, var(--vs-crossref--counter-style)) '　';
+  --vs-crossref--marker-tbl-content: '表'
+    counter(tbl, var(--vs-crossref--counter-style)) '　';
+
+  --vs-section--counter-style: cjk-ideographic;
+  --vs-section--counter-delimiter: '・';
+}
+
+h1,
+h2 {
+  break-after: avoid;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-indent: var(--vs-theme--subsection-text-indent);
+}
+
+figure {
+  margin-block: unset;
+  margin-inline: unset;
+  writing-mode: horizontal-tb;
+  max-width: var(--vs-page--width);
+  max-height: var(--vs-page--height);
+}
+
+figure > :not(picture),
+figure > picture > img {
+  padding-inline: unset;
+  padding-block: unset;
+}
+
+/* 縦中横 */
+.tcy,
+.footnote::footnote-call,
+.footnote::footnote-marker,
+:not(.footnote) > a[href^='http']::after {
+  text-combine-upright: all;
+}
+
+.upright {
+  text-orientation: upright;
+}
+
+/* 圏点（ゴマ） */
+.sesame,
+.sesame_dot {
+  font-style: normal;
+  text-emphasis-style: sesame;
+}
+
+.author {
+  text-align: end;
+  font-size: 1rem;
+  font-weight: var(--vs-font-weight-bold);
+  letter-spacing: 0.125em;
+}
+
+/* 奥付 */
+[role='doc-colophon'] {
+  font-size: 0.824rem;
+  line-height: 1.5rem;
+  margin-block-start: 6rem;
+  break-inside: avoid;
+}
+
+.footnote,
+:not(.footnote) > a[href^='http']::before {
+  margin-inline-start: 2rem;
+  text-indent: -1em;
+}
+.footnote::before {
+  content: '　';
+}
+
+@media screen {
+  :root {
+    --vs--anchor-color: var(--vs-theme--anchor-color-body);
+    --vs--anchor-text-decoration: none;
+    --vs--anchor-text-decoration-on-hover: underline;
+  }
+
+  body {
+    max-inline-size: calc(1rem * var(--vs-theme--num-of-character));
+    margin: 2rem;
+  }
+
+  figure {
+    margin-inline: 1rem;
+    max-inline-size: calc(var(--vs-page--width) - 4rem);
+    block-size: min(var(--vs-page--height), calc(100vh - 6rem));
+  }
+}
+
+@page {
+  @top-left {
+    margin-left: 7pt;
+    margin-top: 8.5mm;
+  }
+
+  @top-right {
+    margin-right: 7pt;
+    margin-top: 8.5mm;
+  }
+}
+
+@page :left {
+  --vs-page--mbox-content-top-left: var(--vs-theme--page-top-left-content);
+}
+
+@page :right {
+  --vs-page--mbox-content-top-right: var(--vs-theme--page-top-right-content);
+}

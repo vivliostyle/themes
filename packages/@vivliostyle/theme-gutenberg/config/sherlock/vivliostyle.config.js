@@ -1,4 +1,5 @@
 module.exports = {
+  title: 'The Adventures of Sherlock Holmes',
   language: 'en',
   size: 'A5',
   theme: 'sherlock.css',
@@ -24,9 +25,9 @@ module.exports = {
     'example/sherlock/contentinfo.md',
   ],
   output: [
-    'book.pdf',
+    'sherlock.pdf',
     {
-      path: './book',
+      path: './sherlock',
       format: 'webpub',
     },
   ],
