@@ -1,2 +1,6 @@
 example/*.html
 node_modules
+themes/
+.vivliostyle/
+book/
+book.pdf

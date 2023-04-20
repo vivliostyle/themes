@@ -1,0 +1,62 @@
+@import url(../@vivliostyle/theme-base/theme-all.css);
+
+/*
+ * Import extra modules
+ * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#prism-code-highlighting
+ */
+@import url(../@vivliostyle/theme-base/css/lib/prism/base.css);
+@import url(../@vivliostyle/theme-base/css/lib/prism/theme-okaidia.css);
+
+:root {
+  /*
+   * Basic customization of Vivliostyle Theme
+   * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#basic
+   */
+  --vs-font-family: 'Times New Roman', serif;
+  --vs-font-size: 12px;
+  --vs--heading-line-height: 1.3;
+  --vs--h1-font-size: 2.5em;
+
+  /*
+   * Customize styles about cross-reference of figure, table and citation
+   * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#cross-reference
+   */
+  --vs-crossref--counter-style: upper-roman;
+  --vs-crossref--marker-cite-content: target-counter(attr(href), cite) '.';
+
+  /*
+   * Customize styles about endnotes
+   * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#cross-reference
+   */
+  --vs-endnote--call-font-size: 90%;
+  --vs-endnote--section-ol-list-style-type: lower-latin;
+
+  /*
+   * Customize styles about footnotes
+   * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#footnotes
+   */
+   --vs-footnote--call-content: '[' counter(footnote) ']';
+   --vs-footnote--area-before-margin-inline: 0 80%;
+
+  /*
+   * Customize styles about paged media
+   * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#page-layout
+   */
+  --vs-page--mbox-content-bottom-center: counter(page);
+  --vs-page--mbox-content-top-left: env(doc-title);
+
+  /*
+   * Customize styles about heading counters and section reference
+   * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#section-references
+   */
+  --vs-section--marker-display: inline;
+  --vs-section--call-content: 'Sec. ' target-counters(attr(href), sections, '.');
+
+  /*
+   * Customize styles about table of contents (TOC) pages
+   * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#table-of-contents
+   */
+  --vs-toc--marker-margin-inline: 8rem;
+}
+
+/* Start writing... 🖋 */
