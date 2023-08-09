@@ -58,6 +58,7 @@
   --vs--p-margin-block: var(--vs-spacing-rlh);
   --vs--p-margin-inline: 0;
   --vs--p-text-align: justify;
+  --vs--p-text-spacing: inherit;
   --vs--p-text-indent: 0;
 
   --vs--blockquote-font-size: 100%;
