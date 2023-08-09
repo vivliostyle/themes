@@ -32,9 +32,9 @@
   /**
    * Layout
    */
-  --vs-column-count: 1;
+  --vs-columns: 1;
+  --vs-column-fill: balance;
   --vs-column-gap: 1rem;
-  --vs-column-width: auto;
   --vs-text-orientation: unset;
   --vs-orphans: var(--vs-widows-orphans);
   --vs-widows: var(--vs-widows-orphans);
