@@ -70,8 +70,8 @@ html {
 <!-- example/ch01.md -->
 
 ---
-
-## class: natsume
+class: natsume
+---
 
 # 吾輩は猫である。
 
@@ -82,8 +82,8 @@ html {
 <!-- example/ch02.md -->
 
 ---
-
-## class: akutagawa
+class: akutagawa
+---
 
 # 羅生門
 
