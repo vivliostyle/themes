@@ -1,8 +1,8 @@
 # Vivliostyle Theme Gutenberg
 
-[![npm: version](https://flat.badgen.net/npm/v/vivliostyle-theme-gutenberg)](https://npmjs.com/package/vivliostyle-theme-gutenberg)
-[![npm: total downloads](https://flat.badgen.net/npm/dt/vivliostyle-theme-gutenberg)](https://npmjs.com/package/vivliostyle-theme-gutenberg)
-![npm: license](https://flat.badgen.net/npm/license/vivliostyle-theme-gutenberg)
+[![npm: version](https://flat.badgen.net/npm/v/@vivliostyle/theme-gutenberg)](https://npmjs.com/package/@vivliostyle/theme-gutenberg)
+[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-gutenberg)](https://npmjs.com/package/@vivliostyle/theme-gutenberg)
+![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-gutenberg)
 
 book theme for latin font
 
