@@ -1,7 +1,7 @@
 {
   "name": "vivliostyle-theme-scripts",
   "description": "theme library and scripts",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io)",
   "scripts": {
     "build": "shx rm -rf lib/*.js && tsc && shx chmod +x lib/cli.js",

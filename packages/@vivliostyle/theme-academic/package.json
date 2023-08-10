@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-academic",
   "description": "Academic theme",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0",
   "author": "Vivliostyle <mail@vivliostyle.org>",
   "scripts": {
     "build": "vivliostyle build",
@@ -9,11 +9,11 @@
     "validate": "vivliostyle-theme-scripts validate"
   },
   "dependencies": {
-    "@vivliostyle/theme-base": "1.0.0-beta.1"
+    "@vivliostyle/theme-base": "^1.0.0"
   },
   "devDependencies": {
     "@vivliostyle/cli": ">=7",
-    "vivliostyle-theme-scripts": "^0.3.5"
+    "vivliostyle-theme-scripts": "^0.3.6"
   },
   "peerDependencies": {
     "@vivliostyle/cli": ">=7"
