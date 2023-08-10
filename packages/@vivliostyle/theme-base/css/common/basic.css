@@ -58,6 +58,7 @@
   --vs--p-margin-block: var(--vs-spacing-rlh);
   --vs--p-margin-inline: 0;
   --vs--p-text-align: justify;
+  --vs--p-text-spacing: inherit;
   --vs--p-text-indent: 0;
 
   --vs--blockquote-font-size: 100%;
@@ -159,9 +160,9 @@ html {
   line-break: var(--vs-line-break);
   overflow-wrap: var(--vs-overflow-wrap);
   word-break: var(--vs-word-break);
-  column-count: var(--vs-column-count);
+  columns: var(--vs-columns);
+  column-fill: var(--vs-column-fill);
   column-gap: var(--vs-column-gap);
-  column-width: var(--vs-column-width);
   text-orientation: var(--vs-text-orientation);
   text-underline-offset: var(--vs-text-underline-offset);
   text-underline-position: var(--vs-text-underline-position);
