@@ -12,7 +12,7 @@ In `vivliostyle.config.js`:
 
 ```js
 module.exports = {
-  theme: 'vivliostyle-theme-gutenberg@beta',
+  theme: 'vivliostyle-theme-gutenberg',
 };
 ```
 
@@ -23,7 +23,7 @@ theme-gutenberg also provides some extra theme files derived from the basic them
 ```js
 module.exports = {
   theme: {
-    specifier: 'vivliostyle-theme-gutenberg@beta',
+    specifier: 'vivliostyle-theme-gutenberg',
     import: 'alice.css',
   },
 };
@@ -34,7 +34,7 @@ module.exports = {
 ```js
 module.exports = {
   theme: {
-    specifier: 'vivliostyle-theme-gutenberg@beta',
+    specifier: 'vivliostyle-theme-gutenberg',
     import: 'fang.css',
   },
 };
@@ -45,7 +45,7 @@ module.exports = {
 ```js
 module.exports = {
   theme: {
-    specifier: 'vivliostyle-theme-gutenberg@beta',
+    specifier: 'vivliostyle-theme-gutenberg',
     import: 'sherlock.css',
   },
 };

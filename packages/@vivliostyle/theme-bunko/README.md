@@ -14,7 +14,7 @@ In `vivliostyle.config.js`:
 
 ```js
 module.exports = {
-  theme: '@vivliostyle/theme-bunko@beta',
+  theme: '@vivliostyle/theme-bunko',
 };
 ```
 

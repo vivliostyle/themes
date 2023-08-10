@@ -14,7 +14,7 @@ In `vivliostyle.config.js`:
 
 ```js
 module.exports = {
-  theme: '@vivliostyle/theme-techbook@beta',
+  theme: '@vivliostyle/theme-techbook',
 };
 ```
 
@@ -25,9 +25,9 @@ This theme imports [`theme-okaidia`](../theme-base/css/lib/prism/theme-okaidia.c
 ```js
 module.exports = {
   theme: [
-    '@vivliostyle/theme-techbook@beta',
+    '@vivliostyle/theme-techbook',
     {
-      specifier: '@vivliostyle/theme-base@beta',
+      specifier: '@vivliostyle/theme-base',
       import: 'css/lib/prism/theme-prism.css',
     },
   ],

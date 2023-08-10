@@ -45,7 +45,7 @@ Base theme and CSS toolkit for Vivliostyle themes
 
 ```js
 module.exports = {
-  theme: '@vivliostyle/theme-base@beta',
+  theme: '@vivliostyle/theme-base',
 };
 ```
 
@@ -61,7 +61,7 @@ Techbook (技術同人誌) theme
 
 ```js
 module.exports = {
-  theme: '@vivliostyle/theme-techbook@beta',
+  theme: '@vivliostyle/theme-techbook',
 };
 ```
 
@@ -77,7 +77,7 @@ module.exports = {
 
 ```js
 module.exports = {
-  theme: '@vivliostyle/theme-bunko@beta',
+  theme: '@vivliostyle/theme-bunko',
 };
 ```
 
@@ -93,7 +93,7 @@ Slide theme
 
 ```js
 module.exports = {
-  theme: '@vivliostyle/theme-slide@beta',
+  theme: '@vivliostyle/theme-slide',
 };
 ```
 
@@ -109,7 +109,7 @@ Academic theme
 
 ```js
 module.exports = {
-  theme: '@vivliostyle/theme-academic@beta',
+  theme: '@vivliostyle/theme-academic',
 };
 ```
 
@@ -125,7 +125,7 @@ Book theme for latin font
 
 ```js
 module.exports = {
-  theme: '@vivliostyle/theme-gutenberg@beta',
+  theme: '@vivliostyle/theme-gutenberg',
 };
 ```
 

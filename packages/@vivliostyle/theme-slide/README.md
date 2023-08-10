@@ -12,7 +12,7 @@ In `vivliostyle.config.js`:
 
 ```js
 module.exports = {
-  theme: '@vivliostyle/theme-slide@beta',
+  theme: '@vivliostyle/theme-slide',
 };
 ```
 
@@ -23,9 +23,9 @@ This theme imports [`theme-prism`](../theme-base/css/lib/prism/theme-prism.css) 
 ```js
 module.exports = {
   theme: [
-    '@vivliostyle/theme-slide@beta',
+    '@vivliostyle/theme-slide',
     {
-      specifier: '@vivliostyle/theme-base@beta',
+      specifier: '@vivliostyle/theme-base',
       import: 'css/lib/prism/theme-okaidia.css',
     },
   ],

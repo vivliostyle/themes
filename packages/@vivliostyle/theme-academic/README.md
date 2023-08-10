@@ -12,7 +12,7 @@ In `vivliostyle.config.js`:
 
 ```js
 module.exports = {
-  theme: '@vivliostyle/theme-academic@beta',
+  theme: '@vivliostyle/theme-academic',
 };
 ```
 
