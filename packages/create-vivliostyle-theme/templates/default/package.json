@@ -9,7 +9,7 @@
     "validate": "vivliostyle-theme-scripts validate"
   },
   "dependencies": {
-    "@vivliostyle/theme-base": "beta"
+    "@vivliostyle/theme-base": "latest"
   },
   "devDependencies": {
     "@vivliostyle/cli": "^7.2.3",
