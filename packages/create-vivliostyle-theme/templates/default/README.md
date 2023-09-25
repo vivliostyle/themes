@@ -25,28 +25,26 @@ module.exports = {
 ├── LICENSE
 ├── README.md
 ├── example
-│   ├── default.html       // auto generated
-│   └── default.md         // 🖋
+│   ├── assets                            // auto generated
+│        ├── Logo (Mark + Type).png       // auto generated
+│   └── default.md                        // 🖋
 ├── package.json
-├── theme.css              // 🖋
+├── theme.css                             // 🖋
 └── vivliostyle.config.js
 ```
 
 **example**: Contain sample manuscripts using your theme.
 
-**scss**: You can add files for specific use (print, screen, cover, toc, preface, ...) and apply them at `theme` `entry > theme` in vivliostyle.config.js. Partial files whose names begin with `_` will be ignored.
-
-
 ### Commands
 
-Run `vivliostyle preview` to preview your `theme_*.css`.
+Run `vivliostyle preview` to preview your `theme.css`.
 
-To watch file changes, use `dev` script.
+To watch file changes, use `preview` script.
 
 ```bash
-npm run dev
+npm run preview
 # or
-yarn dev
+yarn preview
 ```
 
 You can specify your CSS file and manuscript file for preview in vivliostyle.config.js:
