@@ -16,6 +16,17 @@ module.exports = {
 };
 ```
 
+If you want to add your CSS:
+
+```js
+module.exports = {
+  theme: [
+    '{{kebab name}}',
+    // add your CSS 
+  ],
+};
+```
+
 ## Dev
 
 ### Files
