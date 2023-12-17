@@ -1,0 +1,51 @@
+{
+  "name": "@vivliostyle/theme-epub3j",
+  "description": "EPUB3 (Japanese) 日本語EPUB用テーマ（電書協EPUB3制作ガイド準拠）",
+  "version": "1.0.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "scripts": {
+    "build": "vivliostyle build",
+    "preview": "vivliostyle preview",
+    "validate": "vivliostyle-theme-scripts validate"
+  },
+  "devDependencies": {
+    "@vivliostyle/cli": ">=8",
+    "vivliostyle-theme-scripts": "^0.3.6"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=8"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "files": [
+    "*.css",
+    "ebpaj_epub3guide",
+    "example",
+    "vivliostyle.config.js"
+  ],
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-epub3j"
+  },
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "vivliostyle": {
+    "theme": {
+      "name": "Epub",
+      "style": "./theme.css",
+      "category": "misc",
+      "topics": []
+    }
+  }
+}

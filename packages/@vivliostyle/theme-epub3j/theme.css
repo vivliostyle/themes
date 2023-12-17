@@ -1,0 +1,127 @@
+@charset "UTF-8";
+@import "ebpaj_epub3guide/book-style.css";
+
+/* -------------------------------------------------------------
+電書協EPUB3制作ガイドのスタイルのデフォルトから変更するスタイルを記述
+
+- 見出し
+- 引用ブロック、リスト
+- 簡易印刷スタイル（Vivliostyle用。通常のEPUBリーダーでは無視される）
+
+CSS変数や論理プロパティなど新しめなCSS機能は使用しない。
+（KindleなどメジャーなEPUBリーダーでサポートされていないため）
+
+縦書き用のスタイルは .vrtl クラスを使って指定する。
+---------------------------------------------------------------- */
+
+/* 見出し
+---------------------------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.625em 0;
+}
+
+.vrtl h1 {
+  margin: 0 0.625em;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin: 0.83333em 0;
+}
+
+.vrtl h2 {
+  margin: 0 0.83333em;
+}
+
+h3 {
+  font-size: 1.125em;
+  margin: 1.11111em 0;
+}
+
+.vrtl h3 {
+  margin: 0 1.11111em;
+}
+
+h4 {
+  font-size: 1em;
+  margin: 1.25em 0;
+}
+
+.vrtl h4 {
+  margin: 0 1.25em;
+}
+
+h5 {
+  font-size: 0.875em;
+  margin: 1.42857em 0;
+}
+
+.vrtl h5 {
+  margin: 0 1.42857em;
+}
+
+h6 {
+  font-size: 0.75em;
+  margin: 1.66667em 0;
+}
+
+.vrtl h6 {
+  margin: 0 1.66667em;
+}
+
+/* 引用ブロック、リスト
+---------------------------------------------------------------- */
+
+blockquote, ul, ol, li, dl, dd, menu {
+  margin: 0;
+  padding: 0;
+}
+
+blockquote, ul, ol, dd, menu {
+  margin: 0 0 0 2em;
+}
+
+.vrtl blockquote, .vrtl ul, .vrtl ol, .vrtl dd, .vrtl menu {
+  margin: 2em 0 0 0;
+}
+
+/* 目次のリスト */
+nav ul, nav ol {
+  list-style: none;
+}
+
+/* 簡易印刷スタイル（Vivliostyle用。通常のEPUBリーダーでは無視される）
+---------------------------------------------------------------- */
+
+@media print {
+
+  @page {  
+    @top-center {
+      content: string(title);
+      writing-mode: horizontal-tb;
+      font-size: 0.8em;
+    }
+    @bottom-center {
+      content: counter(page);
+      writing-mode: horizontal-tb;
+      font-size: 0.8em;
+    }
+  }
+
+  title {
+    string-set: title content();
+  }
+
+  /* 目次 */
+  nav li a:after {
+    content: leader("…") target-counter(attr(href), page);
+    text-combine-upright: all;
+  }
+
+}
