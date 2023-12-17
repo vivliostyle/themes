@@ -31,7 +31,7 @@ class: hltr p-colophon
 
 <div class="release-date">
 
-平成 26 年 11 月 1 日　発行
+平成26年11月1日　発行
 
 </div>
 
