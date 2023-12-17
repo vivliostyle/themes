@@ -22,6 +22,7 @@
   },
   "files": [
     "*.css",
+    "ebpaj_epub3guide",
     "example",
     "vivliostyle.config.js"
   ],
