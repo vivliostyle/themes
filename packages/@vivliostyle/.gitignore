@@ -1,4 +1,6 @@
 *.html
 publication.json
 book.pdf
+book.epub
 book
+.vivliostyle
