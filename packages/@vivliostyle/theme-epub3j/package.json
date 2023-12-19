@@ -42,7 +42,7 @@
   "license": "CC0-1.0",
   "vivliostyle": {
     "theme": {
-      "name": "Epub",
+      "name": "EPUB3 (Japanese)",
       "style": "./theme.css",
       "category": "misc",
       "topics": []
