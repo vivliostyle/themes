@@ -2,9 +2,9 @@
 // Table of Packages (ToP)
 
 import fs from 'fs';
-import { join } from 'path';
 import globby from 'globby';
 import fetch from 'node-fetch';
+import { join } from 'path';
 
 interface PackageJson {
   [index: string]: unknown;
@@ -98,10 +98,10 @@ ${description}
 
 ${badge(name)}
 
-\`\`\`bash
-npm install --save ${pkg.meta.name}
-# or
-yarn add ${pkg.meta.name}
+\`\`\`js
+module.exports = {
+  theme: '${pkg.meta.name}',
+};
 \`\`\`
 
 ${author && `> original author: \`${author}\``}`;

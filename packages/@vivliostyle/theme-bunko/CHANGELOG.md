@@ -1,9 +1,6 @@
-# Change Log
+# @vivliostyle/theme-bunko
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
-# [1.0.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-bunko@1.0.0-beta.1...@vivliostyle/theme-bunko@1.0.0) (2023-08-10)
+## [1.0.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-bunko@1.0.0-beta.1...@vivliostyle/theme-bunko@1.0.0) (2023-08-10)
 
 **Note:** Version bump only for package @vivliostyle/theme-bunko
 
@@ -17,7 +14,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @vivliostyle/theme-bunko
 
-# [0.5.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-bunko@0.4.1...@vivliostyle/theme-bunko@0.5.0) (2021-11-07)
+## [0.5.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-bunko@0.4.1...@vivliostyle/theme-bunko@0.5.0) (2021-11-07)
 
 ### Features
 
@@ -27,13 +24,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @vivliostyle/theme-bunko
 
-# [0.4.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-bunko@0.3.0...@vivliostyle/theme-bunko@0.4.0) (2021-04-08)
+## [0.4.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-bunko@0.3.0...@vivliostyle/theme-bunko@0.4.0) (2021-04-08)
 
 ### Features
 
 - **@vivliostyle/theme-bunko:** follow create-vivliostyle-theme v0.3.0 ([da32c2d](https://github.com/vivliostyle/themes/commit/da32c2dc17d3aba44e0a9bf78b4aefee28bcb6b4))
 
-# [0.3.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-bunko@0.2.2...@vivliostyle/theme-bunko@0.3.0) (2020-08-28)
+## [0.3.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-bunko@0.2.2...@vivliostyle/theme-bunko@0.3.0) (2020-08-28)
 
 ### Features
 
@@ -49,7 +46,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @vivliostyle/theme-bunko
 
-# 0.2.0 (2020-07-01)
+## 0.2.0 (2020-07-01)
 
 ### Features
 

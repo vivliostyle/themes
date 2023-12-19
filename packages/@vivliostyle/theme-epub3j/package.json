@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-epub3j",
   "description": "EPUB3 (Japanese) 日本語EPUB用テーマ（電書協EPUB3制作ガイド準拠）",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "author": "Vivliostyle <mail@vivliostyle.org>",
   "scripts": {
     "build": "vivliostyle build",
@@ -42,7 +42,7 @@
   "license": "CC0-1.0",
   "vivliostyle": {
     "theme": {
-      "name": "Epub",
+      "name": "EPUB3 (Japanese)",
       "style": "./theme.css",
       "category": "misc",
       "topics": []

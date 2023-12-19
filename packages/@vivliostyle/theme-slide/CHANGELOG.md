@@ -1,9 +1,6 @@
-# Change Log
+# @vivliostyle/theme-slide
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
-# [1.0.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-slide@1.0.0-beta.1...@vivliostyle/theme-slide@1.0.0) (2023-08-10)
+## [1.0.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-slide@1.0.0-beta.1...@vivliostyle/theme-slide@1.0.0) (2023-08-10)
 
 **Note:** Version bump only for package @vivliostyle/theme-slide
 
@@ -17,7 +14,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @vivliostyle/theme-slide
 
-# [0.5.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-slide@0.4.1...@vivliostyle/theme-slide@0.5.0) (2021-11-07)
+## [0.5.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-slide@0.4.1...@vivliostyle/theme-slide@0.5.0) (2021-11-07)
 
 ### Features
 
@@ -27,13 +24,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @vivliostyle/theme-slide
 
-# [0.4.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-slide@0.3.0...@vivliostyle/theme-slide@0.4.0) (2021-04-08)
+## [0.4.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-slide@0.3.0...@vivliostyle/theme-slide@0.4.0) (2021-04-08)
 
 ### Features
 
 - **@vivliostyle/theme-slide:** follow create-vivliostyle-theme v0.3.0 ([ab4f2aa](https://github.com/vivliostyle/themes/commit/ab4f2aab46430dcf9bd39cefe9619cc30c673a43))
 
-# [0.3.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-slide@0.2.2...@vivliostyle/theme-slide@0.3.0) (2020-08-28)
+## [0.3.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-slide@0.2.2...@vivliostyle/theme-slide@0.3.0) (2020-08-28)
 
 ### Features
 
@@ -51,7 +48,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - **@vivliostyle/theme-slide:** new style ([ae36878](https://github.com/vivliostyle/themes/commit/ae368782fd1cc68dfb1e06344a9ca9588b1f37dd))
 
-# 0.2.0 (2020-07-01)
+## 0.2.0 (2020-07-01)
 
 ### Features
 

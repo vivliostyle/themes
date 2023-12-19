@@ -1,9 +1,6 @@
-# Change Log
+# create-vivliostyle-theme
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
-# [1.0.0](https://github.com/vivliostyle/themes/compare/create-vivliostyle-theme@1.0.0-beta.1...create-vivliostyle-theme@1.0.0) (2023-08-10)
+## [1.0.0](https://github.com/vivliostyle/themes/compare/create-vivliostyle-theme@1.0.0-beta.1...create-vivliostyle-theme@1.0.0) (2023-08-10)
 
 **Note:** Version bump only for package create-vivliostyle-theme
 
@@ -17,7 +14,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package create-vivliostyle-theme
 
-# [0.4.0](https://github.com/vivliostyle/themes/compare/create-vivliostyle-theme@0.3.1...create-vivliostyle-theme@0.4.0) (2021-11-07)
+## [0.4.0](https://github.com/vivliostyle/themes/compare/create-vivliostyle-theme@0.3.1...create-vivliostyle-theme@0.4.0) (2021-11-07)
 
 ### Features
 
@@ -30,7 +27,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package create-vivliostyle-theme
 
-# [0.3.0](https://github.com/vivliostyle/themes/compare/create-vivliostyle-theme@0.2.0...create-vivliostyle-theme@0.3.0) (2021-04-08)
+## [0.3.0](https://github.com/vivliostyle/themes/compare/create-vivliostyle-theme@0.2.0...create-vivliostyle-theme@0.3.0) (2021-04-08)
 
 ### Features
 
@@ -38,7 +35,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - create-vivliostyle-theme: include vivliostyle.config.js to theme packages ([e560db6](https://github.com/vivliostyle/themes/commit/e560db6a045c8e0503f358cb46e56ffd2f8a65d8))
 - create-vivliostyle-theme: set theme_print.css as a default style ([7eb3a49](https://github.com/vivliostyle/themes/commit/7eb3a49f21660c4dcc07e4e535d131e02399742c))
 
-# [0.2.0](https://github.com/vivliostyle/themes/compare/create-vivliostyle-theme@0.1.2...create-vivliostyle-theme@0.2.0) (2020-08-28)
+## [0.2.0](https://github.com/vivliostyle/themes/compare/create-vivliostyle-theme@0.1.2...create-vivliostyle-theme@0.2.0) (2020-08-28)
 
 ### Features
 
@@ -54,7 +51,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - omit prefix ([a5fe184](https://github.com/vivliostyle/themes/commit/a5fe1849567eaf1b16f701679d6f15606ab552da))
 
-# 0.1.0 (2020-07-01)
+## 0.1.0 (2020-07-01)
 
 ### Bug Fixes
 
