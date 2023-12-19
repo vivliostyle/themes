@@ -11,7 +11,7 @@
     "release": "lerna publish from-package",
     "test": "lerna run test",
     "top": "node -r ts-node/register scripts/top.ts",
-    "up": "yarn build && yarn lint && lerna version --conventional-commits --create-release github"
+    "bump": "yarn top && yarn doctoc README.md && changeset version"
   },
   "dependencies": {
     "node-fetch": "^2.6.0"
