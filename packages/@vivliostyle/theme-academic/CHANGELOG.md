@@ -1,9 +1,6 @@
-# Change Log
+# @vivliostyle/theme-academic
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
-# [1.0.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-academic@1.0.0-beta.1...@vivliostyle/theme-academic@1.0.0) (2023-08-10)
+## [1.0.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-academic@1.0.0-beta.1...@vivliostyle/theme-academic@1.0.0) (2023-08-10)
 
 **Note:** Version bump only for package @vivliostyle/theme-academic
 
@@ -17,7 +14,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @vivliostyle/theme-academic
 
-# [0.4.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-academic@0.3.1...@vivliostyle/theme-academic@0.4.0) (2021-11-07)
+## [0.4.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-academic@0.3.1...@vivliostyle/theme-academic@0.4.0) (2021-11-07)
 
 ### Features
 
@@ -27,7 +24,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @vivliostyle/theme-academic
 
-# [0.3.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-academic@0.2.0...@vivliostyle/theme-academic@0.3.0) (2021-04-08)
+## [0.3.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-academic@0.2.0...@vivliostyle/theme-academic@0.3.0) (2021-04-08)
 
 ### Bug Fixes
 
@@ -38,7 +35,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - **@vivliostyle/theme-academic:** follow create-vivliostyle-theme v0.3.0 ([62fbf4d](https://github.com/vivliostyle/themes/commit/62fbf4d264f3a5ff28088a0da7e4bdac21c28e08))
 
-# [0.2.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-academic@0.1.0...@vivliostyle/theme-academic@0.2.0) (2020-08-28)
+## [0.2.0](https://github.com/vivliostyle/themes/compare/@vivliostyle/theme-academic@0.1.0...@vivliostyle/theme-academic@0.2.0) (2020-08-28)
 
 ### Features
 
