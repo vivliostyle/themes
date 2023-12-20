@@ -5,15 +5,17 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [Find themes](#find-themes)
 - [Create a theme](#create-a-theme)
 - [Official Themes](#official-themes)
-  - [Base](#base)
+  - [Vivliostyle Base Theme](#vivliostyle-base-theme)
   - [Techbook](#techbook)
+  - [Academic](#academic)
   - [Bunko](#bunko)
   - [Slide](#slide)
-  - [Academic](#academic)
   - [Gutenberg](#gutenberg)
+  - [EPUB3 (Japanese)](#epub3-japanese)
 - [Tools](#tools)
   - [create-vivliostyle-theme](#create-vivliostyle-theme)
   - [vivliostyle-theme-scripts](#vivliostyle-theme-scripts)
@@ -35,13 +37,13 @@
 
 ## Official Themes
 
-### [Base](packages/@vivliostyle/theme-base)
+### [Vivliostyle Base Theme](packages/@vivliostyle/theme-base)
+
+Base theme and CSS toolkit for Vivliostyle themes
 
 [![](https://img.shields.io/npm/v/@vivliostyle/theme-base.svg)](https://npmjs.com/package/@vivliostyle/theme-base)
 [![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-base)](https://npmjs.com/package/@vivliostyle/theme-base)
 ![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-base)
-
-Base theme and CSS toolkit for Vivliostyle themes
 
 ```js
 module.exports = {
@@ -62,6 +64,22 @@ Techbook (技術同人誌) theme
 ```js
 module.exports = {
   theme: '@vivliostyle/theme-techbook',
+};
+```
+
+> original author: `Vivliostyle <mail@vivliostyle.org>`
+
+### [Academic](packages/@vivliostyle/theme-academic)
+
+Academic theme
+
+[![](https://img.shields.io/npm/v/@vivliostyle/theme-academic.svg)](https://npmjs.com/package/@vivliostyle/theme-academic)
+[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-academic)](https://npmjs.com/package/@vivliostyle/theme-academic)
+![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-academic)
+
+```js
+module.exports = {
+  theme: '@vivliostyle/theme-academic',
 };
 ```
 
@@ -99,22 +117,6 @@ module.exports = {
 
 > original author: `Vivliostyle <mail@vivliostyle.org>`
 
-### [Academic](packages/@vivliostyle/theme-academic)
-
-Academic theme
-
-[![](https://img.shields.io/npm/v/@vivliostyle/theme-academic.svg)](https://npmjs.com/package/@vivliostyle/theme-academic)
-[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-academic)](https://npmjs.com/package/@vivliostyle/theme-academic)
-![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-academic)
-
-```js
-module.exports = {
-  theme: '@vivliostyle/theme-academic',
-};
-```
-
-> original author: `Vivliostyle <mail@vivliostyle.org>`
-
 ### [Gutenberg](packages/@vivliostyle/theme-gutenberg)
 
 Book theme for latin font
@@ -126,6 +128,22 @@ Book theme for latin font
 ```js
 module.exports = {
   theme: '@vivliostyle/theme-gutenberg',
+};
+```
+
+> original author: `Vivliostyle <mail@vivliostyle.org>`
+
+### [EPUB3 (Japanese)](packages/@vivliostyle/theme-epub3j)
+
+EPUB3 (Japanese) 日本語EPUB用テーマ（電書協EPUB3制作ガイド準拠）
+
+[![](https://img.shields.io/npm/v/@vivliostyle/theme-epub3j.svg)](https://npmjs.com/package/@vivliostyle/theme-epub3j)
+[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-epub3j)](https://npmjs.com/package/@vivliostyle/theme-epub3j)
+![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-epub3j)
+
+```js
+module.exports = {
+  theme: '@vivliostyle/theme-epub3j',
 };
 ```
 
