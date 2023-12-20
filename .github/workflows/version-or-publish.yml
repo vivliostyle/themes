@@ -23,7 +23,7 @@ jobs:
         uses: changesets/action@v1
         with:
           version: yarn bump
-          publish: yarn release
+          publish: yarn release -y --no-verify-access
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
