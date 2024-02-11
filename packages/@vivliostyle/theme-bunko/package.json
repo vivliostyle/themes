@@ -3,6 +3,7 @@
   "description": "文庫用のテーマ",
   "version": "1.0.0",
   "author": "Vivliostyle <mail@vivliostyle.org>",
+  "main": "theme.css",
   "scripts": {
     "build": "vivliostyle build",
     "preview": "vivliostyle preview",
@@ -45,7 +46,7 @@
   "vivliostyle": {
     "theme": {
       "name": "Bunko",
-      "style": "./theme.css",
+      "style": "theme.css",
       "category": "novel",
       "topics": [
         "小説",

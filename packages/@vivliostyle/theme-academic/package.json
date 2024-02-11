@@ -3,6 +3,7 @@
   "description": "Academic theme",
   "version": "1.0.0",
   "author": "Vivliostyle <mail@vivliostyle.org>",
+  "main": "theme.css",
   "scripts": {
     "build": "vivliostyle build",
     "preview": "vivliostyle preview",
@@ -46,7 +47,7 @@
     "theme": {
       "name": "Academic",
       "category": "academic",
-      "style": "./theme.css",
+      "style": "theme.css",
       "topics": [
         "Academic",
         "Report"
