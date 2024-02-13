@@ -1,5 +1,12 @@
 # @vivliostyle/theme-epub3j
 
+## 1.0.1
+
+### Patch Changes
+
+- [#122](https://github.com/vivliostyle/themes/pull/122) [`f5563ff`](https://github.com/vivliostyle/themes/commit/f5563ff9930cc5184070e9fd2ccdb16c6dd19ae5) Thanks [@spring-raining](https://github.com/spring-raining)! - Add a `main` property for package.json.
+  This is useful for use with third-party libraries that are expected to have a `main` field in package.json.
+
 ## 1.0.0
 
 ### Major Changes
