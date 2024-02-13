@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-slide",
   "description": "Slide theme",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Vivliostyle <mail@vivliostyle.org>",
   "main": "theme.css",
   "scripts": {
@@ -10,7 +10,7 @@
     "validate": "vivliostyle-theme-scripts validate"
   },
   "dependencies": {
-    "@vivliostyle/theme-base": "^1.0.0"
+    "@vivliostyle/theme-base": "^1.0.1"
   },
   "devDependencies": {
     "@vivliostyle/cli": ">=7",
