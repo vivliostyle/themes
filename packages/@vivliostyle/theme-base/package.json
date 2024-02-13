@@ -3,6 +3,7 @@
   "description": "Base theme and CSS toolkit for Vivliostyle themes",
   "version": "1.0.0",
   "author": "Vivliostyle <mail@vivliostyle.org>",
+  "main": "theme-all.css",
   "scripts": {
     "build": "vivliostyle build",
     "preview": "vivliostyle preview",
@@ -44,7 +45,7 @@
     "theme": {
       "name": "Vivliostyle Base Theme",
       "author": "Vivliostyle <mail@vivliostyle.org>",
-      "style": "./theme-all.css",
+      "style": "theme-all.css",
       "category": "misc",
       "topics": []
     }

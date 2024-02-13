@@ -3,6 +3,7 @@
   "description": "{{description}}",
   "version": "0.1.0",
   "author": "{{contact}}",
+  "main": "theme.css",
   "scripts": {
     "build": "vivliostyle build",
     "preview": "vivliostyle preview",
@@ -37,7 +38,7 @@
     "theme": {
       "name": "{{capital name space=true}}",
       "author": "{{contact}}",
-      "style": "./theme.css",
+      "style": "theme.css",
       "category": "{{category}}",
       "topics": []
     }

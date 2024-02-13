@@ -3,6 +3,7 @@
   "description": "Book theme for latin font",
   "version": "1.0.0",
   "author": "Vivliostyle <mail@vivliostyle.org>",
+  "main": "theme.css",
   "scripts": {
     "build": "vivliostyle build",
     "preview": "vivliostyle preview",
@@ -38,7 +39,7 @@
     "theme": {
       "name": "Gutenberg",
       "author": "Vivliostyle <mail@vivliostyle.org>",
-      "style": "./theme.css",
+      "style": "theme.css",
       "category": "novel",
       "topics": []
     }

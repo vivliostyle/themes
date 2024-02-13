@@ -3,6 +3,7 @@
   "description": "Techbook (技術同人誌) theme",
   "version": "1.0.0",
   "author": "Vivliostyle <mail@vivliostyle.org>",
+  "main": "theme.css",
   "scripts": {
     "build": "vivliostyle build",
     "preview": "vivliostyle preview",
@@ -46,7 +47,7 @@
     "theme": {
       "name": "Techbook",
       "category": "misc",
-      "style": "./theme.css",
+      "style": "theme.css",
       "topics": [
         "Techbook"
       ]
