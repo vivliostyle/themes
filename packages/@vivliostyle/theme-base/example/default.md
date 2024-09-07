@@ -11,7 +11,7 @@ vfm:
 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt error aut
 perspiciatis ducimus ut excepturi unde assumenda minus praesentium ipsa.
 Id magnam assumenda rerum. Eius eveniet pariatur libero laudantium rerum.
-*emphasis text* / **bold text** / ***bold emphasis text*** /
+_emphasis text_ / **bold text** / **_bold emphasis text_** /
 `inline code block` / ~~strikethrough text~~ /
 <big>bigger text</big> / <small>smaller text</small> /
 H<sub>2</sub>O / x<sup>2</sup> / {Ruby|ルビ} /
@@ -32,16 +32,16 @@ $E = mc^2$
 
 ###### Heading 6
 
-----
+---
 
 ## Lists
 
-* Ham
-* Cheese
-* Bacon
-  * foo
-  * bar
-    * baz
+- Ham
+- Cheese
+- Bacon
+  - foo
+  - bar
+    - baz
 
 1. Mix flour, baking powder, sugar, and salt.
 2. In another bowl, mix eggs, milk, and oil.
@@ -86,8 +86,8 @@ const html = Prism.highlight(code, Prism.languages.javascript, 'javascript');
 <figcaption>Markdown table</figcaption>
 <div>
 
-| aaa | bbb |
-|:---|---:|
+| aaa                           |                          bbb |
+| :---------------------------- | ---------------------------: |
 | loooooooooooooooooooooooooong | taaaaaaaaaaaaaaaaaaaaaaaable |
 
 </div>

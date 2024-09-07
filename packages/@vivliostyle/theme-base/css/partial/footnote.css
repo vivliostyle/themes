@@ -79,11 +79,16 @@
   margin-block: var(--vs-footnote--area-margin-block);
 }
 
-/* prettier-ignore */
 @-adapt-footnote-area ::before {
   display: var(--vs-footnote--area-before-display);
-  border-block-start-color: var(--vs-footnote--area-before-border-color, var(--vs--hr-border-color, var(--vs-border-color)));
-  border-block-start-width: var(--vs-footnote--area-before-border-width, var(--vs--hr-border-width, var(--vs-border-width)));
+  border-block-start-color: var(
+    --vs-footnote--area-before-border-color,
+    var(--vs--hr-border-color, var(--vs-border-color))
+  );
+  border-block-start-width: var(
+    --vs-footnote--area-before-border-width,
+    var(--vs--hr-border-width, var(--vs-border-width))
+  );
   margin-block: var(--vs-footnote--area-before-margin-block);
   margin-inline: var(--vs-footnote--area-before-margin-inline);
 }
