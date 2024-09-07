@@ -33,6 +33,7 @@ Issues are managed on GitHub[^issues].
 Footnotes can also be written inline^[This part is a footnote.].
 
 [^1]: [VFM](https://github.com/vivliostyle/vfm)
+
 [^issues]: [Issues](https://github.com/vivliostyle/vfm/issues)
 
 # Frontmater

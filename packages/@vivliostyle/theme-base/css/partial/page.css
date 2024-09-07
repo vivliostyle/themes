@@ -418,9 +418,6 @@
 }
 
 @page :first {
-  /* TODO: Remove prettier-ignore after Prettier v3
-  https://github.com/prettier/prettier/issues/13202 */
-  /* prettier-ignore */
   counter-reset: vs-counter-doc vs-counter-part vs-counter-chapter
     var(--vs-first-page-counter-reset,);
 }

@@ -1,0 +1,12 @@
+{
+  "singleQuote": true,
+  "trailingComma": "all",
+  "arrowParens": "always",
+  "embeddedLanguageFormatting": "off",
+  "overrides": [
+    {
+      "files": "*.md",
+      "options": { "printWidth": 100000 }
+    }
+  ]
+}

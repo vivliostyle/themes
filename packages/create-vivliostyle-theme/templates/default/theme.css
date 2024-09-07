@@ -35,8 +35,8 @@
    * Customize styles about footnotes
    * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#footnotes
    */
-   --vs-footnote--call-content: '[' counter(footnote) ']';
-   --vs-footnote--area-before-margin-inline: 0 80%;
+  --vs-footnote--call-content: '[' counter(footnote) ']';
+  --vs-footnote--area-before-margin-inline: 0 80%;
 
   /*
    * Customize styles about paged media

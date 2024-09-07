@@ -22,7 +22,7 @@ If you want to add your CSS:
 module.exports = {
   theme: [
     '{{kebab name}}',
-    // add your CSS 
+    // add your CSS
   ],
 };
 ```
