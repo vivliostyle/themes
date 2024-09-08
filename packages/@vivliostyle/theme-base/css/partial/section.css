@@ -21,16 +21,6 @@
   --vs-section--marker-margin-inline: 1ch;
 }
 
-:lang(ja) {
-  --vs-section--call-content: target-counters(
-      attr(href),
-      vs-counter-sections,
-      var(--vs-section--counter-delimiter),
-      var(--vs-section--counter-style)
-    )
-    '章';
-}
-
 a[data-ref='sec'] {
   text-decoration: var(--vs-section--anchor-text-decoration);
   margin-inline: var(--vs-section--call-margin-inline);
