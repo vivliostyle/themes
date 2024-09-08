@@ -34,7 +34,7 @@
   --vs-crossref--call-cite-content-on-screen: '[???]';
 }
 
-:lang(ja) {
+:root:lang(ja) {
   --vs-crossref--call-fig-content: '図'
     target-counter(
       attr(href),
