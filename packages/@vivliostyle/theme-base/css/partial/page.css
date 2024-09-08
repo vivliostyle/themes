@@ -426,22 +426,37 @@
  * document counters
  */
 
+html.chapter,
+body.chapter {
+  page: chapter-document;
+}
+
 html.part,
-body.part,
-[role='doc-part'] {
-  page: part;
+body.part {
+  page: part-document;
+}
+
+html.part.chapter,
+body.part.chapter {
+  page: part-chapter-document;
 }
 
 @page :nth(1) {
-  counter-increment: vs-counter-doc;
+  counter-increment: var(--vs-page--doc-counter-increment, vs-counter-doc)
+    var(--vs-document-first-page-counter-increment,);
 }
 
-@page part:nth(1) {
-  counter-increment: vs-counter-doc vs-counter-part;
+@page chapter-document {
+  --vs-page--doc-counter-increment: vs-counter-doc vs-counter-chapter;
 }
 
-@page chapter:nth(1) {
-  counter-increment: vs-counter-doc vs-counter-chapter;
+@page part-document {
+  --vs-page--doc-counter-increment: vs-counter-doc vs-counter-part;
+}
+
+@page part-chapter-document {
+  --vs-page--doc-counter-increment: vs-counter-doc vs-counter-part
+    vs-counter-chapter;
 }
 
 /*
@@ -487,12 +502,6 @@ html.bibliography,
 body.bibliography,
 [role='doc-bibliography'] {
   page: bibliography;
-}
-
-html.chapter,
-body.chapter,
-[role='doc-chapter'] {
-  page: chapter;
 }
 
 html.conclusion,
