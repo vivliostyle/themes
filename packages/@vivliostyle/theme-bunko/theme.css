@@ -61,7 +61,7 @@
   --vs-footnote--area-before-margin-inline: 0 70%;
 }
 
-:lang(ja) {
+:root:lang(ja) {
   --vs-crossref--counter-style: cjk-ideographic;
   --vs-crossref--call-fig-content: '図'
     target-counter(attr(href), fig, var(--vs-crossref--counter-style));
