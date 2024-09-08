@@ -441,6 +441,14 @@ body.part.chapter {
   page: part-chapter-document;
 }
 
+body:has([role='doc-toc']) {
+  page: toc-document;
+}
+
+body:has([role='doc-cover']) {
+  page: cover-document;
+}
+
 @page :nth(1) {
   counter-increment: var(--vs-page--doc-counter-increment, vs-counter-doc)
     var(--vs-document-first-page-counter-increment,);
@@ -457,6 +465,16 @@ body.part.chapter {
 @page part-chapter-document {
   --vs-page--doc-counter-increment: vs-counter-doc vs-counter-part
     vs-counter-chapter;
+}
+
+@page toc-document {
+  /* Don't increment vs-counter-doc for ToC documents */
+  --vs-page--doc-counter-increment: vs-counter-doc 0;
+}
+
+@page cover-document {
+  /* Don't increment vs-counter-doc for cover documents */
+  --vs-page--doc-counter-increment: vs-counter-doc 0;
 }
 
 /*
