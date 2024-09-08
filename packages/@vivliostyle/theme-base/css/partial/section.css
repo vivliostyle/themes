@@ -19,6 +19,14 @@
     var(--vs-section--counter-style)
   );
   --vs-section--marker-margin-inline: 1ch;
+  --vs-section--root-counter-reset: vs-counter-sections
+    var(--vs-section--root-counter-sections,) vs-counter-sec-h1
+    var(--vs-section--root-counter-sec-h1,) vs-counter-sec-h2
+    var(--vs-section--root-counter-sec-h2,) vs-counter-sec-h3
+    var(--vs-section--root-counter-sec-h3,) vs-counter-sec-h4
+    var(--vs-section--root-counter-sec-h4,) vs-counter-sec-h5
+    var(--vs-section--root-counter-sec-h5,) vs-counter-sec-h6
+    var(--vs-section--root-counter-sec-h6,);
 }
 
 :lang(ja) {

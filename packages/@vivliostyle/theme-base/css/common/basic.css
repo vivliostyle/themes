@@ -178,6 +178,7 @@ html {
 body {
   counter-reset: var(--vs-crossref--root-counter-reset,)
     var(--vs-footnote--root-counter-reset,)
+    var(--vs-section--root-counter-reset,)
     var(--vs-document-root-counter-reset,);
 }
 
