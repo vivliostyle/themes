@@ -2,10 +2,10 @@
   --vs-toc--anchor-align-items: baseline;
   --vs-toc--anchor-text-decoration: none;
   --vs-toc--anchor-text-decoration-on-hover: underline;
-  --vs-toc--marker-content: counter(vs-counter-toc) ' ';
+  --vs-toc--marker-content: counters(vs-counter-toc, '.') ' ';
   --vs-toc--marker-display: none;
   --vs-toc--marker-padding-inline-end: 1ch;
-  --vs-toc--marker-text-align: start;
+  --vs-toc--marker-text-align: end;
   --vs-toc--ol-indent-size: 2rem;
   --vs-toc--page-counter-display: inline;
   --vs-toc--page-counter-style: decimal;
