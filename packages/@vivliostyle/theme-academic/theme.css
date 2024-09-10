@@ -73,7 +73,7 @@
     counter(vs-counter-sec-h5) '.' counter(vs-counter-sec-h6);
 }
 
-:lang(ja) {
+:root:lang(ja) {
   --vs-crossref--marker-fig-content: '図 '
     counter(vs-counter-fig, var(--vs-crossref--counter-style));
   --vs-crossref--marker-tbl-content: '表 '

@@ -2,10 +2,10 @@
   --vs-toc--anchor-align-items: baseline;
   --vs-toc--anchor-text-decoration: none;
   --vs-toc--anchor-text-decoration-on-hover: underline;
-  --vs-toc--anchor-text-indent: 1ch;
-  --vs-toc--marker-content: counter(vs-counter-toc) ' ';
+  --vs-toc--marker-content: counters(vs-counter-toc, '.') ' ';
   --vs-toc--marker-display: none;
-  --vs-toc--marker-text-align: start;
+  --vs-toc--marker-padding-inline-end: 1ch;
+  --vs-toc--marker-text-align: end;
   --vs-toc--ol-indent-size: 2rem;
   --vs-toc--page-counter-display: inline;
   --vs-toc--page-counter-style: decimal;
@@ -33,15 +33,16 @@
   content: var(--vs-toc--marker-content);
   display: var(--vs-toc--marker-display);
   position: absolute;
-  inset-inline-start: calc(var(--vs-toc--ol-indent-size) * -1);
   text-align: var(--vs-toc--marker-text-align);
-  width: var(--vs-toc--ol-indent-size);
+  padding-inline-end: var(--vs-toc--marker-padding-inline-end);
+  /* Up to 6 indentations can be displayed (h1-h6) */
+  inline-size: calc(var(--vs-toc--ol-indent-size) * 6);
+  inset-inline-start: calc(var(--vs-toc--ol-indent-size) * -6);
 }
 
 :is(#toc, [role='doc-toc']) li > a {
   align-items: var(--vs-toc--anchor-align-items);
   text-decoration: var(--vs-toc--anchor-text-decoration);
-  text-indent: var(--vs-toc--anchor-text-indent);
 }
 
 :is(#toc, [role='doc-toc']) li > a:hover {
