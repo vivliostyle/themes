@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-bunko",
   "description": "文庫用のテーマ",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "author": "Vivliostyle <mail@vivliostyle.org>",
   "main": "theme.css",
   "scripts": {
@@ -10,7 +10,7 @@
     "validate": "vivliostyle-theme-scripts validate"
   },
   "dependencies": {
-    "@vivliostyle/theme-base": "^1.0.1"
+    "@vivliostyle/theme-base": "^2.0.0"
   },
   "devDependencies": {
     "@vivliostyle/cli": ">=7",
