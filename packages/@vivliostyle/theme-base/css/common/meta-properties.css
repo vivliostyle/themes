@@ -68,4 +68,13 @@
    */
   --vs-document-root-counter-reset: ;
   --vs-first-page-counter-reset: ;
+
+  /**
+   * Counter increments
+   * It is used for incrementing CSS counters on a first page of a document
+   * Caution: Don't set counter-reset directly otherwise all other counters will be ignored.
+   * OK: :root { --vs-document-first-page-counter-increment: foo bar; }
+   * NG: @page :nth(1) { counter-increment: foo bar; }
+   */
+  --vs-document-first-page-counter-increment: ;
 }

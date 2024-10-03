@@ -25,8 +25,10 @@
     counter(vs-counter-tbl, var(--vs-crossref--counter-style)) ': ';
   --vs-crossref--marker-cite-content: '[' counter(vs-counter-cite) ']';
   --vs-crossref--marker-margin-inline: 0;
-  --vs-crossref--root-counter-reset: vs-counter-fig vs-counter-tbl
-    vs-counter-cite;
+  --vs-crossref--root-counter-reset: vs-counter-fig
+    var(--vs-crossref--root-counter-fig,) vs-counter-tbl
+    var(--vs-crossref--root-counter-tbl,) vs-counter-cite
+    var(--vs-crossref--root-counter-cite,);
 
   /* displays dummy content on screen media that doesn't support target-counter() */
   --vs-crossref--call-fig-content-on-screen: 'Figure ???';

@@ -426,22 +426,55 @@
  * document counters
  */
 
+html.chapter,
+body.chapter {
+  page: chapter-document;
+}
+
 html.part,
-body.part,
-[role='doc-part'] {
-  page: part;
+body.part {
+  page: part-document;
+}
+
+html.part.chapter,
+body.part.chapter {
+  page: part-chapter-document;
+}
+
+body:has([role='doc-toc']) {
+  page: toc-document;
+}
+
+body:has([role='doc-cover']) {
+  page: cover-document;
 }
 
 @page :nth(1) {
-  counter-increment: vs-counter-doc;
+  counter-increment: var(--vs-page--doc-counter-increment, vs-counter-doc)
+    var(--vs-document-first-page-counter-increment,);
 }
 
-@page part:nth(1) {
-  counter-increment: vs-counter-doc vs-counter-part;
+@page chapter-document {
+  --vs-page--doc-counter-increment: vs-counter-doc vs-counter-chapter;
 }
 
-@page chapter:nth(1) {
-  counter-increment: vs-counter-doc vs-counter-chapter;
+@page part-document {
+  --vs-page--doc-counter-increment: vs-counter-doc vs-counter-part;
+}
+
+@page part-chapter-document {
+  --vs-page--doc-counter-increment: vs-counter-doc vs-counter-part
+    vs-counter-chapter;
+}
+
+@page toc-document {
+  /* Don't increment vs-counter-doc for ToC documents */
+  --vs-page--doc-counter-increment: vs-counter-doc 0;
+}
+
+@page cover-document {
+  /* Don't increment vs-counter-doc for cover documents */
+  --vs-page--doc-counter-increment: vs-counter-doc 0;
 }
 
 /*
@@ -487,12 +520,6 @@ html.bibliography,
 body.bibliography,
 [role='doc-bibliography'] {
   page: bibliography;
-}
-
-html.chapter,
-body.chapter,
-[role='doc-chapter'] {
-  page: chapter;
 }
 
 html.conclusion,

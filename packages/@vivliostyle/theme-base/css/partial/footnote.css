@@ -17,7 +17,8 @@
   --vs-footnote--area-before-margin-inline: var(--vs--hr-margin-inline);
   --vs-footnote--item-margin-block: 0;
   --vs-footnote--item-margin-inline: 0;
-  --vs-footnote--root-counter-reset: vs-counter-footnote;
+  --vs-footnote--root-counter-reset: vs-counter-footnote
+    var(--vs-footnote--root-counter-footnote,);
 }
 
 .footnote,
