@@ -51,15 +51,15 @@ VFM は出版物の執筆に適した Markdown 方言であり、Vivliostyle プ
 
 # Image
 
-![](<./assets/Logo%20(Mark%20+%20Type).png>)
+![](./assets/vivliostyle-logo.png)
 
 ## with caption and single line
 
-![Vivliostyle Logo](<./assets/Logo%20(Mark%20+%20Type).png>)
+![Vivliostyle Logo](./assets/vivliostyle-logo.png)
 
-![Vivliostyle Logo](<./assets/Logo%20(Mark%20+%20Type).png> 'distributed on the official website'){id="image" data-sample="sample"}
+![Vivliostyle Logo](./assets/vivliostyle-logo.png 'distributed on the official website'){id="image" data-sample="sample"}
 
-text ![Vivliostyle Logo](<./assets/Logo%20(Mark%20+%20Type).png>)
+text ![Vivliostyle Logo](./assets/vivliostyle-logo.png)
 
 # Math equation
 
