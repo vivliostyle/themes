@@ -1,8 +1,8 @@
-# Theme Gallery
+# Vivliostyle Themes Gallery
 
-This is a gallery of themes released as npm packages. Newly released themes are added here as soon as we find them, but if you find something that is not listed, please send an [issue](https://github.com/vivliostyle/themes/issues) or pull request.
+This is a gallery of Vivliostyle Themes released as npm packages. Newly released themes are added here as soon as we find them, but if you find something that is not listed, please send an [issue](https://github.com/vivliostyle/themes/issues) or pull request.
 
-## Official theme
+## Official Vivliostyle Themes
 
 Currently, there are five official themes.
 
@@ -36,7 +36,7 @@ This is suitable for horizontal novels in English.
 
 <img src="./assets/official-gutenberg.png" alt="Sample image from theme-gutenberg. The manuscript is 'Alice's Adventures in Wonderland'." style="max-width:500px">
 
-## Unofficial theme
+## Unofficial Vivliostyle Themes
 
 ### [vivliostyle-theme dnd-5e-phb](https://www.npmjs.com/package/vivliostyle-theme-dnd-5e-phb)
 

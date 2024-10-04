@@ -1,10 +1,10 @@
-# Theme ギャラリー
+# Vivliostyle Themes ギャラリー
 
-npm package として公開されている Theme のギャラリーです。新しく公開された Theme は見つけ次第掲載していますが、掲載漏れを見つけた場合は [issue](https://github.com/vivliostyle/themes/issues) や pull request をお願いします。
+npm package として公開されている Vivliostyle Themes のギャラリーです。新しく公開されたテーマは見つけ次第掲載していますが、掲載漏れを見つけた場合は [issue](https://github.com/vivliostyle/themes/issues) や pull request をお願いします。
 
-## 公式 Theme
+## 公式の Vivliostyle Themes
 
-現在、5 つの公式 Theme があります。
+現在、5 つの公式のテーマがあります。
 
 ### [@vivliostyle/theme-bunko](https://www.npmjs.com/package/@vivliostyle/theme-bunko)
 
@@ -36,7 +36,7 @@ npm package として公開されている Theme のギャラリーです。新�
 
 <img src="./assets/official-gutenberg.png" alt="theme-gutenbergのサンプル画像。原稿は「Alice's Adventures in Wonderland」。" style="max-width:500px">
 
-## 公式でない Theme
+## 非公式の Vivliostyle Themes
 
 ### [vivliostyle-theme-dnd-5e-phb](https://www.npmjs.com/package/vivliostyle-theme-dnd-5e-phb)
 

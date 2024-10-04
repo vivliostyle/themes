@@ -1,21 +1,41 @@
-# Spec
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Spec of Vivliostyle Theme](#spec-of-vivliostyle-theme)
+  - [Theme Name](#theme-name)
+  - [Styles to Include in the Theme](#styles-to-include-in-the-theme)
+  - [Directory Structure](#directory-structure)
+  - [package.json](#packagejson)
+    - [`keywords` Property](#keywords-property)
+    - [`vivliostyle.theme` Property](#vivliostyletheme-property)
+      - [`style` Property](#style-property)
+      - [`author` Property](#author-property)
+      - [`category` Property](#category-property)
+      - [`topics` Property](#topics-property)
+  - [example/](#example)
+  - [theme.css](#themecss)
+  - [vivliostyle.config.js](#vivliostyleconfigjs)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+# Spec of Vivliostyle Theme
 
 If you want to publish your theme as an npm package, please follow the specification below. You can use [create-vivliostyle-theme][] to quickly create a theme that follows this specification.
 
-## Theme name
+## Theme Name
 
 The name of the theme can be free. However, it is recommended to follow some points:
 
-- If the purpose is clear, include a straightforward term that describes the purpose.
-- Avoid terms related to variable style terms.
-  - For example, the size and orientation of the publication will be easily changed by the user in Vivliostyle Pub in the future. Therefore, please avoid using terms related to these variable style terms.
-  - Avoid theme names: vivliostyle-theme-a4book, vivliostyle-theme-tategaki, etc.
+- If the purpose is clear, include a concise term that represents it.
+- Avoid terms related to modifiable styles.
+  - For example, publication size and layout direction are expected to be easily changeable by users in the future with tools like Vivliostyle Pub. Therefore, avoid using terms related to these modifiable styles.
+  - Examples of names to avoid: vivliostyle-theme-a4book, vivliostyle-theme-tategaki, etc.
 
-## Styles
+## Styles to Include in the Theme
 
-A theme should include styles for the entire publication, not just for specific parts of the publication (e.g., figures, footnotes only, etc.).
+A theme should encompass styles for the entire publication, rather than focusing on specific elements (e.g., only figures or footnotes).
 
-The following are typical styles that should be included in a theme. The theme template created with [create-vivliostyle-theme][] contains these styles.
+Below are the typical styles that should be included in a theme. The theme template generated with [create-vivliostyle-theme][] includes these styles.
 
 - Page (margin, running header/footer, etc.)
 - Heading
@@ -27,28 +47,21 @@ The following are typical styles that should be included in a theme. The theme t
 - Footnote
 - Ruby
 
-## Directory structure
+## Directory Structure
 
 ```
 vivliostyle-theme-mybook/
 ├── LICENSE
 ├── README.md
-├── package.json           # required
-├── example/               # required
+├── package.json
+├── example/
 │   ├── ...
 │   └── default.md
-├── scss/                  # required
-│   ├── ...
-│   ├── theme_common.scss
-│   ├── theme_print.scss
-│   └── theme_screen.scss
-├── theme_common.css       # required
-├── theme_print.css        # required
-├── theme_screen.css       # required
-└── vivliostyle.config.js  # required
+├── theme.css
+└── vivliostyle.config.js
 ```
 
-When you create a theme template with [create-vivliostyle-theme][], the fundamental files like above will be generated automatically. The details of some typical files are described in the following sections.
+When you create a theme template using [create-vivliostyle-theme][], the essential files mentioned above will be generated automatically. The details of some typical files are described in the following sections.
 
 ## package.json
 
@@ -56,18 +69,18 @@ When you create a theme template with [create-vivliostyle-theme][], the fundamen
 {
   "name": "vivliostyle-theme-mybook",
   "author": "John Doe <john@example.com>",
+  "main": "theme.css",
   "keywords": [
     // described below
     "vivliostyle",
     "vivliostyle-theme"
   ],
-  "files": ["*.css", "*.css.map", "scss", "example", "vivliostyle.config.js"],
   "vivliostyle": {
     // described below
     "theme": {
-      "style": "./theme_print.css", // required
+      "style": "./theme.css",
       "name": "Mybook",
-      "author": "John Doe", // required
+      "author": "John Doe",
       "category": "novel",
       "topics": ["paperback"]
     }
@@ -81,43 +94,38 @@ You can use [vivliostyle-theme-scripts](https://github.com/vivliostyle/themes/tr
 $ vivliostyle-theme validate
 ```
 
-### `keywords` property
+### `keywords` Property
 
 Optional.
 
-Suppose you include `"vivliostyle-theme"` in the value of this property. In that case, your theme will appear in the list of available themes when you create a publication using [Create Book][]. However, you need to have published your theme as an npm package to do so.
+Including `"vivliostyle-theme"` in this property's value will list your theme among the available options when creating a publication using [Create Book][]. Ensure your theme is published as an npm package for it to appear.
 
-Since a theme is an npm package related to Vivliostyle, it is a good idea to include `"vivliostyle"`.
+Since a theme is an npm package related to Vivliostyle, it is advisable to include `"vivliostyle"`.
 
-### `vivliostyle.theme` property
+### `vivliostyle.theme` Property
 
-#### `style` property
+#### `style` Property
 
 Required. This property specifies the main CSS file in the theme.
 
-You can also use `style` or `main` properties at the top level of package.json. It has the same meaning as `vivliostyle.theme.style`, but the priority is `vivliostyle.theme.style` > `style` > `main`.
+You can also use the `style` or `main` properties at the top level of `package.json`. These properties serve the same purpose as `vivliostyle.theme.style`, but the priority order is `vivliostyle.theme.style` > `style` > `main`.
 
 ```json
 {
-  "style": "theme_print.css"
+  "main": "theme.css",
+  "style": "theme.css"
 }
 ```
 
-```json
-{
-  "main": "theme_print.css"
-}
-```
-
-#### `author` property
+#### `author` Property
 
 Required.
 
-#### `category` property
+#### `category` Property
 
-Optional. This property is a hint to users who use your theme for the first time as to the primary use.
+Optional. This property provides a hint to users about the primary use of your theme when they use it for the first time.
 
-Choose the best fit category to your theme from the following list:
+Choose the category that best fits your theme from the following list:
 
 - `"novel"`
 - `"magazine"`
@@ -125,50 +133,56 @@ Choose the best fit category to your theme from the following list:
 - `"report"`
 - `"misc"`
 
-Please note that this list may be updated in the future.
+Note that this list may be updated in the future.
 
-#### `topics` property
+#### `topics` Property
 
 Optional. If you want more specific descriptions of the theme's use than the `category` property, you can list and describe them here.
 
 ## example/
 
-The `example/' directory should contain at least one Markdown file, a straightforward example of a theme. The name of the file is arbitrary.
+The example directory should contain at least one Markdown file, a straightforward example of a theme. The name of the file is arbitrary.
 
 In Markdown files, you can use [VFM (Vivliostyle Flavored Markdown)](https://vivliostyle.github.io/vfm/#/vfm).
 
-## scss/
+## theme.css
 
-Include style sheets that define the style of the theme. The style definitions for typesetting are often complex, and users may edit the theme's style sheets to customize styles. For these reasons, we recommend using SCSS, which allows variables and mixins.
+Include the stylesheet that defines the theme's styles. You can optionally use extended stylesheets like SCSS to create complex themes, but ensure to include the compiled CSS result in the actual npm package.
 
-A theme can contain multiple stylesheets. See [issue (vivliostyle/vivliostyle-cli #143)](https://github.com/vivliostyle/vivliostyle-cli/issues/143#issuecomment-791990973) for details. For example, three different style sheets can be used for the following purposes:
+A theme can include multiple stylesheets. For example, besides the default `theme.css`, you can provide stylesheets for specific purposes as shown below:
 
-- theme_print.scss: Defines the styles for output as a PDF or for viewing in Vivliostyle Viewer.
-- theme_screen.scss: Defines the styles for output as HTML or other webpub formats.
-- theme_common.scss: Defines the common styles of the above two.
+- `theme_print.css`: Defines styles for outputting as PDF or viewing with Vivliostyle Viewer.
+- `theme_screen.css`: Defines styles for outputting in webpub format such as HTML.
 
-## \*.css
+To specify a stylesheet other than the default with Vivliostyle CLI, set the `specifier` and `import` properties as follows:
 
-A set of CSS files generated from the stylesheets are in the scss/ directory.
+```js
+theme: {
+  specifier: 'vivliostyle-theme-mybook',
+  import: 'theme_print.css',
+},
+```
 
 ## vivliostyle.config.js
 
 ```js
+/** @type {import('@vivliostyle/cli').VivliostyleConfigSchema} */
 module.exports = {
   language: 'en',
-  theme: 'theme_print.css',
+  theme: ['node_modules/@vivliostyle/theme-base', '.'],
   entry: ['example/default.md'],
+  workspaceDir: '.vivliostyle',
   output: [
     'book.pdf',
     {
-      path: '. /book',
+      path: './book',
       format: 'webpub',
     },
   ],
 };
 ```
 
-This is a configuration file for generating publications from Markdown files in example/. It is used by developers to develop themes and by theme's users to generate sample publications.
+This is a configuration file for generating publications from Markdown files in example. It is used by developers to develop themes and by theme's users to generate sample publications.
 
 [create-vivliostyle-theme]: https://github.com/vivliostyle/themes/tree/master/packages/create-vivliostyle-theme
 [create book]: https://github.com/vivliostyle/create-book
