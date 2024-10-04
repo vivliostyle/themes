@@ -8,6 +8,8 @@ A simple and stylish theme for Vivliostyle.
 
 文庫用のテーマ。
 
+![Screenshot of theme-bunko example](../../../docs/assets/captures/theme-bunko.webp)
+
 ## Use
 
 In `vivliostyle.config.js`:
