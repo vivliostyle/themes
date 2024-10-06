@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "scripts": {
     "bootstrap": "lerna bootstrap && lerna link",
-    "build": "lerna run build",
+    "build": "run-s build:*",
+    "build:package": "lerna run build",
+    "build:capture-pdf": "node --loader ts-node/esm --no-warnings scripts/capture-pdf.mts",
     "format": "lerna exec fixpack && yarn top",
     "lint": "run-p lint:*",
     "lint:theme": "lerna exec vivliostyle-theme-scripts validate --scope '@vivliostyle/theme-*'",
@@ -19,7 +21,9 @@
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.27.1",
+    "@napi-rs/canvas": "^0.1.56",
     "@types/node-fetch": "^2.5.7",
+    "@types/pdfjs-dist": "^2.10.378",
     "@uetchy/doctoc": "^1.5.0",
     "esm": "^3.2.25",
     "fixpack": "^4.0.0",
@@ -30,7 +34,7 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^3.3.3",
     "pretty-quick": "^4.0.0",
-    "ts-node": "^8.10.2",
+    "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   },
   "husky": {
@@ -53,5 +57,8 @@
   "workspaces": [
     "packages/*",
     "packages/*/*"
-  ]
+  ],
+  "overrides": {
+    "canvas": "../@napi-rs/canvas"
+  }
 }

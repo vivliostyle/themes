@@ -20,6 +20,8 @@ theme-gutenberg also provides some extra theme files derived from the basic them
 
 #### [alice.css](alice.css)
 
+![Screenshot of theme-gutenberg example (alice.css)](../../../docs/assets/captures/theme-gutenberg-alice.webp)
+
 ```js
 module.exports = {
   theme: {
@@ -31,6 +33,8 @@ module.exports = {
 
 #### [fang.css](fang.css)
 
+![Screenshot of theme-gutenberg example (fang.css)](../../../docs/assets/captures/theme-gutenberg-fang.webp)
+
 ```js
 module.exports = {
   theme: {
@@ -41,6 +45,8 @@ module.exports = {
 ```
 
 #### [sherlock.css](sherlock.css)
+
+![Screenshot of theme-gutenberg example (sherlock.css)](../../../docs/assets/captures/theme-gutenberg-sherlock.webp)
 
 ```js
 module.exports = {

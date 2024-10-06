@@ -6,6 +6,8 @@
 
 Base theme and CSS toolkit for Vivliostyle themes
 
+![Screenshot of theme-base example](../../../docs/assets/captures/theme-base.webp)
+
 ## Install
 
 ```bash

@@ -6,6 +6,8 @@
 
 An academic theme for Vivliostyle.
 
+![Screenshot of theme-academic example](../../../docs/assets/captures/theme-academic.webp)
+
 ## Use
 
 In `vivliostyle.config.js`:
