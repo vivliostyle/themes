@@ -18,8 +18,11 @@ module.exports = {
     'example/p-colophon.md',
   ],
   cover: 'example/assets/cover.jpg',
-  // toc: true,
-  // tocTitle: '目次',
+  // toc: {
+  //   htmlPath: 'example/toc.html',
+  //   title: '目次',
+  //   sectionDepth: 2,
+  // },
   workspaceDir: '.vivliostyle',
   output: [
     'book.pdf',
