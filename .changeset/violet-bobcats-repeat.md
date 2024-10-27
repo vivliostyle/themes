@@ -1,5 +1,5 @@
 ---
-"@vivliostyle/theme-epub3j": major
+"@vivliostyle/theme-epub3j": minor
 ---
 
 Update EPUB3-Japanese Theme
