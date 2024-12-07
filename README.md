@@ -10,12 +10,12 @@
 - [Create a theme](#create-a-theme)
 - [Official Themes](#official-themes)
   - [Vivliostyle Base Theme](#vivliostyle-base-theme)
-  - [Academic](#academic)
   - [Techbook](#techbook)
-  - [Bunko](#bunko)
+  - [Academic](#academic)
   - [EPUB3 (Japanese)](#epub3-japanese)
-  - [Slide](#slide)
+  - [Bunko](#bunko)
   - [Gutenberg](#gutenberg)
+  - [Slide](#slide)
 - [Tools](#tools)
   - [create-vivliostyle-theme](#create-vivliostyle-theme)
   - [vivliostyle-theme-scripts](#vivliostyle-theme-scripts)
@@ -53,22 +53,6 @@ module.exports = {
 
 > original author: `Vivliostyle <mail@vivliostyle.org>`
 
-### [Academic](packages/@vivliostyle/theme-academic)
-
-Academic theme
-
-[![](https://img.shields.io/npm/v/@vivliostyle/theme-academic.svg)](https://npmjs.com/package/@vivliostyle/theme-academic)
-[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-academic)](https://npmjs.com/package/@vivliostyle/theme-academic)
-![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-academic)
-
-```js
-module.exports = {
-  theme: '@vivliostyle/theme-academic',
-};
-```
-
-> original author: `Vivliostyle <mail@vivliostyle.org>`
-
 ### [Techbook](packages/@vivliostyle/theme-techbook)
 
 Techbook (技術同人誌) theme
@@ -85,17 +69,17 @@ module.exports = {
 
 > original author: `Vivliostyle <mail@vivliostyle.org>`
 
-### [Bunko](packages/@vivliostyle/theme-bunko)
+### [Academic](packages/@vivliostyle/theme-academic)
 
-文庫用のテーマ
+Academic theme
 
-[![](https://img.shields.io/npm/v/@vivliostyle/theme-bunko.svg)](https://npmjs.com/package/@vivliostyle/theme-bunko)
-[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-bunko)](https://npmjs.com/package/@vivliostyle/theme-bunko)
-![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-bunko)
+[![](https://img.shields.io/npm/v/@vivliostyle/theme-academic.svg)](https://npmjs.com/package/@vivliostyle/theme-academic)
+[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-academic)](https://npmjs.com/package/@vivliostyle/theme-academic)
+![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-academic)
 
 ```js
 module.exports = {
-  theme: '@vivliostyle/theme-bunko',
+  theme: '@vivliostyle/theme-academic',
 };
 ```
 
@@ -117,17 +101,17 @@ module.exports = {
 
 > original author: `Vivliostyle <mail@vivliostyle.org>`
 
-### [Slide](packages/@vivliostyle/theme-slide)
+### [Bunko](packages/@vivliostyle/theme-bunko)
 
-Slide theme
+文庫用のテーマ
 
-[![](https://img.shields.io/npm/v/@vivliostyle/theme-slide.svg)](https://npmjs.com/package/@vivliostyle/theme-slide)
-[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-slide)](https://npmjs.com/package/@vivliostyle/theme-slide)
-![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-slide)
+[![](https://img.shields.io/npm/v/@vivliostyle/theme-bunko.svg)](https://npmjs.com/package/@vivliostyle/theme-bunko)
+[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-bunko)](https://npmjs.com/package/@vivliostyle/theme-bunko)
+![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-bunko)
 
 ```js
 module.exports = {
-  theme: '@vivliostyle/theme-slide',
+  theme: '@vivliostyle/theme-bunko',
 };
 ```
 
@@ -144,6 +128,22 @@ Book theme for latin font
 ```js
 module.exports = {
   theme: '@vivliostyle/theme-gutenberg',
+};
+```
+
+> original author: `Vivliostyle <mail@vivliostyle.org>`
+
+### [Slide](packages/@vivliostyle/theme-slide)
+
+Slide theme
+
+[![](https://img.shields.io/npm/v/@vivliostyle/theme-slide.svg)](https://npmjs.com/package/@vivliostyle/theme-slide)
+[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-slide)](https://npmjs.com/package/@vivliostyle/theme-slide)
+![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-slide)
+
+```js
+module.exports = {
+  theme: '@vivliostyle/theme-slide',
 };
 ```
 
