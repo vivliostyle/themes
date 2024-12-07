@@ -7,9 +7,9 @@ A generic theme that is likely to be used by many users will be adopted as the o
 The conditions for adoption as an official theme are as follows:
 
 - The design and primary purpose of the theme must be different from the existing official themes.
-- The theme must meet the [theme specifications](https://vivliostyle.github.io/themes/#/spec).
+- The theme must meet the [theme specifications](./spec.md).
 - Sign the Contributor License Agreement.
-- Comply with the [Code of Conduct](https://github.com/vivliostyle/themes/blob/master/CODE_OF_CONDUCT.md).
+- Comply with the [Code of Conduct](../CODE_OF_CONDUCT.md).
 
 ## How to Adopt
 

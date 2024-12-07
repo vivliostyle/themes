@@ -29,9 +29,9 @@
 
 ## Create a theme
 
-- [Theme Spec](https://vivliostyle.github.io/themes/#/spec)
-- [Contribution Guide](https://github.com/vivliostyle/themes/blob/master/CONTRIBUTING.md)
-- [Donate your theme⚡️](https://github.com/vivliostyle/themes/blob/master/CONTRIBUTING.md#donating-your-theme)
+- [Theme Spec](./docs/spec.md)
+- [Contribution Guide](./CONTRIBUTING.md)
+- [Donate your theme⚡️](./CONTRIBUTING.md#donating-your-theme)
 
 <!-- START top -->
 
