@@ -6,6 +6,8 @@
 
 A slide theme for Vivliostyle.
 
+![Screenshot of theme-slide example](../../../docs/assets/captures/theme-slide.webp)
+
 ## Use
 
 In `vivliostyle.config.js`:

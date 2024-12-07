@@ -8,6 +8,8 @@ A techbook (技術同人誌) theme for Vivliostyle.
 
 Source: https://github.com/akabekobeko/env-create-book/tree/master/src/scss
 
+![Screenshot of theme-techbook example](../../../docs/assets/captures/theme-techbook.webp)
+
 ## Use
 
 In `vivliostyle.config.js`:

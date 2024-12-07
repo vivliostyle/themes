@@ -7,9 +7,9 @@
 公式 Theme として採用する条件は以下の通りです。
 
 - Theme のデザインと主な用途が、既存の公式 Theme と異なっていること
-- [Theme の仕様](https://vivliostyle.github.io/themes/#/ja/spec)を満たしていること
+- [Theme の仕様](./spec.md)を満たしていること
 - Contributor License Agreement に署名すること
-- [Code of Conduct](https://github.com/vivliostyle/themes/blob/master/CODE_OF_CONDUCT.md) に従うこと
+- [Code of Conduct](../../CODE_OF_CONDUCT.md) に従うこと
 
 ## 採用方法
 
