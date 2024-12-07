@@ -1,5 +1,16 @@
 # @vivliostyle/theme-academic
 
+## 2.0.0
+
+### Major Changes
+
+- [`0de1a1f`](https://github.com/vivliostyle/themes/commit/0de1a1fd702250a54c03831acd4050e45e0416ea) Thanks [@spring-raining](https://github.com/spring-raining)! - Update @vivliostyle/theme-base to v2.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`22b8286`](https://github.com/vivliostyle/themes/commit/22b8286ea5b28532a1cacd4a49a4aff2a886e9ee), [`3d61446`](https://github.com/vivliostyle/themes/commit/3d614466d159744f05beed15f9164c036c841934), [`fc5f428`](https://github.com/vivliostyle/themes/commit/fc5f428477a74e52614e9201148df2046ddc8d8b), [`18ed51a`](https://github.com/vivliostyle/themes/commit/18ed51aea1248c440d1d77b2fab46450844dbbfd), [`2c59a27`](https://github.com/vivliostyle/themes/commit/2c59a27b14b3f7c721ba1f4a9bf78e3f1fea4e10), [`f7ff164`](https://github.com/vivliostyle/themes/commit/f7ff164f1df5c077c12a644c0b591631cafc4f41)]:
+  - @vivliostyle/theme-base@2.0.0
+
 ## 1.0.1
 
 ### Patch Changes

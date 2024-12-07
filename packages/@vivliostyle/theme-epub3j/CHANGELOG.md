@@ -1,5 +1,14 @@
 # @vivliostyle/theme-epub3j
 
+## 1.1.0
+
+### Minor Changes
+
+- [#136](https://github.com/vivliostyle/themes/pull/136) [`e0edca3`](https://github.com/vivliostyle/themes/commit/e0edca37e41919d874a26808537fe2aa14538e57) Thanks [@MurakamiShinyu](https://github.com/MurakamiShinyu)! - Update EPUB3-Japanese Theme
+
+  - EPUB TOC requires ordered list
+  - text-spacing-trim and hanging-punctuation setting
+
 ## 1.0.1
 
 ### Patch Changes
