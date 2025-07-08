@@ -67,6 +67,7 @@
    * NG: :root { counter-reset: foo bar; }
    */
   --vs-document-root-counter-reset: ;
+  --vs-document-first-page-counter-reset: ;
   --vs-first-page-counter-reset: ;
 
   /**
