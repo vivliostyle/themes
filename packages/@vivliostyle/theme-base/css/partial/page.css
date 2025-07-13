@@ -450,6 +450,7 @@ body:has([role='doc-cover']) {
 }
 
 @page :nth(1) {
+  counter-reset: var(--vs-document-first-page-counter-reset,);
   counter-increment: var(--vs-page--doc-counter-increment, vs-counter-doc)
     var(--vs-document-first-page-counter-increment,);
 }
