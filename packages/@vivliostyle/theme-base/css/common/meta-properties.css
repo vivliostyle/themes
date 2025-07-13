@@ -61,33 +61,22 @@
 }
 
 /**
- * Counter resets
- * It is used for resetting CSS counters on a root element or a first page
- * Caution: Don't set counter-reset directly otherwise all other counters will be ignored.
- * OK: :root { --vs-document-root-counter-reset: foo bar; }
- * NG: :root { counter-reset: foo bar; }
+ *  Counter resetting/incrementing values
+ *  It is used for resetting/incrementing CSS counters on a root element or a first page
+ *  Caution: Don't set value directly otherwise all other counters will be ignored.
+ *  OK: :root { --vs-document-root-counter-reset: foo bar; }
+ *  NG: :root { counter-reset: foo bar; }
+ *
+ *  :root {
+ *    --vs-document-root-counter-reset: ;
+ *  }
+ *  @page :nth(1) {
+ *    --vs-document-first-page-counter-reset: ;
+ *  }
+ *  @page :first {
+ *    --vs-first-page-counter-reset: ;
+ *  }
+ *  @page :nth(1) {
+ *    --vs-document-first-page-counter-increment: ;
+ *  }
  */
-:root {
-  --vs-document-root-counter-reset: var(--vs-document-root-counter-reset,);
-}
-@page :nth(1) {
-  --vs-document-first-page-counter-reset: var(
-    --vs-document-first-page-counter-reset,
-  );
-}
-@page :first {
-  --vs-first-page-counter-reset: var(--vs-first-page-counter-reset,);
-}
-
-/**
- * Counter increments
- * It is used for incrementing CSS counters on a first page of a document
- * Caution: Don't set counter-reset directly otherwise all other counters will be ignored.
- * OK: :root { --vs-document-first-page-counter-increment: foo bar; }
- * NG: @page :nth(1) { counter-increment: foo bar; }
- */
-@page :nth(1) {
-  --vs-document-first-page-counter-increment: var(
-    --vs-document-first-page-counter-increment,
-  );
-}
