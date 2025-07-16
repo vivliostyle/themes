@@ -1,5 +1,14 @@
 # @vivliostyle/theme-gutenberg
 
+## 2.0.1
+
+### Patch Changes
+
+- [#143](https://github.com/vivliostyle/themes/pull/143) [`fe266b3`](https://github.com/vivliostyle/themes/commit/fe266b3bf4e3cb53a684fec3dd9d9acdb7894bc5) Thanks [@spring-raining](https://github.com/spring-raining)! - Use exact version of the base theme
+
+- Updated dependencies [[`b266db7`](https://github.com/vivliostyle/themes/commit/b266db7f306d1eba76b80772cb02fe1af70e543a)]:
+  - @vivliostyle/theme-base@2.1.0
+
 ## 2.0.0
 
 ### Major Changes

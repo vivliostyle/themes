@@ -1,5 +1,11 @@
 # @vivliostyle/theme-base
 
+## 2.1.0
+
+### Minor Changes
+
+- [`b266db7`](https://github.com/vivliostyle/themes/commit/b266db7f306d1eba76b80772cb02fe1af70e543a) Thanks [@spring-raining](https://github.com/spring-raining)! - Support --vs-document-first-page-counter-reset variable
+
 ## 2.0.0
 
 ### Major Changes
