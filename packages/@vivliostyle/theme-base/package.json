@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-base",
   "description": "Base theme and CSS toolkit for Vivliostyle themes",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "author": "Vivliostyle <mail@vivliostyle.org>",
   "main": "theme-all.css",
   "scripts": {
