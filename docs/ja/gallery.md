@@ -4,7 +4,7 @@ npm packageとして公開されているVivliostyle Themesのギャラリーで
 
 ## 公式のVivliostyle Themes
 
-現在、5つの公式のテーマがあります。
+現在、6つの公式のテーマがあります。
 
 ### [@vivliostyle/theme-bunko](https://www.npmjs.com/package/@vivliostyle/theme-bunko)
 
@@ -55,6 +55,14 @@ npm packageとして公開されているVivliostyle Themesのギャラリーで
 #### sherlock.css
 
 ![theme-gutenbergのサンプル画像。原稿は「The Adventures of Sherlock Holmes」。](../assets/captures/theme-gutenberg-sherlock.webp)
+
+### [@vivliostyle/theme-epub3j](https://www.npmjs.com/package/@vivliostyle/theme-epub3j)
+
+[電書協EPUB3制作ガイド](http://ebpaj.jp/counsel/guide)準拠のEPUBを作るためのテーマです。日本語縦書きのEPUB出版物に適しています。
+
+- [README](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-epub3j#readme)
+
+![theme-epub3jのサンプル画像。](../assets/captures/theme-epub3j.webp)
 
 ## 非公式のVivliostyle Themes
 

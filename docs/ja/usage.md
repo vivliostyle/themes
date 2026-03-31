@@ -100,6 +100,7 @@ module.exports = {
 | [@vivliostyle/theme-techbook](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-techbook) | 技術同人誌 | 余白調整、目次、ソースコードハイライト対応 |
 | [@vivliostyle/theme-academic](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-academic) | レポート・学術論文 | 章・節の自動採番、フレーム要素（`.frame`）対応 |
 | [@vivliostyle/theme-gutenberg](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-gutenberg) | 英文書籍 | 3種のCSSバリエーション（`alice.css`, `fang.css`, `sherlock.css`） |
+| [@vivliostyle/theme-epub3j](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-epub3j) | 日本語EPUB3（電書協ガイド準拠） | 電書協EPUB3制作ガイド準拠のスタイル |
 | [@vivliostyle/theme-base](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-base) | ベーステーマ / CSSツールキット | 他テーマの基盤、モジュール単位で `@import` 可能 |
 
 各テーマの詳細は [Vivliostyle Themesギャラリー](./gallery.md) を参照してください。
@@ -142,11 +143,11 @@ module.exports = {
 CSSでの個別インポート例:
 
 ```css
-@import url(@vivliostyle/theme-base/css/common/meta-properties.css);
-@import url(@vivliostyle/theme-base/css/common/reset.css);
-@import url(@vivliostyle/theme-base/css/common/basic.css);
-@import url(@vivliostyle/theme-base/css/partial/toc.css);
-@import url(@vivliostyle/theme-base/css/partial/footnote.css);
+@import url("../@vivliostyle/theme-base/css/common/meta-properties.css");
+@import url("../@vivliostyle/theme-base/css/common/reset.css");
+@import url("../@vivliostyle/theme-base/css/common/basic.css");
+@import url("../@vivliostyle/theme-base/css/partial/toc.css");
+@import url("../@vivliostyle/theme-base/css/partial/footnote.css");
 ```
 
 各モジュールのCSS変数の詳細は、[theme-baseのREADME](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-base#available-modules-and-css-variables) を参照してください。

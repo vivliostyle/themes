@@ -4,7 +4,7 @@ This is a gallery of Vivliostyle Themes released as npm packages. Newly released
 
 ## Official Vivliostyle Themes
 
-Currently, there are five official themes.
+Currently, there are six official themes.
 
 ### [@vivliostyle/theme-bunko](https://www.npmjs.com/package/@vivliostyle/theme-bunko)
 
@@ -55,6 +55,14 @@ This is suitable for horizontal novels in English. In addition to the default `t
 #### sherlock.css
 
 ![Sample image from theme-gutenberg. The manuscript is 'The Adventures of Sherlock Holmes'.](./assets/captures/theme-gutenberg-sherlock.webp)
+
+### [@vivliostyle/theme-epub3j](https://www.npmjs.com/package/@vivliostyle/theme-epub3j)
+
+This is a theme for creating EPUB compatible with the [EBPAJ EPUB 3 File Creation Guide](http://ebpaj.jp/counsel/guide). Suitable for Japanese vertical text EPUB publications.
+
+- [README](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-epub3j#readme)
+
+![Screenshot of theme-epub3j example.](./assets/captures/theme-epub3j.webp)
 
 ## Unofficial Vivliostyle Themes
 

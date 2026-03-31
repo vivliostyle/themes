@@ -117,8 +117,8 @@ Available modules:
 | partial | `toc.css` — Table of contents | `--vs-toc--` |
 | partial | `utility-classes.css` — Utility classes | — |
 | lib | `prism/base.css` — Code highlighting base | `--vs-prism--` |
-| lib | `prism/theme-prism.css` — Prism default theme | — |
-| lib | `prism/theme-okaidia.css` — Okaidia theme | — |
+| lib | `prism/theme-prism.css` — Prism default theme | `--vs-prism--` |
+| lib | `prism/theme-okaidia.css` — Okaidia theme | `--vs-prism--` |
 
 For details, see the [theme-base README](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-base#available-modules-and-css-variables).
 

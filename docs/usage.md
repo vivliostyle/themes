@@ -100,6 +100,7 @@ Refer to each theme's README for a complete list of available CSS variables.
 | [@vivliostyle/theme-techbook](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-techbook) | Technical books | Margin adjustment, table of contents, source code highlighting |
 | [@vivliostyle/theme-academic](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-academic) | Reports & academic papers | Automatic chapter/section numbering, frame elements (`.frame`) |
 | [@vivliostyle/theme-gutenberg](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-gutenberg) | English books | 3 CSS variations (`alice.css`, `fang.css`, `sherlock.css`) |
+| [@vivliostyle/theme-epub3j](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-epub3j) | Japanese EPUB 3 publications | EBPAJ EPUB 3 File Creation Guide compatible layout |
 | [@vivliostyle/theme-base](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-base) | Base theme / CSS toolkit | Foundation for other themes, modular `@import` support |
 
 See the [Vivliostyle Themes Gallery](./gallery.md) for more details on each theme.
@@ -142,11 +143,11 @@ module.exports = {
 Example of importing individual modules in CSS:
 
 ```css
-@import url(@vivliostyle/theme-base/css/common/meta-properties.css);
-@import url(@vivliostyle/theme-base/css/common/reset.css);
-@import url(@vivliostyle/theme-base/css/common/basic.css);
-@import url(@vivliostyle/theme-base/css/partial/toc.css);
-@import url(@vivliostyle/theme-base/css/partial/footnote.css);
+@import url("../@vivliostyle/theme-base/css/common/meta-properties.css");
+@import url("../@vivliostyle/theme-base/css/common/reset.css");
+@import url("../@vivliostyle/theme-base/css/common/basic.css");
+@import url("../@vivliostyle/theme-base/css/partial/toc.css");
+@import url("../@vivliostyle/theme-base/css/partial/footnote.css");
 ```
 
 For detailed CSS variables of each module, see the [theme-base README](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-base#available-modules-and-css-variables).
