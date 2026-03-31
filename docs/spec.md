@@ -147,7 +147,7 @@ In Markdown files, you can use [VFM (Vivliostyle Flavored Markdown)](https://viv
 
 ## theme.css
 
-Include the stylesheet that defines the theme's styles. You can optionally use extended stylesheets like SCSS to create complex themes, but ensure to include the compiled CSS result in the actual npm package.
+Include the stylesheet that defines the theme's styles. Using CSS custom properties (CSS variables) is recommended so that users can flexibly customize the theme's styles.
 
 A theme can include multiple stylesheets. For example, besides the default `theme.css`, you can provide stylesheets for specific purposes as shown below:
 
