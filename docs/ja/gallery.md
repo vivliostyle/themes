@@ -8,31 +8,41 @@ npm package として公開されている Vivliostyle Themes のギャラリー
 
 ### [@vivliostyle/theme-bunko](https://www.npmjs.com/package/@vivliostyle/theme-bunko)
 
-日本語の縦書き小説などに向いています。ルビ、縦中横にも対応しています。
+日本語の縦書き小説などに向いています。ルビ、縦中横にも対応しています。CSS 変数で行数・文字数、ページヘッダ等をカスタマイズ可能です。
+
+- [README（CSS 変数一覧）](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-bunko#readme)
 
 ![theme-bunkoのサンプル画像。原稿は「銀河鉄道の夜」。](../assets/captures/theme-bunko.webp)
 
 ### [@vivliostyle/theme-slide](https://www.npmjs.com/package/@vivliostyle/theme-slide)
 
-スライド資料などに向いています。表紙ページと一般ページでスタイルが変わります。
+スライド資料などに向いています。表紙ページと一般ページでスタイルが変わります。CSS 変数で配色、レイアウト、カバーページのスタイル等をカスタマイズ可能です。
+
+- [README（CSS 変数一覧）](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-slide#readme)
 
 ![theme-slideのサンプル画像。左は表紙ページで背景が青く、右は一般ページで背景が白い。](../assets/captures/theme-slide.webp)
 
 ### [@vivliostyle/theme-techbook](https://www.npmjs.com/package/@vivliostyle/theme-techbook)
 
-印刷を意識した技術書（小口・ノドの余白調整など）。ソースコードや目次にも対応しています。
+印刷を意識した技術書（小口・ノドの余白調整など）。ソースコードや目次にも対応しています。CSS 変数で配色、ページヘッダ・フッタ、画像解像度等をカスタマイズ可能です。
+
+- [README（CSS 変数一覧）](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-techbook#readme)
 
 ![theme-techbookのサンプル画像。テキストのほか、表、ソースコードが載っている。](../assets/captures/theme-techbook.webp)
 
 ### [@vivliostyle/theme-academic](https://www.npmjs.com/package/@vivliostyle/theme-academic)
 
-学生が書くレポートなどに向いています。自動で章・節番号がつきます。
+学生が書くレポートなどに向いています。自動で章・節番号がつきます。CSS 変数で図のサイズやフレーム要素のスタイルをカスタマイズ可能です。
+
+- [README（CSS 変数一覧）](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-academic#readme)
 
 ![theme-academicのサンプル画像。テキストのほか、図、表が載っている。](../assets/captures/theme-academic.webp)
 
 ### [@vivliostyle/theme-gutenberg](https://www.npmjs.com/package/@vivliostyle/theme-gutenberg)
 
-英語の横書き小説などに向いています。
+英語の横書き小説などに向いています。デフォルトの `theme.css` のほかに、3 種の CSS バリエーション（`alice.css`, `fang.css`, `sherlock.css`）があります。
+
+- [README](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-gutenberg#readme)
 
 #### alice.css
 

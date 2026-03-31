@@ -4,6 +4,8 @@
 
 Vivliostyle Theme は、Vivliostyle で出版物を作る際に使うスタイルテーマです。Vivliostyle Themes を使うことで簡単に出版物のスタイルを変更することができます。
 
+- [テーマの使い方](./usage.md)
+- [テーマの開発](./development.md)
 - [Vivliostyle Theme の仕様](./spec.md)
 
 - ### 運用ガイドライン
