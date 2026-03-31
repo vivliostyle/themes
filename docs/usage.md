@@ -93,15 +93,47 @@ Refer to each theme's README for a complete list of available CSS variables.
 
 ## Official Themes
 
-| Theme | Use Case | Features |
-|---|---|---|
-| [@vivliostyle/theme-bunko](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-bunko) | Japanese vertical novels (bunko) | Ruby and horizontal-in-vertical support, configurable lines/characters per page |
-| [@vivliostyle/theme-slide](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-slide) | Slide presentations | Cover page (`.cover`), full-page image support |
-| [@vivliostyle/theme-techbook](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-techbook) | Technical books | Margin adjustment, table of contents, source code highlighting |
-| [@vivliostyle/theme-academic](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-academic) | Reports & academic papers | Automatic chapter/section numbering, frame elements (`.frame`) |
-| [@vivliostyle/theme-gutenberg](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-gutenberg) | English books | 3 CSS variations (`alice.css`, `fang.css`, `sherlock.css`) |
-| [@vivliostyle/theme-epub3j](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-epub3j) | Japanese EPUB 3 publications | EBPAJ EPUB 3 File Creation Guide compatible layout |
-| [@vivliostyle/theme-base](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-base) | Base theme / CSS toolkit | Foundation for other themes, modular `@import` support |
+### [@vivliostyle/theme-bunko](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-bunko)
+
+Suitable for Japanese vertical novels (bunko). Supports ruby and horizontal-in-vertical text. Configurable lines/characters per page.
+
+![Theme-bunko sample image. The manuscript is 'Night on the Galactic Railroad'.](./assets/captures/theme-bunko.webp)
+
+### [@vivliostyle/theme-slide](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-slide)
+
+Suitable for slide presentations. Supports cover page (`.cover`) and full-page image layouts.
+
+![Theme-slide sample image. On the left is the cover page with a blue background, and on the right is the general page with a white background.](./assets/captures/theme-slide.webp)
+
+### [@vivliostyle/theme-techbook](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-techbook)
+
+Suitable for technical books. Supports margin adjustment, table of contents, and source code highlighting.
+
+![Sample images from theme-techbook. In addition to text, it has a table and source code.](./assets/captures/theme-techbook.webp)
+
+### [@vivliostyle/theme-academic](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-academic)
+
+Suitable for reports and academic papers. Automatic chapter/section numbering and frame elements (`.frame`) are supported.
+
+![Sample images from theme-academic. In addition to text, it contains diagrams and tables.](./assets/captures/theme-academic.webp)
+
+### [@vivliostyle/theme-gutenberg](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-gutenberg)
+
+Suitable for English books. Three CSS variations available: `alice.css`, `fang.css`, `sherlock.css`.
+
+![Sample image from theme-gutenberg. The manuscript is 'Alice's Adventures in Wonderland'.](./assets/captures/theme-gutenberg-alice.webp)
+
+### [@vivliostyle/theme-epub3j](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-epub3j)
+
+Suitable for Japanese EPUB 3 publications. Compatible with the EBPAJ EPUB 3 File Creation Guide.
+
+![Screenshot of theme-epub3j example.](./assets/captures/theme-epub3j.webp)
+
+### [@vivliostyle/theme-base](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-base)
+
+The CSS toolkit that serves as the foundation for other themes. Individual modules can be `@import`ed as needed.
+
+![Sample image from theme-base.](./assets/captures/theme-base.webp)
 
 See the [Vivliostyle Themes Gallery](./gallery.md) for more details on each theme.
 
