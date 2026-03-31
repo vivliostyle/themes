@@ -1,10 +1,10 @@
 # テーマの使い方
 
-Vivliostyle Theme は、Vivliostyle で出版物を作る際に使うスタイルテーマです。npm パッケージとして配布されており、`vivliostyle.config.js` で指定するだけで出版物のスタイルを適用できます。
+Vivliostyle Themeは、Vivliostyleで出版物を作る際に使うスタイルテーマです。npmパッケージとして配布されており、`vivliostyle.config.js` で指定するだけで出版物のスタイルを適用できます。
 
 ## テーマのインストール
 
-使いたいテーマを npm でインストールします。
+使いたいテーマをnpmでインストールします。
 
 ```bash
 npm install @vivliostyle/theme-techbook
@@ -22,9 +22,9 @@ module.exports = {
 };
 ```
 
-### 特定の CSS ファイルを指定する
+### 特定のCSSファイルを指定する
 
-テーマによっては複数の CSS ファイルを提供しています。デフォルト以外の CSS ファイルを使う場合は、`specifier` と `import` を指定します。
+テーマによっては複数のCSSファイルを提供しています。デフォルト以外のCSSファイルを使う場合は、`specifier` と `import` を指定します。
 
 ```js
 module.exports = {
@@ -51,22 +51,22 @@ module.exports = {
 };
 ```
 
-## CSS 変数によるカスタマイズ
+## CSS変数によるカスタマイズ
 
-各テーマは CSS カスタムプロパティ（CSS 変数）で設定値を公開しています。カスタム CSS ファイルで変数を上書きすることで、テーマのスタイルを調整できます。
+各テーマはCSSカスタムプロパティ（CSS変数）で設定値を公開しています。カスタムCSSファイルで変数を上書きすることで、テーマのスタイルを調整できます。
 
-### CSS 変数の命名規則
+### CSS変数の命名規則
 
 | プレフィックス | 用途 | 例 |
 |---|---|---|
 | `--vs-` | ドキュメント全体に影響するメタプロパティ | `--vs-font-family`, `--vs-font-size` |
-| `--vs--` | 基本 HTML タグのスタイル | `--vs--heading-line-height`, `--vs--h1-font-size` |
+| `--vs--` | 基本HTMLタグのスタイル | `--vs--heading-line-height`, `--vs--h1-font-size` |
 | `--vs-{module}--` | モジュール固有の設定 | `--vs-crossref--counter-style`, `--vs-toc--marker-margin-inline` |
 | `--vs-theme--` | テーマ固有の設定 | `--vs-theme--anchor-color-body`, `--vs-theme--page-bottom-content` |
 
 ### カスタマイズの例
 
-テーマの CSS 変数を上書きするカスタム CSS を作成し、`vivliostyle.config.js` で追加指定します。
+テーマのCSS変数を上書きするカスタムCSSを作成し、`vivliostyle.config.js` で追加指定します。
 
 **custom.css:**
 
@@ -89,7 +89,7 @@ module.exports = {
 };
 ```
 
-各テーマで利用可能な CSS 変数の一覧は、テーマごとの README を参照してください。
+各テーマで利用可能なCSS変数の一覧は、テーマごとのREADMEを参照してください。
 
 ## 公式テーマ一覧
 
@@ -99,12 +99,12 @@ module.exports = {
 | [@vivliostyle/theme-slide](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-slide) | スライドプレゼンテーション | カバーページ（`.cover`）、全面画像ページ対応 |
 | [@vivliostyle/theme-techbook](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-techbook) | 技術同人誌 | 余白調整、目次、ソースコードハイライト対応 |
 | [@vivliostyle/theme-academic](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-academic) | レポート・学術論文 | 章・節の自動採番、フレーム要素（`.frame`）対応 |
-| [@vivliostyle/theme-gutenberg](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-gutenberg) | 英文書籍 | 3 種の CSS バリエーション（`alice.css`, `fang.css`, `sherlock.css`） |
-| [@vivliostyle/theme-base](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-base) | ベーステーマ / CSS ツールキット | 他テーマの基盤、モジュール単位で `@import` 可能 |
+| [@vivliostyle/theme-gutenberg](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-gutenberg) | 英文書籍 | 3種のCSSバリエーション（`alice.css`, `fang.css`, `sherlock.css`） |
+| [@vivliostyle/theme-base](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-base) | ベーステーマ / CSSツールキット | 他テーマの基盤、モジュール単位で `@import` 可能 |
 
-各テーマの詳細は [Vivliostyle Themes ギャラリー](./gallery.md) を参照してください。
+各テーマの詳細は [Vivliostyle Themesギャラリー](./gallery.md) を参照してください。
 
-## theme-base を直接使う
+## theme-baseを直接使う
 
 [@vivliostyle/theme-base](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-base) は、他のテーマの基盤となるベーステーマです。独自テーマを構築する際のツールキットとしても利用できます。
 
@@ -113,7 +113,7 @@ module.exports = {
 | プリセット | 内容 |
 |---|---|
 | `theme-all.css` | 全モジュールを含む（相互参照、脚注、ページレイアウト、目次等） |
-| `theme-basic.css` | 基本モジュールのみ（CSS リセット、基本スタイル） |
+| `theme-basic.css` | 基本モジュールのみ（CSSリセット、基本スタイル） |
 
 ```js
 // theme-all.css を使用
@@ -127,7 +127,7 @@ module.exports = {
 
 ### 利用可能なモジュール
 
-| モジュール | theme-all.css | theme-basic.css | CSS 変数プレフィックス |
+| モジュール | theme-all.css | theme-basic.css | CSS変数プレフィックス |
 |---|:---:|:---:|---|
 | Basic（基本スタイル） | ✅ | ✅ | `--vs-`, `--vs--` |
 | Cross-reference（相互参照） | ✅ | - | `--vs-crossref--` |
@@ -139,7 +139,7 @@ module.exports = {
 | Utility classes | ✅ | - | — |
 | Prism（コードハイライト） | - | - | `--vs-prism--` |
 
-CSS での個別インポート例:
+CSSでの個別インポート例:
 
 ```css
 @import url(@vivliostyle/theme-base/css/common/meta-properties.css);
@@ -149,4 +149,4 @@ CSS での個別インポート例:
 @import url(@vivliostyle/theme-base/css/partial/footnote.css);
 ```
 
-各モジュールの CSS 変数の詳細は、[theme-base の README](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-base#available-modules-and-css-variables) を参照してください。
+各モジュールのCSS変数の詳細は、[theme-baseのREADME](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-base#available-modules-and-css-variables) を参照してください。
