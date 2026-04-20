@@ -1,12 +1,14 @@
 # Vivliostyle Themes
 
-![Vivliostyle Themes のロゴ](../assets/themes-logo.jpg)
+![Vivliostyle Themesのロゴ](../assets/themes-logo.jpg)
 
-Vivliostyle Theme は、Vivliostyle で出版物を作る際に使うスタイルテーマです。Vivliostyle Themes を使うことで簡単に出版物のスタイルを変更することができます。
+Vivliostyle Themeは、Vivliostyleで出版物を作る際に使うスタイルテーマです。Vivliostyle Themesを使うことで簡単に出版物のスタイルを変更することができます。
 
-- [Vivliostyle Theme の仕様](./spec.md)
+- [テーマの使い方](./usage.md)
+- [テーマの開発](./development.md)
+- [Vivliostyle Themeの仕様](./spec.md)
 
 - ### 運用ガイドライン
 
-  - [公式 Theme の採用](./official.md)
-  - [Vivliostyle Themes ギャラリー](./gallery.md)
+  - [公式Themeの採用](./official.md)
+  - [Vivliostyle Themesギャラリー](./gallery.md)
