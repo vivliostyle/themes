@@ -9,11 +9,15 @@
     "build:themes": "pnpm --filter './packages/@vivliostyle/*' run build",
     "bump": "pnpm run top && pnpm exec changeset version",
     "capture-pdf": "node scripts/capture-pdf.mts",
-    "lint": "pnpm run --parallel \"/^lint:.*/\"",
-    "lint:theme": "pnpm --filter './packages/@vivliostyle/*' run validate",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "prepare": "husky",
     "test": "pnpm -r run test",
     "top": "node scripts/top.mts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "validate": "pnpm --filter './packages/@vivliostyle/*' run validate"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",
@@ -21,22 +25,20 @@
     "@napi-rs/canvas": "^0.1.56",
     "@types/node": "^24.0.0",
     "@vivliostyle/cli": "11.1.0",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.11",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.2.0",
+    "oxfmt": "0.61.0",
+    "oxlint": "1.76.0",
     "pdfjs-dist": "4.6.82",
     "pnpm": "11.17.0",
-    "prettier": "^3.3.3",
-    "pretty-quick": "^4.0.0",
     "typescript": "^5.3.3",
     "vivliostyle-theme-scripts": "workspace:*"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && pretty-quick --staged"
-    }
-  },
   "lint-staged": {
-    "*": "prettier --write --ignore-unknown"
+    "*": [
+      "oxlint --fix --no-error-on-unmatched-pattern",
+      "oxfmt --no-error-on-unmatched-pattern"
+    ]
   },
   "repository": "git@github.com:vivliostyle/themes.git",
   "license": "Apache-2.0",

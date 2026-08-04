@@ -25,7 +25,7 @@ async function preview(argv: any, input: string[]) {
   const assetPort = await getPort();
   const assetRoot = path.resolve(__dirname, '../assets');
   const assetPrefix = `http://localhost:${assetPort}`;
-  const assetServer = http
+  http
     .createServer(async function (req, res) {
       res.setHeader('Access-Control-Allow-Origin', '*');
       await serve(req, res, {
@@ -39,7 +39,7 @@ async function preview(argv: any, input: string[]) {
   const viewerPkg = resolvePkg('@vivliostyle/viewer', { cwd: baseDir })!;
   const viewerRoot = join(viewerPkg, 'lib');
   const viewerPrefix = `http://localhost:${viewerPort}`;
-  const viewerServer = http
+  http
     .createServer(async function (req, res) {
       await serve(req, res, {
         public: viewerRoot,
@@ -51,7 +51,7 @@ async function preview(argv: any, input: string[]) {
   const sourcePort = await getPort();
   const sourceRoot = baseDir;
   const sourcePrefix = `http://localhost:${sourcePort}`;
-  const sourceServer = http
+  http
     .createServer(async function (req, res) {
       res.setHeader('Access-Control-Allow-Origin', '*');
       res.setHeader('Cache-Control', 'no-store');

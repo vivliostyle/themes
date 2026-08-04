@@ -46,7 +46,7 @@ export function validatePackage(packagePath: string): ValidationResult[] {
     }
 
     return result;
-  } catch (err) {
+  } catch {
     return [{ type: 'error', message: "package.json doesn't exist." }];
   }
 }

@@ -1,0 +1,10 @@
+{
+  "plugins": ["typescript", "unicorn", "import"],
+  "categories": {
+    "correctness": "error"
+  },
+  "ignorePatterns": [
+    "packages/*/lib/**",
+    "packages/create-vivliostyle-theme/templates/**"
+  ]
+}

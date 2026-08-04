@@ -1,0 +1,22 @@
+{
+  "singleQuote": true,
+  "trailingComma": "all",
+  "arrowParens": "always",
+  "printWidth": 80,
+  "embeddedLanguageFormatting": "off",
+  "sortImports": true,
+  "sortPackageJson": true,
+  "overrides": [
+    {
+      "files": ["*.md"],
+      "options": { "printWidth": 320, "proseWrap": "preserve" }
+    }
+  ],
+  "ignorePatterns": [
+    "*.html",
+    "packages/@vivliostyle/theme-epub3j/**/*.css",
+    "packages/@vivliostyle/theme-epub3j/**/*.md",
+    "**/CHANGELOG.md",
+    "pnpm-lock.yaml"
+  ]
+}
