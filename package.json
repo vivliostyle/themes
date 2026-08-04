@@ -20,7 +20,7 @@
     "@changesets/cli": "^2.27.1",
     "@napi-rs/canvas": "^0.1.56",
     "@types/node": "^24.0.0",
-    "@vivliostyle/cli": "8.6.0",
+    "@vivliostyle/cli": "11.1.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "pdfjs-dist": "4.6.82",

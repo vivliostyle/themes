@@ -13,8 +13,8 @@
     "@vivliostyle/theme-base": "latest"
   },
   "devDependencies": {
-    "@vivliostyle/cli": "^7.2.3",
-    "vivliostyle-theme-scripts": "^0.3.5"
+    "@vivliostyle/cli": "^11.1.0",
+    "vivliostyle-theme-scripts": "^0.3.6"
   },
   "peerDependencies": {
     "@vivliostyle/cli": ">=7"
