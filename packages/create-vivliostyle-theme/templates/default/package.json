@@ -1,8 +1,18 @@
 {
   "name": "{{kebab name}}",
-  "description": "{{description}}",
   "version": "0.1.0",
+  "description": "{{description}}",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "license": "{{license}}",
   "author": "{{contact}}",
+  "files": [
+    "*.css",
+    "example",
+    "vivliostyle.config.js"
+  ],
   "main": "theme.css",
   "scripts": {
     "build": "vivliostyle build",
@@ -24,16 +34,6 @@
       "optional": true
     }
   },
-  "files": [
-    "*.css",
-    "example",
-    "vivliostyle.config.js"
-  ],
-  "keywords": [
-    "vivliostyle",
-    "vivliostyle-theme"
-  ],
-  "license": "{{license}}",
   "vivliostyle": {
     "theme": {
       "name": "{{capital name space=true}}",

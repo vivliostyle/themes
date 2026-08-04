@@ -57,12 +57,12 @@ Each theme exposes configuration values as CSS custom properties (CSS variables)
 
 ### CSS Variable Naming Convention
 
-| Prefix | Purpose | Examples |
-|---|---|---|
-| `--vs-` | Meta properties affecting the entire document | `--vs-font-family`, `--vs-font-size` |
-| `--vs--` | Styles for basic HTML tags | `--vs--heading-line-height`, `--vs--h1-font-size` |
-| `--vs-{module}--` | Module-specific settings | `--vs-crossref--counter-style`, `--vs-toc--marker-margin-inline` |
-| `--vs-theme--` | Theme-specific settings | `--vs-theme--anchor-color-body`, `--vs-theme--page-bottom-content` |
+| Prefix            | Purpose                                       | Examples                                                           |
+| ----------------- | --------------------------------------------- | ------------------------------------------------------------------ |
+| `--vs-`           | Meta properties affecting the entire document | `--vs-font-family`, `--vs-font-size`                               |
+| `--vs--`          | Styles for basic HTML tags                    | `--vs--heading-line-height`, `--vs--h1-font-size`                  |
+| `--vs-{module}--` | Module-specific settings                      | `--vs-crossref--counter-style`, `--vs-toc--marker-margin-inline`   |
+| `--vs-theme--`    | Theme-specific settings                       | `--vs-theme--anchor-color-body`, `--vs-theme--page-bottom-content` |
 
 ### Customization Example
 
@@ -143,10 +143,10 @@ See the [Vivliostyle Themes Gallery](./gallery.md) for more details on each them
 
 ### Presets
 
-| Preset | Contents |
-|---|---|
-| `theme-all.css` | All modules (cross-reference, footnotes, page layout, TOC, etc.) |
-| `theme-basic.css` | Basic modules only (CSS reset, basic styling) |
+| Preset            | Contents                                                         |
+| ----------------- | ---------------------------------------------------------------- |
+| `theme-all.css`   | All modules (cross-reference, footnotes, page layout, TOC, etc.) |
+| `theme-basic.css` | Basic modules only (CSS reset, basic styling)                    |
 
 ```js
 // Using theme-all.css
@@ -160,17 +160,17 @@ module.exports = {
 
 ### Available Modules
 
-| Module | theme-all.css | theme-basic.css | CSS Variable Prefix |
-|---|:---:|:---:|---|
-| Basic | ✅ | ✅ | `--vs-`, `--vs--` |
-| Cross-reference | ✅ | - | `--vs-crossref--` |
-| Endnotes | ✅ | - | `--vs-endnote--` |
-| Footnotes | ✅ | - | `--vs-footnote--` |
-| Page layout | ✅ | - | `--vs-page--` |
-| Section references | ✅ | - | `--vs-section--` |
-| Table of Contents | ✅ | - | `--vs-toc--` |
-| Utility classes | ✅ | - | — |
-| Prism (Code highlighting) | - | - | `--vs-prism--` |
+| Module                    | theme-all.css | theme-basic.css | CSS Variable Prefix |
+| ------------------------- | :-----------: | :-------------: | ------------------- |
+| Basic                     |      ✅       |       ✅        | `--vs-`, `--vs--`   |
+| Cross-reference           |      ✅       |        -        | `--vs-crossref--`   |
+| Endnotes                  |      ✅       |        -        | `--vs-endnote--`    |
+| Footnotes                 |      ✅       |        -        | `--vs-footnote--`   |
+| Page layout               |      ✅       |        -        | `--vs-page--`       |
+| Section references        |      ✅       |        -        | `--vs-section--`    |
+| Table of Contents         |      ✅       |        -        | `--vs-toc--`        |
+| Utility classes           |      ✅       |        -        | —                   |
+| Prism (Code highlighting) |       -       |        -        | `--vs-prism--`      |
 
 Example of importing individual modules in CSS:
 

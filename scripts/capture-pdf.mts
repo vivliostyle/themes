@@ -1,6 +1,7 @@
+import * as fs from 'node:fs';
+
 import type { Canvas, SKRSContext2D } from '@napi-rs/canvas';
 import { createCanvas } from '@napi-rs/canvas';
-import * as fs from 'node:fs';
 import * as pdfjs from 'pdfjs-dist/legacy/build/pdf.mjs';
 
 type CanvasFactoryInstance<T = { canvas: Canvas; context: SKRSContext2D }> = {

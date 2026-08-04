@@ -1,8 +1,10 @@
 {
   "name": "themes",
-  "description": "Central source of official themes.",
   "version": "0.0.0",
-  "packageManager": "pnpm@11.17.0",
+  "private": true,
+  "description": "Central source of official themes.",
+  "license": "Apache-2.0",
+  "repository": "git@github.com:vivliostyle/themes.git",
   "scripts": {
     "build": "pnpm run --sequential \"/^build:.*/\"",
     "build:tools": "pnpm --filter './packages/*' run build",
@@ -40,10 +42,8 @@
       "oxfmt --no-error-on-unmatched-pattern"
     ]
   },
-  "repository": "git@github.com:vivliostyle/themes.git",
-  "license": "Apache-2.0",
   "engines": {
     "node": ">=24"
   },
-  "private": true
+  "packageManager": "pnpm@11.17.0"
 }

@@ -1,13 +1,14 @@
+import fs from 'fs';
+import http from 'http';
+import path, { basename, dirname, join, relative, resolve } from 'path';
+
 import { stringify } from '@vivliostyle/vfm';
 import chalk from 'chalk';
 import chokidar from 'chokidar';
-import fs from 'fs';
+import { Command } from 'commander';
 import getPort from 'get-port';
-import http from 'http';
-import path, { basename, dirname, join, relative, resolve } from 'path';
 import resolvePkg from 'resolve-pkg';
 import serve from 'serve-handler';
-import { Command } from 'commander';
 
 async function preview(argv: any, input: string[]) {
   const stylePath = input[0];

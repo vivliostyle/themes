@@ -13,14 +13,14 @@
 
 ## 現状の課題
 
-| # | 課題 | 詳細 |
-|---|------|------|
-| 1 | 使い方ガイドがない | テーマのインストール・適用方法を説明するドキュメントが存在しない |
-| 2 | 作り方ガイドが空 | `docs/ja/development.md` は見出しのみのスタブ。英語版には該当ファイル自体がない |
-| 3 | ツール説明がない | `create-vivliostyle-theme` と `vivliostyle-theme-scripts`（preview/validate）の使い方が docs に未記載 |
-| 4 | theme-base の説明がない | モジュール構成や CSS 変数によるカスタマイズ方法が docs に書かれていない |
-| 5 | ナビゲーションが貧弱 | README.md/index.md のリンク構成が最小限で、新ページへの導線がない |
-| 6 | SCSS 言及が残存 | spec.md（英語・日本語）に「SCSSなどの拡張スタイルシート」への言及があるが、実態は全テーマがプレーン CSS＋CSS 変数ベースに移行済み |
+| #   | 課題                    | 詳細                                                                                                                              |
+| --- | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | 使い方ガイドがない      | テーマのインストール・適用方法を説明するドキュメントが存在しない                                                                  |
+| 2   | 作り方ガイドが空        | `docs/ja/development.md` は見出しのみのスタブ。英語版には該当ファイル自体がない                                                   |
+| 3   | ツール説明がない        | `create-vivliostyle-theme` と `vivliostyle-theme-scripts`（preview/validate）の使い方が docs に未記載                             |
+| 4   | theme-base の説明がない | モジュール構成や CSS 変数によるカスタマイズ方法が docs に書かれていない                                                           |
+| 5   | ナビゲーションが貧弱    | README.md/index.md のリンク構成が最小限で、新ページへの導線がない                                                                 |
+| 6   | SCSS 言及が残存         | spec.md（英語・日本語）に「SCSSなどの拡張スタイルシート」への言及があるが、実態は全テーマがプレーン CSS＋CSS 変数ベースに移行済み |
 
 ---
 
@@ -28,44 +28,44 @@
 
 ### 新規作成（themes リポジトリ）
 
-| ファイル | 内容 |
-|----------|------|
-| `docs/ja/usage.md` | テーマの使い方ガイド（日本語版） |
-| `docs/usage.md` | テーマの使い方ガイド（英語版） |
-| `docs/development.md` | テーマ開発ガイド（英語版） |
+| ファイル              | 内容                             |
+| --------------------- | -------------------------------- |
+| `docs/ja/usage.md`    | テーマの使い方ガイド（日本語版） |
+| `docs/usage.md`       | テーマの使い方ガイド（英語版）   |
+| `docs/development.md` | テーマ開発ガイド（英語版）       |
 
 ### 修正（themes リポジトリ）
 
-| ファイル | 内容 |
-|----------|------|
-| `docs/ja/spec.md` | L148: SCSS 言及を CSS 変数に書き換え |
-| `docs/spec.md` | L150: SCSS 言及を CSS 変数に書き換え |
-| `docs/ja/development.md` | 空スタブを実体化（テーマ開発ガイド・日本語版） |
-| `docs/ja/README.md` | ナビゲーション追加 |
-| `docs/ja/index.md` | ナビゲーション追加（README.md と同内容） |
-| `docs/README.md` | ナビゲーション追加（英語版） |
-| `docs/index.md` | ナビゲーション追加（英語版・README.md と同内容） |
-| `docs/ja/gallery.md` | カスタマイズ情報の追記（任意） |
-| `docs/gallery.md` | カスタマイズ情報の追記（任意） |
+| ファイル                 | 内容                                             |
+| ------------------------ | ------------------------------------------------ |
+| `docs/ja/spec.md`        | L148: SCSS 言及を CSS 変数に書き換え             |
+| `docs/spec.md`           | L150: SCSS 言及を CSS 変数に書き換え             |
+| `docs/ja/development.md` | 空スタブを実体化（テーマ開発ガイド・日本語版）   |
+| `docs/ja/README.md`      | ナビゲーション追加                               |
+| `docs/ja/index.md`       | ナビゲーション追加（README.md と同内容）         |
+| `docs/README.md`         | ナビゲーション追加（英語版）                     |
+| `docs/index.md`          | ナビゲーション追加（英語版・README.md と同内容） |
+| `docs/ja/gallery.md`     | カスタマイズ情報の追記（任意）                   |
+| `docs/gallery.md`        | カスタマイズ情報の追記（任意）                   |
 
 ### 修正（docs2.vivliostyle.org リポジトリ — Phase 4）
 
-| ファイル | 内容 |
-|----------|------|
-| `submodules/themes` | submodule 参照を最新コミットに更新 |
-| `vivliostyle.config-themes-ja.js` | entry に `usage` ページを追加 |
+| ファイル                          | 内容                                          |
+| --------------------------------- | --------------------------------------------- |
+| `submodules/themes`               | submodule 参照を最新コミットに更新            |
+| `vivliostyle.config-themes-ja.js` | entry に `usage` ページを追加                 |
 | `vivliostyle.config-themes-en.js` | entry に `usage` / `development` ページを追加 |
 
 ### 参照元（コンテンツソース）
 
-| ファイル | 参照内容 |
-|----------|----------|
-| `packages/create-vivliostyle-theme/src/cli.ts` | CLI の動作・カテゴリ選択肢 |
-| `packages/create-vivliostyle-theme/templates/default/` | テンプレート構成 |
-| `packages/vivliostyle-theme-scripts/src/cli.ts` | preview / validate コマンド |
-| `packages/vivliostyle-theme-scripts/src/index.ts` | `validatePackage()` のチェック項目 |
-| `packages/@vivliostyle/theme-base/README.md` | theme-base のモジュール説明・CSS 変数 |
-| 各テーマの `README.md` | CSS 変数カスタマイズ例 |
+| ファイル                                               | 参照内容                              |
+| ------------------------------------------------------ | ------------------------------------- |
+| `packages/create-vivliostyle-theme/src/cli.ts`         | CLI の動作・カテゴリ選択肢            |
+| `packages/create-vivliostyle-theme/templates/default/` | テンプレート構成                      |
+| `packages/vivliostyle-theme-scripts/src/cli.ts`        | preview / validate コマンド           |
+| `packages/vivliostyle-theme-scripts/src/index.ts`      | `validatePackage()` のチェック項目    |
+| `packages/@vivliostyle/theme-base/README.md`           | theme-base のモジュール説明・CSS 変数 |
+| 各テーマの `README.md`                                 | CSS 変数カスタマイズ例                |
 
 ---
 
@@ -79,15 +79,19 @@
 ### 変更内容
 
 **日本語版（現在）:**
+
 > テーマのスタイルを定義したスタイルシートを含めてください。複雑なテーマを作成するために SCSS などの拡張スタイルシートを任意で使用することもできますが、実際の npm package には CSS にビルドした結果を含めるようにしてください。
 
 **日本語版（変更後）:**
+
 > テーマのスタイルを定義したスタイルシートを含めてください。CSS カスタムプロパティ（CSS 変数）を活用することで、ユーザーがテーマのスタイルを柔軟にカスタマイズできるようにすることを推奨します。
 
 **英語版（現在）:**
+
 > Include the stylesheet that defines the theme's styles. You can optionally use extended stylesheets like SCSS to create complex themes, but ensure to include the compiled CSS result in the actual npm package.
 
 **英語版（変更後）:**
+
 > Include the stylesheet that defines the theme's styles. Using CSS custom properties (CSS variables) is recommended so that users can flexibly customize the theme's styles.
 
 ### 理由
@@ -294,12 +298,14 @@ Vivliostyle Theme is a style theme used for creating publications with Vivliosty
 ### 4-2. docs2.vivliostyle.org リポジトリ
 
 1. **submodule 参照の更新**:
+
    ```bash
    cd docs2.vivliostyle.org
    git submodule update --remote submodules/themes
    ```
 
 2. **`vivliostyle.config-themes-ja.js`** — entry に usage ページを追加:
+
    ```js
    entry: [
      'dist/ja/themes/index.html',
@@ -312,6 +318,7 @@ Vivliostyle Theme is a style theme used for creating publications with Vivliosty
    ```
 
 3. **`vivliostyle.config-themes-en.js`** — entry に usage / development を追加:
+
    ```js
    entry: [
      'dist/en/themes/index.html',
@@ -349,12 +356,12 @@ Vivliostyle Theme is a style theme used for creating publications with Vivliosty
 
 ## 判断事項メモ
 
-| 判断 | 理由 |
-|------|------|
-| 日本語版を主、英語版も同時整備 | 日本語コミュニティが主要ターゲット |
-| usage.md は新規ファイルとして分離 | spec.md は仕様書であり初心者向けガイドとは性質が異なる |
-| development.md のファイル名を維持 | 既存の日本語スタブをそのまま活用 |
-| spec.md の SCSS 言及は CSS 変数に置換 | SCSS ファイルは全パッケージから完全に除去済み |
+| 判断                                   | 理由                                                            |
+| -------------------------------------- | --------------------------------------------------------------- |
+| 日本語版を主、英語版も同時整備         | 日本語コミュニティが主要ターゲット                              |
+| usage.md は新規ファイルとして分離      | spec.md は仕様書であり初心者向けガイドとは性質が異なる          |
+| development.md のファイル名を維持      | 既存の日本語スタブをそのまま活用                                |
+| spec.md の SCSS 言及は CSS 変数に置換  | SCSS ファイルは全パッケージから完全に除去済み                   |
 | docs2.vivliostyle.org 統合を最終ゴール | submodule 更新 + config 更新 + デプロイまで完了して初めてゴール |
 
 ## 決定事項（旧・未決定事項）

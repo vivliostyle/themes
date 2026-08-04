@@ -1,9 +1,29 @@
 {
   "name": "@vivliostyle/theme-gutenberg",
-  "description": "Book theme for latin font",
   "version": "2.0.1",
+  "description": "Book theme for latin font",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
   "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-gutenberg"
+  },
+  "files": [
+    "*.css",
+    "example",
+    "config",
+    "vivliostyle.config.js"
+  ],
   "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "vivliostyle build",
     "preview": "vivliostyle preview",
@@ -20,21 +40,6 @@
       "optional": true
     }
   },
-  "files": [
-    "*.css",
-    "example",
-    "config",
-    "vivliostyle.config.js"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "homepage": "https://github.com/vivliostyle/themes",
-  "keywords": [
-    "vivliostyle",
-    "vivliostyle-theme"
-  ],
-  "license": "CC0-1.0",
   "vivliostyle": {
     "theme": {
       "name": "Gutenberg",
@@ -43,10 +48,5 @@
       "category": "novel",
       "topics": []
     }
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/vivliostyle/themes.git",
-    "directory": "packages/@vivliostyle/theme-gutenberg"
   }
 }

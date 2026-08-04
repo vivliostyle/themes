@@ -1,4 +1,5 @@
 import { join } from 'path';
+
 import { describe, expect, it } from 'vitest';
 
 import { getAuthor, getTheme, validatePackage } from '../src';

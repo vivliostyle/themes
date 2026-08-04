@@ -12,13 +12,13 @@ npm create vivliostyle-theme <theme-name>
 
 対話形式で以下の項目を入力します。
 
-| 項目 | 説明 |
-|---|---|
-| `description` | テーマの説明 |
-| `author` | 作者名 |
-| `email` | メールアドレス |
-| `license` | ライセンス（MIT、Apache-2.0等） |
-| `category` | テーマの分類（`novel` / `magazine` / `journal` / `report` / `misc`） |
+| 項目          | 説明                                                                 |
+| ------------- | -------------------------------------------------------------------- |
+| `description` | テーマの説明                                                         |
+| `author`      | 作者名                                                               |
+| `email`       | メールアドレス                                                       |
+| `license`     | ライセンス（MIT、Apache-2.0等）                                      |
+| `category`    | テーマの分類（`novel` / `magazine` / `journal` / `report` / `misc`） |
 
 実行後、`vivliostyle-theme-<theme-name>` ディレクトリが生成されます。
 
@@ -37,12 +37,12 @@ vivliostyle-theme-<name>/
 
 各ファイルの役割:
 
-| ファイル | 役割 |
-|---|---|
-| `package.json` | テーマのメタ情報。`vivliostyle.theme` プロパティでテーマ名・作者・メインCSS・カテゴリを定義 |
-| `theme.css` | テーマのスタイル定義本体。theme-baseの `@import` とCSS変数のカスタマイズが初期設定済み |
-| `vivliostyle.config.js` | `vivliostyle preview` でテーマの動作確認に使用。entryに `example/default.md` を指定 |
-| `example/default.md` | テーマ適用例を示すサンプルMarkdown。[VFM](https://vivliostyle.github.io/vfm/#/vfm) 記法に対応 |
+| ファイル                | 役割                                                                                          |
+| ----------------------- | --------------------------------------------------------------------------------------------- |
+| `package.json`          | テーマのメタ情報。`vivliostyle.theme` プロパティでテーマ名・作者・メインCSS・カテゴリを定義   |
+| `theme.css`             | テーマのスタイル定義本体。theme-baseの `@import` とCSS変数のカスタマイズが初期設定済み        |
+| `vivliostyle.config.js` | `vivliostyle preview` でテーマの動作確認に使用。entryに `example/default.md` を指定           |
+| `example/default.md`    | テーマ適用例を示すサンプルMarkdown。[VFM](https://vivliostyle.github.io/vfm/#/vfm) 記法に対応 |
 
 ## 雛形をカスタマイズする
 
@@ -103,22 +103,22 @@ theme-baseは機能ごとにモジュール分割されています。全モジ�
 
 利用可能なモジュール一覧:
 
-| カテゴリ | モジュール | CSS変数プレフィックス |
-|---|---|---|
-| common | `meta-properties.css` — ドキュメント全体のメタプロパティ | `--vs-` |
-| common | `reset.css` — CSSリセット | — |
-| common | `basic.css` — 基本HTMLタグのスタイル | `--vs--` |
-| partial | `crossref.css` — 図表・引用の相互参照 | `--vs-crossref--` |
-| partial | `endnote.css` — 後注 | `--vs-endnote--` |
-| partial | `footnote.css` — 脚注 | `--vs-footnote--` |
-| partial | `footnote-external-link.css` — 外部リンクの脚注化 | `--vs-footnote--` |
-| partial | `page.css` — ページメディア | `--vs-page--` |
-| partial | `section.css` — 見出し番号・節参照 | `--vs-section--` |
-| partial | `toc.css` — 目次 | `--vs-toc--` |
-| partial | `utility-classes.css` — ユーティリティクラス | — |
-| lib | `prism/base.css` — コードハイライト基盤 | `--vs-prism--` |
-| lib | `prism/theme-prism.css` — Prismデフォルトテーマ | `--vs-prism--` |
-| lib | `prism/theme-okaidia.css` — Okaidiaテーマ | `--vs-prism--` |
+| カテゴリ | モジュール                                               | CSS変数プレフィックス |
+| -------- | -------------------------------------------------------- | --------------------- |
+| common   | `meta-properties.css` — ドキュメント全体のメタプロパティ | `--vs-`               |
+| common   | `reset.css` — CSSリセット                                | —                     |
+| common   | `basic.css` — 基本HTMLタグのスタイル                     | `--vs--`              |
+| partial  | `crossref.css` — 図表・引用の相互参照                    | `--vs-crossref--`     |
+| partial  | `endnote.css` — 後注                                     | `--vs-endnote--`      |
+| partial  | `footnote.css` — 脚注                                    | `--vs-footnote--`     |
+| partial  | `footnote-external-link.css` — 外部リンクの脚注化        | `--vs-footnote--`     |
+| partial  | `page.css` — ページメディア                              | `--vs-page--`         |
+| partial  | `section.css` — 見出し番号・節参照                       | `--vs-section--`      |
+| partial  | `toc.css` — 目次                                         | `--vs-toc--`          |
+| partial  | `utility-classes.css` — ユーティリティクラス             | —                     |
+| lib      | `prism/base.css` — コードハイライト基盤                  | `--vs-prism--`        |
+| lib      | `prism/theme-prism.css` — Prismデフォルトテーマ          | `--vs-prism--`        |
+| lib      | `prism/theme-okaidia.css` — Okaidiaテーマ                | `--vs-prism--`        |
 
 詳細は [theme-baseのREADME](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-base#available-modules-and-css-variables) を参照してください。
 
@@ -185,10 +185,10 @@ npm run validate
 
 検証項目:
 
-| チェック | 種別 | 内容 |
-|---|---|---|
+| チェック         | 種別   | 内容                                                                      |
+| ---------------- | ------ | ------------------------------------------------------------------------- |
 | スタイルロケータ | エラー | `vivliostyle.theme.style`、`style`、`main` のいずれかが設定されていること |
-| 作者情報 | 警告 | `vivliostyle.theme.author` または `author` が設定されていること |
+| 作者情報         | 警告   | `vivliostyle.theme.author` または `author` が設定されていること           |
 
 ### プレビュー確認
 
@@ -217,14 +217,14 @@ npm run preview
 }
 ```
 
-| フィールド | 必須 | 説明 |
-|---|---|---|
-| `vivliostyle.theme.style` | ✅ | メインCSSファイルのパス |
-| `vivliostyle.theme.author` | ✅ | テーマの作者名 |
-| `vivliostyle.theme.name` | — | テーマの表示名 |
-| `vivliostyle.theme.category` | — | `novel` / `magazine` / `journal` / `report` / `misc` |
-| `vivliostyle.theme.topics` | — | テーマの用途を示すトピックの配列 |
-| `keywords` | — | `"vivliostyle"` と `"vivliostyle-theme"` を含めることを推奨 |
+| フィールド                   | 必須 | 説明                                                        |
+| ---------------------------- | ---- | ----------------------------------------------------------- |
+| `vivliostyle.theme.style`    | ✅   | メインCSSファイルのパス                                     |
+| `vivliostyle.theme.author`   | ✅   | テーマの作者名                                              |
+| `vivliostyle.theme.name`     | —    | テーマの表示名                                              |
+| `vivliostyle.theme.category` | —    | `novel` / `magazine` / `journal` / `report` / `misc`        |
+| `vivliostyle.theme.topics`   | —    | テーマの用途を示すトピックの配列                            |
+| `keywords`                   | —    | `"vivliostyle"` と `"vivliostyle-theme"` を含めることを推奨 |
 
 詳細な仕様は [Vivliostyle Themeの仕様](./spec.md) を参照してください。
 

@@ -9,6 +9,5 @@ Vivliostyle Theme is a style theme used for creating publications with Vivliosty
 - [Spec of Vivliostyle Theme](./spec.md)
 
 - ### Operational Guidelines
-
   - [Adoption of the Official Theme](./official.md)
   - [Vivliostyle Themes Gallery](./gallery.md)

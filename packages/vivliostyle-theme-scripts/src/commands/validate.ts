@@ -1,6 +1,8 @@
-import { Command } from 'commander';
-import chalk from 'chalk';
 import { join } from 'path';
+
+import chalk from 'chalk';
+import { Command } from 'commander';
+
 import { validatePackage } from '..';
 
 async function validate() {

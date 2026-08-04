@@ -1,9 +1,28 @@
 {
   "name": "@vivliostyle/theme-techbook",
-  "description": "Techbook (技術同人誌) theme",
   "version": "2.0.1",
+  "description": "Techbook (技術同人誌) theme",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
   "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-techbook"
+  },
+  "files": [
+    "*.css",
+    "example",
+    "vivliostyle.config.js"
+  ],
   "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "vivliostyle build",
     "preview": "vivliostyle preview",
@@ -20,25 +39,6 @@
       "optional": true
     }
   },
-  "files": [
-    "*.css",
-    "example",
-    "vivliostyle.config.js"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/vivliostyle/themes.git",
-    "directory": "packages/@vivliostyle/theme-techbook"
-  },
-  "homepage": "https://github.com/vivliostyle/themes",
-  "keywords": [
-    "vivliostyle",
-    "vivliostyle-theme"
-  ],
-  "license": "CC0-1.0",
   "vivliostyle": {
     "theme": {
       "name": "Techbook",

@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
+import { resolve } from 'path';
+
 import chalk from 'chalk';
 import { AfterHookOptions, create } from 'create-create-app';
-import { resolve } from 'path';
 
 const templateRoot = resolve(__dirname, '../templates');
 
