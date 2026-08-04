@@ -35,7 +35,15 @@ jobs:
       - name: Release dry run
         env:
           PUBLISH_BRANCH: ${{ github.ref_name }}
-        run: pnpm publish -r --dry-run --report-summary --publish-branch "$PUBLISH_BRANCH"
+        run: |
+          set +e
+          pnpm publish -r --dry-run --report-summary --publish-branch "$PUBLISH_BRANCH"
+          status=$?
+          # pnpm exits 5 when every version is already on the registry, which is
+          # the normal state until the version PR is merged.
+          if [ "$status" -ne 0 ] && [ "$status" -ne 5 ]; then
+            exit "$status"
+          fi
       - name: Output publish summary
         id: publish-summary
         run: echo "json=$(jq -c . pnpm-publish-summary.json)" >> "$GITHUB_OUTPUT"
