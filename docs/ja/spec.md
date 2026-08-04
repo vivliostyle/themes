@@ -1,23 +1,3 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-- [Vivliostyle Themeの仕様](#vivliostyle-theme-%E3%81%AE%E4%BB%95%E6%A7%98)
-  - [テーマ名](#%E3%83%86%E3%83%BC%E3%83%9E%E5%90%8D)
-  - [テーマに含めるスタイル](#%E3%83%86%E3%83%BC%E3%83%9E%E3%81%AB%E5%90%AB%E3%82%81%E3%82%8B%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB)
-  - [ディレクトリ構造](#%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E6%A7%8B%E9%80%A0)
-  - [package.json](#packagejson)
-    - [`keywords` プロパティ](#keywords-%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3)
-    - [`vivliostyle.theme` プロパティ](#vivliostyletheme-%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3)
-      - [`style` プロパティ](#style-%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3)
-      - [`author` プロパティ](#author-%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3)
-      - [`category` プロパティ](#category-%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3)
-      - [`topics` プロパティ](#topics-%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3)
-  - [example/](#example)
-  - [theme.css](#themecss)
-  - [vivliostyle.config.js](#vivliostyleconfigjs)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 # Vivliostyle Themeの仕様
 
 Vivliostyle Themeをnpm packageとして公開する場合は以下の仕様に従ってください。[create-vivliostyle-theme][] を使うと、この仕様に従ったテーマを簡単に作成することができます。
