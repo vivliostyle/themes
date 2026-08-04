@@ -1,0 +1,27 @@
+packages:
+  - packages/@vivliostyle/*
+  - packages/create-vivliostyle-theme
+  - packages/vivliostyle-theme-scripts
+
+saveExact: true
+ignoreWorkspaceRootCheck: true
+
+# pnpm 11 verifies node_modules before every `pnpm run` and reinstalls when it
+# drifts, which makes the pre-commit hook abort with no TTY.
+verifyDepsBeforeRun: false
+
+minimumReleaseAge: 10080
+minimumReleaseAgeExclude:
+  - '@vivliostyle/*'
+  - pnpm
+
+# pdfjs-dist pulls canvas as an optional dependency and it would be built with
+# node-pre-gyp. scripts/capture-pdf.mts passes its own @napi-rs/canvas factory,
+# so the native build is never needed.
+ignoredOptionalDependencies:
+  - canvas
+
+allowBuilds:
+  core-js: false
+  es5-ext: false
+  husky: false

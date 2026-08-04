@@ -9,10 +9,6 @@
     "preview": "vivliostyle preview",
     "validate": "vivliostyle-theme-scripts validate"
   },
-  "devDependencies": {
-    "@vivliostyle/cli": ">=8",
-    "vivliostyle-theme-scripts": "^0.3.6"
-  },
   "peerDependencies": {
     "@vivliostyle/cli": ">=8"
   },

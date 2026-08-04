@@ -10,11 +10,7 @@
     "validate": "vivliostyle-theme-scripts validate"
   },
   "dependencies": {
-    "@vivliostyle/theme-base": "2.1.0"
-  },
-  "devDependencies": {
-    "@vivliostyle/cli": ">=7",
-    "vivliostyle-theme-scripts": "^0.3.6"
+    "@vivliostyle/theme-base": "workspace:*"
   },
   "peerDependencies": {
     "@vivliostyle/cli": ">=7"
