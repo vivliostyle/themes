@@ -30,6 +30,10 @@
     "config",
     "vivliostyle.config.js"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/vivliostyle/themes",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
