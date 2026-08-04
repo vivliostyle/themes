@@ -1,4 +1,5 @@
-import { Canvas, createCanvas, SKRSContext2D } from '@napi-rs/canvas';
+import type { Canvas, SKRSContext2D } from '@napi-rs/canvas';
+import { createCanvas } from '@napi-rs/canvas';
 import * as fs from 'node:fs';
 import * as pdfjs from 'pdfjs-dist/legacy/build/pdf.mjs';
 

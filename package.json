@@ -8,31 +8,26 @@
     "build:tools": "pnpm --filter './packages/*' run build",
     "build:themes": "pnpm --filter './packages/@vivliostyle/*' run build",
     "bump": "pnpm run top && pnpm exec doctoc README.md && pnpm exec changeset version",
-    "capture-pdf": "node --loader ts-node/esm --no-warnings scripts/capture-pdf.mts",
+    "capture-pdf": "node scripts/capture-pdf.mts",
     "lint": "pnpm run --parallel \"/^lint:.*/\"",
     "lint:theme": "pnpm --filter './packages/@vivliostyle/*' run validate",
     "test": "pnpm -r run test",
-    "top": "node -r ts-node/register scripts/top.ts"
-  },
-  "dependencies": {
-    "node-fetch": "^2.6.0"
+    "top": "node scripts/top.mts",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.27.1",
     "@napi-rs/canvas": "^0.1.56",
     "@types/node": "^24.0.0",
-    "@types/node-fetch": "^2.5.7",
     "@uetchy/doctoc": "^1.5.0",
     "@vivliostyle/cli": "8.6.0",
-    "globby": "^11.0.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
-    "pdfjs-dist": "^4.6.82",
+    "pdfjs-dist": "4.6.82",
     "pnpm": "11.17.0",
     "prettier": "^3.3.3",
     "pretty-quick": "^4.0.0",
-    "ts-node": "^10.9.2",
     "typescript": "^5.3.3",
     "vivliostyle-theme-scripts": "workspace:*"
   },
@@ -50,7 +45,7 @@
   "repository": "git@github.com:vivliostyle/themes.git",
   "license": "Apache-2.0",
   "engines": {
-    "node": ">= 12"
+    "node": ">=24"
   },
   "private": true
 }
