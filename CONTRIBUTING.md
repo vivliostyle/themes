@@ -10,10 +10,11 @@ This repository is a pnpm workspace. Install [pnpm](https://pnpm.io/installation
 
 ```bash
 pnpm install
-pnpm build:tools  # build the TypeScript packages; lint:theme needs them
+pnpm build:tools  # build the TypeScript packages; validate needs them
 pnpm lint
-pnpm fmt:check
+pnpm fmt         # or fmt:check
 pnpm typecheck
+pnpm validate    # check every theme package against the spec
 pnpm test
 ```
 
