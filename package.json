@@ -32,6 +32,7 @@
     "lint-staged": "^17.2.0",
     "oxfmt": "0.61.0",
     "oxlint": "1.76.0",
+    "oxlint-tsgolint": "7.0.2001",
     "pdfjs-dist": "4.6.82",
     "pnpm": "11.17.0",
     "typescript": "^5.3.3",

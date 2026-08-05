@@ -5,4 +5,6 @@ import alice from './config/alice/vivliostyle.config.js';
 import fang from './config/fang/vivliostyle.config.js';
 import sherlock from './config/sherlock/vivliostyle.config.js';
 
-export default defineConfig([alice, fang, sherlock]);
+// defineConfig returns BuildTask | BuildTask[], so flatten before nesting the
+// per-book configs into one array.
+export default defineConfig([alice, fang, sherlock].flat());

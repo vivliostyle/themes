@@ -12,7 +12,8 @@ export default defineConfig({
     'example/p-titlepage.md',
     'example/p-caution.md',
     {
-      path: 'example/p-toc.md', // `toc:` を使う場合は不要
+      // `toc:` を使う場合は不要
+      path: 'example/p-toc.md',
       rel: 'contents',
     },
     'example/p-001.md',

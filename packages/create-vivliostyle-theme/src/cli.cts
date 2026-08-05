@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { resolve } from 'path';
+import { resolve } from 'node:path';
 
 import chalk from 'chalk';
 // create-create-app reads `require.main.filename`, so this entry point stays
@@ -15,13 +15,14 @@ ${chalk.gray('2.')} edit ${chalk.bold.green('theme.css')}
 ${chalk.gray('3.')} publish to npm (${chalk.cyan('$ npm publish')})
 `;
 
-create('create-vivliostyle-theme', {
+void create('create-vivliostyle-theme', {
   templateRoot,
   extra: {
     category: {
       type: 'list',
       describe: 'choose category',
-      choices: ['novel', 'magazine', 'journal', 'report', 'misc'], // sync with DESIGN.md
+      // sync with DESIGN.md
+      choices: ['novel', 'magazine', 'journal', 'report', 'misc'],
     },
   },
   caveat,

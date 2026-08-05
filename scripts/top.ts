@@ -56,15 +56,31 @@ function listDirs(root: string): string[] {
     .readdirSync(root, { withFileTypes: true })
     .filter((entry) => entry.isDirectory())
     .map((entry) => join(root, entry.name))
-    .sort();
+    .toSorted();
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null;
 }
 
 async function downloadCount(pkgName: string): Promise<number> {
   const res = await fetch(
     `https://api.npmjs.org/downloads/point/last-month/${pkgName}`,
   );
-  const { downloads } = (await res.json()) as { downloads: number };
-  return downloads;
+  const body: unknown = await res.json();
+  if (!isRecord(body) || typeof body.downloads !== 'number') {
+    return 0;
+  }
+  return body.downloads;
+}
+
+function readPackageJson(dir: string): PackageJson {
+  const manifestPath = join(dir, 'package.json');
+  const parsed: unknown = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  if (!isRecord(parsed) || typeof parsed.name !== 'string') {
+    throw new Error(`${manifestPath} has no name field`);
+  }
+  return { ...parsed, name: parsed.name };
 }
 
 async function createToP(): Promise<string> {
@@ -72,9 +88,7 @@ async function createToP(): Promise<string> {
     .flatMap((p) => (p.endsWith('@vivliostyle') ? listDirs(p) : [p]))
     .map((p) => ({
       path: p,
-      meta: JSON.parse(
-        fs.readFileSync(join(p, 'package.json'), 'utf8'),
-      ) as PackageJson,
+      meta: readPackageJson(p),
     }));
   console.log(packages.map((pkg) => [pkg.meta.name, pkg.path]));
   const tools = packages.filter((pkg) => !isTheme(pkg.meta));
@@ -88,7 +102,7 @@ async function createToP(): Promise<string> {
   );
 
   const themeTable = themesWithDL
-    .sort(descFirst)
+    .toSorted(descFirst)
     .map(([, pkg]) => {
       const title = getTitle(pkg);
       const author = getAuthor(pkg);
@@ -134,7 +148,7 @@ ${toolsTable}`;
 const top = await createToP();
 const md = fs.readFileSync('README.md', 'utf8');
 const newMd = md.replace(
-  /<!-- START top([\w\W]+?)<!-- END top.*\n/m,
+  /<!-- START top([\w\W]+?)<!-- END top.*\n/mv,
   `<!-- START top -->
 
 ${top}
