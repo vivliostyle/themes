@@ -1,4 +1,7 @@
-export default {
+// @ts-check
+import { defineConfig } from '@vivliostyle/cli';
+
+export default defineConfig({
   language: 'ja',
   theme: 'theme.css',
   entry: ['example/slide.md'],
@@ -10,4 +13,4 @@ export default {
       format: 'webpub',
     },
   ],
-};
+});

@@ -1,4 +1,7 @@
-export default {
+// @ts-check
+import { defineConfig } from '@vivliostyle/cli';
+
+export default defineConfig({
   title: 'Alice’s Adventures in Wonderland',
   language: 'en',
   size: 'A5',
@@ -33,4 +36,4 @@ export default {
   ],
   toc: true,
   tocTitle: 'Contents',
-};
+});

@@ -1,4 +1,7 @@
-export default {
+// @ts-check
+import { defineConfig } from '@vivliostyle/cli';
+
+export default defineConfig({
   title: '電書協 ＥＰＵＢ ３ 制作ガイド　作品サンプル',
   language: 'ja',
   // size: 'A4',
@@ -32,4 +35,4 @@ export default {
       format: 'webpub',
     },
   ],
-};
+});

@@ -1,5 +1,7 @@
-/** @type {import('@vivliostyle/cli').VivliostyleConfigSchema} */
-export default {
+// @ts-check
+import { defineConfig } from '@vivliostyle/cli';
+
+export default defineConfig({
   language: 'en',
   theme: ['node_modules/@vivliostyle/theme-base', '.'],
   entry: ['example/default.md'],
@@ -11,4 +13,4 @@ export default {
       format: 'webpub',
     },
   ],
-};
+});
