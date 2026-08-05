@@ -13,6 +13,7 @@
     "example",
     "vivliostyle.config.js"
   ],
+  "type": "module",
   "main": "theme.css",
   "scripts": {
     "build": "vivliostyle build",

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   title: 'Alice’s Adventures in Wonderland',
   language: 'en',
   size: 'A5',

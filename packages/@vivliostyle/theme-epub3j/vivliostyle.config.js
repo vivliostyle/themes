@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   title: '電書協 ＥＰＵＢ ３ 制作ガイド　作品サンプル',
   language: 'ja',
   // size: 'A4',

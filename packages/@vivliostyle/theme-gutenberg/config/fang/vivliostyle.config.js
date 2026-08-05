@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   title: 'White Fang',
   language: 'en',
   size: 'A5',

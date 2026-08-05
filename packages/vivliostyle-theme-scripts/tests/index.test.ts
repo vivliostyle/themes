@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 
 import { getAuthor, getTheme, validatePackage } from '../src';
 
-const fixture = (name: string) => join(__dirname, 'fixtures', name);
+const fixture = (name: string) => join(import.meta.dirname, 'fixtures', name);
 
 describe('getTheme', () => {
   it('prefers vivliostyle.theme.style over style and main', () => {

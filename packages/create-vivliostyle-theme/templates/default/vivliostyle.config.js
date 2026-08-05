@@ -1,5 +1,5 @@
 /** @type {import('@vivliostyle/cli').VivliostyleConfigSchema} */
-module.exports = {
+export default {
   language: 'en',
   theme: ['node_modules/@vivliostyle/theme-base', '.'],
   entry: ['example/default.md'],

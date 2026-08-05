@@ -24,7 +24,7 @@ async function preview(argv: any, input: string[]) {
 
   // asset server
   const assetPort = await getPort();
-  const assetRoot = path.resolve(__dirname, '../assets');
+  const assetRoot = path.resolve(import.meta.dirname, '../assets');
   const assetPrefix = `http://localhost:${assetPort}`;
   http
     .createServer(async function (req, res) {

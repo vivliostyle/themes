@@ -3,7 +3,7 @@ import { join } from 'path';
 import chalk from 'chalk';
 import { Command } from 'commander';
 
-import { validatePackage } from '..';
+import { validatePackage } from '../index.js';
 
 async function validate() {
   const pkgJsonPath = join(process.cwd(), 'package.json');

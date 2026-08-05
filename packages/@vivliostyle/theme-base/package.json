@@ -20,6 +20,7 @@
     "example",
     "vivliostyle.config.js"
   ],
+  "type": "module",
   "main": "theme-all.css",
   "publishConfig": {
     "access": "public"

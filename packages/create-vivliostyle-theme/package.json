@@ -16,13 +16,14 @@
     "url": "https://github.com/vivliostyle/themes.git",
     "directory": "packages/create-vivliostyle-theme"
   },
-  "bin": "lib/cli.js",
+  "bin": "lib/cli.cjs",
   "files": [
     "lib",
     "templates"
   ],
+  "type": "module",
   "scripts": {
-    "build": "shx rm -rf lib && NODE_ENV=production tsc && shx chmod +x lib/cli.js",
+    "build": "shx rm -rf lib && NODE_ENV=production tsc && shx chmod +x lib/cli.cjs",
     "dev": "tsc -w",
     "prepublishOnly": "pnpm run build"
   },

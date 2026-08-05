@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   language: 'ja',
   theme: 'theme.css',
   size: '182mm,257mm',

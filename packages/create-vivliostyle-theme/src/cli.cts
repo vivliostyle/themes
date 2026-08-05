@@ -3,7 +3,9 @@
 import { resolve } from 'path';
 
 import chalk from 'chalk';
-import { AfterHookOptions, create } from 'create-create-app';
+// create-create-app reads `require.main.filename`, so this entry point stays
+// CommonJS even though the package itself is ESM.
+import { type AfterHookOptions, create } from 'create-create-app';
 
 const templateRoot = resolve(__dirname, '../templates');
 

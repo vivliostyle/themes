@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   title: 'The Adventures of Sherlock Holmes',
   language: 'en',
   size: 'A5',

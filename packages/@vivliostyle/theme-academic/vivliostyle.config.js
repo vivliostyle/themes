@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   title: 'vivliostyle-theme-academic のサンプル',
   language: 'ja',
   size: 'A4',

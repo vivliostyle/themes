@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   language: 'ja',
   theme: 'theme-all.css',
   entry: ['example/default.md'],

@@ -20,6 +20,7 @@
     "config",
     "vivliostyle.config.js"
   ],
+  "type": "module",
   "main": "theme.css",
   "publishConfig": {
     "access": "public"
