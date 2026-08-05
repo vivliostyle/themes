@@ -37,6 +37,8 @@ pnpm exec changeset
 
 Merging to `main` opens a version pull request, and merging that one publishes to npm.
 
+Publishing runs in the `Production deployment` environment, so any reviewers configured on it are asked to approve the release. Publishing, tagging and the GitHub release all happen in that one job: GitHub requests approval separately for every job referencing an environment, and splitting them would mean approving the same release several times. Every published package gets a `<name>@<version>` tag; the GitHub release is created for `@vivliostyle/theme-base` only.
+
 Publishing authenticates through npm's trusted publishing (OIDC), which every package registers against the workflow file name `.github/workflows/release.yml`. Renaming that file stops publishing until each package's trusted publisher entry is updated.
 
 ## Donating your theme

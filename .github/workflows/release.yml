@@ -78,8 +78,14 @@ jobs:
     # something to publish and no changeset is left unconsumed.
     if: ${{ fromJson(needs.publish-dry-run.outputs.publish-summary).publishedPackages[0] && !fromJson(needs.create-version-pr.outputs.has-changesets) }}
     runs-on: ubuntu-latest
+    # Publishing, tagging and the GitHub release live in one job because
+    # GitHub requests approval separately for every job that references an
+    # environment, and a release should only have to be approved once.
+    environment: Production deployment
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
       - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
         with:
           run_install: false
@@ -93,56 +99,42 @@ jobs:
       - name: Release
         env:
           PUBLISH_BRANCH: ${{ github.ref_name }}
-        run: pnpm publish -r --access public --publish-branch "$PUBLISH_BRANCH"
-
-  release:
-    needs:
-      - publish-dry-run
-      - publish
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        package: ${{ fromJson(needs.publish-dry-run.outputs.publish-summary).publishedPackages }}
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          fetch-depth: 0
-      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
-        with:
-          run_install: false
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
-        with:
-          node-version-file: .nvmrc
-          cache: pnpm
-      - run: pnpm install --frozen-lockfile
-      - name: Output release notes
-        env:
-          PACKAGE_NAME: ${{ matrix.package.name }}
-          PACKAGE_VERSION: ${{ matrix.package.version }}
+        run: pnpm publish -r --access public --publish-branch "$PUBLISH_BRANCH" --report-summary
+      - name: Create tags
         run: |
-          package_path=$(pnpm ls --filter "$PACKAGE_NAME" --json | jq -r '.[0].path')
-          changelog_file="$package_path/CHANGELOG.md"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          tags=()
+          while read -r tag; do
+            git tag -a "$tag" -m "Release $tag"
+            tags+=("$tag")
+          done < <(jq -r '.publishedPackages[] | "\(.name)@\(.version)"' pnpm-publish-summary.json)
+          git push origin "${tags[@]}"
+      - name: Prepare the theme-base release
+        id: theme-base
+        run: |
+          version=$(jq -r '.publishedPackages[] | select(.name == "@vivliostyle/theme-base") | .version' pnpm-publish-summary.json)
+          if [ -z "$version" ]; then
+            echo 'published=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo 'published=true' >> "$GITHUB_OUTPUT"
+          echo "tag=@vivliostyle/theme-base@$version" >> "$GITHUB_OUTPUT"
+          changelog_file=packages/@vivliostyle/theme-base/CHANGELOG.md
           if [ -f "$changelog_file" ]; then
-            version=$(echo "$PACKAGE_VERSION" | sed 's/\./\\./g')
-            awk "/^## $version/ {flag=1; next} /^##? / {flag=0} flag {print}" "$changelog_file" > release_notes.txt
+            escaped=$(echo "$version" | sed 's/\./\\./g')
+            awk "/^## $escaped/ {flag=1; next} /^##? / {flag=0} flag {print}" "$changelog_file" > release_notes.txt
           else
             touch release_notes.txt
           fi
           cat release_notes.txt
-      - name: Create tag
-        id: create-tag
-        env:
-          PACKAGE_NAME: ${{ matrix.package.name }}
-          PACKAGE_VERSION: ${{ matrix.package.version }}
-        run: |
-          name="$PACKAGE_NAME@$PACKAGE_VERSION"
-          echo "name=$name" >> "$GITHUB_OUTPUT"
-          git tag -a "$name" -m "Release $name"
-          git push origin "$name"
+      # Only theme-base gets a GitHub release; the other packages are tagged
+      # and their changes are covered by its release notes.
       - name: Release to GitHub
+        if: steps.theme-base.outputs.published == 'true'
         uses: softprops/action-gh-release@3d0d9888cb7fd7b750713d6e236d1fcb99157228 # v3.0.2
         with:
-          tag_name: ${{ steps.create-tag.outputs.name }}
-          name: ${{ steps.create-tag.outputs.name }}
+          tag_name: ${{ steps.theme-base.outputs.tag }}
+          name: ${{ steps.theme-base.outputs.tag }}
           body_path: release_notes.txt
           token: ${{ secrets.GITHUB_TOKEN }}
