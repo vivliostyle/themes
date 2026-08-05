@@ -62,12 +62,18 @@ jobs:
           node-version-file: .nvmrc
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - name: Set up git
+        # Note: These settings may be revoked if a GitHub App token is updated.
+        run: |
+          git config --global user.name 'vivliostyle-bot[bot]'
+          git config --global user.email '236058695+vivliostyle-bot[bot]@users.noreply.github.com'
       - name: Create version PR
         uses: changesets/action@a45c4d594aa4e2c509dc14a9f2b3b67ba3780d0d # v1.9.0
         id: changesets
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          setupGitUser: false
           version: pnpm run bump
 
   publish:
@@ -83,6 +89,11 @@ jobs:
     # environment, and a release should only have to be approved once.
     environment: Production deployment
     steps:
+      - name: Set up git
+        # Note: These settings may be revoked if a GitHub App token is updated.
+        run: |
+          git config --global user.name 'vivliostyle-bot[bot]'
+          git config --global user.email '236058695+vivliostyle-bot[bot]@users.noreply.github.com'
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
@@ -102,8 +113,6 @@ jobs:
         run: pnpm publish -r --access public --publish-branch "$PUBLISH_BRANCH" --report-summary
       - name: Create tags
         run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           tags=()
           while read -r tag; do
             git tag -a "$tag" -m "Release $tag"
