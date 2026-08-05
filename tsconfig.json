@@ -9,7 +9,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    // scripts/*.mts run through Node's type stripping, which cannot transform
+    // scripts/*.ts run through Node's type stripping, which cannot transform
     // enums, namespaces or parameter properties.
     "erasableSyntaxOnly": true,
     "verbatimModuleSyntax": true

@@ -16,7 +16,7 @@ minimumReleaseAgeExclude:
   - pnpm
 
 # pdfjs-dist pulls canvas as an optional dependency and it would be built with
-# node-pre-gyp. scripts/capture-pdf.mts passes its own @napi-rs/canvas factory,
+# node-pre-gyp. scripts/capture-pdf.ts passes its own @napi-rs/canvas factory,
 # so the native build is never needed.
 ignoredOptionalDependencies:
   - canvas
