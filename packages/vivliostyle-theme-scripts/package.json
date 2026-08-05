@@ -29,8 +29,8 @@
     "dev": "pnpm run --parallel \"/^dev:.*/\"",
     "dev:ts": "tsc -w --preserveWatchOutput",
     "dev:watch": "nodemon lib/cli.js preview tests/fixtures/default.css --layout assets/default.html",
-    "prepublishOnly": "pnpm run build",
-    "test": "vitest run"
+    "test": "vitest run",
+    "prepare": "pnpm run build"
   },
   "dependencies": {
     "@vivliostyle/vfm": "^2.2.1",

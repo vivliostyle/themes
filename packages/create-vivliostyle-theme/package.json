@@ -25,7 +25,7 @@
   "scripts": {
     "build": "shx rm -rf lib && NODE_ENV=production tsc && shx chmod +x lib/cli.cjs",
     "dev": "tsc -w",
-    "prepublishOnly": "pnpm run build"
+    "prepare": "pnpm run build"
   },
   "dependencies": {
     "chalk": "^4.1.0",
