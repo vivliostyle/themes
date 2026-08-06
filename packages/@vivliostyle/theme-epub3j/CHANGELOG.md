@@ -1,5 +1,11 @@
 # @vivliostyle/theme-epub3j
 
+## 1.1.1
+
+### Patch Changes
+
+- [#152](https://github.com/vivliostyle/themes/pull/152) [`60fe785`](https://github.com/vivliostyle/themes/commit/60fe785352f4e6424382d40f542ab271cbf58097) Thanks [@spring-raining](https://github.com/spring-raining)! - Modernize the internal code. The packages are now ESM, and `vivliostyle.config.js` is written with `defineConfig` from `@vivliostyle/cli`. The published styles and CLI behavior are unchanged.
+
 ## 1.1.0
 
 ### Minor Changes

@@ -31,22 +31,6 @@ module.exports = {
 
 > original author: `Vivliostyle <mail@vivliostyle.org>`
 
-### [Academic](packages/@vivliostyle/theme-academic)
-
-Academic theme
-
-[![](https://img.shields.io/npm/v/@vivliostyle/theme-academic.svg)](https://npmjs.com/package/@vivliostyle/theme-academic)
-[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-academic)](https://npmjs.com/package/@vivliostyle/theme-academic)
-![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-academic)
-
-```js
-module.exports = {
-  theme: '@vivliostyle/theme-academic',
-};
-```
-
-> original author: `Vivliostyle <mail@vivliostyle.org>`
-
 ### [Techbook](packages/@vivliostyle/theme-techbook)
 
 Techbook (技術同人誌) theme
@@ -58,6 +42,22 @@ Techbook (技術同人誌) theme
 ```js
 module.exports = {
   theme: '@vivliostyle/theme-techbook',
+};
+```
+
+> original author: `Vivliostyle <mail@vivliostyle.org>`
+
+### [Academic](packages/@vivliostyle/theme-academic)
+
+Academic theme
+
+[![](https://img.shields.io/npm/v/@vivliostyle/theme-academic.svg)](https://npmjs.com/package/@vivliostyle/theme-academic)
+[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-academic)](https://npmjs.com/package/@vivliostyle/theme-academic)
+![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-academic)
+
+```js
+module.exports = {
+  theme: '@vivliostyle/theme-academic',
 };
 ```
 
