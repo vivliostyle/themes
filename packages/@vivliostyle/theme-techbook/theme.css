@@ -21,15 +21,15 @@
 }
 
 :root {
-  --vs-font-family: 'Neue Frutiger World', 'Verdana', 'Hiragino Sans',
-    sans-serif;
+  --vs-font-family:
+    'Neue Frutiger World', 'Verdana', 'Hiragino Sans', sans-serif;
   --vs-font-size-on-print: 75%;
   --vs-line-height: 1.7;
   --vs-widows-orphans: 3;
 
   --vs--heading-line-height: 1.2;
-  --vs--monospace-font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
-    monospace;
+  --vs--monospace-font-family:
+    Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   --vs--h1-font-size: 2.4em;
   --vs--h2-font-size: 1.8em;
   --vs--h3-font-size: 1.4em;

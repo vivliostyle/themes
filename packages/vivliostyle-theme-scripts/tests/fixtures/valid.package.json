@@ -1,0 +1,6 @@
+{
+  "name": "@example/theme-valid",
+  "version": "1.0.0",
+  "author": "Example <mail@example.com>",
+  "main": "theme.css"
+}

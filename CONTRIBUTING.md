@@ -4,6 +4,43 @@
 
 - See [Theme Spec](./docs/spec.md).
 
+## Developing this repository
+
+This repository is a pnpm workspace. Install [pnpm](https://pnpm.io/installation) 11 and use the Node.js version pinned in [.nvmrc](./.nvmrc).
+
+```bash
+pnpm install
+pnpm build:tools  # build the TypeScript packages; validate needs them
+pnpm lint
+pnpm fmt         # or fmt:check
+pnpm typecheck
+pnpm validate    # check every theme package against the spec
+pnpm test
+```
+
+Building the themes renders every example book with Vivliostyle CLI. It downloads a browser on first run and takes several minutes:
+
+```bash
+pnpm build:themes
+pnpm capture-pdf  # regenerate docs/assets/captures/*.webp from the built PDFs
+```
+
+Themes that `@import` a sibling theme currently render without it: the CLI serves each theme from its own directory, so `../theme-base/theme-all.css` resolves outside the server root and 404s while the build still reports success. Until the CLI can serve the workspace, treat the output of `build:themes` for those themes as incomplete.
+
+### Releasing
+
+Releases run on [Changesets](https://github.com/changesets/changesets). Add a changeset in the same pull request as your change:
+
+```bash
+pnpm exec changeset
+```
+
+Merging to `main` opens a version pull request, and merging that one publishes to npm.
+
+Publishing runs in the `Production deployment` environment, so any reviewers configured on it are asked to approve the release. Publishing, tagging and the GitHub release all happen in that one job: GitHub requests approval separately for every job referencing an environment, and splitting them would mean approving the same release several times. Every published package gets a `<name>@<version>` tag; the GitHub release is created for `@vivliostyle/theme-base` only.
+
+Publishing authenticates through npm's trusted publishing (OIDC), which every package registers against the workflow file name `.github/workflows/release.yml`. Renaming that file stops publishing until each package's trusted publisher entry is updated.
+
 ## Donating your theme
 
 We appreciate your donation to the list of our official themes!

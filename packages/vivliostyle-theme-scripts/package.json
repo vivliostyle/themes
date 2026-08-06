@@ -1,56 +1,53 @@
 {
   "name": "vivliostyle-theme-scripts",
-  "description": "theme library and scripts",
   "version": "0.3.6",
-  "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io)",
-  "scripts": {
-    "build": "shx rm -rf lib/*.js && tsc && shx chmod +x lib/cli.js",
-    "dev": "run-p dev:*",
-    "dev:ts": "tsc -w --preserveWatchOutput",
-    "dev:watch": "nodemon lib/cli.js preview tests/fixtures/default.css --layout assets/default.html",
-    "prepublishOnly": "yarn build",
-    "test": "jest"
-  },
-  "dependencies": {
-    "@vivliostyle/vfm": "^2.2.1",
-    "@vivliostyle/viewer": "^2.1.1",
-    "chokidar": "^3.4.0",
-    "commander": "^5.1.0",
-    "express": "^4.17.1",
-    "get-port": "^5.1.1",
-    "resolve-pkg": "^2.0.0",
-    "serve-handler": "^6.1.3"
-  },
-  "devDependencies": {
-    "@types/get-port": "^4.2.0",
-    "@types/jest": "^26.0.3",
-    "@types/node": "^14.0.14",
-    "@types/serve-handler": "^6.1.0",
-    "jest": "^26.1.0",
-    "npm-run-all": "^4.1.5",
-    "shx": "^0.3.2",
-    "ts-jest": "^26.1.1",
-    "ts-node": "^8.10.2",
-    "typescript": "^5.3.3"
-  },
-  "types": "lib/index.d.ts",
-  "main": "lib/index.ts",
-  "bin": "lib/cli.js",
-  "files": [
-    "lib",
-    "assets"
+  "description": "theme library and scripts",
+  "keywords": [
+    "vivliostyle"
   ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "bugs": {
+    "url": "https://github.com/vivliostyle/themes/issues"
+  },
+  "license": "Apache-2.0",
+  "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io)",
   "repository": {
     "type": "git",
     "url": "https://github.com/vivliostyle/themes.git",
     "directory": "packages/vivliostyle-theme-scripts"
   },
-  "bugs": {
-    "url": "https://github.com/vivliostyle/themes/issues"
-  },
-  "homepage": "https://github.com/vivliostyle/themes",
-  "keywords": [
-    "vivliostyle"
+  "bin": "lib/cli.js",
+  "files": [
+    "lib",
+    "assets"
   ],
-  "license": "Apache-2.0"
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "shx rm -rf lib/*.js && tsc && shx chmod +x lib/cli.js",
+    "dev": "pnpm run --parallel \"/^dev:.*/\"",
+    "dev:ts": "tsc -w --preserveWatchOutput",
+    "dev:watch": "nodemon lib/cli.js preview tests/fixtures/default.css --layout assets/default.html",
+    "test": "vitest run",
+    "prepare": "pnpm run build"
+  },
+  "dependencies": {
+    "@vivliostyle/vfm": "^2.2.1",
+    "@vivliostyle/viewer": "^2.1.1",
+    "chalk": "^4.1.2",
+    "chokidar": "^3.4.0",
+    "commander": "^5.1.0",
+    "get-port": "^5.1.1",
+    "resolve-pkg": "^2.0.0",
+    "serve-handler": "^6.1.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/serve-handler": "^6.1.0",
+    "nodemon": "^3.1.10",
+    "shx": "^0.3.2",
+    "typescript": "^5.3.3",
+    "vitest": "4.1.10"
+  }
 }

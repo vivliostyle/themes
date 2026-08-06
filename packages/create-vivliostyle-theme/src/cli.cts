@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 
+import { resolve } from 'node:path';
+
 import chalk from 'chalk';
-import { AfterHookOptions, create } from 'create-create-app';
-import { resolve } from 'path';
+// create-create-app reads `require.main.filename`, so this entry point stays
+// CommonJS even though the package itself is ESM.
+import { type AfterHookOptions, create } from 'create-create-app';
 
 const templateRoot = resolve(__dirname, '../templates');
 
@@ -12,13 +15,14 @@ ${chalk.gray('2.')} edit ${chalk.bold.green('theme.css')}
 ${chalk.gray('3.')} publish to npm (${chalk.cyan('$ npm publish')})
 `;
 
-create('create-vivliostyle-theme', {
+void create('create-vivliostyle-theme', {
   templateRoot,
   extra: {
     category: {
       type: 'list',
       describe: 'choose category',
-      choices: ['novel', 'magazine', 'journal', 'report', 'misc'], // sync with DESIGN.md
+      // sync with DESIGN.md
+      choices: ['novel', 'magazine', 'journal', 'report', 'misc'],
     },
   },
   caveat,

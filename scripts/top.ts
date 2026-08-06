@@ -1,10 +1,8 @@
 #!/usr/bin/env node
 // Table of Packages (ToP)
 
-import fs from 'fs';
-import globby from 'globby';
-import fetch from 'node-fetch';
-import { join } from 'path';
+import fs from 'node:fs';
+import { join } from 'node:path';
 
 interface PackageJson {
   [index: string]: unknown;
@@ -49,28 +47,49 @@ function badge(name: string): string {
 ![npm: license](https://flat.badgen.net/npm/license/${name})`;
 }
 
-function descFirst<T extends readonly [number, {}]>(a: T, b: T) {
+function descFirst<T extends readonly [number, unknown]>(a: T, b: T) {
   return b[0] - a[0];
 }
 
+function listDirs(root: string): string[] {
+  return fs
+    .readdirSync(root, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => join(root, entry.name))
+    .toSorted();
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null;
+}
+
 async function downloadCount(pkgName: string): Promise<number> {
-  const { downloads } = await fetch(
+  const res = await fetch(
     `https://api.npmjs.org/downloads/point/last-month/${pkgName}`,
-  ).then((res) => res.json());
-  return downloads as number;
+  );
+  const body: unknown = await res.json();
+  if (!isRecord(body) || typeof body.downloads !== 'number') {
+    return 0;
+  }
+  return body.downloads;
+}
+
+function readPackageJson(dir: string): PackageJson {
+  const manifestPath = join(dir, 'package.json');
+  const parsed: unknown = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  if (!isRecord(parsed) || typeof parsed.name !== 'string') {
+    throw new Error(`${manifestPath} has no name field`);
+  }
+  return { ...parsed, name: parsed.name };
 }
 
 async function createToP(): Promise<string> {
-  const packages = (
-    await globby(['packages/!(@vivliostyle)', 'packages/@vivliostyle/*'], {
-      onlyDirectories: true,
-    })
-  ).map((p) => ({
-    path: p,
-    meta: JSON.parse(
-      fs.readFileSync(join(p, 'package.json'), 'utf8'),
-    ) as PackageJson,
-  }));
+  const packages: Package[] = listDirs('packages')
+    .flatMap((p) => (p.endsWith('@vivliostyle') ? listDirs(p) : [p]))
+    .map((p) => ({
+      path: p,
+      meta: readPackageJson(p),
+    }));
   console.log(packages.map((pkg) => [pkg.meta.name, pkg.path]));
   const tools = packages.filter((pkg) => !isTheme(pkg.meta));
   const themes = packages.filter((pkg) => isTheme(pkg.meta));
@@ -83,7 +102,7 @@ async function createToP(): Promise<string> {
   );
 
   const themeTable = themesWithDL
-    .sort(descFirst)
+    .toSorted(descFirst)
     .map(([, pkg]) => {
       const title = getTitle(pkg);
       const author = getAuthor(pkg);
@@ -126,18 +145,14 @@ ${themeTable}
 ${toolsTable}`;
 }
 
-async function main() {
-  const top = await createToP();
-  const md = fs.readFileSync('README.md', 'utf8');
-  const newMd = md.replace(
-    /<!-- START top([\w\W]+?)<!-- END top.*\n/m,
-    `<!-- START top -->
+const top = await createToP();
+const md = fs.readFileSync('README.md', 'utf8');
+const newMd = md.replace(
+  /<!-- START top([\w\W]+?)<!-- END top.*\n/mv,
+  `<!-- START top -->
 
 ${top}
 
 <!-- END top -->\n`,
-  );
-  fs.writeFileSync('README.md', newMd);
-}
-
-main();
+);
+fs.writeFileSync('README.md', newMd);

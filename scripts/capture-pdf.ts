@@ -1,5 +1,7 @@
-import { Canvas, createCanvas, SKRSContext2D } from '@napi-rs/canvas';
 import * as fs from 'node:fs';
+
+import type { Canvas, SKRSContext2D } from '@napi-rs/canvas';
+import { createCanvas } from '@napi-rs/canvas';
 import * as pdfjs from 'pdfjs-dist/legacy/build/pdf.mjs';
 
 type CanvasFactoryInstance<T = { canvas: Canvas; context: SKRSContext2D }> = {
@@ -61,6 +63,9 @@ async function pdfToImg(
     const canvas = createCanvas(viewport.width, viewport.height);
     const canvasContext = canvas.getContext('2d');
     await page.render({
+      // @napi-rs/canvas implements enough of the 2D context for pdf.js, but
+      // the two context types are unrelated as far as TypeScript is concerned.
+      // oxlint-disable-next-line typescript/no-unsafe-type-assertion
       canvasContext: canvasContext as unknown as CanvasRenderingContext2D,
       viewport,
     }).promise;
@@ -77,7 +82,7 @@ async function pdfToImg(
     ctx.strokeStyle = '#000000';
     ctx.strokeRect(i * width, 0, width, height);
   }
-  return await canvas.encode('webp');
+  return canvas.encode('webp');
 }
 
 async function main() {
@@ -158,4 +163,4 @@ async function main() {
   }
 }
 
-main();
+await main();

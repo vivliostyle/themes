@@ -38,9 +38,10 @@
   --vs-color-body: var(--vs-theme--color-body);
 
   --vs--heading-text-align: var(--vs-theme--section-align-items, center);
-  --vs--monospace-font-family: 'Source Code Pro', 'Andale Mono', 'Courier',
-    'Courier New', 'Yu Gothic', 'YuGothic', 'Hiragino Sans',
-    'Hiragino Kaku Gothic ProN', 'Meiryo', monospace;
+  --vs--monospace-font-family:
+    'Source Code Pro', 'Andale Mono', 'Courier', 'Courier New', 'Yu Gothic',
+    'YuGothic', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo',
+    monospace;
   --vs--monospace-font-weight: var(--vs-font-weight-bold);
   --vs--h1-font-size: 2em;
   --vs--h2-font-size: 1.8em;
@@ -204,9 +205,9 @@ section:has(> .cover:first-child) .author ul {
  */
 
 :is(
-    section:not(:has(> :is(h1, h2, h3, h4, h5, h6):first-child)),
-    section:has(> :is(h1, h2, h3, h4, h5, h6)[hidden]:first-child)
-  ):has(> p > img:only-child) {
+  section:not(:has(> :is(h1, h2, h3, h4, h5, h6):first-child)),
+  section:has(> :is(h1, h2, h3, h4, h5, h6)[hidden]:first-child)
+):has(> p > img:only-child) {
   page: image-full;
 }
 

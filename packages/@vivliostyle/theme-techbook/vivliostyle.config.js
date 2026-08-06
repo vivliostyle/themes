@@ -1,4 +1,7 @@
-module.exports = {
+// @ts-check
+import { defineConfig } from '@vivliostyle/cli';
+
+export default defineConfig({
   language: 'ja',
   theme: 'theme.css',
   size: '182mm,257mm',
@@ -10,4 +13,4 @@ module.exports = {
       format: 'webpub',
     },
   ],
-};
+});

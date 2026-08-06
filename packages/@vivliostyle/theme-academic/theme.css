@@ -22,8 +22,8 @@
 
   --vs--heading-font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
   --vs--heading-margin-block: 0;
-  --vs--monospace-font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
-    monospace;
+  --vs--monospace-font-family:
+    Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   --vs--h1-font-size: 2em;
   --vs--h1-margin-block: 0.8rem 0.4rem;
   --vs--h1-text-align: center;

@@ -1,15 +1,35 @@
+import fs from 'node:fs';
+import http from 'node:http';
+import path, { basename, dirname, join, relative, resolve } from 'node:path';
+
 import { stringify } from '@vivliostyle/vfm';
 import chalk from 'chalk';
 import chokidar from 'chokidar';
-import fs from 'fs';
+import { Command } from 'commander';
 import getPort from 'get-port';
-import http from 'http';
-import path, { basename, dirname, join, relative, resolve } from 'path';
 import resolvePkg from 'resolve-pkg';
 import serve from 'serve-handler';
-import { Command } from 'commander';
 
-async function preview(argv: any, input: string[]) {
+interface PreviewOptions {
+  layout?: string;
+}
+
+function serveStatic(
+  port: number,
+  root: string,
+  headers: Record<string, string> = {},
+): void {
+  http
+    .createServer((req, res) => {
+      for (const [name, value] of Object.entries(headers)) {
+        res.setHeader(name, value);
+      }
+      void serve(req, res, { public: root });
+    })
+    .listen(port);
+}
+
+async function preview(argv: PreviewOptions, input: string[]): Promise<void> {
   const stylePath = input[0];
   if (!stylePath) {
     console.log(
@@ -23,43 +43,29 @@ async function preview(argv: any, input: string[]) {
 
   // asset server
   const assetPort = await getPort();
-  const assetRoot = path.resolve(__dirname, '../assets');
+  const assetRoot = path.resolve(import.meta.dirname, '../assets');
   const assetPrefix = `http://localhost:${assetPort}`;
-  const assetServer = http
-    .createServer(async function (req, res) {
-      res.setHeader('Access-Control-Allow-Origin', '*');
-      await serve(req, res, {
-        public: assetRoot,
-      });
-    })
-    .listen(assetPort);
+  serveStatic(assetPort, assetRoot, { 'Access-Control-Allow-Origin': '*' });
 
   // vivliostyle viewer
   const viewerPort = await getPort();
-  const viewerPkg = resolvePkg('@vivliostyle/viewer', { cwd: baseDir })!;
+  const viewerPkg = resolvePkg('@vivliostyle/viewer', { cwd: baseDir });
+  if (!viewerPkg) {
+    console.log('Could not resolve @vivliostyle/viewer');
+    process.exit(1);
+  }
   const viewerRoot = join(viewerPkg, 'lib');
   const viewerPrefix = `http://localhost:${viewerPort}`;
-  const viewerServer = http
-    .createServer(async function (req, res) {
-      await serve(req, res, {
-        public: viewerRoot,
-      });
-    })
-    .listen(viewerPort);
+  serveStatic(viewerPort, viewerRoot);
 
   // source server
   const sourcePort = await getPort();
   const sourceRoot = baseDir;
   const sourcePrefix = `http://localhost:${sourcePort}`;
-  const sourceServer = http
-    .createServer(async function (req, res) {
-      res.setHeader('Access-Control-Allow-Origin', '*');
-      res.setHeader('Cache-Control', 'no-store');
-      await serve(req, res, {
-        public: sourceRoot,
-      });
-    })
-    .listen(sourcePort);
+  serveStatic(sourcePort, sourceRoot, {
+    'Access-Control-Allow-Origin': '*',
+    'Cache-Control': 'no-store',
+  });
 
   let layoutURL = layout
     ? `${sourcePrefix}/${layout}`
@@ -67,14 +73,13 @@ async function preview(argv: any, input: string[]) {
 
   const styleURL = `${sourcePrefix}/${stylePath}`;
 
-  function recompile(tmpHTMLPath: string) {
-    const convertedHTML = stringify(fs.readFileSync(layout, 'utf8'));
+  function recompile(sourcePath: string, tmpHTMLPath: string): void {
+    const convertedHTML = stringify(fs.readFileSync(sourcePath, 'utf8'));
     fs.writeFileSync(tmpHTMLPath, convertedHTML);
     console.log(`${chalk.yellow('[vfm]')} compiled`, tmpHTMLPath);
   }
 
-  const isVFM = layout && layout.endsWith('.md');
-  if (isVFM) {
+  if (layout?.endsWith('.md')) {
     const layoutDir = dirname(resolve(layout));
     const tmpHTMLName = basename(layout, '.md') + '.html';
     const tmpHTMLPath = relative(baseDir, join(layoutDir, tmpHTMLName));
@@ -82,15 +87,17 @@ async function preview(argv: any, input: string[]) {
     chokidar
       .watch('**', {
         ignored: (p: string) => {
-          return /node_modules|\.git/.test(p);
+          return /node_modules|\.git/v.test(p);
         },
         cwd: layoutDir,
       })
-      .on('change', (path) => {
-        if (!path || !/\.(md|markdown)$/i.test(path)) return;
-        recompile(tmpHTMLPath);
+      .on('change', (changed) => {
+        if (!changed || !/\.(md|markdown)$/iv.test(changed)) {
+          return;
+        }
+        recompile(layout, tmpHTMLPath);
       });
-    recompile(tmpHTMLPath);
+    recompile(layout, tmpHTMLPath);
 
     layoutURL = `${sourcePrefix}/${tmpHTMLPath}`;
   }
@@ -103,7 +110,7 @@ async function preview(argv: any, input: string[]) {
   );
 }
 
-export default function makeCommand() {
+export default function makeCommand(): InstanceType<typeof Command> {
   const command = new Command('preview');
   command
     .description('clone a repository into a newly created directory')

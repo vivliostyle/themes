@@ -1,27 +1,5 @@
 ![Vivliostyle Theme](./assets/cover.jpg)
 
-## Table of contents
-
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [Find themes](#find-themes)
-- [Create a theme](#create-a-theme)
-- [Official Themes](#official-themes)
-  - [Vivliostyle Base Theme](#vivliostyle-base-theme)
-  - [Academic](#academic)
-  - [Techbook](#techbook)
-  - [Bunko](#bunko)
-  - [Gutenberg](#gutenberg)
-  - [Slide](#slide)
-  - [EPUB3 (Japanese)](#epub3-japanese)
-- [Tools](#tools)
-  - [create-vivliostyle-theme](#create-vivliostyle-theme)
-  - [vivliostyle-theme-scripts](#vivliostyle-theme-scripts)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 ## Find themes
 
 - [List of Themes (GitHub)](https://github.com/topics/vivliostyle-theme)

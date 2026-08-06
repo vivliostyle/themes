@@ -1,23 +1,3 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-- [Spec of Vivliostyle Theme](#spec-of-vivliostyle-theme)
-  - [Theme Name](#theme-name)
-  - [Styles to Include in the Theme](#styles-to-include-in-the-theme)
-  - [Directory Structure](#directory-structure)
-  - [package.json](#packagejson)
-    - [`keywords` Property](#keywords-property)
-    - [`vivliostyle.theme` Property](#vivliostyletheme-property)
-      - [`style` Property](#style-property)
-      - [`author` Property](#author-property)
-      - [`category` Property](#category-property)
-      - [`topics` Property](#topics-property)
-  - [example/](#example)
-  - [theme.css](#themecss)
-  - [vivliostyle.config.js](#vivliostyleconfigjs)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 # Spec of Vivliostyle Theme
 
 If you want to publish your theme as an npm package, please follow the specification below. You can use [create-vivliostyle-theme][] to quickly create a theme that follows this specification.

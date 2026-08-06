@@ -57,12 +57,12 @@ module.exports = {
 
 ### CSS変数の命名規則
 
-| プレフィックス | 用途 | 例 |
-|---|---|---|
-| `--vs-` | ドキュメント全体に影響するメタプロパティ | `--vs-font-family`, `--vs-font-size` |
-| `--vs--` | 基本HTMLタグのスタイル | `--vs--heading-line-height`, `--vs--h1-font-size` |
-| `--vs-{module}--` | モジュール固有の設定 | `--vs-crossref--counter-style`, `--vs-toc--marker-margin-inline` |
-| `--vs-theme--` | テーマ固有の設定 | `--vs-theme--anchor-color-body`, `--vs-theme--page-bottom-content` |
+| プレフィックス    | 用途                                     | 例                                                                 |
+| ----------------- | ---------------------------------------- | ------------------------------------------------------------------ |
+| `--vs-`           | ドキュメント全体に影響するメタプロパティ | `--vs-font-family`, `--vs-font-size`                               |
+| `--vs--`          | 基本HTMLタグのスタイル                   | `--vs--heading-line-height`, `--vs--h1-font-size`                  |
+| `--vs-{module}--` | モジュール固有の設定                     | `--vs-crossref--counter-style`, `--vs-toc--marker-margin-inline`   |
+| `--vs-theme--`    | テーマ固有の設定                         | `--vs-theme--anchor-color-body`, `--vs-theme--page-bottom-content` |
 
 ### カスタマイズの例
 
@@ -143,10 +143,10 @@ module.exports = {
 
 ### プリセット
 
-| プリセット | 内容 |
-|---|---|
-| `theme-all.css` | 全モジュールを含む（相互参照、脚注、ページレイアウト、目次等） |
-| `theme-basic.css` | 基本モジュールのみ（CSSリセット、基本スタイル） |
+| プリセット        | 内容                                                           |
+| ----------------- | -------------------------------------------------------------- |
+| `theme-all.css`   | 全モジュールを含む（相互参照、脚注、ページレイアウト、目次等） |
+| `theme-basic.css` | 基本モジュールのみ（CSSリセット、基本スタイル）                |
 
 ```js
 // theme-all.css を使用
@@ -160,17 +160,17 @@ module.exports = {
 
 ### 利用可能なモジュール
 
-| モジュール | theme-all.css | theme-basic.css | CSS変数プレフィックス |
-|---|:---:|:---:|---|
-| Basic（基本スタイル） | ✅ | ✅ | `--vs-`, `--vs--` |
-| Cross-reference（相互参照） | ✅ | - | `--vs-crossref--` |
-| Endnotes（後注） | ✅ | - | `--vs-endnote--` |
-| Footnotes（脚注） | ✅ | - | `--vs-footnote--` |
-| Page layout（ページレイアウト） | ✅ | - | `--vs-page--` |
-| Section references（節参照） | ✅ | - | `--vs-section--` |
-| Table of Contents（目次） | ✅ | - | `--vs-toc--` |
-| Utility classes | ✅ | - | — |
-| Prism（コードハイライト） | - | - | `--vs-prism--` |
+| モジュール                      | theme-all.css | theme-basic.css | CSS変数プレフィックス |
+| ------------------------------- | :-----------: | :-------------: | --------------------- |
+| Basic（基本スタイル）           |      ✅       |       ✅        | `--vs-`, `--vs--`     |
+| Cross-reference（相互参照）     |      ✅       |        -        | `--vs-crossref--`     |
+| Endnotes（後注）                |      ✅       |        -        | `--vs-endnote--`      |
+| Footnotes（脚注）               |      ✅       |        -        | `--vs-footnote--`     |
+| Page layout（ページレイアウト） |      ✅       |        -        | `--vs-page--`         |
+| Section references（節参照）    |      ✅       |        -        | `--vs-section--`      |
+| Table of Contents（目次）       |      ✅       |        -        | `--vs-toc--`          |
+| Utility classes                 |      ✅       |        -        | —                     |
+| Prism（コードハイライト）       |       -       |        -        | `--vs-prism--`        |
 
 CSSでの個別インポート例:
 

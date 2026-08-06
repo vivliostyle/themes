@@ -12,13 +12,13 @@ npm create vivliostyle-theme <theme-name>
 
 You will be prompted to enter the following:
 
-| Field | Description |
-|---|---|
-| `description` | Theme description |
-| `author` | Author name |
-| `email` | Email address |
-| `license` | License (MIT, Apache-2.0, etc.) |
-| `category` | Theme category (`novel` / `magazine` / `journal` / `report` / `misc`) |
+| Field         | Description                                                           |
+| ------------- | --------------------------------------------------------------------- |
+| `description` | Theme description                                                     |
+| `author`      | Author name                                                           |
+| `email`       | Email address                                                         |
+| `license`     | License (MIT, Apache-2.0, etc.)                                       |
+| `category`    | Theme category (`novel` / `magazine` / `journal` / `report` / `misc`) |
 
 After completion, a `vivliostyle-theme-<theme-name>` directory is created.
 
@@ -37,12 +37,12 @@ vivliostyle-theme-<name>/
 
 File roles:
 
-| File | Role |
-|---|---|
-| `package.json` | Theme metadata. The `vivliostyle.theme` property defines the theme name, author, main CSS, and category |
-| `theme.css` | The main style definition. Pre-configured with theme-base `@import` and CSS variable customizations |
-| `vivliostyle.config.js` | Used with `vivliostyle preview` to check the theme. Entry points to `example/default.md` |
-| `example/default.md` | Sample Markdown demonstrating theme application. Supports [VFM](https://vivliostyle.github.io/vfm/#/vfm) syntax |
+| File                    | Role                                                                                                            |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `package.json`          | Theme metadata. The `vivliostyle.theme` property defines the theme name, author, main CSS, and category         |
+| `theme.css`             | The main style definition. Pre-configured with theme-base `@import` and CSS variable customizations             |
+| `vivliostyle.config.js` | Used with `vivliostyle preview` to check the theme. Entry points to `example/default.md`                        |
+| `example/default.md`    | Sample Markdown demonstrating theme application. Supports [VFM](https://vivliostyle.github.io/vfm/#/vfm) syntax |
 
 ## Customizing the Scaffold
 
@@ -103,22 +103,22 @@ theme-base is divided into functional modules. If you don't need all modules, yo
 
 Available modules:
 
-| Category | Module | CSS Variable Prefix |
-|---|---|---|
-| common | `meta-properties.css` — Document-wide meta properties | `--vs-` |
-| common | `reset.css` — CSS reset | — |
-| common | `basic.css` — Basic HTML tag styles | `--vs--` |
-| partial | `crossref.css` — Cross-reference for figures, tables, citations | `--vs-crossref--` |
-| partial | `endnote.css` — Endnotes | `--vs-endnote--` |
-| partial | `footnote.css` — Footnotes | `--vs-footnote--` |
-| partial | `footnote-external-link.css` — Footnotes for external links | `--vs-footnote--` |
-| partial | `page.css` — Paged media | `--vs-page--` |
-| partial | `section.css` — Heading counters and section references | `--vs-section--` |
-| partial | `toc.css` — Table of contents | `--vs-toc--` |
-| partial | `utility-classes.css` — Utility classes | — |
-| lib | `prism/base.css` — Code highlighting base | `--vs-prism--` |
-| lib | `prism/theme-prism.css` — Prism default theme | `--vs-prism--` |
-| lib | `prism/theme-okaidia.css` — Okaidia theme | `--vs-prism--` |
+| Category | Module                                                          | CSS Variable Prefix |
+| -------- | --------------------------------------------------------------- | ------------------- |
+| common   | `meta-properties.css` — Document-wide meta properties           | `--vs-`             |
+| common   | `reset.css` — CSS reset                                         | —                   |
+| common   | `basic.css` — Basic HTML tag styles                             | `--vs--`            |
+| partial  | `crossref.css` — Cross-reference for figures, tables, citations | `--vs-crossref--`   |
+| partial  | `endnote.css` — Endnotes                                        | `--vs-endnote--`    |
+| partial  | `footnote.css` — Footnotes                                      | `--vs-footnote--`   |
+| partial  | `footnote-external-link.css` — Footnotes for external links     | `--vs-footnote--`   |
+| partial  | `page.css` — Paged media                                        | `--vs-page--`       |
+| partial  | `section.css` — Heading counters and section references         | `--vs-section--`    |
+| partial  | `toc.css` — Table of contents                                   | `--vs-toc--`        |
+| partial  | `utility-classes.css` — Utility classes                         | —                   |
+| lib      | `prism/base.css` — Code highlighting base                       | `--vs-prism--`      |
+| lib      | `prism/theme-prism.css` — Prism default theme                   | `--vs-prism--`      |
+| lib      | `prism/theme-okaidia.css` — Okaidia theme                       | `--vs-prism--`      |
 
 For details, see the [theme-base README](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-base#available-modules-and-css-variables).
 
@@ -185,10 +185,10 @@ npm run validate
 
 Validation checks:
 
-| Check | Severity | Description |
-|---|---|---|
-| Style locator | Error | One of `vivliostyle.theme.style`, `style`, or `main` must be set |
-| Author info | Warning | `vivliostyle.theme.author` or `author` should be set |
+| Check         | Severity | Description                                                      |
+| ------------- | -------- | ---------------------------------------------------------------- |
+| Style locator | Error    | One of `vivliostyle.theme.style`, `style`, or `main` must be set |
+| Author info   | Warning  | `vivliostyle.theme.author` or `author` should be set             |
 
 ### Preview Check
 
@@ -217,14 +217,14 @@ Based on the `vivliostyle.config.js` configuration, a preview with the theme app
 }
 ```
 
-| Field | Required | Description |
-|---|---|---|
-| `vivliostyle.theme.style` | ✅ | Path to the main CSS file |
-| `vivliostyle.theme.author` | ✅ | Theme author name |
-| `vivliostyle.theme.name` | — | Theme display name |
-| `vivliostyle.theme.category` | — | `novel` / `magazine` / `journal` / `report` / `misc` |
-| `vivliostyle.theme.topics` | — | Array of topics describing the theme's use cases |
-| `keywords` | — | Recommended to include `"vivliostyle"` and `"vivliostyle-theme"` |
+| Field                        | Required | Description                                                      |
+| ---------------------------- | -------- | ---------------------------------------------------------------- |
+| `vivliostyle.theme.style`    | ✅       | Path to the main CSS file                                        |
+| `vivliostyle.theme.author`   | ✅       | Theme author name                                                |
+| `vivliostyle.theme.name`     | —        | Theme display name                                               |
+| `vivliostyle.theme.category` | —        | `novel` / `magazine` / `journal` / `report` / `misc`             |
+| `vivliostyle.theme.topics`   | —        | Array of topics describing the theme's use cases                 |
+| `keywords`                   | —        | Recommended to include `"vivliostyle"` and `"vivliostyle-theme"` |
 
 See the [Spec of Vivliostyle Theme](./spec.md) for the full specification.
 

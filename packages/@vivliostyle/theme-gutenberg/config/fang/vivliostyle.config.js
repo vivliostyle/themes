@@ -1,4 +1,7 @@
-module.exports = {
+// @ts-check
+import { defineConfig } from '@vivliostyle/cli';
+
+export default defineConfig({
   title: 'White Fang',
   language: 'en',
   size: 'A5',
@@ -24,4 +27,4 @@ module.exports = {
       format: 'webpub',
     },
   ],
-};
+});

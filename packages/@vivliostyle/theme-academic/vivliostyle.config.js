@@ -1,4 +1,7 @@
-module.exports = {
+// @ts-check
+import { defineConfig } from '@vivliostyle/cli';
+
+export default defineConfig({
   title: 'vivliostyle-theme-academic のサンプル',
   language: 'ja',
   size: 'A4',
@@ -18,4 +21,4 @@ module.exports = {
       format: 'webpub',
     },
   ],
-};
+});

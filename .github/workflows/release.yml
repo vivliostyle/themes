@@ -1,0 +1,149 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+permissions:
+  id-token: write # Required for npm trusted publishing (OIDC)
+  contents: write # For tags and releases
+  pull-requests: write # For creating version PRs
+
+env:
+  HUSKY: 0
+
+jobs:
+  publish-dry-run:
+    runs-on: ubuntu-latest
+    outputs:
+      publish-summary: ${{ steps.publish-summary.outputs.json }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+        with:
+          run_install: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run build:tools
+      - name: Release dry run
+        env:
+          PUBLISH_BRANCH: ${{ github.ref_name }}
+        run: |
+          set +e
+          pnpm publish -r --dry-run --report-summary --publish-branch "$PUBLISH_BRANCH"
+          status=$?
+          # pnpm exits 5 when every version is already on the registry, which is
+          # the normal state until the version PR is merged.
+          if [ "$status" -ne 0 ] && [ "$status" -ne 5 ]; then
+            exit "$status"
+          fi
+      - name: Output publish summary
+        id: publish-summary
+        run: echo "json=$(jq -c . pnpm-publish-summary.json)" >> "$GITHUB_OUTPUT"
+
+  create-version-pr:
+    runs-on: ubuntu-latest
+    outputs:
+      has-changesets: ${{ steps.changesets.outputs.hasChangesets }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+        with:
+          run_install: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Set up git
+        # Note: These settings may be revoked if a GitHub App token is updated.
+        run: |
+          git config --global user.name 'vivliostyle-bot[bot]'
+          git config --global user.email '236058695+vivliostyle-bot[bot]@users.noreply.github.com'
+      - name: Create version PR
+        uses: changesets/action@a45c4d594aa4e2c509dc14a9f2b3b67ba3780d0d # v1.9.0
+        id: changesets
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          setupGitUser: false
+          version: pnpm run bump
+
+  publish:
+    needs:
+      - publish-dry-run
+      - create-version-pr
+    # Publish only once the version PR has been merged: the dry run found
+    # something to publish and no changeset is left unconsumed.
+    if: ${{ fromJson(needs.publish-dry-run.outputs.publish-summary).publishedPackages[0] && !fromJson(needs.create-version-pr.outputs.has-changesets) }}
+    runs-on: ubuntu-latest
+    # Publishing, tagging and the GitHub release live in one job because
+    # GitHub requests approval separately for every job that references an
+    # environment, and a release should only have to be approved once.
+    environment: Production deployment
+    steps:
+      - name: Set up git
+        # Note: These settings may be revoked if a GitHub App token is updated.
+        run: |
+          git config --global user.name 'vivliostyle-bot[bot]'
+          git config --global user.email '236058695+vivliostyle-bot[bot]@users.noreply.github.com'
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+        with:
+          run_install: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          registry-url: 'https://registry.npmjs.org/'
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run build:tools
+      - name: Release
+        env:
+          PUBLISH_BRANCH: ${{ github.ref_name }}
+        run: pnpm publish -r --access public --publish-branch "$PUBLISH_BRANCH" --report-summary
+      - name: Create tags
+        run: |
+          tags=()
+          while read -r tag; do
+            git tag -a "$tag" -m "Release $tag"
+            tags+=("$tag")
+          done < <(jq -r '.publishedPackages[] | "\(.name)@\(.version)"' pnpm-publish-summary.json)
+          git push origin "${tags[@]}"
+      - name: Prepare the theme-base release
+        id: theme-base
+        run: |
+          version=$(jq -r '.publishedPackages[] | select(.name == "@vivliostyle/theme-base") | .version' pnpm-publish-summary.json)
+          if [ -z "$version" ]; then
+            echo 'published=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo 'published=true' >> "$GITHUB_OUTPUT"
+          echo "tag=@vivliostyle/theme-base@$version" >> "$GITHUB_OUTPUT"
+          changelog_file=packages/@vivliostyle/theme-base/CHANGELOG.md
+          if [ -f "$changelog_file" ]; then
+            escaped=$(echo "$version" | sed 's/\./\\./g')
+            awk "/^## $escaped/ {flag=1; next} /^##? / {flag=0} flag {print}" "$changelog_file" > release_notes.txt
+          else
+            touch release_notes.txt
+          fi
+          cat release_notes.txt
+      # Only theme-base gets a GitHub release; the other packages are tagged
+      # and their changes are covered by its release notes.
+      - name: Release to GitHub
+        if: steps.theme-base.outputs.published == 'true'
+        uses: softprops/action-gh-release@3d0d9888cb7fd7b750713d6e236d1fcb99157228 # v3.0.2
+        with:
+          tag_name: ${{ steps.theme-base.outputs.tag }}
+          name: ${{ steps.theme-base.outputs.tag }}
+          body_path: release_notes.txt
+          token: ${{ secrets.GITHUB_TOKEN }}

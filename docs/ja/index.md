@@ -9,6 +9,5 @@ Vivliostyle Themeは、Vivliostyleで出版物を作る際に使うスタイル�
 - [Vivliostyle Themeの仕様](./spec.md)
 
 - ### 運用ガイドライン
-
   - [公式Themeの採用](./official.md)
   - [Vivliostyle Themesギャラリー](./gallery.md)

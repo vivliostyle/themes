@@ -1,12 +1,31 @@
 {
   "name": "create-vivliostyle-theme",
-  "description": "Create Vivliostyle theme at ease",
   "version": "1.0.1",
+  "description": "Create Vivliostyle theme at ease",
+  "keywords": [
+    "vivliostyle"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "bugs": {
+    "url": "https://github.com/vivliostyle/themes/issues"
+  },
+  "license": "Apache-2.0",
   "author": "Yasuaki Uechi <y@uechi.io>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/create-vivliostyle-theme"
+  },
+  "bin": "lib/cli.cjs",
+  "files": [
+    "lib",
+    "templates"
+  ],
+  "type": "module",
   "scripts": {
-    "build": "shx rm -rf lib && NODE_ENV=production tsc && shx chmod +x lib/cli.js",
+    "build": "shx rm -rf lib && NODE_ENV=production tsc && shx chmod +x lib/cli.cjs",
     "dev": "tsc -w",
-    "prepublishOnly": "yarn build"
+    "prepare": "pnpm run build"
   },
   "dependencies": {
     "chalk": "^4.1.0",
@@ -15,23 +34,5 @@
   "devDependencies": {
     "shx": "^0.3.2",
     "typescript": "^5.3.3"
-  },
-  "bin": "lib/cli.js",
-  "files": [
-    "lib",
-    "templates"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/vivliostyle/themes.git",
-    "directory": "packages/create-vivliostyle-theme"
-  },
-  "bugs": {
-    "url": "https://github.com/vivliostyle/themes/issues"
-  },
-  "homepage": "https://github.com/vivliostyle/themes",
-  "keywords": [
-    "vivliostyle"
-  ],
-  "license": "Apache-2.0"
+  }
 }
