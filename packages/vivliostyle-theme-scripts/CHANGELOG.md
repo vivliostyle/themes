@@ -1,5 +1,11 @@
 # vivliostyle-theme-scripts
 
+## 0.3.7
+
+### Patch Changes
+
+- [#152](https://github.com/vivliostyle/themes/pull/152) [`60fe785`](https://github.com/vivliostyle/themes/commit/60fe785352f4e6424382d40f542ab271cbf58097) Thanks [@spring-raining](https://github.com/spring-raining)! - Modernize the internal code. The packages are now ESM, and `vivliostyle.config.js` is written with `defineConfig` from `@vivliostyle/cli`. The published styles and CLI behavior are unchanged.
+
 ## [0.3.6](https://github.com/vivliostyle/themes/compare/vivliostyle-theme-scripts@0.3.5...vivliostyle-theme-scripts@0.3.6) (2023-08-10)
 
 **Note:** Version bump only for package vivliostyle-theme-scripts

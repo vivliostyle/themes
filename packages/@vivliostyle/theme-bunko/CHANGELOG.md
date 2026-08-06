@@ -1,5 +1,14 @@
 # @vivliostyle/theme-bunko
 
+## 2.0.2
+
+### Patch Changes
+
+- [#152](https://github.com/vivliostyle/themes/pull/152) [`60fe785`](https://github.com/vivliostyle/themes/commit/60fe785352f4e6424382d40f542ab271cbf58097) Thanks [@spring-raining](https://github.com/spring-raining)! - Modernize the internal code. The packages are now ESM, and `vivliostyle.config.js` is written with `defineConfig` from `@vivliostyle/cli`. The published styles and CLI behavior are unchanged.
+
+- Updated dependencies [[`60fe785`](https://github.com/vivliostyle/themes/commit/60fe785352f4e6424382d40f542ab271cbf58097)]:
+  - @vivliostyle/theme-base@2.1.1
+
 ## 2.0.1
 
 ### Patch Changes
