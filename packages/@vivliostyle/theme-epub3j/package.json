@@ -31,7 +31,7 @@
     "validate": "vivliostyle-theme-scripts validate"
   },
   "peerDependencies": {
-    "@vivliostyle/cli": ">=8"
+    "@vivliostyle/cli": ">=11"
   },
   "peerDependenciesMeta": {
     "@vivliostyle/cli": {

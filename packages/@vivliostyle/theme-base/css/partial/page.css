@@ -4,13 +4,13 @@
   --vs-page--height: auto;
   --vs-page--marks: none;
   --vs-page--bleed: 0;
-  --vs-page--color-bg: var(--vs-color-bg);
+  --vs-page--background-color: var(--vs-background-color);
   --vs-page--margin-top: 22mm;
   --vs-page--margin-bottom: 22mm;
   --vs-page--margin-inner: 18mm;
   --vs-page--margin-outer: 18mm;
-  --vs-page--mbox-color-bg: transparent;
-  --vs-page--mbox-color-body: inherit;
+  --vs-page--mbox-background-color: transparent;
+  --vs-page--mbox-text-color: inherit;
   --vs-page--mbox-content-top-left-corner: none;
   --vs-page--mbox-content-top-left: none;
   --vs-page--mbox-content-top-center: none;
@@ -35,8 +35,6 @@
   --vs-page--mbox-padding-bottom-inner: 0;
   --vs-page--mbox-visibility: visible;
   --vs-page--mbox-writing-mode: horizontal-tb;
-  --vs-page--cover-break-after: page;
-  --vs-page--cover-break-before: page;
 }
 
 @page {
@@ -45,7 +43,7 @@
   height: var(--vs-page--height);
   marks: var(--vs-page--marks);
   bleed: var(--vs-page--bleed);
-  background-color: var(--vs-page--color-bg);
+  background-color: var(--vs-page--background-color);
   margin-top: var(--vs-page--margin-top);
   margin-bottom: var(--vs-page--margin-bottom);
 }
@@ -68,9 +66,8 @@
     padding-top: var(--vs-page--bleed);
     padding-left: var(--vs-page--bleed);
     padding-right: var(--vs-page--mbox-padding-left-outer);
-
-    background-color: var(--vs-page--mbox-color-bg);
-    color: var(--vs-page--mbox-color-body);
+    background-color: var(--vs-page--mbox-background-color);
+    color: var(--vs-page--mbox-text-color);
     font-family: var(--vs-page--mbox-font-family);
     font-feature-settings: var(--vs-page--mbox-font-feature-settings);
     font-kerning: var(--vs-page--mbox-font-kerning);
@@ -90,9 +87,8 @@
     margin-top: calc(var(--vs-page--bleed) * -1);
     padding-top: var(--vs-page--bleed);
     padding-left: var(--vs-page--mbox-padding-left-inner);
-
-    background-color: var(--vs-page--mbox-color-bg);
-    color: var(--vs-page--mbox-color-body);
+    background-color: var(--vs-page--mbox-background-color);
+    color: var(--vs-page--mbox-text-color);
     font-family: var(--vs-page--mbox-font-family);
     font-feature-settings: var(--vs-page--mbox-font-feature-settings);
     font-kerning: var(--vs-page--mbox-font-kerning);
@@ -111,9 +107,8 @@
     content: var(--vs-page--mbox-content-top-center);
     margin-top: calc(var(--vs-page--bleed) * -1);
     padding-top: var(--vs-page--bleed);
-
-    background-color: var(--vs-page--mbox-color-bg);
-    color: var(--vs-page--mbox-color-body);
+    background-color: var(--vs-page--mbox-background-color);
+    color: var(--vs-page--mbox-text-color);
     font-family: var(--vs-page--mbox-font-family);
     font-feature-settings: var(--vs-page--mbox-font-feature-settings);
     font-kerning: var(--vs-page--mbox-font-kerning);
@@ -133,9 +128,8 @@
     margin-top: calc(var(--vs-page--bleed) * -1);
     padding-top: var(--vs-page--bleed);
     padding-right: var(--vs-page--mbox-padding-right-inner);
-
-    background-color: var(--vs-page--mbox-color-bg);
-    color: var(--vs-page--mbox-color-body);
+    background-color: var(--vs-page--mbox-background-color);
+    color: var(--vs-page--mbox-text-color);
     font-family: var(--vs-page--mbox-font-family);
     font-feature-settings: var(--vs-page--mbox-font-feature-settings);
     font-kerning: var(--vs-page--mbox-font-kerning);
@@ -157,9 +151,8 @@
     padding-top: var(--vs-page--bleed);
     padding-right: var(--vs-page--bleed);
     padding-left: var(--vs-page--mbox-padding-right-outer);
-
-    background-color: var(--vs-page--mbox-color-bg);
-    color: var(--vs-page--mbox-color-body);
+    background-color: var(--vs-page--mbox-background-color);
+    color: var(--vs-page--mbox-text-color);
     font-family: var(--vs-page--mbox-font-family);
     font-feature-settings: var(--vs-page--mbox-font-feature-settings);
     font-kerning: var(--vs-page--mbox-font-kerning);
@@ -179,9 +172,8 @@
     margin-left: calc(var(--vs-page--bleed) * -1);
     padding-left: var(--vs-page--bleed);
     padding-top: var(--vs-page--mbox-padding-top-inner);
-
-    background-color: var(--vs-page--mbox-color-bg);
-    color: var(--vs-page--mbox-color-body);
+    background-color: var(--vs-page--mbox-background-color);
+    color: var(--vs-page--mbox-text-color);
     font-family: var(--vs-page--mbox-font-family);
     font-feature-settings: var(--vs-page--mbox-font-feature-settings);
     font-kerning: var(--vs-page--mbox-font-kerning);
@@ -200,9 +192,8 @@
     content: var(--vs-page--mbox-content-left-middle);
     margin-left: calc(var(--vs-page--bleed) * -1);
     padding-left: var(--vs-page--bleed);
-
-    background-color: var(--vs-page--mbox-color-bg);
-    color: var(--vs-page--mbox-color-body);
+    background-color: var(--vs-page--mbox-background-color);
+    color: var(--vs-page--mbox-text-color);
     font-family: var(--vs-page--mbox-font-family);
     font-feature-settings: var(--vs-page--mbox-font-feature-settings);
     font-kerning: var(--vs-page--mbox-font-kerning);
@@ -222,9 +213,8 @@
     margin-left: calc(var(--vs-page--bleed) * -1);
     padding-left: var(--vs-page--bleed);
     padding-bottom: var(--vs-page--mbox-padding-bottom-inner);
-
-    background-color: var(--vs-page--mbox-color-bg);
-    color: var(--vs-page--mbox-color-body);
+    background-color: var(--vs-page--mbox-background-color);
+    color: var(--vs-page--mbox-text-color);
     font-family: var(--vs-page--mbox-font-family);
     font-feature-settings: var(--vs-page--mbox-font-feature-settings);
     font-kerning: var(--vs-page--mbox-font-kerning);
@@ -244,9 +234,8 @@
     margin-right: calc(var(--vs-page--bleed) * -1);
     padding-right: var(--vs-page--bleed);
     padding-top: var(--vs-page--mbox-padding-top-inner);
-
-    background-color: var(--vs-page--mbox-color-bg);
-    color: var(--vs-page--mbox-color-body);
+    background-color: var(--vs-page--mbox-background-color);
+    color: var(--vs-page--mbox-text-color);
     font-family: var(--vs-page--mbox-font-family);
     font-feature-settings: var(--vs-page--mbox-font-feature-settings);
     font-kerning: var(--vs-page--mbox-font-kerning);
@@ -265,9 +254,8 @@
     content: var(--vs-page--mbox-content-right-middle);
     margin-right: calc(var(--vs-page--bleed) * -1);
     padding-right: var(--vs-page--bleed);
-
-    background-color: var(--vs-page--mbox-color-bg);
-    color: var(--vs-page--mbox-color-body);
+    background-color: var(--vs-page--mbox-background-color);
+    color: var(--vs-page--mbox-text-color);
     font-family: var(--vs-page--mbox-font-family);
     font-feature-settings: var(--vs-page--mbox-font-feature-settings);
     font-kerning: var(--vs-page--mbox-font-kerning);
@@ -287,9 +275,8 @@
     margin-right: calc(var(--vs-page--bleed) * -1);
     padding-right: var(--vs-page--bleed);
     padding-bottom: var(--vs-page--mbox-padding-bottom-inner);
-
-    background-color: var(--vs-page--mbox-color-bg);
-    color: var(--vs-page--mbox-color-body);
+    background-color: var(--vs-page--mbox-background-color);
+    color: var(--vs-page--mbox-text-color);
     font-family: var(--vs-page--mbox-font-family);
     font-feature-settings: var(--vs-page--mbox-font-feature-settings);
     font-kerning: var(--vs-page--mbox-font-kerning);
@@ -303,6 +290,7 @@
     visibility: var(--vs-page--mbox-visibility);
     writing-mode: var(--vs-page--mbox-writing-mode);
   }
+
   @bottom-left-corner {
     content: var(--vs-page--mbox-content-bottom-left-corner);
     margin-bottom: calc(var(--vs-page--bleed) * -1);
@@ -310,9 +298,8 @@
     padding-bottom: var(--vs-page--bleed);
     padding-left: var(--vs-page--bleed);
     padding-right: var(--vs-page--mbox-padding-left-outer);
-
-    background-color: var(--vs-page--mbox-color-bg);
-    color: var(--vs-page--mbox-color-body);
+    background-color: var(--vs-page--mbox-background-color);
+    color: var(--vs-page--mbox-text-color);
     font-family: var(--vs-page--mbox-font-family);
     font-feature-settings: var(--vs-page--mbox-font-feature-settings);
     font-kerning: var(--vs-page--mbox-font-kerning);
@@ -332,9 +319,8 @@
     margin-bottom: calc(var(--vs-page--bleed) * -1);
     padding-bottom: var(--vs-page--bleed);
     padding-left: var(--vs-page--mbox-padding-left-inner);
-
-    background-color: var(--vs-page--mbox-color-bg);
-    color: var(--vs-page--mbox-color-body);
+    background-color: var(--vs-page--mbox-background-color);
+    color: var(--vs-page--mbox-text-color);
     font-family: var(--vs-page--mbox-font-family);
     font-feature-settings: var(--vs-page--mbox-font-feature-settings);
     font-kerning: var(--vs-page--mbox-font-kerning);
@@ -353,9 +339,8 @@
     content: var(--vs-page--mbox-content-bottom-center);
     margin-bottom: calc(var(--vs-page--bleed) * -1);
     padding-bottom: var(--vs-page--bleed);
-
-    background-color: var(--vs-page--mbox-color-bg);
-    color: var(--vs-page--mbox-color-body);
+    background-color: var(--vs-page--mbox-background-color);
+    color: var(--vs-page--mbox-text-color);
     font-family: var(--vs-page--mbox-font-family);
     font-feature-settings: var(--vs-page--mbox-font-feature-settings);
     font-kerning: var(--vs-page--mbox-font-kerning);
@@ -375,9 +360,8 @@
     margin-bottom: calc(var(--vs-page--bleed) * -1);
     padding-bottom: var(--vs-page--bleed);
     padding-right: var(--vs-page--mbox-padding-right-inner);
-
-    background-color: var(--vs-page--mbox-color-bg);
-    color: var(--vs-page--mbox-color-body);
+    background-color: var(--vs-page--mbox-background-color);
+    color: var(--vs-page--mbox-text-color);
     font-family: var(--vs-page--mbox-font-family);
     font-feature-settings: var(--vs-page--mbox-font-feature-settings);
     font-kerning: var(--vs-page--mbox-font-kerning);
@@ -399,9 +383,8 @@
     padding-bottom: var(--vs-page--bleed);
     padding-right: var(--vs-page--bleed);
     padding-left: var(--vs-page--mbox-padding-right-outer);
-
-    background-color: var(--vs-page--mbox-color-bg);
-    color: var(--vs-page--mbox-color-body);
+    background-color: var(--vs-page--mbox-background-color);
+    color: var(--vs-page--mbox-text-color);
     font-family: var(--vs-page--mbox-font-family);
     font-feature-settings: var(--vs-page--mbox-font-feature-settings);
     font-kerning: var(--vs-page--mbox-font-kerning);

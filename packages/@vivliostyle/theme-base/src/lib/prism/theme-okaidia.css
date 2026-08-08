@@ -1,0 +1,46 @@
+:root {
+  --vs-prism--background: #272822;
+  --vs-prism--color: #f8f8f2;
+
+  --vs-prism--color-comment: #8292a2;
+  --vs-prism--color-prolog: #8292a2;
+  --vs-prism--color-doctype: #8292a2;
+  --vs-prism--color-cdata: #8292a2;
+
+  --vs-prism--color-punctuation: #f8f8f2;
+
+  --vs-prism--color-namespace: rgba(248, 248, 242, 0.7);
+
+  --vs-prism--color-property: #f92672;
+  --vs-prism--color-tag: #f92672;
+  --vs-prism--color-constant: #f92672;
+  --vs-prism--color-symbol: #f92672;
+  --vs-prism--color-deleted: #f92672;
+
+  --vs-prism--color-boolean: #ae81ff;
+  --vs-prism--color-number: #ae81ff;
+
+  --vs-prism--color-selector: #a6e22e;
+  --vs-prism--color-attr-name: #a6e22e;
+  --vs-prism--color-string: #a6e22e;
+  --vs-prism--color-char: #a6e22e;
+  --vs-prism--color-builtin: #a6e22e;
+  --vs-prism--color-inserted: #a6e22e;
+
+  --vs-prism--color-operator: #f8f8f2;
+  --vs-prism--color-entity: #f8f8f2;
+  --vs-prism--color-url: #f8f8f2;
+  --vs-prism--color-variable: #f8f8f2;
+
+  --vs-prism--color-atrule: #e6db74;
+  --vs-prism--color-attr-value: #e6db74;
+  --vs-prism--color-function: #e6db74;
+  --vs-prism--color-class-name: #e6db74;
+
+  --vs-prism--color-keyword: #66d9ef;
+
+  --vs-prism--color-regex: #fd971f;
+  --vs-prism--color-important: #fd971f;
+
+  --vs-prism--text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,117 @@
+:root {
+  --vs-footnote--call-content: '*'
+    counter(vs-counter-footnote, var(--vs-footnote--counter-style));
+  --vs-footnote--call-font-size: 0.8em;
+  --vs-footnote--call-margin-inline: 0;
+  --vs-footnote--call-inset-block-start: var(--vs--sup-inset-block-start);
+  --vs-footnote--counter-style: decimal;
+  --vs-footnote--marker-content: counter(
+      vs-counter-footnote,
+      var(--vs-footnote--counter-style)
+    )
+    '. ';
+  --vs-footnote--marker-margin-inline: 0;
+  --vs-footnote--area-margin-block: var(--vs-spacing-rlh);
+  --vs-footnote--area-before-display: block;
+  --vs-footnote--area-before-margin-block: var(--vs--hr-margin-block);
+  --vs-footnote--area-before-margin-inline: var(--vs--hr-margin-inline);
+  --vs-footnote--item-margin-block: 0;
+  --vs-footnote--item-margin-inline: 0;
+  --vs-footnote--root-counter-reset: vs-counter-footnote
+    var(--vs-footnote--root-counter-footnote,);
+}
+
+@var footnote-, * {
+  .footnote,
+  [role='doc-footnote'] {
+    color: ;
+    font-family: ;
+    font-feature-settings: ;
+    font-kerning: ;
+    font-size: ;
+    font-stretch: ;
+    font-style: ;
+    font-synthesis: ;
+    font-variant: ;
+    font-variation-settings: ;
+    font-weight: ;
+    letter-spacing: ;
+    line-height: ;
+    text-align: ;
+    text-spacing: ;
+    word-spacing: ;
+  }
+}
+
+@var footnote {
+  @var call {
+    .footnote::footnote-call,
+    [role='doc-footnote']::footnote-call {
+      content: ;
+      font-size: ;
+      margin-inline: ;
+      inset-block-start: ;
+    }
+  }
+
+  @var marker {
+    .footnote::footnote-marker,
+    [role='doc-footnote']::footnote-marker {
+      content: ;
+      margin-inline: ;
+    }
+  }
+}
+
+.footnote,
+[role='doc-footnote'] {
+  counter-increment: vs-counter-footnote;
+}
+
+.footnote::footnote-call,
+[role='doc-footnote']::footnote-call {
+  vertical-align: baseline;
+  position: relative;
+}
+
+@media print {
+  @var footnote.item {
+    .footnote,
+    [role='doc-footnote'] {
+      margin-block: ;
+      margin-inline: ;
+    }
+  }
+
+  .footnote,
+  [role='doc-footnote'] {
+    float: footnote;
+  }
+}
+
+@var footnote {
+  @page {
+    @var area {
+      @footnote {
+        margin-block: ;
+      }
+    }
+
+    @var area-before {
+      @footnote ::before {
+        display: ;
+        border-block-start-style: solid;
+        border-block-start-color: var(
+          --vs--hr-border-color,
+          var(--vs-border-color)
+        );
+        border-block-start-width: var(
+          --vs--hr-border-width-block-start,
+          var(--vs-border-width)
+        );
+        margin-block: ;
+        margin-inline: ;
+      }
+    }
+  }
+}

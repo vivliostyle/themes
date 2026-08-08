@@ -39,15 +39,20 @@
   /* Up to 6 indentations can be displayed (h1-h6) */
   inline-size: calc(var(--vs-toc--ol-indent-size) * 6);
   inset-inline-start: calc(var(--vs-toc--ol-indent-size) * -6);
-  content: var(--vs-toc--marker-content);
-  display: var(--vs-toc--marker-display);
-  text-align: var(--vs-toc--marker-text-align);
-  padding-inline-end: var(--vs-toc--marker-padding-inline-end);
+
+  @var toc.marker {
+    content: ;
+    display: ;
+    text-align: ;
+    padding-inline-end: ;
+  }
 }
 
 :is(#toc, [role='doc-toc']) li > a {
-  align-items: var(--vs-toc--anchor-align-items);
-  text-decoration: var(--vs-toc--anchor-text-decoration);
+  @var toc.anchor {
+    align-items: ;
+    text-decoration: ;
+  }
 }
 
 :is(#toc, [role='doc-toc']) li > a::after {

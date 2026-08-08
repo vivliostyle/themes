@@ -28,7 +28,7 @@
     "vivliostyle-theme-scripts": "^0.3.6"
   },
   "peerDependencies": {
-    "@vivliostyle/cli": ">=7"
+    "@vivliostyle/cli": ">=11"
   },
   "peerDependenciesMeta": {
     "@vivliostyle/cli": {

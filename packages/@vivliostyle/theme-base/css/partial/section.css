@@ -1,6 +1,5 @@
 :root {
   --vs-section--anchor-text-decoration: none;
-  --vs-section--anchor-text-decoration-on-hover: underline;
   --vs-section--counter-delimiter: '.';
   --vs-section--counter-style: decimal;
   --vs-section--call-display: inline;
@@ -18,7 +17,7 @@
     var(--vs-section--counter-delimiter),
     var(--vs-section--counter-style)
   );
-  --vs-section--marker-margin-inline: 1ch;
+  --vs-section--marker-margin-inline-end: 1ch;
   --vs-section--root-counter-reset: vs-counter-sections
     var(--vs-section--root-counter-sections,) vs-counter-sec-h1
     var(--vs-section--root-counter-sec-h1,) vs-counter-sec-h2
@@ -29,13 +28,18 @@
     var(--vs-section--root-counter-sec-h6,);
 }
 
-a[data-ref='sec'] {
-  text-decoration: var(--vs-section--anchor-text-decoration);
-  margin-inline: var(--vs-section--call-margin-inline);
+@media (hover: hover) {
+  a[data-ref='sec']:hover {
+    --vs-section--anchor-text-decoration: underline;
+  }
 }
 
-a[data-ref='sec']:hover {
-  text-decoration: var(--vs-section--anchor-text-decoration-on-hover);
+a[data-ref='sec'] {
+  text-decoration: var(--vs-section--anchor-text-decoration);
+}
+
+a[data-ref='sec'] {
+  margin-inline: var(--vs-section--call-margin-inline);
 }
 
 a[data-ref='sec']::before {
@@ -53,8 +57,8 @@ section > h1:first-child::before {
     var(--vs-section--marker-display)
   );
   margin-inline-end: var(
-    --vs-section--h1-marker-margin-inline,
-    var(--vs-section--marker-margin-inline)
+    --vs-section--h1-marker-margin-inline-end,
+    var(--vs-section--marker-margin-inline-end)
   );
 }
 
@@ -68,8 +72,8 @@ section > h2:first-child::before {
     var(--vs-section--marker-display)
   );
   margin-inline-end: var(
-    --vs-section--h2-marker-margin-inline,
-    var(--vs-section--marker-margin-inline)
+    --vs-section--h2-marker-margin-inline-end,
+    var(--vs-section--marker-margin-inline-end)
   );
 }
 
@@ -83,8 +87,8 @@ section > h3:first-child::before {
     var(--vs-section--marker-display)
   );
   margin-inline-end: var(
-    --vs-section--h3-marker-margin-inline,
-    var(--vs-section--marker-margin-inline)
+    --vs-section--h3-marker-margin-inline-end,
+    var(--vs-section--marker-margin-inline-end)
   );
 }
 
@@ -98,8 +102,8 @@ section > h4:first-child::before {
     var(--vs-section--marker-display)
   );
   margin-inline-end: var(
-    --vs-section--h4-marker-margin-inline,
-    var(--vs-section--marker-margin-inline)
+    --vs-section--h4-marker-margin-inline-end,
+    var(--vs-section--marker-margin-inline-end)
   );
 }
 
@@ -113,8 +117,8 @@ section > h5:first-child::before {
     var(--vs-section--marker-display)
   );
   margin-inline-end: var(
-    --vs-section--h5-marker-margin-inline,
-    var(--vs-section--marker-margin-inline)
+    --vs-section--h5-marker-margin-inline-end,
+    var(--vs-section--marker-margin-inline-end)
   );
 }
 
@@ -128,8 +132,8 @@ section > h6:first-child::before {
     var(--vs-section--marker-display)
   );
   margin-inline-end: var(
-    --vs-section--h6-marker-margin-inline,
-    var(--vs-section--marker-margin-inline)
+    --vs-section--h6-marker-margin-inline-end,
+    var(--vs-section--marker-margin-inline-end)
   );
 }
 

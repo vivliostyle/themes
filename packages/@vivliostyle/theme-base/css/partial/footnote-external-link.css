@@ -10,8 +10,9 @@
     display: block;
     float: footnote;
     word-break: break-all;
-
-    color: var(--vs-footnote--color-body, var(--vs-color-body));
+  }
+  :not(.footnote) > a[href^='http']::before {
+    color: var(--vs-footnote--text-color, var(--vs-text-color));
     font-family: var(--vs-footnote--font-family, var(--vs-font-family));
     font-feature-settings: var(
       --vs-footnote--font-feature-settings,
@@ -19,13 +20,10 @@
     );
     font-kerning: var(--vs-footnote--font-kerning, var(--vs-font-kerning));
     font-size: var(--vs-footnote--font-size, var(--vs-font-size));
-    font-stretch: var(
-      --vs-footnote--font-stretch,
-      var(--vs-footnote--font-stretch)
-    );
+    font-stretch: var(--vs-footnote--font-stretch, var(--vs-font-stretch));
     font-style: var(--vs-footnote--font-style, var(--vs-font-style));
     font-synthesis: var(
-      --vs-footnote--font-synthesize,
+      --vs-footnote--font-synthesis,
       var(--vs-font-synthesis)
     );
     font-variant: var(--vs-footnote--font-variant, var(--vs-font-variant));

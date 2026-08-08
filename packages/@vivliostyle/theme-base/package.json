@@ -26,12 +26,19 @@
     "access": "public"
   },
   "scripts": {
-    "build": "vivliostyle build",
-    "preview": "vivliostyle preview",
+    "build": "postcss src/**/*.css --base src --dir css --no-map",
+    "watch": "postcss src/**/*.css --base src --dir css --no-map -w",
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
     "validate": "vivliostyle-theme-scripts validate"
   },
+  "devDependencies": {
+    "postcss": "8.5.25",
+    "postcss-cli": "11.0.1",
+    "postcss-variable-theming": "^0.3.0"
+  },
   "peerDependencies": {
-    "@vivliostyle/cli": ">=7"
+    "@vivliostyle/cli": ">=11"
   },
   "peerDependenciesMeta": {
     "@vivliostyle/cli": {

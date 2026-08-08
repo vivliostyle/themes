@@ -38,7 +38,7 @@
   --vs-page--margin-bottom: 4rem;
   --vs-page--margin-outer: 10%;
   --vs-page--margin-inner: 10%;
-  --vs-page--mbox-color-body: var(--vs-theme--page-top-color-body);
+  --vs-page--mbox-text-color: var(--vs-theme--page-top-color-body);
   --vs-page--mbox-font-feature-settings: 'smcp';
   --vs-page--mbox-font-size: calc(var(--vs-font-size) * 0.8);
   --vs-page--mbox-font-variant: small-caps;

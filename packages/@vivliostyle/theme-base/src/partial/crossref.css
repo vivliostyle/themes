@@ -69,24 +69,36 @@
   }
 }
 
-a:is([data-ref='fig'], a[data-ref='tbl'], a[data-ref='cite']) {
-  text-decoration: var(--vs-crossref--anchor-text-decoration);
-}
+@var crossref {
+  @var anchor {
+    a:is([data-ref='fig'], a[data-ref='tbl'], a[data-ref='cite']) {
+      text-decoration: ;
+    }
+  }
 
-a:is([data-ref='fig'], a[data-ref='tbl'], a[data-ref='cite']) {
-  margin-inline: var(--vs-crossref--call-margin-inline);
+  @var call {
+    a:is([data-ref='fig'], a[data-ref='tbl'], a[data-ref='cite']) {
+      margin-inline: ;
+    }
+  }
 }
 
 /**
  * Figure
  */
 
-a[data-ref='fig']::before {
-  display: var(--vs-crossref--call-display);
-}
+@var crossref {
+  @var call {
+    a[data-ref='fig']::before {
+      display: ;
+    }
+  }
 
-a[data-ref='fig']::before {
-  content: var(--vs-crossref--call-fig-content);
+  @var call-fig {
+    a[data-ref='fig']::before {
+      content: ;
+    }
+  }
 }
 
 figure:is(.fig, :has(> :is(img, picture))) {
@@ -106,12 +118,18 @@ figure:is(.fig, :has(> :is(img, picture))) figcaption::before {
  * Table
  */
 
-a[data-ref='tbl']::before {
-  display: var(--vs-crossref--call-display);
-}
+@var crossref {
+  @var call {
+    a[data-ref='tbl']::before {
+      display: ;
+    }
+  }
 
-a[data-ref='tbl']::before {
-  content: var(--vs-crossref--call-tbl-content);
+  @var call-tbl {
+    a[data-ref='tbl']::before {
+      content: ;
+    }
+  }
 }
 
 figure:is(.tbl, :has(table)),
@@ -133,12 +151,18 @@ table caption::before {
  * Citation
  */
 
-a[data-ref='cite']::before {
-  display: var(--vs-crossref--call-display);
-}
+@var crossref {
+  @var call {
+    a[data-ref='cite']::before {
+      display: ;
+    }
+  }
 
-a[data-ref='cite']::before {
-  content: var(--vs-crossref--call-cite-content);
+  @var call-cite {
+    a[data-ref='cite']::before {
+      content: ;
+    }
+  }
 }
 
 ol.cite-items {

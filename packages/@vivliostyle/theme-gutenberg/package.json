@@ -34,7 +34,7 @@
     "@vivliostyle/theme-base": "workspace:*"
   },
   "peerDependencies": {
-    "@vivliostyle/cli": ">=7"
+    "@vivliostyle/cli": ">=11"
   },
   "peerDependenciesMeta": {
     "@vivliostyle/cli": {
