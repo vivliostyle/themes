@@ -135,30 +135,35 @@ section > h6:first-child::before {
 
 section:has(> h1:first-child) {
   counter-increment: vs-counter-sections vs-counter-sec-h1;
+  counter-reset: vs-counter-sec-h2;
   break-after: var(--vs-section--h1-break-after);
   break-before: var(--vs-section--h1-break-before);
 }
 
 section:has(> h2:first-child) {
   counter-increment: vs-counter-sections vs-counter-sec-h2;
+  counter-reset: vs-counter-sec-h3;
   break-after: var(--vs-section--h2-break-after);
   break-before: var(--vs-section--h2-break-before);
 }
 
 section:has(> h3:first-child) {
   counter-increment: vs-counter-sections vs-counter-sec-h3;
+  counter-reset: vs-counter-sec-h4;
   break-after: var(--vs-section--h3-break-after);
   break-before: var(--vs-section--h3-break-before);
 }
 
 section:has(> h4:first-child) {
   counter-increment: vs-counter-sections vs-counter-sec-h4;
+  counter-reset: vs-counter-sec-h5;
   break-after: var(--vs-section--h4-break-after);
   break-before: var(--vs-section--h4-break-before);
 }
 
 section:has(> h5:first-child) {
   counter-increment: vs-counter-sections vs-counter-sec-h5;
+  counter-reset: vs-counter-sec-h6;
   break-after: var(--vs-section--h5-break-after);
   break-before: var(--vs-section--h5-break-before);
 }
@@ -169,6 +174,22 @@ section:has(> h6:first-child) {
   break-before: var(--vs-section--h6-break-before);
 }
 
-section > :is(h1, h2, h3, h4, h5, h6):first-child + * {
+section > h1:first-child + section:has(> h2:first-child) {
+  counter-reset: vs-counter-sections vs-counter-sec-h3;
+}
+
+section > h2:first-child + section:has(> h3:first-child) {
+  counter-reset: vs-counter-sections vs-counter-sec-h4;
+}
+
+section > h3:first-child + section:has(> h4:first-child) {
+  counter-reset: vs-counter-sections vs-counter-sec-h5;
+}
+
+section > h4:first-child + section:has(> h5:first-child) {
+  counter-reset: vs-counter-sections vs-counter-sec-h6;
+}
+
+section > h5:first-child + section:has(> h6:first-child) {
   counter-reset: vs-counter-sections;
 }
