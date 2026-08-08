@@ -57,6 +57,7 @@
   content: var(--vs-footnote--call-content);
   font-size: var(--vs-footnote--call-font-size);
   margin-inline: var(--vs-footnote--call-margin-inline);
+  vertical-align: baseline;
   position: relative;
   inset-block-start: var(--vs-footnote--call-inset-block-start);
 }
