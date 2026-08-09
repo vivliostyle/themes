@@ -54,7 +54,7 @@ importers:
   packages/@vivliostyle/theme-academic:
     dependencies:
       '@vivliostyle/cli':
-        specifier: '>=7'
+        specifier: '>=11'
         version: 11.1.0(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))
       '@vivliostyle/theme-base':
         specifier: workspace:*
@@ -63,23 +63,35 @@ importers:
   packages/@vivliostyle/theme-base:
     dependencies:
       '@vivliostyle/cli':
-        specifier: '>=7'
+        specifier: '>=11'
         version: 11.1.0(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))
     devDependencies:
+      '@types/css-tree':
+        specifier: 3.2.0
+        version: 3.2.0
+      css-tree:
+        specifier: 3.2.1
+        version: 3.2.1
       postcss:
         specifier: 8.5.25
         version: 8.5.25
       postcss-cli:
         specifier: 11.0.1
         version: 11.0.1(postcss@8.5.25)
+      postcss-value-parser:
+        specifier: 4.2.0
+        version: 4.2.0
       postcss-variable-theming:
-        specifier: ^0.3.0
-        version: 0.3.0
+        specifier: 0.4.1
+        version: 0.4.1
+      yaml:
+        specifier: 2.9.0
+        version: 2.9.0
 
   packages/@vivliostyle/theme-bunko:
     dependencies:
       '@vivliostyle/cli':
-        specifier: '>=7'
+        specifier: '>=11'
         version: 11.1.0(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))
       '@vivliostyle/theme-base':
         specifier: workspace:*
@@ -88,13 +100,13 @@ importers:
   packages/@vivliostyle/theme-epub3j:
     dependencies:
       '@vivliostyle/cli':
-        specifier: '>=8'
+        specifier: '>=11'
         version: 11.1.0(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))
 
   packages/@vivliostyle/theme-gutenberg:
     dependencies:
       '@vivliostyle/cli':
-        specifier: '>=7'
+        specifier: '>=11'
         version: 11.1.0(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))
       '@vivliostyle/theme-base':
         specifier: workspace:*
@@ -103,7 +115,7 @@ importers:
   packages/@vivliostyle/theme-slide:
     dependencies:
       '@vivliostyle/cli':
-        specifier: '>=7'
+        specifier: '>=11'
         version: 11.1.0(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))
       '@vivliostyle/theme-base':
         specifier: workspace:*
@@ -112,7 +124,7 @@ importers:
   packages/@vivliostyle/theme-techbook:
     dependencies:
       '@vivliostyle/cli':
-        specifier: '>=7'
+        specifier: '>=11'
         version: 11.1.0(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))
       '@vivliostyle/theme-base':
         specifier: workspace:*
@@ -1020,6 +1032,9 @@ packages:
   '@types/cli-table@0.3.4':
     resolution: {integrity: sha512-GsALrTL69mlwbAw/MHF1IPTadSLZQnsxe7a80G8l4inN/iEXCOcVeT/S7aRc6hbhqzL9qZ314kHPDQnQ3ev+HA==}
 
+  '@types/css-tree@3.2.0':
+    resolution: {integrity: sha512-J5KXmk6BFIepOT7280FdFyNs4c5fh0Uee0otjKEvzchrRs38Ii9qminqc4ds0L19X8Zd/rT+brR9jkBthygjWw==}
+
   '@types/deep-eql@4.0.2':
     resolution: {integrity: sha512-c9h9dVVMigMPc4bwTvC5dxqtqJZwQPePsWjPlpSOnojbor6pGqdk541lfA7AqFQr5pB1BRdq0juY9db81BwyFw==}
 
@@ -1614,6 +1629,10 @@ packages:
 
   css-selector-parser@1.4.1:
     resolution: {integrity: sha512-HYPSb7y/Z7BNDCOrakL4raGO2zltZkbeXyAd6Tg9obzix6QhzxCotdBl6VT0Dv4vZfJGVz3WL/xaEI9Ly3ul0g==}
+
+  css-tree@3.2.1:
+    resolution: {integrity: sha512-X7sjQzceUhu1u7Y/ylrRZFU2FS6LRiFVp6rKLPg23y3x3c3DOKAwuXGDp+PAGjh6CSnCjYeAul8pcT8bAl+lSA==}
+    engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0}
 
   cssesc@3.0.0:
     resolution: {integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==}
@@ -2603,6 +2622,9 @@ packages:
   mdast-util-to-string@3.2.0:
     resolution: {integrity: sha512-V4Zn/ncyN1QNSqSBxTrMOLpjr+IKdHl2v3KVLoWmDPscP4r9GcCi71gjgvUV1SFSKh92AjAG4peFuBl2/YgCJg==}
 
+  mdn-data@2.27.1:
+    resolution: {integrity: sha512-9Yubnt3e8A0OKwxYSXyhLymGW4sCufcLG6VdiDdUGVkPhpqLxlvP5vl1983gQjJl3tqbrM731mjaZaP68AgosQ==}
+
   mdurl@1.0.1:
     resolution: {integrity: sha512-/sKlQJCBYVY9Ers9hqzKou4H6V5UWc/M59TH2dvkt+84itfnq7uFOMLpOiOS4ujvHP4etln18fmIxA5R5fll0g==}
 
@@ -3080,12 +3102,11 @@ packages:
     resolution: {integrity: sha512-HeP7D2wyhkR+XaK6v4W8oRF62Dsz4flyuczALJp61GckGm42u1saSSJ/0auvcBqxs3jMRFEcPK34At/0JBKdOg==}
     engines: {node: '>=4'}
 
-  postcss-variable-theming@0.3.0:
-    resolution: {integrity: sha512-mmPh2g98jfS/m2JbbJ9+56atd2Ve1EYRObK1I1w2V3GDt4JA2houZrs8gYly/g0efyjkOQLyKHMf/ax+bADNgw==}
+  postcss-value-parser@4.2.0:
+    resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
 
-  postcss@8.5.24:
-    resolution: {integrity: sha512-8RyVklq0owXUTa4xlpzu4l9AaVKIdQvAcOHZWaMh98HgySsUtxRVf/chRe3dsSLqb6i40BzGRzEUddRaI+9TSw==}
-    engines: {node: ^10 || ^12 || >=14}
+  postcss-variable-theming@0.4.1:
+    resolution: {integrity: sha512-vXPzz3HJu0dSRVv7kM5Srf95K7XV8uy+05HPBb6FKln+ky+NuaRjiiLBsTKGcjIhPY+B+/LEdpi8dtXVEKac7A==}
 
   postcss@8.5.25:
     resolution: {integrity: sha512-DTPx3RWSSnWyzLxQnlH0rJP+EW5ekl16ZU4/psbIhA0e53kJfdgaN5vKM+xP7yJtXVu+nfdVFmlgFDEKAe4Pyw==}
@@ -4922,6 +4943,8 @@ snapshots:
 
   '@types/cli-table@0.3.4': {}
 
+  '@types/css-tree@3.2.0': {}
+
   '@types/deep-eql@4.0.2': {}
 
   '@types/estree@1.0.9': {}
@@ -5721,6 +5744,11 @@ snapshots:
       which: 2.0.2
 
   css-selector-parser@1.4.1: {}
+
+  css-tree@3.2.1:
+    dependencies:
+      mdn-data: 2.27.1
+      source-map-js: 1.2.1
 
   cssesc@3.0.0: {}
 
@@ -6869,6 +6897,8 @@ snapshots:
     dependencies:
       '@types/mdast': 3.0.15
 
+  mdn-data@2.27.1: {}
+
   mdurl@1.0.1: {}
 
   memoizee@0.4.17:
@@ -7362,13 +7392,9 @@ snapshots:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
-  postcss-variable-theming@0.3.0: {}
+  postcss-value-parser@4.2.0: {}
 
-  postcss@8.5.24:
-    dependencies:
-      nanoid: 3.3.16
-      picocolors: 1.1.1
-      source-map-js: 1.2.1
+  postcss-variable-theming@0.4.1: {}
 
   postcss@8.5.25:
     dependencies:
@@ -8229,7 +8255,7 @@ snapshots:
     dependencies:
       lightningcss: 1.33.0
       picomatch: 4.0.5
-      postcss: 8.5.24
+      postcss: 8.5.25
       rolldown: 1.1.5
       tinyglobby: 0.2.17
     optionalDependencies:
