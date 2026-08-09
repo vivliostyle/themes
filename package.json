@@ -12,6 +12,7 @@
     "build:themes": "pnpm --filter './packages/@vivliostyle/*' run build",
     "bump": "pnpm run top && pnpm exec changeset version",
     "capture-pdf": "node scripts/capture-pdf.ts",
+    "dev": "pnpm -r --parallel run dev",
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",
     "lint": "oxlint",

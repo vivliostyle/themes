@@ -14,5 +14,5 @@
     "erasableSyntaxOnly": true,
     "verbatimModuleSyntax": true
   },
-  "include": ["scripts"]
+  "include": ["scripts", "packages/@vivliostyle/theme-base/plugins"]
 }

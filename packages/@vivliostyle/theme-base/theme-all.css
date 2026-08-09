@@ -1,12 +1,12 @@
-@import url(css/common/meta-properties.css);
-@import url(css/common/reset.css);
-@import url(css/common/basic.css);
+@import url(css/reset.css);
+@import url(css/define.css);
+@import url(css/basic.css);
 
-@import url(css/partial/crossref.css);
-@import url(css/partial/endnote.css);
-@import url(css/partial/footnote.css);
-@import url(css/partial/footnote-external-link.css);
-@import url(css/partial/page.css);
-@import url(css/partial/section.css);
-@import url(css/partial/toc.css);
-@import url(css/partial/utility-classes.css);
+@import url(css/crossref.css);
+@import url(css/endnote.css);
+@import url(css/footnote.css);
+@import url(css/footnote-external-link.css);
+@import url(css/page.css);
+@import url(css/section.css);
+@import url(css/toc.css);
+@import url(css/utility-classes.css);

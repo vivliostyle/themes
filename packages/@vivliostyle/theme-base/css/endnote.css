@@ -1,24 +1,3 @@
-:root {
-  --vs-endnote--anchor-text-decoration: none;
-  --vs-endnote--call-font-size: 0.8em;
-  --vs-endnote--call-margin-inline: 0;
-  --vs-endnote--section-margin-block: var(--vs-spacing-rlh);
-  --vs-endnote--section-ol-list-style-type: decimal;
-  --vs-endnote--backlink-display: inline;
-}
-
-@media (hover: hover) {
-  a:is(.footnote-ref, .footnote-back):hover {
-    --vs-endnote--anchor-text-decoration: underline;
-  }
-}
-
-@media print {
-  :root {
-    --vs-endnote--backlink-display: none;
-  }
-}
-
 .footnote-ref > sup {
   font-size: 100%;
 }

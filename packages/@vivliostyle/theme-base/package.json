@@ -17,25 +17,35 @@
   "files": [
     "*.css",
     "css",
+    "dist",
     "example",
     "vivliostyle.config.js"
   ],
   "type": "module",
   "main": "theme-all.css",
+  "exports": {
+    ".": "./theme-all.css",
+    "./css-variables.json": "./dist/css-variables.json",
+    "./*": "./*"
+  },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "build": "postcss src/**/*.css --base src --dir css --no-map",
-    "watch": "postcss src/**/*.css --base src --dir css --no-map -w",
+    "build": "postcss \"src/*.css\" --base src --dir css --no-map",
+    "dev": "postcss \"src/*.css\" --base src --dir css --no-map -w",
     "example:build": "vivliostyle build",
     "example:preview": "vivliostyle preview",
     "validate": "vivliostyle-theme-scripts validate"
   },
   "devDependencies": {
+    "@types/css-tree": "3.2.0",
+    "css-tree": "3.2.1",
     "postcss": "8.5.25",
     "postcss-cli": "11.0.1",
-    "postcss-variable-theming": "^0.3.0"
+    "postcss-value-parser": "4.2.0",
+    "postcss-variable-theming": "^0.3.0",
+    "yaml": "2.9.0"
   },
   "peerDependencies": {
     "@vivliostyle/cli": ">=11"

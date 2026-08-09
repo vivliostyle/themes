@@ -1,6 +1,6 @@
 @import url(../theme-base/theme-basic.css);
-@import url(../theme-base/css/partial/page.css);
-@import url(../theme-base/css/partial/utility-classes.css);
+@import url(../theme-base/css/page.css);
+@import url(../theme-base/css/utility-classes.css);
 @import url(../theme-base/css/lib/prism/base.css);
 @import url(../theme-base/css/lib/prism/theme-prism.css);
 

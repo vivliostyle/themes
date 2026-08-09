@@ -26,9 +26,7 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "shx rm -rf lib/*.js && tsc && shx chmod +x lib/cli.js",
-    "dev": "pnpm run --parallel \"/^dev:.*/\"",
-    "dev:ts": "tsc -w --preserveWatchOutput",
-    "dev:watch": "nodemon lib/cli.js preview tests/fixtures/default.css --layout assets/default.html",
+    "dev": "tsc -w --preserveWatchOutput",
     "test": "vitest run",
     "prepare": "pnpm run build"
   },

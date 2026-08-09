@@ -1,0 +1,329 @@
+:root {
+  --vs-background-color: transparent;
+  --vs-border-color: currentColor;
+  --vs-border-width: 1px;
+  --vs-column-fill: balance;
+  --vs-column-gap: 1rem;
+  --vs-columns: 1;
+  --vs-font-family: sans-serif;
+  --vs-font-feature-settings: normal;
+  --vs-font-kerning: auto;
+  --vs-font-size: 100%;
+  --vs-font-stretch: normal;
+  --vs-font-style: normal;
+  --vs-font-synthesis: weight style small-caps;
+  --vs-font-variant: normal;
+  --vs-font-variation-settings: normal;
+  --vs-font-weight: 400;
+  --vs-font-weight-bold: 700;
+  --vs-hanging-punctuation: none;
+  --vs-hyphens: auto;
+  --vs-letter-spacing: 0;
+  --vs-line-break: strict;
+  --vs-line-height: 1.5;
+  --vs-orphans: var(--vs-widows-orphans);
+  --vs-overflow-wrap: anywhere;
+  --vs-spacing-inline-indent: min(2ch, 5vw);
+  --vs-spacing-rlh: calc(var(--vs-line-height) * 1rem);
+  --vs-tab-size: 4;
+  --vs-text-align: start;
+  --vs-text-color: #000;
+  --vs-text-orientation: unset;
+  --vs-text-spacing: auto;
+  --vs-text-underline-offset: auto;
+  --vs-text-underline-position: left;
+  --vs-widows: var(--vs-widows-orphans);
+  --vs-widows-orphans: 1;
+  --vs-word-break: normal;
+  --vs-word-spacing: normal;
+  --vs-writing-mode: horizontal-tb;
+
+  --vs--anchor-text-color: inherit;
+  --vs--anchor-text-decoration: underline;
+  --vs--big-font-size: 1.17em;
+  --vs--blockquote-font-size: 100%;
+  --vs--blockquote-margin-block: var(--vs-spacing-rlh);
+  --vs--blockquote-margin-inline: var(--vs-spacing-inline-indent);
+  --vs--blockquote-writing-mode: unset;
+  --vs--bold-font-weight: var(--vs-font-weight-bold);
+  --vs--dd-margin-inline-start: var(--vs-spacing-inline-indent);
+  --vs--del-text-decoration: line-through;
+  --vs--dt-dd-display: block;
+  --vs--emphasis-font-style: italic;
+  --vs--figcaption-break-inside: avoid;
+  --vs--figcaption-font-size: 100%;
+  --vs--figcaption-margin-block: var(--vs-spacing-rlh);
+  --vs--figcaption-margin-inline: 0;
+  --vs--figcaption-text-indent: 0;
+  --vs--figure-align-items: center;
+  --vs--figure-break-inside: avoid;
+  --vs--figure-display: flex;
+  --vs--figure-flex-direction: column;
+  --vs--figure-item-padding-inline: var(--vs-spacing-inline-indent);
+  --vs--figure-margin-block: var(--vs-spacing-rlh);
+  --vs--figure-margin-inline: 0;
+  --vs--figure-writing-mode: unset;
+  --vs--h1-font-size: 2em;
+  --vs--h2-font-size: 1.5em;
+  --vs--h3-font-size: 1.17em;
+  --vs--h4-font-size: 1em;
+  --vs--h5-font-size: 0.83em;
+  --vs--h6-font-size: 0.67em;
+  --vs--heading-break-after: avoid;
+  --vs--heading-break-inside: avoid;
+  --vs--heading-font-weight: var(--vs-font-weight-bold);
+  --vs--heading-hyphens: none;
+  --vs--heading-margin-block: var(--vs-spacing-rlh);
+  --vs--heading-margin-inline: 0;
+  --vs--heading-text-indent: 0;
+  --vs--heading-text-spacing: inherit;
+  --vs--hr-border-color: var(--vs-border-color);
+  --vs--hr-border-width-block-start: var(--vs-border-width);
+  --vs--hr-margin-block: var(--vs-spacing-rlh);
+  --vs--hr-margin-inline: 0;
+  --vs--img-image-resolution: from-image;
+  --vs--lists-margin-block: var(--vs-spacing-rlh);
+  --vs--lists-margin-inline: 0;
+  --vs--lists-padding-inline-start: var(--vs-spacing-inline-indent);
+  --vs--lists-text-indent: 0;
+  --vs--monospace-font-family: monospace;
+  --vs--monospace-font-kerning: none;
+  --vs--monospace-font-size: inherit;
+  --vs--monospace-font-weight: inherit;
+  --vs--monospace-hyphens: none;
+  --vs--monospace-letter-spacing: inherit;
+  --vs--monospace-line-height: inherit;
+  --vs--monospace-text-spacing: none;
+  --vs--ol-list-style-type: decimal;
+  --vs--ol-minimum-inline-indent-size: 2rem;
+  --vs--p-hanging-punctuation: var(--vs-hanging-punctuation);
+  --vs--p-margin-block: var(--vs-spacing-rlh);
+  --vs--p-margin-inline: 0;
+  --vs--p-text-align: justify;
+  --vs--p-text-indent: 0;
+  --vs--p-text-spacing: inherit;
+  --vs--pre-font-size: 100%;
+  --vs--pre-margin-block: var(--vs-spacing-rlh);
+  --vs--pre-margin-inline: 0;
+  --vs--pre-overflow-x: auto;
+  --vs--pre-padding-block: 0;
+  --vs--pre-padding-inline: 0;
+  --vs--pre-text-align: start;
+  --vs--pre-white-space: pre;
+  --vs--pre-word-break: break-all;
+  --vs--pre-writing-mode: unset;
+  --vs--rt-font-size: 0.5em;
+  --vs--small-font-size: 0.83em;
+  --vs--sub-font-size: 0.8em;
+  --vs--sub-inset-block-end: -0.25em;
+  --vs--sup-font-size: 0.8em;
+  --vs--sup-inset-block-start: -0.5em;
+  --vs--table-border-width: var(--vs-border-width);
+  --vs--table-break-inside: avoid;
+  --vs--table-cell-padding-block: 0.25rem;
+  --vs--table-cell-padding-inline: 0.5rem;
+  --vs--table-container-overflow-x: auto;
+  --vs--table-font-size: 100%;
+  --vs--table-margin-block: var(--vs-spacing-rlh);
+  --vs--table-margin-inline: auto;
+  --vs--table-writing-mode: unset;
+  --vs--ul-list-style-type: disc;
+  --vs--ul-minimum-inline-indent-size: 2rem;
+
+  --vs-crossref--anchor-text-decoration: none;
+  --vs-crossref--call-cite-content: '['
+    target-counter(attr(href), vs-counter-cite) ']';
+  --vs-crossref--call-display: inline;
+  --vs-crossref--call-fig-content: 'Figure '
+    target-counter(
+      attr(href),
+      vs-counter-fig,
+      var(--vs-crossref--counter-style)
+    );
+  --vs-crossref--call-margin-inline: 0;
+  --vs-crossref--call-tbl-content: 'Table '
+    target-counter(
+      attr(href),
+      vs-counter-tbl,
+      var(--vs-crossref--counter-style)
+    );
+  --vs-crossref--counter-style: decimal;
+  --vs-crossref--marker-cite-content: '[' counter(vs-counter-cite) ']';
+  --vs-crossref--marker-display: inline;
+  --vs-crossref--marker-fig-content: 'Figure '
+    counter(vs-counter-fig, var(--vs-crossref--counter-style)) ': ';
+  --vs-crossref--marker-margin-inline: 0;
+  --vs-crossref--marker-tbl-content: 'Table '
+    counter(vs-counter-tbl, var(--vs-crossref--counter-style)) ': ';
+  --vs-crossref--root-counter-reset: vs-counter-fig
+    var(--vs-crossref--root-counter-fig,) vs-counter-tbl
+    var(--vs-crossref--root-counter-tbl,) vs-counter-cite
+    var(--vs-crossref--root-counter-cite,);
+
+  --vs-endnote--anchor-text-decoration: none;
+  --vs-endnote--backlink-display: inline;
+  --vs-endnote--call-font-size: 0.8em;
+  --vs-endnote--call-margin-inline: 0;
+  --vs-endnote--section-margin-block: var(--vs-spacing-rlh);
+  --vs-endnote--section-ol-list-style-type: decimal;
+
+  --vs-footnote--area-before-display: block;
+  --vs-footnote--area-before-margin-block: var(--vs--hr-margin-block);
+  --vs-footnote--area-before-margin-inline: var(--vs--hr-margin-inline);
+  --vs-footnote--area-margin-block: var(--vs-spacing-rlh);
+  --vs-footnote--call-content: '*'
+    counter(vs-counter-footnote, var(--vs-footnote--counter-style));
+  --vs-footnote--call-font-size: 0.8em;
+  --vs-footnote--call-inset-block-start: var(--vs--sup-inset-block-start);
+  --vs-footnote--call-margin-inline: 0;
+  --vs-footnote--counter-style: decimal;
+  --vs-footnote--item-margin-block: 0;
+  --vs-footnote--item-margin-inline: 0;
+  --vs-footnote--marker-content: counter(
+      vs-counter-footnote,
+      var(--vs-footnote--counter-style)
+    )
+    '. ';
+  --vs-footnote--marker-margin-inline: 0;
+  --vs-footnote--root-counter-reset: vs-counter-footnote
+    var(--vs-footnote--root-counter-footnote,);
+
+  --vs-page--background-color: var(--vs-background-color);
+  --vs-page--bleed: 0;
+  --vs-page--height: auto;
+  --vs-page--margin-bottom: 22mm;
+  --vs-page--margin-inner: 18mm;
+  --vs-page--margin-outer: 18mm;
+  --vs-page--margin-top: 22mm;
+  --vs-page--marks: none;
+  --vs-page--mbox-background-color: transparent;
+  --vs-page--mbox-content-bottom-center: none;
+  --vs-page--mbox-content-bottom-left: none;
+  --vs-page--mbox-content-bottom-left-corner: none;
+  --vs-page--mbox-content-bottom-right: none;
+  --vs-page--mbox-content-bottom-right-corner: none;
+  --vs-page--mbox-content-left-bottom: none;
+  --vs-page--mbox-content-left-middle: none;
+  --vs-page--mbox-content-left-top: none;
+  --vs-page--mbox-content-right-bottom: none;
+  --vs-page--mbox-content-right-middle: none;
+  --vs-page--mbox-content-right-top: none;
+  --vs-page--mbox-content-top-center: none;
+  --vs-page--mbox-content-top-left: none;
+  --vs-page--mbox-content-top-left-corner: none;
+  --vs-page--mbox-content-top-right: none;
+  --vs-page--mbox-content-top-right-corner: none;
+  --vs-page--mbox-padding-bottom-inner: 0;
+  --vs-page--mbox-padding-left-inner: 0;
+  --vs-page--mbox-padding-left-outer: 0;
+  --vs-page--mbox-padding-right-inner: 0;
+  --vs-page--mbox-padding-right-outer: 0;
+  --vs-page--mbox-padding-top-inner: 0;
+  --vs-page--mbox-text-color: inherit;
+  --vs-page--mbox-visibility: visible;
+  --vs-page--mbox-writing-mode: horizontal-tb;
+  --vs-page--size: auto;
+  --vs-page--width: auto;
+
+  --vs-section--anchor-text-decoration: none;
+  --vs-section--call-content: '§'
+    target-counters(
+      attr(href),
+      vs-counter-sections,
+      var(--vs-section--counter-delimiter),
+      var(--vs-section--counter-style)
+    );
+  --vs-section--call-display: inline;
+  --vs-section--call-margin-inline: 0;
+  --vs-section--counter-delimiter: '.';
+  --vs-section--counter-style: decimal;
+  --vs-section--marker-content: counters(
+    vs-counter-sections,
+    var(--vs-section--counter-delimiter),
+    var(--vs-section--counter-style)
+  );
+  --vs-section--marker-display: none;
+  --vs-section--marker-margin-inline-end: 1ch;
+  --vs-section--root-counter-reset: vs-counter-sections
+    var(--vs-section--root-counter-sections,) vs-counter-sec-h1
+    var(--vs-section--root-counter-sec-h1,) vs-counter-sec-h2
+    var(--vs-section--root-counter-sec-h2,) vs-counter-sec-h3
+    var(--vs-section--root-counter-sec-h3,) vs-counter-sec-h4
+    var(--vs-section--root-counter-sec-h4,) vs-counter-sec-h5
+    var(--vs-section--root-counter-sec-h5,) vs-counter-sec-h6
+    var(--vs-section--root-counter-sec-h6,);
+
+  --vs-toc--anchor-align-items: baseline;
+  --vs-toc--anchor-text-decoration: none;
+  --vs-toc--marker-content: counters(vs-counter-toc, '.') ' ';
+  --vs-toc--marker-display: none;
+  --vs-toc--marker-padding-inline-end: 1ch;
+  --vs-toc--marker-text-align: end;
+  --vs-toc--ol-indent-size: 2rem;
+  --vs-toc--page-counter-display: inline;
+  --vs-toc--page-counter-style: decimal;
+  --vs-toc--page-leader-content: leader('.') ' ';
+}
+
+:root:lang(ja) {
+  --vs-crossref--call-fig-content: '図'
+    target-counter(
+      attr(href),
+      vs-counter-fig,
+      var(--vs-crossref--counter-style)
+    );
+  --vs-crossref--call-tbl-content: '表'
+    target-counter(
+      attr(href),
+      vs-counter-tbl,
+      var(--vs-crossref--counter-style)
+    );
+  --vs-crossref--marker-fig-content: '図'
+    counter(vs-counter-fig, var(--vs-crossref--counter-style)) ': ';
+  --vs-crossref--marker-tbl-content: '表'
+    counter(vs-counter-tbl, var(--vs-crossref--counter-style)) ': ';
+}
+
+@media (hover: hover) {
+  a:hover {
+    --vs--anchor-text-decoration: none;
+  }
+
+  a:is([data-ref='fig'], a[data-ref='tbl'], a[data-ref='cite']):hover {
+    --vs-crossref--anchor-text-decoration: underline;
+  }
+
+  a:is(.footnote-ref, .footnote-back):hover {
+    --vs-endnote--anchor-text-decoration: underline;
+  }
+
+  a[data-ref='sec']:hover {
+    --vs-section--anchor-text-decoration: underline;
+  }
+
+  :is(#toc, [role='doc-toc']) li > a:hover {
+    --vs-toc--anchor-text-decoration: underline;
+  }
+}
+
+@media print {
+  :root {
+    --vs--pre-white-space: pre-wrap;
+    --vs--table-container-overflow-x: visible;
+
+    --vs-endnote--backlink-display: none;
+  }
+}
+
+@media screen {
+  :root {
+    --vs-crossref--call-cite-content: '[???]';
+    --vs-crossref--call-fig-content: 'Figure ???';
+    --vs-crossref--call-tbl-content: 'Table ???';
+  }
+
+  :root:lang(ja) {
+    --vs-crossref--call-fig-content: '図???';
+    --vs-crossref--call-tbl-content: '表???';
+  }
+}

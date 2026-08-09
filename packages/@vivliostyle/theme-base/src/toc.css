@@ -1,0 +1,43 @@
+#toc,
+[role='doc-toc'] {
+  --vs--ol-padding-inline-start: var(--vs-toc--ol-indent-size);
+  --vs--ol-minimum-inline-indent-size: 0rem;
+}
+
+:is(#toc, [role='doc-toc']) ol {
+  counter-reset: vs-counter-toc;
+  list-style: none;
+}
+
+:is(#toc, [role='doc-toc']) li {
+  counter-increment: vs-counter-toc;
+  break-inside: avoid;
+  position: relative;
+}
+
+:is(#toc, [role='doc-toc']) li::before {
+  position: absolute;
+  /* Up to 6 indentations can be displayed (h1-h6) */
+  inline-size: calc(var(--vs-toc--ol-indent-size) * 6);
+  inset-inline-start: calc(var(--vs-toc--ol-indent-size) * -6);
+
+  @var toc.marker {
+    content: ;
+    display: ;
+    text-align: ;
+    padding-inline-end: ;
+  }
+}
+
+:is(#toc, [role='doc-toc']) li > a {
+  @var toc.anchor {
+    align-items: ;
+    text-decoration: ;
+  }
+}
+
+:is(#toc, [role='doc-toc']) li > a::after {
+  content: var(--vs-toc--page-leader-content)
+    target-counter(attr(href), page, var(--vs-toc--page-counter-style));
+  display: var(--vs-toc--page-counter-display);
+}

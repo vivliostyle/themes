@@ -92,13 +92,13 @@ theme-base is divided into functional modules. If you don't need all modules, yo
 
 ```css
 /* Basic modules only */
-@import url(../@vivliostyle/theme-base/css/common/meta-properties.css);
-@import url(../@vivliostyle/theme-base/css/common/reset.css);
-@import url(../@vivliostyle/theme-base/css/common/basic.css);
+@import url(../@vivliostyle/theme-base/css/define.css);
+@import url(../@vivliostyle/theme-base/css/reset.css);
+@import url(../@vivliostyle/theme-base/css/basic.css);
 
 /* Add required feature modules */
-@import url(../@vivliostyle/theme-base/css/partial/toc.css);
-@import url(../@vivliostyle/theme-base/css/partial/footnote.css);
+@import url(../@vivliostyle/theme-base/css/toc.css);
+@import url(../@vivliostyle/theme-base/css/footnote.css);
 ```
 
 Available modules:

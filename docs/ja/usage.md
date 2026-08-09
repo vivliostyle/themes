@@ -175,11 +175,11 @@ module.exports = {
 CSSでの個別インポート例:
 
 ```css
-@import url("../@vivliostyle/theme-base/css/common/meta-properties.css");
-@import url("../@vivliostyle/theme-base/css/common/reset.css");
-@import url("../@vivliostyle/theme-base/css/common/basic.css");
-@import url("../@vivliostyle/theme-base/css/partial/toc.css");
-@import url("../@vivliostyle/theme-base/css/partial/footnote.css");
+@import url("../@vivliostyle/theme-base/css/define.css");
+@import url("../@vivliostyle/theme-base/css/reset.css");
+@import url("../@vivliostyle/theme-base/css/basic.css");
+@import url("../@vivliostyle/theme-base/css/toc.css");
+@import url("../@vivliostyle/theme-base/css/footnote.css");
 ```
 
 各モジュールのCSS変数の詳細は、[theme-baseのREADME](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-base#available-modules-and-css-variables) を参照してください。
