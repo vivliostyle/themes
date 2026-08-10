@@ -650,11 +650,12 @@ const extractCssVariables = (options: Options = {}): Plugin => {
         const written = await format(output, yaml);
         writeFileSync(output, written);
         registry.lastWritten = written;
+        // css/ and dist/ are build artifacts, so they may not exist yet.
+        mkdirSync(path.dirname(defineOutput), { recursive: true });
         writeFileSync(
           defineOutput,
           await format(defineOutput, renderDefineCss(spec, prefix)),
         );
-        // dist/ is a build artifact, so it may not exist yet.
         mkdirSync(path.dirname(jsonOutput), { recursive: true });
         writeFileSync(
           jsonOutput,

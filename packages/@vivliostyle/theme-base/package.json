@@ -32,8 +32,8 @@
     "access": "public"
   },
   "scripts": {
-    "build": "postcss \"src/*.css\" --base src --dir css --no-map",
-    "dev": "postcss \"src/*.css\" --base src --dir css --no-map -w",
+    "build": "postcss \"src/**/*.css\" --base src --dir css --no-map",
+    "dev": "postcss \"src/**/*.css\" --base src --dir css --no-map -w",
     "example:build": "vivliostyle build",
     "example:preview": "vivliostyle preview",
     "validate": "vivliostyle-theme-scripts validate"
