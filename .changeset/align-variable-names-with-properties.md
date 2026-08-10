@@ -17,6 +17,9 @@ Color variables now use the property name (`color` → `text-color`, `background
 | `--vs-page--color-bg`        | `--vs-page--background-color`      |
 | `--vs-page--mbox-color-bg`   | `--vs-page--mbox-background-color` |
 | `--vs-page--mbox-color-body` | `--vs-page--mbox-text-color`       |
+| `--vs-prism--color`          | `--vs-prism--text-color`           |
+
+The per-token variables of the syntax highlighting themes follow the same rule, with the token name moving in front of the property name: `--vs-prism--color-comment` → `--vs-prism--comment-text-color`, `--vs-prism--color-class-name` → `--vs-prism--class-name-text-color`, and so on for all 30 tokens from `atrule` to `variable`.
 
 The remaining renames align each variable with the logical property it sets, and fix one misspelling:
 

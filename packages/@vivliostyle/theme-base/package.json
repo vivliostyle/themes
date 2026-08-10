@@ -44,7 +44,7 @@
     "postcss": "8.5.25",
     "postcss-cli": "11.0.1",
     "postcss-value-parser": "4.2.0",
-    "postcss-variable-theming": "0.4.1",
+    "postcss-variable-theming": "0.5.0",
     "yaml": "2.9.0"
   },
   "peerDependencies": {

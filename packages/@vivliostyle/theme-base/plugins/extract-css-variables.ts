@@ -573,13 +573,14 @@ function readRaw(output: string): string | null {
 // output and drop the preserved fields of files not processed yet. Reading only
 // when the file no longer matches what was written last keeps hand edits that
 // land between the rebuilds of a long-lived `postcss --watch`.
-function refreshExisting(registry: Registry, output: string): void {
+function refreshExisting(registry: Registry, output: string): string | null {
   const raw = readRaw(output);
   if (raw === registry.lastWritten) {
-    return;
+    return raw;
   }
   const parsed: unknown = raw === null ? undefined : parse(raw);
   registry.existing = isSpecNode(parsed) ? parsed : undefined;
+  return raw;
 }
 
 // postcss-load-config re-imports the config file for every input file, so a new
@@ -628,6 +629,17 @@ const extractCssVariables = (options: Options = {}): Plugin => {
       const records: UsageRecord[] = [];
       files.set(file, records);
 
+      // Hand edits to the spec file change the generated `_define` output, so
+      // `postcss --watch` has to rebuild on them as it would for an @import.
+      if (from) {
+        result.messages.push({
+          type: 'dependency',
+          plugin: 'extract-css-variables',
+          file: output,
+          parent: from,
+        });
+      }
+
       root.walkDecls((decl) => {
         scanValue(decl.value, (name) => {
           records.push({ name, property: decl.prop });
@@ -640,7 +652,7 @@ const extractCssVariables = (options: Options = {}): Plugin => {
       });
 
       registry.queue = registry.queue.then(async () => {
-        refreshExisting(registry, output);
+        const current = refreshExisting(registry, output);
         const spec = build(files, registry.existing, prefix);
         const yaml = stringify(spec, {
           defaultKeyType: 'PLAIN',
@@ -648,7 +660,11 @@ const extractCssVariables = (options: Options = {}): Plugin => {
           lineWidth: 0,
         });
         const written = await format(output, yaml);
-        writeFileSync(output, written);
+        // The spec file is watched as a dependency of every input, so writing
+        // it unconditionally would make `postcss --watch` rebuild forever.
+        if (written !== current) {
+          writeFileSync(output, written);
+        }
         registry.lastWritten = written;
         // css/ and dist/ are build artifacts, so they may not exist yet.
         mkdirSync(path.dirname(defineOutput), { recursive: true });

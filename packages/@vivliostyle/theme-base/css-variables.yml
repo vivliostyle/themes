@@ -1583,6 +1583,155 @@ page:
     _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
     _property: 'width'
     _define: 'auto'
+prism:
+  atrule-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  attr-name-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  attr-value-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  background:
+    _syntax: '*'
+    _property: 'background'
+    _define: 'none'
+  block-code-border-radius:
+    _syntax: '<length-percentage>+'
+    _property: 'border-radius'
+    _define: '0.3em'
+  block-code-padding:
+    _syntax: '<length-percentage>+'
+    _property: 'padding'
+    _define: '1em'
+  boolean-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  builtin-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  cdata-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  char-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  class-name-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  comment-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  constant-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  deleted-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  doctype-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  entity-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  function-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  important-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  inline-code-border-radius:
+    _syntax: '<length-percentage>+'
+    _property: 'border-radius'
+    _define: '0.3em'
+  inline-code-padding:
+    _syntax: '<length-percentage>+'
+    _property: 'padding'
+    _define: '0.1em'
+  inserted-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  keyword-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  namespace-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  number-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  operator-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  prolog-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  property-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  punctuation-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  regex-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  selector-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  string-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  symbol-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  tag-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'inherit'
+  text-shadow:
+    _syntax: '*'
+    _property: 'text-shadow'
+    _define: 'none'
+  url-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  variable-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
 section:
   anchor-text-decoration:
     _syntax: '*'
