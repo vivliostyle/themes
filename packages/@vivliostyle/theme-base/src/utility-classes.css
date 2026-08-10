@@ -63,3 +63,52 @@
 .break-inside-avoid {
   break-inside: avoid;
 }
+
+/**
+ * writing-mode
+ */
+.writing-mode-horizontal-tb {
+  writing-mode: horizontal-tb;
+}
+.writing-mode-vertical-rl {
+  writing-mode: vertical-rl;
+}
+.writing-mode-vertical-lr {
+  writing-mode: vertical-lr;
+}
+
+/**
+ * text-orientation
+ */
+.text-orientation-mixed {
+  text-orientation: mixed;
+}
+.text-orientation-upright {
+  text-orientation: upright;
+}
+.text-orientation-sideways {
+  text-orientation: sideways;
+}
+
+/**
+ * text-combine-upright
+ */
+.text-combine-upright-all {
+  text-combine-upright: all;
+}
+.text-combine-upright-none {
+  text-combine-upright: none;
+}
+
+/**
+ * font-variant-numeric
+ */
+.font-variant-numeric-tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+.font-variant-numeric-oldstyle-nums {
+  font-variant-numeric: oldstyle-nums;
+}
+.font-variant-numeric-lining-nums {
+  font-variant-numeric: lining-nums;
+}

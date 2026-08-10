@@ -12,13 +12,13 @@ BREAKING CHANGE: The following variables no longer exist. Override the base vari
 | `--vs--pre-white-space-on-screen`, `--vs--pre-white-space-on-print`                       | `--vs--pre-white-space`                 |
 | `--vs--table-container-overflow-x-on-screen`, `--vs--table-container-overflow-x-on-print` | `--vs--table-container-overflow-x`      |
 | `--vs--anchor-text-decoration-on-hover`                                                   | `--vs--anchor-text-decoration`          |
-| `--vs-crossref--anchor-text-decoration-on-hover`                                          | `--vs-crossref--anchor-text-decoration` |
-| `--vs-crossref--call-fig-content-on-screen`                                               | `--vs-crossref--call-fig-content`       |
-| `--vs-crossref--call-tbl-content-on-screen`                                               | `--vs-crossref--call-tbl-content`       |
-| `--vs-crossref--call-cite-content-on-screen`                                              | `--vs-crossref--call-cite-content`      |
+| `--vs-crossref--anchor-text-decoration-on-hover`                                          | `--vs--crossref-call-text-decoration`   |
+| `--vs-crossref--call-fig-content-on-screen`                                               | `--vs-figure--call-content`             |
+| `--vs-crossref--call-tbl-content-on-screen`                                               | `--vs-table--call-content`              |
+| `--vs-crossref--call-cite-content-on-screen`                                              | `--vs-citation--call-content`           |
 | `--vs-endnote--anchor-text-decoration-on-hover`                                           | `--vs-endnote--anchor-text-decoration`  |
 | `--vs-endnote--backlink-display-on-print`                                                 | `--vs-endnote--backlink-display`        |
-| `--vs-section--anchor-text-decoration-on-hover`                                           | `--vs-section--anchor-text-decoration`  |
+| `--vs-section--anchor-text-decoration-on-hover`                                           | `--vs--crossref-call-text-decoration`   |
 | `--vs-toc--anchor-text-decoration-on-hover`                                               | `--vs-toc--anchor-text-decoration`      |
 
 For media-specific overrides, wrap `:root` in the media query:

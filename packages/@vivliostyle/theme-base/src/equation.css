@@ -1,0 +1,55 @@
+@var equation {
+  @var . {
+    :root {
+      --counter-style: ;
+      --label: ;
+    }
+
+    .equation {
+      margin-block: ;
+    }
+  }
+
+  @var item {
+    .equation > :is(math, p) {
+      text-align: ;
+    }
+  }
+
+  @var call {
+    a[data-ref='eq']::before {
+      content: ;
+      display: ;
+    }
+  }
+
+  @var marker {
+    .equation::after {
+      content: ;
+      display: ;
+      font-family: ;
+      font-size: ;
+      margin-inline: ;
+    }
+  }
+}
+
+/* Grid cannot split across pages, so the side number is laid out with flex. */
+.equation {
+  align-items: center;
+  break-inside: avoid;
+  counter-increment: vs-counter-eq;
+  display: flex;
+}
+
+.equation > :is(math, p) {
+  flex: 1 1 auto;
+  margin: 0;
+  min-width: 0;
+  text-indent: 0;
+}
+
+.equation::after {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}

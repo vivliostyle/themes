@@ -69,8 +69,8 @@ The generated `theme.css` includes theme-base module imports and CSS variable cu
   --vs-footnote--call-content: '[' counter(footnote) ']';
 
   /* Page layout */
-  --vs-page--mbox-content-bottom-center: counter(page);
-  --vs-page--mbox-content-top-left: env(doc-title);
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-top-left-content: env(doc-title);
 
   /* Table of contents */
   --vs-toc--marker-margin-inline: 8rem;
@@ -140,9 +140,9 @@ You can customize themes by overriding CSS variables exposed by theme-base and i
   --vs-crossref--counter-style: upper-roman;
 
   /* Page header/footer */
-  --vs-page--mbox-content-top-left: env(pub-title);
-  --vs-page--mbox-content-top-right: env(doc-title);
-  --vs-page--mbox-content-bottom-center: counter(page);
+  --vs-page--mbox-top-left-content: env(pub-title);
+  --vs-page--mbox-top-right-content: env(doc-title);
+  --vs-page--mbox-bottom-center-content: counter(page);
 }
 ```
 
@@ -154,8 +154,6 @@ As a practical example, [theme-techbook](https://github.com/vivliostyle/themes/t
   --vs-theme--blockquote-color-bg: #ecf0f1;
   --vs-theme--inline-code-color-bg: #ecf0f1;
   --vs-theme--image-resolution-for-figure-image: 300dpi;
-  --vs-theme--page-top-left-content: env(pub-title);
-  --vs-theme--page-bottom-content: counter(page);
 }
 ```
 

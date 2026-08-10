@@ -21,12 +21,12 @@
    * Customize styles about cross-reference of figure, table and citation
    * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#cross-reference
    */
-  --vs-crossref--counter-style: upper-roman;
-  --vs-crossref--marker-cite-content: target-counter(attr(href), cite) '.';
+  --vs-counter-style: upper-roman;
+  --vs-citation--marker-content: counter(vs-counter-cite) '.';
 
   /*
    * Customize styles about endnotes
-   * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#cross-reference
+   * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#endnotes
    */
   --vs-endnote--call-font-size: 90%;
   --vs-endnote--section-ol-list-style-type: lower-latin;
@@ -35,28 +35,30 @@
    * Customize styles about footnotes
    * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#footnotes
    */
-  --vs-footnote--call-content: '[' counter(footnote) ']';
+  --vs-footnote--call-content: '[' counter(vs-counter-footnote) ']';
   --vs-footnote--area-before-margin-inline: 0 80%;
 
   /*
    * Customize styles about paged media
    * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#page-layout
    */
-  --vs-page--mbox-content-bottom-center: counter(page);
-  --vs-page--mbox-content-top-left: env(doc-title);
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-top-left-content: env(doc-title);
 
   /*
    * Customize styles about heading counters and section reference
    * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#section-references
    */
   --vs-section--marker-display: inline;
-  --vs-section--call-content: 'Sec. ' target-counters(attr(href), sections, '.');
+  --vs-section--call-content: 'Sec. '
+    target-counters(attr(href), vs-counter-sections, '.');
 
   /*
    * Customize styles about table of contents (TOC) pages
    * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#table-of-contents
    */
-  --vs-toc--marker-margin-inline: 8rem;
+  --vs-toc--marker-display: inline;
+  --vs-toc--ol-indent-size: 1.5rem;
 }
 
 /* Start writing... 🖋 */

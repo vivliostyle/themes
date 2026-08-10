@@ -1,0 +1,75 @@
+@var citation {
+  @var . {
+    :root {
+      --counter-style: ;
+    }
+  }
+
+  @var call {
+    a:is([data-ref='cite'], [role='doc-biblioref'])::before {
+      content: ;
+      display: ;
+    }
+  }
+
+  @var items {
+    ol.cite-items,
+    [role='doc-bibliography'] :is(ol, ul) {
+      border-block-end-color: var(--vs-border-color);
+      border-block-end-style: ;
+      border-block-end-width: var(--vs-border-width);
+      border-block-start-color: var(--vs-border-color);
+      border-block-start-style: ;
+      border-block-start-width: var(--vs-border-width);
+      border-inline-end-color: var(--vs-border-color);
+      border-inline-end-style: ;
+      border-inline-end-width: var(--vs-border-width);
+      border-inline-start-color: var(--vs-border-color);
+      border-inline-start-style: ;
+      border-inline-start-width: var(--vs-border-width);
+      color: ;
+      font-size: ;
+      hyphens: ;
+      line-height: ;
+      margin-block: ;
+      padding-block: ;
+      padding-inline-start: ;
+    }
+  }
+
+  @var item {
+    ol.cite-items > li,
+    [role='doc-bibliography'] li {
+      font-family: ;
+      font-size: ;
+      hyphens: ;
+      line-height: ;
+      margin-block: ;
+      padding-inline-start: ;
+      text-align: ;
+      text-indent: ;
+    }
+  }
+
+  @var marker {
+    ol.cite-items > li::before,
+    [role='doc-bibliography'] li::before {
+      color: ;
+      content: ;
+      display: ;
+      position: absolute;
+      inset-inline-start: ;
+      margin-inline: ;
+    }
+  }
+}
+
+ol.cite-items {
+  list-style: none;
+}
+
+ol.cite-items > li,
+[role='doc-bibliography'] li {
+  counter-increment: vs-counter-cite;
+  position: relative;
+}

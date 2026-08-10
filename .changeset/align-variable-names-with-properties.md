@@ -21,6 +21,8 @@ Color variables now use the property name (`color` → `text-color`, `background
 
 The per-token variables of the syntax highlighting themes follow the same rule, with the token name moving in front of the property name: `--vs-prism--color-comment` → `--vs-prism--comment-text-color`, `--vs-prism--color-class-name` → `--vs-prism--class-name-text-color`, and so on for all 30 tokens from `atrule` to `variable`.
 
+The page margin box content variables are reordered the same way, so that every per-box variable reads `--vs-page--mbox-<box>-<property>`: `--vs-page--mbox-content-top-left` → `--vs-page--mbox-top-left-content`, `--vs-page--mbox-content-bottom-center` → `--vs-page--mbox-bottom-center-content`, and so on for all 16 margin boxes from `top-left-corner` to `bottom-right-corner`.
+
 The remaining renames align each variable with the logical property it sets, and fix one misspelling:
 
 | Before                                                                            | After                                                                                     |

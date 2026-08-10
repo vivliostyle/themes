@@ -96,20 +96,88 @@ module.exports = {
 - [**basic.css**](css/basic.css) defines styles of basic HTML tags
   - Name of css variable starts with `--vs--`
 
-### Cross-reference
+Every variable, including the ones without a default value, is listed in
+[css-variables.yml](css-variables.yml) and published as
+`@vivliostyle/theme-base/css-variables.json`.
+
+#### Document-wide design tokens
+
+A handful of `--vs-` variables carry a role rather than a single property, and
+element variables fall back to them. Setting one of these changes every place
+that role is used.
+
+| Variable                     | Role                               | Used by                                                     |
+| :--------------------------- | :--------------------------------- | :---------------------------------------------------------- |
+| `--vs-text-color-muted`      | secondary text                     | `--vs--figcaption-text-color`, `--vs-page--mbox-text-color` |
+| `--vs-accent-color`          | accent                             | `--vs--anchor-text-color`, `--vs--lists-marker-text-color`  |
+| `--vs-background-color-alt`  | shaded panels                      | `--vs--th-background-color`, `--vs--pre-background-color`   |
+| `--vs-border-color`          | rules and borders                  | every `*-border-color-*` variable                           |
+| `--vs-border-style`          | rules and borders                  | every `*-border-style-*` variable                           |
+| `--vs-font-family-secondary` | second typeface (captions, tables) | `--vs--figcaption-font-family`, `--vs--table-font-family`   |
 
 ```css
-@import url(@vivliostyle/theme-base/css/crossref.css);
-
-/* Configuration examples */
 :root {
-  --vs-crossref--counter-style: upper-roman;
-  --vs-crossref--marker-cite-content: target-counter(attr(href), cite) '.';
+  --vs-text-color-muted: #666;
+  --vs-accent-color: #0b6bcb;
+  --vs-background-color-alt: #f2f4f7;
+  --vs-font-family-secondary: 'Helvetica Neue', sans-serif;
 }
 ```
 
-- [**crossref.css**](css/crossref.css) defines styles about cross-reference of figure, table and citation
-  - Name of CSS variable starts with `--vs-crossref--`
+#### Notes on writing values
+
+- Lengths need a unit. `0` is a `<number>`, not a `<length>`, and a variable
+  holding it is dropped wherever a length is required.
+- Set `--vs--*` variables rather than re-declaring the property. Theme rules use
+  logical properties, and a physical `margin` / `padding` shorthand does not
+  reliably cancel them.
+- Element variables are ordinary custom properties, so they can be set on any
+  ancestor, not only `:root`:
+  `.sidebar { --vs--p-font-size: 0.8rem; }`.
+
+### Cross-reference
+
+```css
+@import url(@vivliostyle/theme-base/css/citation.css);
+@import url(@vivliostyle/theme-base/css/equation.css);
+@import url(@vivliostyle/theme-base/css/figure.css);
+@import url(@vivliostyle/theme-base/css/listing.css);
+@import url(@vivliostyle/theme-base/css/table.css);
+@import url(@vivliostyle/theme-base/css/theorem.css);
+@import url(@vivliostyle/theme-base/css/appendix.css);
+
+/* Configuration examples */
+:root {
+  /* Shared numbering style; each type can override it with its own
+     --vs-<type>--counter-style (figure, table, citation, listing, equation,
+     theorem — appendix defaults to upper-alpha on its own). */
+  --vs-counter-style: upper-roman;
+  --vs-equation--counter-style: decimal;
+  --vs-citation--marker-content: counter(vs-counter-cite) '.';
+
+  /* Chapter-prefixed numbers such as "Figure 2.3". The prefix is prepended
+     to every default marker/call content (fig, tbl, lst, eq, thm). */
+  --vs-crossref-marker-counter-prefix: counter(vs-counter-chapter) '.';
+  --vs-crossref-call-counter-prefix: target-counter(
+      attr(href),
+      vs-counter-chapter
+    )
+    '.';
+}
+```
+
+- Each reference type lives in its own module: [figure.css](css/figure.css), [table.css](css/table.css), [citation.css](css/citation.css), [listing.css](css/listing.css), [equation.css](css/equation.css), [theorem.css](css/theorem.css) and [appendix.css](css/appendix.css); page references ship with [page.css](css/page.css). The shared defaults — the numbering style, the generic `a[data-ref]` anchor treatment and the number prefixes — are part of the basic stylesheet, so they need no separate import
+  - Per-type variables start with `--vs-figure--`, `--vs-table--`, `--vs-citation--`, `--vs-listing--`, `--vs-equation--`, `--vs-theorem--`, `--vs-appendix--`, `--vs-page--`; the shared knobs are `--vs-counter-style`, `--vs-crossref-{marker,call}-counter-prefix` and the `--vs--crossref-call-*` anchor settings
+- Available reference types (an empty `<a data-ref="…" href="#id"></a>` is filled with the resolved number):
+  - `fig` / `tbl` / `cite` — figure, table and citation numbers
+  - `lst` — code listings: a captioned code fence (VFM's `lang:title` syntax renders it as `figure > figcaption + pre`) or a `figure.lst` counts `vs-counter-lst` and prefixes the caption with `--vs-listing--marker-content` ("Listing N: "); hide it with `--vs-listing--marker-display: none`
+  - `eq` — equations wrapped in `<div class="equation">…</div>` get a number at the inline-end (`--vs-equation--marker-content`); laid out with flex because grid cannot split across pages
+  - `thm` — blocks with `<div class="theorem">` count `vs-counter-thm`; the label text is `--vs-theorem--label`, including the gap before the number (e.g. `.lemma { --vs-theorem--label: 'Lemma '; }`)
+  - `appendix` — counts `vs-counter-appendix` (default `upper-alpha`, label `--vs-appendix--label`) and prefixes the heading with `--vs-appendix--marker-content`. Two forms: sections whose heading has `class="appendix"` (or `<section role="doc-appendix">`) count within the document, while a whole document classed `.appendix` / `role="doc-appendix"` on `html`/`body` letters **across documents** through the page counter (one document = one appendix; the two forms never double-count). Page counters read as 0 inside `string-set`, so running heads must write `counter()` in the margin box instead
+  - `page` — resolves to the page number of the target (`target-counter(attr(href), page)`); defined in [page.css](css/page.css)
+- A Markdown table (or any block) without a `<caption>` can be numbered by placing a `<p class="tbl-caption">` (or `.fig-caption` / `.lst-caption`) paragraph next to it
+- All `a[data-ref]` anchors drop the default underline; the text color falls back to `--vs--anchor-text-color` and can be overridden with `--vs--crossref-call-text-color`
+- Note: many defaults are also defined on `:root:lang(ja)` (Japanese wording). When overriding such variables on `:root` alone, the `:lang(ja)` defaults still win in Japanese documents — override both `:root` and `:root:lang(ja)`, or set the variable on `:root:lang(ja)` as well
 
 ### Endnotes
 
@@ -120,6 +188,33 @@ module.exports = {
 :root {
   --vs-endnote--call-font-size: 90%;
   --vs-endnote--section-ol-list-style-type: lower-latin;
+}
+
+/* Counter-based numbering: generate note numbers with `vs-counter-endnote`
+   instead of the ol's list markers. Useful e.g. in vertical writing mode,
+   where list markers cannot be set upright (tate-chu-yoko). */
+:root {
+  --vs-endnote--section-ol-list-style-type: none;
+  --vs-endnote--marker-content: '(' counter(vs-counter-endnote) ')';
+  --vs-endnote--marker-text-combine-upright: all;
+  /* Optionally regenerate the in-text note call as well, hiding the
+     literal number in <sup>. `vs-counter-endnote-call` counts the calls
+     in document order. */
+  --vs-endnote--call-sup-display: none;
+  --vs-endnote--call-content: '(' counter(vs-counter-endnote-call) ')';
+  --vs-endnote--call-text-combine-upright: all;
+}
+
+/* Separator rule above the endnotes heading. The <hr> written by VFM comes
+   after the section's ::before heading and cannot be reordered, so hide it
+   and draw the section's own border instead. Width and color default to
+   --vs-border-width / --vs-border-color and can be overridden with
+   --vs-endnote--section-border-{width,color}-block-start; the other logical
+   sides (block-end / inline-start / inline-end) have the same set of
+   variables. */
+:root {
+  --vs-endnote--section-hr-display: none;
+  --vs-endnote--section-border-style-block-start: solid;
 }
 ```
 
@@ -134,7 +229,7 @@ module.exports = {
 
 /* Configuration examples */
 :root {
-  --vs-footnote--call-content: '[' counter(footnote) ']';
+  --vs-footnote--call-content: '[' counter(vs-counter-footnote) ']';
   --vs-footnote--area-before-margin-inline: 0 80%;
 }
 ```
@@ -150,13 +245,15 @@ module.exports = {
 
 /* Configuration examples */
 :root {
-  --vs-page--mbox-content-bottom-center: counter(page);
+  --vs-page--mbox-bottom-center-content: counter(page);
   /*
    * Vivliostyle.js provides env(doc-title) and env(pub-title)
    * https://docs.vivliostyle.org/#/supported-css-features#values
    */
-  --vs-page--mbox-content-top-left: env(doc-title);
-  --vs-page--mbox-content-top-right: string(section-title);
+  --vs-page--mbox-top-left-content: env(doc-title);
+  --vs-page--mbox-top-right-content: string(section-title);
+  /* `inside` / `outside` resolve to left or right depending on the page side */
+  --vs-page--mbox-bottom-outside-content: counter(page);
 }
 /*
  * Setting named string
@@ -169,6 +266,7 @@ h1 {
 
 - [**page.css**](css/page.css) defines styles about paged media
   - Name of CSS variable starts with `--vs-page--`
+  - The margin-box `content` variables accept `inside` / `outside` in place of `left` / `right` (`--vs-page--mbox-bottom-outside-content`, `--vs-page--mbox-top-inside-corner-content`, `--vs-page--mbox-outside-middle-content`, …), which resolve to the physical box depending on the page side. The physical variable (e.g. `--vs-page--mbox-bottom-left-content`) takes precedence when both are set
 
 ### Section references
 
@@ -178,7 +276,7 @@ h1 {
 /* Configuration examples */
 :root {
   --vs-section--marker-display: inline;
-  --vs-section--call-content: 'Sec. ' target-counters(attr(href), sections, '.');
+  --vs-section--call-content: 'Sec. ' target-counters(attr(href), vs-counter-sections, '.');
 }
 ```
 
@@ -192,7 +290,8 @@ h1 {
 
 /* Configuration examples */
 :root {
-  --vs-toc--marker-margin-inline: 8rem;
+  --vs-toc--marker-display: inline;
+  --vs-toc--ol-indent-size: 1.5rem;
 }
 ```
 
@@ -205,7 +304,10 @@ h1 {
 @import url(@vivliostyle/theme-base/css/utility-classes.css);
 ```
 
-- [**utility-classes.css**](css/utility-classes.css) provides HTML utility classes related to page layout.
+- [**utility-classes.css**](css/utility-classes.css) provides HTML utility classes related to page layout and typesetting.
+  - `break-before-*` / `break-after-*` / `break-inside-*`
+  - `writing-mode-*` / `text-orientation-*` / `text-combine-upright-*` (tate-chu-yoko)
+  - `font-variant-numeric-*`
 
 ### Prism (Code highlighting)
 

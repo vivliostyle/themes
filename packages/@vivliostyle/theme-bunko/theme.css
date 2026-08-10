@@ -6,8 +6,6 @@
 :root {
   --vs-theme--num-of-line: 15;
   --vs-theme--num-of-character: 39;
-  --vs-theme--page-top-left-content: counter(page) '　' env(doc-title);
-  --vs-theme--page-top-right-content: counter(page);
   --vs-theme--subsection-text-indent: 3rem;
   --vs-theme--anchor-color-body: darkblue;
 }
@@ -50,27 +48,39 @@
   --vs-page--height: calc(1rem * var(--vs-theme--num-of-character));
   --vs-page--margin-top: auto;
   --vs-page--margin-bottom: auto;
-  --vs-page--margin-inner: auto;
-  --vs-page--margin-outer: auto;
+  --vs-page--margin-left: auto;
+  --vs-page--margin-right: auto;
   --vs-page--mbox-font-size: 8.5pt;
+  --vs-page--mbox-top-outside-content: counter(page);
+  --vs-page--mbox-top-left-margin-top: 8.5mm;
+  --vs-page--mbox-top-left-margin-left: 7pt;
+  --vs-page--mbox-top-right-margin-top: 8.5mm;
+  --vs-page--mbox-top-right-margin-right: 7pt;
 
   --vs-footnote--font-size: 0.667rem;
   --vs-footnote--line-height: 1rem;
+  /* 合印・注番号は縦中横 */
+  --vs-footnote--call-text-combine-upright: all;
+  --vs-footnote--marker-text-combine-upright: all;
   --vs-footnote--area-before-margin-block: 0.25rem;
   --vs-footnote--area-before-margin-inline: 0 70%;
 }
 
 :root:lang(ja) {
-  --vs-crossref--counter-style: cjk-ideographic;
-  --vs-crossref--call-fig-content: '図'
-    target-counter(attr(href), fig, var(--vs-crossref--counter-style));
-  --vs-crossref--call-tbl-content: '表'
-    target-counter(attr(href), tbl, var(--vs-crossref--counter-style));
-  --vs-crossref--marker-display: none;
-  --vs-crossref--marker-fig-content: '図'
-    counter(fig, var(--vs-crossref--counter-style)) '　';
-  --vs-crossref--marker-tbl-content: '表'
-    counter(tbl, var(--vs-crossref--counter-style)) '　';
+  --vs-counter-style: cjk-ideographic;
+  --vs-figure--call-content: '図'
+    target-counter(attr(href), fig, var(--vs-counter-style));
+  --vs-table--call-content: '表'
+    target-counter(attr(href), tbl, var(--vs-counter-style));
+  --vs-appendix--marker-display: none;
+  --vs-citation--marker-display: none;
+  --vs-equation--marker-display: none;
+  --vs-figure--marker-display: none;
+  --vs-listing--marker-display: none;
+  --vs-table--marker-display: none;
+  --vs-theorem--marker-display: none;
+  --vs-figure--marker-content: '図' counter(fig, var(--vs-counter-style)) '　';
+  --vs-table--marker-content: '表' counter(tbl, var(--vs-counter-style)) '　';
 
   --vs-section--counter-style: cjk-ideographic;
   --vs-section--counter-delimiter: '・';
@@ -124,8 +134,6 @@ figure > picture > img {
 
 /* 縦中横 */
 .tcy,
-.footnote::footnote-call,
-.footnote::footnote-marker,
 :not(.footnote) > a[href^='http']::after {
   text-combine-upright: all;
 }
@@ -161,6 +169,7 @@ figure > picture > img {
   margin-inline-start: 2rem;
   text-indent: -1em;
 }
+
 .footnote::before {
   content: '　';
 }
@@ -178,22 +187,7 @@ figure > picture > img {
   }
 }
 
-@page {
-  @top-left {
-    margin-left: 7pt;
-    margin-top: 8.5mm;
-  }
-
-  @top-right {
-    margin-right: 7pt;
-    margin-top: 8.5mm;
-  }
-}
-
+/* Left pages add the document title next to the page number */
 @page :left {
-  --vs-page--mbox-content-top-left: var(--vs-theme--page-top-left-content);
-}
-
-@page :right {
-  --vs-page--mbox-content-top-right: var(--vs-theme--page-top-right-content);
+  --vs-page--mbox-top-outside-content: counter(page) '　' env(doc-title);
 }

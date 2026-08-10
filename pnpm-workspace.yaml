@@ -6,6 +6,11 @@ packages:
 saveExact: true
 ignoreWorkspaceRootCheck: true
 
+# @vivliostyle/cli 11.1.0 pins VFM 2.7.0, which predates the `mathRenderer`
+# option the examples rely on to emit MathML.
+overrides:
+  '@vivliostyle/vfm': 2.7.2
+
 # pnpm 11 verifies node_modules before every `pnpm run` and reinstalls when it
 # drifts, which makes the pre-commit hook abort with no TTY.
 verifyDepsBeforeRun: false

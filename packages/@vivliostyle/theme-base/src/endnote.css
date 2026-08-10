@@ -1,12 +1,30 @@
-.footnote-ref > sup {
-  font-size: 100%;
+@var endnote {
+  @var counter {
+    :root {
+      --style: ;
+    }
+  }
 }
 
 @var endnote {
   @var call {
     .footnote-ref {
+      color: var(--vs--anchor-text-color,);
+      font-family: ;
       font-size: ;
+      font-weight: ;
+      line-height: ;
       margin-inline: ;
+    }
+  }
+
+  @var call-sup {
+    .footnote-ref > sup {
+      display: ;
+      font-size: ;
+      text-combine-upright: var(--vs--sup-text-combine-upright,);
+      text-orientation: ;
+      vertical-align: var(--vs--sup-vertical-align,);
     }
   }
 
@@ -18,25 +36,98 @@
 
   @var section {
     [role='doc-endnotes'] {
+      border-block-end-color: var(--vs-border-color);
+      border-block-end-style: ;
+      border-block-end-width: var(--vs-border-width);
+      border-block-start-color: var(--vs-border-color);
+      border-block-start-style: ;
+      border-block-start-width: var(--vs-border-width);
+      border-inline-end-color: var(--vs-border-color);
+      border-inline-end-style: ;
+      border-inline-end-width: var(--vs-border-width);
+      border-inline-start-color: var(--vs-border-color);
+      border-inline-start-style: ;
+      border-inline-start-width: var(--vs-border-width);
+      color: ;
       font-size: ;
+      letter-spacing: ;
+      line-height: ;
       margin-block: ;
       margin-inline: ;
+      padding-block: ;
+      padding-inline: ;
+    }
+  }
+
+  @var section-heading {
+    [role='doc-endnotes']::before {
+      content: ;
+      display: ;
+      font-family: ;
+      font-size: ;
+      font-weight: ;
+      letter-spacing: ;
+      margin-block: ;
+      text-align: ;
     }
   }
 
   @var section-ol {
     [role='doc-endnotes'] > ol {
+      list-style-position: ;
       list-style-type: ;
+      margin-block: ;
+      padding-inline-start: ;
+      text-align: ;
+      text-indent: ;
     }
   }
 
   @var section-hr {
     [role='doc-endnotes'] > hr {
       border-color: var(--vs--hr-border-color, var(--vs-border-color));
+      border-block-start-style: var(
+        --vs--hr-border-style-block-start,
+        var(--vs-border-style)
+      );
       border-block-start-width: var(
         --vs--hr-border-width-block-start,
         var(--vs-border-width)
       );
+      display: ;
+      inline-size: ;
+      margin-block: ;
+      margin-inline: ;
+    }
+  }
+
+  @var item {
+    [role='doc-endnotes'] > ol > li {
+      font-family: ;
+      font-size: ;
+      line-height: ;
+      margin-block: ;
+      padding-inline-start: ;
+      text-align: ;
+      text-indent: ;
+    }
+  }
+
+  @var marker {
+    [role='doc-endnotes'] > ol > li::before {
+      color: ;
+      content: ;
+      display: ;
+      font-family: ;
+      font-size: ;
+      font-weight: ;
+      inline-size: ;
+      line-height: ;
+      margin-inline: ;
+      text-combine-upright: ;
+      text-indent: ;
+      text-orientation: ;
+      vertical-align: ;
     }
   }
 
@@ -45,4 +136,28 @@
       display: ;
     }
   }
+}
+
+@var endnote {
+  @var call {
+    .footnote-ref::before {
+      content: ;
+      text-combine-upright: ;
+      text-orientation: ;
+      vertical-align: ;
+      inset-block-start: ;
+    }
+  }
+}
+
+.footnote-ref {
+  counter-increment: vs-counter-endnote-call;
+}
+
+.footnote-ref::before {
+  position: relative;
+}
+
+[role='doc-endnotes'] > ol > li {
+  counter-increment: vs-counter-endnote;
 }

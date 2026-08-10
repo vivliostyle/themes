@@ -69,8 +69,8 @@ vivliostyle-theme-<name>/
   --vs-footnote--call-content: '[' counter(footnote) ']';
 
   /* ページレイアウト */
-  --vs-page--mbox-content-bottom-center: counter(page);
-  --vs-page--mbox-content-top-left: env(doc-title);
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-top-left-content: env(doc-title);
 
   /* 目次 */
   --vs-toc--marker-margin-inline: 8rem;
@@ -140,9 +140,9 @@ theme-baseや各テーマが公開するCSS変数を `:root` で上書きする�
   --vs-crossref--counter-style: upper-roman;
 
   /* ページヘッダ・フッタ */
-  --vs-page--mbox-content-top-left: env(pub-title);
-  --vs-page--mbox-content-top-right: env(doc-title);
-  --vs-page--mbox-content-bottom-center: counter(page);
+  --vs-page--mbox-top-left-content: env(pub-title);
+  --vs-page--mbox-top-right-content: env(doc-title);
+  --vs-page--mbox-bottom-center-content: counter(page);
 }
 ```
 
@@ -154,8 +154,6 @@ theme-baseや各テーマが公開するCSS変数を `:root` で上書きする�
   --vs-theme--blockquote-color-bg: #ecf0f1;
   --vs-theme--inline-code-color-bg: #ecf0f1;
   --vs-theme--image-resolution-for-figure-image: 300dpi;
-  --vs-theme--page-top-left-content: env(pub-title);
-  --vs-theme--page-bottom-content: counter(page);
 }
 ```
 

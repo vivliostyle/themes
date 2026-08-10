@@ -1,7 +1,6 @@
 #toc,
 [role='doc-toc'] {
   --vs--ol-padding-inline-start: var(--vs-toc--ol-indent-size);
-  --vs--ol-minimum-inline-indent-size: 0rem;
 }
 
 :is(#toc, [role='doc-toc']) ol {

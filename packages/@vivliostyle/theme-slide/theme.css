@@ -56,15 +56,15 @@
   --vs--figcaption-margin-block: 0;
   --vs--table-font-size: 0.83rem;
 
-  --vs-page--mbox-content-top-right: env(pub-title);
-  --vs-page--mbox-content-top-right-corner: counter(page);
+  --vs-page--mbox-top-right-content: env(pub-title);
+  --vs-page--mbox-top-right-corner-content: counter(page);
   --vs-page--mbox-font-size: 11pt;
-  --vs-page--mbox-padding-right-inner: 3mm;
-  --vs-page--mbox-padding-right-outer: 2mm;
+  --vs-page--mbox-right-inner-padding-right: 3mm;
+  --vs-page--mbox-left-padding-right: 2mm;
   --vs-page--margin-top: 15mm;
   --vs-page--margin-bottom: 15mm;
-  --vs-page--margin-inner: 15mm;
-  --vs-page--margin-outer: 15mm;
+  --vs-page--margin-left: 15mm;
+  --vs-page--margin-right: 15mm;
 }
 
 h1 {

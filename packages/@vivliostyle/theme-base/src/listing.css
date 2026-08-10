@@ -1,0 +1,29 @@
+@var listing {
+  @var . {
+    :root {
+      --counter-style: ;
+      --label: ;
+    }
+  }
+
+  @var call {
+    a[data-ref='lst']::before {
+      content: ;
+      display: ;
+    }
+  }
+
+  @var marker {
+    figure:is(.lst, :has(> pre)) figcaption::before,
+    .lst-caption::before {
+      content: ;
+      display: ;
+      margin-inline: ;
+    }
+  }
+}
+
+figure:is(.lst, :has(> pre)),
+.lst-caption {
+  counter-increment: vs-counter-lst;
+}

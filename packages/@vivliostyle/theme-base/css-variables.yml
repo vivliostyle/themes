@@ -1,17 +1,34 @@
 _meta-properties:
+  accent-color:
+    _syntax: '*'
+    _define: 'currentColor'
   background-color:
     _syntax: '<color>'
     _property: 'background-color'
     _define: 'transparent'
+  background-color-alt:
+    _syntax: '*'
+    _define: 'transparent'
   border-color:
     _syntax: '<color>'
     _property:
+      - 'border-block-end-color'
       - 'border-block-start-color'
       - 'border-color'
-    _define: 'currentColor'
+      - 'border-inline-end-color'
+      - 'border-inline-start-color'
+    _define: 'var(--vs-text-color)'
+  border-style:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-start-style'
+    _define: 'solid'
   border-width:
     _syntax: 'medium | thick | thin | <length>'
-    _property: 'border-block-start-width'
+    _property:
+      - 'border-block-end-width'
+      - 'border-block-start-width'
+      - 'border-inline-end-width'
+      - 'border-inline-start-width'
     _define: '1px'
   column-fill:
     _syntax: 'auto | balance'
@@ -21,10 +38,31 @@ _meta-properties:
     _syntax: 'normal | <length-percentage>'
     _property: 'column-gap'
     _define: '1rem'
+  column-rule-color:
+    _syntax: '<color>'
+    _property: 'column-rule-color'
+    _define: 'var(--vs-border-color)'
+  column-rule-style:
+    _syntax: '*'
+    _property: 'column-rule-style'
+    _define: 'var(--vs-border-style)'
+  column-rule-width:
+    _syntax: '*'
+    _property: 'column-rule-width'
+    _define: '0'
   columns:
     _syntax: '*'
     _property: 'columns'
     _define: '1'
+  counter-style:
+    _syntax: '*'
+    _property: 'content'
+    _define: 'decimal'
+  crossref-call-counter-prefix:
+    _syntax: '*'
+  crossref-marker-counter-prefix:
+    _syntax: '*'
+    _property: 'content'
   document-first-page-counter-increment:
     _syntax: '*'
     _property: 'counter-increment'
@@ -41,6 +79,9 @@ _meta-properties:
     _syntax: '*'
     _property: 'font-family'
     _define: 'sans-serif'
+  font-family-secondary:
+    _syntax: '*'
+    _define: 'inherit'
   font-feature-settings:
     _syntax: '*'
     _property: 'font-feature-settings'
@@ -68,6 +109,10 @@ _meta-properties:
   font-variant:
     _syntax: '*'
     _property: 'font-variant'
+    _define: 'normal'
+  font-variant-numeric:
+    _syntax: '*'
+    _property: 'font-variant-numeric'
     _define: 'normal'
   font-variation-settings:
     _syntax: '*'
@@ -126,6 +171,9 @@ _meta-properties:
     _syntax: '<color>'
     _property: 'color'
     _define: '#000'
+  text-color-muted:
+    _syntax: '*'
+    _define: 'inherit'
   text-orientation:
     _syntax: 'mixed | sideways | upright'
     _property: 'text-orientation'
@@ -165,7 +213,7 @@ _basic:
   anchor-text-color:
     _syntax: '<color>'
     _property: 'color'
-    _define: 'inherit'
+    _define: 'var(--vs-accent-color)'
   anchor-text-decoration:
     _syntax: '*'
     _property: 'text-decoration'
@@ -181,10 +229,76 @@ _basic:
   big-vertical-align:
     _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
     _property: 'vertical-align'
+  blockquote-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+    _define: 'transparent'
+  blockquote-border-color-block-end:
+    _syntax: '<color>'
+    _property: 'border-block-end-color'
+    _define: 'var(--vs-border-color)'
+  blockquote-border-color-block-start:
+    _syntax: '<color>'
+    _property: 'border-block-start-color'
+    _define: 'var(--vs-border-color)'
+  blockquote-border-color-inline-end:
+    _syntax: '<color>'
+    _property: 'border-inline-end-color'
+    _define: 'var(--vs-border-color)'
+  blockquote-border-color-inline-start:
+    _syntax: '<color>'
+    _property: 'border-inline-start-color'
+    _define: 'var(--vs-border-color)'
+  blockquote-border-radius:
+    _syntax: '<length-percentage>+'
+    _property: 'border-radius'
+    _define: '0'
+  blockquote-border-style-block-end:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-end-style'
+    _define: 'var(--vs-border-style)'
+  blockquote-border-style-block-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-start-style'
+    _define: 'var(--vs-border-style)'
+  blockquote-border-style-inline-end:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-end-style'
+    _define: 'var(--vs-border-style)'
+  blockquote-border-style-inline-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-start-style'
+    _define: 'var(--vs-border-style)'
+  blockquote-border-width-block-end:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-end-width'
+    _define: '0'
+  blockquote-border-width-block-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-start-width'
+    _define: '0'
+  blockquote-border-width-inline-end:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-end-width'
+    _define: '0'
+  blockquote-border-width-inline-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-start-width'
+    _define: '0'
+  blockquote-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
+    _define: 'auto'
+  blockquote-font-family:
+    _syntax: '*'
+    _property: 'font-family'
   blockquote-font-size:
     _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
     _property: 'font-size'
     _define: '100%'
+  blockquote-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
   blockquote-margin-block:
     _syntax: '*'
     _property: 'margin-block'
@@ -192,7 +306,30 @@ _basic:
   blockquote-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
-    _define: 'var(--vs-spacing-inline-indent)'
+    _define: 'var(--vs-spacing-inline-indent) 0'
+  blockquote-p-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+  blockquote-p-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  blockquote-p-text-indent:
+    _syntax: '*'
+    _property: 'text-indent'
+  blockquote-padding-block:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-block'
+    _define: '0'
+  blockquote-padding-inline:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-inline'
+    _define: '0'
+  blockquote-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  blockquote-text-color:
+    _syntax: '<color>'
+    _property: 'color'
   blockquote-writing-mode:
     _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
     _property: 'writing-mode'
@@ -249,9 +386,97 @@ _basic:
     _syntax: 'bold | bolder | lighter | normal | <number>'
     _property: 'font-weight'
     _define: 'var(--vs-font-weight-bold)'
+  bold-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  bold-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: '0'
+  bold-text-color:
+    _syntax: '<color>'
+    _property: 'color'
   bold-vertical-align:
     _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
     _property: 'vertical-align'
+  caption-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
+  caption-display:
+    _syntax: '*'
+    _property: 'display'
+    _define: 'table-caption'
+  caption-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  caption-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  caption-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+  caption-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  caption-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  caption-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  caption-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+  caption-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+  caption-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  caption-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  caption-text-indent:
+    _syntax: '*'
+    _property: 'text-indent'
+  caption-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  caption-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+  cite-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  cite-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  cite-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+    _define: 'italic'
+  crossref-call-content:
+    _syntax: '*'
+    _property: 'content'
+  crossref-call-display:
+    _syntax: '*'
+    _property: 'display'
+    _define: 'inline'
+  crossref-call-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: '0'
+  crossref-call-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  crossref-call-text-decoration:
+    _syntax: '*'
+    _property: 'text-decoration'
+    _define:
+      - value: 'none'
+      - media: '(hover: hover)'
+        selector: 'a[data-ref]:hover'
+        value: 'underline'
   dd-margin-inline-start:
     _syntax: 'auto | <length-percentage>'
     _property: 'margin-inline-start'
@@ -266,6 +491,12 @@ _basic:
     _syntax: '*'
     _property: 'text-decoration'
     _define: 'line-through'
+  dl-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+  dl-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
   dt-dd-display:
     _syntax: '*'
     _property: 'display'
@@ -311,10 +542,30 @@ _basic:
     _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
     _property: 'break-inside'
     _define: 'avoid'
+  figcaption-display:
+    _syntax: '*'
+    _property: 'display'
+    _define: 'block'
+  figcaption-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+    _define: 'var(--vs-font-family-secondary)'
   figcaption-font-size:
     _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
     _property: 'font-size'
     _define: '100%'
+  figcaption-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+  figcaption-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  figcaption-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  figcaption-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
   figcaption-margin-block:
     _syntax: '*'
     _property: 'margin-block'
@@ -323,13 +574,30 @@ _basic:
     _syntax: '*'
     _property: 'margin-inline'
     _define: '0'
+  figcaption-order:
+    _syntax: '<integer>'
+    _property: 'order'
+    _define: '0'
+  figcaption-p-display:
+    _syntax: '*'
+    _property: 'display'
   figcaption-text-align:
     _syntax: 'center | end | justify | left | match-parent | right | start'
     _property: 'text-align'
+  figcaption-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-text-color-muted)'
   figcaption-text-indent:
     _syntax: '*'
     _property: 'text-indent'
     _define: '0'
+  figcaption-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  figcaption-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
   figure-align-items:
     _syntax: 'anchor-center | baseline | center | end | first | flex-end | flex-start | last | normal | safe | self-end | self-start | start | stretch | unsafe'
     _property: 'align-items'
@@ -346,10 +614,22 @@ _basic:
     _syntax: 'column | column-reverse | row | row-reverse'
     _property: 'flex-direction'
     _define: 'column'
+  figure-item-max-size-block:
+    _syntax: 'fit-content | max-content | min-content | none | stretch | <length-percentage>'
+    _property: 'max-block-size'
+    _define: '100%'
+  figure-item-max-size-inline:
+    _syntax: 'fit-content | max-content | min-content | none | stretch | <length-percentage>'
+    _property: 'max-inline-size'
+    _define: '100%'
   figure-item-padding-inline:
     _syntax: '<length-percentage>+'
     _property: 'padding-inline'
-    _define: 'var(--vs-spacing-inline-indent)'
+    _define: '0'
+  figure-item-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+    _define: 'auto'
   figure-margin-block:
     _syntax: '*'
     _property: 'margin-block'
@@ -358,10 +638,60 @@ _basic:
     _syntax: '*'
     _property: 'margin-inline'
     _define: '0'
+  figure-table-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: '0'
+  figure-table-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: '0'
+  figure-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
   figure-writing-mode:
     _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
     _property: 'writing-mode'
     _define: 'unset'
+  h1-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  h1-border-color-block-end:
+    _syntax: '<color>'
+    _property: 'border-block-end-color'
+  h1-border-color-block-start:
+    _syntax: '<color>'
+    _property: 'border-block-start-color'
+  h1-border-color-inline-end:
+    _syntax: '<color>'
+    _property: 'border-inline-end-color'
+  h1-border-color-inline-start:
+    _syntax: '<color>'
+    _property: 'border-inline-start-color'
+  h1-border-style-block-end:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-end-style'
+  h1-border-style-block-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-start-style'
+  h1-border-style-inline-end:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-end-style'
+  h1-border-style-inline-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-start-style'
+  h1-border-width-block-end:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-end-width'
+  h1-border-width-block-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-start-width'
+  h1-border-width-inline-end:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-end-width'
+  h1-border-width-inline-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-start-width'
   h1-break-after:
     _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
     _property: 'break-after'
@@ -384,6 +714,9 @@ _basic:
   h1-font-stretch:
     _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
     _property: 'font-stretch'
+  h1-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
   h1-font-variant:
     _syntax: '*'
     _property: 'font-variant'
@@ -408,21 +741,75 @@ _basic:
   h1-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
+  h1-padding-block:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-block'
+  h1-padding-inline:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-inline'
+  h1-string-set:
+    _syntax: '*'
+    _property: 'string-set'
   h1-text-align:
     _syntax: 'center | end | justify | left | match-parent | right | start'
     _property: 'text-align'
+  h1-text-color:
+    _syntax: '<color>'
+    _property: 'color'
   h1-text-indent:
     _syntax: '*'
     _property: 'text-indent'
   h1-text-spacing:
     _syntax: '*'
     _property: 'text-spacing'
+  h1-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
   h1-word-break:
     _syntax: 'auto-phrase | break-all | break-word | keep-all | normal'
     _property: 'word-break'
   h1-word-spacing:
     _syntax: 'normal | <length>'
     _property: 'word-spacing'
+  h2-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  h2-border-color-block-end:
+    _syntax: '<color>'
+    _property: 'border-block-end-color'
+  h2-border-color-block-start:
+    _syntax: '<color>'
+    _property: 'border-block-start-color'
+  h2-border-color-inline-end:
+    _syntax: '<color>'
+    _property: 'border-inline-end-color'
+  h2-border-color-inline-start:
+    _syntax: '<color>'
+    _property: 'border-inline-start-color'
+  h2-border-style-block-end:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-end-style'
+  h2-border-style-block-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-start-style'
+  h2-border-style-inline-end:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-end-style'
+  h2-border-style-inline-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-start-style'
+  h2-border-width-block-end:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-end-width'
+  h2-border-width-block-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-start-width'
+  h2-border-width-inline-end:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-end-width'
+  h2-border-width-inline-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-start-width'
   h2-break-after:
     _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
     _property: 'break-after'
@@ -445,6 +832,9 @@ _basic:
   h2-font-stretch:
     _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
     _property: 'font-stretch'
+  h2-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
   h2-font-variant:
     _syntax: '*'
     _property: 'font-variant'
@@ -469,21 +859,75 @@ _basic:
   h2-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
+  h2-padding-block:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-block'
+  h2-padding-inline:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-inline'
+  h2-string-set:
+    _syntax: '*'
+    _property: 'string-set'
   h2-text-align:
     _syntax: 'center | end | justify | left | match-parent | right | start'
     _property: 'text-align'
+  h2-text-color:
+    _syntax: '<color>'
+    _property: 'color'
   h2-text-indent:
     _syntax: '*'
     _property: 'text-indent'
   h2-text-spacing:
     _syntax: '*'
     _property: 'text-spacing'
+  h2-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
   h2-word-break:
     _syntax: 'auto-phrase | break-all | break-word | keep-all | normal'
     _property: 'word-break'
   h2-word-spacing:
     _syntax: 'normal | <length>'
     _property: 'word-spacing'
+  h3-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  h3-border-color-block-end:
+    _syntax: '<color>'
+    _property: 'border-block-end-color'
+  h3-border-color-block-start:
+    _syntax: '<color>'
+    _property: 'border-block-start-color'
+  h3-border-color-inline-end:
+    _syntax: '<color>'
+    _property: 'border-inline-end-color'
+  h3-border-color-inline-start:
+    _syntax: '<color>'
+    _property: 'border-inline-start-color'
+  h3-border-style-block-end:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-end-style'
+  h3-border-style-block-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-start-style'
+  h3-border-style-inline-end:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-end-style'
+  h3-border-style-inline-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-start-style'
+  h3-border-width-block-end:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-end-width'
+  h3-border-width-block-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-start-width'
+  h3-border-width-inline-end:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-end-width'
+  h3-border-width-inline-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-start-width'
   h3-break-after:
     _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
     _property: 'break-after'
@@ -506,6 +950,9 @@ _basic:
   h3-font-stretch:
     _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
     _property: 'font-stretch'
+  h3-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
   h3-font-variant:
     _syntax: '*'
     _property: 'font-variant'
@@ -530,21 +977,75 @@ _basic:
   h3-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
+  h3-padding-block:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-block'
+  h3-padding-inline:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-inline'
+  h3-string-set:
+    _syntax: '*'
+    _property: 'string-set'
   h3-text-align:
     _syntax: 'center | end | justify | left | match-parent | right | start'
     _property: 'text-align'
+  h3-text-color:
+    _syntax: '<color>'
+    _property: 'color'
   h3-text-indent:
     _syntax: '*'
     _property: 'text-indent'
   h3-text-spacing:
     _syntax: '*'
     _property: 'text-spacing'
+  h3-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
   h3-word-break:
     _syntax: 'auto-phrase | break-all | break-word | keep-all | normal'
     _property: 'word-break'
   h3-word-spacing:
     _syntax: 'normal | <length>'
     _property: 'word-spacing'
+  h4-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  h4-border-color-block-end:
+    _syntax: '<color>'
+    _property: 'border-block-end-color'
+  h4-border-color-block-start:
+    _syntax: '<color>'
+    _property: 'border-block-start-color'
+  h4-border-color-inline-end:
+    _syntax: '<color>'
+    _property: 'border-inline-end-color'
+  h4-border-color-inline-start:
+    _syntax: '<color>'
+    _property: 'border-inline-start-color'
+  h4-border-style-block-end:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-end-style'
+  h4-border-style-block-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-start-style'
+  h4-border-style-inline-end:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-end-style'
+  h4-border-style-inline-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-start-style'
+  h4-border-width-block-end:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-end-width'
+  h4-border-width-block-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-start-width'
+  h4-border-width-inline-end:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-end-width'
+  h4-border-width-inline-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-start-width'
   h4-break-after:
     _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
     _property: 'break-after'
@@ -567,6 +1068,9 @@ _basic:
   h4-font-stretch:
     _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
     _property: 'font-stretch'
+  h4-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
   h4-font-variant:
     _syntax: '*'
     _property: 'font-variant'
@@ -591,21 +1095,75 @@ _basic:
   h4-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
+  h4-padding-block:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-block'
+  h4-padding-inline:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-inline'
+  h4-string-set:
+    _syntax: '*'
+    _property: 'string-set'
   h4-text-align:
     _syntax: 'center | end | justify | left | match-parent | right | start'
     _property: 'text-align'
+  h4-text-color:
+    _syntax: '<color>'
+    _property: 'color'
   h4-text-indent:
     _syntax: '*'
     _property: 'text-indent'
   h4-text-spacing:
     _syntax: '*'
     _property: 'text-spacing'
+  h4-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
   h4-word-break:
     _syntax: 'auto-phrase | break-all | break-word | keep-all | normal'
     _property: 'word-break'
   h4-word-spacing:
     _syntax: 'normal | <length>'
     _property: 'word-spacing'
+  h5-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  h5-border-color-block-end:
+    _syntax: '<color>'
+    _property: 'border-block-end-color'
+  h5-border-color-block-start:
+    _syntax: '<color>'
+    _property: 'border-block-start-color'
+  h5-border-color-inline-end:
+    _syntax: '<color>'
+    _property: 'border-inline-end-color'
+  h5-border-color-inline-start:
+    _syntax: '<color>'
+    _property: 'border-inline-start-color'
+  h5-border-style-block-end:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-end-style'
+  h5-border-style-block-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-start-style'
+  h5-border-style-inline-end:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-end-style'
+  h5-border-style-inline-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-start-style'
+  h5-border-width-block-end:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-end-width'
+  h5-border-width-block-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-start-width'
+  h5-border-width-inline-end:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-end-width'
+  h5-border-width-inline-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-start-width'
   h5-break-after:
     _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
     _property: 'break-after'
@@ -628,6 +1186,9 @@ _basic:
   h5-font-stretch:
     _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
     _property: 'font-stretch'
+  h5-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
   h5-font-variant:
     _syntax: '*'
     _property: 'font-variant'
@@ -652,21 +1213,75 @@ _basic:
   h5-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
+  h5-padding-block:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-block'
+  h5-padding-inline:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-inline'
+  h5-string-set:
+    _syntax: '*'
+    _property: 'string-set'
   h5-text-align:
     _syntax: 'center | end | justify | left | match-parent | right | start'
     _property: 'text-align'
+  h5-text-color:
+    _syntax: '<color>'
+    _property: 'color'
   h5-text-indent:
     _syntax: '*'
     _property: 'text-indent'
   h5-text-spacing:
     _syntax: '*'
     _property: 'text-spacing'
+  h5-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
   h5-word-break:
     _syntax: 'auto-phrase | break-all | break-word | keep-all | normal'
     _property: 'word-break'
   h5-word-spacing:
     _syntax: 'normal | <length>'
     _property: 'word-spacing'
+  h6-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  h6-border-color-block-end:
+    _syntax: '<color>'
+    _property: 'border-block-end-color'
+  h6-border-color-block-start:
+    _syntax: '<color>'
+    _property: 'border-block-start-color'
+  h6-border-color-inline-end:
+    _syntax: '<color>'
+    _property: 'border-inline-end-color'
+  h6-border-color-inline-start:
+    _syntax: '<color>'
+    _property: 'border-inline-start-color'
+  h6-border-style-block-end:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-end-style'
+  h6-border-style-block-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-start-style'
+  h6-border-style-inline-end:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-end-style'
+  h6-border-style-inline-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-start-style'
+  h6-border-width-block-end:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-end-width'
+  h6-border-width-block-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-start-width'
+  h6-border-width-inline-end:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-end-width'
+  h6-border-width-inline-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-start-width'
   h6-break-after:
     _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
     _property: 'break-after'
@@ -689,6 +1304,9 @@ _basic:
   h6-font-stretch:
     _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
     _property: 'font-stretch'
+  h6-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
   h6-font-variant:
     _syntax: '*'
     _property: 'font-variant'
@@ -713,21 +1331,88 @@ _basic:
   h6-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
+  h6-padding-block:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-block'
+  h6-padding-inline:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-inline'
+  h6-string-set:
+    _syntax: '*'
+    _property: 'string-set'
   h6-text-align:
     _syntax: 'center | end | justify | left | match-parent | right | start'
     _property: 'text-align'
+  h6-text-color:
+    _syntax: '<color>'
+    _property: 'color'
   h6-text-indent:
     _syntax: '*'
     _property: 'text-indent'
   h6-text-spacing:
     _syntax: '*'
     _property: 'text-spacing'
+  h6-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
   h6-word-break:
     _syntax: 'auto-phrase | break-all | break-word | keep-all | normal'
     _property: 'word-break'
   h6-word-spacing:
     _syntax: 'normal | <length>'
     _property: 'word-spacing'
+  heading-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+    _define: 'transparent'
+  heading-border-color-block-end:
+    _syntax: '<color>'
+    _property: 'border-block-end-color'
+    _define: 'var(--vs-border-color)'
+  heading-border-color-block-start:
+    _syntax: '<color>'
+    _property: 'border-block-start-color'
+    _define: 'var(--vs-border-color)'
+  heading-border-color-inline-end:
+    _syntax: '<color>'
+    _property: 'border-inline-end-color'
+    _define: 'var(--vs-border-color)'
+  heading-border-color-inline-start:
+    _syntax: '<color>'
+    _property: 'border-inline-start-color'
+    _define: 'var(--vs-border-color)'
+  heading-border-style-block-end:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-end-style'
+    _define: 'var(--vs-border-style)'
+  heading-border-style-block-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-start-style'
+    _define: 'var(--vs-border-style)'
+  heading-border-style-inline-end:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-end-style'
+    _define: 'var(--vs-border-style)'
+  heading-border-style-inline-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-start-style'
+    _define: 'var(--vs-border-style)'
+  heading-border-width-block-end:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-end-width'
+    _define: '0'
+  heading-border-width-block-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-start-width'
+    _define: '0'
+  heading-border-width-inline-end:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-end-width'
+    _define: '0'
+  heading-border-width-inline-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-start-width'
+    _define: '0'
   heading-break-after:
     _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
     _property: 'break-after'
@@ -748,6 +1433,9 @@ _basic:
   heading-font-stretch:
     _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
     _property: 'font-stretch'
+  heading-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
   heading-font-variant:
     _syntax: '*'
     _property: 'font-variant'
@@ -776,9 +1464,21 @@ _basic:
     _syntax: '*'
     _property: 'margin-inline'
     _define: '0'
+  heading-padding-block:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-block'
+    _define: '0'
+  heading-padding-inline:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-inline'
+    _define: '0'
   heading-text-align:
     _syntax: 'center | end | justify | left | match-parent | right | start'
     _property: 'text-align'
+  heading-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'inherit'
   heading-text-indent:
     _syntax: '*'
     _property: 'text-indent'
@@ -787,6 +1487,9 @@ _basic:
     _syntax: '*'
     _property: 'text-spacing'
     _define: 'inherit'
+  heading-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
   heading-word-break:
     _syntax: 'auto-phrase | break-all | break-word | keep-all | normal'
     _property: 'word-break'
@@ -799,6 +1502,10 @@ _basic:
       - 'border-block-start-color'
       - 'border-color'
     _define: 'var(--vs-border-color)'
+  hr-border-style-block-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-start-style'
+    _define: 'var(--vs-border-style)'
   hr-border-width-block-start:
     _syntax: 'medium | thick | thin | <length>'
     _property: 'border-block-start-width'
@@ -811,10 +1518,35 @@ _basic:
     _syntax: '*'
     _property: 'margin-inline'
     _define: '0'
+  hr-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+    _define: 'auto'
   img-image-resolution:
     _syntax: '*'
     _property: 'image-resolution'
     _define: 'from-image'
+  li-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  li-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  li-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: '0'
+  li-padding-block:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-block'
+    _define: '0'
+  li-padding-inline:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-inline'
+    _define: '0'
+  lists-list-style-position:
+    _syntax: 'inside | outside'
+    _property: 'list-style-position'
   lists-margin-block:
     _syntax: '*'
     _property: 'margin-block'
@@ -823,10 +1555,23 @@ _basic:
     _syntax: '*'
     _property: 'margin-inline'
     _define: '0'
+  lists-marker-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  lists-marker-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  lists-marker-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  lists-marker-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-accent-color)'
   lists-padding-inline-start:
     _syntax: '<length-percentage>'
     _property: 'padding-inline-start'
-    _define: 'var(--vs-spacing-inline-indent)'
+    _define: '2rem'
   lists-text-align:
     _syntax: 'center | end | justify | left | match-parent | right | start'
     _property: 'text-align'
@@ -834,6 +1579,39 @@ _basic:
     _syntax: '*'
     _property: 'text-indent'
     _define: '0'
+  math-display-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
+    _define: 'avoid'
+  math-display-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: 'var(--vs-spacing-rlh)'
+  math-display-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: 'auto'
+  math-display-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+    _define: 'fit-content'
+  math-display-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  math-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+    _define: "'STIX Two Math', 'Cambria Math', 'Latin Modern Math', math"
+  math-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  math-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  math-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+    _define: 'normal'
   monospace-font-family:
     _syntax: '*'
     _property: 'font-family'
@@ -855,6 +1633,9 @@ _basic:
   monospace-font-variant:
     _syntax: '*'
     _property: 'font-variant'
+  monospace-font-variant-ligatures:
+    _syntax: '*'
+    _property: 'font-variant-ligatures'
   monospace-font-variation-settings:
     _syntax: '*'
     _property: 'font-variation-settings'
@@ -884,14 +1665,13 @@ _basic:
   monospace-word-spacing:
     _syntax: 'normal | <length>'
     _property: 'word-spacing'
+  ol-list-style-position:
+    _syntax: 'inside | outside'
+    _property: 'list-style-position'
   ol-list-style-type:
     _syntax: 'none | <custom-ident> | <string>'
     _property: 'list-style-type'
     _define: 'decimal'
-  ol-minimum-inline-indent-size:
-    _syntax: '<length-percentage>'
-    _property: 'padding-inline-start'
-    _define: '2rem'
   ol-padding-inline-start:
     _syntax: '<length-percentage>'
     _property: 'padding-inline-start'
@@ -901,10 +1681,15 @@ _basic:
   ol-text-indent:
     _syntax: '*'
     _property: 'text-indent'
+  p-first-text-indent:
+    _syntax: '*'
+    _property: 'text-indent'
+  p-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
   p-hanging-punctuation:
     _syntax: '*'
     _property: 'hanging-punctuation'
-    _define: 'var(--vs-hanging-punctuation)'
   p-hyphens:
     _syntax: 'auto | manual | none'
     _property: 'hyphens'
@@ -921,6 +1706,14 @@ _basic:
   p-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
+    _define: '0'
+  p-padding-block:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-block'
+    _define: '0'
+  p-padding-inline:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-inline'
     _define: '0'
   p-text-align:
     _syntax: 'center | end | justify | left | match-parent | right | start'
@@ -940,10 +1733,78 @@ _basic:
   p-word-spacing:
     _syntax: 'normal | <length>'
     _property: 'word-spacing'
+  pre-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+    _define: 'var(--vs-background-color-alt)'
+  pre-border-color-block-end:
+    _syntax: '<color>'
+    _property: 'border-block-end-color'
+    _define: 'var(--vs-border-color)'
+  pre-border-color-block-start:
+    _syntax: '<color>'
+    _property: 'border-block-start-color'
+    _define: 'var(--vs-border-color)'
+  pre-border-color-inline-end:
+    _syntax: '<color>'
+    _property: 'border-inline-end-color'
+    _define: 'var(--vs-border-color)'
+  pre-border-color-inline-start:
+    _syntax: '<color>'
+    _property: 'border-inline-start-color'
+    _define: 'var(--vs-border-color)'
+  pre-border-radius:
+    _syntax: '<length-percentage>+'
+    _property: 'border-radius'
+    _define: '0'
+  pre-border-style-block-end:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-end-style'
+    _define: 'var(--vs-border-style)'
+  pre-border-style-block-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-start-style'
+    _define: 'var(--vs-border-style)'
+  pre-border-style-inline-end:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-end-style'
+    _define: 'var(--vs-border-style)'
+  pre-border-style-inline-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-start-style'
+    _define: 'var(--vs-border-style)'
+  pre-border-width-block-end:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-end-width'
+    _define: '0'
+  pre-border-width-block-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-start-width'
+    _define: '0'
+  pre-border-width-inline-end:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-end-width'
+    _define: '0'
+  pre-border-width-inline-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-start-width'
+    _define: '0'
+  pre-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
+    _define: 'auto'
+  pre-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+    _define: 'var(--vs--monospace-font-family)'
   pre-font-size:
     _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
     _property: 'font-size'
-    _define: '100%'
+    _define: 'var(--vs--monospace-font-size)'
+  pre-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+    _define: 'var(--vs--monospace-line-height)'
   pre-margin-block:
     _syntax: '*'
     _property: 'margin-block'
@@ -955,7 +1816,10 @@ _basic:
   pre-overflow-x:
     _syntax: 'auto | clip | hidden | scroll | visible'
     _property: 'overflow-x'
-    _define: 'auto'
+    _define:
+      - value: 'auto'
+      - media: 'print'
+        value: 'visible'
   pre-padding-block:
     _syntax: '<length-percentage>+'
     _property: 'padding-block'
@@ -964,10 +1828,17 @@ _basic:
     _syntax: '<length-percentage>+'
     _property: 'padding-inline'
     _define: '0'
+  pre-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+    _define: 'auto'
   pre-text-align:
     _syntax: 'center | end | justify | left | match-parent | right | start'
     _property: 'text-align'
     _define: 'start'
+  pre-text-color:
+    _syntax: '<color>'
+    _property: 'color'
   pre-white-space:
     _syntax: '*'
     _property: 'white-space'
@@ -983,10 +1854,32 @@ _basic:
     _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
     _property: 'writing-mode'
     _define: 'unset'
+  rt-font-family:
+    _syntax: '*'
+    _property: 'font-family'
   rt-font-size:
     _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
     _property: 'font-size'
     _define: '0.5em'
+  rt-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  rt-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+    _define: 'normal'
+  rt-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  rt-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  ruby-ruby-align:
+    _syntax: 'center | space-around | space-between | start'
+    _property: 'ruby-align'
+  ruby-ruby-position:
+    _syntax: '*'
+    _property: 'ruby-position'
   small-font-size:
     _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
     _property: 'font-size'
@@ -994,25 +1887,175 @@ _basic:
   small-vertical-align:
     _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
     _property: 'vertical-align'
+  sub-font-family:
+    _syntax: '*'
+    _property: 'font-family'
   sub-font-size:
     _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
     _property: 'font-size'
     _define: '0.8em'
+  sub-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
   sub-inset-block-end:
     _syntax: 'auto | <length-percentage>'
     _property: 'inset-block-end'
     _define: '-0.25em'
+  sub-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  sub-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+    _define: '0'
+  sub-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: '0'
+  sub-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  sub-text-combine-upright:
+    _syntax: 'all | digits | none | <integer>'
+    _property: 'text-combine-upright'
+  sub-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+    _define: 'baseline'
+  sup-font-family:
+    _syntax: '*'
+    _property: 'font-family'
   sup-font-size:
     _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
     _property: 'font-size'
     _define: '0.8em'
+  sup-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
   sup-inset-block-start:
     _syntax: 'auto | <length-percentage>'
     _property: 'inset-block-start'
     _define: '-0.5em'
+  sup-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  sup-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+    _define: '0'
+  sup-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: '0'
+  sup-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  sup-text-combine-upright:
+    _syntax: 'all | digits | none | <integer>'
+    _property: 'text-combine-upright'
+  sup-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+    _define: 'baseline'
+  table-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+    _define: 'transparent'
+  table-border-collapse:
+    _syntax: 'collapse | separate'
+    _property: 'border-collapse'
+    _define: 'collapse'
   table-border-color:
     _syntax: '<color>+'
-    _property: 'border-color'
+    _property:
+      - 'border-block-end-color'
+      - 'border-block-start-color'
+      - 'border-color'
+      - 'border-inline-end-color'
+      - 'border-inline-start-color'
+    _define: 'var(--vs-border-color)'
+  table-border-color-block-end:
+    _syntax: '<color>'
+    _property: 'border-block-end-color'
+  table-border-color-block-start:
+    _syntax: '<color>'
+    _property: 'border-block-start-color'
+  table-border-color-cell:
+    _syntax: '<color>'
+    _property:
+      - 'border-block-end-color'
+      - 'border-block-start-color'
+      - 'border-inline-end-color'
+  table-border-color-column:
+    _syntax: '<color>'
+    _property: 'border-inline-end-color'
+  table-border-color-inline-end:
+    _syntax: '<color>'
+    _property: 'border-inline-end-color'
+  table-border-color-inline-start:
+    _syntax: '<color>'
+    _property: 'border-inline-start-color'
+  table-border-color-outer:
+    _syntax: '<color>'
+    _property:
+      - 'border-block-end-color'
+      - 'border-block-start-color'
+      - 'border-inline-end-color'
+      - 'border-inline-start-color'
+  table-border-color-row:
+    _syntax: '<color>'
+    _property: 'border-block-end-color'
+  table-border-color-tfoot-inner:
+    _syntax: '<color>'
+    _property: 'border-block-start-color'
+  table-border-color-thead-inner:
+    _syntax: '<color>'
+    _property: 'border-block-end-color'
+  table-border-style:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property:
+      - 'border-block-end-style'
+      - 'border-block-start-style'
+      - 'border-inline-end-style'
+      - 'border-inline-start-style'
+    _define: 'var(--vs-border-style)'
+  table-border-style-block-end:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-end-style'
+  table-border-style-block-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-start-style'
+  table-border-style-cell:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property:
+      - 'border-block-end-style'
+      - 'border-block-start-style'
+      - 'border-inline-end-style'
+  table-border-style-column:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-end-style'
+  table-border-style-inline-end:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-end-style'
+  table-border-style-inline-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-start-style'
+  table-border-style-outer:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property:
+      - 'border-block-end-style'
+      - 'border-block-start-style'
+      - 'border-inline-end-style'
+      - 'border-inline-start-style'
+  table-border-style-row:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-end-style'
+  table-border-style-tfoot-inner:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-start-style'
+  table-border-style-thead-inner:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-end-style'
   table-border-width:
     _syntax: 'medium | thick | thin | <length>'
     _property:
@@ -1062,6 +2105,23 @@ _basic:
     _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
     _property: 'break-inside'
     _define: 'avoid'
+  table-cell-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+    _define: 'transparent'
+  table-cell-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  table-cell-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  table-cell-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  table-cell-min-size-block:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'min-block-size'
+    _define: 'auto'
   table-cell-padding-block:
     _syntax: '<length-percentage>+'
     _property: 'padding-block'
@@ -1070,6 +2130,19 @@ _basic:
     _syntax: '<length-percentage>+'
     _property: 'padding-inline'
     _define: '0.5rem'
+  table-cell-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  table-cell-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  table-cell-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+    _define: 'middle'
+  table-cell-white-space:
+    _syntax: '*'
+    _property: 'white-space'
   table-container-overflow-x:
     _syntax: 'auto | clip | hidden | scroll | visible'
     _property: 'overflow-x'
@@ -1077,10 +2150,23 @@ _basic:
       - value: 'auto'
       - media: 'print'
         value: 'visible'
+  table-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+    _define: 'var(--vs-font-family-secondary)'
   table-font-size:
     _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
     _property: 'font-size'
     _define: '100%'
+  table-font-variant-numeric:
+    _syntax: '*'
+    _property: 'font-variant-numeric'
+  table-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  table-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
   table-margin-block:
     _syntax: '*'
     _property: 'margin-block'
@@ -1089,16 +2175,80 @@ _basic:
     _syntax: '*'
     _property: 'margin-inline'
     _define: 'auto'
+  table-max-size-block:
+    _syntax: 'fit-content | max-content | min-content | none | stretch | <length-percentage>'
+    _property: 'max-block-size'
+    _define: '100%'
+  table-max-size-inline:
+    _syntax: 'fit-content | max-content | min-content | none | stretch | <length-percentage>'
+    _property: 'max-inline-size'
+    _define: '100%'
+  table-row-even-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+    _define: 'transparent'
+  table-row-odd-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+    _define: 'transparent'
+  table-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+    _define: 'auto'
+  table-table-layout:
+    _syntax: 'auto | fixed'
+    _property: 'table-layout'
+    _define: 'auto'
   table-text-align:
     _syntax: 'center | end | justify | left | match-parent | right | start'
     _property: 'text-align'
+  table-text-color:
+    _syntax: '<color>'
+    _property: 'color'
   table-writing-mode:
     _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
     _property: 'writing-mode'
     _define: 'unset'
+  td-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  td-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  td-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  td-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  td-min-size-block:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'min-block-size'
+  td-padding-block:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-block'
+  td-padding-inline:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-inline'
   td-text-align:
     _syntax: 'center | end | justify | left | match-parent | right | start'
     _property: 'text-align'
+  td-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  td-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  td-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  td-white-space:
+    _syntax: '*'
+    _property: 'white-space'
+  th-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+    _define: 'var(--vs-background-color-alt)'
   th-font-family:
     _syntax: '*'
     _property: 'font-family'
@@ -1123,17 +2273,43 @@ _basic:
   th-font-weight:
     _syntax: 'bold | bolder | lighter | normal | <number>'
     _property: 'font-weight'
+  th-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  th-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  th-min-size-block:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'min-block-size'
+  th-padding-block:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-block'
+  th-padding-inline:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-inline'
   th-text-align:
     _syntax: 'center | end | justify | left | match-parent | right | start'
     _property: 'text-align'
+  th-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  th-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  th-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  th-white-space:
+    _syntax: '*'
+    _property: 'white-space'
+  ul-list-style-position:
+    _syntax: 'inside | outside'
+    _property: 'list-style-position'
   ul-list-style-type:
     _syntax: 'none | <custom-ident> | <string>'
     _property: 'list-style-type'
     _define: 'disc'
-  ul-minimum-inline-indent-size:
-    _syntax: '<length-percentage>'
-    _property: 'padding-inline-start'
-    _define: '2rem'
   ul-padding-inline-start:
     _syntax: '<length-percentage>'
     _property: 'padding-inline-start'
@@ -1143,96 +2319,164 @@ _basic:
   ul-text-indent:
     _syntax: '*'
     _property: 'text-indent'
-crossref:
-  anchor-text-decoration:
-    _syntax: '*'
-    _property: 'text-decoration'
-    _define:
-      - value: 'none'
-      - media: '(hover: hover)'
-        selector: 'a:is([data-ref="fig"],a[data-ref="tbl"],a[data-ref="cite"]):hover'
-        value: 'underline'
-  call-cite-content:
+appendix:
+  call-content:
     _syntax: '*'
     _property: 'content'
     _define:
-      - value: "'[' target-counter(attr(href), vs-counter-cite) ']'"
+      - value: "var(--vs-appendix--label) var(--vs-crossref-call-counter-prefix, '') target-counter( attr(href), vs-counter-appendix, var(--vs-appendix--counter-style, var(--vs-counter-style)) )"
+      - media: 'screen'
+        value: "var(--vs-appendix--label) '???'"
+  call-display:
+    _syntax: '*'
+    _property: 'display'
+  counter-style:
+    _syntax: '*'
+    _define: 'upper-alpha'
+  label:
+    _syntax: '*'
+    _define:
+      - value: "'Appendix '"
+      - selector: ':root:lang(ja)'
+        value: "'付録'"
+  marker-content:
+    _syntax: '*'
+    _property: 'content'
+    _define:
+      - value: "var(--vs-appendix--label) var(--vs-crossref-marker-counter-prefix, '') counter(vs-counter-appendix, var(--vs-appendix--counter-style, var(--vs-counter-style))) ' '"
+      - selector: ':root:lang(ja)'
+        value: "var(--vs-appendix--label) var(--vs-crossref-marker-counter-prefix, '') counter(vs-counter-appendix, var(--vs-appendix--counter-style, var(--vs-counter-style))) '　'"
+  marker-display:
+    _syntax: '*'
+    _property: 'display'
+    _define: 'inline'
+  root-counter-reset:
+    _syntax: '*'
+    _property: 'counter-reset'
+    _define: 'vs-counter-appendix var(--vs-appendix--root-counter-appendix,)'
+citation:
+  call-content:
+    _syntax: '*'
+    _property: 'content'
+    _define:
+      - value: "'[' target-counter( attr(href), vs-counter-cite, var(--vs-citation--counter-style, var(--vs-counter-style)) ) ']'"
       - media: 'screen'
         value: "'[???]'"
   call-display:
     _syntax: '*'
     _property: 'display'
-    _define: 'inline'
-  call-fig-content:
-    _syntax: '*'
-    _property: 'content'
-    _define:
-      - value: "'Figure ' target-counter( attr(href), vs-counter-fig, var(--vs-crossref--counter-style) )"
-      - selector: ':root:lang(ja)'
-        value: "'図' target-counter( attr(href), vs-counter-fig, var(--vs-crossref--counter-style) )"
-      - media: 'screen'
-        value: "'Figure ???'"
-      - media: 'screen'
-        selector: ':root:lang(ja)'
-        value: "'図???'"
-  call-margin-inline:
-    _syntax: '*'
-    _property: 'margin-inline'
-    _define: '0'
-  call-tbl-content:
-    _syntax: '*'
-    _property: 'content'
-    _define:
-      - value: "'Table ' target-counter( attr(href), vs-counter-tbl, var(--vs-crossref--counter-style) )"
-      - selector: ':root:lang(ja)'
-        value: "'表' target-counter( attr(href), vs-counter-tbl, var(--vs-crossref--counter-style) )"
-      - media: 'screen'
-        value: "'Table ???'"
-      - media: 'screen'
-        selector: ':root:lang(ja)'
-        value: "'表???'"
   counter-style:
     _syntax: '*'
-    _define: 'decimal'
-  marker-cite-content:
+  item-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  item-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  item-hyphens:
+    _syntax: 'auto | manual | none'
+    _property: 'hyphens'
+  item-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  item-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: '0'
+  item-padding-inline-start:
+    _syntax: '<length-percentage>'
+    _property: 'padding-inline-start'
+    _define: '0'
+  item-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  item-text-indent:
+    _syntax: '*'
+    _property: 'text-indent'
+  items-border-color-block-end:
+    _syntax: '<color>'
+    _property: 'border-block-end-color'
+  items-border-color-block-start:
+    _syntax: '<color>'
+    _property: 'border-block-start-color'
+  items-border-color-inline-end:
+    _syntax: '<color>'
+    _property: 'border-inline-end-color'
+  items-border-color-inline-start:
+    _syntax: '<color>'
+    _property: 'border-inline-start-color'
+  items-border-style-block-end:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-end-style'
+  items-border-style-block-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-start-style'
+  items-border-style-inline-end:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-end-style'
+  items-border-style-inline-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-start-style'
+  items-border-width-block-end:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-end-width'
+  items-border-width-block-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-start-width'
+  items-border-width-inline-end:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-end-width'
+  items-border-width-inline-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-start-width'
+  items-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  items-hyphens:
+    _syntax: 'auto | manual | none'
+    _property: 'hyphens'
+  items-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  items-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: 'var(--vs--lists-margin-block)'
+  items-padding-block:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-block'
+  items-padding-inline-start:
+    _syntax: '<length-percentage>'
+    _property: 'padding-inline-start'
+    _define: 'var(--vs--ol-padding-inline-start, var(--vs--lists-padding-inline-start))'
+  items-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  marker-content:
     _syntax: '*'
     _property: 'content'
-    _define: "'[' counter(vs-counter-cite) ']'"
-  marker-cite-margin-inline:
-    _syntax: '*'
-    _property: 'margin-inline'
+    _define: "'[' counter(vs-counter-cite, var(--vs-citation--counter-style, var(--vs-counter-style))) ']'"
   marker-display:
     _syntax: '*'
     _property: 'display'
     _define: 'inline'
-  marker-fig-content:
-    _syntax: '*'
-    _property: 'content'
-    _define:
-      - value: "'Figure ' counter(vs-counter-fig, var(--vs-crossref--counter-style)) ': '"
-      - selector: ':root:lang(ja)'
-        value: "'図' counter(vs-counter-fig, var(--vs-crossref--counter-style)) ': '"
-  marker-fig-margin-inline:
-    _syntax: '*'
-    _property: 'margin-inline'
+  marker-inset-inline-start:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'inset-inline-start'
+    _define: '-2rem'
   marker-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
-    _define: '0'
-  marker-tbl-content:
-    _syntax: '*'
-    _property: 'content'
-    _define:
-      - value: "'Table ' counter(vs-counter-tbl, var(--vs-crossref--counter-style)) ': '"
-      - selector: ':root:lang(ja)'
-        value: "'表' counter(vs-counter-tbl, var(--vs-crossref--counter-style)) ': '"
-  marker-tbl-margin-inline:
-    _syntax: '*'
-    _property: 'margin-inline'
+  marker-position:
+    _syntax: '-webkit-sticky | absolute | fixed | relative | static | sticky'
+    _property: 'position'
+  marker-text-color:
+    _syntax: '<color>'
+    _property: 'color'
   root-counter-reset:
     _syntax: '*'
     _property: 'counter-reset'
-    _define: 'vs-counter-fig var(--vs-crossref--root-counter-fig,) vs-counter-tbl var(--vs-crossref--root-counter-tbl,) vs-counter-cite var(--vs-crossref--root-counter-cite,)'
+    _define: 'vs-counter-cite var(--vs-citation--root-counter-cite,)'
 endnote:
   anchor-text-decoration:
     _syntax: '*'
@@ -1249,23 +2493,227 @@ endnote:
       - value: 'inline'
       - media: 'print'
         value: 'none'
+  call-content:
+    _syntax: '*'
+    _property: 'content'
+    _define: 'none'
+  call-font-family:
+    _syntax: '*'
+    _property: 'font-family'
   call-font-size:
     _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
     _property: 'font-size'
     _define: '0.8em'
+  call-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  call-inset-block-start:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'inset-block-start'
+  call-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
   call-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
     _define: '0'
+  call-sup-display:
+    _syntax: '*'
+    _property: 'display'
+  call-sup-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+    _define: '100%'
+  call-sup-text-combine-upright:
+    _syntax: 'all | digits | none | <integer>'
+    _property: 'text-combine-upright'
+  call-sup-text-orientation:
+    _syntax: 'mixed | sideways | upright'
+    _property: 'text-orientation'
+  call-sup-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  call-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  call-text-combine-upright:
+    _syntax: 'all | digits | none | <integer>'
+    _property: 'text-combine-upright'
+  call-text-orientation:
+    _syntax: 'mixed | sideways | upright'
+    _property: 'text-orientation'
+  call-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  counter-style:
+    _syntax: '*'
+    _define: 'decimal'
+  item-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  item-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  item-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  item-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: '0'
+  item-padding-inline-start:
+    _syntax: '<length-percentage>'
+    _property: 'padding-inline-start'
+    _define: '0'
+  item-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  item-text-indent:
+    _syntax: '*'
+    _property: 'text-indent'
+  marker-content:
+    _syntax: '*'
+    _property: 'content'
+    _define: 'none'
+  marker-display:
+    _syntax: '*'
+    _property: 'display'
+    _define: 'inline'
+  marker-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  marker-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  marker-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  marker-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  marker-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: '0'
+  marker-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+  marker-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  marker-text-combine-upright:
+    _syntax: 'all | digits | none | <integer>'
+    _property: 'text-combine-upright'
+  marker-text-indent:
+    _syntax: '*'
+    _property: 'text-indent'
+  marker-text-orientation:
+    _syntax: 'mixed | sideways | upright'
+    _property: 'text-orientation'
+  marker-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  root-counter-reset:
+    _syntax: '*'
+    _property: 'counter-reset'
+    _define: 'vs-counter-endnote var(--vs-endnote--root-counter-endnote,) vs-counter-endnote-call var(--vs-endnote--root-counter-endnote-call,)'
+  section-border-color-block-end:
+    _syntax: '<color>'
+    _property: 'border-block-end-color'
+  section-border-color-block-start:
+    _syntax: '<color>'
+    _property: 'border-block-start-color'
+  section-border-color-inline-end:
+    _syntax: '<color>'
+    _property: 'border-inline-end-color'
+  section-border-color-inline-start:
+    _syntax: '<color>'
+    _property: 'border-inline-start-color'
+  section-border-style-block-end:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-end-style'
+  section-border-style-block-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-start-style'
+  section-border-style-inline-end:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-end-style'
+  section-border-style-inline-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-inline-start-style'
+  section-border-width-block-end:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-end-width'
+  section-border-width-block-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-start-width'
+  section-border-width-inline-end:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-end-width'
+  section-border-width-inline-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-start-width'
   section-font-size:
     _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
     _property: 'font-size'
+  section-heading-content:
+    _syntax: '*'
+    _property: 'content'
+    _define: 'none'
+  section-heading-display:
+    _syntax: '*'
+    _property: 'display'
+    _define: 'block'
+  section-heading-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  section-heading-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  section-heading-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  section-heading-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  section-heading-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: 'var(--vs-spacing-rlh)'
+  section-heading-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
   section-hr-border-color:
     _syntax: '<color>+'
     _property: 'border-color'
+  section-hr-border-style-block-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-start-style'
   section-hr-border-width-block-start:
     _syntax: 'medium | thick | thin | <length>'
     _property: 'border-block-start-width'
+  section-hr-display:
+    _syntax: '*'
+    _property: 'display'
+    _define: 'block'
+  section-hr-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: 'var(--vs--hr-margin-block)'
+  section-hr-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: 'var(--vs--hr-margin-inline)'
+  section-hr-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+    _define: 'auto'
+  section-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  section-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
   section-margin-block:
     _syntax: '*'
     _property: 'margin-block'
@@ -1273,10 +2721,119 @@ endnote:
   section-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
+  section-ol-list-style-position:
+    _syntax: 'inside | outside'
+    _property: 'list-style-position'
   section-ol-list-style-type:
     _syntax: 'none | <custom-ident> | <string>'
     _property: 'list-style-type'
     _define: 'decimal'
+  section-ol-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: 'var(--vs--lists-margin-block)'
+  section-ol-padding-inline-start:
+    _syntax: '<length-percentage>'
+    _property: 'padding-inline-start'
+    _define: 'var(--vs--ol-padding-inline-start, var(--vs--lists-padding-inline-start))'
+  section-ol-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  section-ol-text-indent:
+    _syntax: '*'
+    _property: 'text-indent'
+  section-padding-block:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-block'
+  section-padding-inline:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-inline'
+  section-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+equation:
+  call-content:
+    _syntax: '*'
+    _property: 'content'
+    _define:
+      - value: "var(--vs-equation--label) '(' var(--vs-crossref-call-counter-prefix, '') target-counter( attr(href), vs-counter-eq, var(--vs-equation--counter-style, var(--vs-counter-style)) ) ')'"
+      - media: 'screen'
+        value: "var(--vs-equation--label) '(???)'"
+  call-display:
+    _syntax: '*'
+    _property: 'display'
+  counter-style:
+    _syntax: '*'
+  item-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+    _define: 'center'
+  label:
+    _syntax: '*'
+    _define:
+      - value: "'Eq. '"
+      - selector: ':root:lang(ja)'
+        value: "'式'"
+  margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: 'var(--vs-spacing-rlh)'
+  marker-content:
+    _syntax: '*'
+    _property: 'content'
+    _define: "'(' var(--vs-crossref-marker-counter-prefix, '') counter(vs-counter-eq, var(--vs-equation--counter-style, var(--vs-counter-style))) ')'"
+  marker-display:
+    _syntax: '*'
+    _property: 'display'
+    _define: 'inline'
+  marker-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  marker-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  marker-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+  root-counter-reset:
+    _syntax: '*'
+    _property: 'counter-reset'
+    _define: 'vs-counter-eq var(--vs-equation--root-counter-eq,)'
+figure:
+  call-content:
+    _syntax: '*'
+    _property: 'content'
+    _define:
+      - value: "var(--vs-figure--label) var(--vs-crossref-call-counter-prefix, '') target-counter( attr(href), vs-counter-fig, var(--vs-figure--counter-style, var(--vs-counter-style)) )"
+      - media: 'screen'
+        value: "var(--vs-figure--label) '???'"
+  call-display:
+    _syntax: '*'
+    _property: 'display'
+  counter-style:
+    _syntax: '*'
+  label:
+    _syntax: '*'
+    _define:
+      - value: "'Figure '"
+      - selector: ':root:lang(ja)'
+        value: "'図'"
+  marker-content:
+    _syntax: '*'
+    _property: 'content'
+    _define:
+      - value: "var(--vs-figure--label) var(--vs-crossref-marker-counter-prefix, '') counter(vs-counter-fig, var(--vs-figure--counter-style, var(--vs-counter-style))) ': '"
+  marker-display:
+    _syntax: '*'
+    _property: 'display'
+    _define: 'inline'
+  marker-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+  root-counter-reset:
+    _syntax: '*'
+    _property: 'counter-reset'
+    _define: 'vs-counter-fig var(--vs-figure--root-counter-fig,)'
 footnote:
   area-before-border-color-block-start:
     _syntax: '<color>'
@@ -1299,6 +2856,10 @@ footnote:
     _syntax: '*'
     _property: 'margin-inline'
     _define: 'var(--vs--hr-margin-inline)'
+  area-before-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+    _define: 'auto'
   area-margin-block:
     _syntax: '*'
     _property: 'margin-block'
@@ -1306,19 +2867,41 @@ footnote:
   call-content:
     _syntax: '*'
     _property: 'content'
-    _define: "'*' counter(vs-counter-footnote, var(--vs-footnote--counter-style))"
+    _define: "'*' counter(vs-counter-footnote, var(--vs-footnote--counter-style, var(--vs-counter-style)))"
+  call-font-family:
+    _syntax: '*'
+    _property: 'font-family'
   call-font-size:
     _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
     _property: 'font-size'
     _define: '0.8em'
+  call-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
   call-inset-block-start:
     _syntax: 'auto | <length-percentage>'
     _property: 'inset-block-start'
     _define: 'var(--vs--sup-inset-block-start)'
+  call-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
   call-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
     _define: '0'
+  call-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  call-text-combine-upright:
+    _syntax: 'all | digits | none | <integer>'
+    _property: 'text-combine-upright'
+  call-text-orientation:
+    _syntax: 'mixed | sideways | upright'
+    _property: 'text-orientation'
+  call-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+    _define: 'baseline'
   counter-style:
     _syntax: '*'
     _define: 'decimal'
@@ -1366,14 +2949,50 @@ footnote:
   line-height:
     _syntax: 'normal | <length> | <number> | <percentage>'
     _property: 'line-height'
+  margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
   marker-content:
     _syntax: '*'
     _property: 'content'
-    _define: "counter( vs-counter-footnote, var(--vs-footnote--counter-style) ) '. '"
+    _define: "counter( vs-counter-footnote, var(--vs-footnote--counter-style, var(--vs-counter-style)) ) '. '"
+  marker-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  marker-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  marker-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  marker-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
   marker-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
     _define: '0'
+  marker-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+  marker-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  marker-text-combine-upright:
+    _syntax: 'all | digits | none | <integer>'
+    _property: 'text-combine-upright'
+  marker-text-indent:
+    _syntax: '*'
+    _property: 'text-indent'
+  marker-text-orientation:
+    _syntax: 'mixed | sideways | upright'
+    _property: 'text-orientation'
+  marker-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  padding-inline-start:
+    _syntax: '<length-percentage>'
+    _property: 'padding-inline-start'
   root-counter-reset:
     _syntax: '*'
     _property: 'counter-reset'
@@ -1384,17 +3003,67 @@ footnote:
   text-color:
     _syntax: '<color>'
     _property: 'color'
+  text-indent:
+    _syntax: '*'
+    _property: 'text-indent'
   text-spacing:
     _syntax: '*'
     _property: 'text-spacing'
+  word-break:
+    _syntax: 'auto-phrase | break-all | break-word | keep-all | normal'
+    _property: 'word-break'
   word-spacing:
     _syntax: 'normal | <length>'
     _property: 'word-spacing'
+listing:
+  call-content:
+    _syntax: '*'
+    _property: 'content'
+    _define:
+      - value: "var(--vs-listing--label) var(--vs-crossref-call-counter-prefix, '') target-counter( attr(href), vs-counter-lst, var(--vs-listing--counter-style, var(--vs-counter-style)) )"
+      - media: 'screen'
+        value: "var(--vs-listing--label) '???'"
+  call-display:
+    _syntax: '*'
+    _property: 'display'
+  counter-style:
+    _syntax: '*'
+  label:
+    _syntax: '*'
+    _define:
+      - value: "'Listing '"
+      - selector: ':root:lang(ja)'
+        value: "'リスト'"
+  marker-content:
+    _syntax: '*'
+    _property: 'content'
+    _define:
+      - value: "var(--vs-listing--label) var(--vs-crossref-marker-counter-prefix, '') counter(vs-counter-lst, var(--vs-listing--counter-style, var(--vs-counter-style))) ': '"
+  marker-display:
+    _syntax: '*'
+    _property: 'display'
+    _define: 'inline'
+  marker-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+  root-counter-reset:
+    _syntax: '*'
+    _property: 'counter-reset'
+    _define: 'vs-counter-lst var(--vs-listing--root-counter-lst,)'
 page:
   background-color:
     _syntax: '<color>'
     _property: 'background-color'
     _define: 'var(--vs-background-color)'
+  background-image:
+    _syntax: '*'
+    _property: 'background-image'
+  background-position:
+    _syntax: '*'
+    _property: 'background-position'
+  background-size:
+    _syntax: '*'
+    _property: 'background-size'
   bleed:
     _syntax: '<length-percentage>'
     _property:
@@ -1408,6 +3077,74 @@ page:
       - 'padding-right'
       - 'padding-top'
     _define: '0'
+  border-color:
+    _syntax: '<color>'
+    _property:
+      - 'border-bottom-color'
+      - 'border-left-color'
+      - 'border-right-color'
+      - 'border-top-color'
+  border-color-bottom:
+    _syntax: '<color>'
+    _property: 'border-bottom-color'
+  border-color-left:
+    _syntax: '<color>'
+    _property: 'border-left-color'
+  border-color-right:
+    _syntax: '<color>'
+    _property: 'border-right-color'
+  border-color-top:
+    _syntax: '<color>'
+    _property: 'border-top-color'
+  border-style:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property:
+      - 'border-bottom-style'
+      - 'border-left-style'
+      - 'border-right-style'
+      - 'border-top-style'
+    _define: 'var(--vs-border-style)'
+  border-style-bottom:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-bottom-style'
+  border-style-left:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-left-style'
+  border-style-right:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-right-style'
+  border-style-top:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-top-style'
+  border-width:
+    _syntax: 'medium | thick | thin | <length>'
+    _property:
+      - 'border-bottom-width'
+      - 'border-left-width'
+      - 'border-right-width'
+      - 'border-top-width'
+  border-width-bottom:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-bottom-width'
+  border-width-left:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-left-width'
+  border-width-right:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-right-width'
+  border-width-top:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-top-width'
+  call-content:
+    _syntax: '*'
+    _property: 'content'
+    _define:
+      - value: 'target-counter(attr(href), page)'
+      - media: 'screen'
+        value: "'???'"
+  call-display:
+    _syntax: '*'
+    _property: 'display'
   cover-page-mbox-visibility:
     _syntax: '*'
   doc-counter-increment:
@@ -1417,26 +3154,36 @@ page:
     _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
     _property: 'height'
     _define: 'auto'
+  margin:
+    _syntax: 'auto | <length-percentage>'
+    _property:
+      - 'margin-bottom'
+      - 'margin-left'
+      - 'margin-right'
+      - 'margin-top'
+    _define: '18mm'
   margin-bottom:
     _syntax: 'auto | <length-percentage>'
     _property: 'margin-bottom'
-    _define: '22mm'
-  margin-inner:
+  margin-inside:
     _syntax: 'auto | <length-percentage>'
     _property:
       - 'margin-left'
       - 'margin-right'
-    _define: '18mm'
-  margin-outer:
+  margin-left:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-left'
+  margin-outside:
     _syntax: 'auto | <length-percentage>'
     _property:
       - 'margin-left'
       - 'margin-right'
-    _define: '18mm'
+  margin-right:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-right'
   margin-top:
     _syntax: 'auto | <length-percentage>'
     _property: 'margin-top'
-    _define: '22mm'
   marks:
     _syntax: '*'
     _property: 'marks'
@@ -1445,70 +3192,577 @@ page:
     _syntax: '<color>'
     _property: 'background-color'
     _define: 'transparent'
-  mbox-content-bottom-center:
+  mbox-bottom-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  mbox-bottom-border-color-top:
+    _syntax: '<color>'
+    _property: 'border-top-color'
+  mbox-bottom-border-style-top:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-top-style'
+  mbox-bottom-border-width-top:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-top-width'
+  mbox-bottom-center-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  mbox-bottom-center-border-color-top:
+    _syntax: '<color>'
+    _property: 'border-top-color'
+  mbox-bottom-center-border-style-top:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-top-style'
+  mbox-bottom-center-border-width-top:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-top-width'
+  mbox-bottom-center-content:
     _syntax: '*'
     _property: 'content'
-    _define: 'none'
-  mbox-content-bottom-left:
+  mbox-bottom-center-font-family:
     _syntax: '*'
-    _property: 'content'
-    _define: 'none'
-  mbox-content-bottom-left-corner:
+    _property: 'font-family'
+  mbox-bottom-center-font-feature-settings:
     _syntax: '*'
-    _property: 'content'
-    _define: 'none'
-  mbox-content-bottom-right:
+    _property: 'font-feature-settings'
+  mbox-bottom-center-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  mbox-bottom-center-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  mbox-bottom-center-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  mbox-bottom-center-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+  mbox-bottom-center-font-variant:
     _syntax: '*'
-    _property: 'content'
-    _define: 'none'
-  mbox-content-bottom-right-corner:
+    _property: 'font-variant'
+  mbox-bottom-center-font-variation-settings:
     _syntax: '*'
-    _property: 'content'
-    _define: 'none'
-  mbox-content-left-bottom:
+    _property: 'font-variation-settings'
+  mbox-bottom-center-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  mbox-bottom-center-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  mbox-bottom-center-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  mbox-bottom-center-margin-bottom:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-bottom'
+  mbox-bottom-center-margin-left:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-left'
+  mbox-bottom-center-margin-right:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-right'
+  mbox-bottom-center-margin-top:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-top'
+  mbox-bottom-center-padding-bottom:
+    _syntax: '<length-percentage>'
+    _property: 'padding-bottom'
+  mbox-bottom-center-padding-left:
+    _syntax: '<length-percentage>'
+    _property: 'padding-left'
+  mbox-bottom-center-padding-right:
+    _syntax: '<length-percentage>'
+    _property: 'padding-right'
+  mbox-bottom-center-padding-top:
+    _syntax: '<length-percentage>'
+    _property: 'padding-top'
+  mbox-bottom-center-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+  mbox-bottom-center-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  mbox-bottom-center-text-spacing:
     _syntax: '*'
-    _property: 'content'
-    _define: 'none'
-  mbox-content-left-middle:
+    _property: 'text-spacing'
+  mbox-bottom-center-text-transform:
     _syntax: '*'
-    _property: 'content'
-    _define: 'none'
-  mbox-content-left-top:
+    _property: 'text-transform'
+  mbox-bottom-center-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  mbox-bottom-center-visibility:
+    _syntax: 'collapse | hidden | visible'
+    _property: 'visibility'
+  mbox-bottom-center-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+  mbox-bottom-font-family:
     _syntax: '*'
-    _property: 'content'
-    _define: 'none'
-  mbox-content-right-bottom:
+    _property: 'font-family'
+  mbox-bottom-font-feature-settings:
     _syntax: '*'
-    _property: 'content'
-    _define: 'none'
-  mbox-content-right-middle:
+    _property: 'font-feature-settings'
+  mbox-bottom-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  mbox-bottom-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  mbox-bottom-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  mbox-bottom-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+  mbox-bottom-font-variant:
     _syntax: '*'
-    _property: 'content'
-    _define: 'none'
-  mbox-content-right-top:
+    _property: 'font-variant'
+  mbox-bottom-font-variation-settings:
     _syntax: '*'
-    _property: 'content'
-    _define: 'none'
-  mbox-content-top-center:
+    _property: 'font-variation-settings'
+  mbox-bottom-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  mbox-bottom-inner-margin-bottom:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-bottom'
+  mbox-bottom-inner-padding-bottom:
+    _syntax: '<length-percentage>'
+    _property: 'padding-bottom'
+  mbox-bottom-inside-content:
     _syntax: '*'
-    _property: 'content'
-    _define: 'none'
-  mbox-content-top-left:
+  mbox-bottom-inside-corner-content:
     _syntax: '*'
-    _property: 'content'
-    _define: 'none'
-  mbox-content-top-left-corner:
+  mbox-bottom-left-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  mbox-bottom-left-border-color-top:
+    _syntax: '<color>'
+    _property: 'border-top-color'
+  mbox-bottom-left-border-style-top:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-top-style'
+  mbox-bottom-left-border-width-top:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-top-width'
+  mbox-bottom-left-content:
     _syntax: '*'
-    _property: 'content'
-    _define: 'none'
-  mbox-content-top-right:
+  mbox-bottom-left-corner-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  mbox-bottom-left-corner-border-color-right:
+    _syntax: '<color>'
+    _property: 'border-right-color'
+  mbox-bottom-left-corner-border-color-top:
+    _syntax: '<color>'
+    _property: 'border-top-color'
+  mbox-bottom-left-corner-border-style-right:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-right-style'
+  mbox-bottom-left-corner-border-style-top:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-top-style'
+  mbox-bottom-left-corner-border-width-right:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-right-width'
+  mbox-bottom-left-corner-border-width-top:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-top-width'
+  mbox-bottom-left-corner-content:
     _syntax: '*'
-    _property: 'content'
-    _define: 'none'
-  mbox-content-top-right-corner:
+  mbox-bottom-left-corner-font-family:
     _syntax: '*'
-    _property: 'content'
-    _define: 'none'
+    _property: 'font-family'
+  mbox-bottom-left-corner-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  mbox-bottom-left-corner-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  mbox-bottom-left-corner-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  mbox-bottom-left-corner-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  mbox-bottom-left-corner-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+  mbox-bottom-left-corner-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  mbox-bottom-left-corner-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  mbox-bottom-left-corner-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  mbox-bottom-left-corner-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  mbox-bottom-left-corner-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  mbox-bottom-left-corner-margin-bottom:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-bottom'
+  mbox-bottom-left-corner-margin-left:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-left'
+  mbox-bottom-left-corner-margin-right:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-right'
+  mbox-bottom-left-corner-margin-top:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-top'
+  mbox-bottom-left-corner-padding-bottom:
+    _syntax: '<length-percentage>'
+    _property: 'padding-bottom'
+  mbox-bottom-left-corner-padding-left:
+    _syntax: '<length-percentage>'
+    _property: 'padding-left'
+  mbox-bottom-left-corner-padding-right:
+    _syntax: '<length-percentage>'
+    _property: 'padding-right'
+  mbox-bottom-left-corner-padding-top:
+    _syntax: '<length-percentage>'
+    _property: 'padding-top'
+  mbox-bottom-left-corner-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+  mbox-bottom-left-corner-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  mbox-bottom-left-corner-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  mbox-bottom-left-corner-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  mbox-bottom-left-corner-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  mbox-bottom-left-corner-visibility:
+    _syntax: 'collapse | hidden | visible'
+    _property: 'visibility'
+  mbox-bottom-left-corner-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+  mbox-bottom-left-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  mbox-bottom-left-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  mbox-bottom-left-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  mbox-bottom-left-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  mbox-bottom-left-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  mbox-bottom-left-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+  mbox-bottom-left-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  mbox-bottom-left-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  mbox-bottom-left-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  mbox-bottom-left-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  mbox-bottom-left-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  mbox-bottom-left-margin-bottom:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-bottom'
+  mbox-bottom-left-margin-left:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-left'
+  mbox-bottom-left-margin-right:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-right'
+  mbox-bottom-left-margin-top:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-top'
+  mbox-bottom-left-padding-bottom:
+    _syntax: '<length-percentage>'
+    _property: 'padding-bottom'
+  mbox-bottom-left-padding-left:
+    _syntax: '<length-percentage>'
+    _property: 'padding-left'
+  mbox-bottom-left-padding-right:
+    _syntax: '<length-percentage>'
+    _property: 'padding-right'
+  mbox-bottom-left-padding-top:
+    _syntax: '<length-percentage>'
+    _property: 'padding-top'
+  mbox-bottom-left-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+  mbox-bottom-left-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  mbox-bottom-left-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  mbox-bottom-left-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  mbox-bottom-left-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  mbox-bottom-left-visibility:
+    _syntax: 'collapse | hidden | visible'
+    _property: 'visibility'
+  mbox-bottom-left-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+  mbox-bottom-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  mbox-bottom-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  mbox-bottom-margin-bottom:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-bottom'
+  mbox-bottom-margin-top:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-top'
+  mbox-bottom-outside-content:
+    _syntax: '*'
+  mbox-bottom-outside-corner-content:
+    _syntax: '*'
+  mbox-bottom-padding-bottom:
+    _syntax: '<length-percentage>'
+    _property: 'padding-bottom'
+  mbox-bottom-padding-top:
+    _syntax: '<length-percentage>'
+    _property: 'padding-top'
+  mbox-bottom-right-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  mbox-bottom-right-border-color-top:
+    _syntax: '<color>'
+    _property: 'border-top-color'
+  mbox-bottom-right-border-style-top:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-top-style'
+  mbox-bottom-right-border-width-top:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-top-width'
+  mbox-bottom-right-content:
+    _syntax: '*'
+  mbox-bottom-right-corner-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  mbox-bottom-right-corner-border-color-left:
+    _syntax: '<color>'
+    _property: 'border-left-color'
+  mbox-bottom-right-corner-border-color-top:
+    _syntax: '<color>'
+    _property: 'border-top-color'
+  mbox-bottom-right-corner-border-style-left:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-left-style'
+  mbox-bottom-right-corner-border-style-top:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-top-style'
+  mbox-bottom-right-corner-border-width-left:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-left-width'
+  mbox-bottom-right-corner-border-width-top:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-top-width'
+  mbox-bottom-right-corner-content:
+    _syntax: '*'
+  mbox-bottom-right-corner-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  mbox-bottom-right-corner-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  mbox-bottom-right-corner-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  mbox-bottom-right-corner-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  mbox-bottom-right-corner-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  mbox-bottom-right-corner-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+  mbox-bottom-right-corner-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  mbox-bottom-right-corner-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  mbox-bottom-right-corner-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  mbox-bottom-right-corner-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  mbox-bottom-right-corner-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  mbox-bottom-right-corner-margin-bottom:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-bottom'
+  mbox-bottom-right-corner-margin-left:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-left'
+  mbox-bottom-right-corner-margin-right:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-right'
+  mbox-bottom-right-corner-margin-top:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-top'
+  mbox-bottom-right-corner-padding-bottom:
+    _syntax: '<length-percentage>'
+    _property: 'padding-bottom'
+  mbox-bottom-right-corner-padding-left:
+    _syntax: '<length-percentage>'
+    _property: 'padding-left'
+  mbox-bottom-right-corner-padding-right:
+    _syntax: '<length-percentage>'
+    _property: 'padding-right'
+  mbox-bottom-right-corner-padding-top:
+    _syntax: '<length-percentage>'
+    _property: 'padding-top'
+  mbox-bottom-right-corner-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+  mbox-bottom-right-corner-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  mbox-bottom-right-corner-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  mbox-bottom-right-corner-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  mbox-bottom-right-corner-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  mbox-bottom-right-corner-visibility:
+    _syntax: 'collapse | hidden | visible'
+    _property: 'visibility'
+  mbox-bottom-right-corner-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+  mbox-bottom-right-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  mbox-bottom-right-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  mbox-bottom-right-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  mbox-bottom-right-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  mbox-bottom-right-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  mbox-bottom-right-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+  mbox-bottom-right-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  mbox-bottom-right-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  mbox-bottom-right-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  mbox-bottom-right-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  mbox-bottom-right-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  mbox-bottom-right-margin-bottom:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-bottom'
+  mbox-bottom-right-margin-left:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-left'
+  mbox-bottom-right-margin-right:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-right'
+  mbox-bottom-right-margin-top:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-top'
+  mbox-bottom-right-padding-bottom:
+    _syntax: '<length-percentage>'
+    _property: 'padding-bottom'
+  mbox-bottom-right-padding-left:
+    _syntax: '<length-percentage>'
+    _property: 'padding-left'
+  mbox-bottom-right-padding-right:
+    _syntax: '<length-percentage>'
+    _property: 'padding-right'
+  mbox-bottom-right-padding-top:
+    _syntax: '<length-percentage>'
+    _property: 'padding-top'
+  mbox-bottom-right-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+  mbox-bottom-right-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  mbox-bottom-right-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  mbox-bottom-right-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  mbox-bottom-right-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  mbox-bottom-right-visibility:
+    _syntax: 'collapse | hidden | visible'
+    _property: 'visibility'
+  mbox-bottom-right-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+  mbox-bottom-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+  mbox-bottom-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  mbox-bottom-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  mbox-bottom-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  mbox-bottom-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  mbox-bottom-visibility:
+    _syntax: 'collapse | hidden | visible'
+    _property: 'visibility'
+  mbox-bottom-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
   mbox-font-family:
     _syntax: '*'
     _property: 'font-family'
@@ -1524,6 +3778,9 @@ page:
   mbox-font-stretch:
     _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
     _property: 'font-stretch'
+  mbox-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
   mbox-font-variant:
     _syntax: '*'
     _property: 'font-variant'
@@ -1533,40 +3790,1334 @@ page:
   mbox-font-weight:
     _syntax: 'bold | bolder | lighter | normal | <number>'
     _property: 'font-weight'
+  mbox-inside-bottom-content:
+    _syntax: '*'
+  mbox-inside-middle-content:
+    _syntax: '*'
+  mbox-inside-top-content:
+    _syntax: '*'
+  mbox-left-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  mbox-left-border-color-right:
+    _syntax: '<color>'
+    _property: 'border-right-color'
+  mbox-left-border-style-right:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-right-style'
+  mbox-left-border-width-right:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-right-width'
+  mbox-left-bottom-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  mbox-left-bottom-border-color-right:
+    _syntax: '<color>'
+    _property: 'border-right-color'
+  mbox-left-bottom-border-style-right:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-right-style'
+  mbox-left-bottom-border-width-right:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-right-width'
+  mbox-left-bottom-content:
+    _syntax: '*'
+  mbox-left-bottom-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  mbox-left-bottom-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  mbox-left-bottom-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  mbox-left-bottom-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  mbox-left-bottom-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  mbox-left-bottom-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+  mbox-left-bottom-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  mbox-left-bottom-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  mbox-left-bottom-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  mbox-left-bottom-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  mbox-left-bottom-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  mbox-left-bottom-margin-bottom:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-bottom'
+  mbox-left-bottom-margin-left:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-left'
+  mbox-left-bottom-margin-right:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-right'
+  mbox-left-bottom-margin-top:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-top'
+  mbox-left-bottom-padding-bottom:
+    _syntax: '<length-percentage>'
+    _property: 'padding-bottom'
+  mbox-left-bottom-padding-left:
+    _syntax: '<length-percentage>'
+    _property: 'padding-left'
+  mbox-left-bottom-padding-right:
+    _syntax: '<length-percentage>'
+    _property: 'padding-right'
+  mbox-left-bottom-padding-top:
+    _syntax: '<length-percentage>'
+    _property: 'padding-top'
+  mbox-left-bottom-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+  mbox-left-bottom-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  mbox-left-bottom-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  mbox-left-bottom-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  mbox-left-bottom-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  mbox-left-bottom-visibility:
+    _syntax: 'collapse | hidden | visible'
+    _property: 'visibility'
+  mbox-left-bottom-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+  mbox-left-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  mbox-left-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  mbox-left-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  mbox-left-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  mbox-left-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  mbox-left-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+  mbox-left-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  mbox-left-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  mbox-left-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  mbox-left-inner-margin-left:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-left'
+  mbox-left-inner-padding-left:
+    _syntax: '<length-percentage>'
+    _property: 'padding-left'
+  mbox-left-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  mbox-left-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  mbox-left-margin-left:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-left'
+  mbox-left-margin-right:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-right'
+  mbox-left-middle-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  mbox-left-middle-border-color-right:
+    _syntax: '<color>'
+    _property: 'border-right-color'
+  mbox-left-middle-border-style-right:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-right-style'
+  mbox-left-middle-border-width-right:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-right-width'
+  mbox-left-middle-content:
+    _syntax: '*'
+  mbox-left-middle-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  mbox-left-middle-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  mbox-left-middle-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  mbox-left-middle-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  mbox-left-middle-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  mbox-left-middle-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+  mbox-left-middle-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  mbox-left-middle-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  mbox-left-middle-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  mbox-left-middle-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  mbox-left-middle-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  mbox-left-middle-margin-bottom:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-bottom'
+  mbox-left-middle-margin-left:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-left'
+  mbox-left-middle-margin-right:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-right'
+  mbox-left-middle-margin-top:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-top'
+  mbox-left-middle-padding-bottom:
+    _syntax: '<length-percentage>'
+    _property: 'padding-bottom'
+  mbox-left-middle-padding-left:
+    _syntax: '<length-percentage>'
+    _property: 'padding-left'
+  mbox-left-middle-padding-right:
+    _syntax: '<length-percentage>'
+    _property: 'padding-right'
+  mbox-left-middle-padding-top:
+    _syntax: '<length-percentage>'
+    _property: 'padding-top'
+  mbox-left-middle-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+  mbox-left-middle-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  mbox-left-middle-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  mbox-left-middle-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  mbox-left-middle-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  mbox-left-middle-visibility:
+    _syntax: 'collapse | hidden | visible'
+    _property: 'visibility'
+  mbox-left-middle-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+  mbox-left-padding-left:
+    _syntax: '<length-percentage>'
+    _property: 'padding-left'
+  mbox-left-padding-right:
+    _syntax: '<length-percentage>'
+    _property: 'padding-right'
+  mbox-left-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+  mbox-left-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  mbox-left-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  mbox-left-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  mbox-left-top-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  mbox-left-top-border-color-right:
+    _syntax: '<color>'
+    _property: 'border-right-color'
+  mbox-left-top-border-style-right:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-right-style'
+  mbox-left-top-border-width-right:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-right-width'
+  mbox-left-top-content:
+    _syntax: '*'
+  mbox-left-top-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  mbox-left-top-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  mbox-left-top-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  mbox-left-top-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  mbox-left-top-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  mbox-left-top-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+  mbox-left-top-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  mbox-left-top-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  mbox-left-top-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  mbox-left-top-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  mbox-left-top-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  mbox-left-top-margin-bottom:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-bottom'
+  mbox-left-top-margin-left:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-left'
+  mbox-left-top-margin-right:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-right'
+  mbox-left-top-margin-top:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-top'
+  mbox-left-top-padding-bottom:
+    _syntax: '<length-percentage>'
+    _property: 'padding-bottom'
+  mbox-left-top-padding-left:
+    _syntax: '<length-percentage>'
+    _property: 'padding-left'
+  mbox-left-top-padding-right:
+    _syntax: '<length-percentage>'
+    _property: 'padding-right'
+  mbox-left-top-padding-top:
+    _syntax: '<length-percentage>'
+    _property: 'padding-top'
+  mbox-left-top-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+  mbox-left-top-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  mbox-left-top-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  mbox-left-top-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  mbox-left-top-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  mbox-left-top-visibility:
+    _syntax: 'collapse | hidden | visible'
+    _property: 'visibility'
+  mbox-left-top-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+  mbox-left-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  mbox-left-visibility:
+    _syntax: 'collapse | hidden | visible'
+    _property: 'visibility'
+  mbox-left-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
   mbox-letter-spacing:
     _syntax: 'normal | <length-percentage>'
     _property: 'letter-spacing'
-  mbox-padding-bottom-inner:
+  mbox-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  mbox-outside-bottom-content:
+    _syntax: '*'
+  mbox-outside-middle-content:
+    _syntax: '*'
+  mbox-outside-top-content:
+    _syntax: '*'
+  mbox-right-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  mbox-right-border-color-left:
+    _syntax: '<color>'
+    _property: 'border-left-color'
+  mbox-right-border-style-left:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-left-style'
+  mbox-right-border-width-left:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-left-width'
+  mbox-right-bottom-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  mbox-right-bottom-border-color-left:
+    _syntax: '<color>'
+    _property: 'border-left-color'
+  mbox-right-bottom-border-style-left:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-left-style'
+  mbox-right-bottom-border-width-left:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-left-width'
+  mbox-right-bottom-content:
+    _syntax: '*'
+  mbox-right-bottom-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  mbox-right-bottom-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  mbox-right-bottom-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  mbox-right-bottom-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  mbox-right-bottom-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  mbox-right-bottom-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+  mbox-right-bottom-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  mbox-right-bottom-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  mbox-right-bottom-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  mbox-right-bottom-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  mbox-right-bottom-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  mbox-right-bottom-margin-bottom:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-bottom'
+  mbox-right-bottom-margin-left:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-left'
+  mbox-right-bottom-margin-right:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-right'
+  mbox-right-bottom-margin-top:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-top'
+  mbox-right-bottom-padding-bottom:
     _syntax: '<length-percentage>'
     _property: 'padding-bottom'
-    _define: '0'
-  mbox-padding-left-inner:
+  mbox-right-bottom-padding-left:
     _syntax: '<length-percentage>'
     _property: 'padding-left'
-    _define: '0'
-  mbox-padding-left-outer:
+  mbox-right-bottom-padding-right:
     _syntax: '<length-percentage>'
     _property: 'padding-right'
-    _define: '0'
-  mbox-padding-right-inner:
-    _syntax: '<length-percentage>'
-    _property: 'padding-right'
-    _define: '0'
-  mbox-padding-right-outer:
-    _syntax: '<length-percentage>'
-    _property: 'padding-left'
-    _define: '0'
-  mbox-padding-top-inner:
+  mbox-right-bottom-padding-top:
     _syntax: '<length-percentage>'
     _property: 'padding-top'
-    _define: '0'
+  mbox-right-bottom-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+  mbox-right-bottom-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  mbox-right-bottom-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  mbox-right-bottom-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  mbox-right-bottom-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  mbox-right-bottom-visibility:
+    _syntax: 'collapse | hidden | visible'
+    _property: 'visibility'
+  mbox-right-bottom-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+  mbox-right-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  mbox-right-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  mbox-right-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  mbox-right-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  mbox-right-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  mbox-right-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+  mbox-right-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  mbox-right-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  mbox-right-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  mbox-right-inner-margin-right:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-right'
+  mbox-right-inner-padding-right:
+    _syntax: '<length-percentage>'
+    _property: 'padding-right'
+  mbox-right-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  mbox-right-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  mbox-right-margin-left:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-left'
+  mbox-right-margin-right:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-right'
+  mbox-right-middle-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  mbox-right-middle-border-color-left:
+    _syntax: '<color>'
+    _property: 'border-left-color'
+  mbox-right-middle-border-style-left:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-left-style'
+  mbox-right-middle-border-width-left:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-left-width'
+  mbox-right-middle-content:
+    _syntax: '*'
+  mbox-right-middle-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  mbox-right-middle-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  mbox-right-middle-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  mbox-right-middle-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  mbox-right-middle-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  mbox-right-middle-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+  mbox-right-middle-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  mbox-right-middle-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  mbox-right-middle-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  mbox-right-middle-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  mbox-right-middle-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  mbox-right-middle-margin-bottom:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-bottom'
+  mbox-right-middle-margin-left:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-left'
+  mbox-right-middle-margin-right:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-right'
+  mbox-right-middle-margin-top:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-top'
+  mbox-right-middle-padding-bottom:
+    _syntax: '<length-percentage>'
+    _property: 'padding-bottom'
+  mbox-right-middle-padding-left:
+    _syntax: '<length-percentage>'
+    _property: 'padding-left'
+  mbox-right-middle-padding-right:
+    _syntax: '<length-percentage>'
+    _property: 'padding-right'
+  mbox-right-middle-padding-top:
+    _syntax: '<length-percentage>'
+    _property: 'padding-top'
+  mbox-right-middle-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+  mbox-right-middle-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  mbox-right-middle-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  mbox-right-middle-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  mbox-right-middle-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  mbox-right-middle-visibility:
+    _syntax: 'collapse | hidden | visible'
+    _property: 'visibility'
+  mbox-right-middle-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+  mbox-right-padding-left:
+    _syntax: '<length-percentage>'
+    _property: 'padding-left'
+  mbox-right-padding-right:
+    _syntax: '<length-percentage>'
+    _property: 'padding-right'
+  mbox-right-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+  mbox-right-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  mbox-right-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  mbox-right-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  mbox-right-top-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  mbox-right-top-border-color-left:
+    _syntax: '<color>'
+    _property: 'border-left-color'
+  mbox-right-top-border-style-left:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-left-style'
+  mbox-right-top-border-width-left:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-left-width'
+  mbox-right-top-content:
+    _syntax: '*'
+  mbox-right-top-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  mbox-right-top-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  mbox-right-top-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  mbox-right-top-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  mbox-right-top-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  mbox-right-top-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+  mbox-right-top-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  mbox-right-top-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  mbox-right-top-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  mbox-right-top-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  mbox-right-top-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  mbox-right-top-margin-bottom:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-bottom'
+  mbox-right-top-margin-left:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-left'
+  mbox-right-top-margin-right:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-right'
+  mbox-right-top-margin-top:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-top'
+  mbox-right-top-padding-bottom:
+    _syntax: '<length-percentage>'
+    _property: 'padding-bottom'
+  mbox-right-top-padding-left:
+    _syntax: '<length-percentage>'
+    _property: 'padding-left'
+  mbox-right-top-padding-right:
+    _syntax: '<length-percentage>'
+    _property: 'padding-right'
+  mbox-right-top-padding-top:
+    _syntax: '<length-percentage>'
+    _property: 'padding-top'
+  mbox-right-top-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+  mbox-right-top-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  mbox-right-top-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  mbox-right-top-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  mbox-right-top-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  mbox-right-top-visibility:
+    _syntax: 'collapse | hidden | visible'
+    _property: 'visibility'
+  mbox-right-top-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+  mbox-right-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  mbox-right-visibility:
+    _syntax: 'collapse | hidden | visible'
+    _property: 'visibility'
+  mbox-right-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+  mbox-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+    _define: 'auto'
   mbox-text-color:
     _syntax: '<color>'
     _property: 'color'
-    _define: 'inherit'
+    _define: 'var(--vs-text-color-muted)'
   mbox-text-spacing:
     _syntax: '*'
     _property: 'text-spacing'
+  mbox-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  mbox-top-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  mbox-top-border-color-bottom:
+    _syntax: '<color>'
+    _property: 'border-bottom-color'
+  mbox-top-border-style-bottom:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-bottom-style'
+    _define: 'var(--vs-border-style)'
+  mbox-top-border-width-bottom:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-bottom-width'
+  mbox-top-center-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  mbox-top-center-border-color-bottom:
+    _syntax: '<color>'
+    _property: 'border-bottom-color'
+  mbox-top-center-border-style-bottom:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-bottom-style'
+  mbox-top-center-border-width-bottom:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-bottom-width'
+  mbox-top-center-content:
+    _syntax: '*'
+    _property: 'content'
+    _define: "''"
+  mbox-top-center-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  mbox-top-center-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  mbox-top-center-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  mbox-top-center-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  mbox-top-center-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  mbox-top-center-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+  mbox-top-center-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  mbox-top-center-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  mbox-top-center-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  mbox-top-center-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  mbox-top-center-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  mbox-top-center-margin-bottom:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-bottom'
+  mbox-top-center-margin-left:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-left'
+  mbox-top-center-margin-right:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-right'
+  mbox-top-center-margin-top:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-top'
+  mbox-top-center-padding-bottom:
+    _syntax: '<length-percentage>'
+    _property: 'padding-bottom'
+  mbox-top-center-padding-left:
+    _syntax: '<length-percentage>'
+    _property: 'padding-left'
+  mbox-top-center-padding-right:
+    _syntax: '<length-percentage>'
+    _property: 'padding-right'
+  mbox-top-center-padding-top:
+    _syntax: '<length-percentage>'
+    _property: 'padding-top'
+  mbox-top-center-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+  mbox-top-center-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  mbox-top-center-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  mbox-top-center-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  mbox-top-center-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  mbox-top-center-visibility:
+    _syntax: 'collapse | hidden | visible'
+    _property: 'visibility'
+  mbox-top-center-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+  mbox-top-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  mbox-top-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  mbox-top-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  mbox-top-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  mbox-top-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  mbox-top-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+  mbox-top-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  mbox-top-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  mbox-top-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  mbox-top-inner-margin-top:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-top'
+  mbox-top-inner-padding-top:
+    _syntax: '<length-percentage>'
+    _property: 'padding-top'
+  mbox-top-inside-content:
+    _syntax: '*'
+  mbox-top-inside-corner-content:
+    _syntax: '*'
+  mbox-top-left-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  mbox-top-left-border-color-bottom:
+    _syntax: '<color>'
+    _property: 'border-bottom-color'
+  mbox-top-left-border-style-bottom:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-bottom-style'
+  mbox-top-left-border-width-bottom:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-bottom-width'
+  mbox-top-left-content:
+    _syntax: '*'
+  mbox-top-left-corner-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  mbox-top-left-corner-border-color-bottom:
+    _syntax: '<color>'
+    _property: 'border-bottom-color'
+  mbox-top-left-corner-border-color-right:
+    _syntax: '<color>'
+    _property: 'border-right-color'
+  mbox-top-left-corner-border-style-bottom:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-bottom-style'
+  mbox-top-left-corner-border-style-right:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-right-style'
+  mbox-top-left-corner-border-width-bottom:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-bottom-width'
+  mbox-top-left-corner-border-width-right:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-right-width'
+  mbox-top-left-corner-content:
+    _syntax: '*'
+  mbox-top-left-corner-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  mbox-top-left-corner-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  mbox-top-left-corner-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  mbox-top-left-corner-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  mbox-top-left-corner-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  mbox-top-left-corner-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+  mbox-top-left-corner-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  mbox-top-left-corner-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  mbox-top-left-corner-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  mbox-top-left-corner-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  mbox-top-left-corner-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  mbox-top-left-corner-margin-bottom:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-bottom'
+  mbox-top-left-corner-margin-left:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-left'
+  mbox-top-left-corner-margin-right:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-right'
+  mbox-top-left-corner-margin-top:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-top'
+  mbox-top-left-corner-padding-bottom:
+    _syntax: '<length-percentage>'
+    _property: 'padding-bottom'
+  mbox-top-left-corner-padding-left:
+    _syntax: '<length-percentage>'
+    _property: 'padding-left'
+  mbox-top-left-corner-padding-right:
+    _syntax: '<length-percentage>'
+    _property: 'padding-right'
+  mbox-top-left-corner-padding-top:
+    _syntax: '<length-percentage>'
+    _property: 'padding-top'
+  mbox-top-left-corner-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+  mbox-top-left-corner-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  mbox-top-left-corner-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  mbox-top-left-corner-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  mbox-top-left-corner-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  mbox-top-left-corner-visibility:
+    _syntax: 'collapse | hidden | visible'
+    _property: 'visibility'
+  mbox-top-left-corner-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+  mbox-top-left-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  mbox-top-left-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  mbox-top-left-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  mbox-top-left-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  mbox-top-left-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  mbox-top-left-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+  mbox-top-left-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  mbox-top-left-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  mbox-top-left-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  mbox-top-left-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  mbox-top-left-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  mbox-top-left-margin-bottom:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-bottom'
+  mbox-top-left-margin-left:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-left'
+  mbox-top-left-margin-right:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-right'
+  mbox-top-left-margin-top:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-top'
+  mbox-top-left-padding-bottom:
+    _syntax: '<length-percentage>'
+    _property: 'padding-bottom'
+  mbox-top-left-padding-left:
+    _syntax: '<length-percentage>'
+    _property: 'padding-left'
+  mbox-top-left-padding-right:
+    _syntax: '<length-percentage>'
+    _property: 'padding-right'
+  mbox-top-left-padding-top:
+    _syntax: '<length-percentage>'
+    _property: 'padding-top'
+  mbox-top-left-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+  mbox-top-left-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  mbox-top-left-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  mbox-top-left-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  mbox-top-left-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  mbox-top-left-visibility:
+    _syntax: 'collapse | hidden | visible'
+    _property: 'visibility'
+  mbox-top-left-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+  mbox-top-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  mbox-top-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  mbox-top-margin-bottom:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-bottom'
+  mbox-top-margin-top:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-top'
+  mbox-top-outside-content:
+    _syntax: '*'
+  mbox-top-outside-corner-content:
+    _syntax: '*'
+  mbox-top-padding-bottom:
+    _syntax: '<length-percentage>'
+    _property: 'padding-bottom'
+  mbox-top-padding-top:
+    _syntax: '<length-percentage>'
+    _property: 'padding-top'
+  mbox-top-right-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  mbox-top-right-border-color-bottom:
+    _syntax: '<color>'
+    _property: 'border-bottom-color'
+  mbox-top-right-border-style-bottom:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-bottom-style'
+  mbox-top-right-border-width-bottom:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-bottom-width'
+  mbox-top-right-content:
+    _syntax: '*'
+  mbox-top-right-corner-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+  mbox-top-right-corner-border-color-bottom:
+    _syntax: '<color>'
+    _property: 'border-bottom-color'
+  mbox-top-right-corner-border-color-left:
+    _syntax: '<color>'
+    _property: 'border-left-color'
+  mbox-top-right-corner-border-style-bottom:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-bottom-style'
+  mbox-top-right-corner-border-style-left:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-left-style'
+  mbox-top-right-corner-border-width-bottom:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-bottom-width'
+  mbox-top-right-corner-border-width-left:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-left-width'
+  mbox-top-right-corner-content:
+    _syntax: '*'
+  mbox-top-right-corner-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  mbox-top-right-corner-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  mbox-top-right-corner-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  mbox-top-right-corner-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  mbox-top-right-corner-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  mbox-top-right-corner-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+  mbox-top-right-corner-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  mbox-top-right-corner-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  mbox-top-right-corner-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  mbox-top-right-corner-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  mbox-top-right-corner-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  mbox-top-right-corner-margin-bottom:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-bottom'
+  mbox-top-right-corner-margin-left:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-left'
+  mbox-top-right-corner-margin-right:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-right'
+  mbox-top-right-corner-margin-top:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-top'
+  mbox-top-right-corner-padding-bottom:
+    _syntax: '<length-percentage>'
+    _property: 'padding-bottom'
+  mbox-top-right-corner-padding-left:
+    _syntax: '<length-percentage>'
+    _property: 'padding-left'
+  mbox-top-right-corner-padding-right:
+    _syntax: '<length-percentage>'
+    _property: 'padding-right'
+  mbox-top-right-corner-padding-top:
+    _syntax: '<length-percentage>'
+    _property: 'padding-top'
+  mbox-top-right-corner-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+  mbox-top-right-corner-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  mbox-top-right-corner-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  mbox-top-right-corner-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  mbox-top-right-corner-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  mbox-top-right-corner-visibility:
+    _syntax: 'collapse | hidden | visible'
+    _property: 'visibility'
+  mbox-top-right-corner-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+  mbox-top-right-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  mbox-top-right-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  mbox-top-right-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  mbox-top-right-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  mbox-top-right-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  mbox-top-right-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+  mbox-top-right-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  mbox-top-right-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  mbox-top-right-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  mbox-top-right-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  mbox-top-right-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  mbox-top-right-margin-bottom:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-bottom'
+  mbox-top-right-margin-left:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-left'
+  mbox-top-right-margin-right:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-right'
+  mbox-top-right-margin-top:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-top'
+  mbox-top-right-padding-bottom:
+    _syntax: '<length-percentage>'
+    _property: 'padding-bottom'
+  mbox-top-right-padding-left:
+    _syntax: '<length-percentage>'
+    _property: 'padding-left'
+  mbox-top-right-padding-right:
+    _syntax: '<length-percentage>'
+    _property: 'padding-right'
+  mbox-top-right-padding-top:
+    _syntax: '<length-percentage>'
+    _property: 'padding-top'
+  mbox-top-right-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+  mbox-top-right-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  mbox-top-right-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  mbox-top-right-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  mbox-top-right-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  mbox-top-right-visibility:
+    _syntax: 'collapse | hidden | visible'
+    _property: 'visibility'
+  mbox-top-right-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+  mbox-top-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+  mbox-top-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  mbox-top-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  mbox-top-text-transform:
+    _syntax: '*'
+    _property: 'text-transform'
+  mbox-top-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  mbox-top-visibility:
+    _syntax: 'collapse | hidden | visible'
+    _property: 'visibility'
+  mbox-top-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+  mbox-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
   mbox-visibility:
     _syntax: 'collapse | hidden | visible'
     _property: 'visibility'
@@ -1575,6 +5126,35 @@ page:
     _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
     _property: 'writing-mode'
     _define: 'horizontal-tb'
+  padding:
+    _syntax: '<length-percentage>'
+    _property:
+      - 'padding-bottom'
+      - 'padding-left'
+      - 'padding-right'
+      - 'padding-top'
+  padding-bottom:
+    _syntax: '<length-percentage>'
+    _property: 'padding-bottom'
+  padding-inside:
+    _syntax: '<length-percentage>'
+    _property:
+      - 'padding-left'
+      - 'padding-right'
+  padding-left:
+    _syntax: '<length-percentage>'
+    _property: 'padding-left'
+  padding-outside:
+    _syntax: '<length-percentage>'
+    _property:
+      - 'padding-left'
+      - 'padding-right'
+  padding-right:
+    _syntax: '<length-percentage>'
+    _property: 'padding-right'
+  padding-top:
+    _syntax: '<length-percentage>'
+    _property: 'padding-top'
   size:
     _syntax: '*'
     _property: 'size'
@@ -1733,26 +5313,14 @@ prism:
     _property: 'color'
     _define: 'var(--vs-prism--text-color)'
 section:
-  anchor-text-decoration:
-    _syntax: '*'
-    _property: 'text-decoration'
-    _define:
-      - value: 'none'
-      - media: '(hover: hover)'
-        selector: 'a[data-ref="sec"]:hover'
-        value: 'underline'
   call-content:
     _syntax: '*'
     _property: 'content'
-    _define: "'§' target-counters( attr(href), vs-counter-sections, var(--vs-section--counter-delimiter), var(--vs-section--counter-style) )"
+    _define: "'§' target-counters( attr(href), vs-counter-sections, var(--vs-section--counter-delimiter), var(--vs-section--counter-style, var(--vs-counter-style)) )"
   call-display:
     _syntax: '*'
     _property: 'display'
     _define: 'inline'
-  call-margin-inline:
-    _syntax: '*'
-    _property: 'margin-inline'
-    _define: '0'
   counter-delimiter:
     _syntax: '*'
     _define: "'.'"
@@ -1852,7 +5420,7 @@ section:
   marker-content:
     _syntax: '*'
     _property: 'content'
-    _define: 'counters( vs-counter-sections, var(--vs-section--counter-delimiter), var(--vs-section--counter-style) )'
+    _define: 'counters( vs-counter-sections, var(--vs-section--counter-delimiter), var(--vs-section--counter-style, var(--vs-counter-style)) )'
   marker-display:
     _syntax: '*'
     _property: 'display'
@@ -1865,6 +5433,96 @@ section:
     _syntax: '*'
     _property: 'counter-reset'
     _define: 'vs-counter-sections var(--vs-section--root-counter-sections,) vs-counter-sec-h1 var(--vs-section--root-counter-sec-h1,) vs-counter-sec-h2 var(--vs-section--root-counter-sec-h2,) vs-counter-sec-h3 var(--vs-section--root-counter-sec-h3,) vs-counter-sec-h4 var(--vs-section--root-counter-sec-h4,) vs-counter-sec-h5 var(--vs-section--root-counter-sec-h5,) vs-counter-sec-h6 var(--vs-section--root-counter-sec-h6,)'
+table:
+  call-content:
+    _syntax: '*'
+    _property: 'content'
+    _define:
+      - value: "var(--vs-table--label) var(--vs-crossref-call-counter-prefix, '') target-counter( attr(href), vs-counter-tbl, var(--vs-table--counter-style, var(--vs-counter-style)) )"
+      - media: 'screen'
+        value: "var(--vs-table--label) '???'"
+  call-display:
+    _syntax: '*'
+    _property: 'display'
+  counter-style:
+    _syntax: '*'
+  label:
+    _syntax: '*'
+    _define:
+      - value: "'Table '"
+      - selector: ':root:lang(ja)'
+        value: "'表'"
+  marker-content:
+    _syntax: '*'
+    _property: 'content'
+    _define:
+      - value: "var(--vs-table--label) var(--vs-crossref-marker-counter-prefix, '') counter(vs-counter-tbl, var(--vs-table--counter-style, var(--vs-counter-style))) ': '"
+  marker-display:
+    _syntax: '*'
+    _property: 'display'
+    _define: 'inline'
+  marker-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+  root-counter-reset:
+    _syntax: '*'
+    _property: 'counter-reset'
+    _define: 'vs-counter-tbl var(--vs-table--root-counter-tbl,)'
+theorem:
+  call-content:
+    _syntax: '*'
+    _property: 'content'
+    _define:
+      - value: "var(--vs-theorem--label) var(--vs-crossref-call-counter-prefix, '') target-counter( attr(href), vs-counter-thm, var(--vs-theorem--counter-style, var(--vs-counter-style)) )"
+      - media: 'screen'
+        value: "var(--vs-theorem--label) '???'"
+  call-display:
+    _syntax: '*'
+    _property: 'display'
+  counter-style:
+    _syntax: '*'
+    _property: 'content'
+  label:
+    _syntax: '*'
+    _property: 'content'
+    _define:
+      - value: "'Theorem '"
+      - selector: ':root:lang(ja)'
+        value: "'定理'"
+  margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: 'var(--vs-spacing-rlh)'
+  marker-content:
+    _syntax: '*'
+    _property: 'content'
+  marker-display:
+    _syntax: '*'
+    _property: 'display'
+    _define: 'inline'
+  marker-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  marker-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+  marker-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  marker-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+  marker-suffix:
+    _syntax: '*'
+    _property: 'content'
+    _define:
+      - value: "'. '"
+      - selector: ':root:lang(ja)'
+        value: "'　'"
+  root-counter-reset:
+    _syntax: '*'
+    _property: 'counter-reset'
+    _define: 'vs-counter-thm var(--vs-theorem--root-counter-thm,)'
 toc:
   anchor-align-items:
     _syntax: 'anchor-center | baseline | center | end | first | flex-end | flex-start | last | normal | safe | self-end | self-start | start | stretch | unsafe'

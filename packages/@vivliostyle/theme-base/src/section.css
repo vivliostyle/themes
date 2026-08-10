@@ -8,25 +8,13 @@
 }
 
 @var section {
-  @var anchor {
-    a[data-ref='sec'] {
-      text-decoration: ;
-    }
-  }
-
   @var call {
-    a[data-ref='sec'] {
-      margin-inline: ;
-    }
-
     a[data-ref='sec']::before {
       content: ;
       display: ;
     }
   }
-}
 
-@var section {
   @var h1-marker, marker {
     section > h1:first-child::before {
       content: ;
@@ -135,22 +123,22 @@ section:has(> h6:first-child) {
   }
 }
 
-section > h1:first-child + section:has(> h2:first-child) {
+section:has(> h1:first-child) > section:has(> h2:first-child):first-of-type {
   counter-reset: vs-counter-sections vs-counter-sec-h3;
 }
 
-section > h2:first-child + section:has(> h3:first-child) {
+section:has(> h2:first-child) > section:has(> h3:first-child):first-of-type {
   counter-reset: vs-counter-sections vs-counter-sec-h4;
 }
 
-section > h3:first-child + section:has(> h4:first-child) {
+section:has(> h3:first-child) > section:has(> h4:first-child):first-of-type {
   counter-reset: vs-counter-sections vs-counter-sec-h5;
 }
 
-section > h4:first-child + section:has(> h5:first-child) {
+section:has(> h4:first-child) > section:has(> h5:first-child):first-of-type {
   counter-reset: vs-counter-sections vs-counter-sec-h6;
 }
 
-section > h5:first-child + section:has(> h6:first-child) {
+section:has(> h5:first-child) > section:has(> h6:first-child):first-of-type {
   counter-reset: vs-counter-sections;
 }

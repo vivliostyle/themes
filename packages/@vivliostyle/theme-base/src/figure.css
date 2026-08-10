@@ -1,0 +1,29 @@
+@var figure {
+  @var . {
+    :root {
+      --counter-style: ;
+      --label: ;
+    }
+  }
+
+  @var call {
+    a[data-ref='fig']::before {
+      content: ;
+      display: ;
+    }
+  }
+
+  @var marker {
+    figure:is(.fig, :has(> :is(img, picture))) figcaption::before,
+    .fig-caption::before {
+      content: ;
+      display: ;
+      margin-inline: ;
+    }
+  }
+}
+
+figure:is(.fig, :has(> :is(img, picture))),
+.fig-caption {
+  counter-increment: vs-counter-fig;
+}

@@ -2,7 +2,13 @@
 @import url(css/define.css);
 @import url(css/basic.css);
 
-@import url(css/crossref.css);
+@import url(css/appendix.css);
+@import url(css/citation.css);
+@import url(css/equation.css);
+@import url(css/figure.css);
+@import url(css/listing.css);
+@import url(css/table.css);
+@import url(css/theorem.css);
 @import url(css/endnote.css);
 @import url(css/footnote.css);
 @import url(css/footnote-external-link.css);
