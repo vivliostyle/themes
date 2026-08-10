@@ -8,7 +8,7 @@ import valueParser from 'postcss-value-parser';
 import { parse, stringify } from 'yaml';
 
 const defaultOutput = 'css-variables.yml';
-const defaultDefineOutput = 'css/common/define.css';
+const defaultDefineOutput = 'css/define.css';
 const defaultJsonOutput = 'dist/css-variables.json';
 const defaultSelector = ':root';
 const defaultPrefix = '';
