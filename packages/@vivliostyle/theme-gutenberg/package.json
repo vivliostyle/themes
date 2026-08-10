@@ -26,12 +26,15 @@
     "access": "public"
   },
   "scripts": {
-    "build": "vivliostyle build",
-    "preview": "vivliostyle preview",
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
     "validate": "vivliostyle-theme-scripts validate"
   },
   "dependencies": {
     "@vivliostyle/theme-base": "workspace:*"
+  },
+  "devDependencies": {
+    "vivliostyle-theme-scripts": "workspace:*"
   },
   "peerDependencies": {
     "@vivliostyle/cli": ">=11"

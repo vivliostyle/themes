@@ -170,7 +170,7 @@ theme-baseや各テーマが公開するCSS変数を `:root` で上書きする�
 プレビューで動作確認:
 
 ```bash
-npm run preview
+npm run example:preview
 ```
 
 ## Themeを公開する
@@ -193,7 +193,7 @@ npm run validate
 ### プレビュー確認
 
 ```bash
-npm run preview
+npm run example:preview
 ```
 
 `vivliostyle.config.js` の設定に基づき、`example/` のサンプル原稿にテーマを適用した状態でプレビューが表示されます。

@@ -170,7 +170,7 @@ Place sample Markdown files in `example/` to demonstrate theme application.
 Preview for verification:
 
 ```bash
-npm run preview
+npm run example:preview
 ```
 
 ## Publishing a Theme
@@ -193,7 +193,7 @@ Validation checks:
 ### Preview Check
 
 ```bash
-npm run preview
+npm run example:preview
 ```
 
 Based on the `vivliostyle.config.js` configuration, a preview with the theme applied to the sample manuscripts in `example/` will be displayed.

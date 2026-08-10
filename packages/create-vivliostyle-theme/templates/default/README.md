@@ -50,12 +50,12 @@ module.exports = {
 
 Run `vivliostyle preview` to preview your `theme.css`.
 
-To watch file changes, use `preview` script.
+To watch file changes, use `example:preview` script.
 
 ```bash
-npm run preview
+npm run example:preview
 # or
-yarn preview
+yarn example:preview
 ```
 
 You can specify your CSS file and manuscript file for preview in vivliostyle.config.js:

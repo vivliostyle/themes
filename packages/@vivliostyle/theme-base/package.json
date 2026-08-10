@@ -45,6 +45,7 @@
     "postcss-cli": "11.0.1",
     "postcss-value-parser": "4.2.0",
     "postcss-variable-theming": "0.5.0",
+    "vivliostyle-theme-scripts": "workspace:*",
     "yaml": "2.9.0"
   },
   "peerDependencies": {

@@ -31,7 +31,7 @@ jobs:
           node-version-file: .nvmrc
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm run build:tools
+      - run: pnpm run build
       - name: Release dry run
         env:
           PUBLISH_BRANCH: ${{ github.ref_name }}
@@ -106,7 +106,7 @@ jobs:
           node-version-file: .nvmrc
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm run build:tools
+      - run: pnpm run build
       - name: Release
         env:
           PUBLISH_BRANCH: ${{ github.ref_name }}
