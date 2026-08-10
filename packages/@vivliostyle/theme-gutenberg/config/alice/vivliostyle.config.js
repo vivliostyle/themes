@@ -5,7 +5,7 @@ export default defineConfig({
   title: 'Alice’s Adventures in Wonderland',
   language: 'en',
   size: 'A5',
-  theme: 'alice.css',
+  theme: ['../theme-base', 'alice.css'],
   entry: [
     'example/alice/cover.md',
     'example/alice/copyright.md',
@@ -34,6 +34,10 @@ export default defineConfig({
       format: 'webpub',
     },
   ],
-  toc: true,
-  tocTitle: 'Contents',
+  copyAsset: {
+    excludes: ['alice/**', 'fang/**', 'sherlock/**'],
+  },
+  toc: {
+    title: 'Contents',
+  },
 });
