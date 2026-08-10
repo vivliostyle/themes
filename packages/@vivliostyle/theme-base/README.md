@@ -78,9 +78,9 @@ module.exports = {
 ### Basic
 
 ```css
-@import url(@vivliostyle/theme-base/css/common/meta-properties.css);
-@import url(@vivliostyle/theme-base/css/common/reset.css);
-@import url(@vivliostyle/theme-base/css/common/basic.css);
+@import url(@vivliostyle/theme-base/css/define.css);
+@import url(@vivliostyle/theme-base/css/reset.css);
+@import url(@vivliostyle/theme-base/css/basic.css);
 
 /* Configuration examples */
 :root {
@@ -91,15 +91,15 @@ module.exports = {
 }
 ```
 
-- [**meta-properties.css**](css/common/meta-properties.css) defines CSS variables that affect document-wide styles
+- [**define.css**](css/define.css) defines CSS variables that affect document-wide styles
   - Name of css variable starts with `--vs-`
-- [**basic.css**](css/common/basic.css) defines styles of basic HTML tags
+- [**basic.css**](css/basic.css) defines styles of basic HTML tags
   - Name of css variable starts with `--vs--`
 
 ### Cross-reference
 
 ```css
-@import url(@vivliostyle/theme-base/css/partial/crossref.css);
+@import url(@vivliostyle/theme-base/css/crossref.css);
 
 /* Configuration examples */
 :root {
@@ -108,13 +108,13 @@ module.exports = {
 }
 ```
 
-- [**crossref.css**](css/partial/crossref.css) defines styles about cross-reference of figure, table and citation
+- [**crossref.css**](css/crossref.css) defines styles about cross-reference of figure, table and citation
   - Name of CSS variable starts with `--vs-crossref--`
 
 ### Endnotes
 
 ```css
-@import url(@vivliostyle/theme-base/css/partial/endnote.css);
+@import url(@vivliostyle/theme-base/css/endnote.css);
 
 /* Configuration examples */
 :root {
@@ -123,14 +123,14 @@ module.exports = {
 }
 ```
 
-- [**endnote.css**](css/partial/endnote.css) defines styles about endnotes
+- [**endnote.css**](css/endnote.css) defines styles about endnotes
   - Name of CSS variable starts with `--vs-endnote--`
 
 ### Footnotes
 
 ```css
-@import url(@vivliostyle/theme-base/css/partial/footnote.css);
-@import url(@vivliostyle/theme-base/css/partial/footnote-external-link.css);
+@import url(@vivliostyle/theme-base/css/footnote.css);
+@import url(@vivliostyle/theme-base/css/footnote-external-link.css);
 
 /* Configuration examples */
 :root {
@@ -139,14 +139,14 @@ module.exports = {
 }
 ```
 
-- [**footnote.css**](css/partial/footnote.css) defines styles about footnotes
+- [**footnote.css**](css/footnote.css) defines styles about footnotes
   - Name of CSS variable starts with `--vs-footnote--`
-- [**footnote-external-link.css**](css/partial/footnote-external-link.css) adds footnotes for external links so that its URL can be recognized on print media
+- [**footnote-external-link.css**](css/footnote-external-link.css) adds footnotes for external links so that its URL can be recognized on print media
 
 ### Page layout
 
 ```css
-@import url(@vivliostyle/theme-base/css/partial/page.css);
+@import url(@vivliostyle/theme-base/css/page.css);
 
 /* Configuration examples */
 :root {
@@ -167,13 +167,13 @@ h1 {
 }
 ```
 
-- [**page.css**](css/partial/page.css) defines styles about paged media
+- [**page.css**](css/page.css) defines styles about paged media
   - Name of CSS variable starts with `--vs-page--`
 
 ### Section references
 
 ```css
-@import url(@vivliostyle/theme-base/css/partial/section.css);
+@import url(@vivliostyle/theme-base/css/section.css);
 
 /* Configuration examples */
 :root {
@@ -182,13 +182,13 @@ h1 {
 }
 ```
 
-- [**section.css**](css/partial/section.css) defines styles about heading counters and section reference
+- [**section.css**](css/section.css) defines styles about heading counters and section reference
   - Name of CSS variable starts with `--vs-section--`
 
 ### Table of contents
 
 ```css
-@import url(@vivliostyle/theme-base/css/partial/toc.css);
+@import url(@vivliostyle/theme-base/css/toc.css);
 
 /* Configuration examples */
 :root {
@@ -196,16 +196,16 @@ h1 {
 }
 ```
 
-- [**toc.css**](css/partial/toc.css) defines styles about table of contents (TOC) pages
+- [**toc.css**](css/toc.css) defines styles about table of contents (TOC) pages
   - Name of CSS variable starts with `--vs-toc--`
 
 ### Utility classes
 
 ```css
-@import url(@vivliostyle/theme-base/css/partial/utility-classes.css);
+@import url(@vivliostyle/theme-base/css/utility-classes.css);
 ```
 
-- [**utility-classes.css**](css/partial/utility-classes.css) provides HTML utility classes related to page layout.
+- [**utility-classes.css**](css/utility-classes.css) provides HTML utility classes related to page layout.
 
 ### Prism (Code highlighting)
 

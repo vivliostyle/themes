@@ -15,7 +15,6 @@
 :root {
   --vs-border-width: 0.5px;
   --vs-font-family: '游明朝', 'YuMincho', serif;
-  --vs-font-size-on-print: 83.33%;
   --vs-line-height: 2;
   --vs-spacing-rlh: 0;
   --vs-writing-mode: vertical-rl;
@@ -75,6 +74,25 @@
 
   --vs-section--counter-style: cjk-ideographic;
   --vs-section--counter-delimiter: '・';
+}
+
+@media screen {
+  :root {
+    --vs--anchor-text-color: var(--vs-theme--anchor-color-body);
+    --vs--anchor-text-decoration: none;
+  }
+}
+
+@media (hover: hover) {
+  a:hover {
+    --vs--anchor-text-decoration: underline;
+  }
+}
+
+@media print {
+  :root {
+    --vs-font-size: 83.33%;
+  }
 }
 
 h1,
@@ -148,12 +166,6 @@ figure > picture > img {
 }
 
 @media screen {
-  :root {
-    --vs--anchor-color: var(--vs-theme--anchor-color-body);
-    --vs--anchor-text-decoration: none;
-    --vs--anchor-text-decoration-on-hover: underline;
-  }
-
   body {
     max-inline-size: calc(1rem * var(--vs-theme--num-of-character));
     margin: 2rem;

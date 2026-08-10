@@ -92,13 +92,13 @@ theme-baseは機能ごとにモジュール分割されています。全モジ�
 
 ```css
 /* 基本モジュールのみ */
-@import url(../@vivliostyle/theme-base/css/common/meta-properties.css);
-@import url(../@vivliostyle/theme-base/css/common/reset.css);
-@import url(../@vivliostyle/theme-base/css/common/basic.css);
+@import url(../@vivliostyle/theme-base/css/define.css);
+@import url(../@vivliostyle/theme-base/css/reset.css);
+@import url(../@vivliostyle/theme-base/css/basic.css);
 
 /* 必要な機能モジュールを追加 */
-@import url(../@vivliostyle/theme-base/css/partial/toc.css);
-@import url(../@vivliostyle/theme-base/css/partial/footnote.css);
+@import url(../@vivliostyle/theme-base/css/toc.css);
+@import url(../@vivliostyle/theme-base/css/footnote.css);
 ```
 
 利用可能なモジュール一覧:
@@ -170,7 +170,7 @@ theme-baseや各テーマが公開するCSS変数を `:root` で上書きする�
 プレビューで動作確認:
 
 ```bash
-npm run preview
+npm run example:preview
 ```
 
 ## Themeを公開する
@@ -193,7 +193,7 @@ npm run validate
 ### プレビュー確認
 
 ```bash
-npm run preview
+npm run example:preview
 ```
 
 `vivliostyle.config.js` の設定に基づき、`example/` のサンプル原稿にテーマを適用した状態でプレビューが表示されます。

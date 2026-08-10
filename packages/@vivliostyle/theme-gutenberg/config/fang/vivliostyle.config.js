@@ -5,7 +5,7 @@ export default defineConfig({
   title: 'White Fang',
   language: 'en',
   size: 'A5',
-  theme: 'fang.css',
+  theme: ['../theme-base', 'fang.css'],
   entry: [
     'example/fang/cover.md',
     'example/fang/copyright.md',
@@ -27,4 +27,7 @@ export default defineConfig({
       format: 'webpub',
     },
   ],
+  copyAsset: {
+    excludes: ['alice/**', 'fang/**', 'sherlock/**'],
+  },
 });

@@ -1,0 +1,235 @@
+code,
+pre[class*='language-'] {
+  background: none;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  hyphens: none;
+}
+
+@var prism {
+  @var . {
+    code,
+    pre[class*='language-'] {
+      color: ;
+      text-shadow: ;
+    }
+  }
+}
+
+@media print {
+  code[class*='language-'],
+  pre[class*='language-'] {
+    text-shadow: none;
+    white-space: pre-wrap;
+  }
+}
+
+/* Code blocks */
+pre[class*='language-'] {
+  overflow: auto;
+
+  @var prism.block-code {
+    & {
+      padding: ;
+      border-radius: ;
+    }
+  }
+}
+
+@media print {
+  pre[class*='language-'] {
+    overflow: unset;
+    line-break: anywhere;
+  }
+}
+
+@var prism {
+  @var . {
+    :not(pre) > code,
+    pre[class*='language-'] {
+      background: ;
+    }
+  }
+}
+
+/* Inline code */
+:not(pre) > code {
+  white-space: normal;
+
+  @var prism.inline-code {
+    & {
+      padding: ;
+      border-radius: ;
+    }
+  }
+}
+
+.token {
+  &.bold {
+    font-weight: var(--vs--bold-font-weight, bold);
+  }
+  &.italic {
+    font-style: var(--vs--emphasis-font-style, italic);
+  }
+  &.entity {
+    cursor: help;
+  }
+}
+
+@var prism {
+  .token {
+    @var atrule {
+      &.atrule {
+        color: ;
+      }
+    }
+    @var attr-name {
+      &.attr-name {
+        color: ;
+      }
+    }
+    @var attr-value {
+      &.attr-value {
+        color: ;
+      }
+    }
+    @var boolean {
+      &.boolean {
+        color: ;
+      }
+    }
+    @var builtin {
+      &.builtin {
+        color: ;
+      }
+    }
+    @var cdata {
+      &.cdata {
+        color: ;
+      }
+    }
+    @var char {
+      &.char {
+        color: ;
+      }
+    }
+    @var class-name {
+      &.class-name {
+        color: ;
+      }
+    }
+    @var comment {
+      &.comment {
+        color: ;
+      }
+    }
+    @var constant {
+      &.constant {
+        color: ;
+      }
+    }
+    @var deleted {
+      &.deleted {
+        color: ;
+      }
+    }
+    @var doctype {
+      &.doctype {
+        color: ;
+      }
+    }
+    @var entity {
+      &.entity {
+        color: ;
+      }
+    }
+    @var function {
+      &.function {
+        color: ;
+      }
+    }
+    @var important {
+      &.important {
+        color: ;
+      }
+    }
+    @var inserted {
+      &.inserted {
+        color: ;
+      }
+    }
+    @var keyword {
+      &.keyword {
+        color: ;
+      }
+    }
+    @var namespace {
+      &.namespace {
+        color: ;
+      }
+    }
+    @var number {
+      &.number {
+        color: ;
+      }
+    }
+    @var operator {
+      &.operator {
+        color: ;
+      }
+    }
+    @var prolog {
+      &.prolog {
+        color: ;
+      }
+    }
+    @var property {
+      &.property {
+        color: ;
+      }
+    }
+    @var punctuation {
+      &.punctuation {
+        color: ;
+      }
+    }
+    @var regex {
+      &.regex {
+        color: ;
+      }
+    }
+    @var selector {
+      &.selector {
+        color: ;
+      }
+    }
+    @var string {
+      &.string {
+        color: ;
+      }
+    }
+    @var symbol {
+      &.symbol {
+        color: ;
+      }
+    }
+    @var tag {
+      &.tag {
+        color: ;
+      }
+    }
+    @var url {
+      &.url {
+        color: ;
+      }
+    }
+    @var variable {
+      &.variable {
+        color: ;
+      }
+    }
+  }
+}

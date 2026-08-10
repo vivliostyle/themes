@@ -92,13 +92,13 @@ theme-base is divided into functional modules. If you don't need all modules, yo
 
 ```css
 /* Basic modules only */
-@import url(../@vivliostyle/theme-base/css/common/meta-properties.css);
-@import url(../@vivliostyle/theme-base/css/common/reset.css);
-@import url(../@vivliostyle/theme-base/css/common/basic.css);
+@import url(../@vivliostyle/theme-base/css/define.css);
+@import url(../@vivliostyle/theme-base/css/reset.css);
+@import url(../@vivliostyle/theme-base/css/basic.css);
 
 /* Add required feature modules */
-@import url(../@vivliostyle/theme-base/css/partial/toc.css);
-@import url(../@vivliostyle/theme-base/css/partial/footnote.css);
+@import url(../@vivliostyle/theme-base/css/toc.css);
+@import url(../@vivliostyle/theme-base/css/footnote.css);
 ```
 
 Available modules:
@@ -170,7 +170,7 @@ Place sample Markdown files in `example/` to demonstrate theme application.
 Preview for verification:
 
 ```bash
-npm run preview
+npm run example:preview
 ```
 
 ## Publishing a Theme
@@ -193,7 +193,7 @@ Validation checks:
 ### Preview Check
 
 ```bash
-npm run preview
+npm run example:preview
 ```
 
 Based on the `vivliostyle.config.js` configuration, a preview with the theme applied to the sample manuscripts in `example/` will be displayed.

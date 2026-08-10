@@ -7,11 +7,11 @@
   "repository": "git@github.com:vivliostyle/themes.git",
   "type": "module",
   "scripts": {
-    "build": "pnpm run --sequential \"/^build:.*/\"",
-    "build:tools": "pnpm --filter './packages/*' run build",
-    "build:themes": "pnpm --filter './packages/@vivliostyle/*' run build",
+    "build": "pnpm -r build",
     "bump": "pnpm run top && pnpm exec changeset version",
-    "capture-pdf": "node scripts/capture-pdf.ts",
+    "dev": "pnpm -r --parallel run dev",
+    "example:build": "pnpm -r example:build",
+    "example:capture-pdf": "node scripts/capture-pdf.ts",
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",
     "lint": "oxlint",
@@ -20,7 +20,7 @@
     "test": "pnpm -r run test",
     "top": "node scripts/top.ts",
     "typecheck": "tsc --noEmit",
-    "validate": "pnpm --filter './packages/@vivliostyle/*' run validate"
+    "validate": "pnpm -r validate"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",

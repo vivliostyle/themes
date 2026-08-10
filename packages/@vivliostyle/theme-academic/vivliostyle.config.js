@@ -5,7 +5,7 @@ export default defineConfig({
   title: 'vivliostyle-theme-academic のサンプル',
   language: 'ja',
   size: 'A4',
-  theme: 'theme.css',
+  theme: ['../theme-base', 'theme.css'],
   entry: [
     {
       path: 'example/fet.md',

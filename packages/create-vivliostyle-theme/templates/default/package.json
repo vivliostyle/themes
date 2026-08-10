@@ -16,8 +16,8 @@
   "type": "module",
   "main": "theme.css",
   "scripts": {
-    "build": "vivliostyle build",
-    "preview": "vivliostyle preview",
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
     "validate": "vivliostyle-theme-scripts validate"
   },
   "dependencies": {
@@ -28,7 +28,7 @@
     "vivliostyle-theme-scripts": "^0.3.6"
   },
   "peerDependencies": {
-    "@vivliostyle/cli": ">=7"
+    "@vivliostyle/cli": ">=11"
   },
   "peerDependenciesMeta": {
     "@vivliostyle/cli": {

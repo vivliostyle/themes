@@ -1,0 +1,48 @@
+.footnote-ref > sup {
+  font-size: 100%;
+}
+
+@var endnote {
+  @var call {
+    .footnote-ref {
+      font-size: ;
+      margin-inline: ;
+    }
+  }
+
+  @var anchor {
+    a:is(.footnote-ref, .footnote-back) {
+      text-decoration: ;
+    }
+  }
+
+  @var section {
+    [role='doc-endnotes'] {
+      font-size: ;
+      margin-block: ;
+      margin-inline: ;
+    }
+  }
+
+  @var section-ol {
+    [role='doc-endnotes'] > ol {
+      list-style-type: ;
+    }
+  }
+
+  @var section-hr {
+    [role='doc-endnotes'] > hr {
+      border-color: var(--vs--hr-border-color, var(--vs-border-color));
+      border-block-start-width: var(
+        --vs--hr-border-width-block-start,
+        var(--vs-border-width)
+      );
+    }
+  }
+
+  @var backlink {
+    [role='doc-backlink'] {
+      display: ;
+    }
+  }
+}

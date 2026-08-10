@@ -23,7 +23,6 @@
 :root {
   --vs-font-family:
     'Neue Frutiger World', 'Verdana', 'Hiragino Sans', sans-serif;
-  --vs-font-size-on-print: 75%;
   --vs-line-height: 1.7;
   --vs-widows-orphans: 3;
 
@@ -59,6 +58,25 @@
 
   --vs-prism--inline-code-padding: 0.1em 0.3em;
   --vs-prism--text-shadow: none;
+}
+
+@media screen {
+  :root {
+    --vs--anchor-text-color: var(--vs-theme--anchor-color-body);
+    --vs--anchor-text-decoration: none;
+  }
+}
+
+@media (hover: hover) {
+  a:hover {
+    --vs--anchor-text-decoration: underline;
+  }
+}
+
+@media print {
+  :root {
+    --vs-font-size: 75%;
+  }
 }
 
 blockquote {
@@ -99,16 +117,10 @@ figure
 /* format for inline code */
 :not(pre) > code {
   --vs-prism--background: var(--vs-theme--inline-code-color-bg);
-  --vs-prism--color: var(--vs-theme--inline-code-color-body);
+  --vs-prism--text-color: var(--vs-theme--inline-code-color-body);
 }
 
 @media screen {
-  :root {
-    --vs--anchor-color: var(--vs-theme--anchor-color-body);
-    --vs--anchor-text-decoration: none;
-    --vs--anchor-text-decoration-on-hover: underline;
-  }
-
   body {
     max-inline-size: 50rem;
     margin: 2rem auto 2rem;

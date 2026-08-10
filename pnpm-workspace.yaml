@@ -12,8 +12,10 @@ verifyDepsBeforeRun: false
 
 minimumReleaseAge: 10080
 minimumReleaseAgeExclude:
+  - '@types/*'
   - '@vivliostyle/*'
   - pnpm
+  - postcss-variable-theming
 
 # pdfjs-dist pulls canvas as an optional dependency and it would be built with
 # node-pre-gyp. scripts/capture-pdf.ts passes its own @napi-rs/canvas factory,

@@ -10,7 +10,7 @@ This repository is a pnpm workspace. Install [pnpm](https://pnpm.io/installation
 
 ```bash
 pnpm install
-pnpm build:tools  # build the TypeScript packages; validate needs them
+pnpm build       # generate the theme CSS and compile the TypeScript packages; validate needs them
 pnpm lint
 pnpm fmt         # or fmt:check
 pnpm typecheck
@@ -18,14 +18,15 @@ pnpm validate    # check every theme package against the spec
 pnpm test
 ```
 
-Building the themes renders every example book with Vivliostyle CLI. It downloads a browser on first run and takes several minutes:
+The `example:*` scripts work on the example books shipped with each theme, not on the themes themselves. Building them renders every example with Vivliostyle CLI, which downloads a browser on first run and takes several minutes:
 
 ```bash
-pnpm build:themes
-pnpm capture-pdf  # regenerate docs/assets/captures/*.webp from the built PDFs
+pnpm example:build
+pnpm example:capture-pdf  # regenerate docs/assets/captures/*.webp from the built PDFs
+pnpm --filter @vivliostyle/theme-techbook example:preview  # preview a single example
 ```
 
-Themes that `@import` a sibling theme currently render without it: the CLI serves each theme from its own directory, so `../theme-base/theme-all.css` resolves outside the server root and 404s while the build still reports success. Until the CLI can serve the workspace, treat the output of `build:themes` for those themes as incomplete.
+Themes that `@import` a sibling theme currently render without it: the CLI serves each theme from its own directory, so `../theme-base/theme-all.css` resolves outside the server root and 404s while the build still reports success. Until the CLI can serve the workspace, treat the output of `example:build` for those themes as incomplete.
 
 ### Releasing
 

@@ -1,0 +1,1914 @@
+_meta-properties:
+  background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+    _define: 'transparent'
+  border-color:
+    _syntax: '<color>'
+    _property:
+      - 'border-block-start-color'
+      - 'border-color'
+    _define: 'currentColor'
+  border-width:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-start-width'
+    _define: '1px'
+  column-fill:
+    _syntax: 'auto | balance'
+    _property: 'column-fill'
+    _define: 'balance'
+  column-gap:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'column-gap'
+    _define: '1rem'
+  columns:
+    _syntax: '*'
+    _property: 'columns'
+    _define: '1'
+  document-first-page-counter-increment:
+    _syntax: '*'
+    _property: 'counter-increment'
+  document-first-page-counter-reset:
+    _syntax: '*'
+    _property: 'counter-reset'
+  document-root-counter-reset:
+    _syntax: '*'
+    _property: 'counter-reset'
+  first-page-counter-reset:
+    _syntax: '*'
+    _property: 'counter-reset'
+  font-family:
+    _syntax: '*'
+    _property: 'font-family'
+    _define: 'sans-serif'
+  font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+    _define: 'normal'
+  font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+    _define: 'auto'
+  font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+    _define: '100%'
+  font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+    _define: 'normal'
+  font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+    _define: 'normal'
+  font-synthesis:
+    _syntax: '*'
+    _property: 'font-synthesis'
+    _define: 'weight style small-caps'
+  font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+    _define: 'normal'
+  font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+    _define: 'normal'
+  font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+    _define: '400'
+  font-weight-bold:
+    _syntax: '*'
+    _define: '700'
+  hanging-punctuation:
+    _syntax: '*'
+    _property: 'hanging-punctuation'
+    _define: 'none'
+  hyphens:
+    _syntax: 'auto | manual | none'
+    _property: 'hyphens'
+    _define: 'auto'
+  letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+    _define: '0'
+  line-break:
+    _syntax: 'anywhere | auto | loose | normal | strict'
+    _property: 'line-break'
+    _define: 'strict'
+  line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+    _define: '1.5'
+  orphans:
+    _syntax: '<integer>'
+    _property: 'orphans'
+    _define: 'var(--vs-widows-orphans)'
+  overflow-wrap:
+    _syntax: 'anywhere | break-word | normal'
+    _property: 'overflow-wrap'
+    _define: 'anywhere'
+  spacing-inline-indent:
+    _syntax: '*'
+    _define: 'min(2ch, 5vw)'
+  spacing-rlh:
+    _syntax: '*'
+    _define: 'calc(var(--vs-line-height) * 1rem)'
+  tab-size:
+    _syntax: '<integer> | <length>'
+    _property: 'tab-size'
+    _define: '4'
+  text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+    _define: 'start'
+  text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: '#000'
+  text-orientation:
+    _syntax: 'mixed | sideways | upright'
+    _property: 'text-orientation'
+    _define: 'unset'
+  text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+    _define: 'auto'
+  text-underline-offset:
+    _syntax: 'auto | <length> | <percentage>'
+    _property: 'text-underline-offset'
+    _define: 'auto'
+  text-underline-position:
+    _syntax: '*'
+    _property: 'text-underline-position'
+    _define: 'left'
+  widows:
+    _syntax: '<integer>'
+    _property: 'widows'
+    _define: 'var(--vs-widows-orphans)'
+  widows-orphans:
+    _syntax: '*'
+    _define: '1'
+  word-break:
+    _syntax: 'auto-phrase | break-all | break-word | keep-all | normal'
+    _property: 'word-break'
+    _define: 'normal'
+  word-spacing:
+    _syntax: 'normal | <length>'
+    _property: 'word-spacing'
+    _define: 'normal'
+  writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+    _define: 'horizontal-tb'
+_basic:
+  anchor-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'inherit'
+  anchor-text-decoration:
+    _syntax: '*'
+    _property: 'text-decoration'
+    _define:
+      - value: 'underline'
+      - media: '(hover: hover)'
+        selector: 'a:hover'
+        value: 'none'
+  big-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+    _define: '1.17em'
+  big-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  blockquote-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+    _define: '100%'
+  blockquote-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: 'var(--vs-spacing-rlh)'
+  blockquote-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: 'var(--vs-spacing-inline-indent)'
+  blockquote-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+    _define: 'unset'
+  bold-emphasis-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  bold-emphasis-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  bold-emphasis-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  bold-emphasis-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  bold-emphasis-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  bold-emphasis-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  bold-emphasis-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  bold-emphasis-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  bold-emphasis-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  bold-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  bold-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  bold-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  bold-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  bold-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  bold-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  bold-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  bold-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+    _define: 'var(--vs-font-weight-bold)'
+  bold-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  dd-margin-inline-start:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-inline-start'
+    _define: 'var(--vs-spacing-inline-indent)'
+  dd-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  dd-text-indent:
+    _syntax: '*'
+    _property: 'text-indent'
+  del-text-decoration:
+    _syntax: '*'
+    _property: 'text-decoration'
+    _define: 'line-through'
+  dt-dd-display:
+    _syntax: '*'
+    _property: 'display'
+    _define: 'block'
+  dt-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  dt-text-indent:
+    _syntax: '*'
+    _property: 'text-indent'
+  emphasis-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  emphasis-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  emphasis-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  emphasis-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  emphasis-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  emphasis-font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+    _define: 'italic'
+  emphasis-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  emphasis-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  emphasis-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  emphasis-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  figcaption-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
+    _define: 'avoid'
+  figcaption-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+    _define: '100%'
+  figcaption-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: 'var(--vs-spacing-rlh)'
+  figcaption-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: '0'
+  figcaption-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  figcaption-text-indent:
+    _syntax: '*'
+    _property: 'text-indent'
+    _define: '0'
+  figure-align-items:
+    _syntax: 'anchor-center | baseline | center | end | first | flex-end | flex-start | last | normal | safe | self-end | self-start | start | stretch | unsafe'
+    _property: 'align-items'
+    _define: 'center'
+  figure-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
+    _define: 'avoid'
+  figure-display:
+    _syntax: '*'
+    _property: 'display'
+    _define: 'flex'
+  figure-flex-direction:
+    _syntax: 'column | column-reverse | row | row-reverse'
+    _property: 'flex-direction'
+    _define: 'column'
+  figure-item-padding-inline:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-inline'
+    _define: 'var(--vs-spacing-inline-indent)'
+  figure-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: 'var(--vs-spacing-rlh)'
+  figure-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: '0'
+  figure-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+    _define: 'unset'
+  h1-break-after:
+    _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
+    _property: 'break-after'
+  h1-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
+  h1-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  h1-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  h1-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  h1-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+    _define: '2em'
+  h1-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  h1-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  h1-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  h1-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  h1-hyphens:
+    _syntax: 'auto | manual | none'
+    _property: 'hyphens'
+  h1-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  h1-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  h1-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+  h1-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+  h1-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  h1-text-indent:
+    _syntax: '*'
+    _property: 'text-indent'
+  h1-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  h1-word-break:
+    _syntax: 'auto-phrase | break-all | break-word | keep-all | normal'
+    _property: 'word-break'
+  h1-word-spacing:
+    _syntax: 'normal | <length>'
+    _property: 'word-spacing'
+  h2-break-after:
+    _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
+    _property: 'break-after'
+  h2-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
+  h2-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  h2-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  h2-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  h2-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+    _define: '1.5em'
+  h2-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  h2-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  h2-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  h2-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  h2-hyphens:
+    _syntax: 'auto | manual | none'
+    _property: 'hyphens'
+  h2-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  h2-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  h2-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+  h2-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+  h2-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  h2-text-indent:
+    _syntax: '*'
+    _property: 'text-indent'
+  h2-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  h2-word-break:
+    _syntax: 'auto-phrase | break-all | break-word | keep-all | normal'
+    _property: 'word-break'
+  h2-word-spacing:
+    _syntax: 'normal | <length>'
+    _property: 'word-spacing'
+  h3-break-after:
+    _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
+    _property: 'break-after'
+  h3-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
+  h3-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  h3-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  h3-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  h3-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+    _define: '1.17em'
+  h3-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  h3-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  h3-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  h3-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  h3-hyphens:
+    _syntax: 'auto | manual | none'
+    _property: 'hyphens'
+  h3-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  h3-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  h3-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+  h3-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+  h3-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  h3-text-indent:
+    _syntax: '*'
+    _property: 'text-indent'
+  h3-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  h3-word-break:
+    _syntax: 'auto-phrase | break-all | break-word | keep-all | normal'
+    _property: 'word-break'
+  h3-word-spacing:
+    _syntax: 'normal | <length>'
+    _property: 'word-spacing'
+  h4-break-after:
+    _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
+    _property: 'break-after'
+  h4-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
+  h4-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  h4-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  h4-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  h4-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+    _define: '1em'
+  h4-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  h4-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  h4-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  h4-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  h4-hyphens:
+    _syntax: 'auto | manual | none'
+    _property: 'hyphens'
+  h4-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  h4-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  h4-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+  h4-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+  h4-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  h4-text-indent:
+    _syntax: '*'
+    _property: 'text-indent'
+  h4-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  h4-word-break:
+    _syntax: 'auto-phrase | break-all | break-word | keep-all | normal'
+    _property: 'word-break'
+  h4-word-spacing:
+    _syntax: 'normal | <length>'
+    _property: 'word-spacing'
+  h5-break-after:
+    _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
+    _property: 'break-after'
+  h5-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
+  h5-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  h5-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  h5-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  h5-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+    _define: '0.83em'
+  h5-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  h5-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  h5-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  h5-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  h5-hyphens:
+    _syntax: 'auto | manual | none'
+    _property: 'hyphens'
+  h5-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  h5-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  h5-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+  h5-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+  h5-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  h5-text-indent:
+    _syntax: '*'
+    _property: 'text-indent'
+  h5-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  h5-word-break:
+    _syntax: 'auto-phrase | break-all | break-word | keep-all | normal'
+    _property: 'word-break'
+  h5-word-spacing:
+    _syntax: 'normal | <length>'
+    _property: 'word-spacing'
+  h6-break-after:
+    _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
+    _property: 'break-after'
+  h6-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
+  h6-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  h6-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  h6-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  h6-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+    _define: '0.67em'
+  h6-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  h6-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  h6-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  h6-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  h6-hyphens:
+    _syntax: 'auto | manual | none'
+    _property: 'hyphens'
+  h6-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  h6-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  h6-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+  h6-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+  h6-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  h6-text-indent:
+    _syntax: '*'
+    _property: 'text-indent'
+  h6-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  h6-word-break:
+    _syntax: 'auto-phrase | break-all | break-word | keep-all | normal'
+    _property: 'word-break'
+  h6-word-spacing:
+    _syntax: 'normal | <length>'
+    _property: 'word-spacing'
+  heading-break-after:
+    _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
+    _property: 'break-after'
+    _define: 'avoid'
+  heading-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
+    _define: 'avoid'
+  heading-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  heading-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  heading-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  heading-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  heading-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  heading-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  heading-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+    _define: 'var(--vs-font-weight-bold)'
+  heading-hyphens:
+    _syntax: 'auto | manual | none'
+    _property: 'hyphens'
+    _define: 'none'
+  heading-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  heading-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  heading-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: 'var(--vs-spacing-rlh)'
+  heading-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: '0'
+  heading-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  heading-text-indent:
+    _syntax: '*'
+    _property: 'text-indent'
+    _define: '0'
+  heading-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+    _define: 'inherit'
+  heading-word-break:
+    _syntax: 'auto-phrase | break-all | break-word | keep-all | normal'
+    _property: 'word-break'
+  heading-word-spacing:
+    _syntax: 'normal | <length>'
+    _property: 'word-spacing'
+  hr-border-color:
+    _syntax: '<color>'
+    _property:
+      - 'border-block-start-color'
+      - 'border-color'
+    _define: 'var(--vs-border-color)'
+  hr-border-width-block-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-start-width'
+    _define: 'var(--vs-border-width)'
+  hr-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: 'var(--vs-spacing-rlh)'
+  hr-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: '0'
+  img-image-resolution:
+    _syntax: '*'
+    _property: 'image-resolution'
+    _define: 'from-image'
+  lists-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: 'var(--vs-spacing-rlh)'
+  lists-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: '0'
+  lists-padding-inline-start:
+    _syntax: '<length-percentage>'
+    _property: 'padding-inline-start'
+    _define: 'var(--vs-spacing-inline-indent)'
+  lists-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  lists-text-indent:
+    _syntax: '*'
+    _property: 'text-indent'
+    _define: '0'
+  monospace-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+    _define: 'monospace'
+  monospace-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  monospace-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+    _define: 'none'
+  monospace-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+    _define: 'inherit'
+  monospace-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  monospace-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  monospace-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  monospace-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+    _define: 'inherit'
+  monospace-hyphens:
+    _syntax: 'auto | manual | none'
+    _property: 'hyphens'
+    _define: 'none'
+  monospace-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+    _define: 'inherit'
+  monospace-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+    _define: 'inherit'
+  monospace-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+    _define: 'none'
+  monospace-word-break:
+    _syntax: 'auto-phrase | break-all | break-word | keep-all | normal'
+    _property: 'word-break'
+  monospace-word-spacing:
+    _syntax: 'normal | <length>'
+    _property: 'word-spacing'
+  ol-list-style-type:
+    _syntax: 'none | <custom-ident> | <string>'
+    _property: 'list-style-type'
+    _define: 'decimal'
+  ol-minimum-inline-indent-size:
+    _syntax: '<length-percentage>'
+    _property: 'padding-inline-start'
+    _define: '2rem'
+  ol-padding-inline-start:
+    _syntax: '<length-percentage>'
+    _property: 'padding-inline-start'
+  ol-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  ol-text-indent:
+    _syntax: '*'
+    _property: 'text-indent'
+  p-hanging-punctuation:
+    _syntax: '*'
+    _property: 'hanging-punctuation'
+    _define: 'var(--vs-hanging-punctuation)'
+  p-hyphens:
+    _syntax: 'auto | manual | none'
+    _property: 'hyphens'
+  p-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  p-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  p-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: 'var(--vs-spacing-rlh)'
+  p-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: '0'
+  p-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+    _define: 'justify'
+  p-text-indent:
+    _syntax: '*'
+    _property: 'text-indent'
+    _define: '0'
+  p-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+    _define: 'inherit'
+  p-word-break:
+    _syntax: 'auto-phrase | break-all | break-word | keep-all | normal'
+    _property: 'word-break'
+  p-word-spacing:
+    _syntax: 'normal | <length>'
+    _property: 'word-spacing'
+  pre-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+    _define: '100%'
+  pre-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: 'var(--vs-spacing-rlh)'
+  pre-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: '0'
+  pre-overflow-x:
+    _syntax: 'auto | clip | hidden | scroll | visible'
+    _property: 'overflow-x'
+    _define: 'auto'
+  pre-padding-block:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-block'
+    _define: '0'
+  pre-padding-inline:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-inline'
+    _define: '0'
+  pre-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+    _define: 'start'
+  pre-white-space:
+    _syntax: '*'
+    _property: 'white-space'
+    _define:
+      - value: 'pre'
+      - media: 'print'
+        value: 'pre-wrap'
+  pre-word-break:
+    _syntax: 'auto-phrase | break-all | break-word | keep-all | normal'
+    _property: 'word-break'
+    _define: 'break-all'
+  pre-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+    _define: 'unset'
+  rt-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+    _define: '0.5em'
+  small-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+    _define: '0.83em'
+  small-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  sub-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+    _define: '0.8em'
+  sub-inset-block-end:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'inset-block-end'
+    _define: '-0.25em'
+  sup-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+    _define: '0.8em'
+  sup-inset-block-start:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'inset-block-start'
+    _define: '-0.5em'
+  table-border-color:
+    _syntax: '<color>+'
+    _property: 'border-color'
+  table-border-width:
+    _syntax: 'medium | thick | thin | <length>'
+    _property:
+      - 'border-block-end-width'
+      - 'border-block-start-width'
+      - 'border-inline-end-width'
+      - 'border-inline-start-width'
+    _define: 'var(--vs-border-width)'
+  table-border-width-block-end:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-end-width'
+  table-border-width-block-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-start-width'
+  table-border-width-cell:
+    _syntax: 'medium | thick | thin | <length>'
+    _property:
+      - 'border-block-end-width'
+      - 'border-block-start-width'
+      - 'border-inline-end-width'
+  table-border-width-column:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-end-width'
+  table-border-width-inline-end:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-end-width'
+  table-border-width-inline-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-inline-start-width'
+  table-border-width-outer:
+    _syntax: 'medium | thick | thin | <length>'
+    _property:
+      - 'border-block-end-width'
+      - 'border-block-start-width'
+      - 'border-inline-end-width'
+      - 'border-inline-start-width'
+  table-border-width-row:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-end-width'
+  table-border-width-tfoot-inner:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-start-width'
+  table-border-width-thead-inner:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-end-width'
+  table-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
+    _define: 'avoid'
+  table-cell-padding-block:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-block'
+    _define: '0.25rem'
+  table-cell-padding-inline:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-inline'
+    _define: '0.5rem'
+  table-container-overflow-x:
+    _syntax: 'auto | clip | hidden | scroll | visible'
+    _property: 'overflow-x'
+    _define:
+      - value: 'auto'
+      - media: 'print'
+        value: 'visible'
+  table-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+    _define: '100%'
+  table-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: 'var(--vs-spacing-rlh)'
+  table-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: 'auto'
+  table-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  table-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+    _define: 'unset'
+  td-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  th-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  th-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  th-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  th-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  th-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  th-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  th-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  th-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  th-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  ul-list-style-type:
+    _syntax: 'none | <custom-ident> | <string>'
+    _property: 'list-style-type'
+    _define: 'disc'
+  ul-minimum-inline-indent-size:
+    _syntax: '<length-percentage>'
+    _property: 'padding-inline-start'
+    _define: '2rem'
+  ul-padding-inline-start:
+    _syntax: '<length-percentage>'
+    _property: 'padding-inline-start'
+  ul-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  ul-text-indent:
+    _syntax: '*'
+    _property: 'text-indent'
+crossref:
+  anchor-text-decoration:
+    _syntax: '*'
+    _property: 'text-decoration'
+    _define:
+      - value: 'none'
+      - media: '(hover: hover)'
+        selector: 'a:is([data-ref="fig"],a[data-ref="tbl"],a[data-ref="cite"]):hover'
+        value: 'underline'
+  call-cite-content:
+    _syntax: '*'
+    _property: 'content'
+    _define:
+      - value: "'[' target-counter(attr(href), vs-counter-cite) ']'"
+      - media: 'screen'
+        value: "'[???]'"
+  call-display:
+    _syntax: '*'
+    _property: 'display'
+    _define: 'inline'
+  call-fig-content:
+    _syntax: '*'
+    _property: 'content'
+    _define:
+      - value: "'Figure ' target-counter( attr(href), vs-counter-fig, var(--vs-crossref--counter-style) )"
+      - selector: ':root:lang(ja)'
+        value: "'図' target-counter( attr(href), vs-counter-fig, var(--vs-crossref--counter-style) )"
+      - media: 'screen'
+        value: "'Figure ???'"
+      - media: 'screen'
+        selector: ':root:lang(ja)'
+        value: "'図???'"
+  call-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: '0'
+  call-tbl-content:
+    _syntax: '*'
+    _property: 'content'
+    _define:
+      - value: "'Table ' target-counter( attr(href), vs-counter-tbl, var(--vs-crossref--counter-style) )"
+      - selector: ':root:lang(ja)'
+        value: "'表' target-counter( attr(href), vs-counter-tbl, var(--vs-crossref--counter-style) )"
+      - media: 'screen'
+        value: "'Table ???'"
+      - media: 'screen'
+        selector: ':root:lang(ja)'
+        value: "'表???'"
+  counter-style:
+    _syntax: '*'
+    _define: 'decimal'
+  marker-cite-content:
+    _syntax: '*'
+    _property: 'content'
+    _define: "'[' counter(vs-counter-cite) ']'"
+  marker-cite-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+  marker-display:
+    _syntax: '*'
+    _property: 'display'
+    _define: 'inline'
+  marker-fig-content:
+    _syntax: '*'
+    _property: 'content'
+    _define:
+      - value: "'Figure ' counter(vs-counter-fig, var(--vs-crossref--counter-style)) ': '"
+      - selector: ':root:lang(ja)'
+        value: "'図' counter(vs-counter-fig, var(--vs-crossref--counter-style)) ': '"
+  marker-fig-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+  marker-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: '0'
+  marker-tbl-content:
+    _syntax: '*'
+    _property: 'content'
+    _define:
+      - value: "'Table ' counter(vs-counter-tbl, var(--vs-crossref--counter-style)) ': '"
+      - selector: ':root:lang(ja)'
+        value: "'表' counter(vs-counter-tbl, var(--vs-crossref--counter-style)) ': '"
+  marker-tbl-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+  root-counter-reset:
+    _syntax: '*'
+    _property: 'counter-reset'
+    _define: 'vs-counter-fig var(--vs-crossref--root-counter-fig,) vs-counter-tbl var(--vs-crossref--root-counter-tbl,) vs-counter-cite var(--vs-crossref--root-counter-cite,)'
+endnote:
+  anchor-text-decoration:
+    _syntax: '*'
+    _property: 'text-decoration'
+    _define:
+      - value: 'none'
+      - media: '(hover: hover)'
+        selector: 'a:is(.footnote-ref,.footnote-back):hover'
+        value: 'underline'
+  backlink-display:
+    _syntax: '*'
+    _property: 'display'
+    _define:
+      - value: 'inline'
+      - media: 'print'
+        value: 'none'
+  call-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+    _define: '0.8em'
+  call-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: '0'
+  section-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  section-hr-border-color:
+    _syntax: '<color>+'
+    _property: 'border-color'
+  section-hr-border-width-block-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-start-width'
+  section-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: 'var(--vs-spacing-rlh)'
+  section-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+  section-ol-list-style-type:
+    _syntax: 'none | <custom-ident> | <string>'
+    _property: 'list-style-type'
+    _define: 'decimal'
+footnote:
+  area-before-border-color-block-start:
+    _syntax: '<color>'
+    _property: 'border-block-start-color'
+  area-before-border-style-block-start:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property: 'border-block-start-style'
+  area-before-border-width-block-start:
+    _syntax: 'medium | thick | thin | <length>'
+    _property: 'border-block-start-width'
+  area-before-display:
+    _syntax: '*'
+    _property: 'display'
+    _define: 'block'
+  area-before-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: 'var(--vs--hr-margin-block)'
+  area-before-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: 'var(--vs--hr-margin-inline)'
+  area-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: 'var(--vs-spacing-rlh)'
+  call-content:
+    _syntax: '*'
+    _property: 'content'
+    _define: "'*' counter(vs-counter-footnote, var(--vs-footnote--counter-style))"
+  call-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+    _define: '0.8em'
+  call-inset-block-start:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'inset-block-start'
+    _define: 'var(--vs--sup-inset-block-start)'
+  call-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: '0'
+  counter-style:
+    _syntax: '*'
+    _define: 'decimal'
+  font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+  font-synthesis:
+    _syntax: '*'
+    _property: 'font-synthesis'
+  font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  item-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: '0'
+  item-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: '0'
+  letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  marker-content:
+    _syntax: '*'
+    _property: 'content'
+    _define: "counter( vs-counter-footnote, var(--vs-footnote--counter-style) ) '. '"
+  marker-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: '0'
+  root-counter-reset:
+    _syntax: '*'
+    _property: 'counter-reset'
+    _define: 'vs-counter-footnote var(--vs-footnote--root-counter-footnote,)'
+  text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  word-spacing:
+    _syntax: 'normal | <length>'
+    _property: 'word-spacing'
+page:
+  background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+    _define: 'var(--vs-background-color)'
+  bleed:
+    _syntax: '<length-percentage>'
+    _property:
+      - 'bleed'
+      - 'margin-bottom'
+      - 'margin-left'
+      - 'margin-right'
+      - 'margin-top'
+      - 'padding-bottom'
+      - 'padding-left'
+      - 'padding-right'
+      - 'padding-top'
+    _define: '0'
+  cover-page-mbox-visibility:
+    _syntax: '*'
+  doc-counter-increment:
+    _syntax: '*'
+    _property: 'counter-increment'
+  height:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'height'
+    _define: 'auto'
+  margin-bottom:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-bottom'
+    _define: '22mm'
+  margin-inner:
+    _syntax: 'auto | <length-percentage>'
+    _property:
+      - 'margin-left'
+      - 'margin-right'
+    _define: '18mm'
+  margin-outer:
+    _syntax: 'auto | <length-percentage>'
+    _property:
+      - 'margin-left'
+      - 'margin-right'
+    _define: '18mm'
+  margin-top:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-top'
+    _define: '22mm'
+  marks:
+    _syntax: '*'
+    _property: 'marks'
+    _define: 'none'
+  mbox-background-color:
+    _syntax: '<color>'
+    _property: 'background-color'
+    _define: 'transparent'
+  mbox-content-bottom-center:
+    _syntax: '*'
+    _property: 'content'
+    _define: 'none'
+  mbox-content-bottom-left:
+    _syntax: '*'
+    _property: 'content'
+    _define: 'none'
+  mbox-content-bottom-left-corner:
+    _syntax: '*'
+    _property: 'content'
+    _define: 'none'
+  mbox-content-bottom-right:
+    _syntax: '*'
+    _property: 'content'
+    _define: 'none'
+  mbox-content-bottom-right-corner:
+    _syntax: '*'
+    _property: 'content'
+    _define: 'none'
+  mbox-content-left-bottom:
+    _syntax: '*'
+    _property: 'content'
+    _define: 'none'
+  mbox-content-left-middle:
+    _syntax: '*'
+    _property: 'content'
+    _define: 'none'
+  mbox-content-left-top:
+    _syntax: '*'
+    _property: 'content'
+    _define: 'none'
+  mbox-content-right-bottom:
+    _syntax: '*'
+    _property: 'content'
+    _define: 'none'
+  mbox-content-right-middle:
+    _syntax: '*'
+    _property: 'content'
+    _define: 'none'
+  mbox-content-right-top:
+    _syntax: '*'
+    _property: 'content'
+    _define: 'none'
+  mbox-content-top-center:
+    _syntax: '*'
+    _property: 'content'
+    _define: 'none'
+  mbox-content-top-left:
+    _syntax: '*'
+    _property: 'content'
+    _define: 'none'
+  mbox-content-top-left-corner:
+    _syntax: '*'
+    _property: 'content'
+    _define: 'none'
+  mbox-content-top-right:
+    _syntax: '*'
+    _property: 'content'
+    _define: 'none'
+  mbox-content-top-right-corner:
+    _syntax: '*'
+    _property: 'content'
+    _define: 'none'
+  mbox-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  mbox-font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  mbox-font-kerning:
+    _syntax: 'auto | none | normal'
+    _property: 'font-kerning'
+  mbox-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  mbox-font-stretch:
+    _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
+    _property: 'font-stretch'
+  mbox-font-variant:
+    _syntax: '*'
+    _property: 'font-variant'
+  mbox-font-variation-settings:
+    _syntax: '*'
+    _property: 'font-variation-settings'
+  mbox-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  mbox-letter-spacing:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'letter-spacing'
+  mbox-padding-bottom-inner:
+    _syntax: '<length-percentage>'
+    _property: 'padding-bottom'
+    _define: '0'
+  mbox-padding-left-inner:
+    _syntax: '<length-percentage>'
+    _property: 'padding-left'
+    _define: '0'
+  mbox-padding-left-outer:
+    _syntax: '<length-percentage>'
+    _property: 'padding-right'
+    _define: '0'
+  mbox-padding-right-inner:
+    _syntax: '<length-percentage>'
+    _property: 'padding-right'
+    _define: '0'
+  mbox-padding-right-outer:
+    _syntax: '<length-percentage>'
+    _property: 'padding-left'
+    _define: '0'
+  mbox-padding-top-inner:
+    _syntax: '<length-percentage>'
+    _property: 'padding-top'
+    _define: '0'
+  mbox-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'inherit'
+  mbox-text-spacing:
+    _syntax: '*'
+    _property: 'text-spacing'
+  mbox-visibility:
+    _syntax: 'collapse | hidden | visible'
+    _property: 'visibility'
+    _define: 'visible'
+  mbox-writing-mode:
+    _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
+    _property: 'writing-mode'
+    _define: 'horizontal-tb'
+  size:
+    _syntax: '*'
+    _property: 'size'
+    _define: 'auto'
+  width:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'width'
+    _define: 'auto'
+prism:
+  atrule-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  attr-name-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  attr-value-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  background:
+    _syntax: '*'
+    _property: 'background'
+    _define: 'none'
+  block-code-border-radius:
+    _syntax: '<length-percentage>+'
+    _property: 'border-radius'
+    _define: '0.3em'
+  block-code-padding:
+    _syntax: '<length-percentage>+'
+    _property: 'padding'
+    _define: '1em'
+  boolean-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  builtin-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  cdata-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  char-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  class-name-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  comment-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  constant-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  deleted-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  doctype-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  entity-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  function-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  important-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  inline-code-border-radius:
+    _syntax: '<length-percentage>+'
+    _property: 'border-radius'
+    _define: '0.3em'
+  inline-code-padding:
+    _syntax: '<length-percentage>+'
+    _property: 'padding'
+    _define: '0.1em'
+  inserted-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  keyword-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  namespace-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  number-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  operator-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  prolog-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  property-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  punctuation-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  regex-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  selector-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  string-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  symbol-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  tag-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'inherit'
+  text-shadow:
+    _syntax: '*'
+    _property: 'text-shadow'
+    _define: 'none'
+  url-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+  variable-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+    _define: 'var(--vs-prism--text-color)'
+section:
+  anchor-text-decoration:
+    _syntax: '*'
+    _property: 'text-decoration'
+    _define:
+      - value: 'none'
+      - media: '(hover: hover)'
+        selector: 'a[data-ref="sec"]:hover'
+        value: 'underline'
+  call-content:
+    _syntax: '*'
+    _property: 'content'
+    _define: "'§' target-counters( attr(href), vs-counter-sections, var(--vs-section--counter-delimiter), var(--vs-section--counter-style) )"
+  call-display:
+    _syntax: '*'
+    _property: 'display'
+    _define: 'inline'
+  call-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: '0'
+  counter-delimiter:
+    _syntax: '*'
+    _define: "'.'"
+  counter-style:
+    _syntax: '*'
+    _define: 'decimal'
+  h1-break-after:
+    _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
+    _property: 'break-after'
+  h1-break-before:
+    _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
+    _property: 'break-before'
+  h1-marker-content:
+    _syntax: '*'
+    _property: 'content'
+  h1-marker-display:
+    _syntax: '*'
+    _property: 'display'
+  h1-marker-margin-inline-end:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-inline-end'
+  h2-break-after:
+    _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
+    _property: 'break-after'
+  h2-break-before:
+    _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
+    _property: 'break-before'
+  h2-marker-content:
+    _syntax: '*'
+    _property: 'content'
+  h2-marker-display:
+    _syntax: '*'
+    _property: 'display'
+  h2-marker-margin-inline-end:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-inline-end'
+  h3-break-after:
+    _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
+    _property: 'break-after'
+  h3-break-before:
+    _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
+    _property: 'break-before'
+  h3-marker-content:
+    _syntax: '*'
+    _property: 'content'
+  h3-marker-display:
+    _syntax: '*'
+    _property: 'display'
+  h3-marker-margin-inline-end:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-inline-end'
+  h4-break-after:
+    _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
+    _property: 'break-after'
+  h4-break-before:
+    _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
+    _property: 'break-before'
+  h4-marker-content:
+    _syntax: '*'
+    _property: 'content'
+  h4-marker-display:
+    _syntax: '*'
+    _property: 'display'
+  h4-marker-margin-inline-end:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-inline-end'
+  h5-break-after:
+    _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
+    _property: 'break-after'
+  h5-break-before:
+    _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
+    _property: 'break-before'
+  h5-marker-content:
+    _syntax: '*'
+    _property: 'content'
+  h5-marker-display:
+    _syntax: '*'
+    _property: 'display'
+  h5-marker-margin-inline-end:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-inline-end'
+  h6-break-after:
+    _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
+    _property: 'break-after'
+  h6-break-before:
+    _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
+    _property: 'break-before'
+  h6-marker-content:
+    _syntax: '*'
+    _property: 'content'
+  h6-marker-display:
+    _syntax: '*'
+    _property: 'display'
+  h6-marker-margin-inline-end:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-inline-end'
+  marker-content:
+    _syntax: '*'
+    _property: 'content'
+    _define: 'counters( vs-counter-sections, var(--vs-section--counter-delimiter), var(--vs-section--counter-style) )'
+  marker-display:
+    _syntax: '*'
+    _property: 'display'
+    _define: 'none'
+  marker-margin-inline-end:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'margin-inline-end'
+    _define: '1ch'
+  root-counter-reset:
+    _syntax: '*'
+    _property: 'counter-reset'
+    _define: 'vs-counter-sections var(--vs-section--root-counter-sections,) vs-counter-sec-h1 var(--vs-section--root-counter-sec-h1,) vs-counter-sec-h2 var(--vs-section--root-counter-sec-h2,) vs-counter-sec-h3 var(--vs-section--root-counter-sec-h3,) vs-counter-sec-h4 var(--vs-section--root-counter-sec-h4,) vs-counter-sec-h5 var(--vs-section--root-counter-sec-h5,) vs-counter-sec-h6 var(--vs-section--root-counter-sec-h6,)'
+toc:
+  anchor-align-items:
+    _syntax: 'anchor-center | baseline | center | end | first | flex-end | flex-start | last | normal | safe | self-end | self-start | start | stretch | unsafe'
+    _property: 'align-items'
+    _define: 'baseline'
+  anchor-text-decoration:
+    _syntax: '*'
+    _property: 'text-decoration'
+    _define:
+      - value: 'none'
+      - media: '(hover: hover)'
+        selector: ':is(#toc,[role="doc-toc"]) li>a:hover'
+        value: 'underline'
+  marker-content:
+    _syntax: '*'
+    _property: 'content'
+    _define: "counters(vs-counter-toc, '.') ' '"
+  marker-display:
+    _syntax: '*'
+    _property: 'display'
+    _define: 'none'
+  marker-padding-inline-end:
+    _syntax: '<length-percentage>'
+    _property: 'padding-inline-end'
+    _define: '1ch'
+  marker-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+    _define: 'end'
+  ol-indent-size:
+    _syntax: 'auto | <length-percentage>'
+    _property:
+      - 'inline-size'
+      - 'inset-inline-start'
+    _define: '2rem'
+  page-counter-display:
+    _syntax: '*'
+    _property: 'display'
+    _define: 'inline'
+  page-counter-style:
+    _syntax: '*'
+    _property: 'content'
+    _define: 'decimal'
+  page-leader-content:
+    _syntax: '*'
+    _property: 'content'
+    _define: "leader('.') ' '"

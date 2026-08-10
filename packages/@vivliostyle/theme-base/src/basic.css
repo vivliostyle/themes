@@ -1,0 +1,707 @@
+/**
+ *  Shared tokens referenced from other variables' default values.
+ *  Declared here so that they are registered even though no CSS property
+ *  consumes them directly.
+ */
+@var {
+  :root {
+    --font-weight-bold: ;
+    --spacing-inline-indent: ;
+    --spacing-rlh: ;
+    --widows-orphans: ;
+  }
+}
+
+*,
+*::before,
+*::after {
+  border-color: var(--vs-border-color);
+}
+
+@var {
+  html {
+    font-family: ;
+    font-feature-settings: ;
+    font-kerning: ;
+    font-size: ;
+    font-stretch: ;
+    font-style: ;
+    font-synthesis: ;
+    font-variant: ;
+    font-variation-settings: ;
+    font-weight: ;
+    letter-spacing: ;
+    line-height: ;
+    background-color: ;
+    color: ;
+    tab-size: ;
+    hyphens: ;
+    line-break: ;
+    overflow-wrap: ;
+    word-break: ;
+    columns: ;
+    column-fill: ;
+    column-gap: ;
+    text-orientation: ;
+    text-underline-offset: ;
+    text-underline-position: ;
+    orphans: ;
+    widows: ;
+    writing-mode: ;
+    text-spacing: ;
+    hanging-punctuation: ;
+    text-align: ;
+    word-spacing: ;
+  }
+}
+
+body {
+  counter-reset: var(--vs-crossref--root-counter-reset,)
+    var(--vs-footnote--root-counter-reset,)
+    var(--vs-section--root-counter-reset,)
+    var(--vs-document-root-counter-reset,);
+}
+
+@var -monospace {
+  code,
+  kbd,
+  pre,
+  samp {
+    font-family: ;
+    font-feature-settings: ;
+    font-kerning: ;
+    font-size: ;
+    font-stretch: ;
+    font-variant: ;
+    font-variation-settings: ;
+    font-weight: ;
+    hyphens: ;
+    letter-spacing: ;
+    line-height: ;
+    text-spacing: ;
+    word-break: ;
+    word-spacing: ;
+  }
+}
+
+h1 {
+  @var -h1 {
+    & {
+      font-size: ;
+    }
+  }
+  @var -h1, -heading {
+    & {
+      break-after: ;
+      break-inside: ;
+      font-family: ;
+      font-feature-settings: ;
+      font-kerning: ;
+      font-stretch: ;
+      font-variant: ;
+      font-variation-settings: ;
+      font-weight: ;
+      hyphens: ;
+      letter-spacing: ;
+      line-height: ;
+      margin-block: ;
+      margin-inline: ;
+      text-align: ;
+      text-indent: ;
+      text-spacing: ;
+      word-break: ;
+      word-spacing: ;
+    }
+  }
+}
+
+h2 {
+  @var -h2 {
+    & {
+      font-size: ;
+    }
+  }
+  @var -h2, -heading {
+    & {
+      break-after: ;
+      break-inside: ;
+      font-family: ;
+      font-feature-settings: ;
+      font-kerning: ;
+      font-stretch: ;
+      font-variant: ;
+      font-variation-settings: ;
+      font-weight: ;
+      hyphens: ;
+      letter-spacing: ;
+      line-height: ;
+      margin-block: ;
+      margin-inline: ;
+      text-align: ;
+      text-indent: ;
+      text-spacing: ;
+      word-break: ;
+      word-spacing: ;
+    }
+  }
+}
+
+h3 {
+  @var -h3 {
+    & {
+      font-size: ;
+    }
+  }
+  @var -h3, -heading {
+    & {
+      break-after: ;
+      break-inside: ;
+      font-family: ;
+      font-feature-settings: ;
+      font-kerning: ;
+      font-stretch: ;
+      font-variant: ;
+      font-variation-settings: ;
+      font-weight: ;
+      hyphens: ;
+      letter-spacing: ;
+      line-height: ;
+      margin-block: ;
+      margin-inline: ;
+      text-align: ;
+      text-indent: ;
+      text-spacing: ;
+      word-break: ;
+      word-spacing: ;
+    }
+  }
+}
+
+h4 {
+  @var -h4 {
+    & {
+      font-size: ;
+    }
+  }
+  @var -h4, -heading {
+    & {
+      break-after: ;
+      break-inside: ;
+      font-family: ;
+      font-feature-settings: ;
+      font-kerning: ;
+      font-stretch: ;
+      font-variant: ;
+      font-variation-settings: ;
+      font-weight: ;
+      hyphens: ;
+      letter-spacing: ;
+      line-height: ;
+      margin-block: ;
+      margin-inline: ;
+      text-align: ;
+      text-indent: ;
+      text-spacing: ;
+      word-break: ;
+      word-spacing: ;
+    }
+  }
+}
+
+h5 {
+  @var -h5 {
+    & {
+      font-size: ;
+    }
+  }
+  @var -h5, -heading {
+    & {
+      break-after: ;
+      break-inside: ;
+      font-family: ;
+      font-feature-settings: ;
+      font-kerning: ;
+      font-stretch: ;
+      font-variant: ;
+      font-variation-settings: ;
+      font-weight: ;
+      hyphens: ;
+      letter-spacing: ;
+      line-height: ;
+      margin-block: ;
+      margin-inline: ;
+      text-align: ;
+      text-indent: ;
+      text-spacing: ;
+      word-break: ;
+      word-spacing: ;
+    }
+  }
+}
+
+h6 {
+  @var -h6 {
+    & {
+      font-size: ;
+    }
+  }
+  @var -h6, -heading {
+    & {
+      break-after: ;
+      break-inside: ;
+      font-family: ;
+      font-feature-settings: ;
+      font-kerning: ;
+      font-stretch: ;
+      font-variant: ;
+      font-variation-settings: ;
+      font-weight: ;
+      hyphens: ;
+      letter-spacing: ;
+      line-height: ;
+      margin-block: ;
+      margin-inline: ;
+      text-align: ;
+      text-indent: ;
+      text-spacing: ;
+      word-break: ;
+      word-spacing: ;
+    }
+  }
+}
+
+b,
+strong {
+  @var -bold {
+    & {
+      font-size: ;
+      font-weight: ;
+      vertical-align: ;
+    }
+  }
+
+  @var -bold, -heading {
+    & {
+      font-family: ;
+      font-feature-settings: ;
+      font-kerning: ;
+      font-stretch: ;
+      font-variant: ;
+      font-variation-settings: ;
+    }
+  }
+}
+
+@var -del {
+  del {
+    text-decoration: ;
+  }
+}
+
+@var -emphasis {
+  em {
+    font-family: ;
+    font-feature-settings: ;
+    font-kerning: ;
+    font-size: ;
+    font-style: ;
+    font-stretch: ;
+    font-variant: ;
+    font-variation-settings: ;
+    font-weight: ;
+    vertical-align: ;
+  }
+}
+
+:is(b, strong) em {
+  @var -bold-emphasis {
+    & {
+      vertical-align: unset;
+    }
+  }
+
+  @var -bold-emphasis, -emphasis {
+    & {
+      font-family: ;
+      font-feature-settings: ;
+      font-kerning: ;
+      font-size: ;
+      font-stretch: ;
+      font-variant: ;
+      font-variation-settings: ;
+      font-weight: ;
+    }
+  }
+}
+
+em :is(b, strong) {
+  @var -bold-emphasis {
+    & {
+      vertical-align: unset;
+    }
+  }
+
+  @var -bold-emphasis, -bold {
+    & {
+      font-family: ;
+      font-feature-settings: ;
+      font-kerning: ;
+      font-size: ;
+      font-stretch: ;
+      font-variant: ;
+      font-variation-settings: ;
+      font-weight: ;
+    }
+  }
+}
+
+@var -big {
+  big {
+    font-size: ;
+    vertical-align: ;
+  }
+}
+
+@var -small {
+  small {
+    font-size: ;
+    vertical-align: ;
+  }
+}
+
+@var -sub {
+  sub {
+    font-size: ;
+    inset-block-end: ;
+  }
+}
+
+@var -sup {
+  sup {
+    font-size: ;
+    inset-block-start: ;
+  }
+}
+
+@var -rt {
+  rt {
+    font-size: ;
+  }
+}
+
+@var -hr {
+  hr {
+    border-block-start-width: ;
+    border-color: ;
+    margin-block: ;
+    margin-inline: ;
+  }
+}
+
+@var -anchor {
+  a {
+    color: ;
+    text-decoration: ;
+  }
+}
+
+@var -img {
+  img {
+    image-resolution: ;
+  }
+}
+
+@var -p {
+  p {
+    hanging-punctuation: ;
+    hyphens: ;
+    letter-spacing: ;
+    line-height: ;
+    margin-block: ;
+    margin-inline: ;
+    text-align: ;
+    text-indent: ;
+    text-spacing: ;
+    word-break: ;
+    word-spacing: ;
+  }
+}
+
+@var -blockquote {
+  blockquote {
+    font-size: ;
+    margin-block: ;
+    margin-inline: ;
+    writing-mode: ;
+  }
+}
+
+@var -figure {
+  figure {
+    align-items: ;
+    break-inside: ;
+    display: ;
+    flex-direction: ;
+    margin-block: ;
+    margin-inline: ;
+    writing-mode: ;
+  }
+}
+
+figure > :not(:is(picture, figcaption)),
+figure > picture > img {
+  max-inline-size: 100%;
+  padding-inline: var(--vs--figure-item-padding-inline);
+}
+
+figure img {
+  object-fit: contain;
+}
+
+figure table {
+  margin: 0;
+}
+
+@var -figcaption {
+  figcaption {
+    break-inside: ;
+    font-size: ;
+    margin-block: ;
+    margin-inline: ;
+    text-align: ;
+    text-indent: ;
+  }
+}
+
+@var -lists {
+  ul,
+  ol,
+  dl {
+    margin-block: ;
+    margin-inline: ;
+  }
+}
+
+:is(ul, ol) :is(ul, ol),
+dl dl {
+  margin-block: 0;
+  margin-inline: 0;
+}
+
+ul {
+  @var -ul {
+    & {
+      list-style-type: ;
+    }
+  }
+  @var -ul, -lists {
+    & {
+      padding-inline-start: ;
+      text-align: ;
+      text-indent: ;
+    }
+  }
+}
+
+ul:not(:is(ul *, ol *)) {
+  padding-inline-start: max(
+    var(--vs--ul-padding-inline-start),
+    var(--vs--ul-minimum-inline-indent-size)
+  );
+}
+
+ol {
+  @var -ol {
+    & {
+      list-style-type: ;
+    }
+  }
+  @var -ol, -lists {
+    & {
+      padding-inline-start: ;
+      text-align: ;
+      text-indent: ;
+    }
+  }
+}
+
+ol:not(:is(ul *, ol *)) {
+  padding-inline-start: max(
+    var(--vs--ol-padding-inline-start),
+    var(--vs--ol-minimum-inline-indent-size)
+  );
+}
+
+@var -dt-dd {
+  dt,
+  dd {
+    display: ;
+  }
+}
+
+@var -dt, -lists {
+  dt {
+    text-align: ;
+    text-indent: ;
+  }
+}
+
+dd {
+  @var -dd {
+    & {
+      margin-inline-start: ;
+    }
+  }
+
+  @var -dd, -lists {
+    & {
+      text-align: ;
+      text-indent: ;
+    }
+  }
+}
+
+@var -pre {
+  pre {
+    margin-block: ;
+    margin-inline: ;
+    font-size: ;
+    overflow-x: ;
+    padding-block: ;
+    padding-inline: ;
+    text-align: ;
+    white-space: ;
+    word-break: ;
+    writing-mode: ;
+  }
+}
+
+@var -table {
+  table {
+    border-block-start-width: var(
+      --vs--table-border-width-outer,
+      var(--vs--table-border-width)
+    );
+    border-block-end-width: var(
+      --vs--table-border-width-outer,
+      var(--vs--table-border-width)
+    );
+    border-inline-start-width: var(
+      --vs--table-border-width-outer,
+      var(--vs--table-border-width)
+    );
+    border-inline-end-width: var(
+      --vs--table-border-width-outer,
+      var(--vs--table-border-width)
+    );
+    break-inside: ;
+    font-size: ;
+    margin-block: ;
+    margin-inline: ;
+    writing-mode: ;
+  }
+}
+
+@var -table {
+  table,
+  tr,
+  th,
+  td {
+    border-color: var(--vs-border-color);
+  }
+}
+
+table {
+  max-block-size: 100%;
+  max-inline-size: 100%;
+}
+
+@var -table-container {
+  *:has(> table) {
+    overflow-x: ;
+  }
+}
+
+@var -table-cell {
+  th,
+  td {
+    padding-block: ;
+    padding-inline: ;
+  }
+}
+
+@var -th, -bold, -heading {
+  th {
+    font-family: ;
+    font-feature-settings: ;
+    font-kerning: ;
+    font-stretch: ;
+    font-variant: ;
+    font-variation-settings: ;
+  }
+}
+
+@var -th, -bold {
+  th {
+    font-size: ;
+    font-weight: ;
+  }
+}
+
+@var -th, -table {
+  th {
+    text-align: center;
+  }
+}
+
+@var -td, -table {
+  td {
+    text-align: ;
+  }
+}
+
+tr:not(:last-child) {
+  border-block-end-width: var(
+    --vs--table-border-width-row,
+    var(--vs--table-border-width-cell, var(--vs--table-border-width))
+  );
+}
+
+thead > tr:last-child {
+  border-block-end-width: var(
+    --vs--table-border-width-thead-inner,
+    var(--vs--table-border-width-cell, var(--vs--table-border-width))
+  );
+}
+
+tfoot > tr:first-child {
+  border-block-start-width: var(
+    --vs--table-border-width-tfoot-inner,
+    var(--vs--table-border-width-cell, var(--vs--table-border-width))
+  );
+}
+
+th:not(:last-child),
+td:not(:last-child) {
+  border-inline-end-width: var(
+    --vs--table-border-width-column,
+    var(--vs--table-border-width-cell, var(--vs--table-border-width))
+  );
+}
+
+:is(tr, th, td, tbody, thead, tfoot, col, colgroup)[align='left'] {
+  text-align: left;
+}
+
+:is(tr, th, td, tbody, thead, tfoot, col, colgroup)[align='right'] {
+  text-align: right;
+}
+
+:is(tr, th, td, tbody, thead, tfoot, col, colgroup)[align='center'] {
+  text-align: center;
+}
+
+:is(tr, th, td, tbody, thead, tfoot, col, colgroup)[align='justify'] {
+  text-align: justify;
+  text-align-last: justify;
+}

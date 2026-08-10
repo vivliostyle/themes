@@ -5,7 +5,7 @@ export default defineConfig({
   title: 'The Adventures of Sherlock Holmes',
   language: 'en',
   size: 'A5',
-  theme: 'sherlock.css',
+  theme: ['../theme-base', 'sherlock.css'],
   entry: [
     'example/sherlock/cover.md',
     'example/sherlock/copyright.md',
@@ -34,6 +34,10 @@ export default defineConfig({
       format: 'webpub',
     },
   ],
-  toc: true,
-  tocTitle: 'Contents',
+  copyAsset: {
+    excludes: ['alice/**', 'fang/**', 'sherlock/**'],
+  },
+  toc: {
+    title: 'Contents',
+  },
 });

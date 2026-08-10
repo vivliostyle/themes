@@ -24,7 +24,7 @@
   "type": "module",
   "scripts": {
     "build": "shx rm -rf lib && NODE_ENV=production tsc && shx chmod +x lib/cli.cjs",
-    "dev": "tsc -w",
+    "dev": "tsc -w --preserveWatchOutput",
     "prepare": "pnpm run build"
   },
   "dependencies": {

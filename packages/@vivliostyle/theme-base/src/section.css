@@ -1,0 +1,156 @@
+@var section {
+  @var counter {
+    :root {
+      --delimiter: ;
+      --style: ;
+    }
+  }
+}
+
+@var section {
+  @var anchor {
+    a[data-ref='sec'] {
+      text-decoration: ;
+    }
+  }
+
+  @var call {
+    a[data-ref='sec'] {
+      margin-inline: ;
+    }
+
+    a[data-ref='sec']::before {
+      content: ;
+      display: ;
+    }
+  }
+}
+
+@var section {
+  @var h1-marker, marker {
+    section > h1:first-child::before {
+      content: ;
+      display: ;
+      margin-inline-end: ;
+    }
+  }
+
+  @var h2-marker, marker {
+    section > h2:first-child::before {
+      content: ;
+      display: ;
+      margin-inline-end: ;
+    }
+  }
+
+  @var h3-marker, marker {
+    section > h3:first-child::before {
+      content: ;
+      display: ;
+      margin-inline-end: ;
+    }
+  }
+
+  @var h4-marker, marker {
+    section > h4:first-child::before {
+      content: ;
+      display: ;
+      margin-inline-end: ;
+    }
+  }
+
+  @var h5-marker, marker {
+    section > h5:first-child::before {
+      content: ;
+      display: ;
+      margin-inline-end: ;
+    }
+  }
+
+  @var h6-marker, marker {
+    section > h6:first-child::before {
+      content: ;
+      display: ;
+      margin-inline-end: ;
+    }
+  }
+}
+
+section:has(> h1:first-child) {
+  counter-increment: vs-counter-sections vs-counter-sec-h1;
+  counter-reset: vs-counter-sec-h2;
+
+  @var section.h1 {
+    break-after: ;
+    break-before: ;
+  }
+}
+
+section:has(> h2:first-child) {
+  counter-increment: vs-counter-sections vs-counter-sec-h2;
+  counter-reset: vs-counter-sec-h3;
+
+  @var section.h2 {
+    break-after: ;
+    break-before: ;
+  }
+}
+
+section:has(> h3:first-child) {
+  counter-increment: vs-counter-sections vs-counter-sec-h3;
+  counter-reset: vs-counter-sec-h4;
+
+  @var section.h3 {
+    break-after: ;
+    break-before: ;
+  }
+}
+
+section:has(> h4:first-child) {
+  counter-increment: vs-counter-sections vs-counter-sec-h4;
+  counter-reset: vs-counter-sec-h5;
+
+  @var section.h4 {
+    break-after: ;
+    break-before: ;
+  }
+}
+
+section:has(> h5:first-child) {
+  counter-increment: vs-counter-sections vs-counter-sec-h5;
+  counter-reset: vs-counter-sec-h6;
+
+  @var section.h5 {
+    break-after: ;
+    break-before: ;
+  }
+}
+
+section:has(> h6:first-child) {
+  counter-increment: vs-counter-sections vs-counter-sec-h6;
+
+  @var section.h6 {
+    break-after: ;
+    break-before: ;
+  }
+}
+
+section > h1:first-child + section:has(> h2:first-child) {
+  counter-reset: vs-counter-sections vs-counter-sec-h3;
+}
+
+section > h2:first-child + section:has(> h3:first-child) {
+  counter-reset: vs-counter-sections vs-counter-sec-h4;
+}
+
+section > h3:first-child + section:has(> h4:first-child) {
+  counter-reset: vs-counter-sections vs-counter-sec-h5;
+}
+
+section > h4:first-child + section:has(> h5:first-child) {
+  counter-reset: vs-counter-sections vs-counter-sec-h6;
+}
+
+section > h5:first-child + section:has(> h6:first-child) {
+  counter-reset: vs-counter-sections;
+}

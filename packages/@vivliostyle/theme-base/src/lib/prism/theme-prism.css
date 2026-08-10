@@ -1,0 +1,44 @@
+:root {
+  --vs-prism--background: #f5f2f0;
+  --vs-prism--text-color: black;
+  --vs-prism--text-shadow: 0 1px white;
+
+  --vs-prism--comment-text-color: slategray;
+  --vs-prism--prolog-text-color: slategray;
+  --vs-prism--doctype-text-color: slategray;
+  --vs-prism--cdata-text-color: slategray;
+
+  --vs-prism--punctuation-text-color: #999;
+
+  --vs-prism--namespace-text-color: rgba(0, 0, 0, 0.7);
+
+  --vs-prism--property-text-color: #905;
+  --vs-prism--tag-text-color: #905;
+  --vs-prism--boolean-text-color: #905;
+  --vs-prism--number-text-color: #905;
+  --vs-prism--constant-text-color: #905;
+  --vs-prism--symbol-text-color: #905;
+  --vs-prism--deleted-text-color: #905;
+
+  --vs-prism--selector-text-color: #690;
+  --vs-prism--attr-name-text-color: #690;
+  --vs-prism--string-text-color: #690;
+  --vs-prism--char-text-color: #690;
+  --vs-prism--builtin-text-color: #690;
+  --vs-prism--inserted-text-color: #690;
+
+  --vs-prism--operator-text-color: #9a6e3a;
+  --vs-prism--entity-text-color: #9a6e3a;
+  --vs-prism--url-text-color: #9a6e3a;
+
+  --vs-prism--atrule-text-color: #07a;
+  --vs-prism--attr-value-text-color: #07a;
+  --vs-prism--keyword-text-color: #07a;
+
+  --vs-prism--function-text-color: #dd4a68;
+  --vs-prism--class-name-text-color: #dd4a68;
+
+  --vs-prism--regex-text-color: #e90;
+  --vs-prism--important-text-color: #e90;
+  --vs-prism--variable-text-color: #e90;
+}
