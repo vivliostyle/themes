@@ -146,3 +146,7 @@ Create Vivliostyle theme at ease
 theme library and scripts
 
 <!-- END top -->
+
+## Credits
+
+This project uses generative AI tools in its development and discloses that use in [AI_POLICY.md](AI_POLICY.md), following NLnet's generative AI policy.
