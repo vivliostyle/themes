@@ -79,22 +79,6 @@ module.exports = {
 
 > original author: `Vivliostyle <mail@vivliostyle.org>`
 
-### [Gutenberg](packages/@vivliostyle/theme-gutenberg)
-
-Book theme for latin font
-
-[![](https://img.shields.io/npm/v/@vivliostyle/theme-gutenberg.svg)](https://npmjs.com/package/@vivliostyle/theme-gutenberg)
-[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-gutenberg)](https://npmjs.com/package/@vivliostyle/theme-gutenberg)
-![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-gutenberg)
-
-```js
-module.exports = {
-  theme: '@vivliostyle/theme-gutenberg',
-};
-```
-
-> original author: `Vivliostyle <mail@vivliostyle.org>`
-
 ### [Slide](packages/@vivliostyle/theme-slide)
 
 Slide theme
@@ -106,6 +90,22 @@ Slide theme
 ```js
 module.exports = {
   theme: '@vivliostyle/theme-slide',
+};
+```
+
+> original author: `Vivliostyle <mail@vivliostyle.org>`
+
+### [Gutenberg](packages/@vivliostyle/theme-gutenberg)
+
+Book theme for latin font
+
+[![](https://img.shields.io/npm/v/@vivliostyle/theme-gutenberg.svg)](https://npmjs.com/package/@vivliostyle/theme-gutenberg)
+[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-gutenberg)](https://npmjs.com/package/@vivliostyle/theme-gutenberg)
+![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-gutenberg)
+
+```js
+module.exports = {
+  theme: '@vivliostyle/theme-gutenberg',
 };
 ```
 
