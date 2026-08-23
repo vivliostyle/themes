@@ -33,7 +33,6 @@
     --vs-prism--string-text-color: var(--vs-prism--text-color);
     --vs-prism--symbol-text-color: var(--vs-prism--text-color);
     --vs-prism--tag-text-color: var(--vs-prism--text-color);
-    --vs-prism--text-color: inherit;
     --vs-prism--text-shadow: none;
     --vs-prism--url-text-color: var(--vs-prism--text-color);
     --vs-prism--variable-text-color: var(--vs-prism--text-color);

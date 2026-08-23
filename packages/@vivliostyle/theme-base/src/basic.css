@@ -14,7 +14,6 @@
     --vs-columns: 1;
     --vs-counter-style: decimal;
     --vs-font-family: sans-serif;
-    --vs-font-family-secondary: inherit;
     --vs-font-feature-settings: normal;
     --vs-font-kerning: auto;
     --vs-font-size: 100%;
@@ -38,8 +37,6 @@
     --vs-tab-size: 4;
     --vs-text-align: start;
     --vs-text-color: #000;
-    --vs-text-color-muted: inherit;
-    --vs-text-orientation: unset;
     --vs-text-spacing: auto;
     --vs-text-underline-offset: auto;
     --vs-text-underline-position: left;
@@ -71,7 +68,6 @@
     --vs--blockquote-margin-inline: var(--vs-spacing-inline-indent) 0;
     --vs--blockquote-padding-block: 0;
     --vs--blockquote-padding-inline: 0;
-    --vs--blockquote-writing-mode: unset;
     --vs--bold-font-weight: var(--vs-font-weight-bold);
     --vs--bold-margin-inline: 0;
     --vs--caption-display: table-caption;
@@ -104,7 +100,6 @@
     --vs--figure-margin-inline: 0;
     --vs--figure-table-margin-block: 0;
     --vs--figure-table-margin-inline: 0;
-    --vs--figure-writing-mode: unset;
     --vs--h1-font-size: 2em;
     --vs--h2-font-size: 1.5em;
     --vs--h3-font-size: 1.17em;
@@ -132,9 +127,7 @@
     --vs--heading-margin-inline: 0;
     --vs--heading-padding-block: 0;
     --vs--heading-padding-inline: 0;
-    --vs--heading-text-color: inherit;
     --vs--heading-text-indent: 0;
-    --vs--heading-text-spacing: inherit;
     --vs--hr-border-color: var(--vs-border-color);
     --vs--hr-border-style-block-start: var(--vs-border-style);
     --vs--hr-border-width-block-start: var(--vs-border-width);
@@ -159,11 +152,7 @@
     --vs--math-font-style: normal;
     --vs--monospace-font-family: monospace;
     --vs--monospace-font-kerning: none;
-    --vs--monospace-font-size: inherit;
-    --vs--monospace-font-weight: inherit;
     --vs--monospace-hyphens: none;
-    --vs--monospace-letter-spacing: inherit;
-    --vs--monospace-line-height: inherit;
     --vs--monospace-text-spacing: none;
     --vs--ol-list-style-type: decimal;
     --vs--p-margin-block: var(--vs-spacing-rlh);
@@ -172,7 +161,6 @@
     --vs--p-padding-inline: 0;
     --vs--p-text-align: justify;
     --vs--p-text-indent: 0;
-    --vs--p-text-spacing: inherit;
     --vs--pre-background-color: var(--vs-background-color-alt);
     --vs--pre-border-color-block-end: var(--vs-border-color);
     --vs--pre-border-color-block-start: var(--vs-border-color);
@@ -200,7 +188,6 @@
     --vs--pre-text-align: start;
     --vs--pre-white-space: pre;
     --vs--pre-word-break: break-all;
-    --vs--pre-writing-mode: unset;
     --vs--rt-font-size: 0.5em;
     --vs--rt-letter-spacing: normal;
     --vs--small-font-size: 0.83em;
@@ -236,7 +223,6 @@
     --vs--table-row-odd-background-color: transparent;
     --vs--table-size-inline: auto;
     --vs--table-table-layout: auto;
-    --vs--table-writing-mode: unset;
     --vs--th-background-color: var(--vs-background-color-alt);
     --vs--ul-list-style-type: disc;
   }

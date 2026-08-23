@@ -81,7 +81,6 @@ _meta-properties:
     _define: 'sans-serif'
   font-family-secondary:
     _syntax: '*'
-    _define: 'inherit'
   font-feature-settings:
     _syntax: '*'
     _property: 'font-feature-settings'
@@ -173,11 +172,9 @@ _meta-properties:
     _define: '#000'
   text-color-muted:
     _syntax: '*'
-    _define: 'inherit'
   text-orientation:
     _syntax: 'mixed | sideways | upright'
     _property: 'text-orientation'
-    _define: 'unset'
   text-spacing:
     _syntax: '*'
     _property: 'text-spacing'
@@ -333,7 +330,6 @@ _basic:
   blockquote-writing-mode:
     _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
     _property: 'writing-mode'
-    _define: 'unset'
   bold-emphasis-font-family:
     _syntax: '*'
     _property: 'font-family'
@@ -652,7 +648,6 @@ _basic:
   figure-writing-mode:
     _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
     _property: 'writing-mode'
-    _define: 'unset'
   h1-background-color:
     _syntax: '<color>'
     _property: 'background-color'
@@ -1478,7 +1473,6 @@ _basic:
   heading-text-color:
     _syntax: '<color>'
     _property: 'color'
-    _define: 'inherit'
   heading-text-indent:
     _syntax: '*'
     _property: 'text-indent'
@@ -1486,7 +1480,6 @@ _basic:
   heading-text-spacing:
     _syntax: '*'
     _property: 'text-spacing'
-    _define: 'inherit'
   heading-text-transform:
     _syntax: '*'
     _property: 'text-transform'
@@ -1626,7 +1619,6 @@ _basic:
   monospace-font-size:
     _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
     _property: 'font-size'
-    _define: 'inherit'
   monospace-font-stretch:
     _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
     _property: 'font-stretch'
@@ -1642,7 +1634,6 @@ _basic:
   monospace-font-weight:
     _syntax: 'bold | bolder | lighter | normal | <number>'
     _property: 'font-weight'
-    _define: 'inherit'
   monospace-hyphens:
     _syntax: 'auto | manual | none'
     _property: 'hyphens'
@@ -1650,11 +1641,9 @@ _basic:
   monospace-letter-spacing:
     _syntax: 'normal | <length-percentage>'
     _property: 'letter-spacing'
-    _define: 'inherit'
   monospace-line-height:
     _syntax: 'normal | <length> | <number> | <percentage>'
     _property: 'line-height'
-    _define: 'inherit'
   monospace-text-spacing:
     _syntax: '*'
     _property: 'text-spacing'
@@ -1726,7 +1715,6 @@ _basic:
   p-text-spacing:
     _syntax: '*'
     _property: 'text-spacing'
-    _define: 'inherit'
   p-word-break:
     _syntax: 'auto-phrase | break-all | break-word | keep-all | normal'
     _property: 'word-break'
@@ -1853,7 +1841,6 @@ _basic:
   pre-writing-mode:
     _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
     _property: 'writing-mode'
-    _define: 'unset'
   rt-font-family:
     _syntax: '*'
     _property: 'font-family'
@@ -2208,7 +2195,6 @@ _basic:
   table-writing-mode:
     _syntax: 'horizontal-tb | lr | lr-tb | rl | rl-tb | sideways-lr | sideways-rl | tb | tb-rl | vertical-lr | vertical-rl'
     _property: 'writing-mode'
-    _define: 'unset'
   td-background-color:
     _syntax: '<color>'
     _property: 'background-color'
@@ -5313,7 +5299,6 @@ prism:
   text-color:
     _syntax: '<color>'
     _property: 'color'
-    _define: 'inherit'
   text-shadow:
     _syntax: '*'
     _property: 'text-shadow'

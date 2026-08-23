@@ -507,16 +507,13 @@ function mergeEntry(
   if ('_property' in generated) {
     merged._property = generated._property;
   }
-  // `_define` stays hand-written until it has moved into `@define` blocks, so
-  // the generated value only wins where such a block provides one.
+  // `_define` mirrors the `@define` blocks alone; a value left in the spec
+  // file after its block is gone must not resurrect the definition.
   if ('_define' in generated) {
     merged._define = generated._define;
   }
   for (const [field, value] of Object.entries(previous)) {
-    if (field === '_syntax' || field === '_property') {
-      continue;
-    }
-    if (field === '_define' && '_define' in generated) {
+    if (field === '_syntax' || field === '_property' || field === '_define') {
       continue;
     }
     merged[field] = value;
