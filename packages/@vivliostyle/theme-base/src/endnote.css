@@ -1,3 +1,49 @@
+@define {
+  :root {
+    --vs-endnote--anchor-text-decoration: none;
+    --vs-endnote--backlink-display: inline;
+    --vs-endnote--call-content: none;
+    --vs-endnote--call-font-size: 0.8em;
+    --vs-endnote--call-margin-inline: 0;
+    --vs-endnote--call-sup-font-size: 100%;
+    --vs-endnote--counter-style: decimal;
+    --vs-endnote--item-margin-block: 0;
+    --vs-endnote--item-padding-inline-start: 0;
+    --vs-endnote--marker-content: none;
+    --vs-endnote--marker-display: inline;
+    --vs-endnote--marker-margin-inline: 0;
+    --vs-endnote--root-counter-reset: vs-counter-endnote
+      var(--vs-endnote--root-counter-endnote,) vs-counter-endnote-call
+      var(--vs-endnote--root-counter-endnote-call,);
+    --vs-endnote--section-heading-content: none;
+    --vs-endnote--section-heading-display: block;
+    --vs-endnote--section-heading-margin-block: var(--vs-spacing-rlh);
+    --vs-endnote--section-hr-display: block;
+    --vs-endnote--section-hr-margin-block: var(--vs--hr-margin-block);
+    --vs-endnote--section-hr-margin-inline: var(--vs--hr-margin-inline);
+    --vs-endnote--section-hr-size-inline: auto;
+    --vs-endnote--section-margin-block: var(--vs-spacing-rlh);
+    --vs-endnote--section-ol-list-style-type: decimal;
+    --vs-endnote--section-ol-margin-block: var(--vs--lists-margin-block);
+    --vs-endnote--section-ol-padding-inline-start: var(
+      --vs--ol-padding-inline-start,
+      var(--vs--lists-padding-inline-start)
+    );
+  }
+
+  @media (hover: hover) {
+    a:is(.footnote-ref, .footnote-back):hover {
+      --vs-endnote--anchor-text-decoration: underline;
+    }
+  }
+
+  @media print {
+    :root {
+      --vs-endnote--backlink-display: none;
+    }
+  }
+}
+
 @var endnote {
   @var counter {
     :root {

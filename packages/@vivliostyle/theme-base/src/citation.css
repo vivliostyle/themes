@@ -1,10 +1,39 @@
-@var citation {
-  @var . {
-    :root {
-      --counter-style: ;
-    }
+@define {
+  :root {
+    --vs-citation--call-content: '['
+      target-counter(
+        attr(href),
+        vs-counter-cite,
+        var(--vs-citation--counter-style, var(--vs-counter-style))
+      )
+      ']';
+    --vs-citation--item-margin-block: 0;
+    --vs-citation--item-padding-inline-start: 0;
+    --vs-citation--items-margin-block: var(--vs--lists-margin-block);
+    --vs-citation--items-padding-inline-start: var(
+      --vs--ol-padding-inline-start,
+      var(--vs--lists-padding-inline-start)
+    );
+    --vs-citation--marker-content: '['
+      counter(
+        vs-counter-cite,
+        var(--vs-citation--counter-style, var(--vs-counter-style))
+      )
+      ']';
+    --vs-citation--marker-display: inline;
+    --vs-citation--marker-inset-inline-start: -2rem;
+    --vs-citation--root-counter-reset: vs-counter-cite
+      var(--vs-citation--root-counter-cite,);
   }
 
+  @media screen {
+    :root {
+      --vs-citation--call-content: '[???]';
+    }
+  }
+}
+
+@var citation {
   @var call {
     a:is([data-ref='cite'], [role='doc-biblioref'])::before {
       content: ;

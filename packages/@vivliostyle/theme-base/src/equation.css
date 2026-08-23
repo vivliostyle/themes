@@ -1,10 +1,41 @@
+@define {
+  :root {
+    --vs-equation--call-content: var(--vs-equation--label) '('
+      var(--vs-crossref-call-counter-prefix, '')
+      target-counter(
+        attr(href),
+        vs-counter-eq,
+        var(--vs-equation--counter-style, var(--vs-counter-style))
+      )
+      ')';
+    --vs-equation--item-text-align: center;
+    --vs-equation--label: 'Eq. ';
+    --vs-equation--margin-block: var(--vs-spacing-rlh);
+    --vs-equation--marker-content: '('
+      var(--vs-crossref-marker-counter-prefix, '')
+      counter(
+        vs-counter-eq,
+        var(--vs-equation--counter-style, var(--vs-counter-style))
+      )
+      ')';
+    --vs-equation--marker-display: inline;
+    --vs-equation--root-counter-reset: vs-counter-eq
+      var(--vs-equation--root-counter-eq,);
+  }
+
+  @media screen {
+    :root {
+      --vs-equation--call-content: var(--vs-equation--label) '(???)';
+    }
+  }
+
+  :root:lang(ja) {
+    --vs-equation--label: '式';
+  }
+}
+
 @var equation {
   @var . {
-    :root {
-      --counter-style: ;
-      --label: ;
-    }
-
     .equation {
       margin-block: ;
     }

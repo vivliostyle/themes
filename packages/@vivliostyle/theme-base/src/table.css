@@ -1,11 +1,37 @@
-@var table {
-  @var . {
+@define {
+  :root {
+    --vs-table--call-content: var(--vs-table--label)
+      var(--vs-crossref-call-counter-prefix, '')
+      target-counter(
+        attr(href),
+        vs-counter-tbl,
+        var(--vs-table--counter-style, var(--vs-counter-style))
+      );
+    --vs-table--label: 'Table ';
+    --vs-table--marker-content: var(--vs-table--label)
+      var(--vs-crossref-marker-counter-prefix, '')
+      counter(
+        vs-counter-tbl,
+        var(--vs-table--counter-style, var(--vs-counter-style))
+      )
+      ': ';
+    --vs-table--marker-display: inline;
+    --vs-table--root-counter-reset: vs-counter-tbl
+      var(--vs-table--root-counter-tbl,);
+  }
+
+  @media screen {
     :root {
-      --counter-style: ;
-      --label: ;
+      --vs-table--call-content: var(--vs-table--label) '???';
     }
   }
 
+  :root:lang(ja) {
+    --vs-table--label: '表';
+  }
+}
+
+@var table {
   @var call {
     a[data-ref='tbl']::before {
       content: ;

@@ -1,11 +1,45 @@
-@var appendix {
-  @var . {
+@define {
+  :root {
+    --vs-appendix--call-content: var(--vs-appendix--label)
+      var(--vs-crossref-call-counter-prefix, '')
+      target-counter(
+        attr(href),
+        vs-counter-appendix,
+        var(--vs-appendix--counter-style, var(--vs-counter-style))
+      );
+    --vs-appendix--counter-style: upper-alpha;
+    --vs-appendix--label: 'Appendix ';
+    --vs-appendix--marker-content: var(--vs-appendix--label)
+      var(--vs-crossref-marker-counter-prefix, '')
+      counter(
+        vs-counter-appendix,
+        var(--vs-appendix--counter-style, var(--vs-counter-style))
+      )
+      ' ';
+    --vs-appendix--marker-display: inline;
+    --vs-appendix--root-counter-reset: vs-counter-appendix
+      var(--vs-appendix--root-counter-appendix,);
+  }
+
+  @media screen {
     :root {
-      --counter-style: ;
-      --label: ;
+      --vs-appendix--call-content: var(--vs-appendix--label) '???';
     }
   }
 
+  :root:lang(ja) {
+    --vs-appendix--label: '付録';
+    --vs-appendix--marker-content: var(--vs-appendix--label)
+      var(--vs-crossref-marker-counter-prefix, '')
+      counter(
+        vs-counter-appendix,
+        var(--vs-appendix--counter-style, var(--vs-counter-style))
+      )
+      '　';
+  }
+}
+
+@var appendix {
   @var call {
     a[data-ref='appendix']::before {
       content: ;

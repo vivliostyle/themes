@@ -1,11 +1,37 @@
-@var listing {
-  @var . {
+@define {
+  :root {
+    --vs-listing--call-content: var(--vs-listing--label)
+      var(--vs-crossref-call-counter-prefix, '')
+      target-counter(
+        attr(href),
+        vs-counter-lst,
+        var(--vs-listing--counter-style, var(--vs-counter-style))
+      );
+    --vs-listing--label: 'Listing ';
+    --vs-listing--marker-content: var(--vs-listing--label)
+      var(--vs-crossref-marker-counter-prefix, '')
+      counter(
+        vs-counter-lst,
+        var(--vs-listing--counter-style, var(--vs-counter-style))
+      )
+      ': ';
+    --vs-listing--marker-display: inline;
+    --vs-listing--root-counter-reset: vs-counter-lst
+      var(--vs-listing--root-counter-lst,);
+  }
+
+  @media screen {
     :root {
-      --counter-style: ;
-      --label: ;
+      --vs-listing--call-content: var(--vs-listing--label) '???';
     }
   }
 
+  :root:lang(ja) {
+    --vs-listing--label: 'リスト';
+  }
+}
+
+@var listing {
   @var call {
     a[data-ref='lst']::before {
       content: ;

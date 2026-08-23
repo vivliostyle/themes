@@ -1,11 +1,37 @@
-@var figure {
-  @var . {
+@define {
+  :root {
+    --vs-figure--call-content: var(--vs-figure--label)
+      var(--vs-crossref-call-counter-prefix, '')
+      target-counter(
+        attr(href),
+        vs-counter-fig,
+        var(--vs-figure--counter-style, var(--vs-counter-style))
+      );
+    --vs-figure--label: 'Figure ';
+    --vs-figure--marker-content: var(--vs-figure--label)
+      var(--vs-crossref-marker-counter-prefix, '')
+      counter(
+        vs-counter-fig,
+        var(--vs-figure--counter-style, var(--vs-counter-style))
+      )
+      ': ';
+    --vs-figure--marker-display: inline;
+    --vs-figure--root-counter-reset: vs-counter-fig
+      var(--vs-figure--root-counter-fig,);
+  }
+
+  @media screen {
     :root {
-      --counter-style: ;
-      --label: ;
+      --vs-figure--call-content: var(--vs-figure--label) '???';
     }
   }
 
+  :root:lang(ja) {
+    --vs-figure--label: '図';
+  }
+}
+
+@var figure {
   @var call {
     a[data-ref='fig']::before {
       content: ;

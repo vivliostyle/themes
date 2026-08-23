@@ -1,25 +1,264 @@
-/**
- *  Shared tokens referenced from other variables' default values.
- *  Declared here so that they are registered even though no CSS property
- *  consumes them directly.
- */
-@var {
+@define {
   :root {
-    --accent-color: ;
-    --background-color-alt: ;
-    --border-style: ;
-    --counter-style: ;
-    --crossref-call-counter-prefix: ;
-    --crossref-marker-counter-prefix: ;
-    --document-first-page-counter-increment: ;
-    --document-first-page-counter-reset: ;
-    --document-root-counter-reset: ;
-    --font-family-secondary: ;
-    --font-weight-bold: ;
-    --spacing-inline-indent: ;
-    --spacing-rlh: ;
-    --text-color-muted: ;
-    --widows-orphans: ;
+    --vs-accent-color: currentColor;
+    --vs-background-color: transparent;
+    --vs-background-color-alt: transparent;
+    --vs-border-color: var(--vs-text-color);
+    --vs-border-style: solid;
+    --vs-border-width: 1px;
+    --vs-column-fill: balance;
+    --vs-column-gap: 1rem;
+    --vs-column-rule-color: var(--vs-border-color);
+    --vs-column-rule-style: var(--vs-border-style);
+    --vs-column-rule-width: 0;
+    --vs-columns: 1;
+    --vs-counter-style: decimal;
+    --vs-font-family: sans-serif;
+    --vs-font-family-secondary: inherit;
+    --vs-font-feature-settings: normal;
+    --vs-font-kerning: auto;
+    --vs-font-size: 100%;
+    --vs-font-stretch: normal;
+    --vs-font-style: normal;
+    --vs-font-synthesis: weight style small-caps;
+    --vs-font-variant: normal;
+    --vs-font-variant-numeric: normal;
+    --vs-font-variation-settings: normal;
+    --vs-font-weight: 400;
+    --vs-font-weight-bold: 700;
+    --vs-hanging-punctuation: none;
+    --vs-hyphens: auto;
+    --vs-letter-spacing: 0;
+    --vs-line-break: strict;
+    --vs-line-height: 1.5;
+    --vs-orphans: var(--vs-widows-orphans);
+    --vs-overflow-wrap: anywhere;
+    --vs-spacing-inline-indent: min(2ch, 5vw);
+    --vs-spacing-rlh: calc(var(--vs-line-height) * 1rem);
+    --vs-tab-size: 4;
+    --vs-text-align: start;
+    --vs-text-color: #000;
+    --vs-text-color-muted: inherit;
+    --vs-text-orientation: unset;
+    --vs-text-spacing: auto;
+    --vs-text-underline-offset: auto;
+    --vs-text-underline-position: left;
+    --vs-widows: var(--vs-widows-orphans);
+    --vs-widows-orphans: 1;
+    --vs-word-break: normal;
+    --vs-word-spacing: normal;
+    --vs-writing-mode: horizontal-tb;
+    --vs--anchor-text-color: var(--vs-accent-color);
+    --vs--anchor-text-decoration: underline;
+    --vs--big-font-size: 1.17em;
+    --vs--blockquote-background-color: transparent;
+    --vs--blockquote-border-color-block-end: var(--vs-border-color);
+    --vs--blockquote-border-color-block-start: var(--vs-border-color);
+    --vs--blockquote-border-color-inline-end: var(--vs-border-color);
+    --vs--blockquote-border-color-inline-start: var(--vs-border-color);
+    --vs--blockquote-border-radius: 0;
+    --vs--blockquote-border-style-block-end: var(--vs-border-style);
+    --vs--blockquote-border-style-block-start: var(--vs-border-style);
+    --vs--blockquote-border-style-inline-end: var(--vs-border-style);
+    --vs--blockquote-border-style-inline-start: var(--vs-border-style);
+    --vs--blockquote-border-width-block-end: 0;
+    --vs--blockquote-border-width-block-start: 0;
+    --vs--blockquote-border-width-inline-end: 0;
+    --vs--blockquote-border-width-inline-start: 0;
+    --vs--blockquote-break-inside: auto;
+    --vs--blockquote-font-size: 100%;
+    --vs--blockquote-margin-block: var(--vs-spacing-rlh);
+    --vs--blockquote-margin-inline: var(--vs-spacing-inline-indent) 0;
+    --vs--blockquote-padding-block: 0;
+    --vs--blockquote-padding-inline: 0;
+    --vs--blockquote-writing-mode: unset;
+    --vs--bold-font-weight: var(--vs-font-weight-bold);
+    --vs--bold-margin-inline: 0;
+    --vs--caption-display: table-caption;
+    --vs--cite-font-style: italic;
+    --vs--crossref-call-display: inline;
+    --vs--crossref-call-margin-inline: 0;
+    --vs--crossref-call-text-decoration: none;
+    --vs--dd-margin-inline-start: var(--vs-spacing-inline-indent);
+    --vs--del-text-decoration: line-through;
+    --vs--dt-dd-display: block;
+    --vs--emphasis-font-style: italic;
+    --vs--figcaption-break-inside: avoid;
+    --vs--figcaption-display: block;
+    --vs--figcaption-font-family: var(--vs-font-family-secondary);
+    --vs--figcaption-font-size: 100%;
+    --vs--figcaption-margin-block: var(--vs-spacing-rlh);
+    --vs--figcaption-margin-inline: 0;
+    --vs--figcaption-order: 0;
+    --vs--figcaption-text-color: var(--vs-text-color-muted);
+    --vs--figcaption-text-indent: 0;
+    --vs--figure-align-items: center;
+    --vs--figure-break-inside: avoid;
+    --vs--figure-display: flex;
+    --vs--figure-flex-direction: column;
+    --vs--figure-item-max-size-block: 100%;
+    --vs--figure-item-max-size-inline: 100%;
+    --vs--figure-item-padding-inline: 0;
+    --vs--figure-item-size-inline: auto;
+    --vs--figure-margin-block: var(--vs-spacing-rlh);
+    --vs--figure-margin-inline: 0;
+    --vs--figure-table-margin-block: 0;
+    --vs--figure-table-margin-inline: 0;
+    --vs--figure-writing-mode: unset;
+    --vs--h1-font-size: 2em;
+    --vs--h2-font-size: 1.5em;
+    --vs--h3-font-size: 1.17em;
+    --vs--h4-font-size: 1em;
+    --vs--h5-font-size: 0.83em;
+    --vs--h6-font-size: 0.67em;
+    --vs--heading-background-color: transparent;
+    --vs--heading-border-color-block-end: var(--vs-border-color);
+    --vs--heading-border-color-block-start: var(--vs-border-color);
+    --vs--heading-border-color-inline-end: var(--vs-border-color);
+    --vs--heading-border-color-inline-start: var(--vs-border-color);
+    --vs--heading-border-style-block-end: var(--vs-border-style);
+    --vs--heading-border-style-block-start: var(--vs-border-style);
+    --vs--heading-border-style-inline-end: var(--vs-border-style);
+    --vs--heading-border-style-inline-start: var(--vs-border-style);
+    --vs--heading-border-width-block-end: 0;
+    --vs--heading-border-width-block-start: 0;
+    --vs--heading-border-width-inline-end: 0;
+    --vs--heading-border-width-inline-start: 0;
+    --vs--heading-break-after: avoid;
+    --vs--heading-break-inside: avoid;
+    --vs--heading-font-weight: var(--vs-font-weight-bold);
+    --vs--heading-hyphens: none;
+    --vs--heading-margin-block: var(--vs-spacing-rlh);
+    --vs--heading-margin-inline: 0;
+    --vs--heading-padding-block: 0;
+    --vs--heading-padding-inline: 0;
+    --vs--heading-text-color: inherit;
+    --vs--heading-text-indent: 0;
+    --vs--heading-text-spacing: inherit;
+    --vs--hr-border-color: var(--vs-border-color);
+    --vs--hr-border-style-block-start: var(--vs-border-style);
+    --vs--hr-border-width-block-start: var(--vs-border-width);
+    --vs--hr-margin-block: var(--vs-spacing-rlh);
+    --vs--hr-margin-inline: 0;
+    --vs--hr-size-inline: auto;
+    --vs--img-image-resolution: from-image;
+    --vs--li-margin-block: 0;
+    --vs--li-padding-block: 0;
+    --vs--li-padding-inline: 0;
+    --vs--lists-margin-block: var(--vs-spacing-rlh);
+    --vs--lists-margin-inline: 0;
+    --vs--lists-marker-text-color: var(--vs-accent-color);
+    --vs--lists-padding-inline-start: 2rem;
+    --vs--lists-text-indent: 0;
+    --vs--math-display-break-inside: avoid;
+    --vs--math-display-margin-block: var(--vs-spacing-rlh);
+    --vs--math-display-margin-inline: auto;
+    --vs--math-display-size-inline: fit-content;
+    --vs--math-font-family:
+      'STIX Two Math', 'Cambria Math', 'Latin Modern Math', math;
+    --vs--math-font-style: normal;
+    --vs--monospace-font-family: monospace;
+    --vs--monospace-font-kerning: none;
+    --vs--monospace-font-size: inherit;
+    --vs--monospace-font-weight: inherit;
+    --vs--monospace-hyphens: none;
+    --vs--monospace-letter-spacing: inherit;
+    --vs--monospace-line-height: inherit;
+    --vs--monospace-text-spacing: none;
+    --vs--ol-list-style-type: decimal;
+    --vs--p-margin-block: var(--vs-spacing-rlh);
+    --vs--p-margin-inline: 0;
+    --vs--p-padding-block: 0;
+    --vs--p-padding-inline: 0;
+    --vs--p-text-align: justify;
+    --vs--p-text-indent: 0;
+    --vs--p-text-spacing: inherit;
+    --vs--pre-background-color: var(--vs-background-color-alt);
+    --vs--pre-border-color-block-end: var(--vs-border-color);
+    --vs--pre-border-color-block-start: var(--vs-border-color);
+    --vs--pre-border-color-inline-end: var(--vs-border-color);
+    --vs--pre-border-color-inline-start: var(--vs-border-color);
+    --vs--pre-border-radius: 0;
+    --vs--pre-border-style-block-end: var(--vs-border-style);
+    --vs--pre-border-style-block-start: var(--vs-border-style);
+    --vs--pre-border-style-inline-end: var(--vs-border-style);
+    --vs--pre-border-style-inline-start: var(--vs-border-style);
+    --vs--pre-border-width-block-end: 0;
+    --vs--pre-border-width-block-start: 0;
+    --vs--pre-border-width-inline-end: 0;
+    --vs--pre-border-width-inline-start: 0;
+    --vs--pre-break-inside: auto;
+    --vs--pre-font-family: var(--vs--monospace-font-family);
+    --vs--pre-font-size: var(--vs--monospace-font-size);
+    --vs--pre-line-height: var(--vs--monospace-line-height);
+    --vs--pre-margin-block: var(--vs-spacing-rlh);
+    --vs--pre-margin-inline: 0;
+    --vs--pre-overflow-x: auto;
+    --vs--pre-padding-block: 0;
+    --vs--pre-padding-inline: 0;
+    --vs--pre-size-inline: auto;
+    --vs--pre-text-align: start;
+    --vs--pre-white-space: pre;
+    --vs--pre-word-break: break-all;
+    --vs--pre-writing-mode: unset;
+    --vs--rt-font-size: 0.5em;
+    --vs--rt-letter-spacing: normal;
+    --vs--small-font-size: 0.83em;
+    --vs--sub-font-size: 0.8em;
+    --vs--sub-inset-block-end: -0.25em;
+    --vs--sub-line-height: 0;
+    --vs--sub-margin-inline: 0;
+    --vs--sub-vertical-align: baseline;
+    --vs--sup-font-size: 0.8em;
+    --vs--sup-inset-block-start: -0.5em;
+    --vs--sup-line-height: 0;
+    --vs--sup-margin-inline: 0;
+    --vs--sup-vertical-align: baseline;
+    --vs--table-background-color: transparent;
+    --vs--table-border-collapse: collapse;
+    --vs--table-border-color: var(--vs-border-color);
+    --vs--table-border-style: var(--vs-border-style);
+    --vs--table-border-width: var(--vs-border-width);
+    --vs--table-break-inside: avoid;
+    --vs--table-cell-background-color: transparent;
+    --vs--table-cell-min-size-block: auto;
+    --vs--table-cell-padding-block: 0.25rem;
+    --vs--table-cell-padding-inline: 0.5rem;
+    --vs--table-cell-vertical-align: middle;
+    --vs--table-container-overflow-x: auto;
+    --vs--table-font-family: var(--vs-font-family-secondary);
+    --vs--table-font-size: 100%;
+    --vs--table-margin-block: var(--vs-spacing-rlh);
+    --vs--table-margin-inline: auto;
+    --vs--table-max-size-block: 100%;
+    --vs--table-max-size-inline: 100%;
+    --vs--table-row-even-background-color: transparent;
+    --vs--table-row-odd-background-color: transparent;
+    --vs--table-size-inline: auto;
+    --vs--table-table-layout: auto;
+    --vs--table-writing-mode: unset;
+    --vs--th-background-color: var(--vs-background-color-alt);
+    --vs--ul-list-style-type: disc;
+  }
+
+  @media (hover: hover) {
+    a:hover {
+      --vs--anchor-text-decoration: none;
+    }
+  }
+
+  @media (hover: hover) {
+    a[data-ref]:hover {
+      --vs--crossref-call-text-decoration: underline;
+    }
+  }
+
+  @media print {
+    :root {
+      --vs--pre-overflow-x: visible;
+      --vs--pre-white-space: pre-wrap;
+      --vs--table-container-overflow-x: visible;
+    }
   }
 }
 

@@ -1,3 +1,33 @@
+@define {
+  :root {
+    --vs-footnote--area-before-display: block;
+    --vs-footnote--area-before-margin-block: var(--vs--hr-margin-block);
+    --vs-footnote--area-before-margin-inline: var(--vs--hr-margin-inline);
+    --vs-footnote--area-before-size-inline: auto;
+    --vs-footnote--area-margin-block: var(--vs-spacing-rlh);
+    --vs-footnote--call-content: '*'
+      counter(
+        vs-counter-footnote,
+        var(--vs-footnote--counter-style, var(--vs-counter-style))
+      );
+    --vs-footnote--call-font-size: 0.8em;
+    --vs-footnote--call-inset-block-start: var(--vs--sup-inset-block-start);
+    --vs-footnote--call-margin-inline: 0;
+    --vs-footnote--call-vertical-align: baseline;
+    --vs-footnote--counter-style: decimal;
+    --vs-footnote--item-margin-block: 0;
+    --vs-footnote--item-margin-inline: 0;
+    --vs-footnote--marker-content: counter(
+        vs-counter-footnote,
+        var(--vs-footnote--counter-style, var(--vs-counter-style))
+      )
+      '. ';
+    --vs-footnote--marker-margin-inline: 0;
+    --vs-footnote--root-counter-reset: vs-counter-footnote
+      var(--vs-footnote--root-counter-footnote,);
+  }
+}
+
 @var footnote {
   @var counter {
     :root {

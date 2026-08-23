@@ -1,3 +1,45 @@
+@define {
+  :root {
+    --vs-prism--atrule-text-color: var(--vs-prism--text-color);
+    --vs-prism--attr-name-text-color: var(--vs-prism--text-color);
+    --vs-prism--attr-value-text-color: var(--vs-prism--text-color);
+    --vs-prism--background: none;
+    --vs-prism--block-code-border-radius: 0.3em;
+    --vs-prism--block-code-padding: 1em;
+    --vs-prism--boolean-text-color: var(--vs-prism--text-color);
+    --vs-prism--builtin-text-color: var(--vs-prism--text-color);
+    --vs-prism--cdata-text-color: var(--vs-prism--text-color);
+    --vs-prism--char-text-color: var(--vs-prism--text-color);
+    --vs-prism--class-name-text-color: var(--vs-prism--text-color);
+    --vs-prism--comment-text-color: var(--vs-prism--text-color);
+    --vs-prism--constant-text-color: var(--vs-prism--text-color);
+    --vs-prism--deleted-text-color: var(--vs-prism--text-color);
+    --vs-prism--doctype-text-color: var(--vs-prism--text-color);
+    --vs-prism--entity-text-color: var(--vs-prism--text-color);
+    --vs-prism--function-text-color: var(--vs-prism--text-color);
+    --vs-prism--important-text-color: var(--vs-prism--text-color);
+    --vs-prism--inline-code-border-radius: 0.3em;
+    --vs-prism--inline-code-padding: 0.1em;
+    --vs-prism--inserted-text-color: var(--vs-prism--text-color);
+    --vs-prism--keyword-text-color: var(--vs-prism--text-color);
+    --vs-prism--namespace-text-color: var(--vs-prism--text-color);
+    --vs-prism--number-text-color: var(--vs-prism--text-color);
+    --vs-prism--operator-text-color: var(--vs-prism--text-color);
+    --vs-prism--prolog-text-color: var(--vs-prism--text-color);
+    --vs-prism--property-text-color: var(--vs-prism--text-color);
+    --vs-prism--punctuation-text-color: var(--vs-prism--text-color);
+    --vs-prism--regex-text-color: var(--vs-prism--text-color);
+    --vs-prism--selector-text-color: var(--vs-prism--text-color);
+    --vs-prism--string-text-color: var(--vs-prism--text-color);
+    --vs-prism--symbol-text-color: var(--vs-prism--text-color);
+    --vs-prism--tag-text-color: var(--vs-prism--text-color);
+    --vs-prism--text-color: inherit;
+    --vs-prism--text-shadow: none;
+    --vs-prism--url-text-color: var(--vs-prism--text-color);
+    --vs-prism--variable-text-color: var(--vs-prism--text-color);
+  }
+}
+
 code,
 pre[class*='language-'] {
   background: none;

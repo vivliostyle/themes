@@ -2324,7 +2324,7 @@ appendix:
     _syntax: '*'
     _property: 'content'
     _define:
-      - value: "var(--vs-appendix--label) var(--vs-crossref-call-counter-prefix, '') target-counter( attr(href), vs-counter-appendix, var(--vs-appendix--counter-style, var(--vs-counter-style)) )"
+      - value: "var(--vs-appendix--label) var(--vs-crossref-call-counter-prefix, '') target-counter(attr(href), vs-counter-appendix, var(--vs-appendix--counter-style, var(--vs-counter-style)))"
       - media: 'screen'
         value: "var(--vs-appendix--label) '???'"
   call-display:
@@ -2350,6 +2350,8 @@ appendix:
     _syntax: '*'
     _property: 'display'
     _define: 'inline'
+  root-counter-appendix:
+    _syntax: '*'
   root-counter-reset:
     _syntax: '*'
     _property: 'counter-reset'
@@ -2359,7 +2361,7 @@ citation:
     _syntax: '*'
     _property: 'content'
     _define:
-      - value: "'[' target-counter( attr(href), vs-counter-cite, var(--vs-citation--counter-style, var(--vs-counter-style)) ) ']'"
+      - value: "'[' target-counter(attr(href), vs-counter-cite, var(--vs-citation--counter-style, var(--vs-counter-style))) ']'"
       - media: 'screen'
         value: "'[???]'"
   call-display:
@@ -2473,6 +2475,8 @@ citation:
   marker-text-color:
     _syntax: '<color>'
     _property: 'color'
+  root-counter-cite:
+    _syntax: '*'
   root-counter-reset:
     _syntax: '*'
     _property: 'counter-reset'
@@ -2484,7 +2488,7 @@ endnote:
     _define:
       - value: 'none'
       - media: '(hover: hover)'
-        selector: 'a:is(.footnote-ref,.footnote-back):hover'
+        selector: 'a:is(.footnote-ref, .footnote-back):hover'
         value: 'underline'
   backlink-display:
     _syntax: '*'
@@ -2613,6 +2617,10 @@ endnote:
   marker-vertical-align:
     _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
     _property: 'vertical-align'
+  root-counter-endnote:
+    _syntax: '*'
+  root-counter-endnote-call:
+    _syntax: '*'
   root-counter-reset:
     _syntax: '*'
     _property: 'counter-reset'
@@ -2756,7 +2764,7 @@ equation:
     _syntax: '*'
     _property: 'content'
     _define:
-      - value: "var(--vs-equation--label) '(' var(--vs-crossref-call-counter-prefix, '') target-counter( attr(href), vs-counter-eq, var(--vs-equation--counter-style, var(--vs-counter-style)) ) ')'"
+      - value: "var(--vs-equation--label) '(' var(--vs-crossref-call-counter-prefix, '') target-counter(attr(href), vs-counter-eq, var(--vs-equation--counter-style, var(--vs-counter-style))) ')'"
       - media: 'screen'
         value: "var(--vs-equation--label) '(???)'"
   call-display:
@@ -2795,6 +2803,8 @@ equation:
   marker-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
+  root-counter-eq:
+    _syntax: '*'
   root-counter-reset:
     _syntax: '*'
     _property: 'counter-reset'
@@ -2804,7 +2814,7 @@ figure:
     _syntax: '*'
     _property: 'content'
     _define:
-      - value: "var(--vs-figure--label) var(--vs-crossref-call-counter-prefix, '') target-counter( attr(href), vs-counter-fig, var(--vs-figure--counter-style, var(--vs-counter-style)) )"
+      - value: "var(--vs-figure--label) var(--vs-crossref-call-counter-prefix, '') target-counter(attr(href), vs-counter-fig, var(--vs-figure--counter-style, var(--vs-counter-style)))"
       - media: 'screen'
         value: "var(--vs-figure--label) '???'"
   call-display:
@@ -2821,8 +2831,7 @@ figure:
   marker-content:
     _syntax: '*'
     _property: 'content'
-    _define:
-      - value: "var(--vs-figure--label) var(--vs-crossref-marker-counter-prefix, '') counter(vs-counter-fig, var(--vs-figure--counter-style, var(--vs-counter-style))) ': '"
+    _define: "var(--vs-figure--label) var(--vs-crossref-marker-counter-prefix, '') counter(vs-counter-fig, var(--vs-figure--counter-style, var(--vs-counter-style))) ': '"
   marker-display:
     _syntax: '*'
     _property: 'display'
@@ -2830,6 +2839,8 @@ figure:
   marker-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
+  root-counter-fig:
+    _syntax: '*'
   root-counter-reset:
     _syntax: '*'
     _property: 'counter-reset'
@@ -2955,7 +2966,7 @@ footnote:
   marker-content:
     _syntax: '*'
     _property: 'content'
-    _define: "counter( vs-counter-footnote, var(--vs-footnote--counter-style, var(--vs-counter-style)) ) '. '"
+    _define: "counter(vs-counter-footnote, var(--vs-footnote--counter-style, var(--vs-counter-style))) '. '"
   marker-font-family:
     _syntax: '*'
     _property: 'font-family'
@@ -2993,6 +3004,8 @@ footnote:
   padding-inline-start:
     _syntax: '<length-percentage>'
     _property: 'padding-inline-start'
+  root-counter-footnote:
+    _syntax: '*'
   root-counter-reset:
     _syntax: '*'
     _property: 'counter-reset'
@@ -3020,7 +3033,7 @@ listing:
     _syntax: '*'
     _property: 'content'
     _define:
-      - value: "var(--vs-listing--label) var(--vs-crossref-call-counter-prefix, '') target-counter( attr(href), vs-counter-lst, var(--vs-listing--counter-style, var(--vs-counter-style)) )"
+      - value: "var(--vs-listing--label) var(--vs-crossref-call-counter-prefix, '') target-counter(attr(href), vs-counter-lst, var(--vs-listing--counter-style, var(--vs-counter-style)))"
       - media: 'screen'
         value: "var(--vs-listing--label) '???'"
   call-display:
@@ -3037,8 +3050,7 @@ listing:
   marker-content:
     _syntax: '*'
     _property: 'content'
-    _define:
-      - value: "var(--vs-listing--label) var(--vs-crossref-marker-counter-prefix, '') counter(vs-counter-lst, var(--vs-listing--counter-style, var(--vs-counter-style))) ': '"
+    _define: "var(--vs-listing--label) var(--vs-crossref-marker-counter-prefix, '') counter(vs-counter-lst, var(--vs-listing--counter-style, var(--vs-counter-style))) ': '"
   marker-display:
     _syntax: '*'
     _property: 'display'
@@ -3046,6 +3058,8 @@ listing:
   marker-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
+  root-counter-lst:
+    _syntax: '*'
   root-counter-reset:
     _syntax: '*'
     _property: 'counter-reset'
@@ -5316,7 +5330,7 @@ section:
   call-content:
     _syntax: '*'
     _property: 'content'
-    _define: "'§' target-counters( attr(href), vs-counter-sections, var(--vs-section--counter-delimiter), var(--vs-section--counter-style, var(--vs-counter-style)) )"
+    _define: "'§' target-counters(attr(href), vs-counter-sections, var(--vs-section--counter-delimiter), var(--vs-section--counter-style, var(--vs-counter-style)))"
   call-display:
     _syntax: '*'
     _property: 'display'
@@ -5420,7 +5434,7 @@ section:
   marker-content:
     _syntax: '*'
     _property: 'content'
-    _define: 'counters( vs-counter-sections, var(--vs-section--counter-delimiter), var(--vs-section--counter-style, var(--vs-counter-style)) )'
+    _define: 'counters(vs-counter-sections, var(--vs-section--counter-delimiter), var(--vs-section--counter-style, var(--vs-counter-style)))'
   marker-display:
     _syntax: '*'
     _property: 'display'
@@ -5433,12 +5447,26 @@ section:
     _syntax: '*'
     _property: 'counter-reset'
     _define: 'vs-counter-sections var(--vs-section--root-counter-sections,) vs-counter-sec-h1 var(--vs-section--root-counter-sec-h1,) vs-counter-sec-h2 var(--vs-section--root-counter-sec-h2,) vs-counter-sec-h3 var(--vs-section--root-counter-sec-h3,) vs-counter-sec-h4 var(--vs-section--root-counter-sec-h4,) vs-counter-sec-h5 var(--vs-section--root-counter-sec-h5,) vs-counter-sec-h6 var(--vs-section--root-counter-sec-h6,)'
+  root-counter-sec-h1:
+    _syntax: '*'
+  root-counter-sec-h2:
+    _syntax: '*'
+  root-counter-sec-h3:
+    _syntax: '*'
+  root-counter-sec-h4:
+    _syntax: '*'
+  root-counter-sec-h5:
+    _syntax: '*'
+  root-counter-sec-h6:
+    _syntax: '*'
+  root-counter-sections:
+    _syntax: '*'
 table:
   call-content:
     _syntax: '*'
     _property: 'content'
     _define:
-      - value: "var(--vs-table--label) var(--vs-crossref-call-counter-prefix, '') target-counter( attr(href), vs-counter-tbl, var(--vs-table--counter-style, var(--vs-counter-style)) )"
+      - value: "var(--vs-table--label) var(--vs-crossref-call-counter-prefix, '') target-counter(attr(href), vs-counter-tbl, var(--vs-table--counter-style, var(--vs-counter-style)))"
       - media: 'screen'
         value: "var(--vs-table--label) '???'"
   call-display:
@@ -5455,8 +5483,7 @@ table:
   marker-content:
     _syntax: '*'
     _property: 'content'
-    _define:
-      - value: "var(--vs-table--label) var(--vs-crossref-marker-counter-prefix, '') counter(vs-counter-tbl, var(--vs-table--counter-style, var(--vs-counter-style))) ': '"
+    _define: "var(--vs-table--label) var(--vs-crossref-marker-counter-prefix, '') counter(vs-counter-tbl, var(--vs-table--counter-style, var(--vs-counter-style))) ': '"
   marker-display:
     _syntax: '*'
     _property: 'display'
@@ -5468,12 +5495,14 @@ table:
     _syntax: '*'
     _property: 'counter-reset'
     _define: 'vs-counter-tbl var(--vs-table--root-counter-tbl,)'
+  root-counter-tbl:
+    _syntax: '*'
 theorem:
   call-content:
     _syntax: '*'
     _property: 'content'
     _define:
-      - value: "var(--vs-theorem--label) var(--vs-crossref-call-counter-prefix, '') target-counter( attr(href), vs-counter-thm, var(--vs-theorem--counter-style, var(--vs-counter-style)) )"
+      - value: "var(--vs-theorem--label) var(--vs-crossref-call-counter-prefix, '') target-counter(attr(href), vs-counter-thm, var(--vs-theorem--counter-style, var(--vs-counter-style)))"
       - media: 'screen'
         value: "var(--vs-theorem--label) '???'"
   call-display:
@@ -5523,6 +5552,8 @@ theorem:
     _syntax: '*'
     _property: 'counter-reset'
     _define: 'vs-counter-thm var(--vs-theorem--root-counter-thm,)'
+  root-counter-thm:
+    _syntax: '*'
 toc:
   anchor-align-items:
     _syntax: 'anchor-center | baseline | center | end | first | flex-end | flex-start | last | normal | safe | self-end | self-start | start | stretch | unsafe'
@@ -5534,7 +5565,7 @@ toc:
     _define:
       - value: 'none'
       - media: '(hover: hover)'
-        selector: ':is(#toc,[role="doc-toc"]) li>a:hover'
+        selector: ":is(#toc, [role='doc-toc']) li > a:hover"
         value: 'underline'
   marker-content:
     _syntax: '*'

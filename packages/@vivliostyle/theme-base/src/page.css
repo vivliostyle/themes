@@ -1,3 +1,30 @@
+@define {
+  :root {
+    --vs-page--background-color: var(--vs-background-color);
+    --vs-page--bleed: 0;
+    --vs-page--border-style: var(--vs-border-style);
+    --vs-page--call-content: target-counter(attr(href), page);
+    --vs-page--height: auto;
+    --vs-page--margin: 18mm;
+    --vs-page--marks: none;
+    --vs-page--mbox-background-color: transparent;
+    --vs-page--mbox-size-inline: auto;
+    --vs-page--mbox-text-color: var(--vs-text-color-muted);
+    --vs-page--mbox-top-border-style-bottom: var(--vs-border-style);
+    --vs-page--mbox-top-center-content: '';
+    --vs-page--mbox-visibility: visible;
+    --vs-page--mbox-writing-mode: horizontal-tb;
+    --vs-page--size: auto;
+    --vs-page--width: auto;
+  }
+
+  @media screen {
+    :root {
+      --vs-page--call-content: '???';
+    }
+  }
+}
+
 @var page {
   @var . {
     @page {
