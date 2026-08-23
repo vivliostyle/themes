@@ -4,9 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  '@vivliostyle/vfm': 2.7.2
-
 importers:
 
   .:
@@ -24,8 +21,8 @@ importers:
         specifier: ^24.0.0
         version: 24.13.3
       '@vivliostyle/cli':
-        specifier: 11.1.0
-        version: 11.1.0(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))
+        specifier: 11.2.0
+        version: 11.2.0(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))
       husky:
         specifier: ^9.1.7
         version: 9.1.7
@@ -179,7 +176,7 @@ importers:
   packages/vivliostyle-theme-scripts:
     dependencies:
       '@vivliostyle/vfm':
-        specifier: 2.7.2
+        specifier: ^2.2.1
         version: 2.7.2(supports-color@5.5.0)(typescript@5.9.3)
       '@vivliostyle/viewer':
         specifier: ^2.1.1
@@ -1062,6 +1059,9 @@ packages:
   '@types/cli-table@0.3.4':
     resolution: {integrity: sha512-GsALrTL69mlwbAw/MHF1IPTadSLZQnsxe7a80G8l4inN/iEXCOcVeT/S7aRc6hbhqzL9qZ314kHPDQnQ3ev+HA==}
 
+  '@types/command-exists@1.2.3':
+    resolution: {integrity: sha512-PpbaE2XWLaWYboXD6k70TcXO/OdOyyRFq5TVpmlUELNxdkkmXU9fkImNosmXU1DtsNrqdUgWd/nJQYXgwmtdXQ==}
+
   '@types/css-tree@3.2.0':
     resolution: {integrity: sha512-J5KXmk6BFIepOT7280FdFyNs4c5fh0Uee0otjKEvzchrRs38Ii9qminqc4ds0L19X8Zd/rT+brR9jkBthygjWw==}
 
@@ -1167,8 +1167,19 @@ packages:
     peerDependencies:
       vite: '>=8'
 
+  '@vivliostyle/cli@11.2.0':
+    resolution: {integrity: sha512-S73SKrLppMHengIdSamSBNQOO4xuKwK9Q1ww5lgEykiNQKj2h+ZjBBVbgmFHdZXGNKRKV/+7bIa57pdeiKidiA==}
+    engines: {node: '>=22.12.0'}
+    hasBin: true
+    peerDependencies:
+      vite: '>=8'
+
   '@vivliostyle/core@2.44.1':
     resolution: {integrity: sha512-J0G35Qt2I4sKZFLuV2DM1ZpgGn3SnEHtdEB/wQaaNGvh+TnAlz6jnvl1QuCLpvjwYgvVikXrxghGO82D4mL4Ew==}
+    engines: {node: '>=20'}
+
+  '@vivliostyle/core@2.45.0':
+    resolution: {integrity: sha512-ugKexK0/srYpY5GtiyReehpgvfko5Wy1GyMvQNwYW3ybiwL41af3JVE8PoiGvY1Y6MgKNSm8wXf2CZrb6t9mZg==}
     engines: {node: '>=20'}
 
   '@vivliostyle/jsdom@25.0.1-vivliostyle-cli.2':
@@ -1204,6 +1215,11 @@ packages:
     resolution: {integrity: sha512-0ceDTos/St3Ft/ahhcTTKjm5uogDj7/uiAF/zwYbJPry6y+vqPLrurUnvPjr5qQlnbiAO6lpLJJuaj2SfGP/eA==}
     engines: {node: '>= 22'}
 
+  '@vivliostyle/vfm@2.7.0':
+    resolution: {integrity: sha512-IR3xRCkXO1PQn+JwOItVaUMbwFD1qQmaqQm/fbD2+30jdG6PsQ2xjdFIARacfOKJip++ASmdnqCOUQ5pnOJfdA==}
+    engines: {node: '>= 20'}
+    hasBin: true
+
   '@vivliostyle/vfm@2.7.2':
     resolution: {integrity: sha512-VHHhriZQGSis9z4Jd+E4IqqWlm+lC0IgeVSliVYDK/IfgIwyyeUKAKidc4En94U0Uf1BtuicvEu1Gv3s94KNJA==}
     engines: {node: '>= 22'}
@@ -1211,6 +1227,10 @@ packages:
 
   '@vivliostyle/viewer@2.44.1':
     resolution: {integrity: sha512-qQqHiagvl73iuDQoevvSCaVlaEvZD2R35luMQgHlrzHeY35ZNeCvwS/NzyP+WYWLbdSzDdooXALASWU+bIExJw==}
+    engines: {node: '>=20'}
+
+  '@vivliostyle/viewer@2.45.0':
+    resolution: {integrity: sha512-KLdn2lkkMnJ3WLfE29s275nI8GAFMzk8El7ZUtM/MvlvGjWQWGQk0cAVq6rizZW+DgK91BXgEyGsUfTT1HY0hQ==}
     engines: {node: '>=20'}
 
   abab@2.0.6:
@@ -4182,6 +4202,10 @@ packages:
     resolution: {integrity: sha512-9cbFWLhbiZp+820O4pkHGNncI7+MrUGzBOjw8NMG+ewsY+aG0DdEXnr19Smxao32YOjLZRMdn1UtaxcrXOYOIg==}
     engines: {node: '>=18.19'}
 
+  yocto-spinner@1.2.2:
+    resolution: {integrity: sha512-DODGl1wJjA/s5pnJFKau9lIYHT81lnhob1i3e1TjxZRxEhWRKl74nTbWE6H5KlkViQQTo/Z29YFdxzTZAMY3ng==}
+    engines: {node: '>=18.19'}
+
   yoctocolors@2.1.1:
     resolution: {integrity: sha512-GQHQqAopRhwU8Kt1DDM8NjibDXHC8eoh1erhGAJPEyveY9qqVeXvVikNKrDz69sHowPMorbPUrH/mx8c50eiBQ==}
     engines: {node: '>=18'}
@@ -4629,7 +4653,7 @@ snapshots:
       proggy: 3.0.0
       promise-all-reject-late: 1.0.1
       promise-call-limit: 3.0.2
-      semver: 7.7.1
+      semver: 7.8.5
       ssri: 13.0.1
       treeverse: 3.0.0
       walk-up-path: 4.0.0
@@ -4638,11 +4662,11 @@ snapshots:
 
   '@npmcli/fs@4.0.0':
     dependencies:
-      semver: 7.7.1
+      semver: 7.8.5
 
   '@npmcli/fs@5.0.0':
     dependencies:
-      semver: 7.7.1
+      semver: 7.8.5
 
   '@npmcli/git@7.0.2':
     dependencies:
@@ -4652,7 +4676,7 @@ snapshots:
       lru-cache: 11.5.2
       npm-pick-manifest: 11.0.3
       proc-log: 6.1.0
-      semver: 7.7.1
+      semver: 7.8.5
       which: 6.0.1
 
   '@npmcli/installed-package-contents@4.0.0':
@@ -4673,7 +4697,7 @@ snapshots:
       json-parse-even-better-errors: 5.0.0
       pacote: 21.5.1(supports-color@7.2.0)
       proc-log: 6.1.0
-      semver: 7.7.1
+      semver: 7.8.5
     transitivePeerDependencies:
       - supports-color
 
@@ -4688,7 +4712,7 @@ snapshots:
       hosted-git-info: 9.0.3
       json-parse-even-better-errors: 5.0.0
       proc-log: 6.1.0
-      semver: 7.7.1
+      semver: 7.8.5
       spdx-expression-parse: 4.0.0
 
   '@npmcli/promise-spawn@9.0.1':
@@ -4968,6 +4992,8 @@ snapshots:
 
   '@types/cli-table@0.3.4': {}
 
+  '@types/command-exists@1.2.3': {}
+
   '@types/css-tree@3.2.0': {}
 
   '@types/deep-eql@4.0.2': {}
@@ -5088,7 +5114,7 @@ snapshots:
       '@npmcli/arborist': 9.1.7(supports-color@7.2.0)
       '@puppeteer/browsers': 3.0.4
       '@vivliostyle/jsdom': 25.0.1-vivliostyle-cli.2(@napi-rs/canvas@0.1.69)(supports-color@7.2.0)
-      '@vivliostyle/vfm': 2.7.2(supports-color@7.2.0)(typescript@5.9.3)
+      '@vivliostyle/vfm': 2.7.0(supports-color@7.2.0)(typescript@5.9.3)
       '@vivliostyle/viewer': 2.44.1
       ajv: 8.18.0
       ajv-formats: 3.0.1(ajv@8.18.0)
@@ -5147,7 +5173,82 @@ snapshots:
       - typescript
       - utf-8-validate
 
+  '@vivliostyle/cli@11.2.0(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))':
+    dependencies:
+      '@babel/code-frame': 7.26.2
+      '@bluwy/giget-core': 0.1.3
+      '@clack/core': 1.0.0-alpha.6
+      '@clack/prompts': 1.0.0-alpha.6
+      '@humanwhocodes/momoa': 3.3.8
+      '@napi-rs/canvas': 0.1.69
+      '@npmcli/arborist': 9.1.7(supports-color@7.2.0)
+      '@puppeteer/browsers': 3.0.4
+      '@types/command-exists': 1.2.3
+      '@vivliostyle/jsdom': 25.0.1-vivliostyle-cli.2(@napi-rs/canvas@0.1.69)(supports-color@7.2.0)
+      '@vivliostyle/vfm': 2.7.2(supports-color@7.2.0)(typescript@5.9.3)
+      '@vivliostyle/viewer': 2.45.0
+      ajv: 8.18.0
+      ajv-formats: 3.0.1(ajv@8.18.0)
+      archiver: 7.0.1
+      bcp-47-match: 2.0.3
+      change-case: 5.4.4
+      command-exists: 1.2.9
+      commander: 13.1.0
+      debug: 4.4.0(supports-color@7.2.0)
+      decamelize: 6.0.0
+      dompurify: 3.4.11
+      escape-string-regexp: 5.0.0
+      fast-wrap-ansi: 0.1.3
+      fast-xml-builder: 1.1.7
+      fast-xml-parser: 5.7.0
+      fs-extra: 11.2.0
+      github-slugger: 2.0.0
+      handlebars: 4.7.9
+      hast-util-to-html: 9.0.5
+      hastscript: 9.0.1
+      mime-types: 3.0.1
+      mupdf: 1.28.0
+      node-fetch-native: 1.6.7
+      node-stream-zip: 1.15.0
+      npm-package-arg: 12.0.2
+      os-locale: 8.0.0
+      pdf-lib: 1.17.1
+      picomatch: 4.0.4
+      press-ready: 4.0.3(supports-color@7.2.0)
+      puppeteer-core: 25.1.0
+      resolve-pkg: 2.0.0
+      semver: 7.7.1
+      sirv: 3.0.1
+      sisteransi: 1.0.5
+      terminal-link: 4.0.0
+      tinyexec: 1.0.2
+      tinyglobby: 0.2.13
+      title-case: 4.3.2
+      tmp: 0.2.7
+      upath: 2.0.1
+      uuid: 14.0.0
+      valibot: 1.2.0(typescript@5.9.3)
+      vfile: 4.2.1
+      vite: 8.1.5(@types/node@24.13.3)(yaml@2.9.0)
+      w3c-xmlserializer: 5.0.0
+      whatwg-mimetype: 4.0.0
+      yocto-spinner: 1.2.2
+      yoctocolors: 2.1.1
+    transitivePeerDependencies:
+      - bare-abort-controller
+      - bare-buffer
+      - bufferutil
+      - proxy-agent
+      - react-native-b4a
+      - supports-color
+      - typescript
+      - utf-8-validate
+
   '@vivliostyle/core@2.44.1':
+    dependencies:
+      fast-diff: 1.3.0
+
+  '@vivliostyle/core@2.45.0':
     dependencies:
       fast-diff: 1.3.0
 
@@ -5241,6 +5342,49 @@ snapshots:
       hastscript: 7.2.0
       valibot: 1.2.0(typescript@5.9.3)
     transitivePeerDependencies:
+      - typescript
+
+  '@vivliostyle/vfm@2.7.0(supports-color@7.2.0)(typescript@5.9.3)':
+    dependencies:
+      '@types/hast': 2.3.10
+      '@types/mdast': 3.0.15
+      debug: 4.4.3(supports-color@7.2.0)
+      doctype: 3.0.1
+      github-slugger: 2.0.0
+      hast-util-find-and-replace: 3.2.1
+      hast-util-is-element: 2.1.3
+      hast-util-select: 5.0.5
+      hastscript: 7.2.0
+      js-yaml: 4.3.0
+      md-attr-parser: 1.3.0
+      mdast-util-find-and-replace: 2.2.2
+      mdast-util-to-hast: 11.3.0
+      mdast-util-to-string: 3.2.0
+      meow: 13.2.0
+      refractor: 3.6.0
+      rehype-format: 3.1.0
+      rehype-raw: 5.1.0
+      rehype-stringify: 8.0.0
+      remark-attr: 0.11.1
+      remark-breaks: 1.0.5
+      remark-footnotes: 2.0.0
+      remark-frontmatter: 2.0.0
+      remark-parse: 8.0.3
+      remark-rehype: 8.1.0
+      remark-shortcodes: 0.3.1(remark-parse@8.0.3)
+      to-vfile: 6.1.0
+      unified: 9.2.2
+      unist-builder: 3.0.1
+      unist-util-filter: 4.0.1
+      unist-util-find-after: 4.0.1
+      unist-util-inspect: 7.0.2
+      unist-util-remove: 3.1.1
+      unist-util-select: 4.0.3
+      unist-util-visit: 4.1.2
+      unist-util-visit-parents: 5.1.3
+      valibot: 1.2.0(typescript@5.9.3)
+    transitivePeerDependencies:
+      - supports-color
       - typescript
 
   '@vivliostyle/vfm@2.7.2(supports-color@5.5.0)(typescript@5.9.3)':
@@ -5356,6 +5500,12 @@ snapshots:
   '@vivliostyle/viewer@2.44.1':
     dependencies:
       '@vivliostyle/core': 2.44.1
+      i18next-ko: 3.0.1
+      knockout: 3.5.3
+
+  '@vivliostyle/viewer@2.45.0':
+    dependencies:
+      '@vivliostyle/core': 2.45.0
       i18next-ko: 3.0.1
       knockout: 3.5.3
 
@@ -6110,10 +6260,6 @@ snapshots:
   fault@1.0.4:
     dependencies:
       format: 0.2.2
-
-  fdir@6.5.0(picomatch@4.0.4):
-    optionalDependencies:
-      picomatch: 4.0.4
 
   fdir@6.5.0(picomatch@4.0.5):
     optionalDependencies:
@@ -7086,7 +7232,7 @@ snapshots:
       graceful-fs: 4.2.11
       nopt: 9.0.0
       proc-log: 6.1.0
-      semver: 7.7.1
+      semver: 7.8.5
       tar: 7.5.22
       tinyglobby: 0.2.17
       undici: 6.28.0
@@ -7125,7 +7271,7 @@ snapshots:
 
   npm-install-checks@8.0.0:
     dependencies:
-      semver: 7.7.1
+      semver: 7.8.5
 
   npm-normalize-package-bin@5.0.0: {}
 
@@ -7133,14 +7279,14 @@ snapshots:
     dependencies:
       hosted-git-info: 8.1.0
       proc-log: 5.0.0
-      semver: 7.7.1
+      semver: 7.8.5
       validate-npm-package-name: 6.0.2
 
   npm-package-arg@13.0.2:
     dependencies:
       hosted-git-info: 9.0.3
       proc-log: 6.1.0
-      semver: 7.7.1
+      semver: 7.8.5
       validate-npm-package-name: 7.0.2
 
   npm-packlist@10.0.4:
@@ -7153,7 +7299,7 @@ snapshots:
       npm-install-checks: 8.0.0
       npm-normalize-package-bin: 5.0.0
       npm-package-arg: 13.0.2
-      semver: 7.7.1
+      semver: 7.8.5
 
   npm-registry-fetch@19.1.1(supports-color@7.2.0):
     dependencies:
@@ -7448,7 +7594,7 @@ snapshots:
       '@types/yargs': 15.0.20
       chalk: 4.1.2
       cli-table: 0.3.11
-      debug: 4.4.0(supports-color@7.2.0)
+      debug: 4.4.3(supports-color@7.2.0)
       execa: 4.1.0
       mustache: 4.2.0
       shelljs: 0.8.5
@@ -7988,8 +8134,8 @@ snapshots:
 
   tinyglobby@0.2.13:
     dependencies:
-      fdir: 6.5.0(picomatch@4.0.4)
-      picomatch: 4.0.4
+      fdir: 6.5.0(picomatch@4.0.5)
+      picomatch: 4.0.5
 
   tinyglobby@0.2.17:
     dependencies:
@@ -8518,6 +8664,10 @@ snapshots:
       yargs-parser: 21.1.1
 
   yocto-spinner@1.2.1:
+    dependencies:
+      yoctocolors: 2.1.1
+
+  yocto-spinner@1.2.2:
     dependencies:
       yoctocolors: 2.1.1
 

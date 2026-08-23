@@ -24,7 +24,7 @@
     "@vivliostyle/theme-base": "latest"
   },
   "devDependencies": {
-    "@vivliostyle/cli": "^11.1.0",
+    "@vivliostyle/cli": "^11.2.0",
     "vivliostyle-theme-scripts": "^0.3.6"
   },
   "peerDependencies": {
