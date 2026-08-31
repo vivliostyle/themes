@@ -72,7 +72,6 @@ module.exports = {
 | [Page layout](#page-layout)                           |      ✅       |        -        |
 | [Section references](#section-references)             |      ✅       |        -        |
 | [Table of Contents](#table-of-contents)               |      ✅       |        -        |
-| [Utility classes](#utility-classes)                   |      ✅       |        -        |
 | [Prism (Code highlighting)](#prism-code-highlighting) |       -       |        -        |
 
 ### Basic
@@ -297,17 +296,6 @@ h1 {
 
 - [**toc.css**](css/toc.css) defines styles about table of contents (TOC) pages
   - Name of CSS variable starts with `--vs-toc--`
-
-### Utility classes
-
-```css
-@import url(@vivliostyle/theme-base/css/utility-classes.css);
-```
-
-- [**utility-classes.css**](css/utility-classes.css) provides HTML utility classes related to page layout and typesetting.
-  - `break-before-*` / `break-after-*` / `break-inside-*`
-  - `writing-mode-*` / `text-orientation-*` / `text-combine-upright-*` (tate-chu-yoko)
-  - `font-variant-numeric-*`
 
 ### Prism (Code highlighting)
 

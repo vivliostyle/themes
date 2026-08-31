@@ -169,7 +169,6 @@ module.exports = {
 | Page layout               |      ✅       |        -        | `--vs-page--`       |
 | Section references        |      ✅       |        -        | `--vs-section--`    |
 | Table of Contents         |      ✅       |        -        | `--vs-toc--`        |
-| Utility classes           |      ✅       |        -        | —                   |
 | Prism (Code highlighting) |       -       |        -        | `--vs-prism--`      |
 
 Example of importing individual modules in CSS:

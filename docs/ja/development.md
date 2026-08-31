@@ -115,7 +115,6 @@ theme-baseは機能ごとにモジュール分割されています。全モジ�
 | partial  | `page.css` — ページメディア                              | `--vs-page--`         |
 | partial  | `section.css` — 見出し番号・節参照                       | `--vs-section--`      |
 | partial  | `toc.css` — 目次                                         | `--vs-toc--`          |
-| partial  | `utility-classes.css` — ユーティリティクラス             | —                     |
 | lib      | `prism/base.css` — コードハイライト基盤                  | `--vs-prism--`        |
 | lib      | `prism/theme-prism.css` — Prismデフォルトテーマ          | `--vs-prism--`        |
 | lib      | `prism/theme-okaidia.css` — Okaidiaテーマ                | `--vs-prism--`        |

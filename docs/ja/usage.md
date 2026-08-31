@@ -169,7 +169,6 @@ module.exports = {
 | Page layout（ページレイアウト） |      ✅       |        -        | `--vs-page--`         |
 | Section references（節参照）    |      ✅       |        -        | `--vs-section--`      |
 | Table of Contents（目次）       |      ✅       |        -        | `--vs-toc--`          |
-| Utility classes                 |      ✅       |        -        | —                     |
 | Prism（コードハイライト）       |       -       |        -        | `--vs-prism--`        |
 
 CSSでの個別インポート例:

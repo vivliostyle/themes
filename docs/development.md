@@ -115,7 +115,6 @@ Available modules:
 | partial  | `page.css` — Paged media                                        | `--vs-page--`       |
 | partial  | `section.css` — Heading counters and section references         | `--vs-section--`    |
 | partial  | `toc.css` — Table of contents                                   | `--vs-toc--`        |
-| partial  | `utility-classes.css` — Utility classes                         | —                   |
 | lib      | `prism/base.css` — Code highlighting base                       | `--vs-prism--`      |
 | lib      | `prism/theme-prism.css` — Prism default theme                   | `--vs-prism--`      |
 | lib      | `prism/theme-okaidia.css` — Okaidia theme                       | `--vs-prism--`      |

@@ -35,8 +35,6 @@ The additions come from migrating a large set of designs onto the theme and reco
 | Endnotes                 | `--vs-endnote--section-heading-*`, `--vs-endnote--item-*`, `--vs-endnote--section-hr-{display,size-inline,margin-*}`, `--vs-endnote--call-sup-font-size`                                                                                                                                                                                                                                                                                                              |
 | Footnotes                | `--vs-footnote--{call,marker}-{text-color,font-family,font-weight,line-height}`, `--vs-footnote--marker-font-size`, `--vs-footnote--area-before-size-inline`                                                                                                                                                                                                                                                                                                          |
 
-`utility-classes.css` gains `writing-mode-*`, `text-orientation-*`, `text-combine-upright-*` (tate-chu-yoko) and `font-variant-numeric-*`.
-
 BREAKING CHANGE: `--vs--ul-minimum-inline-indent-size` and `--vs--ol-minimum-inline-indent-size` are gone. Set the indent directly.
 
 ```css
