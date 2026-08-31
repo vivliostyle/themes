@@ -175,11 +175,13 @@ module.exports = {
 Example of importing individual modules in CSS:
 
 ```css
-@import url("../@vivliostyle/theme-base/css/define.css");
-@import url("../@vivliostyle/theme-base/css/reset.css");
-@import url("../@vivliostyle/theme-base/css/basic.css");
-@import url("../@vivliostyle/theme-base/css/toc.css");
-@import url("../@vivliostyle/theme-base/css/footnote.css");
+@import url("@vivliostyle/theme-base/css/define.css");
+@import url("@vivliostyle/theme-base/css/reset.css");
+@import url("@vivliostyle/theme-base/css/basic.css");
+@import url("@vivliostyle/theme-base/css/toc.css");
+@import url("@vivliostyle/theme-base/css/footnote.css");
 ```
+
+Importing by package name requires `@vivliostyle/theme-base` to be installed in your project (`npm install @vivliostyle/theme-base`). This form is available in Vivliostyle CLI v11.3.0 and later.
 
 For detailed CSS variables of each module, see the [theme-base README](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-base#available-modules-and-css-variables).

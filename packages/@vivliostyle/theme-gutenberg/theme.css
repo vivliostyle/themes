@@ -1,4 +1,4 @@
-@import url(../theme-base/theme-all.css);
+@import url(@vivliostyle/theme-base/theme-all.css);
 
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:500');
 

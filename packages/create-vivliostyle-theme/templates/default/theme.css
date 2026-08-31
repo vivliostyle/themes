@@ -1,11 +1,11 @@
-@import url(../@vivliostyle/theme-base/theme-all.css);
+@import url(@vivliostyle/theme-base/theme-all.css);
 
 /*
  * Import extra modules
  * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#prism-code-highlighting
  */
-@import url(../@vivliostyle/theme-base/css/lib/prism/base.css);
-@import url(../@vivliostyle/theme-base/css/lib/prism/theme-okaidia.css);
+@import url(@vivliostyle/theme-base/css/lib/prism/base.css);
+@import url(@vivliostyle/theme-base/css/lib/prism/theme-okaidia.css);
 
 :root {
   /*

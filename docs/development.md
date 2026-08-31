@@ -52,11 +52,11 @@ The generated `theme.css` includes theme-base module imports and CSS variable cu
 
 ```css
 /* Import all theme-base modules */
-@import url(../@vivliostyle/theme-base/theme-all.css);
+@import url(@vivliostyle/theme-base/theme-all.css);
 
 /* Add code highlighting (Prism) */
-@import url(../@vivliostyle/theme-base/css/lib/prism/base.css);
-@import url(../@vivliostyle/theme-base/css/lib/prism/theme-okaidia.css);
+@import url(@vivliostyle/theme-base/css/lib/prism/base.css);
+@import url(@vivliostyle/theme-base/css/lib/prism/theme-okaidia.css);
 
 :root {
   /* Basic styles */
@@ -92,13 +92,13 @@ theme-base is divided into functional modules. If you don't need all modules, yo
 
 ```css
 /* Basic modules only */
-@import url(../@vivliostyle/theme-base/css/define.css);
-@import url(../@vivliostyle/theme-base/css/reset.css);
-@import url(../@vivliostyle/theme-base/css/basic.css);
+@import url(@vivliostyle/theme-base/css/define.css);
+@import url(@vivliostyle/theme-base/css/reset.css);
+@import url(@vivliostyle/theme-base/css/basic.css);
 
 /* Add required feature modules */
-@import url(../@vivliostyle/theme-base/css/toc.css);
-@import url(../@vivliostyle/theme-base/css/footnote.css);
+@import url(@vivliostyle/theme-base/css/toc.css);
+@import url(@vivliostyle/theme-base/css/footnote.css);
 ```
 
 Available modules:

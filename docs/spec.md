@@ -149,7 +149,7 @@ theme: {
 /** @type {import('@vivliostyle/cli').VivliostyleConfigSchema} */
 module.exports = {
   language: 'en',
-  theme: ['node_modules/@vivliostyle/theme-base', '.'],
+  theme: '.',
   entry: ['example/default.md'],
   workspaceDir: '.vivliostyle',
   output: [

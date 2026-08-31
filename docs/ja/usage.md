@@ -175,11 +175,13 @@ module.exports = {
 CSSでの個別インポート例:
 
 ```css
-@import url("../@vivliostyle/theme-base/css/define.css");
-@import url("../@vivliostyle/theme-base/css/reset.css");
-@import url("../@vivliostyle/theme-base/css/basic.css");
-@import url("../@vivliostyle/theme-base/css/toc.css");
-@import url("../@vivliostyle/theme-base/css/footnote.css");
+@import url("@vivliostyle/theme-base/css/define.css");
+@import url("@vivliostyle/theme-base/css/reset.css");
+@import url("@vivliostyle/theme-base/css/basic.css");
+@import url("@vivliostyle/theme-base/css/toc.css");
+@import url("@vivliostyle/theme-base/css/footnote.css");
 ```
+
+パッケージ名でインポートするには、`@vivliostyle/theme-base` がプロジェクトにインストールされている必要があります（`npm install @vivliostyle/theme-base`）。この記法はVivliostyle CLI v11.3.0以降で利用できます。
 
 各モジュールのCSS変数の詳細は、[theme-baseのREADME](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-base#available-modules-and-css-variables) を参照してください。

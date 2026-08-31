@@ -52,11 +52,11 @@ vivliostyle-theme-<name>/
 
 ```css
 /* theme-base の全モジュールをインポート */
-@import url(../@vivliostyle/theme-base/theme-all.css);
+@import url(@vivliostyle/theme-base/theme-all.css);
 
 /* コードハイライト（Prism）を追加 */
-@import url(../@vivliostyle/theme-base/css/lib/prism/base.css);
-@import url(../@vivliostyle/theme-base/css/lib/prism/theme-okaidia.css);
+@import url(@vivliostyle/theme-base/css/lib/prism/base.css);
+@import url(@vivliostyle/theme-base/css/lib/prism/theme-okaidia.css);
 
 :root {
   /* 基本スタイル */
@@ -92,13 +92,13 @@ theme-baseは機能ごとにモジュール分割されています。全モジ�
 
 ```css
 /* 基本モジュールのみ */
-@import url(../@vivliostyle/theme-base/css/define.css);
-@import url(../@vivliostyle/theme-base/css/reset.css);
-@import url(../@vivliostyle/theme-base/css/basic.css);
+@import url(@vivliostyle/theme-base/css/define.css);
+@import url(@vivliostyle/theme-base/css/reset.css);
+@import url(@vivliostyle/theme-base/css/basic.css);
 
 /* 必要な機能モジュールを追加 */
-@import url(../@vivliostyle/theme-base/css/toc.css);
-@import url(../@vivliostyle/theme-base/css/footnote.css);
+@import url(@vivliostyle/theme-base/css/toc.css);
+@import url(@vivliostyle/theme-base/css/footnote.css);
 ```
 
 利用可能なモジュール一覧:
