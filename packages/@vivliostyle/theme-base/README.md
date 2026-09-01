@@ -224,7 +224,7 @@ that role is used.
 
 ```css
 @import url(@vivliostyle/theme-base/css/footnote.css);
-@import url(@vivliostyle/theme-base/css/footnote-external-link.css);
+@import url(@vivliostyle/theme-base/css/lib/footnote-external-link);
 
 /* Configuration examples */
 :root {
@@ -235,7 +235,7 @@ that role is used.
 
 - [**footnote.css**](css/footnote.css) defines styles about footnotes
   - Name of CSS variable starts with `--vs-footnote--`
-- [**footnote-external-link.css**](css/footnote-external-link.css) adds footnotes for external links so that its URL can be recognized on print media
+- [**footnote-external-link**](css/lib/footnote-external-link) adds footnotes for external links so that its URL can be recognized on print media
 
 ### Page layout
 
@@ -300,7 +300,7 @@ h1 {
 ### Prism (Code highlighting)
 
 ```css
-@import url(@vivliostyle/theme-base/css/lib/prism/base.css);
+@import url(@vivliostyle/theme-base/css/lib/prism);
 /* Use okaidia theme */
 @import url(@vivliostyle/theme-base/css/lib/prism/theme-okaidia.css);
 /* Use prism theme */
@@ -313,7 +313,7 @@ h1 {
 }
 ```
 
-- [**prism/base.css**](css/lib/prism/base.css) defines styles compatible with [Prism](https://prismjs.com/) (code highlighting library)
+- [**prism**](css/lib/prism) defines styles compatible with [Prism](https://prismjs.com/) (code highlighting library)
   - Name of CSS variable starts with `--vs-prism--`
 - [**prism/theme-prism.css**](css/lib/prism/theme-prism.css) enables Prism.js default theme
   - Original theme: https://github.com/PrismJS/prism/blob/master/themes/prism.css

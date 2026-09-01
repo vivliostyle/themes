@@ -55,7 +55,7 @@ vivliostyle-theme-<name>/
 @import url(@vivliostyle/theme-base/theme-all.css);
 
 /* コードハイライト（Prism）を追加 */
-@import url(@vivliostyle/theme-base/css/lib/prism/base.css);
+@import url(@vivliostyle/theme-base/css/lib/prism);
 @import url(@vivliostyle/theme-base/css/lib/prism/theme-okaidia.css);
 
 :root {
@@ -111,11 +111,11 @@ theme-baseは機能ごとにモジュール分割されています。全モジ�
 | partial  | `crossref.css` — 図表・引用の相互参照                    | `--vs-crossref--`     |
 | partial  | `endnote.css` — 後注                                     | `--vs-endnote--`      |
 | partial  | `footnote.css` — 脚注                                    | `--vs-footnote--`     |
-| partial  | `footnote-external-link.css` — 外部リンクの脚注化        | `--vs-footnote--`     |
 | partial  | `page.css` — ページメディア                              | `--vs-page--`         |
 | partial  | `section.css` — 見出し番号・節参照                       | `--vs-section--`      |
 | partial  | `toc.css` — 目次                                         | `--vs-toc--`          |
-| lib      | `prism/base.css` — コードハイライト基盤                  | `--vs-prism--`        |
+| lib      | `footnote-external-link` — 外部リンクの脚注化            | `--vs-footnote--`     |
+| lib      | `prism` — コードハイライト基盤                           | `--vs-prism--`        |
 | lib      | `prism/theme-prism.css` — Prismデフォルトテーマ          | `--vs-prism--`        |
 | lib      | `prism/theme-okaidia.css` — Okaidiaテーマ                | `--vs-prism--`        |
 

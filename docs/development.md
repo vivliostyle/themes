@@ -55,7 +55,7 @@ The generated `theme.css` includes theme-base module imports and CSS variable cu
 @import url(@vivliostyle/theme-base/theme-all.css);
 
 /* Add code highlighting (Prism) */
-@import url(@vivliostyle/theme-base/css/lib/prism/base.css);
+@import url(@vivliostyle/theme-base/css/lib/prism);
 @import url(@vivliostyle/theme-base/css/lib/prism/theme-okaidia.css);
 
 :root {
@@ -111,11 +111,11 @@ Available modules:
 | partial  | `crossref.css` — Cross-reference for figures, tables, citations | `--vs-crossref--`   |
 | partial  | `endnote.css` — Endnotes                                        | `--vs-endnote--`    |
 | partial  | `footnote.css` — Footnotes                                      | `--vs-footnote--`   |
-| partial  | `footnote-external-link.css` — Footnotes for external links     | `--vs-footnote--`   |
 | partial  | `page.css` — Paged media                                        | `--vs-page--`       |
 | partial  | `section.css` — Heading counters and section references         | `--vs-section--`    |
 | partial  | `toc.css` — Table of contents                                   | `--vs-toc--`        |
-| lib      | `prism/base.css` — Code highlighting base                       | `--vs-prism--`      |
+| lib      | `footnote-external-link` — Footnotes for external links         | `--vs-footnote--`   |
+| lib      | `prism` — Code highlighting base                                | `--vs-prism--`      |
 | lib      | `prism/theme-prism.css` — Prism default theme                   | `--vs-prism--`      |
 | lib      | `prism/theme-okaidia.css` — Okaidia theme                       | `--vs-prism--`      |
 

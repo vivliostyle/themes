@@ -26,6 +26,8 @@
   "exports": {
     ".": "./theme-all.css",
     "./css-variables.json": "./dist/css-variables.json",
+    "./css/lib/footnote-external-link": "./css/lib/footnote-external-link/index.css",
+    "./css/lib/prism": "./css/lib/prism/index.css",
     "./*": "./*"
   },
   "publishConfig": {
