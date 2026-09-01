@@ -1,21 +1,13 @@
 @define {
   :root {
-    --vs-page--background-color: var(--vs-background-color);
+    --vs-page--background-color: var(--vs-color-background);
     --vs-page--bleed: 0;
-    --vs-page--border-style: var(--vs-border-style);
+    --vs-page--border-color: var(--vs-color-border);
     --vs-page--call-content: target-counter(attr(href), page);
-    --vs-page--height: auto;
     --vs-page--margin: 18mm;
-    --vs-page--marks: none;
-    --vs-page--mbox-background-color: transparent;
-    --vs-page--mbox-size-inline: auto;
-    --vs-page--mbox-text-color: var(--vs-text-color-muted);
-    --vs-page--mbox-top-border-style-bottom: var(--vs-border-style);
-    --vs-page--mbox-top-center-content: '';
+    --vs-page--mbox-text-color: var(--vs-color-foreground);
     --vs-page--mbox-visibility: visible;
     --vs-page--mbox-writing-mode: horizontal-tb;
-    --vs-page--size: auto;
-    --vs-page--width: auto;
   }
 
   @media screen {
@@ -38,17 +30,17 @@
       background-position: ;
       background-size: ;
       border-bottom-color: var(--vs-page--border-color);
-      border-bottom-style: var(--vs-page--border-style);
-      border-bottom-width: var(--vs-page--border-width);
+      border-bottom-style: var(--vs-page--border-style, solid);
+      border-bottom-width: var(--vs-page--border-width, 0);
       border-left-color: var(--vs-page--border-color);
-      border-left-style: var(--vs-page--border-style);
-      border-left-width: var(--vs-page--border-width);
+      border-left-style: var(--vs-page--border-style, solid);
+      border-left-width: var(--vs-page--border-width, 0);
       border-right-color: var(--vs-page--border-color);
-      border-right-style: var(--vs-page--border-style);
-      border-right-width: var(--vs-page--border-width);
+      border-right-style: var(--vs-page--border-style, solid);
+      border-right-width: var(--vs-page--border-width, 0);
       border-top-color: var(--vs-page--border-color);
-      border-top-style: var(--vs-page--border-style);
-      border-top-width: var(--vs-page--border-width);
+      border-top-style: var(--vs-page--border-style, solid);
+      border-top-width: var(--vs-page--border-width, 0);
       margin-bottom: var(--vs-page--margin);
       margin-top: var(--vs-page--margin);
       padding-bottom: var(--vs-page--padding);
@@ -77,8 +69,8 @@
 
       @var mbox-top-left-corner, mbox-top {
         border-bottom-color: ;
-        border-bottom-style: ;
-        border-bottom-width: ;
+        border-bottom-style: solid;
+        border-bottom-width: 0;
         margin-bottom: ;
         margin-top: calc(var(--vs-page--bleed) * -1);
         padding-bottom: ;
@@ -87,8 +79,8 @@
 
       @var mbox-top-left-corner, mbox-left {
         border-right-color: ;
-        border-right-style: ;
-        border-right-width: ;
+        border-right-style: solid;
+        border-right-width: 0;
         margin-left: calc(var(--vs-page--bleed) * -1);
         margin-right: ;
         padding-left: var(--vs-page--bleed);
@@ -131,8 +123,8 @@
 
       @var mbox-top-left, mbox-top {
         border-bottom-color: ;
-        border-bottom-style: ;
-        border-bottom-width: ;
+        border-bottom-style: solid;
+        border-bottom-width: 0;
         margin-bottom: ;
         margin-top: calc(var(--vs-page--bleed) * -1);
         padding-bottom: ;
@@ -173,8 +165,8 @@
 
       @var mbox-top-center, mbox-top {
         border-bottom-color: ;
-        border-bottom-style: ;
-        border-bottom-width: ;
+        border-bottom-style: solid;
+        border-bottom-width: 0;
         margin-bottom: ;
         margin-top: calc(var(--vs-page--bleed) * -1);
         padding-bottom: ;
@@ -217,8 +209,8 @@
 
       @var mbox-top-right, mbox-top {
         border-bottom-color: ;
-        border-bottom-style: ;
-        border-bottom-width: ;
+        border-bottom-style: solid;
+        border-bottom-width: 0;
         margin-bottom: ;
         margin-top: calc(var(--vs-page--bleed) * -1);
         padding-bottom: ;
@@ -254,8 +246,8 @@
 
       @var mbox-top-right-corner, mbox-top {
         border-bottom-color: ;
-        border-bottom-style: ;
-        border-bottom-width: ;
+        border-bottom-style: solid;
+        border-bottom-width: 0;
         margin-bottom: ;
         margin-top: calc(var(--vs-page--bleed) * -1);
         padding-bottom: ;
@@ -264,8 +256,8 @@
 
       @var mbox-top-right-corner, mbox-right {
         border-left-color: ;
-        border-left-style: ;
-        border-left-width: ;
+        border-left-style: solid;
+        border-left-width: 0;
         margin-left: ;
         margin-right: calc(var(--vs-page--bleed) * -1);
         padding-left: ;
@@ -308,8 +300,8 @@
 
       @var mbox-left-top, mbox-left {
         border-right-color: ;
-        border-right-style: ;
-        border-right-width: ;
+        border-right-style: solid;
+        border-right-width: 0;
         margin-left: calc(var(--vs-page--bleed) * -1);
         margin-right: ;
         padding-left: var(--vs-page--bleed);
@@ -349,8 +341,8 @@
 
       @var mbox-left-middle, mbox-left {
         border-right-color: ;
-        border-right-style: ;
-        border-right-width: ;
+        border-right-style: solid;
+        border-right-width: 0;
         margin-left: calc(var(--vs-page--bleed) * -1);
         margin-right: ;
         padding-left: var(--vs-page--bleed);
@@ -393,8 +385,8 @@
 
       @var mbox-left-bottom, mbox-left {
         border-right-color: ;
-        border-right-style: ;
-        border-right-width: ;
+        border-right-style: solid;
+        border-right-width: 0;
         margin-left: calc(var(--vs-page--bleed) * -1);
         margin-right: ;
         padding-left: var(--vs-page--bleed);
@@ -437,8 +429,8 @@
 
       @var mbox-right-top, mbox-right {
         border-left-color: ;
-        border-left-style: ;
-        border-left-width: ;
+        border-left-style: solid;
+        border-left-width: 0;
         margin-left: ;
         margin-right: calc(var(--vs-page--bleed) * -1);
         padding-left: ;
@@ -478,8 +470,8 @@
 
       @var mbox-right-middle, mbox-right {
         border-left-color: ;
-        border-left-style: ;
-        border-left-width: ;
+        border-left-style: solid;
+        border-left-width: 0;
         margin-left: ;
         margin-right: calc(var(--vs-page--bleed) * -1);
         padding-left: ;
@@ -522,8 +514,8 @@
 
       @var mbox-right-bottom, mbox-right {
         border-left-color: ;
-        border-left-style: ;
-        border-left-width: ;
+        border-left-style: solid;
+        border-left-width: 0;
         margin-left: ;
         margin-right: calc(var(--vs-page--bleed) * -1);
         padding-left: ;
@@ -559,8 +551,8 @@
 
       @var mbox-bottom-left-corner, mbox-bottom {
         border-top-color: ;
-        border-top-style: ;
-        border-top-width: ;
+        border-top-style: solid;
+        border-top-width: 0;
         margin-bottom: calc(var(--vs-page--bleed) * -1);
         margin-top: ;
         padding-bottom: var(--vs-page--bleed);
@@ -569,8 +561,8 @@
 
       @var mbox-bottom-left-corner, mbox-left {
         border-right-color: ;
-        border-right-style: ;
-        border-right-width: ;
+        border-right-style: solid;
+        border-right-width: 0;
         margin-left: calc(var(--vs-page--bleed) * -1);
         margin-right: ;
         padding-left: var(--vs-page--bleed);
@@ -613,8 +605,8 @@
 
       @var mbox-bottom-left, mbox-bottom {
         border-top-color: ;
-        border-top-style: ;
-        border-top-width: ;
+        border-top-style: solid;
+        border-top-width: 0;
         margin-bottom: calc(var(--vs-page--bleed) * -1);
         margin-top: ;
         padding-bottom: var(--vs-page--bleed);
@@ -655,8 +647,8 @@
 
       @var mbox-bottom-center, mbox-bottom {
         border-top-color: ;
-        border-top-style: ;
-        border-top-width: ;
+        border-top-style: solid;
+        border-top-width: 0;
         margin-bottom: calc(var(--vs-page--bleed) * -1);
         margin-top: ;
         padding-bottom: var(--vs-page--bleed);
@@ -699,8 +691,8 @@
 
       @var mbox-bottom-right, mbox-bottom {
         border-top-color: ;
-        border-top-style: ;
-        border-top-width: ;
+        border-top-style: solid;
+        border-top-width: 0;
         margin-bottom: calc(var(--vs-page--bleed) * -1);
         margin-top: ;
         padding-bottom: var(--vs-page--bleed);
@@ -736,8 +728,8 @@
 
       @var mbox-bottom-right-corner, mbox-bottom {
         border-top-color: ;
-        border-top-style: ;
-        border-top-width: ;
+        border-top-style: solid;
+        border-top-width: 0;
         margin-bottom: calc(var(--vs-page--bleed) * -1);
         margin-top: ;
         padding-bottom: var(--vs-page--bleed);
@@ -746,8 +738,8 @@
 
       @var mbox-bottom-right-corner, mbox-right {
         border-left-color: ;
-        border-left-style: ;
-        border-left-width: ;
+        border-left-style: solid;
+        border-left-width: 0;
         margin-left: ;
         margin-right: calc(var(--vs-page--bleed) * -1);
         padding-left: ;

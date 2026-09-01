@@ -1,19 +1,34 @@
 @define {
   :root {
-    --vs-accent-color: currentColor;
-    --vs-background-color: transparent;
-    --vs-background-color-alt: transparent;
-    --vs-border-color: var(--vs-text-color);
-    --vs-border-style: solid;
+    /*
+     * Design tokens
+     */
     --vs-border-width: 1px;
-    --vs-column-fill: balance;
-    --vs-column-gap: 1rem;
-    --vs-column-rule-color: var(--vs-border-color);
-    --vs-column-rule-style: var(--vs-border-style);
-    --vs-column-rule-width: 0;
-    --vs-columns: 1;
+    --vs-color-foreground: #000;
+    --vs-color-foreground-alt: var(--vs-color-foreground);
+    --vs-color-background: transparent;
+    --vs-color-background-alt: var(--vs-color-background);
+    --vs-color-border: currentColor;
+    --vs-color-border-alt: var(--vs-color-border);
     --vs-counter-style: decimal;
     --vs-font-family: sans-serif;
+    --vs-font-family-alt: var(--vs-font-family);
+    --vs-font-family-monospace: monospace;
+    --vs-font-weight: 400;
+    --vs-font-weight-bold: 700;
+    --vs-spacing-inline-indent: min(2ch, 5vw);
+    --vs-spacing-rlh: calc(var(--vs-line-height) * 1rem);
+    --vs-widows-orphans: 1;
+
+    /*
+     * Root element properties
+     */
+    --vs-column-fill: balance;
+    --vs-column-gap: 1rem;
+    --vs-column-rule-color: var(--vs-color-border);
+    --vs-column-rule-style: solid;
+    --vs-column-rule-width: 0;
+    --vs-columns: 1;
     --vs-font-feature-settings: normal;
     --vs-font-kerning: auto;
     --vs-font-size: 100%;
@@ -23,8 +38,6 @@
     --vs-font-variant: normal;
     --vs-font-variant-numeric: normal;
     --vs-font-variation-settings: normal;
-    --vs-font-weight: 400;
-    --vs-font-weight-bold: 700;
     --vs-hanging-punctuation: none;
     --vs-hyphens: auto;
     --vs-letter-spacing: 0;
@@ -32,61 +45,34 @@
     --vs-line-height: 1.5;
     --vs-orphans: var(--vs-widows-orphans);
     --vs-overflow-wrap: anywhere;
-    --vs-spacing-inline-indent: min(2ch, 5vw);
-    --vs-spacing-rlh: calc(var(--vs-line-height) * 1rem);
     --vs-tab-size: 4;
     --vs-text-align: start;
-    --vs-text-color: #000;
+    --vs-text-orientation: mixed;
     --vs-text-spacing: auto;
     --vs-text-underline-offset: auto;
     --vs-text-underline-position: left;
-    --vs-widows: var(--vs-widows-orphans);
-    --vs-widows-orphans: 1;
     --vs-word-break: normal;
     --vs-word-spacing: normal;
+    --vs-widows: var(--vs-widows-orphans);
     --vs-writing-mode: horizontal-tb;
-    --vs--anchor-text-color: var(--vs-accent-color);
+
+    /*
+     * Basic element properties
+     */
+    --vs--anchor-text-color: var(--vs-color-foreground);
     --vs--anchor-text-decoration: underline;
     --vs--big-font-size: 1.17em;
-    --vs--blockquote-background-color: transparent;
-    --vs--blockquote-border-color-block-end: var(--vs-border-color);
-    --vs--blockquote-border-color-block-start: var(--vs-border-color);
-    --vs--blockquote-border-color-inline-end: var(--vs-border-color);
-    --vs--blockquote-border-color-inline-start: var(--vs-border-color);
-    --vs--blockquote-border-radius: 0;
-    --vs--blockquote-border-style-block-end: var(--vs-border-style);
-    --vs--blockquote-border-style-block-start: var(--vs-border-style);
-    --vs--blockquote-border-style-inline-end: var(--vs-border-style);
-    --vs--blockquote-border-style-inline-start: var(--vs-border-style);
-    --vs--blockquote-border-width-block-end: 0;
-    --vs--blockquote-border-width-block-start: 0;
-    --vs--blockquote-border-width-inline-end: 0;
-    --vs--blockquote-border-width-inline-start: 0;
-    --vs--blockquote-break-inside: auto;
-    --vs--blockquote-font-size: 100%;
+    --vs--blockquote-border-color: var(--vs-color-border);
     --vs--blockquote-margin-block: var(--vs-spacing-rlh);
     --vs--blockquote-margin-inline: var(--vs-spacing-inline-indent) 0;
-    --vs--blockquote-padding-block: 0;
-    --vs--blockquote-padding-inline: 0;
     --vs--bold-font-weight: var(--vs-font-weight-bold);
-    --vs--bold-margin-inline: 0;
-    --vs--caption-display: table-caption;
     --vs--cite-font-style: italic;
-    --vs--crossref-call-display: inline;
-    --vs--crossref-call-margin-inline: 0;
     --vs--crossref-call-text-decoration: none;
     --vs--dd-margin-inline-start: var(--vs-spacing-inline-indent);
     --vs--del-text-decoration: line-through;
-    --vs--dt-dd-display: block;
     --vs--emphasis-font-style: italic;
     --vs--figcaption-break-inside: avoid;
-    --vs--figcaption-display: block;
-    --vs--figcaption-font-family: var(--vs-font-family-secondary);
-    --vs--figcaption-font-size: 100%;
     --vs--figcaption-margin-block: var(--vs-spacing-rlh);
-    --vs--figcaption-margin-inline: 0;
-    --vs--figcaption-order: 0;
-    --vs--figcaption-text-color: var(--vs-text-color-muted);
     --vs--figcaption-text-indent: 0;
     --vs--figure-align-items: center;
     --vs--figure-break-inside: avoid;
@@ -94,53 +80,24 @@
     --vs--figure-flex-direction: column;
     --vs--figure-item-max-size-block: 100%;
     --vs--figure-item-max-size-inline: 100%;
-    --vs--figure-item-padding-inline: 0;
-    --vs--figure-item-size-inline: auto;
     --vs--figure-margin-block: var(--vs-spacing-rlh);
-    --vs--figure-margin-inline: 0;
-    --vs--figure-table-margin-block: 0;
-    --vs--figure-table-margin-inline: 0;
     --vs--h1-font-size: 2em;
     --vs--h2-font-size: 1.5em;
     --vs--h3-font-size: 1.17em;
-    --vs--h4-font-size: 1em;
     --vs--h5-font-size: 0.83em;
     --vs--h6-font-size: 0.67em;
-    --vs--heading-background-color: transparent;
-    --vs--heading-border-color-block-end: var(--vs-border-color);
-    --vs--heading-border-color-block-start: var(--vs-border-color);
-    --vs--heading-border-color-inline-end: var(--vs-border-color);
-    --vs--heading-border-color-inline-start: var(--vs-border-color);
-    --vs--heading-border-style-block-end: var(--vs-border-style);
-    --vs--heading-border-style-block-start: var(--vs-border-style);
-    --vs--heading-border-style-inline-end: var(--vs-border-style);
-    --vs--heading-border-style-inline-start: var(--vs-border-style);
-    --vs--heading-border-width-block-end: 0;
-    --vs--heading-border-width-block-start: 0;
-    --vs--heading-border-width-inline-end: 0;
-    --vs--heading-border-width-inline-start: 0;
+    --vs--heading-border-color: var(--vs-color-border);
     --vs--heading-break-after: avoid;
     --vs--heading-break-inside: avoid;
     --vs--heading-font-weight: var(--vs-font-weight-bold);
     --vs--heading-hyphens: none;
     --vs--heading-margin-block: var(--vs-spacing-rlh);
-    --vs--heading-margin-inline: 0;
-    --vs--heading-padding-block: 0;
-    --vs--heading-padding-inline: 0;
     --vs--heading-text-indent: 0;
-    --vs--hr-border-color: var(--vs-border-color);
-    --vs--hr-border-style-block-start: var(--vs-border-style);
+    --vs--hr-border-color: var(--vs-color-border);
     --vs--hr-border-width-block-start: var(--vs-border-width);
     --vs--hr-margin-block: var(--vs-spacing-rlh);
-    --vs--hr-margin-inline: 0;
-    --vs--hr-size-inline: auto;
     --vs--img-image-resolution: from-image;
-    --vs--li-margin-block: 0;
-    --vs--li-padding-block: 0;
-    --vs--li-padding-inline: 0;
     --vs--lists-margin-block: var(--vs-spacing-rlh);
-    --vs--lists-margin-inline: 0;
-    --vs--lists-marker-text-color: var(--vs-accent-color);
     --vs--lists-padding-inline-start: 2rem;
     --vs--lists-text-indent: 0;
     --vs--math-display-break-inside: avoid;
@@ -150,41 +107,17 @@
     --vs--math-font-family:
       'STIX Two Math', 'Cambria Math', 'Latin Modern Math', math;
     --vs--math-font-style: normal;
-    --vs--monospace-font-family: monospace;
+    --vs--monospace-font-family: var(--vs-font-family-monospace);
     --vs--monospace-font-kerning: none;
     --vs--monospace-hyphens: none;
     --vs--monospace-text-spacing: none;
     --vs--ol-list-style-type: decimal;
     --vs--p-margin-block: var(--vs-spacing-rlh);
-    --vs--p-margin-inline: 0;
-    --vs--p-padding-block: 0;
-    --vs--p-padding-inline: 0;
     --vs--p-text-align: justify;
     --vs--p-text-indent: 0;
-    --vs--pre-background-color: var(--vs-background-color-alt);
-    --vs--pre-border-color-block-end: var(--vs-border-color);
-    --vs--pre-border-color-block-start: var(--vs-border-color);
-    --vs--pre-border-color-inline-end: var(--vs-border-color);
-    --vs--pre-border-color-inline-start: var(--vs-border-color);
-    --vs--pre-border-radius: 0;
-    --vs--pre-border-style-block-end: var(--vs-border-style);
-    --vs--pre-border-style-block-start: var(--vs-border-style);
-    --vs--pre-border-style-inline-end: var(--vs-border-style);
-    --vs--pre-border-style-inline-start: var(--vs-border-style);
-    --vs--pre-border-width-block-end: 0;
-    --vs--pre-border-width-block-start: 0;
-    --vs--pre-border-width-inline-end: 0;
-    --vs--pre-border-width-inline-start: 0;
-    --vs--pre-break-inside: auto;
-    --vs--pre-font-family: var(--vs--monospace-font-family);
-    --vs--pre-font-size: var(--vs--monospace-font-size);
-    --vs--pre-line-height: var(--vs--monospace-line-height);
+    --vs--pre-border-color: var(--vs-color-border);
     --vs--pre-margin-block: var(--vs-spacing-rlh);
-    --vs--pre-margin-inline: 0;
     --vs--pre-overflow-x: auto;
-    --vs--pre-padding-block: 0;
-    --vs--pre-padding-inline: 0;
-    --vs--pre-size-inline: auto;
     --vs--pre-text-align: start;
     --vs--pre-white-space: pre;
     --vs--pre-word-break: break-all;
@@ -194,36 +127,21 @@
     --vs--sub-font-size: 0.8em;
     --vs--sub-inset-block-end: -0.25em;
     --vs--sub-line-height: 0;
-    --vs--sub-margin-inline: 0;
-    --vs--sub-vertical-align: baseline;
     --vs--sup-font-size: 0.8em;
     --vs--sup-inset-block-start: -0.5em;
     --vs--sup-line-height: 0;
-    --vs--sup-margin-inline: 0;
-    --vs--sup-vertical-align: baseline;
-    --vs--table-background-color: transparent;
     --vs--table-border-collapse: collapse;
-    --vs--table-border-color: var(--vs-border-color);
-    --vs--table-border-style: var(--vs-border-style);
+    --vs--table-border-color: var(--vs-color-border);
     --vs--table-border-width: var(--vs-border-width);
     --vs--table-break-inside: avoid;
-    --vs--table-cell-background-color: transparent;
-    --vs--table-cell-min-size-block: auto;
     --vs--table-cell-padding-block: 0.25rem;
     --vs--table-cell-padding-inline: 0.5rem;
     --vs--table-cell-vertical-align: middle;
     --vs--table-container-overflow-x: auto;
-    --vs--table-font-family: var(--vs-font-family-secondary);
-    --vs--table-font-size: 100%;
     --vs--table-margin-block: var(--vs-spacing-rlh);
     --vs--table-margin-inline: auto;
     --vs--table-max-size-block: 100%;
     --vs--table-max-size-inline: 100%;
-    --vs--table-row-even-background-color: transparent;
-    --vs--table-row-odd-background-color: transparent;
-    --vs--table-size-inline: auto;
-    --vs--table-table-layout: auto;
-    --vs--th-background-color: var(--vs-background-color-alt);
     --vs--ul-list-style-type: disc;
   }
 
@@ -251,12 +169,24 @@
 *,
 *::before,
 *::after {
-  border-color: var(--vs-border-color);
+  border-color: var(--vs-color-border);
+}
+
+html {
+  background-color: var(--vs-color-background);
+  color: var(--vs-color-foreground);
+  font-family: var(--vs-font-family);
+  font-weight: var(--vs-font-weight);
 }
 
 @var {
   html {
-    font-family: ;
+    column-fill: ;
+    column-gap: ;
+    column-rule-color: ;
+    column-rule-style: ;
+    column-rule-width: ;
+    columns: ;
     font-feature-settings: ;
     font-kerning: ;
     font-size: ;
@@ -266,32 +196,23 @@
     font-variant: ;
     font-variant-numeric: ;
     font-variation-settings: ;
-    font-weight: ;
-    letter-spacing: ;
-    line-height: ;
-    background-color: ;
-    color: ;
-    tab-size: ;
+    hanging-punctuation: ;
     hyphens: ;
+    letter-spacing: ;
     line-break: ;
+    line-height: ;
+    orphans: ;
     overflow-wrap: ;
-    word-break: ;
-    columns: ;
-    column-fill: ;
-    column-gap: ;
-    column-rule-color: ;
-    column-rule-style: ;
-    column-rule-width: ;
+    tab-size: ;
+    text-align: ;
     text-orientation: ;
+    text-spacing: ;
     text-underline-offset: ;
     text-underline-position: ;
-    orphans: ;
+    word-break: ;
+    word-spacing: ;
     widows: ;
     writing-mode: ;
-    text-spacing: ;
-    hanging-punctuation: ;
-    text-align: ;
-    word-spacing: ;
   }
 }
 
@@ -341,18 +262,54 @@ h1 {
   @var -h1, -heading {
     & {
       background-color: ;
-      border-block-end-color: ;
-      border-block-end-style: ;
-      border-block-end-width: ;
-      border-block-start-color: ;
-      border-block-start-style: ;
-      border-block-start-width: ;
-      border-inline-end-color: ;
-      border-inline-end-style: ;
-      border-inline-end-width: ;
-      border-inline-start-color: ;
-      border-inline-start-style: ;
-      border-inline-start-width: ;
+      border-block-end-color: var(
+        --vs--h1-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-block-end-style: var(
+        --vs--h1-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-block-end-width: var(
+        --vs--h1-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-block-start-color: var(
+        --vs--h1-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-block-start-style: var(
+        --vs--h1-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-block-start-width: var(
+        --vs--h1-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-inline-end-color: var(
+        --vs--h1-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-inline-end-style: var(
+        --vs--h1-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-inline-end-width: var(
+        --vs--h1-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-inline-start-color: var(
+        --vs--h1-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-inline-start-style: var(
+        --vs--h1-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-inline-start-width: var(
+        --vs--h1-border-width,
+        var(--vs--heading-border-width, 0)
+      );
       break-after: ;
       break-inside: ;
       color: ;
@@ -391,18 +348,54 @@ h2 {
   @var -h2, -heading {
     & {
       background-color: ;
-      border-block-end-color: ;
-      border-block-end-style: ;
-      border-block-end-width: ;
-      border-block-start-color: ;
-      border-block-start-style: ;
-      border-block-start-width: ;
-      border-inline-end-color: ;
-      border-inline-end-style: ;
-      border-inline-end-width: ;
-      border-inline-start-color: ;
-      border-inline-start-style: ;
-      border-inline-start-width: ;
+      border-block-end-color: var(
+        --vs--h2-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-block-end-style: var(
+        --vs--h2-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-block-end-width: var(
+        --vs--h2-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-block-start-color: var(
+        --vs--h2-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-block-start-style: var(
+        --vs--h2-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-block-start-width: var(
+        --vs--h2-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-inline-end-color: var(
+        --vs--h2-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-inline-end-style: var(
+        --vs--h2-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-inline-end-width: var(
+        --vs--h2-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-inline-start-color: var(
+        --vs--h2-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-inline-start-style: var(
+        --vs--h2-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-inline-start-width: var(
+        --vs--h2-border-width,
+        var(--vs--heading-border-width, 0)
+      );
       break-after: ;
       break-inside: ;
       color: ;
@@ -441,18 +434,54 @@ h3 {
   @var -h3, -heading {
     & {
       background-color: ;
-      border-block-end-color: ;
-      border-block-end-style: ;
-      border-block-end-width: ;
-      border-block-start-color: ;
-      border-block-start-style: ;
-      border-block-start-width: ;
-      border-inline-end-color: ;
-      border-inline-end-style: ;
-      border-inline-end-width: ;
-      border-inline-start-color: ;
-      border-inline-start-style: ;
-      border-inline-start-width: ;
+      border-block-end-color: var(
+        --vs--h3-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-block-end-style: var(
+        --vs--h3-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-block-end-width: var(
+        --vs--h3-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-block-start-color: var(
+        --vs--h3-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-block-start-style: var(
+        --vs--h3-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-block-start-width: var(
+        --vs--h3-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-inline-end-color: var(
+        --vs--h3-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-inline-end-style: var(
+        --vs--h3-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-inline-end-width: var(
+        --vs--h3-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-inline-start-color: var(
+        --vs--h3-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-inline-start-style: var(
+        --vs--h3-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-inline-start-width: var(
+        --vs--h3-border-width,
+        var(--vs--heading-border-width, 0)
+      );
       break-after: ;
       break-inside: ;
       color: ;
@@ -491,18 +520,54 @@ h4 {
   @var -h4, -heading {
     & {
       background-color: ;
-      border-block-end-color: ;
-      border-block-end-style: ;
-      border-block-end-width: ;
-      border-block-start-color: ;
-      border-block-start-style: ;
-      border-block-start-width: ;
-      border-inline-end-color: ;
-      border-inline-end-style: ;
-      border-inline-end-width: ;
-      border-inline-start-color: ;
-      border-inline-start-style: ;
-      border-inline-start-width: ;
+      border-block-end-color: var(
+        --vs--h4-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-block-end-style: var(
+        --vs--h4-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-block-end-width: var(
+        --vs--h4-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-block-start-color: var(
+        --vs--h4-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-block-start-style: var(
+        --vs--h4-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-block-start-width: var(
+        --vs--h4-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-inline-end-color: var(
+        --vs--h4-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-inline-end-style: var(
+        --vs--h4-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-inline-end-width: var(
+        --vs--h4-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-inline-start-color: var(
+        --vs--h4-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-inline-start-style: var(
+        --vs--h4-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-inline-start-width: var(
+        --vs--h4-border-width,
+        var(--vs--heading-border-width, 0)
+      );
       break-after: ;
       break-inside: ;
       color: ;
@@ -541,18 +606,54 @@ h5 {
   @var -h5, -heading {
     & {
       background-color: ;
-      border-block-end-color: ;
-      border-block-end-style: ;
-      border-block-end-width: ;
-      border-block-start-color: ;
-      border-block-start-style: ;
-      border-block-start-width: ;
-      border-inline-end-color: ;
-      border-inline-end-style: ;
-      border-inline-end-width: ;
-      border-inline-start-color: ;
-      border-inline-start-style: ;
-      border-inline-start-width: ;
+      border-block-end-color: var(
+        --vs--h5-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-block-end-style: var(
+        --vs--h5-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-block-end-width: var(
+        --vs--h5-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-block-start-color: var(
+        --vs--h5-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-block-start-style: var(
+        --vs--h5-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-block-start-width: var(
+        --vs--h5-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-inline-end-color: var(
+        --vs--h5-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-inline-end-style: var(
+        --vs--h5-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-inline-end-width: var(
+        --vs--h5-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-inline-start-color: var(
+        --vs--h5-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-inline-start-style: var(
+        --vs--h5-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-inline-start-width: var(
+        --vs--h5-border-width,
+        var(--vs--heading-border-width, 0)
+      );
       break-after: ;
       break-inside: ;
       color: ;
@@ -591,18 +692,54 @@ h6 {
   @var -h6, -heading {
     & {
       background-color: ;
-      border-block-end-color: ;
-      border-block-end-style: ;
-      border-block-end-width: ;
-      border-block-start-color: ;
-      border-block-start-style: ;
-      border-block-start-width: ;
-      border-inline-end-color: ;
-      border-inline-end-style: ;
-      border-inline-end-width: ;
-      border-inline-start-color: ;
-      border-inline-start-style: ;
-      border-inline-start-width: ;
+      border-block-end-color: var(
+        --vs--h6-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-block-end-style: var(
+        --vs--h6-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-block-end-width: var(
+        --vs--h6-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-block-start-color: var(
+        --vs--h6-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-block-start-style: var(
+        --vs--h6-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-block-start-width: var(
+        --vs--h6-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-inline-end-color: var(
+        --vs--h6-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-inline-end-style: var(
+        --vs--h6-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-inline-end-width: var(
+        --vs--h6-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-inline-start-color: var(
+        --vs--h6-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-inline-start-style: var(
+        --vs--h6-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-inline-start-width: var(
+        --vs--h6-border-width,
+        var(--vs--heading-border-width, 0)
+      );
       break-after: ;
       break-inside: ;
       color: ;
@@ -784,8 +921,8 @@ em :is(b, strong) {
 
 @var -hr {
   hr {
-    border-block-start-style: ;
-    border-block-start-width: ;
+    border-block-start-style: solid;
+    border-block-start-width: 0;
     border-color: ;
     inline-size: ;
     margin-block: ;
@@ -802,8 +939,8 @@ em :is(b, strong) {
 
 @var -crossref-call {
   a[data-ref] {
-    color: var(--vs--anchor-text-color,);
-    text-decoration: var(--vs--anchor-text-decoration,);
+    color: var(--vs--anchor-text-color);
+    text-decoration: var(--vs--anchor-text-decoration);
     margin-inline: ;
   }
 }
@@ -848,18 +985,18 @@ em :is(b, strong) {
 @var -blockquote {
   blockquote {
     background-color: ;
-    border-block-end-color: ;
-    border-block-end-style: ;
-    border-block-end-width: ;
-    border-block-start-color: ;
-    border-block-start-style: ;
-    border-block-start-width: ;
-    border-inline-end-color: ;
-    border-inline-end-style: ;
-    border-inline-end-width: ;
-    border-inline-start-color: ;
-    border-inline-start-style: ;
-    border-inline-start-width: ;
+    border-block-end-color: var(--vs--blockquote-border-color);
+    border-block-end-style: var(--vs--blockquote-border-style, solid);
+    border-block-end-width: var(--vs--blockquote-border-width, 0);
+    border-block-start-color: var(--vs--blockquote-border-color);
+    border-block-start-style: var(--vs--blockquote-border-style, solid);
+    border-block-start-width: var(--vs--blockquote-border-width, 0);
+    border-inline-end-color: var(--vs--blockquote-border-color);
+    border-inline-end-style: var(--vs--blockquote-border-style, solid);
+    border-inline-end-width: var(--vs--blockquote-border-width, 0);
+    border-inline-start-color: var(--vs--blockquote-border-color);
+    border-inline-start-style: var(--vs--blockquote-border-style, solid);
+    border-inline-start-width: var(--vs--blockquote-border-width, 0);
     border-radius: ;
     break-inside: ;
     color: ;
@@ -887,7 +1024,7 @@ em :is(b, strong) {
   figure {
     align-items: ;
     break-inside: ;
-    display: ;
+    display: block;
     flex-direction: ;
     margin-block: ;
     margin-inline: ;
@@ -925,7 +1062,7 @@ figure img {
   figcaption {
     break-inside: ;
     color: ;
-    display: ;
+    display: block;
     font-family: ;
     font-size: ;
     font-style: ;
@@ -957,7 +1094,7 @@ figure img {
 
 @var -caption {
   caption {
-    display: ;
+    display: table-caption;
   }
 }
 
@@ -1055,7 +1192,7 @@ ol {
 @var -dt-dd {
   dt,
   dd {
-    display: ;
+    display: block;
   }
 }
 
@@ -1084,18 +1221,18 @@ dd {
 @var -pre {
   pre {
     background-color: ;
-    border-block-end-color: ;
-    border-block-end-style: ;
-    border-block-end-width: ;
-    border-block-start-color: ;
-    border-block-start-style: ;
-    border-block-start-width: ;
-    border-inline-end-color: ;
-    border-inline-end-style: ;
-    border-inline-end-width: ;
-    border-inline-start-color: ;
-    border-inline-start-style: ;
-    border-inline-start-width: ;
+    border-block-end-color: var(--vs--pre-border-color);
+    border-block-end-style: var(--vs--pre-border-style, solid);
+    border-block-end-width: var(--vs--pre-border-width, 0);
+    border-block-start-color: var(--vs--pre-border-color);
+    border-block-start-style: var(--vs--pre-border-style, solid);
+    border-block-start-width: var(--vs--pre-border-width, 0);
+    border-inline-end-color: var(--vs--pre-border-color);
+    border-inline-end-style: var(--vs--pre-border-style, solid);
+    border-inline-end-width: var(--vs--pre-border-width, 0);
+    border-inline-start-color: var(--vs--pre-border-color);
+    border-inline-start-style: var(--vs--pre-border-style, solid);
+    border-inline-start-width: var(--vs--pre-border-width, 0);
     border-radius: ;
     break-inside: ;
     color: ;
@@ -1177,11 +1314,11 @@ mtd:has(> .tml-tag) {
     );
     border-block-end-style: var(
       --vs--table-border-style-outer,
-      var(--vs--table-border-style)
+      var(--vs--table-border-style, solid)
     );
     border-block-end-width: var(
       --vs--table-border-width-outer,
-      var(--vs--table-border-width)
+      var(--vs--table-border-width, 0)
     );
     border-block-start-color: var(
       --vs--table-border-color-outer,
@@ -1189,11 +1326,11 @@ mtd:has(> .tml-tag) {
     );
     border-block-start-style: var(
       --vs--table-border-style-outer,
-      var(--vs--table-border-style)
+      var(--vs--table-border-style, solid)
     );
     border-block-start-width: var(
       --vs--table-border-width-outer,
-      var(--vs--table-border-width)
+      var(--vs--table-border-width, 0)
     );
     border-inline-end-color: var(
       --vs--table-border-color-outer,
@@ -1201,11 +1338,11 @@ mtd:has(> .tml-tag) {
     );
     border-inline-end-style: var(
       --vs--table-border-style-outer,
-      var(--vs--table-border-style)
+      var(--vs--table-border-style, solid)
     );
     border-inline-end-width: var(
       --vs--table-border-width-outer,
-      var(--vs--table-border-width)
+      var(--vs--table-border-width, 0)
     );
     border-inline-start-color: var(
       --vs--table-border-color-outer,
@@ -1213,11 +1350,11 @@ mtd:has(> .tml-tag) {
     );
     border-inline-start-style: var(
       --vs--table-border-style-outer,
-      var(--vs--table-border-style)
+      var(--vs--table-border-style, solid)
     );
     border-inline-start-width: var(
       --vs--table-border-width-outer,
-      var(--vs--table-border-width)
+      var(--vs--table-border-width, 0)
     );
     border-collapse: ;
     break-inside: ;
@@ -1254,11 +1391,11 @@ mtd:has(> .tml-tag) {
   );
   border-block-end-style: var(
     --vs--table-border-style-row,
-    var(--vs--table-border-style-cell, var(--vs--table-border-style))
+    var(--vs--table-border-style-cell, var(--vs--table-border-style, solid))
   );
   border-block-end-width: var(
     --vs--table-border-width-row,
-    var(--vs--table-border-width-cell, var(--vs--table-border-width))
+    var(--vs--table-border-width-cell, var(--vs--table-border-width, 0))
   );
 }
 
@@ -1269,11 +1406,11 @@ mtd:has(> .tml-tag) {
   );
   border-block-end-style: var(
     --vs--table-border-style-thead-inner,
-    var(--vs--table-border-style-cell, var(--vs--table-border-style))
+    var(--vs--table-border-style-cell, var(--vs--table-border-style, solid))
   );
   border-block-end-width: var(
     --vs--table-border-width-thead-inner,
-    var(--vs--table-border-width-cell, var(--vs--table-border-width))
+    var(--vs--table-border-width-cell, var(--vs--table-border-width, 0))
   );
 }
 
@@ -1284,11 +1421,11 @@ mtd:has(> .tml-tag) {
   );
   border-block-start-style: var(
     --vs--table-border-style-tfoot-inner,
-    var(--vs--table-border-style-cell, var(--vs--table-border-style))
+    var(--vs--table-border-style-cell, var(--vs--table-border-style, solid))
   );
   border-block-start-width: var(
     --vs--table-border-width-tfoot-inner,
-    var(--vs--table-border-width-cell, var(--vs--table-border-width))
+    var(--vs--table-border-width-cell, var(--vs--table-border-width, 0))
   );
 }
 
@@ -1299,11 +1436,11 @@ mtd:has(> .tml-tag) {
   );
   border-inline-end-style: var(
     --vs--table-border-style-column,
-    var(--vs--table-border-style-cell, var(--vs--table-border-style))
+    var(--vs--table-border-style-cell, var(--vs--table-border-style, solid))
   );
   border-inline-end-width: var(
     --vs--table-border-width-column,
-    var(--vs--table-border-width-cell, var(--vs--table-border-width))
+    var(--vs--table-border-width-cell, var(--vs--table-border-width, 0))
   );
 }
 

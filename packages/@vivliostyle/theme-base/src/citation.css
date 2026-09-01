@@ -7,8 +7,7 @@
         var(--vs-citation--counter-style, var(--vs-counter-style))
       )
       ']';
-    --vs-citation--item-margin-block: 0;
-    --vs-citation--item-padding-inline-start: 0;
+    --vs-citation--items-border-color: var(--vs-color-border);
     --vs-citation--items-margin-block: var(--vs--lists-margin-block);
     --vs-citation--items-padding-inline-start: var(
       --vs--ol-padding-inline-start,
@@ -20,7 +19,6 @@
         var(--vs-citation--counter-style, var(--vs-counter-style))
       )
       ']';
-    --vs-citation--marker-display: inline;
     --vs-citation--marker-inset-inline-start: -2rem;
     --vs-citation--root-counter-reset: vs-counter-cite
       var(--vs-citation--root-counter-cite,);
@@ -44,18 +42,18 @@
   @var items {
     ol.cite-items,
     [role='doc-bibliography'] :is(ol, ul) {
-      border-block-end-color: var(--vs-border-color);
-      border-block-end-style: ;
-      border-block-end-width: var(--vs-border-width);
-      border-block-start-color: var(--vs-border-color);
-      border-block-start-style: ;
-      border-block-start-width: var(--vs-border-width);
-      border-inline-end-color: var(--vs-border-color);
-      border-inline-end-style: ;
-      border-inline-end-width: var(--vs-border-width);
-      border-inline-start-color: var(--vs-border-color);
-      border-inline-start-style: ;
-      border-inline-start-width: var(--vs-border-width);
+      border-block-end-color: var(--vs-citation--items-border-color);
+      border-block-end-style: var(--vs-citation--items-border-style, solid);
+      border-block-end-width: var(--vs-citation--items-border-width, 0);
+      border-block-start-color: var(--vs-citation--items-border-color);
+      border-block-start-style: var(--vs-citation--items-border-style, solid);
+      border-block-start-width: var(--vs-citation--items-border-width, 0);
+      border-inline-end-color: var(--vs-citation--items-border-color);
+      border-inline-end-style: var(--vs-citation--items-border-style, solid);
+      border-inline-end-width: var(--vs-citation--items-border-width, 0);
+      border-inline-start-color: var(--vs-citation--items-border-color);
+      border-inline-start-style: var(--vs-citation--items-border-style, solid);
+      border-inline-start-width: var(--vs-citation--items-border-width, 0);
       color: ;
       font-size: ;
       hyphens: ;

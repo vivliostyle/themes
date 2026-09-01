@@ -9,7 +9,6 @@
       );
     --vs-theorem--label: 'Theorem ';
     --vs-theorem--margin-block: var(--vs-spacing-rlh);
-    --vs-theorem--marker-display: inline;
     --vs-theorem--marker-suffix: '. ';
     --vs-theorem--root-counter-reset: vs-counter-thm
       var(--vs-theorem--root-counter-thm,);

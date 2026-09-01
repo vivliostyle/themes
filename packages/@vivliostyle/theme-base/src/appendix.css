@@ -16,7 +16,6 @@
         var(--vs-appendix--counter-style, var(--vs-counter-style))
       )
       ' ';
-    --vs-appendix--marker-display: inline;
     --vs-appendix--root-counter-reset: vs-counter-appendix
       var(--vs-appendix--root-counter-appendix,);
   }

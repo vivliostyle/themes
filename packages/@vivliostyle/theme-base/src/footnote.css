@@ -2,8 +2,6 @@
   :root {
     --vs-footnote--area-before-display: block;
     --vs-footnote--area-before-margin-block: var(--vs--hr-margin-block);
-    --vs-footnote--area-before-margin-inline: var(--vs--hr-margin-inline);
-    --vs-footnote--area-before-size-inline: auto;
     --vs-footnote--area-margin-block: var(--vs-spacing-rlh);
     --vs-footnote--call-content: '*'
       counter(
@@ -12,27 +10,13 @@
       );
     --vs-footnote--call-font-size: 0.8em;
     --vs-footnote--call-inset-block-start: var(--vs--sup-inset-block-start);
-    --vs-footnote--call-margin-inline: 0;
-    --vs-footnote--call-vertical-align: baseline;
-    --vs-footnote--counter-style: decimal;
-    --vs-footnote--item-margin-block: 0;
-    --vs-footnote--item-margin-inline: 0;
     --vs-footnote--marker-content: counter(
         vs-counter-footnote,
         var(--vs-footnote--counter-style, var(--vs-counter-style))
       )
       '. ';
-    --vs-footnote--marker-margin-inline: 0;
     --vs-footnote--root-counter-reset: vs-counter-footnote
       var(--vs-footnote--root-counter-footnote,);
-  }
-}
-
-@var footnote {
-  @var counter {
-    :root {
-      --style: ;
-    }
   }
 }
 
@@ -140,18 +124,9 @@
     @var area-before {
       @footnote ::before {
         display: ;
-        border-block-start-style: var(
-          --vs--hr-border-style-block-start,
-          var(--vs-border-style)
-        );
-        border-block-start-color: var(
-          --vs--hr-border-color,
-          var(--vs-border-color)
-        );
-        border-block-start-width: var(
-          --vs--hr-border-width-block-start,
-          var(--vs-border-width)
-        );
+        border-block-start-color: var(--vs--hr-border-color);
+        border-block-start-style: var(--vs--hr-border-style-block-start, solid);
+        border-block-start-width: var(--vs--hr-border-width-block-start, 0);
         inline-size: ;
         margin-block: ;
         margin-inline: ;

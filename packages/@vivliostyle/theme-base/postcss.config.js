@@ -45,6 +45,7 @@ export default {
     }),
     extractCssVariables({
       prefix: 'vs-',
+      sourceDir: 'src',
       output: 'css-variables.yml',
       defineOutput: 'css/define.css',
       jsonOutput: 'dist/css-variables.json',

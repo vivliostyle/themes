@@ -18,7 +18,6 @@
         var(--vs-equation--counter-style, var(--vs-counter-style))
       )
       ')';
-    --vs-equation--marker-display: inline;
     --vs-equation--root-counter-reset: vs-counter-eq
       var(--vs-equation--root-counter-eq,);
   }

@@ -1,27 +1,14 @@
 @define {
   :root {
-    --vs-endnote--anchor-text-decoration: none;
-    --vs-endnote--backlink-display: inline;
-    --vs-endnote--call-content: none;
     --vs-endnote--call-font-size: 0.8em;
-    --vs-endnote--call-margin-inline: 0;
-    --vs-endnote--call-sup-font-size: 100%;
-    --vs-endnote--counter-style: decimal;
-    --vs-endnote--item-margin-block: 0;
-    --vs-endnote--item-padding-inline-start: 0;
-    --vs-endnote--marker-content: none;
-    --vs-endnote--marker-display: inline;
-    --vs-endnote--marker-margin-inline: 0;
     --vs-endnote--root-counter-reset: vs-counter-endnote
       var(--vs-endnote--root-counter-endnote,) vs-counter-endnote-call
       var(--vs-endnote--root-counter-endnote-call,);
-    --vs-endnote--section-heading-content: none;
+    --vs-endnote--section-border-color: var(--vs-color-border);
     --vs-endnote--section-heading-display: block;
     --vs-endnote--section-heading-margin-block: var(--vs-spacing-rlh);
     --vs-endnote--section-hr-display: block;
     --vs-endnote--section-hr-margin-block: var(--vs--hr-margin-block);
-    --vs-endnote--section-hr-margin-inline: var(--vs--hr-margin-inline);
-    --vs-endnote--section-hr-size-inline: auto;
     --vs-endnote--section-margin-block: var(--vs-spacing-rlh);
     --vs-endnote--section-ol-list-style-type: decimal;
     --vs-endnote--section-ol-margin-block: var(--vs--lists-margin-block);
@@ -45,17 +32,9 @@
 }
 
 @var endnote {
-  @var counter {
-    :root {
-      --style: ;
-    }
-  }
-}
-
-@var endnote {
   @var call {
     .footnote-ref {
-      color: var(--vs--anchor-text-color,);
+      color: var(--vs--anchor-text-color);
       font-family: ;
       font-size: ;
       font-weight: ;
@@ -82,18 +61,18 @@
 
   @var section {
     [role='doc-endnotes'] {
-      border-block-end-color: var(--vs-border-color);
-      border-block-end-style: ;
-      border-block-end-width: var(--vs-border-width);
-      border-block-start-color: var(--vs-border-color);
-      border-block-start-style: ;
-      border-block-start-width: var(--vs-border-width);
-      border-inline-end-color: var(--vs-border-color);
-      border-inline-end-style: ;
-      border-inline-end-width: var(--vs-border-width);
-      border-inline-start-color: var(--vs-border-color);
-      border-inline-start-style: ;
-      border-inline-start-width: var(--vs-border-width);
+      border-block-end-color: var(--vs-endnote--section-border-color);
+      border-block-end-style: var(--vs-endnote--section-border-style, solid);
+      border-block-end-width: var(--vs-endnote--section-border-width, 0);
+      border-block-start-color: var(--vs-endnote--section-border-color);
+      border-block-start-style: var(--vs-endnote--section-border-style, solid);
+      border-block-start-width: var(--vs-endnote--section-border-width, 0);
+      border-inline-end-color: var(--vs-endnote--section-border-color);
+      border-inline-end-style: var(--vs-endnote--section-border-style, solid);
+      border-inline-end-width: var(--vs-endnote--section-border-width, 0);
+      border-inline-start-color: var(--vs-endnote--section-border-color);
+      border-inline-start-style: var(--vs-endnote--section-border-style, solid);
+      border-inline-start-width: var(--vs-endnote--section-border-width, 0);
       color: ;
       font-size: ;
       letter-spacing: ;
@@ -131,15 +110,9 @@
 
   @var section-hr {
     [role='doc-endnotes'] > hr {
-      border-color: var(--vs--hr-border-color, var(--vs-border-color));
-      border-block-start-style: var(
-        --vs--hr-border-style-block-start,
-        var(--vs-border-style)
-      );
-      border-block-start-width: var(
-        --vs--hr-border-width-block-start,
-        var(--vs-border-width)
-      );
+      border-color: var(--vs--hr-border-color);
+      border-block-start-style: var(--vs--hr-border-style-block-start, solid);
+      border-block-start-width: var(--vs--hr-border-width-block-start, 0);
       display: ;
       inline-size: ;
       margin-block: ;

@@ -3,7 +3,6 @@
     --vs-prism--atrule-text-color: var(--vs-prism--text-color);
     --vs-prism--attr-name-text-color: var(--vs-prism--text-color);
     --vs-prism--attr-value-text-color: var(--vs-prism--text-color);
-    --vs-prism--background: none;
     --vs-prism--block-code-border-radius: 0.3em;
     --vs-prism--block-code-padding: 1em;
     --vs-prism--boolean-text-color: var(--vs-prism--text-color);

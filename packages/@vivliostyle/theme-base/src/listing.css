@@ -15,7 +15,6 @@
         var(--vs-listing--counter-style, var(--vs-counter-style))
       )
       ': ';
-    --vs-listing--marker-display: inline;
     --vs-listing--root-counter-reset: vs-counter-lst
       var(--vs-listing--root-counter-lst,);
   }

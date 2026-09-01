@@ -27,6 +27,8 @@ const fallbackSyntax = '*';
 
 export interface Options {
   cwd?: string;
+  /** Restricts which inputs contribute to the spec. */
+  sourceDir?: string;
   prefix?: string;
   defineAtRule?: string;
   output?: string;
@@ -762,6 +764,13 @@ function renderDefineCss(spec: SpecNode, prefix: string): string {
   return chunks.length === 0 ? '' : `${chunks.join('\n\n')}\n`;
 }
 
+function isInside(dir: string, file: string): boolean {
+  const relative = path.relative(dir, file);
+  return (
+    relative !== '' && !relative.startsWith('..') && !path.isAbsolute(relative)
+  );
+}
+
 function isSpecNode(value: unknown): value is SpecNode {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
@@ -775,6 +784,17 @@ function readRaw(output: string): string | null {
     }
     throw error;
   }
+}
+
+// Rewriting a file with the content it already holds still bumps its mtime,
+// which restarts every watcher looking at the generated output.
+function writeIfChanged(file: string, content: string): void {
+  if (readRaw(file) === content) {
+    return;
+  }
+  // css/ and dist/ are build artifacts, so they may not exist yet.
+  mkdirSync(path.dirname(file), { recursive: true });
+  writeFileSync(file, content);
 }
 
 // Re-reading before every write would feed this plugin its own half-finished
@@ -815,6 +835,10 @@ function registryFor(output: string): Registry {
 
 const extractCssVariables = (options: Options = {}): Plugin => {
   const cwd = options.cwd ?? process.cwd();
+  const sourceDir =
+    options.sourceDir === undefined
+      ? undefined
+      : path.resolve(cwd, options.sourceDir);
   const prefix = options.prefix ?? defaultPrefix;
   const defineAtRule = options.defineAtRule ?? defaultDefineAtRule;
   const output = path.resolve(cwd, options.output ?? defaultOutput);
@@ -835,6 +859,13 @@ const extractCssVariables = (options: Options = {}): Plugin => {
     // only ever see the source tree, missing every generated var() reference.
     OnceExit(root, { result }) {
       const from = result.opts.from;
+      // Vivliostyle CLI serves a theme through vite, which picks up this very
+      // config and hands the already generated CSS back to the plugin. A spec
+      // rebuilt from that input rewrites every output on each request, and the
+      // preview reloads on the change it just caused, forever.
+      if (sourceDir && !(from && isInside(sourceDir, from))) {
+        return;
+      }
       const file = from ? path.relative(cwd, from) : '<no source>';
       const usages: UsageRecord[] = [];
       const defines: DefineRecord[] = [];
@@ -892,27 +923,27 @@ const extractCssVariables = (options: Options = {}): Plugin => {
           lineWidth: 0,
         });
         const written = await format(output, yaml);
+        const defineCss = await format(
+          defineOutput,
+          renderDefineCss(spec, prefix),
+        );
+        const json = await format(
+          jsonOutput,
+          `${JSON.stringify(spec, null, 2)}\n`,
+        );
+        // Formatting is async, so a rebuild enqueued while it ran supersedes
+        // this one just as an earlier check would have caught.
+        if (version !== registry.version) {
+          return;
+        }
         // The spec file is watched as a dependency of every input, so writing
         // it unconditionally would make `postcss --watch` rebuild forever.
         if (written !== current) {
           writeFileSync(output, written);
         }
         registry.lastWritten = written;
-        // css/ and dist/ are build artifacts, so they may not exist yet.
-        mkdirSync(path.dirname(defineOutput), { recursive: true });
-        writeFileSync(
-          defineOutput,
-          await format(defineOutput, renderDefineCss(spec, prefix)),
-        );
-        mkdirSync(path.dirname(jsonOutput), { recursive: true });
-        writeFileSync(
-          jsonOutput,
-          await format(
-            jsonOutput,
-            `${JSON.stringify(spec, null, 2)}
-`,
-          ),
-        );
+        writeIfChanged(defineOutput, defineCss);
+        writeIfChanged(jsonOutput, json);
       };
       // Both branches chain `run` so that one failed rebuild (a definition
       // conflict, a formatter error) cannot poison every later rebuild of a

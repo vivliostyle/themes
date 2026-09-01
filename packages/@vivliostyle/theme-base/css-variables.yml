@@ -1,35 +1,28 @@
 _meta-properties:
-  accent-color:
-    _syntax: '*'
-    _define: 'currentColor'
-  background-color:
-    _syntax: '<color>'
-    _property: 'background-color'
-    _define: 'transparent'
-  background-color-alt:
-    _syntax: '*'
-    _define: 'transparent'
-  border-color:
-    _syntax: '<color>'
-    _property:
-      - 'border-block-end-color'
-      - 'border-block-start-color'
-      - 'border-color'
-      - 'border-inline-end-color'
-      - 'border-inline-start-color'
-    _define: 'var(--vs-text-color)'
-  border-style:
-    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
-    _property: 'border-block-start-style'
-    _define: 'solid'
   border-width:
     _syntax: 'medium | thick | thin | <length>'
-    _property:
-      - 'border-block-end-width'
-      - 'border-block-start-width'
-      - 'border-inline-end-width'
-      - 'border-inline-start-width'
     _define: '1px'
+  color-background:
+    _syntax: '*'
+    _property: 'background-color'
+    _define: 'transparent'
+  color-background-alt:
+    _syntax: '*'
+    _define: 'var(--vs-color-background)'
+  color-border:
+    _syntax: '*'
+    _property: 'border-color'
+    _define: 'currentColor'
+  color-border-alt:
+    _syntax: '*'
+    _define: 'var(--vs-color-border)'
+  color-foreground:
+    _syntax: '*'
+    _property: 'color'
+    _define: '#000'
+  color-foreground-alt:
+    _syntax: '*'
+    _define: 'var(--vs-color-foreground)'
   column-fill:
     _syntax: 'auto | balance'
     _property: 'column-fill'
@@ -41,11 +34,11 @@ _meta-properties:
   column-rule-color:
     _syntax: '<color>'
     _property: 'column-rule-color'
-    _define: 'var(--vs-border-color)'
+    _define: 'var(--vs-color-border)'
   column-rule-style:
     _syntax: '*'
     _property: 'column-rule-style'
-    _define: 'var(--vs-border-style)'
+    _define: 'solid'
   column-rule-width:
     _syntax: '*'
     _property: 'column-rule-width'
@@ -79,8 +72,12 @@ _meta-properties:
     _syntax: '*'
     _property: 'font-family'
     _define: 'sans-serif'
-  font-family-secondary:
+  font-family-alt:
     _syntax: '*'
+    _define: 'var(--vs-font-family)'
+  font-family-monospace:
+    _syntax: '*'
+    _define: 'monospace'
   font-feature-settings:
     _syntax: '*'
     _property: 'font-feature-settings'
@@ -169,12 +166,10 @@ _meta-properties:
   text-color:
     _syntax: '<color>'
     _property: 'color'
-    _define: '#000'
-  text-color-muted:
-    _syntax: '*'
   text-orientation:
     _syntax: 'mixed | sideways | upright'
     _property: 'text-orientation'
+    _define: 'mixed'
   text-spacing:
     _syntax: '*'
     _property: 'text-spacing'
@@ -210,7 +205,7 @@ _basic:
   anchor-text-color:
     _syntax: '<color>'
     _property: 'color'
-    _define: 'var(--vs-accent-color)'
+    _define: 'var(--vs-color-foreground)'
   anchor-text-decoration:
     _syntax: '*'
     _property: 'text-decoration'
@@ -229,70 +224,76 @@ _basic:
   blockquote-background-color:
     _syntax: '<color>'
     _property: 'background-color'
-    _define: 'transparent'
+  blockquote-border-color:
+    _syntax: '<color>'
+    _property:
+      - 'border-block-end-color'
+      - 'border-block-start-color'
+      - 'border-inline-end-color'
+      - 'border-inline-start-color'
+    _define: 'var(--vs-color-border)'
   blockquote-border-color-block-end:
     _syntax: '<color>'
     _property: 'border-block-end-color'
-    _define: 'var(--vs-border-color)'
   blockquote-border-color-block-start:
     _syntax: '<color>'
     _property: 'border-block-start-color'
-    _define: 'var(--vs-border-color)'
   blockquote-border-color-inline-end:
     _syntax: '<color>'
     _property: 'border-inline-end-color'
-    _define: 'var(--vs-border-color)'
   blockquote-border-color-inline-start:
     _syntax: '<color>'
     _property: 'border-inline-start-color'
-    _define: 'var(--vs-border-color)'
   blockquote-border-radius:
     _syntax: '<length-percentage>+'
     _property: 'border-radius'
-    _define: '0'
+  blockquote-border-style:
+    _syntax: '*'
+    _property:
+      - 'border-block-end-style'
+      - 'border-block-start-style'
+      - 'border-inline-end-style'
+      - 'border-inline-start-style'
   blockquote-border-style-block-end:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-block-end-style'
-    _define: 'var(--vs-border-style)'
   blockquote-border-style-block-start:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-block-start-style'
-    _define: 'var(--vs-border-style)'
   blockquote-border-style-inline-end:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-inline-end-style'
-    _define: 'var(--vs-border-style)'
   blockquote-border-style-inline-start:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-inline-start-style'
-    _define: 'var(--vs-border-style)'
+  blockquote-border-width:
+    _syntax: 'medium | thick | thin | <length>'
+    _property:
+      - 'border-block-end-width'
+      - 'border-block-start-width'
+      - 'border-inline-end-width'
+      - 'border-inline-start-width'
   blockquote-border-width-block-end:
     _syntax: 'medium | thick | thin | <length>'
     _property: 'border-block-end-width'
-    _define: '0'
   blockquote-border-width-block-start:
     _syntax: 'medium | thick | thin | <length>'
     _property: 'border-block-start-width'
-    _define: '0'
   blockquote-border-width-inline-end:
     _syntax: 'medium | thick | thin | <length>'
     _property: 'border-inline-end-width'
-    _define: '0'
   blockquote-border-width-inline-start:
     _syntax: 'medium | thick | thin | <length>'
     _property: 'border-inline-start-width'
-    _define: '0'
   blockquote-break-inside:
     _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
     _property: 'break-inside'
-    _define: 'auto'
   blockquote-font-family:
     _syntax: '*'
     _property: 'font-family'
   blockquote-font-size:
     _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
     _property: 'font-size'
-    _define: '100%'
   blockquote-line-height:
     _syntax: 'normal | <length> | <number> | <percentage>'
     _property: 'line-height'
@@ -316,11 +317,9 @@ _basic:
   blockquote-padding-block:
     _syntax: '<length-percentage>+'
     _property: 'padding-block'
-    _define: '0'
   blockquote-padding-inline:
     _syntax: '<length-percentage>+'
     _property: 'padding-inline'
-    _define: '0'
   blockquote-text-align:
     _syntax: 'center | end | justify | left | match-parent | right | start'
     _property: 'text-align'
@@ -388,7 +387,6 @@ _basic:
   bold-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
-    _define: '0'
   bold-text-color:
     _syntax: '<color>'
     _property: 'color'
@@ -401,7 +399,6 @@ _basic:
   caption-display:
     _syntax: '*'
     _property: 'display'
-    _define: 'table-caption'
   caption-font-family:
     _syntax: '*'
     _property: 'font-family'
@@ -457,11 +454,9 @@ _basic:
   crossref-call-display:
     _syntax: '*'
     _property: 'display'
-    _define: 'inline'
   crossref-call-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
-    _define: '0'
   crossref-call-text-color:
     _syntax: '<color>'
     _property: 'color'
@@ -496,7 +491,6 @@ _basic:
   dt-dd-display:
     _syntax: '*'
     _property: 'display'
-    _define: 'block'
   dt-text-align:
     _syntax: 'center | end | justify | left | match-parent | right | start'
     _property: 'text-align'
@@ -541,15 +535,12 @@ _basic:
   figcaption-display:
     _syntax: '*'
     _property: 'display'
-    _define: 'block'
   figcaption-font-family:
     _syntax: '*'
     _property: 'font-family'
-    _define: 'var(--vs-font-family-secondary)'
   figcaption-font-size:
     _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
     _property: 'font-size'
-    _define: '100%'
   figcaption-font-style:
     _syntax: 'italic | normal | oblique | <angle>'
     _property: 'font-style'
@@ -569,11 +560,9 @@ _basic:
   figcaption-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
-    _define: '0'
   figcaption-order:
     _syntax: '<integer>'
     _property: 'order'
-    _define: '0'
   figcaption-p-display:
     _syntax: '*'
     _property: 'display'
@@ -583,7 +572,6 @@ _basic:
   figcaption-text-color:
     _syntax: '<color>'
     _property: 'color'
-    _define: 'var(--vs-text-color-muted)'
   figcaption-text-indent:
     _syntax: '*'
     _property: 'text-indent'
@@ -621,11 +609,9 @@ _basic:
   figure-item-padding-inline:
     _syntax: '<length-percentage>+'
     _property: 'padding-inline'
-    _define: '0'
   figure-item-size-inline:
     _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
     _property: 'inline-size'
-    _define: 'auto'
   figure-margin-block:
     _syntax: '*'
     _property: 'margin-block'
@@ -633,15 +619,12 @@ _basic:
   figure-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
-    _define: '0'
   figure-table-margin-block:
     _syntax: '*'
     _property: 'margin-block'
-    _define: '0'
   figure-table-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
-    _define: '0'
   figure-text-align:
     _syntax: 'center | end | justify | left | match-parent | right | start'
     _property: 'text-align'
@@ -651,6 +634,13 @@ _basic:
   h1-background-color:
     _syntax: '<color>'
     _property: 'background-color'
+  h1-border-color:
+    _syntax: '<color>'
+    _property:
+      - 'border-block-end-color'
+      - 'border-block-start-color'
+      - 'border-inline-end-color'
+      - 'border-inline-start-color'
   h1-border-color-block-end:
     _syntax: '<color>'
     _property: 'border-block-end-color'
@@ -663,6 +653,13 @@ _basic:
   h1-border-color-inline-start:
     _syntax: '<color>'
     _property: 'border-inline-start-color'
+  h1-border-style:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property:
+      - 'border-block-end-style'
+      - 'border-block-start-style'
+      - 'border-inline-end-style'
+      - 'border-inline-start-style'
   h1-border-style-block-end:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-block-end-style'
@@ -675,6 +672,13 @@ _basic:
   h1-border-style-inline-start:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-inline-start-style'
+  h1-border-width:
+    _syntax: 'medium | thick | thin | <length>'
+    _property:
+      - 'border-block-end-width'
+      - 'border-block-start-width'
+      - 'border-inline-end-width'
+      - 'border-inline-start-width'
   h1-border-width-block-end:
     _syntax: 'medium | thick | thin | <length>'
     _property: 'border-block-end-width'
@@ -769,6 +773,13 @@ _basic:
   h2-background-color:
     _syntax: '<color>'
     _property: 'background-color'
+  h2-border-color:
+    _syntax: '<color>'
+    _property:
+      - 'border-block-end-color'
+      - 'border-block-start-color'
+      - 'border-inline-end-color'
+      - 'border-inline-start-color'
   h2-border-color-block-end:
     _syntax: '<color>'
     _property: 'border-block-end-color'
@@ -781,6 +792,13 @@ _basic:
   h2-border-color-inline-start:
     _syntax: '<color>'
     _property: 'border-inline-start-color'
+  h2-border-style:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property:
+      - 'border-block-end-style'
+      - 'border-block-start-style'
+      - 'border-inline-end-style'
+      - 'border-inline-start-style'
   h2-border-style-block-end:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-block-end-style'
@@ -793,6 +811,13 @@ _basic:
   h2-border-style-inline-start:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-inline-start-style'
+  h2-border-width:
+    _syntax: 'medium | thick | thin | <length>'
+    _property:
+      - 'border-block-end-width'
+      - 'border-block-start-width'
+      - 'border-inline-end-width'
+      - 'border-inline-start-width'
   h2-border-width-block-end:
     _syntax: 'medium | thick | thin | <length>'
     _property: 'border-block-end-width'
@@ -887,6 +912,13 @@ _basic:
   h3-background-color:
     _syntax: '<color>'
     _property: 'background-color'
+  h3-border-color:
+    _syntax: '<color>'
+    _property:
+      - 'border-block-end-color'
+      - 'border-block-start-color'
+      - 'border-inline-end-color'
+      - 'border-inline-start-color'
   h3-border-color-block-end:
     _syntax: '<color>'
     _property: 'border-block-end-color'
@@ -899,6 +931,13 @@ _basic:
   h3-border-color-inline-start:
     _syntax: '<color>'
     _property: 'border-inline-start-color'
+  h3-border-style:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property:
+      - 'border-block-end-style'
+      - 'border-block-start-style'
+      - 'border-inline-end-style'
+      - 'border-inline-start-style'
   h3-border-style-block-end:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-block-end-style'
@@ -911,6 +950,13 @@ _basic:
   h3-border-style-inline-start:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-inline-start-style'
+  h3-border-width:
+    _syntax: 'medium | thick | thin | <length>'
+    _property:
+      - 'border-block-end-width'
+      - 'border-block-start-width'
+      - 'border-inline-end-width'
+      - 'border-inline-start-width'
   h3-border-width-block-end:
     _syntax: 'medium | thick | thin | <length>'
     _property: 'border-block-end-width'
@@ -1005,6 +1051,13 @@ _basic:
   h4-background-color:
     _syntax: '<color>'
     _property: 'background-color'
+  h4-border-color:
+    _syntax: '<color>'
+    _property:
+      - 'border-block-end-color'
+      - 'border-block-start-color'
+      - 'border-inline-end-color'
+      - 'border-inline-start-color'
   h4-border-color-block-end:
     _syntax: '<color>'
     _property: 'border-block-end-color'
@@ -1017,6 +1070,13 @@ _basic:
   h4-border-color-inline-start:
     _syntax: '<color>'
     _property: 'border-inline-start-color'
+  h4-border-style:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property:
+      - 'border-block-end-style'
+      - 'border-block-start-style'
+      - 'border-inline-end-style'
+      - 'border-inline-start-style'
   h4-border-style-block-end:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-block-end-style'
@@ -1029,6 +1089,13 @@ _basic:
   h4-border-style-inline-start:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-inline-start-style'
+  h4-border-width:
+    _syntax: 'medium | thick | thin | <length>'
+    _property:
+      - 'border-block-end-width'
+      - 'border-block-start-width'
+      - 'border-inline-end-width'
+      - 'border-inline-start-width'
   h4-border-width-block-end:
     _syntax: 'medium | thick | thin | <length>'
     _property: 'border-block-end-width'
@@ -1059,7 +1126,6 @@ _basic:
   h4-font-size:
     _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
     _property: 'font-size'
-    _define: '1em'
   h4-font-stretch:
     _syntax: 'condensed | expanded | extra-condensed | extra-expanded | normal | semi-condensed | semi-expanded | ultra-condensed | ultra-expanded | <percentage>'
     _property: 'font-stretch'
@@ -1123,6 +1189,13 @@ _basic:
   h5-background-color:
     _syntax: '<color>'
     _property: 'background-color'
+  h5-border-color:
+    _syntax: '<color>'
+    _property:
+      - 'border-block-end-color'
+      - 'border-block-start-color'
+      - 'border-inline-end-color'
+      - 'border-inline-start-color'
   h5-border-color-block-end:
     _syntax: '<color>'
     _property: 'border-block-end-color'
@@ -1135,6 +1208,13 @@ _basic:
   h5-border-color-inline-start:
     _syntax: '<color>'
     _property: 'border-inline-start-color'
+  h5-border-style:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property:
+      - 'border-block-end-style'
+      - 'border-block-start-style'
+      - 'border-inline-end-style'
+      - 'border-inline-start-style'
   h5-border-style-block-end:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-block-end-style'
@@ -1147,6 +1227,13 @@ _basic:
   h5-border-style-inline-start:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-inline-start-style'
+  h5-border-width:
+    _syntax: 'medium | thick | thin | <length>'
+    _property:
+      - 'border-block-end-width'
+      - 'border-block-start-width'
+      - 'border-inline-end-width'
+      - 'border-inline-start-width'
   h5-border-width-block-end:
     _syntax: 'medium | thick | thin | <length>'
     _property: 'border-block-end-width'
@@ -1241,6 +1328,13 @@ _basic:
   h6-background-color:
     _syntax: '<color>'
     _property: 'background-color'
+  h6-border-color:
+    _syntax: '<color>'
+    _property:
+      - 'border-block-end-color'
+      - 'border-block-start-color'
+      - 'border-inline-end-color'
+      - 'border-inline-start-color'
   h6-border-color-block-end:
     _syntax: '<color>'
     _property: 'border-block-end-color'
@@ -1253,6 +1347,13 @@ _basic:
   h6-border-color-inline-start:
     _syntax: '<color>'
     _property: 'border-inline-start-color'
+  h6-border-style:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property:
+      - 'border-block-end-style'
+      - 'border-block-start-style'
+      - 'border-inline-end-style'
+      - 'border-inline-start-style'
   h6-border-style-block-end:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-block-end-style'
@@ -1265,6 +1366,13 @@ _basic:
   h6-border-style-inline-start:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-inline-start-style'
+  h6-border-width:
+    _syntax: 'medium | thick | thin | <length>'
+    _property:
+      - 'border-block-end-width'
+      - 'border-block-start-width'
+      - 'border-inline-end-width'
+      - 'border-inline-start-width'
   h6-border-width-block-end:
     _syntax: 'medium | thick | thin | <length>'
     _property: 'border-block-end-width'
@@ -1359,55 +1467,64 @@ _basic:
   heading-background-color:
     _syntax: '<color>'
     _property: 'background-color'
-    _define: 'transparent'
+  heading-border-color:
+    _syntax: '<color>'
+    _property:
+      - 'border-block-end-color'
+      - 'border-block-start-color'
+      - 'border-inline-end-color'
+      - 'border-inline-start-color'
+    _define: 'var(--vs-color-border)'
   heading-border-color-block-end:
     _syntax: '<color>'
     _property: 'border-block-end-color'
-    _define: 'var(--vs-border-color)'
   heading-border-color-block-start:
     _syntax: '<color>'
     _property: 'border-block-start-color'
-    _define: 'var(--vs-border-color)'
   heading-border-color-inline-end:
     _syntax: '<color>'
     _property: 'border-inline-end-color'
-    _define: 'var(--vs-border-color)'
   heading-border-color-inline-start:
     _syntax: '<color>'
     _property: 'border-inline-start-color'
-    _define: 'var(--vs-border-color)'
+  heading-border-style:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property:
+      - 'border-block-end-style'
+      - 'border-block-start-style'
+      - 'border-inline-end-style'
+      - 'border-inline-start-style'
   heading-border-style-block-end:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-block-end-style'
-    _define: 'var(--vs-border-style)'
   heading-border-style-block-start:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-block-start-style'
-    _define: 'var(--vs-border-style)'
   heading-border-style-inline-end:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-inline-end-style'
-    _define: 'var(--vs-border-style)'
   heading-border-style-inline-start:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-inline-start-style'
-    _define: 'var(--vs-border-style)'
+  heading-border-width:
+    _syntax: 'medium | thick | thin | <length>'
+    _property:
+      - 'border-block-end-width'
+      - 'border-block-start-width'
+      - 'border-inline-end-width'
+      - 'border-inline-start-width'
   heading-border-width-block-end:
     _syntax: 'medium | thick | thin | <length>'
     _property: 'border-block-end-width'
-    _define: '0'
   heading-border-width-block-start:
     _syntax: 'medium | thick | thin | <length>'
     _property: 'border-block-start-width'
-    _define: '0'
   heading-border-width-inline-end:
     _syntax: 'medium | thick | thin | <length>'
     _property: 'border-inline-end-width'
-    _define: '0'
   heading-border-width-inline-start:
     _syntax: 'medium | thick | thin | <length>'
     _property: 'border-inline-start-width'
-    _define: '0'
   heading-break-after:
     _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
     _property: 'break-after'
@@ -1458,15 +1575,12 @@ _basic:
   heading-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
-    _define: '0'
   heading-padding-block:
     _syntax: '<length-percentage>+'
     _property: 'padding-block'
-    _define: '0'
   heading-padding-inline:
     _syntax: '<length-percentage>+'
     _property: 'padding-inline'
-    _define: '0'
   heading-text-align:
     _syntax: 'center | end | justify | left | match-parent | right | start'
     _property: 'text-align'
@@ -1494,11 +1608,10 @@ _basic:
     _property:
       - 'border-block-start-color'
       - 'border-color'
-    _define: 'var(--vs-border-color)'
+    _define: 'var(--vs-color-border)'
   hr-border-style-block-start:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-block-start-style'
-    _define: 'var(--vs-border-style)'
   hr-border-width-block-start:
     _syntax: 'medium | thick | thin | <length>'
     _property: 'border-block-start-width'
@@ -1510,11 +1623,9 @@ _basic:
   hr-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
-    _define: '0'
   hr-size-inline:
     _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
     _property: 'inline-size'
-    _define: 'auto'
   img-image-resolution:
     _syntax: '*'
     _property: 'image-resolution'
@@ -1528,15 +1639,12 @@ _basic:
   li-margin-block:
     _syntax: '*'
     _property: 'margin-block'
-    _define: '0'
   li-padding-block:
     _syntax: '<length-percentage>+'
     _property: 'padding-block'
-    _define: '0'
   li-padding-inline:
     _syntax: '<length-percentage>+'
     _property: 'padding-inline'
-    _define: '0'
   lists-list-style-position:
     _syntax: 'inside | outside'
     _property: 'list-style-position'
@@ -1547,7 +1655,6 @@ _basic:
   lists-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
-    _define: '0'
   lists-marker-font-family:
     _syntax: '*'
     _property: 'font-family'
@@ -1560,7 +1667,6 @@ _basic:
   lists-marker-text-color:
     _syntax: '<color>'
     _property: 'color'
-    _define: 'var(--vs-accent-color)'
   lists-padding-inline-start:
     _syntax: '<length-percentage>'
     _property: 'padding-inline-start'
@@ -1608,7 +1714,7 @@ _basic:
   monospace-font-family:
     _syntax: '*'
     _property: 'font-family'
-    _define: 'monospace'
+    _define: 'var(--vs-font-family-monospace)'
   monospace-font-feature-settings:
     _syntax: '*'
     _property: 'font-feature-settings'
@@ -1695,15 +1801,12 @@ _basic:
   p-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
-    _define: '0'
   p-padding-block:
     _syntax: '<length-percentage>+'
     _property: 'padding-block'
-    _define: '0'
   p-padding-inline:
     _syntax: '<length-percentage>+'
     _property: 'padding-inline'
-    _define: '0'
   p-text-align:
     _syntax: 'center | end | justify | left | match-parent | right | start'
     _property: 'text-align'
@@ -1724,75 +1827,79 @@ _basic:
   pre-background-color:
     _syntax: '<color>'
     _property: 'background-color'
-    _define: 'var(--vs-background-color-alt)'
+  pre-border-color:
+    _syntax: '<color>'
+    _property:
+      - 'border-block-end-color'
+      - 'border-block-start-color'
+      - 'border-inline-end-color'
+      - 'border-inline-start-color'
+    _define: 'var(--vs-color-border)'
   pre-border-color-block-end:
     _syntax: '<color>'
     _property: 'border-block-end-color'
-    _define: 'var(--vs-border-color)'
   pre-border-color-block-start:
     _syntax: '<color>'
     _property: 'border-block-start-color'
-    _define: 'var(--vs-border-color)'
   pre-border-color-inline-end:
     _syntax: '<color>'
     _property: 'border-inline-end-color'
-    _define: 'var(--vs-border-color)'
   pre-border-color-inline-start:
     _syntax: '<color>'
     _property: 'border-inline-start-color'
-    _define: 'var(--vs-border-color)'
   pre-border-radius:
     _syntax: '<length-percentage>+'
     _property: 'border-radius'
-    _define: '0'
+  pre-border-style:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property:
+      - 'border-block-end-style'
+      - 'border-block-start-style'
+      - 'border-inline-end-style'
+      - 'border-inline-start-style'
   pre-border-style-block-end:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-block-end-style'
-    _define: 'var(--vs-border-style)'
   pre-border-style-block-start:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-block-start-style'
-    _define: 'var(--vs-border-style)'
   pre-border-style-inline-end:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-inline-end-style'
-    _define: 'var(--vs-border-style)'
   pre-border-style-inline-start:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-inline-start-style'
-    _define: 'var(--vs-border-style)'
+  pre-border-width:
+    _syntax: 'medium | thick | thin | <length>'
+    _property:
+      - 'border-block-end-width'
+      - 'border-block-start-width'
+      - 'border-inline-end-width'
+      - 'border-inline-start-width'
   pre-border-width-block-end:
     _syntax: 'medium | thick | thin | <length>'
     _property: 'border-block-end-width'
-    _define: '0'
   pre-border-width-block-start:
     _syntax: 'medium | thick | thin | <length>'
     _property: 'border-block-start-width'
-    _define: '0'
   pre-border-width-inline-end:
     _syntax: 'medium | thick | thin | <length>'
     _property: 'border-inline-end-width'
-    _define: '0'
   pre-border-width-inline-start:
     _syntax: 'medium | thick | thin | <length>'
     _property: 'border-inline-start-width'
-    _define: '0'
   pre-break-inside:
     _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
     _property: 'break-inside'
-    _define: 'auto'
   pre-font-family:
     _syntax: '*'
     _property: 'font-family'
-    _define: 'var(--vs--monospace-font-family)'
   pre-font-size:
     _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
     _property: 'font-size'
-    _define: 'var(--vs--monospace-font-size)'
   pre-line-height:
     _syntax: 'normal | <length> | <number> | <percentage>'
     _property: 'line-height'
-    _define: 'var(--vs--monospace-line-height)'
   pre-margin-block:
     _syntax: '*'
     _property: 'margin-block'
@@ -1800,7 +1907,6 @@ _basic:
   pre-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
-    _define: '0'
   pre-overflow-x:
     _syntax: 'auto | clip | hidden | scroll | visible'
     _property: 'overflow-x'
@@ -1811,15 +1917,12 @@ _basic:
   pre-padding-block:
     _syntax: '<length-percentage>+'
     _property: 'padding-block'
-    _define: '0'
   pre-padding-inline:
     _syntax: '<length-percentage>+'
     _property: 'padding-inline'
-    _define: '0'
   pre-size-inline:
     _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
     _property: 'inline-size'
-    _define: 'auto'
   pre-text-align:
     _syntax: 'center | end | justify | left | match-parent | right | start'
     _property: 'text-align'
@@ -1898,7 +2001,6 @@ _basic:
   sub-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
-    _define: '0'
   sub-text-color:
     _syntax: '<color>'
     _property: 'color'
@@ -1908,7 +2010,6 @@ _basic:
   sub-vertical-align:
     _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
     _property: 'vertical-align'
-    _define: 'baseline'
   sup-font-family:
     _syntax: '*'
     _property: 'font-family'
@@ -1933,7 +2034,6 @@ _basic:
   sup-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
-    _define: '0'
   sup-text-color:
     _syntax: '<color>'
     _property: 'color'
@@ -1943,11 +2043,9 @@ _basic:
   sup-vertical-align:
     _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
     _property: 'vertical-align'
-    _define: 'baseline'
   table-background-color:
     _syntax: '<color>'
     _property: 'background-color'
-    _define: 'transparent'
   table-border-collapse:
     _syntax: 'collapse | separate'
     _property: 'border-collapse'
@@ -1960,7 +2058,7 @@ _basic:
       - 'border-color'
       - 'border-inline-end-color'
       - 'border-inline-start-color'
-    _define: 'var(--vs-border-color)'
+    _define: 'var(--vs-color-border)'
   table-border-color-block-end:
     _syntax: '<color>'
     _property: 'border-block-end-color'
@@ -2005,7 +2103,6 @@ _basic:
       - 'border-block-start-style'
       - 'border-inline-end-style'
       - 'border-inline-start-style'
-    _define: 'var(--vs-border-style)'
   table-border-style-block-end:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-block-end-style'
@@ -2095,7 +2192,6 @@ _basic:
   table-cell-background-color:
     _syntax: '<color>'
     _property: 'background-color'
-    _define: 'transparent'
   table-cell-font-size:
     _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
     _property: 'font-size'
@@ -2108,7 +2204,6 @@ _basic:
   table-cell-min-size-block:
     _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
     _property: 'min-block-size'
-    _define: 'auto'
   table-cell-padding-block:
     _syntax: '<length-percentage>+'
     _property: 'padding-block'
@@ -2140,11 +2235,9 @@ _basic:
   table-font-family:
     _syntax: '*'
     _property: 'font-family'
-    _define: 'var(--vs-font-family-secondary)'
   table-font-size:
     _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
     _property: 'font-size'
-    _define: '100%'
   table-font-variant-numeric:
     _syntax: '*'
     _property: 'font-variant-numeric'
@@ -2173,19 +2266,15 @@ _basic:
   table-row-even-background-color:
     _syntax: '<color>'
     _property: 'background-color'
-    _define: 'transparent'
   table-row-odd-background-color:
     _syntax: '<color>'
     _property: 'background-color'
-    _define: 'transparent'
   table-size-inline:
     _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
     _property: 'inline-size'
-    _define: 'auto'
   table-table-layout:
     _syntax: 'auto | fixed'
     _property: 'table-layout'
-    _define: 'auto'
   table-text-align:
     _syntax: 'center | end | justify | left | match-parent | right | start'
     _property: 'text-align'
@@ -2234,7 +2323,6 @@ _basic:
   th-background-color:
     _syntax: '<color>'
     _property: 'background-color'
-    _define: 'var(--vs-background-color-alt)'
   th-font-family:
     _syntax: '*'
     _property: 'font-family'
@@ -2335,7 +2423,6 @@ appendix:
   marker-display:
     _syntax: '*'
     _property: 'display'
-    _define: 'inline'
   root-counter-appendix:
     _syntax: '*'
   root-counter-reset:
@@ -2370,17 +2457,23 @@ citation:
   item-margin-block:
     _syntax: '*'
     _property: 'margin-block'
-    _define: '0'
   item-padding-inline-start:
     _syntax: '<length-percentage>'
     _property: 'padding-inline-start'
-    _define: '0'
   item-text-align:
     _syntax: 'center | end | justify | left | match-parent | right | start'
     _property: 'text-align'
   item-text-indent:
     _syntax: '*'
     _property: 'text-indent'
+  items-border-color:
+    _syntax: '<color>'
+    _property:
+      - 'border-block-end-color'
+      - 'border-block-start-color'
+      - 'border-inline-end-color'
+      - 'border-inline-start-color'
+    _define: 'var(--vs-color-border)'
   items-border-color-block-end:
     _syntax: '<color>'
     _property: 'border-block-end-color'
@@ -2393,6 +2486,13 @@ citation:
   items-border-color-inline-start:
     _syntax: '<color>'
     _property: 'border-inline-start-color'
+  items-border-style:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property:
+      - 'border-block-end-style'
+      - 'border-block-start-style'
+      - 'border-inline-end-style'
+      - 'border-inline-start-style'
   items-border-style-block-end:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-block-end-style'
@@ -2405,6 +2505,13 @@ citation:
   items-border-style-inline-start:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-inline-start-style'
+  items-border-width:
+    _syntax: 'medium | thick | thin | <length>'
+    _property:
+      - 'border-block-end-width'
+      - 'border-block-start-width'
+      - 'border-inline-end-width'
+      - 'border-inline-start-width'
   items-border-width-block-end:
     _syntax: 'medium | thick | thin | <length>'
     _property: 'border-block-end-width'
@@ -2447,7 +2554,6 @@ citation:
   marker-display:
     _syntax: '*'
     _property: 'display'
-    _define: 'inline'
   marker-inset-inline-start:
     _syntax: 'auto | <length-percentage>'
     _property: 'inset-inline-start'
@@ -2472,7 +2578,6 @@ endnote:
     _syntax: '*'
     _property: 'text-decoration'
     _define:
-      - value: 'none'
       - media: '(hover: hover)'
         selector: 'a:is(.footnote-ref, .footnote-back):hover'
         value: 'underline'
@@ -2480,13 +2585,11 @@ endnote:
     _syntax: '*'
     _property: 'display'
     _define:
-      - value: 'inline'
       - media: 'print'
         value: 'none'
   call-content:
     _syntax: '*'
     _property: 'content'
-    _define: 'none'
   call-font-family:
     _syntax: '*'
     _property: 'font-family'
@@ -2506,14 +2609,12 @@ endnote:
   call-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
-    _define: '0'
   call-sup-display:
     _syntax: '*'
     _property: 'display'
   call-sup-font-size:
     _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
     _property: 'font-size'
-    _define: '100%'
   call-sup-text-combine-upright:
     _syntax: 'all | digits | none | <integer>'
     _property: 'text-combine-upright'
@@ -2535,9 +2636,6 @@ endnote:
   call-vertical-align:
     _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
     _property: 'vertical-align'
-  counter-style:
-    _syntax: '*'
-    _define: 'decimal'
   item-font-family:
     _syntax: '*'
     _property: 'font-family'
@@ -2550,11 +2648,9 @@ endnote:
   item-margin-block:
     _syntax: '*'
     _property: 'margin-block'
-    _define: '0'
   item-padding-inline-start:
     _syntax: '<length-percentage>'
     _property: 'padding-inline-start'
-    _define: '0'
   item-text-align:
     _syntax: 'center | end | justify | left | match-parent | right | start'
     _property: 'text-align'
@@ -2564,11 +2660,9 @@ endnote:
   marker-content:
     _syntax: '*'
     _property: 'content'
-    _define: 'none'
   marker-display:
     _syntax: '*'
     _property: 'display'
-    _define: 'inline'
   marker-font-family:
     _syntax: '*'
     _property: 'font-family'
@@ -2584,7 +2678,6 @@ endnote:
   marker-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
-    _define: '0'
   marker-size-inline:
     _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
     _property: 'inline-size'
@@ -2611,6 +2704,14 @@ endnote:
     _syntax: '*'
     _property: 'counter-reset'
     _define: 'vs-counter-endnote var(--vs-endnote--root-counter-endnote,) vs-counter-endnote-call var(--vs-endnote--root-counter-endnote-call,)'
+  section-border-color:
+    _syntax: '<color>'
+    _property:
+      - 'border-block-end-color'
+      - 'border-block-start-color'
+      - 'border-inline-end-color'
+      - 'border-inline-start-color'
+    _define: 'var(--vs-color-border)'
   section-border-color-block-end:
     _syntax: '<color>'
     _property: 'border-block-end-color'
@@ -2623,6 +2724,13 @@ endnote:
   section-border-color-inline-start:
     _syntax: '<color>'
     _property: 'border-inline-start-color'
+  section-border-style:
+    _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
+    _property:
+      - 'border-block-end-style'
+      - 'border-block-start-style'
+      - 'border-inline-end-style'
+      - 'border-inline-start-style'
   section-border-style-block-end:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-block-end-style'
@@ -2635,6 +2743,13 @@ endnote:
   section-border-style-inline-start:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-inline-start-style'
+  section-border-width:
+    _syntax: 'medium | thick | thin | <length>'
+    _property:
+      - 'border-block-end-width'
+      - 'border-block-start-width'
+      - 'border-inline-end-width'
+      - 'border-inline-start-width'
   section-border-width-block-end:
     _syntax: 'medium | thick | thin | <length>'
     _property: 'border-block-end-width'
@@ -2653,7 +2768,6 @@ endnote:
   section-heading-content:
     _syntax: '*'
     _property: 'content'
-    _define: 'none'
   section-heading-display:
     _syntax: '*'
     _property: 'display'
@@ -2697,11 +2811,9 @@ endnote:
   section-hr-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
-    _define: 'var(--vs--hr-margin-inline)'
   section-hr-size-inline:
     _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
     _property: 'inline-size'
-    _define: 'auto'
   section-letter-spacing:
     _syntax: 'normal | <length-percentage>'
     _property: 'letter-spacing'
@@ -2779,7 +2891,6 @@ equation:
   marker-display:
     _syntax: '*'
     _property: 'display'
-    _define: 'inline'
   marker-font-family:
     _syntax: '*'
     _property: 'font-family'
@@ -2821,7 +2932,6 @@ figure:
   marker-display:
     _syntax: '*'
     _property: 'display'
-    _define: 'inline'
   marker-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
@@ -2852,11 +2962,9 @@ footnote:
   area-before-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
-    _define: 'var(--vs--hr-margin-inline)'
   area-before-size-inline:
     _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
     _property: 'inline-size'
-    _define: 'auto'
   area-margin-block:
     _syntax: '*'
     _property: 'margin-block'
@@ -2885,7 +2993,6 @@ footnote:
   call-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
-    _define: '0'
   call-text-color:
     _syntax: '<color>'
     _property: 'color'
@@ -2898,10 +3005,8 @@ footnote:
   call-vertical-align:
     _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
     _property: 'vertical-align'
-    _define: 'baseline'
   counter-style:
     _syntax: '*'
-    _define: 'decimal'
   font-family:
     _syntax: '*'
     _property: 'font-family'
@@ -2935,11 +3040,9 @@ footnote:
   item-margin-block:
     _syntax: '*'
     _property: 'margin-block'
-    _define: '0'
   item-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
-    _define: '0'
   letter-spacing:
     _syntax: 'normal | <length-percentage>'
     _property: 'letter-spacing'
@@ -2968,7 +3071,6 @@ footnote:
   marker-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
-    _define: '0'
   marker-size-inline:
     _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
     _property: 'inline-size'
@@ -3040,7 +3142,6 @@ listing:
   marker-display:
     _syntax: '*'
     _property: 'display'
-    _define: 'inline'
   marker-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
@@ -3054,7 +3155,7 @@ page:
   background-color:
     _syntax: '<color>'
     _property: 'background-color'
-    _define: 'var(--vs-background-color)'
+    _define: 'var(--vs-color-background)'
   background-image:
     _syntax: '*'
     _property: 'background-image'
@@ -3084,6 +3185,7 @@ page:
       - 'border-left-color'
       - 'border-right-color'
       - 'border-top-color'
+    _define: 'var(--vs-color-border)'
   border-color-bottom:
     _syntax: '<color>'
     _property: 'border-bottom-color'
@@ -3103,7 +3205,6 @@ page:
       - 'border-left-style'
       - 'border-right-style'
       - 'border-top-style'
-    _define: 'var(--vs-border-style)'
   border-style-bottom:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-bottom-style'
@@ -3153,7 +3254,6 @@ page:
   height:
     _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
     _property: 'height'
-    _define: 'auto'
   margin:
     _syntax: 'auto | <length-percentage>'
     _property:
@@ -3187,11 +3287,9 @@ page:
   marks:
     _syntax: '*'
     _property: 'marks'
-    _define: 'none'
   mbox-background-color:
     _syntax: '<color>'
     _property: 'background-color'
-    _define: 'transparent'
   mbox-bottom-background-color:
     _syntax: '<color>'
     _property: 'background-color'
@@ -4531,11 +4629,10 @@ page:
   mbox-size-inline:
     _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
     _property: 'inline-size'
-    _define: 'auto'
   mbox-text-color:
     _syntax: '<color>'
     _property: 'color'
-    _define: 'var(--vs-text-color-muted)'
+    _define: 'var(--vs-color-foreground)'
   mbox-text-spacing:
     _syntax: '*'
     _property: 'text-spacing'
@@ -4551,7 +4648,6 @@ page:
   mbox-top-border-style-bottom:
     _syntax: 'dashed | dotted | double | groove | hidden | inset | none | outset | ridge | solid'
     _property: 'border-bottom-style'
-    _define: 'var(--vs-border-style)'
   mbox-top-border-width-bottom:
     _syntax: 'medium | thick | thin | <length>'
     _property: 'border-bottom-width'
@@ -4570,7 +4666,6 @@ page:
   mbox-top-center-content:
     _syntax: '*'
     _property: 'content'
-    _define: "''"
   mbox-top-center-font-family:
     _syntax: '*'
     _property: 'font-family'
@@ -5158,11 +5253,9 @@ page:
   size:
     _syntax: '*'
     _property: 'size'
-    _define: 'auto'
   width:
     _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
     _property: 'width'
-    _define: 'auto'
 prism:
   atrule-text-color:
     _syntax: '<color>'
@@ -5179,7 +5272,6 @@ prism:
   background:
     _syntax: '*'
     _property: 'background'
-    _define: 'none'
   block-code-border-radius:
     _syntax: '<length-percentage>+'
     _property: 'border-radius'
@@ -5319,13 +5411,11 @@ section:
   call-display:
     _syntax: '*'
     _property: 'display'
-    _define: 'inline'
   counter-delimiter:
     _syntax: '*'
     _define: "'.'"
   counter-style:
     _syntax: '*'
-    _define: 'decimal'
   h1-break-after:
     _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
     _property: 'break-after'
@@ -5472,7 +5562,6 @@ table:
   marker-display:
     _syntax: '*'
     _property: 'display'
-    _define: 'inline'
   marker-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
@@ -5513,7 +5602,6 @@ theorem:
   marker-display:
     _syntax: '*'
     _property: 'display'
-    _define: 'inline'
   marker-font-family:
     _syntax: '*'
     _property: 'font-family'
@@ -5548,7 +5636,6 @@ toc:
     _syntax: '*'
     _property: 'text-decoration'
     _define:
-      - value: 'none'
       - media: '(hover: hover)'
         selector: ":is(#toc, [role='doc-toc']) li > a:hover"
         value: 'underline'
@@ -5577,7 +5664,6 @@ toc:
   page-counter-display:
     _syntax: '*'
     _property: 'display'
-    _define: 'inline'
   page-counter-style:
     _syntax: '*'
     _property: 'content'

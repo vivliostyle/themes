@@ -7,9 +7,7 @@
         var(--vs-section--counter-delimiter),
         var(--vs-section--counter-style, var(--vs-counter-style))
       );
-    --vs-section--call-display: inline;
     --vs-section--counter-delimiter: '.';
-    --vs-section--counter-style: decimal;
     --vs-section--marker-content: counters(
       vs-counter-sections,
       var(--vs-section--counter-delimiter),
@@ -25,15 +23,6 @@
       var(--vs-section--root-counter-sec-h4,) vs-counter-sec-h5
       var(--vs-section--root-counter-sec-h5,) vs-counter-sec-h6
       var(--vs-section--root-counter-sec-h6,);
-  }
-}
-
-@var section {
-  @var counter {
-    :root {
-      --delimiter: ;
-      --style: ;
-    }
   }
 }
 

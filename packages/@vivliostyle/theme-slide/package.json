@@ -36,7 +36,7 @@
     "vivliostyle-theme-scripts": "workspace:*"
   },
   "peerDependencies": {
-    "@vivliostyle/cli": ">=11.3.0"
+    "@vivliostyle/cli": ">=11.2.0"
   },
   "peerDependenciesMeta": {
     "@vivliostyle/cli": {

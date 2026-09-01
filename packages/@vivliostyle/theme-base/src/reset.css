@@ -23,6 +23,7 @@ body {
 }
 
 hr {
+  color: inherit;
   height: 0;
 }
 
@@ -40,7 +41,6 @@ sup {
 
 table {
   text-indent: 0;
-  border-color: inherit;
   border-collapse: collapse;
 }
 

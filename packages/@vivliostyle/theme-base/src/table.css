@@ -15,7 +15,6 @@
         var(--vs-table--counter-style, var(--vs-counter-style))
       )
       ': ';
-    --vs-table--marker-display: inline;
     --vs-table--root-counter-reset: vs-counter-tbl
       var(--vs-table--root-counter-tbl,);
   }
