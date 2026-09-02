@@ -1,0 +1,93 @@
+@define {
+  :root {
+    --vs-sidenote--break-inside: avoid;
+    --vs-sidenote--call-content: target-counter(
+      attr(href),
+      vs-counter-sidenote,
+      var(--vs-sidenote--counter-style, var(--vs-counter-style))
+    );
+    --vs-sidenote--call-font-size: 0.8em;
+    --vs-sidenote--call-inset-block-start: var(--vs--sup-inset-block-start);
+    --vs-sidenote--clear: inline-end;
+    --vs-sidenote--float: inline-end;
+    --vs-sidenote--font-size: 0.8em;
+    --vs-sidenote--margin-block: 0 var(--vs-spacing-rlh);
+    --vs-sidenote--margin-inline: 1em 0;
+    --vs-sidenote--marker-content: counter(
+        vs-counter-sidenote,
+        var(--vs-sidenote--counter-style, var(--vs-counter-style))
+      )
+      '. ';
+    --vs-sidenote--root-counter-reset: vs-counter-sidenote
+      var(--vs-sidenote--root-counter-sidenote,);
+    --vs-sidenote--size-inline: 30%;
+    --vs-sidenote--text-align: start;
+    --vs-sidenote--text-indent: 0;
+  }
+
+  /* target-counter() only resolves on paged media */
+  @media screen {
+    :root {
+      --vs-sidenote--call-content: '*';
+    }
+  }
+}
+
+@var sidenote {
+  @var . {
+    .sidenote {
+      break-inside: ;
+      clear: ;
+      color: ;
+      float: ;
+      font-family: ;
+      font-size: ;
+      inline-size: ;
+      line-height: ;
+      margin-block: ;
+      margin-inline: ;
+      padding-block: ;
+      padding-inline: ;
+      text-align: ;
+      text-indent: ;
+    }
+  }
+
+  @var marker {
+    .sidenote::before {
+      color: ;
+      content: ;
+      font-family: ;
+      font-size: ;
+      font-weight: ;
+      margin-inline: ;
+      text-combine-upright: ;
+      text-orientation: ;
+      vertical-align: ;
+    }
+  }
+
+  @var call {
+    a[data-ref='sidenote']::before {
+      color: ;
+      content: ;
+      font-family: ;
+      font-size: ;
+      font-weight: ;
+      line-height: ;
+      margin-inline: ;
+      text-combine-upright: ;
+      text-orientation: ;
+      vertical-align: ;
+      inset-block-start: ;
+    }
+  }
+}
+
+.sidenote {
+  counter-increment: vs-counter-sidenote;
+}
+
+a[data-ref='sidenote']::before {
+  position: relative;
+}

@@ -115,6 +115,8 @@ Available modules:
 | partial  | `section.css` — Heading counters and section references         | `--vs-section--`    |
 | partial  | `toc.css` — Table of contents                                   | `--vs-toc--`        |
 | lib      | `footnote-external-link` — Footnotes for external links         | `--vs-footnote--`   |
+| lib      | `math` — Math (MathML / MathJax) display                        | `--vs-math--`       |
+| lib      | `sidenote` — Numbered sidenotes                                 | `--vs-sidenote--`   |
 | lib      | `prism` — Code highlighting base                                | `--vs-prism--`      |
 | lib      | `prism/theme-prism.css` — Prism default theme                   | `--vs-prism--`      |
 | lib      | `prism/theme-okaidia.css` — Okaidia theme                       | `--vs-prism--`      |

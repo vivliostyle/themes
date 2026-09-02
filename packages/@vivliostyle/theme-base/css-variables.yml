@@ -1678,39 +1678,6 @@ _basic:
     _syntax: '*'
     _property: 'text-indent'
     _define: '0'
-  math-display-break-inside:
-    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
-    _property: 'break-inside'
-    _define: 'avoid'
-  math-display-margin-block:
-    _syntax: '*'
-    _property: 'margin-block'
-    _define: 'var(--vs-spacing-rlh)'
-  math-display-margin-inline:
-    _syntax: '*'
-    _property: 'margin-inline'
-    _define: 'auto'
-  math-display-size-inline:
-    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
-    _property: 'inline-size'
-    _define: 'fit-content'
-  math-display-text-align:
-    _syntax: 'center | end | justify | left | match-parent | right | start'
-    _property: 'text-align'
-  math-font-family:
-    _syntax: '*'
-    _property: 'font-family'
-    _define: "'STIX Two Math', 'Cambria Math', 'Latin Modern Math', math"
-  math-font-feature-settings:
-    _syntax: '*'
-    _property: 'font-feature-settings'
-  math-font-size:
-    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
-    _property: 'font-size'
-  math-font-style:
-    _syntax: 'italic | normal | oblique | <angle>'
-    _property: 'font-style'
-    _define: 'normal'
   monospace-font-family:
     _syntax: '*'
     _property: 'font-family'
@@ -3151,6 +3118,40 @@ listing:
     _syntax: '*'
     _property: 'counter-reset'
     _define: 'vs-counter-lst var(--vs-listing--root-counter-lst,)'
+math:
+  display-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
+    _define: 'avoid'
+  display-margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: 'var(--vs-spacing-rlh)'
+  display-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: 'auto'
+  display-size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+    _define: 'fit-content'
+  display-text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+  font-family:
+    _syntax: '*'
+    _property: 'font-family'
+    _define: "'STIX Two Math', 'Cambria Math', 'Latin Modern Math', math"
+  font-feature-settings:
+    _syntax: '*'
+    _property: 'font-feature-settings'
+  font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  font-style:
+    _syntax: 'italic | normal | oblique | <angle>'
+    _property: 'font-style'
+    _define: 'normal'
 page:
   background-color:
     _syntax: '<color>'
@@ -5536,6 +5537,133 @@ section:
     _syntax: '*'
   root-counter-sections:
     _syntax: '*'
+sidenote:
+  break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
+    _define: 'avoid'
+  call-content:
+    _syntax: '*'
+    _property: 'content'
+    _define:
+      - value: 'target-counter(attr(href), vs-counter-sidenote, var(--vs-sidenote--counter-style, var(--vs-counter-style)))'
+      - media: 'screen'
+        value: "'*'"
+  call-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  call-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+    _define: '0.8em'
+  call-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  call-inset-block-start:
+    _syntax: 'auto | <length-percentage>'
+    _property: 'inset-block-start'
+    _define: 'var(--vs--sup-inset-block-start)'
+  call-line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  call-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+  call-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  call-text-combine-upright:
+    _syntax: 'all | digits | none | <integer>'
+    _property: 'text-combine-upright'
+  call-text-orientation:
+    _syntax: 'mixed | sideways | upright'
+    _property: 'text-orientation'
+  call-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  clear:
+    _syntax: 'both | inline-end | inline-start | left | none | right'
+    _property: 'clear'
+    _define: 'inline-end'
+  counter-style:
+    _syntax: '*'
+  float:
+    _syntax: 'inline-end | inline-start | left | none | right'
+    _property: 'float'
+    _define: 'inline-end'
+  font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+    _define: '0.8em'
+  line-height:
+    _syntax: 'normal | <length> | <number> | <percentage>'
+    _property: 'line-height'
+  margin-block:
+    _syntax: '*'
+    _property: 'margin-block'
+    _define: '0 var(--vs-spacing-rlh)'
+  margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+    _define: '1em 0'
+  marker-content:
+    _syntax: '*'
+    _property: 'content'
+    _define: "counter(vs-counter-sidenote, var(--vs-sidenote--counter-style, var(--vs-counter-style))) '. '"
+  marker-font-family:
+    _syntax: '*'
+    _property: 'font-family'
+  marker-font-size:
+    _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
+    _property: 'font-size'
+  marker-font-weight:
+    _syntax: 'bold | bolder | lighter | normal | <number>'
+    _property: 'font-weight'
+  marker-margin-inline:
+    _syntax: '*'
+    _property: 'margin-inline'
+  marker-text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  marker-text-combine-upright:
+    _syntax: 'all | digits | none | <integer>'
+    _property: 'text-combine-upright'
+  marker-text-orientation:
+    _syntax: 'mixed | sideways | upright'
+    _property: 'text-orientation'
+  marker-vertical-align:
+    _syntax: 'baseline | bottom | middle | sub | super | text-bottom | text-top | top | <length> | <percentage>'
+    _property: 'vertical-align'
+  padding-block:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-block'
+  padding-inline:
+    _syntax: '<length-percentage>+'
+    _property: 'padding-inline'
+  root-counter-reset:
+    _syntax: '*'
+    _property: 'counter-reset'
+    _define: 'vs-counter-sidenote var(--vs-sidenote--root-counter-sidenote,)'
+  root-counter-sidenote:
+    _syntax: '*'
+  size-inline:
+    _syntax: 'auto | fit-content | max-content | min-content | stretch | <length-percentage>'
+    _property: 'inline-size'
+    _define: '30%'
+  text-align:
+    _syntax: 'center | end | justify | left | match-parent | right | start'
+    _property: 'text-align'
+    _define: 'start'
+  text-color:
+    _syntax: '<color>'
+    _property: 'color'
+  text-indent:
+    _syntax: '*'
+    _property: 'text-indent'
+    _define: '0'
 table:
   call-content:
     _syntax: '*'

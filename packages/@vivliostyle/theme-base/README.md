@@ -72,6 +72,8 @@ module.exports = {
 | [Page layout](#page-layout)                           |      ✅       |        -        |
 | [Section references](#section-references)             |      ✅       |        -        |
 | [Table of Contents](#table-of-contents)               |      ✅       |        -        |
+| [Math](#math)                                         |       -       |        -        |
+| [Sidenotes](#sidenotes)                               |       -       |        -        |
 | [Prism (Code highlighting)](#prism-code-highlighting) |       -       |        -        |
 
 ### Basic
@@ -296,6 +298,37 @@ h1 {
 
 - [**toc.css**](css/toc.css) defines styles about table of contents (TOC) pages
   - Name of CSS variable starts with `--vs-toc--`
+
+### Math
+
+```css
+@import url(@vivliostyle/theme-base/css/lib/math);
+
+/* Configuration examples */
+:root {
+  --vs-math--font-family: 'Latin Modern Math', math;
+  --vs-math--display-margin-block: 1rem;
+}
+```
+
+- [**math**](css/lib/math) defines styles for math output of VFM's `$…$` syntax, covering both the `mathml` (temml) and `mathjax` renderers: a math font stack, display math centering and page-break control, and `\tag{}` number placement
+  - Name of CSS variable starts with `--vs-math--`
+
+### Sidenotes
+
+```css
+@import url(@vivliostyle/theme-base/css/lib/sidenote);
+
+/* Configuration examples */
+:root {
+  --vs-sidenote--size-inline: 25%;
+  --vs-sidenote--marker-content: '(' counter(vs-counter-sidenote) ') ';
+}
+```
+
+- [**sidenote**](css/lib/sidenote) floats elements with `class="sidenote"` to the inline-end side of the text and numbers them with the `vs-counter-sidenote` counter. An empty in-text call `<a data-ref="sidenote" href="#note-id"></a>` is filled with the number of the note it links to
+  - Name of CSS variable starts with `--vs-sidenote--`
+  - The float position, size and gap are plain CSS variables (`--vs-sidenote--float`, `--vs-sidenote--size-inline`, `--vs-sidenote--margin-inline`), so a theme can pull the notes into the page margin with a negative margin or stack them in a reserved band
 
 ### Prism (Code highlighting)
 

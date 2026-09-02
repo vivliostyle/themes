@@ -115,6 +115,8 @@ theme-baseは機能ごとにモジュール分割されています。全モジ�
 | partial  | `section.css` — 見出し番号・節参照                       | `--vs-section--`      |
 | partial  | `toc.css` — 目次                                         | `--vs-toc--`          |
 | lib      | `footnote-external-link` — 外部リンクの脚注化            | `--vs-footnote--`     |
+| lib      | `math` — 数式 (MathML / MathJax) の表示                  | `--vs-math--`         |
+| lib      | `sidenote` — 番号付き傍注                                | `--vs-sidenote--`     |
 | lib      | `prism` — コードハイライト基盤                           | `--vs-prism--`        |
 | lib      | `prism/theme-prism.css` — Prismデフォルトテーマ          | `--vs-prism--`        |
 | lib      | `prism/theme-okaidia.css` — Okaidiaテーマ                | `--vs-prism--`        |

@@ -100,13 +100,6 @@
     --vs--lists-margin-block: var(--vs-spacing-rlh);
     --vs--lists-padding-inline-start: 2rem;
     --vs--lists-text-indent: 0;
-    --vs--math-display-break-inside: avoid;
-    --vs--math-display-margin-block: var(--vs-spacing-rlh);
-    --vs--math-display-margin-inline: auto;
-    --vs--math-display-size-inline: fit-content;
-    --vs--math-font-family:
-      'STIX Two Math', 'Cambria Math', 'Latin Modern Math', math;
-    --vs--math-font-style: normal;
     --vs--monospace-font-family: var(--vs-font-family-monospace);
     --vs--monospace-font-kerning: none;
     --vs--monospace-hyphens: none;
@@ -225,6 +218,7 @@ body {
     var(--vs-appendix--root-counter-reset,)
     var(--vs-endnote--root-counter-reset,)
     var(--vs-footnote--root-counter-reset,)
+    var(--vs-sidenote--root-counter-reset,)
     var(--vs-section--root-counter-reset,)
     var(--vs-document-root-counter-reset,);
 }
@@ -1250,55 +1244,6 @@ dd {
     word-break: ;
     writing-mode: ;
   }
-}
-
-@var -math {
-  math {
-    font-family: ;
-    font-feature-settings: ;
-    font-size: ;
-    font-style: ;
-  }
-}
-
-/**
- *  VFM's `mathjax` renderer leaves display math as `span.math.display` inside
- *  a paragraph and MathJax turns its content into a block at runtime, so the
- *  span itself is what has to become a block for the two renderers to stack
- *  the same way. Its inline size and centering are left to MathJax: it
- *  measures the span to decide where to break long equations.
- */
-.math.display {
-  display: block;
-}
-
-@var -math-display {
-  math[display='block'],
-  .math.display {
-    break-inside: ;
-    margin-block: ;
-  }
-
-  math[display='block'] {
-    inline-size: ;
-    margin-inline: ;
-    text-align: ;
-  }
-}
-
-/**
- *  temml (VFM's `mathml` renderer) puts a `\tag{}` number in the last cell of
- *  a full-width table but leaves that cell centred, so the number lands in the
- *  middle of the right half. Span the line and push the number to the margin,
- *  where MathJax and LaTeX put it; `-webkit-right` is the value that moves the
- *  cell content in Chromium.
- */
-math[display='block']:has(.tml-tag) {
-  inline-size: auto;
-}
-
-mtd:has(> .tml-tag) {
-  text-align: -webkit-right;
 }
 
 :where(table, tr, th, td) {
