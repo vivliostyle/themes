@@ -22,15 +22,27 @@
     "vivliostyle.config.js"
   ],
   "type": "module",
-  "main": "theme-all.css",
+  "main": "theme.css",
   "exports": {
-    ".": "./theme-all.css",
+    ".": "./theme.css",
+    "./package.json": "./package.json",
     "./css-variables.json": "./dist/css-variables.json",
-    "./css/lib/footnote-external-link": "./css/lib/footnote-external-link/index.css",
-    "./css/lib/math": "./css/lib/math/index.css",
-    "./css/lib/prism": "./css/lib/prism/index.css",
-    "./css/lib/sidenote": "./css/lib/sidenote/index.css",
-    "./*": "./*"
+    "./appendix": "./css/appendix/index.css",
+    "./citation": "./css/citation/index.css",
+    "./endnote": "./css/endnote/index.css",
+    "./equation": "./css/equation/index.css",
+    "./figure": "./css/figure/index.css",
+    "./footnote": "./css/footnote/index.css",
+    "./listing": "./css/listing/index.css",
+    "./math": "./css/math/index.css",
+    "./page": "./css/page/index.css",
+    "./prism": "./css/prism/index.css",
+    "./section": "./css/section/index.css",
+    "./sidenote": "./css/sidenote/index.css",
+    "./table": "./css/table/index.css",
+    "./theorem": "./css/theorem/index.css",
+    "./toc": "./css/toc/index.css",
+    "./*": "./css/*.css"
   },
   "publishConfig": {
     "access": "public"
@@ -64,7 +76,7 @@
     "theme": {
       "name": "Vivliostyle Base Theme",
       "author": "Vivliostyle <mail@vivliostyle.org>",
-      "style": "theme-all.css",
+      "style": "theme.css",
       "category": "misc",
       "topics": []
     }

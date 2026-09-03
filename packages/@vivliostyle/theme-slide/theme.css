@@ -1,7 +1,8 @@
-@import url(@vivliostyle/theme-base/theme-basic.css);
-@import url(@vivliostyle/theme-base/css/page.css);
-@import url(@vivliostyle/theme-base/css/lib/prism);
-@import url(@vivliostyle/theme-base/css/lib/prism/theme-prism.css);
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/page';
+
+@import '@vivliostyle/theme-base/prism';
+@import '@vivliostyle/theme-base/prism/theme-prism';
 
 /**
  * Theme variables

@@ -45,7 +45,7 @@ module.exports = {
     '@vivliostyle/theme-techbook',
     {
       specifier: '@vivliostyle/theme-base',
-      import: 'css/lib/prism/theme-prism.css',
+      import: 'prism/theme-prism',
     },
   ],
 };
@@ -61,7 +61,7 @@ module.exports = {
 | ----------------- | ---------------------------------------- | ------------------------------------------------------------------ |
 | `--vs-`           | ドキュメント全体に影響するメタプロパティ | `--vs-font-family`, `--vs-font-size`                               |
 | `--vs--`          | 基本HTMLタグのスタイル                   | `--vs--heading-line-height`, `--vs--h1-font-size`                  |
-| `--vs-{module}--` | モジュール固有の設定                     | `--vs-crossref--counter-style`, `--vs-toc--marker-margin-inline`   |
+| `--vs-{module}--` | モジュール固有の設定                     | `--vs-footnote--call-content`, `--vs-toc--marker-margin-inline`    |
 | `--vs-theme--`    | テーマ固有の設定                         | `--vs-theme--anchor-color-body`, `--vs-theme--blockquote-color-bg` |
 
 ### カスタマイズの例
@@ -141,44 +141,45 @@ module.exports = {
 
 [@vivliostyle/theme-base](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-base) は、他のテーマの基盤となるベーステーマです。独自テーマを構築する際のツールキットとしても利用できます。
 
-### プリセット
+### パッケージエントリとモジュール
 
-| プリセット        | 内容                                                           |
-| ----------------- | -------------------------------------------------------------- |
-| `theme-all.css`   | 全モジュールを含む（相互参照、脚注、ページレイアウト、目次等） |
-| `theme-basic.css` | 基本モジュールのみ（CSSリセット、基本スタイル）                |
+パッケージのエントリ（`theme.css`）には基本モジュール（CSSリセット、変数の規定値、基本スタイル）だけが含まれます。それ以外のモジュール（相互参照、脚注、ページレイアウト、目次等）はオプトインで、`@vivliostyle/theme-base/footnote` のようにサブパスを指定して個別にインポートします。
 
 ```js
-// theme-all.css を使用
+// 基本モジュールを使用
 module.exports = {
-  theme: {
-    specifier: '@vivliostyle/theme-base',
-    import: 'theme-all.css',
-  },
+  theme: '@vivliostyle/theme-base',
 };
 ```
 
 ### 利用可能なモジュール
 
-| モジュール                      | theme-all.css | theme-basic.css | CSS変数プレフィックス |
-| ------------------------------- | :-----------: | :-------------: | --------------------- |
-| Basic（基本スタイル）           |      ✅       |       ✅        | `--vs-`, `--vs--`     |
-| Cross-reference（相互参照）     |      ✅       |        -        | `--vs-crossref--`     |
-| Endnotes（後注）                |      ✅       |        -        | `--vs-endnote--`      |
-| Footnotes（脚注）               |      ✅       |        -        | `--vs-footnote--`     |
-| Page layout（ページレイアウト） |      ✅       |        -        | `--vs-page--`         |
-| Section references（節参照）    |      ✅       |        -        | `--vs-section--`      |
-| Table of Contents（目次）       |      ✅       |        -        | `--vs-toc--`          |
-| Prism（コードハイライト）       |       -       |        -        | `--vs-prism--`        |
+| モジュール                                         | サブパス                 | CSS変数プレフィックス |
+| -------------------------------------------------- | ------------------------ | --------------------- |
+| Basic（基本スタイル）                              | （パッケージエントリ）   | `--vs-`, `--vs--`     |
+| Figures（図）                                      | `figure`                 | `--vs-figure--`       |
+| Tables（表）                                       | `table`                  | `--vs-table--`        |
+| Citations（引用文献）                              | `citation`               | `--vs-citation--`     |
+| Code listings（コードリスト）                      | `listing`                | `--vs-listing--`      |
+| Equations（数式の採番）                            | `equation`               | `--vs-equation--`     |
+| Theorems（定理）                                   | `theorem`                | `--vs-theorem--`      |
+| Appendices（付録）                                 | `appendix`               | `--vs-appendix--`     |
+| Endnotes（後注）                                   | `endnote`                | `--vs-endnote--`      |
+| Footnotes（脚注）                                  | `footnote`               | `--vs-footnote--`     |
+| Footnotes for external links（外部リンクの脚注化） | `footnote/external-links` | `--vs-footnote--`    |
+| Page layout（ページレイアウト）                    | `page`                   | `--vs-page--`         |
+| Section references（節参照）                       | `section`                | `--vs-section--`      |
+| Table of Contents（目次）                          | `toc`                    | `--vs-toc--`          |
+| Math（数式の表示）                                 | `math`                   | `--vs-math--`         |
+| Sidenotes（傍注）                                  | `sidenote`               | `--vs-sidenote--`     |
+| Prism（コードハイライト）                          | `prism`                  | `--vs-prism--`        |
 
 CSSでの個別インポート例:
 
 ```css
-@import url("@vivliostyle/theme-base/css/define.css");
-@import url("@vivliostyle/theme-base/css/reset.css");
-@import url("@vivliostyle/theme-base/css/basic.css");
-@import url("@vivliostyle/theme-base/css/toc.css");
-@import url("@vivliostyle/theme-base/css/footnote.css");
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/toc';
+@import '@vivliostyle/theme-base/footnote';
 ```
 
 パッケージ名でインポートするには、`@vivliostyle/theme-base` がプロジェクトにインストールされている必要があります（`npm install @vivliostyle/theme-base`）。この記法はVivliostyle CLI v11.3.0以降で利用できます。

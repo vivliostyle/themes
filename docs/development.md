@@ -51,12 +51,28 @@ File roles:
 The generated `theme.css` includes theme-base module imports and CSS variable customization examples.
 
 ```css
-/* Import all theme-base modules */
-@import url(@vivliostyle/theme-base/theme-all.css);
+/* Import the basic modules of theme-base */
+@import '@vivliostyle/theme-base';
+
+/* Import feature modules */
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/endnote';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/footnote';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/math';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/sidenote';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/toc';
 
 /* Add code highlighting (Prism) */
-@import url(@vivliostyle/theme-base/css/lib/prism);
-@import url(@vivliostyle/theme-base/css/lib/prism/theme-okaidia.css);
+@import '@vivliostyle/theme-base/prism';
+@import '@vivliostyle/theme-base/prism/theme-okaidia';
 
 :root {
   /* Basic styles */
@@ -88,38 +104,40 @@ Add your own styles at the end of this file. For example, to set the page size:
 
 ### Using theme-base Modules
 
-theme-base is divided into functional modules. If you don't need all modules, you can import only the ones you need instead of `theme-all.css`.
+theme-base is divided into functional modules. The package entry contains only the basic modules, so keep just the feature module imports you need.
 
 ```css
 /* Basic modules only */
-@import url(@vivliostyle/theme-base/css/define.css);
-@import url(@vivliostyle/theme-base/css/reset.css);
-@import url(@vivliostyle/theme-base/css/basic.css);
+@import '@vivliostyle/theme-base';
 
 /* Add required feature modules */
-@import url(@vivliostyle/theme-base/css/toc.css);
-@import url(@vivliostyle/theme-base/css/footnote.css);
+@import '@vivliostyle/theme-base/toc';
+@import '@vivliostyle/theme-base/footnote';
 ```
 
-Available modules:
+Available modules (imported as `@vivliostyle/theme-base/<subpath>`):
 
-| Category | Module                                                          | CSS Variable Prefix |
-| -------- | --------------------------------------------------------------- | ------------------- |
-| common   | `meta-properties.css` — Document-wide meta properties           | `--vs-`             |
-| common   | `reset.css` — CSS reset                                         | —                   |
-| common   | `basic.css` — Basic HTML tag styles                             | `--vs--`            |
-| partial  | `crossref.css` — Cross-reference for figures, tables, citations | `--vs-crossref--`   |
-| partial  | `endnote.css` — Endnotes                                        | `--vs-endnote--`    |
-| partial  | `footnote.css` — Footnotes                                      | `--vs-footnote--`   |
-| partial  | `page.css` — Paged media                                        | `--vs-page--`       |
-| partial  | `section.css` — Heading counters and section references         | `--vs-section--`    |
-| partial  | `toc.css` — Table of contents                                   | `--vs-toc--`        |
-| lib      | `footnote-external-link` — Footnotes for external links         | `--vs-footnote--`   |
-| lib      | `math` — Math (MathML / MathJax) display                        | `--vs-math--`       |
-| lib      | `sidenote` — Numbered sidenotes                                 | `--vs-sidenote--`   |
-| lib      | `prism` — Code highlighting base                                | `--vs-prism--`      |
-| lib      | `prism/theme-prism.css` — Prism default theme                   | `--vs-prism--`      |
-| lib      | `prism/theme-okaidia.css` — Okaidia theme                       | `--vs-prism--`      |
+| Subpath                                                                     | Contents                                            | CSS Variable Prefix       |
+| --------------------------------------------------------------------------- | --------------------------------------------------- | ------------------------- |
+| (package entry)                                                             | CSS reset, variable defaults, basic HTML tag styles | `--vs-`, `--vs--`         |
+| `figure`                                                                    | Figure numbering and cross-references               | `--vs-figure--`           |
+| `table`                                                                     | Table numbering and cross-references                | `--vs-table--`            |
+| `citation`                                                                  | Citation numbering and cross-references             | `--vs-citation--`         |
+| `listing`                                                                   | Code listing numbering and cross-references         | `--vs-listing--`          |
+| `equation`                                                                  | Equation numbering and cross-references             | `--vs-equation--`         |
+| `theorem`                                                                   | Theorem numbering and cross-references              | `--vs-theorem--`          |
+| `appendix`                                                                  | Appendix lettering and cross-references             | `--vs-appendix--`         |
+| `endnote`                                                                   | Endnotes                                            | `--vs-endnote--`          |
+| `footnote`                                                                  | Footnotes                                           | `--vs-footnote--`         |
+| `footnote/external-links`                                                   | Footnotes for external links                        | `--vs-footnote--`         |
+| `page`                                                                      | Paged media                                         | `--vs-page--`             |
+| `section`                                                                   | Heading counters and section references             | `--vs-section--`          |
+| `toc`                                                                       | Table of contents                                   | `--vs-toc--`              |
+| `math`                                                                      | Math (MathML / MathJax) display                     | `--vs-math--`             |
+| `sidenote`                                                                  | Numbered sidenotes                                  | `--vs-sidenote--`         |
+| `prism`                                                                     | Code highlighting base                              | `--vs-prism--`            |
+| `prism/theme-prism`                                                         | Prism default theme                                 | `--vs-prism--`            |
+| `prism/theme-okaidia`                                                       | Okaidia theme                                       | `--vs-prism--`            |
 
 For details, see the [theme-base README](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-base#available-modules-and-css-variables).
 
@@ -137,8 +155,8 @@ You can customize themes by overriding CSS variables exposed by theme-base and i
   --vs--h1-font-size: 2em;
   --vs--heading-line-height: 1.4;
 
-  /* Cross-reference counter style */
-  --vs-crossref--counter-style: upper-roman;
+  /* Shared cross-reference counter style */
+  --vs-counter-style: upper-roman;
 
   /* Page header/footer */
   --vs-page--mbox-top-left-content: env(pub-title);

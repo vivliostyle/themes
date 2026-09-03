@@ -22,7 +22,7 @@ module.exports = {
 
 ### Color theme of code blocks
 
-This theme imports [`theme-okaidia`](../theme-base/css/lib/prism/theme-okaidia.css) as a default color theme of code blocks. If you want to use other themes, please import the CSS like this.
+This theme imports [`theme-okaidia`](../theme-base/css/prism/theme-okaidia.css) as a default color theme of code blocks. If you want to use other themes, please import the CSS like this.
 
 ```js
 module.exports = {
@@ -30,7 +30,7 @@ module.exports = {
     '@vivliostyle/theme-techbook',
     {
       specifier: '@vivliostyle/theme-base',
-      import: 'css/lib/prism/theme-prism.css',
+      import: 'prism/theme-prism',
     },
   ],
 };

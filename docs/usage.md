@@ -45,7 +45,7 @@ module.exports = {
     '@vivliostyle/theme-techbook',
     {
       specifier: '@vivliostyle/theme-base',
-      import: 'css/lib/prism/theme-prism.css',
+      import: 'prism/theme-prism',
     },
   ],
 };
@@ -61,7 +61,7 @@ Each theme exposes configuration values as CSS custom properties (CSS variables)
 | ----------------- | --------------------------------------------- | ------------------------------------------------------------------ |
 | `--vs-`           | Meta properties affecting the entire document | `--vs-font-family`, `--vs-font-size`                               |
 | `--vs--`          | Styles for basic HTML tags                    | `--vs--heading-line-height`, `--vs--h1-font-size`                  |
-| `--vs-{module}--` | Module-specific settings                      | `--vs-crossref--counter-style`, `--vs-toc--marker-margin-inline`   |
+| `--vs-{module}--` | Module-specific settings                      | `--vs-footnote--call-content`, `--vs-toc--marker-margin-inline`    |
 | `--vs-theme--`    | Theme-specific settings                       | `--vs-theme--anchor-color-body`, `--vs-theme--blockquote-color-bg` |
 
 ### Customization Example
@@ -141,44 +141,45 @@ See the [Vivliostyle Themes Gallery](./gallery.md) for more details on each them
 
 [@vivliostyle/theme-base](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-base) is the foundation for other themes. It can also be used as a toolkit for building custom themes.
 
-### Presets
+### Package Entry and Modules
 
-| Preset            | Contents                                                         |
-| ----------------- | ---------------------------------------------------------------- |
-| `theme-all.css`   | All modules (cross-reference, footnotes, page layout, TOC, etc.) |
-| `theme-basic.css` | Basic modules only (CSS reset, basic styling)                    |
+The package entry (`theme.css`) contains only the basic modules: the CSS reset, the variable defaults, and basic styling. Every other module (cross-references, footnotes, page layout, TOC, etc.) is opt-in and imported through its own subpath such as `@vivliostyle/theme-base/footnote`.
 
 ```js
-// Using theme-all.css
+// Using the basic modules
 module.exports = {
-  theme: {
-    specifier: '@vivliostyle/theme-base',
-    import: 'theme-all.css',
-  },
+  theme: '@vivliostyle/theme-base',
 };
 ```
 
 ### Available Modules
 
-| Module                    | theme-all.css | theme-basic.css | CSS Variable Prefix |
-| ------------------------- | :-----------: | :-------------: | ------------------- |
-| Basic                     |      ✅       |       ✅        | `--vs-`, `--vs--`   |
-| Cross-reference           |      ✅       |        -        | `--vs-crossref--`   |
-| Endnotes                  |      ✅       |        -        | `--vs-endnote--`    |
-| Footnotes                 |      ✅       |        -        | `--vs-footnote--`   |
-| Page layout               |      ✅       |        -        | `--vs-page--`       |
-| Section references        |      ✅       |        -        | `--vs-section--`    |
-| Table of Contents         |      ✅       |        -        | `--vs-toc--`        |
-| Prism (Code highlighting) |       -       |        -        | `--vs-prism--`      |
+| Module                       | Subpath                  | CSS Variable Prefix |
+| ---------------------------- | ------------------------ | ------------------- |
+| Basic                        | (package entry)          | `--vs-`, `--vs--`   |
+| Figures                      | `figure`                 | `--vs-figure--`     |
+| Tables                       | `table`                  | `--vs-table--`      |
+| Citations                    | `citation`               | `--vs-citation--`   |
+| Code listings                | `listing`                | `--vs-listing--`    |
+| Equations                    | `equation`               | `--vs-equation--`   |
+| Theorems                     | `theorem`                | `--vs-theorem--`    |
+| Appendices                   | `appendix`               | `--vs-appendix--`   |
+| Endnotes                     | `endnote`                | `--vs-endnote--`    |
+| Footnotes                    | `footnote`               | `--vs-footnote--`   |
+| Footnotes for external links | `footnote/external-links` | `--vs-footnote--`  |
+| Page layout                  | `page`                   | `--vs-page--`       |
+| Section references           | `section`                | `--vs-section--`    |
+| Table of Contents            | `toc`                    | `--vs-toc--`        |
+| Math                         | `math`                   | `--vs-math--`       |
+| Sidenotes                    | `sidenote`               | `--vs-sidenote--`   |
+| Prism (Code highlighting)    | `prism`                  | `--vs-prism--`      |
 
 Example of importing individual modules in CSS:
 
 ```css
-@import url("@vivliostyle/theme-base/css/define.css");
-@import url("@vivliostyle/theme-base/css/reset.css");
-@import url("@vivliostyle/theme-base/css/basic.css");
-@import url("@vivliostyle/theme-base/css/toc.css");
-@import url("@vivliostyle/theme-base/css/footnote.css");
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/toc';
+@import '@vivliostyle/theme-base/footnote';
 ```
 
 Importing by package name requires `@vivliostyle/theme-base` to be installed in your project (`npm install @vivliostyle/theme-base`). This form is available in Vivliostyle CLI v11.3.0 and later.

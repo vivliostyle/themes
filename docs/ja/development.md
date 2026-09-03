@@ -51,12 +51,28 @@ vivliostyle-theme-<name>/
 生成直後の `theme.css` にはtheme-baseの全モジュールインポートとCSS変数のカスタマイズ例が含まれています。
 
 ```css
-/* theme-base の全モジュールをインポート */
-@import url(@vivliostyle/theme-base/theme-all.css);
+/* theme-base の基本モジュールをインポート */
+@import '@vivliostyle/theme-base';
+
+/* 機能モジュールをインポート */
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/endnote';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/footnote';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/math';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/sidenote';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/toc';
 
 /* コードハイライト（Prism）を追加 */
-@import url(@vivliostyle/theme-base/css/lib/prism);
-@import url(@vivliostyle/theme-base/css/lib/prism/theme-okaidia.css);
+@import '@vivliostyle/theme-base/prism';
+@import '@vivliostyle/theme-base/prism/theme-okaidia';
 
 :root {
   /* 基本スタイル */
@@ -88,38 +104,40 @@ vivliostyle-theme-<name>/
 
 ### theme-baseのモジュール活用
 
-theme-baseは機能ごとにモジュール分割されています。全モジュールが不要な場合は、`theme-all.css` の代わりに必要なモジュールのみをインポートできます。
+theme-baseは機能ごとにモジュール分割されています。パッケージエントリに含まれるのは基本モジュールだけなので、必要な機能モジュールのインポートだけを残せます。
 
 ```css
 /* 基本モジュールのみ */
-@import url(@vivliostyle/theme-base/css/define.css);
-@import url(@vivliostyle/theme-base/css/reset.css);
-@import url(@vivliostyle/theme-base/css/basic.css);
+@import '@vivliostyle/theme-base';
 
 /* 必要な機能モジュールを追加 */
-@import url(@vivliostyle/theme-base/css/toc.css);
-@import url(@vivliostyle/theme-base/css/footnote.css);
+@import '@vivliostyle/theme-base/toc';
+@import '@vivliostyle/theme-base/footnote';
 ```
 
-利用可能なモジュール一覧:
+利用可能なモジュール一覧（`@vivliostyle/theme-base/<サブパス>` でインポート）:
 
-| カテゴリ | モジュール                                               | CSS変数プレフィックス |
-| -------- | -------------------------------------------------------- | --------------------- |
-| common   | `meta-properties.css` — ドキュメント全体のメタプロパティ | `--vs-`               |
-| common   | `reset.css` — CSSリセット                                | —                     |
-| common   | `basic.css` — 基本HTMLタグのスタイル                     | `--vs--`              |
-| partial  | `crossref.css` — 図表・引用の相互参照                    | `--vs-crossref--`     |
-| partial  | `endnote.css` — 後注                                     | `--vs-endnote--`      |
-| partial  | `footnote.css` — 脚注                                    | `--vs-footnote--`     |
-| partial  | `page.css` — ページメディア                              | `--vs-page--`         |
-| partial  | `section.css` — 見出し番号・節参照                       | `--vs-section--`      |
-| partial  | `toc.css` — 目次                                         | `--vs-toc--`          |
-| lib      | `footnote-external-link` — 外部リンクの脚注化            | `--vs-footnote--`     |
-| lib      | `math` — 数式 (MathML / MathJax) の表示                  | `--vs-math--`         |
-| lib      | `sidenote` — 番号付き傍注                                | `--vs-sidenote--`     |
-| lib      | `prism` — コードハイライト基盤                           | `--vs-prism--`        |
-| lib      | `prism/theme-prism.css` — Prismデフォルトテーマ          | `--vs-prism--`        |
-| lib      | `prism/theme-okaidia.css` — Okaidiaテーマ                | `--vs-prism--`        |
+| サブパス                                                                    | 内容                                            | CSS変数プレフィックス |
+| --------------------------------------------------------------------------- | ----------------------------------------------- | --------------------- |
+| （パッケージエントリ）                                                      | CSSリセット・変数の規定値・基本HTMLタグのスタイル | `--vs-`, `--vs--`     |
+| `figure`                                                                    | 図の採番・相互参照                              | `--vs-figure--`       |
+| `table`                                                                     | 表の採番・相互参照                              | `--vs-table--`        |
+| `citation`                                                                  | 引用文献の採番・相互参照                        | `--vs-citation--`     |
+| `listing`                                                                   | コードリストの採番・相互参照                    | `--vs-listing--`      |
+| `equation`                                                                  | 数式の採番・相互参照                            | `--vs-equation--`     |
+| `theorem`                                                                   | 定理の採番・相互参照                            | `--vs-theorem--`      |
+| `appendix`                                                                  | 付録の採番・相互参照                            | `--vs-appendix--`     |
+| `endnote`                                                                   | 後注                                            | `--vs-endnote--`      |
+| `footnote`                                                                  | 脚注                                            | `--vs-footnote--`     |
+| `footnote/external-links`                                                   | 外部リンクの脚注化                              | `--vs-footnote--`     |
+| `page`                                                                      | ページメディア                                  | `--vs-page--`         |
+| `section`                                                                   | 見出し番号・節参照                              | `--vs-section--`      |
+| `toc`                                                                       | 目次                                            | `--vs-toc--`          |
+| `math`                                                                      | 数式 (MathML / MathJax) の表示                  | `--vs-math--`         |
+| `sidenote`                                                                  | 番号付き傍注                                    | `--vs-sidenote--`     |
+| `prism`                                                                     | コードハイライト基盤                            | `--vs-prism--`        |
+| `prism/theme-prism`                                                         | Prismデフォルトテーマ                           | `--vs-prism--`        |
+| `prism/theme-okaidia`                                                       | Okaidiaテーマ                                   | `--vs-prism--`        |
 
 詳細は [theme-baseのREADME](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-base#available-modules-and-css-variables) を参照してください。
 
@@ -137,8 +155,8 @@ theme-baseや各テーマが公開するCSS変数を `:root` で上書きする�
   --vs--h1-font-size: 2em;
   --vs--heading-line-height: 1.4;
 
-  /* 相互参照のカウンタスタイル */
-  --vs-crossref--counter-style: upper-roman;
+  /* 相互参照の共通カウンタスタイル */
+  --vs-counter-style: upper-roman;
 
   /* ページヘッダ・フッタ */
   --vs-page--mbox-top-left-content: env(pub-title);

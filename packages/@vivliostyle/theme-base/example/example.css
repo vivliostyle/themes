@@ -1,3 +1,19 @@
-:root {
-  --vs-columns: 2;
-}
+/* See .vivliostyle/ for final destination */
+@import url('../themes/node_modules/@vivliostyle/theme-base/theme.css');
+@import url('../themes/node_modules/@vivliostyle/theme-base/css/appendix/index.css');
+@import url('../themes/node_modules/@vivliostyle/theme-base/css/citation/index.css');
+@import url('../themes/node_modules/@vivliostyle/theme-base/css/endnote/index.css');
+@import url('../themes/node_modules/@vivliostyle/theme-base/css/equation/index.css');
+@import url('../themes/node_modules/@vivliostyle/theme-base/css/figure/index.css');
+@import url('../themes/node_modules/@vivliostyle/theme-base/css/footnote/index.css');
+@import url('../themes/node_modules/@vivliostyle/theme-base/css/footnote/external-links.css');
+@import url('../themes/node_modules/@vivliostyle/theme-base/css/listing/index.css');
+@import url('../themes/node_modules/@vivliostyle/theme-base/css/math/index.css');
+@import url('../themes/node_modules/@vivliostyle/theme-base/css/page/index.css');
+@import url('../themes/node_modules/@vivliostyle/theme-base/css/prism/index.css');
+@import url('../themes/node_modules/@vivliostyle/theme-base/css/prism/theme-prism.css');
+@import url('../themes/node_modules/@vivliostyle/theme-base/css/section/index.css');
+@import url('../themes/node_modules/@vivliostyle/theme-base/css/sidenote/index.css');
+@import url('../themes/node_modules/@vivliostyle/theme-base/css/table/index.css');
+@import url('../themes/node_modules/@vivliostyle/theme-base/css/theorem/index.css');
+@import url('../themes/node_modules/@vivliostyle/theme-base/css/toc/index.css');

@@ -1,11 +1,30 @@
-@import url(@vivliostyle/theme-base/theme-all.css);
+@import '@vivliostyle/theme-base';
+
+/*
+ * Import feature modules
+ * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#available-modules-and-css-variables
+ */
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/endnote';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/footnote';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/math';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/sidenote';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/toc';
 
 /*
  * Import extra modules
- * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#prism-code-highlighting
+ * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base/src/prism
  */
-@import url(@vivliostyle/theme-base/css/lib/prism);
-@import url(@vivliostyle/theme-base/css/lib/prism/theme-okaidia.css);
+@import '@vivliostyle/theme-base/prism';
+@import '@vivliostyle/theme-base/prism/theme-okaidia';
 
 :root {
   /*
@@ -26,28 +45,28 @@
 
   /*
    * Customize styles about endnotes
-   * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#endnotes
+   * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base/src/endnote
    */
   --vs-endnote--call-font-size: 90%;
   --vs-endnote--section-ol-list-style-type: lower-latin;
 
   /*
    * Customize styles about footnotes
-   * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#footnotes
+   * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base/src/footnote
    */
   --vs-footnote--call-content: '[' counter(vs-counter-footnote) ']';
   --vs-footnote--area-before-margin-inline: 0 80%;
 
   /*
    * Customize styles about paged media
-   * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#page-layout
+   * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base/src/page
    */
   --vs-page--mbox-bottom-center-content: counter(page);
   --vs-page--mbox-top-left-content: env(doc-title);
 
   /*
    * Customize styles about heading counters and section reference
-   * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#section-references
+   * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base/src/section
    */
   --vs-section--marker-display: inline;
   --vs-section--call-content: 'Sec. '
@@ -55,7 +74,7 @@
 
   /*
    * Customize styles about table of contents (TOC) pages
-   * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#table-of-contents
+   * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base/src/toc
    */
   --vs-toc--marker-display: inline;
   --vs-toc--ol-indent-size: 1.5rem;

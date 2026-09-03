@@ -4,7 +4,7 @@
 
 Split the cross-reference stylesheet into one module per reference type, and added equations, theorems, code listings, appendices and page references.
 
-`css/crossref.css` is gone. Each reference type lives in its own stylesheet with its own variable namespace: [figure.css](css/figure.css) (`--vs-figure--*`), [table.css](css/table.css), [citation.css](css/citation.css), [listing.css](css/listing.css), [equation.css](css/equation.css), [theorem.css](css/theorem.css) and [appendix.css](css/appendix.css), while page references ship with [page.css](css/page.css) (`--vs-page--call-*`). The shared defaults — the numbering style (`--vs-counter-style`), the generic `a[data-ref]` anchor treatment (`--vs--crossref-call-*`) and the chapter-prefix hooks (`--vs-crossref-{marker,call}-counter-prefix`) — are part of the basic stylesheet, so they need no separate import. `theme-all.css` imports every module.
+`css/crossref.css` is gone. Each reference type lives in its own module with its own variable namespace: `figure` (`--vs-figure--*`), `table`, `citation`, `listing`, `equation`, `theorem` and `appendix`, while page references ship with the `page` module (`--vs-page--call-*`). Each module is imported by its subpath, e.g. `@vivliostyle/theme-base/figure`. The shared defaults — the numbering style (`--vs-counter-style`), the generic `a[data-ref]` anchor treatment (`--vs--crossref-call-*`) and the chapter-prefix hooks (`--vs-crossref-{marker,call}-counter-prefix`) — are part of the basic stylesheet, so they need no separate import.
 
 New reference types, each with an empty `<a data-ref="…" href="#id"></a>` call filled with the resolved number:
 
@@ -22,7 +22,7 @@ Other additions:
 - The lone paragraph of a raw-HTML `<figcaption>` is laid inline so the caption text shares the line with the generated number (`--vs--figcaption-p-display`).
 - The hanging offset of citation numbers is now a variable, `--vs-citation--marker-inset-inline-start`.
 
-BREAKING CHANGE: The `--vs-crossref--` namespace is gone. The per-type variables moved into their own namespaces, the shared defaults into root-level variables, and importing a single stylesheet no longer renders every number — import the per-type stylesheets you use (or `theme-all.css`, which imports them all).
+BREAKING CHANGE: The `--vs-crossref--` namespace is gone. The per-type variables moved into their own namespaces, the shared defaults into root-level variables, and importing a single stylesheet no longer renders every number — import the per-type modules you use.
 
 | Before                                     | After                                            |
 | :----------------------------------------- | :----------------------------------------------- |
