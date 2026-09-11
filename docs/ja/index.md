@@ -7,6 +7,7 @@ Vivliostyle Themeは、Vivliostyleで出版物を作る際に使うスタイル�
 - [テーマの使い方](./usage.md)
 - [テーマの開発](./development.md)
 - [Vivliostyle Themeの仕様](./spec.md)
+- [Vivliostyle Themes v3への移行](./migration-v3.md)
 
 - ### 運用ガイドライン
   - [公式Themeの採用](./official.md)
