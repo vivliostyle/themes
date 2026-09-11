@@ -99,7 +99,7 @@ async function main() {
   // @vivliostyle/theme-base
   {
     const img = await pdfToImg('packages/@vivliostyle/theme-base/book.pdf', {
-      pageNumbers: [1, 2, 3],
+      pageNumbers: [2, 5, 7],
     });
     fs.writeFileSync('docs/assets/captures/theme-base.webp', img);
   }
