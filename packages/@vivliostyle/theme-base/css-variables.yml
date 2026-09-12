@@ -3249,6 +3249,7 @@ page:
     _property: 'display'
   cover-page-mbox-visibility:
     _syntax: '*'
+    _define: 'hidden'
   doc-counter-increment:
     _syntax: '*'
     _property: 'counter-increment'
