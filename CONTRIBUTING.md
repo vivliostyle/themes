@@ -6,7 +6,7 @@
 
 ## Developing this repository
 
-This repository is a pnpm workspace. Install [pnpm](https://pnpm.io/installation) 11 and use the Node.js version pinned in [.nvmrc](./.nvmrc).
+This repository is a pnpm workspace. Install [pnpm](https://pnpm.io/installation) and use the Node.js version pinned in [.nvmrc](./.nvmrc).
 
 ```bash
 pnpm install
