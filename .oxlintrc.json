@@ -76,8 +76,5 @@
     "curly": "error",
     "prefer-const": ["error", { "destructuring": "all" }]
   },
-  "ignorePatterns": [
-    "packages/*/lib/**",
-    "packages/create-vivliostyle-theme/templates/**"
-  ]
+  "ignorePatterns": ["packages/*/lib/**"]
 }

@@ -127,24 +127,6 @@ module.exports = {
 
 > original author: `Vivliostyle <mail@vivliostyle.org>`
 
-## Tools
-
-### [create-vivliostyle-theme](packages/create-vivliostyle-theme)
-
-[![](https://img.shields.io/npm/v/create-vivliostyle-theme.svg)](https://npmjs.com/package/create-vivliostyle-theme)
-[![npm: total downloads](https://flat.badgen.net/npm/dt/create-vivliostyle-theme)](https://npmjs.com/package/create-vivliostyle-theme)
-![npm: license](https://flat.badgen.net/npm/license/create-vivliostyle-theme)
-
-Create Vivliostyle theme at ease
-
-### [vivliostyle-theme-scripts](packages/vivliostyle-theme-scripts)
-
-[![](https://img.shields.io/npm/v/vivliostyle-theme-scripts.svg)](https://npmjs.com/package/vivliostyle-theme-scripts)
-[![npm: total downloads](https://flat.badgen.net/npm/dt/vivliostyle-theme-scripts)](https://npmjs.com/package/vivliostyle-theme-scripts)
-![npm: license](https://flat.badgen.net/npm/license/vivliostyle-theme-scripts)
-
-theme library and scripts
-
 <!-- END top -->
 
 ## Credits
