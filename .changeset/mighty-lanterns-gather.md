@@ -8,7 +8,7 @@ The [migration guide](https://github.com/vivliostyle/themes/blob/main/docs/migra
 
 #### Requirements
 
-BREAKING CHANGE: `@vivliostyle/cli` 11.3.0 or later is required (previously `>=7`). The stylesheets use CSS Nesting and are imported by npm package name through the package `exports` field, which CLI 11.3.0 added. `@vivliostyle/theme-base` must be installed in the project that imports it.
+BREAKING CHANGE: `@vivliostyle/cli` 11.3.1 or later is required (previously `>=7`). The stylesheets use CSS Nesting and are imported by npm package name through the package `exports` field, which CLI 11.3.0 added. `@vivliostyle/theme-base` must be installed in the project that imports it.
 
 #### Stylesheet layout and imports
 

@@ -119,12 +119,6 @@ body > footer {
   break-before: left;
 }
 
-@media (min-width: 375px) {
-  :root {
-    --vs-toc--list-item-before-display: inline;
-  }
-}
-
 body {
   padding: 0 2em;
 }

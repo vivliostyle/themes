@@ -20,7 +20,7 @@ module.exports = {
 
 ### Color theme of code blocks
 
-This theme imports [`theme-prism`](../theme-base/css/prism/theme-prism.css) as a default color theme of code blocks. If you want to use other themes, please import the CSS like this.
+This theme imports [`theme-prism`](../theme-base/src/prism/theme-prism.css) as a default color theme of code blocks. If you want to use other themes, please import the CSS like this.
 
 ```js
 module.exports = {

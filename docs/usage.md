@@ -61,7 +61,7 @@ Each theme exposes configuration values as CSS custom properties (CSS variables)
 | ----------------- | --------------------------------------------- | ------------------------------------------------------------------ |
 | `--vs-`           | Meta properties affecting the entire document | `--vs-font-family`, `--vs-font-size`                               |
 | `--vs--`          | Styles for basic HTML tags                    | `--vs--heading-line-height`, `--vs--h1-font-size`                  |
-| `--vs-{module}--` | Module-specific settings                      | `--vs-footnote--call-content`, `--vs-toc--marker-margin-inline`    |
+| `--vs-{module}--` | Module-specific settings                      | `--vs-footnote--call-content`, `--vs-toc--ol-indent-size`    |
 | `--vs-theme--`    | Theme-specific settings                       | `--vs-theme--anchor-color-body`, `--vs-theme--blockquote-color-bg` |
 
 ### Customization Example

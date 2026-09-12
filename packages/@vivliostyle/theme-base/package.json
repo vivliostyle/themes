@@ -52,7 +52,7 @@
     "dev": "postcss \"src/**/*.css\" --base src --dir css --no-map -w",
     "example:build": "vivliostyle build",
     "example:preview": "vivliostyle preview",
-    "validate": "vivliostyle-theme-scripts validate"
+    "validate": "vivliostyle theme validate"
   },
   "devDependencies": {
     "@types/css-tree": "3.2.0",
@@ -61,7 +61,6 @@
     "postcss-cli": "11.0.1",
     "postcss-value-parser": "4.2.0",
     "postcss-variable-theming": "0.5.1",
-    "vivliostyle-theme-scripts": "workspace:*",
     "yaml": "2.9.0"
   },
   "peerDependencies": {

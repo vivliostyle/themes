@@ -59,10 +59,6 @@ importers:
       '@vivliostyle/theme-base':
         specifier: workspace:*
         version: link:../theme-base
-    devDependencies:
-      vivliostyle-theme-scripts:
-        specifier: workspace:*
-        version: link:../../vivliostyle-theme-scripts
 
   packages/@vivliostyle/theme-base:
     dependencies:
@@ -88,9 +84,6 @@ importers:
       postcss-variable-theming:
         specifier: 0.5.1
         version: 0.5.1
-      vivliostyle-theme-scripts:
-        specifier: workspace:*
-        version: link:../../vivliostyle-theme-scripts
       yaml:
         specifier: 2.9.0
         version: 2.9.0
@@ -103,20 +96,12 @@ importers:
       '@vivliostyle/theme-base':
         specifier: workspace:*
         version: link:../theme-base
-    devDependencies:
-      vivliostyle-theme-scripts:
-        specifier: workspace:*
-        version: link:../../vivliostyle-theme-scripts
 
   packages/@vivliostyle/theme-epub3j:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
         version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
-    devDependencies:
-      vivliostyle-theme-scripts:
-        specifier: workspace:*
-        version: link:../../vivliostyle-theme-scripts
 
   packages/@vivliostyle/theme-gutenberg:
     dependencies:
@@ -126,10 +111,6 @@ importers:
       '@vivliostyle/theme-base':
         specifier: workspace:*
         version: link:../theme-base
-    devDependencies:
-      vivliostyle-theme-scripts:
-        specifier: workspace:*
-        version: link:../../vivliostyle-theme-scripts
 
   packages/@vivliostyle/theme-slide:
     dependencies:
@@ -139,10 +120,6 @@ importers:
       '@vivliostyle/theme-base':
         specifier: workspace:*
         version: link:../theme-base
-    devDependencies:
-      vivliostyle-theme-scripts:
-        specifier: workspace:*
-        version: link:../../vivliostyle-theme-scripts
 
   packages/@vivliostyle/theme-techbook:
     dependencies:
@@ -152,10 +129,6 @@ importers:
       '@vivliostyle/theme-base':
         specifier: workspace:*
         version: link:../theme-base
-    devDependencies:
-      vivliostyle-theme-scripts:
-        specifier: workspace:*
-        version: link:../../vivliostyle-theme-scripts
 
   packages/create-vivliostyle-theme:
     dependencies:

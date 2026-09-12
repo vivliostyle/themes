@@ -8,6 +8,7 @@
  * Theme variables
  */
 :root {
+  --vs-theme--color-bg: #fff;
   --vs-theme--color-body: #000;
   --vs-theme--section-align-items: center;
   --vs-theme--section-justify-content: center;
@@ -168,10 +169,18 @@ section:has(> .cover:first-child) {
   --vs-theme--h4-color: var(--vs-theme--cover-page-color-body);
   --vs-color-foreground: var(--vs-theme--cover-page-color-body);
   --vs-color-background: var(--vs-theme--cover-page-color-bg);
+  color: var(--vs-theme--cover-page-color-body);
   display: flex;
   flex-direction: column;
   align-items: var(--vs-theme--cover-page-align-items);
   justify-content: var(--vs-theme--cover-page-justify-content);
+}
+
+@media screen {
+  .cover,
+  section:has(> .cover:first-child) {
+    background-color: var(--vs-theme--cover-page-color-bg);
+  }
 }
 
 .cover h1,

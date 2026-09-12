@@ -68,10 +68,10 @@ When you create a theme template using [create-vivliostyle-theme][], the essenti
 }
 ```
 
-You can use [vivliostyle-theme-scripts](https://github.com/vivliostyle/themes/tree/master/packages/vivliostyle-theme-scripts) to check that the package.json of your theme conforms to the specification.
+You can use the `theme validate` command of [Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli) to check that the package.json of your theme conforms to the specification.
 
 ```bash
-$ vivliostyle-theme validate
+$ vivliostyle theme validate
 ```
 
 ### `keywords` Property
@@ -164,5 +164,5 @@ module.exports = {
 
 This is a configuration file for generating publications from Markdown files in example. It is used by developers to develop themes and by theme's users to generate sample publications.
 
-[create-vivliostyle-theme]: https://github.com/vivliostyle/themes/tree/master/packages/create-vivliostyle-theme
+[create-vivliostyle-theme]: https://www.npmjs.com/package/create-vivliostyle-theme
 [create book]: https://github.com/vivliostyle/create-book

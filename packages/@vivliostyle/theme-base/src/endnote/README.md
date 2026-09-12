@@ -28,14 +28,14 @@ Styles about endnotes.
 
 /* Separator rule above the endnotes heading. The <hr> written by VFM comes
    after the section's ::before heading and cannot be reordered, so hide it
-   and draw the section's own border instead. Width and color default to
-   --vs-border-width / --vs-border-color and can be overridden with
-   --vs-endnote--section-border-{width,color}-block-start; the other logical
-   sides (block-end / inline-start / inline-end) have the same set of
-   variables. */
+   and draw the section's own border instead. The border width defaults to 0,
+   so the rule needs an explicit width; the color follows --vs-color-border.
+   The other logical sides (block-end / inline-start / inline-end) have the
+   same set of variables. */
 :root {
   --vs-endnote--section-hr-display: none;
   --vs-endnote--section-border-style-block-start: solid;
+  --vs-endnote--section-border-width-block-start: var(--vs-border-width);
 }
 ```
 

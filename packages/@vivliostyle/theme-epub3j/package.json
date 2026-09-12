@@ -28,10 +28,7 @@
   "scripts": {
     "example:build": "vivliostyle build",
     "example:preview": "vivliostyle preview",
-    "validate": "vivliostyle-theme-scripts validate"
-  },
-  "devDependencies": {
-    "vivliostyle-theme-scripts": "workspace:*"
+    "validate": "vivliostyle theme validate"
   },
   "peerDependencies": {
     "@vivliostyle/cli": ">=11.3.1"

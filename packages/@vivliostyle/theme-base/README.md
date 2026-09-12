@@ -86,9 +86,14 @@ Each module is imported as `@vivliostyle/theme-base/<subpath>` and documented ne
 }
 ```
 
-- [**define.css**](css/define.css) defines CSS variables that affect document-wide styles
+The entry loads three stylesheets:
+
+- [**reset.css**](src/reset.css) resets the default styles of the browser
+- **define.css** defines the default values of CSS variables, including the ones
+  that affect document-wide styles
   - Name of css variable starts with `--vs-`
-- [**basic.css**](css/basic.css) defines styles of basic HTML tags
+  - Generated from the `@define` blocks of the sources when the package is built
+- [**basic.css**](src/basic.css) defines styles of basic HTML tags
   - Name of css variable starts with `--vs--`
 
 Every variable, including the ones without a default value, is listed in
@@ -101,21 +106,29 @@ A handful of `--vs-` variables carry a role rather than a single property, and
 element variables fall back to them. Setting one of these changes every place
 that role is used.
 
-| Variable                     | Role                               | Used by                                                     |
-| :--------------------------- | :--------------------------------- | :---------------------------------------------------------- |
-| `--vs-text-color-muted`      | secondary text                     | `--vs--figcaption-text-color`, `--vs-page--mbox-text-color` |
-| `--vs-accent-color`          | accent                             | `--vs--anchor-text-color`, `--vs--lists-marker-text-color`  |
-| `--vs-background-color-alt`  | shaded panels                      | `--vs--th-background-color`, `--vs--pre-background-color`   |
-| `--vs-border-color`          | rules and borders                  | every `*-border-color-*` variable                           |
-| `--vs-border-style`          | rules and borders                  | every `*-border-style-*` variable                           |
-| `--vs-font-family-secondary` | second typeface (captions, tables) | `--vs--figcaption-font-family`, `--vs--table-font-family`   |
+| Variable                     | Role                | Used by                                                                              |
+| :--------------------------- | :------------------ | :----------------------------------------------------------------------------------- |
+| `--vs-color-foreground`      | text                | the `color` of the document, `--vs--anchor-text-color`, `--vs-page--mbox-text-color` |
+| `--vs-color-background`      | document background | the `background-color` of the document, `--vs-page--background-color`                |
+| `--vs-color-border`          | rules and borders   | every `*-border-color` variable, `--vs-column-rule-color`                            |
+| `--vs-border-width`          | thickness of rules  | `--vs--hr-border-width-block-start`, `--vs--table-border-width`                      |
+| `--vs-font-family`           | main typeface       | the `font-family` of the document                                                    |
+| `--vs-font-family-monospace` | monospace typeface  | `--vs--monospace-font-family` (`code`, `kbd`, `pre`, `samp`)                         |
+
+`--vs-color-foreground-alt`, `--vs-color-background-alt`, `--vs-color-border-alt`
+and `--vs-font-family-alt` are the secondary slots of the same roles. They
+default to the primary token, and no element variable reads them, so the theme
+decides where they apply.
 
 ```css
 :root {
-  --vs-text-color-muted: #666;
-  --vs-accent-color: #0b6bcb;
-  --vs-background-color-alt: #f2f4f7;
-  --vs-font-family-secondary: 'Helvetica Neue', sans-serif;
+  --vs-color-foreground-alt: #666;
+  --vs-color-background-alt: #f2f4f7;
+  --vs-font-family-alt: 'Helvetica Neue', sans-serif;
+
+  --vs--figcaption-text-color: var(--vs-color-foreground-alt);
+  --vs--th-background-color: var(--vs-color-background-alt);
+  --vs--figcaption-font-family: var(--vs-font-family-alt);
 }
 ```
 

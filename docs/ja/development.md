@@ -2,37 +2,39 @@
 
 ## Themeを作成する
 
-### create-vivliostyle-themeによる雛形生成
+### `vivliostyle theme create`による雛形生成
 
-`create-vivliostyle-theme` CLIを使って、テーマプロジェクトの雛形を生成します。
+Vivliostyle CLIでテーマプロジェクトの雛形を生成します。`npm create vivliostyle-theme` は同じコマンドのエイリアスです。
 
 ```bash
-npm create vivliostyle-theme <theme-name>
+npx vivliostyle theme create <directory>
+# または
+npm create vivliostyle-theme <directory>
 ```
 
-対話形式で以下の項目を入力します。
+対話形式で以下の項目を入力します。いずれもコマンドラインオプションで指定できます。
 
-| 項目          | 説明                                                                 |
-| ------------- | -------------------------------------------------------------------- |
-| `description` | テーマの説明                                                         |
-| `author`      | 作者名                                                               |
-| `email`       | メールアドレス                                                       |
-| `license`     | ライセンス（MIT、Apache-2.0等）                                      |
-| `category`    | テーマの分類（`novel` / `magazine` / `journal` / `report` / `misc`） |
-
-実行後、`vivliostyle-theme-<theme-name>` ディレクトリが生成されます。
+| 項目         | オプション      | 説明                                                                 |
+| ------------ | --------------- | -------------------------------------------------------------------- |
+| パッケージ名 | `--name`        | テーマのnpmパッケージ名（既定値: `vivliostyle-theme-<directory>`）   |
+| 説明         | `--description` | テーマの説明                                                         |
+| 作者         | `--author`      | 作者名                                                               |
+| 分類         | `--category`    | テーマの分類（`novel` / `magazine` / `journal` / `report` / `misc`） |
 
 ### 生成されるファイル構成
 
 ```
-vivliostyle-theme-<name>/
+<directory>/
 ├── .gitignore
 ├── package.json          # パッケージ定義（vivliostyle.theme 設定を含む）
 ├── README.md             # テーマの説明・使い方
 ├── theme.css             # テーマのメイン CSS
 ├── vivliostyle.config.js # プレビュー用の設定ファイル
 └── example/
-    └── default.md        # サンプル原稿（VFM 形式）
+    ├── 01_typography.md      # サンプル原稿（VFM 形式）
+    ├── 02_figures-and-tables.md
+    ├── 03_code-and-math.md
+    └── assets/
 ```
 
 各ファイルの役割:
@@ -41,14 +43,14 @@ vivliostyle-theme-<name>/
 | ----------------------- | --------------------------------------------------------------------------------------------- |
 | `package.json`          | テーマのメタ情報。`vivliostyle.theme` プロパティでテーマ名・作者・メインCSS・カテゴリを定義   |
 | `theme.css`             | テーマのスタイル定義本体。theme-baseの `@import` とCSS変数のカスタマイズが初期設定済み        |
-| `vivliostyle.config.js` | `vivliostyle preview` でテーマの動作確認に使用。entryに `example/default.md` を指定           |
-| `example/default.md`    | テーマ適用例を示すサンプルMarkdown。[VFM](https://vivliostyle.github.io/vfm/#/vfm) 記法に対応 |
+| `vivliostyle.config.js` | `vivliostyle preview` でテーマの動作確認に使用。entryに `example/` の原稿を指定               |
+| `example/*.md`          | テーマ適用例を示すサンプルMarkdown。[VFM](https://vivliostyle.github.io/vfm/#/vfm) 記法に対応 |
 
 ## 雛形をカスタマイズする
 
 ### theme.cssの編集
 
-生成直後の `theme.css` にはtheme-baseの全モジュールインポートとCSS変数のカスタマイズ例が含まれています。
+生成直後の `theme.css` は、theme-baseのモジュールをインポートし、CSS変数でカスタマイズする次のような構成になっています。
 
 ```css
 /* theme-base の基本モジュールをインポート */
@@ -89,7 +91,7 @@ vivliostyle-theme-<name>/
   --vs-page--mbox-top-left-content: env(doc-title);
 
   /* 目次 */
-  --vs-toc--marker-margin-inline: 8rem;
+  --vs-toc--ol-indent-size: 1.5rem;
 }
 ```
 
@@ -194,7 +196,7 @@ npm run example:preview
 
 ### 事前検証
 
-公開前に `vivliostyle-theme-scripts validate` を実行して、パッケージの妥当性を検証します。
+公開前に `vivliostyle theme validate` を実行して、パッケージの妥当性を検証します。生成された雛形では `npm run validate` に割り当てられています。
 
 ```bash
 npm run validate
@@ -202,10 +204,13 @@ npm run validate
 
 検証項目:
 
-| チェック         | 種別   | 内容                                                                      |
-| ---------------- | ------ | ------------------------------------------------------------------------- |
-| スタイルロケータ | エラー | `vivliostyle.theme.style`、`style`、`main` のいずれかが設定されていること |
-| 作者情報         | 警告   | `vivliostyle.theme.author` または `author` が設定されていること           |
+| チェック         | 種別   | 内容                                                                             |
+| ---------------- | ------ | --------------------------------------------------------------------------------- |
+| スタイルロケータ | エラー | `vivliostyle.theme.style`、`style`、`main` のいずれかが設定されていること        |
+| スタイルファイル | エラー | パッケージ内に実在すること（拡張子が `.css` でない場合は警告）                   |
+| 作者情報         | 警告   | `vivliostyle.theme.author` または `author` が設定されていること                  |
+| キーワード       | 警告   | `keywords` に `vivliostyle-theme` が含まれていること                             |
+| 分類             | 警告   | `vivliostyle.theme.category` が上記の分類のいずれかであること                    |
 
 ### プレビュー確認
 

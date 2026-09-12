@@ -11,7 +11,7 @@ The affected packages and their new versions:
 | `@vivliostyle/theme-base`                                                                       | 2.1.1 → 3.0.0 |
 | `@vivliostyle/theme-academic`, `-bunko`, `-gutenberg`, `-slide`, `-techbook`                    | 2.0.2 → 3.0.0 |
 | `@vivliostyle/theme-epub3j`                                                                     | 1.1.1 → 2.0.0 |
-| `create-vivliostyle-theme`                                                                      | 1.0.2 → 11.3.0 (merged into Vivliostyle CLI, see [`create-vivliostyle-theme`](#step-9-create-vivliostyle-theme-and-vivliostyle-theme-scripts)) |
+| `create-vivliostyle-theme`                                                                      | 1.0.2 → 11.3.1 (merged into Vivliostyle CLI, see [`create-vivliostyle-theme`](#step-9-create-vivliostyle-theme-and-vivliostyle-theme-scripts)) |
 | `vivliostyle-theme-scripts`                                                                     | 0.3.7 → deprecated (merged into Vivliostyle CLI, see [`vivliostyle-theme-scripts`](#step-9-create-vivliostyle-theme-and-vivliostyle-theme-scripts)) |
 
 ## Who needs to do what
@@ -22,7 +22,7 @@ The affected packages and their new versions:
 
 ## Step 1. Upgrade Vivliostyle CLI
 
-All packages now require `@vivliostyle/cli` 11.3.0 or later (previously `>=7`, or `>=8` for `theme-epub3j`).
+All packages now require `@vivliostyle/cli` 11.3.1 or later (previously `>=7`, or `>=8` for `theme-epub3j`).
 
 - The stylesheets use CSS Nesting, which needs the Vivliostyle.js shipped with CLI 11.3.0.
 - The stylesheets import `@vivliostyle/theme-base` by its npm package name and rely on the package `exports` field. CLI 11.3.0 added this resolution; earlier releases fail to load them.
@@ -354,7 +354,7 @@ The footnote area is styled with the standard `@footnote` at-rule instead of the
 
 ## Step 8. Official themes
 
-All official themes require `@vivliostyle/cli` 11.3.0 or later. Their stylesheets import `@vivliostyle/theme-base` by package name, so the `theme` array of `vivliostyle.config.js` no longer needs to list the base stylesheets (`@vivliostyle/theme-base` comes with them as a dependency).
+All official themes require `@vivliostyle/cli` 11.3.1 or later. Their stylesheets import `@vivliostyle/theme-base` by package name, so the `theme` array of `vivliostyle.config.js` no longer needs to list the base stylesheets (`@vivliostyle/theme-base` comes with them as a dependency).
 
 ### Running heads and page numbers
 
@@ -395,7 +395,7 @@ The module documentation lives in [`src/<module>/README.md`](https://github.com/
 
 ## Checklist
 
-1. `@vivliostyle/cli` is 11.3.0 or later.
+1. `@vivliostyle/cli` is 11.3.1 or later.
 2. No stylesheet imports `theme-all.css`, `theme-basic.css`, `css/common/`, `css/partial/`, `css/lib/` or a path relative to the themes directory.
 3. `footnote/external-links` is imported if external links should become footnotes.
 4. No `--vs-color-body`, `--vs-color-bg`, `--vs-border-color`, `--vs--html-font-size`, `-color-body`, `-color-bg`, `-on-screen`, `-on-print`, `-on-hover`, `--vs-crossref--` or `--vs-page--mbox-content-` remains in your stylesheets.

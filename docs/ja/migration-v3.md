@@ -11,7 +11,7 @@ Vivliostyle Themes v3では`@vivliostyle/theme-base`を大きく書き直しま�
 | `@vivliostyle/theme-base`                                                                       | 2.1.1 → 3.0.0 |
 | `@vivliostyle/theme-academic`、`-bunko`、`-gutenberg`、`-slide`、`-techbook`                    | 2.0.2 → 3.0.0 |
 | `@vivliostyle/theme-epub3j`                                                                     | 1.1.1 → 2.0.0 |
-| `create-vivliostyle-theme`                                                                      | 1.0.2 → 11.3.0（Vivliostyle CLIに統合されます。[`create-vivliostyle-theme`](#手順9-create-vivliostyle-theme-vivliostyle-theme-scripts)を参照） |
+| `create-vivliostyle-theme`                                                                      | 1.0.2 → 11.3.1（Vivliostyle CLIに統合されます。[`create-vivliostyle-theme`](#手順9-create-vivliostyle-theme-vivliostyle-theme-scripts)を参照） |
 | `vivliostyle-theme-scripts`                                                                    | 0.3.7 → 廃止（Vivliostyle CLIに統合されます。[`vivliostyle-theme-scripts`](#手順9-create-vivliostyle-theme-vivliostyle-theme-scripts)を参照） |
 
 ## 必要な作業の目安
@@ -22,10 +22,11 @@ Vivliostyle Themes v3では`@vivliostyle/theme-base`を大きく書き直しま�
 
 ## 手順1 Vivliostyle CLIのアップグレード
 
-すべてのパッケージが`@vivliostyle/cli` 11.3.0以降を必要とします（従来は`>=7`、`theme-epub3j`は`>=8`）。
+すべてのパッケージが`@vivliostyle/cli` 11.3.1以降を必要とします（従来は`>=7`、`theme-epub3j`は`>=8`）。
 
 - スタイルシートがCSS Nestingを使っており、CLI 11.3.0に同梱されるVivliostyle.jsが必要です。
 - スタイルシートは`@vivliostyle/theme-base`をnpmパッケージ名でインポートし、パッケージの`exports`フィールドに依存します。この解決はCLI 11.3.0で追加されたもので、それより前のリリースでは読み込みに失敗します。
+- テーマの`example/`のように、自身が属するパッケージを名前でインポートするスタイルシートは、CLI 11.3.1以降でそのパッケージ自身に解決されます。11.3.0では同名のパッケージをnpmからインストールしていました。
 
 ```sh
 npm install --save-dev @vivliostyle/cli@latest
@@ -354,7 +355,7 @@ h2 {
 
 ## 手順8 公式テーマ
 
-すべての公式テーマが`@vivliostyle/cli` 11.3.0以降を必要とします。スタイルシートは`@vivliostyle/theme-base`をパッケージ名でインポートするので、`vivliostyle.config.js`の`theme`配列にベーススタイルシートを列挙する必要はなくなりました（`@vivliostyle/theme-base`は依存関係として同梱されます）。
+すべての公式テーマが`@vivliostyle/cli` 11.3.1以降を必要とします。スタイルシートは`@vivliostyle/theme-base`をパッケージ名でインポートするので、`vivliostyle.config.js`の`theme`配列にベーススタイルシートを列挙する必要はなくなりました（`@vivliostyle/theme-base`は依存関係として同梱されます）。
 
 ### 柱とノンブル
 
@@ -395,7 +396,7 @@ h2 {
 
 ## チェックリスト
 
-1. `@vivliostyle/cli`が11.3.0以降である。
+1. `@vivliostyle/cli`が11.3.1以降である。
 2. `theme-all.css`・`theme-basic.css`・`css/common/`・`css/partial/`・`css/lib/`・themesディレクトリからの相対パスをインポートしているスタイルシートがない。
 3. 外部リンクを脚注にしたい場合、`footnote/external-links`をインポートしている。
 4. スタイルシートに`--vs-color-body`・`--vs-color-bg`・`--vs-border-color`・`--vs--html-font-size`・`-color-body`・`-color-bg`・`-on-screen`・`-on-print`・`-on-hover`・`--vs-crossref--`・`--vs-page--mbox-content-`が残っていない。

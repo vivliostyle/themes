@@ -2,37 +2,40 @@
 
 ## Creating a Theme
 
-### Scaffolding with create-vivliostyle-theme
+### Scaffolding with `vivliostyle theme create`
 
-Use the `create-vivliostyle-theme` CLI to generate a theme project scaffold.
+Vivliostyle CLI generates a theme project scaffold. `npm create vivliostyle-theme` is an alias of the same command.
 
 ```bash
-npm create vivliostyle-theme <theme-name>
+vivliostyle theme create <directory>
+# or
+npm create vivliostyle-theme <directory>
 ```
 
-You will be prompted to enter the following:
+You will be prompted to enter the following. Each one can also be given as a command-line option.
 
-| Field         | Description                                                           |
-| ------------- | --------------------------------------------------------------------- |
-| `description` | Theme description                                                     |
-| `author`      | Author name                                                           |
-| `email`       | Email address                                                         |
-| `license`     | License (MIT, Apache-2.0, etc.)                                       |
-| `category`    | Theme category (`novel` / `magazine` / `journal` / `report` / `misc`) |
+| Field         | Option          | Description                                                                |
+| ------------- | --------------- | -------------------------------------------------------------------------- |
+| Package name  | `--name`        | npm package name of the theme (default: `vivliostyle-theme-<directory>`)   |
+| Description   | `--description` | Theme description                                                          |
+| Author        | `--author`      | Author name                                                                |
+| Category      | `--category`    | Theme category (`novel` / `magazine` / `journal` / `report` / `misc`)      |
 
-After completion, a `vivliostyle-theme-<theme-name>` directory is created.
 
 ### Generated File Structure
 
 ```
-vivliostyle-theme-<name>/
+<directory>/
 ├── .gitignore
 ├── package.json          # Package definition (includes vivliostyle.theme config)
 ├── README.md             # Theme description and usage
 ├── theme.css             # Main theme CSS
 ├── vivliostyle.config.js # Configuration for previewing
 └── example/
-    └── default.md        # Sample manuscript (VFM format)
+    ├── 01_typography.md      # Sample manuscripts (VFM format)
+    ├── 02_figures-and-tables.md
+    ├── 03_code-and-math.md
+    └── assets/
 ```
 
 File roles:
@@ -41,14 +44,14 @@ File roles:
 | ----------------------- | --------------------------------------------------------------------------------------------------------------- |
 | `package.json`          | Theme metadata. The `vivliostyle.theme` property defines the theme name, author, main CSS, and category         |
 | `theme.css`             | The main style definition. Pre-configured with theme-base `@import` and CSS variable customizations             |
-| `vivliostyle.config.js` | Used with `vivliostyle preview` to check the theme. Entry points to `example/default.md`                        |
-| `example/default.md`    | Sample Markdown demonstrating theme application. Supports [VFM](https://vivliostyle.github.io/vfm/#/vfm) syntax |
+| `vivliostyle.config.js` | Used with `vivliostyle preview` to check the theme. Entry points to the manuscripts in `example/`               |
+| `example/*.md`          | Sample Markdown demonstrating theme application. Supports [VFM](https://vivliostyle.github.io/vfm/#/vfm) syntax |
 
 ## Customizing the Scaffold
 
 ### Editing theme.css
 
-The generated `theme.css` includes theme-base module imports and CSS variable customization examples.
+The generated `theme.css` imports the theme-base modules and customizes them through CSS variables, along these lines:
 
 ```css
 /* Import the basic modules of theme-base */
@@ -89,7 +92,7 @@ The generated `theme.css` includes theme-base module imports and CSS variable cu
   --vs-page--mbox-top-left-content: env(doc-title);
 
   /* Table of contents */
-  --vs-toc--marker-margin-inline: 8rem;
+  --vs-toc--ol-indent-size: 1.5rem;
 }
 ```
 
@@ -194,7 +197,7 @@ npm run example:preview
 
 ### Pre-publish Validation
 
-Run `vivliostyle-theme-scripts validate` before publishing to verify your package.
+Run `vivliostyle theme validate` before publishing to verify your package. In the generated scaffold it is wired to `npm run validate`.
 
 ```bash
 npm run validate
@@ -202,10 +205,13 @@ npm run validate
 
 Validation checks:
 
-| Check         | Severity | Description                                                      |
-| ------------- | -------- | ---------------------------------------------------------------- |
-| Style locator | Error    | One of `vivliostyle.theme.style`, `style`, or `main` must be set |
-| Author info   | Warning  | `vivliostyle.theme.author` or `author` should be set             |
+| Check         | Severity | Description                                                                              |
+| ------------- | -------- | ---------------------------------------------------------------------------------------- |
+| Style locator | Error    | One of `vivliostyle.theme.style`, `style`, or `main` must be set                         |
+| Style file    | Error    | The style file must exist inside the package directory (a warning if it is not a `.css`) |
+| Author info   | Warning  | `vivliostyle.theme.author` or `author` should be set                                     |
+| Keywords      | Warning  | `keywords` should include `vivliostyle-theme`                                            |
+| Category      | Warning  | `vivliostyle.theme.category` must be one of the categories above                         |
 
 ### Preview Check
 

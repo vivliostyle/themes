@@ -61,7 +61,7 @@ module.exports = {
 | ----------------- | ---------------------------------------- | ------------------------------------------------------------------ |
 | `--vs-`           | ドキュメント全体に影響するメタプロパティ | `--vs-font-family`, `--vs-font-size`                               |
 | `--vs--`          | 基本HTMLタグのスタイル                   | `--vs--heading-line-height`, `--vs--h1-font-size`                  |
-| `--vs-{module}--` | モジュール固有の設定                     | `--vs-footnote--call-content`, `--vs-toc--marker-margin-inline`    |
+| `--vs-{module}--` | モジュール固有の設定                     | `--vs-footnote--call-content`, `--vs-toc--ol-indent-size`    |
 | `--vs-theme--`    | テーマ固有の設定                         | `--vs-theme--anchor-color-body`, `--vs-theme--blockquote-color-bg` |
 
 ### カスタマイズの例
