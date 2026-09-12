@@ -1,6 +1,6 @@
 {
   "name": "@vivliostyle/theme-epub3j",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "EPUB3 (Japanese) 日本語EPUB用テーマ（電書協EPUB3制作ガイド準拠）",
   "keywords": [
     "vivliostyle",
