@@ -33,7 +33,7 @@ module.exports = {
 }
 ```
 
-The maximum size of figure images is the variables of the base theme:
+The maximum size of figure images is controlled by variables of the base theme:
 
 ```css
 :root {
