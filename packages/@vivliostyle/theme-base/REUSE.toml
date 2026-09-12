@@ -1,0 +1,18 @@
+version = 1
+SPDX-PackageName = "@vivliostyle/theme-base"
+SPDX-PackageSupplier = "Vivliostyle <mail@vivliostyle.org>"
+SPDX-PackageDownloadLocation = "https://github.com/vivliostyle/themes"
+
+[[annotations]]
+path = "**"
+SPDX-FileCopyrightText = "2020 Vivliostyle"
+SPDX-License-Identifier = "Apache-2.0"
+
+# The published stylesheets and their companions (the `files` field of
+# package.json) are dedicated to the public domain, so a theme built on them
+# carries no license obligation. The Prism color schemes keep the MIT notice
+# in their file headers.
+[[annotations]]
+path = ["theme.css", "css/**", "dist/**", "example/**", "vivliostyle.config.js"]
+SPDX-FileCopyrightText = "2020 Vivliostyle"
+SPDX-License-Identifier = "CC0-1.0"

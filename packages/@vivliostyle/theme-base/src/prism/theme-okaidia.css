@@ -1,3 +1,11 @@
+/*
+ * Color scheme of the okaidia theme of prism.js (https://prismjs.com/), loosely
+ * based on the Monokai TextMate theme (http://www.monokai.nl/), by ocodia.
+ *
+ * SPDX-FileCopyrightText: 2012 Lea Verou
+ * SPDX-License-Identifier: MIT
+ */
+
 :root {
   --vs-prism--background: #272822;
   --vs-prism--text-color: #f8f8f2;

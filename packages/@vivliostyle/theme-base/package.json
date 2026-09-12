@@ -7,7 +7,7 @@
     "vivliostyle-theme"
   ],
   "homepage": "https://github.com/vivliostyle/themes",
-  "license": "CC0-1.0",
+  "license": "(Apache-2.0 AND CC0-1.0 AND MIT)",
   "author": "Vivliostyle <mail@vivliostyle.org>",
   "repository": {
     "type": "git",
@@ -15,11 +15,13 @@
     "directory": "packages/@vivliostyle/theme-base"
   },
   "files": [
-    "*.css",
+    "theme.css",
     "css",
     "dist",
     "example",
-    "vivliostyle.config.js"
+    "vivliostyle.config.js",
+    "LICENSES",
+    "REUSE.toml"
   ],
   "type": "module",
   "main": "theme.css",

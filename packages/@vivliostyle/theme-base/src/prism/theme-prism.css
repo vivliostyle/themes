@@ -1,3 +1,11 @@
+/*
+ * Color scheme of the prism.js default theme (https://prismjs.com/), based on
+ * dabblet (http://dabblet.com), by Lea Verou.
+ *
+ * SPDX-FileCopyrightText: 2012 Lea Verou
+ * SPDX-License-Identifier: MIT
+ */
+
 :root {
   --vs-prism--background: #f5f2f0;
   --vs-prism--text-color: black;

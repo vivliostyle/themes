@@ -174,6 +174,8 @@ The shared defaults are part of the basic stylesheet, so they need no separate i
 
 ## License
 
-CC0 1.0
+Everything the npm package ships (the `files` field of `package.json`: `theme.css`, `css/`, `dist/`, `example/` and `vivliostyle.config.js`) is dedicated to the public domain under [CC0 1.0](LICENSES/CC0-1.0.txt), so a theme built on it carries no attribution or license requirement. The rest of this directory (`src/`, `plugins/`, the build configuration) is licensed under the [Apache License 2.0](LICENSES/Apache-2.0.txt).
+
+The Prism color schemes (`css/prism/theme-prism.css` and `css/prism/theme-okaidia.css`) are derived from the [Prism](https://prismjs.com/) themes and remain under the [MIT License](LICENSES/MIT.txt); their file headers carry the notice. `REUSE.toml` records the license of every file.
 
 > Original author: Vivliostyle project team

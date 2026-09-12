@@ -109,6 +109,10 @@ BREAKING CHANGE:
 - **Pages**: `--vs-page--border-*` around the page area, `--vs-page--{margin,padding}-{inside,outside}` and `-{left,right}`, per-edge `--vs-page--mbox-{top,bottom,left,right}-*` groups, per-box padding, and the spread-aware `--vs-page--mbox-{top,bottom}-{inside,outside}[-corner]-content` / `--vs-page--mbox-{inside,outside}-{top,middle,bottom}-content`.
 - **`@vivliostyle/theme-base/css-variables.json`**: a generated, machine-readable description of every variable (its CSS property, `@property` syntax and default), the package's first `exports` entry.
 
+#### License
+
+The published files (`theme.css`, `css/`, `dist/`, `example/`, `vivliostyle.config.js`) stay under CC0 1.0. The source of the package (`src/`, `plugins/`, the build configuration) is now licensed under the Apache License 2.0, and the Prism color schemes `css/prism/theme-{prism,okaidia}.css` carry the MIT notice of the Prism themes they are derived from. `package.json` declares `(Apache-2.0 AND CC0-1.0 AND MIT)`, and `REUSE.toml` records the license of every file.
+
 #### Fixes
 
 - `--vs-footnote--font-stretch` fell back to itself, so `--vs-font-stretch` never reached footnotes; the `text-spacing` of `h3` fell back to `--vs--heading-letter-spacing`.
