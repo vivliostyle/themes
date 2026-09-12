@@ -4,6 +4,7 @@
     --vs-page--bleed: 0;
     --vs-page--border-color: var(--vs-color-border);
     --vs-page--call-content: target-counter(attr(href), page);
+    --vs-page--cover-page-mbox-visibility: hidden;
     --vs-page--margin: 18mm;
     --vs-page--mbox-text-color: var(--vs-color-foreground);
     --vs-page--mbox-visibility: visible;
@@ -1073,6 +1074,7 @@
 @page cover-document {
   /* Don't increment vs-counter-doc for cover documents */
   --vs-page--doc-counter-increment: vs-counter-doc 0;
+  --vs-page--mbox-visibility: var(--vs-page--cover-page-mbox-visibility);
 }
 
 /*
@@ -1097,10 +1099,7 @@ section:has(> .cover:first-child) {
 }
 
 @page cover {
-  --vs-page--mbox-visibility: var(
-    --vs-page--cover-page-mbox-visibility,
-    hidden
-  );
+  --vs-page--mbox-visibility: var(--vs-page--cover-page-mbox-visibility);
 }
 
 /*
