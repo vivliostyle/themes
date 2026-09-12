@@ -68,10 +68,10 @@ vivliostyle-theme-mybook/
 }
 ```
 
-[vivliostyle-theme-scripts](https://github.com/vivliostyle/themes/tree/master/packages/vivliostyle-theme-scripts) を使うと、作成したテーマのpackage.jsonが仕様に従っているかをチェックできます。
+[Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli) の `theme validate` コマンドを使うと、作成したテーマのpackage.jsonが仕様に従っているかをチェックできます。
 
 ```bash
-$ vivliostyle-theme validate
+$ vivliostyle theme validate
 ```
 
 ### `keywords` プロパティ
@@ -147,7 +147,7 @@ theme: {
 /** @type {import('@vivliostyle/cli').VivliostyleConfigSchema} */
 module.exports = {
   language: 'en',
-  theme: ['node_modules/@vivliostyle/theme-base', '.'],
+  theme: '.',
   entry: ['example/default.md'],
   workspaceDir: '.vivliostyle',
   output: [
@@ -162,5 +162,5 @@ module.exports = {
 
 example内のMarkdownファイルから出版物を生成するための設定ファイルです。開発者がテーマを開発する際に使うほか、テーマを使うユーザーがサンプル出版物を生成する際にも使います。
 
-[create-vivliostyle-theme]: https://github.com/vivliostyle/themes/tree/master/packages/create-vivliostyle-theme
+[create-vivliostyle-theme]: https://www.npmjs.com/package/create-vivliostyle-theme
 [create book]: https://github.com/vivliostyle/create-book

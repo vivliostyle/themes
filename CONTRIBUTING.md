@@ -26,8 +26,6 @@ pnpm example:capture-pdf  # regenerate docs/assets/captures/*.webp from the buil
 pnpm --filter @vivliostyle/theme-techbook example:preview  # preview a single example
 ```
 
-Themes that `@import` a sibling theme currently render without it: the CLI serves each theme from its own directory, so `../theme-base/theme-all.css` resolves outside the server root and 404s while the build still reports success. Until the CLI can serve the workspace, treat the output of `example:build` for those themes as incomplete.
-
 ### Releasing
 
 Releases run on [Changesets](https://github.com/changesets/changesets). Add a changeset in the same pull request as your change:

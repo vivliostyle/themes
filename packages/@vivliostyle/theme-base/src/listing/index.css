@@ -1,0 +1,54 @@
+@define {
+  :root {
+    --vs-listing--call-content: var(--vs-listing--label)
+      var(--vs-crossref-call-counter-prefix, '')
+      target-counter(
+        attr(href),
+        vs-counter-lst,
+        var(--vs-listing--counter-style, var(--vs-counter-style))
+      );
+    --vs-listing--label: 'Listing ';
+    --vs-listing--marker-content: var(--vs-listing--label)
+      var(--vs-crossref-marker-counter-prefix, '')
+      counter(
+        vs-counter-lst,
+        var(--vs-listing--counter-style, var(--vs-counter-style))
+      )
+      ': ';
+    --vs-listing--root-counter-reset: vs-counter-lst
+      var(--vs-listing--root-counter-lst,);
+  }
+
+  @media screen {
+    :root {
+      --vs-listing--call-content: var(--vs-listing--label) '???';
+    }
+  }
+
+  :root:lang(ja) {
+    --vs-listing--label: 'リスト';
+  }
+}
+
+@var listing {
+  @var call {
+    a[data-ref='lst']::before {
+      content: ;
+      display: ;
+    }
+  }
+
+  @var marker {
+    figure:is(.lst, :has(> pre)) figcaption::before,
+    .lst-caption::before {
+      content: ;
+      display: ;
+      margin-inline: ;
+    }
+  }
+}
+
+figure:is(.lst, :has(> pre)),
+.lst-caption {
+  counter-increment: vs-counter-lst;
+}

@@ -3,7 +3,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
 import { lexer, type DSNode } from 'css-tree';
-import type { Plugin, PluginCreator } from 'postcss';
+import type { AtRule, Declaration, Plugin, PluginCreator, Rule } from 'postcss';
 import valueParser from 'postcss-value-parser';
 import { parse, stringify } from 'yaml';
 
@@ -12,6 +12,7 @@ const defaultDefineOutput = 'css/define.css';
 const defaultJsonOutput = 'dist/css-variables.json';
 const defaultSelector = ':root';
 const defaultPrefix = '';
+const defaultDefineAtRule = 'define';
 
 const basicGroup = '_basic';
 const metaPropertiesGroup = '_meta-properties';
@@ -26,7 +27,10 @@ const fallbackSyntax = '*';
 
 export interface Options {
   cwd?: string;
+  /** Restricts which inputs contribute to the spec. */
+  sourceDir?: string;
   prefix?: string;
+  defineAtRule?: string;
   output?: string;
   defineOutput?: string;
   jsonOutput?: string;
@@ -61,11 +65,27 @@ interface UsageRecord {
   property: string;
 }
 
+/** One declaration of an `@define` block, resolved to its variable name. */
+interface DefineRecord {
+  name: string;
+  media: string | null;
+  selector: string;
+  /** null registers the variable without emitting a definition. */
+  value: string | null;
+}
+
+interface FileRecord {
+  usages: UsageRecord[];
+  defines: DefineRecord[];
+}
+
 interface Registry {
-  files: Map<string, UsageRecord[]>;
+  files: Map<string, FileRecord>;
   existing: SpecNode | undefined;
   lastWritten: string | null;
   queue: Promise<void>;
+  /** Bumped per enqueue, so a queued rebuild can tell it has been superseded. */
+  version: number;
 }
 
 /** How often one `@property` component may repeat, and with which separator. */
@@ -313,6 +333,118 @@ function variableName(specPath: string[], prefix: string): string {
   return `--${prefix}${specPath.join(nestingDelimiter)}`;
 }
 
+// Definitions spell the complete variable name, prefix included: relative
+// spellings would leave the basic group (`--vs--pre-overflow-x`, whose name
+// starts with an extra dash) unwritable, and a misread scope would silently
+// define a different variable. `locate` rejects what it cannot place.
+function defineVariableName(decl: Declaration, prefix: string): string {
+  if (!decl.prop.startsWith('--')) {
+    throw decl.error(
+      `Definitions name their variable as a custom property ("--${prefix}...")`,
+    );
+  }
+  if (!locate(decl.prop, prefix)) {
+    throw decl.error(`"${decl.prop}" does not name a "--${prefix}" variable`);
+  }
+  return decl.prop;
+}
+
+function collectDefines(
+  atRule: AtRule,
+  prefix: string,
+  onUsage: (name: string, definedName: string) => void,
+): DefineRecord[] {
+  if (atRule.params.trim() !== '') {
+    throw atRule.error(`Unexpected prelude "${atRule.params.trim()}"`);
+  }
+  if (!atRule.nodes) {
+    throw atRule.error(`Expected a block after @${atRule.name}`);
+  }
+  const records: DefineRecord[] = [];
+
+  const takeDecl = (
+    decl: Declaration,
+    selector: string,
+    media: string | null,
+  ): void => {
+    const name = defineVariableName(decl, prefix);
+    if (decl.important) {
+      throw decl.error(`"${decl.prop}" must not be !important`);
+    }
+    // Custom property values keep their raw whitespace, but a definition is a
+    // single line in the spec file, so wrapped indentation is collapsed — to
+    // nothing inside parentheses, where the formatter breaks after `(` and
+    // before `)`, and to one space elsewhere.
+    const value = decl.value
+      .replaceAll(/\(\s*\n\s*/gv, '(')
+      .replaceAll(/\s*\n\s*\)/gv, ')')
+      .replaceAll(/\s*\n\s*/gv, ' ')
+      .trim();
+    if (value === '') {
+      // An empty value registers the variable without defining it. Emitting
+      // it would produce a defined-but-empty custom property, which defeats
+      // var() fallbacks instead of leaving the variable guaranteed-invalid.
+      if (media !== null || selector !== defaultSelector) {
+        throw decl.error(
+          `"${decl.prop}" only registers a variable, which no media query or selector can scope`,
+        );
+      }
+      records.push({ name, media: null, selector, value: null });
+      return;
+    }
+    // Definition values are the only place some shared tokens are referenced,
+    // so var() calls inside them count as usage. Attributed to the defined
+    // variable — a custom property — they stay out of `_property`.
+    scanValue(value, (used) => onUsage(used, name));
+    records.push({ name, media, selector, value });
+  };
+
+  const takeRule = (rule: Rule, media: string | null): void => {
+    const selector = rule.selectors.join(', ');
+    for (const node of rule.nodes) {
+      if (node.type === 'decl') {
+        takeDecl(node, selector, media);
+      } else if (node.type !== 'comment') {
+        throw node.error(`Unexpected ${node.type} in @${atRule.name}`);
+      }
+    }
+  };
+
+  for (const node of atRule.nodes) {
+    switch (node.type) {
+      case 'decl':
+        throw node.error(
+          `Definitions name their selector explicitly: ":root { ${node.prop}: ... }"`,
+        );
+      case 'rule':
+        takeRule(node, null);
+        break;
+      case 'atrule':
+        // A definition carries one media query and one selector; anything
+        // deeper (@supports, @layer, @page, nested @media) cannot be
+        // represented and is rejected rather than silently flattened.
+        if (node.name !== 'media') {
+          throw node.error(`Unexpected @${node.name} in @${atRule.name}`);
+        }
+        for (const child of node.nodes ?? []) {
+          if (child.type === 'decl') {
+            throw child.error(
+              `Definitions name their selector explicitly: ":root { ${child.prop}: ... }"`,
+            );
+          } else if (child.type === 'rule') {
+            takeRule(child, node.params);
+          } else if (child.type !== 'comment') {
+            throw child.error(`Unexpected ${child.type} in @${node.name}`);
+          }
+        }
+        break;
+      case 'comment':
+        break;
+    }
+  }
+  return records;
+}
+
 // Leaves hold the fields of one variable, all of them underscore-prefixed;
 // every other key is a nesting level.
 function isLeaf(node: SpecEntry | SpecNode): node is SpecEntry {
@@ -377,10 +509,16 @@ function mergeEntry(
   if ('_property' in generated) {
     merged._property = generated._property;
   }
+  // `_define` mirrors the `@define` blocks alone; a value left in the spec
+  // file after its block is gone must not resurrect the definition.
+  if ('_define' in generated) {
+    merged._define = generated._define;
+  }
   for (const [field, value] of Object.entries(previous)) {
-    if (field !== '_syntax' && field !== '_property') {
-      merged[field] = value;
+    if (field === '_syntax' || field === '_property' || field === '_define') {
+      continue;
     }
+    merged[field] = value;
   }
   return merged;
 }
@@ -421,8 +559,75 @@ function sortNode(node: SpecNode, depth: number): SpecNode {
   return sorted;
 }
 
+// Source order between equal-specificity rules decides the cascade inside
+// define.css, so aggregation follows a fixed file order instead of the order
+// files happen to be processed in.
+function aggregateDefines(
+  files: Map<string, FileRecord>,
+): Map<string, DefineItem[]> {
+  const byName = new Map<string, (DefineItem & { file: string })[]>();
+  const paths = [...files.keys()].toSorted((a, b) => a.localeCompare(b));
+  for (const file of paths) {
+    for (const define of files.get(file)?.defines ?? []) {
+      const items = byName.get(define.name) ?? [];
+      byName.set(define.name, items);
+      if (define.value === null) {
+        continue;
+      }
+      const previous = items.find(
+        (item) =>
+          item.media === define.media && item.selector === define.selector,
+      );
+      if (previous) {
+        if (previous.value === define.value) {
+          continue;
+        }
+        const where = [
+          define.media === null ? null : `@media ${define.media}`,
+          define.selector === defaultSelector ? null : define.selector,
+        ]
+          .filter(Boolean)
+          .join(' ');
+        throw new Error(
+          `Conflicting definitions for ${define.name}${where === '' ? '' : ` (${where})`}: "${String(previous.value)}" in ${previous.file} vs "${define.value}" in ${file}`,
+        );
+      }
+      items.push({ ...define, file });
+    }
+  }
+  const aggregated = new Map<string, DefineItem[]>();
+  for (const [name, items] of byName) {
+    aggregated.set(
+      name,
+      items.map(({ media, selector, value }) => ({ media, selector, value })),
+    );
+  }
+  return aggregated;
+}
+
+// The inverse of defineItemsOf: the plain default context collapses back to a
+// bare value, so generated entries keep the shape of hand-written ones.
+function defineSourcesOf(items: DefineItem[]): SpecEntry['_define'] {
+  const [first] = items;
+  if (first === undefined) {
+    return undefined;
+  }
+  if (
+    items.length === 1 &&
+    first.media === null &&
+    first.selector === defaultSelector
+  ) {
+    return String(first.value);
+  }
+  return items.map((item) => ({
+    ...(item.media === null ? {} : { media: item.media }),
+    ...(item.selector === defaultSelector ? {} : { selector: item.selector }),
+    value: item.value,
+  }));
+}
+
 function build(
-  files: Map<string, UsageRecord[]>,
+  files: Map<string, FileRecord>,
   existing: SpecNode | undefined,
   prefix: string,
 ): SpecNode {
@@ -433,25 +638,30 @@ function build(
     properties.add(property);
   };
 
-  for (const records of files.values()) {
-    for (const record of records) {
+  for (const { usages } of files.values()) {
+    for (const record of usages) {
       use(record.name, record.property);
     }
   }
+  const defines = aggregateDefines(files);
 
   const tree: SpecNode = {};
-  for (const [name, properties] of usage) {
+  for (const name of new Set([...usage.keys(), ...defines.keys()])) {
     const specPath = locate(name, prefix);
     if (!specPath) {
       continue;
     }
 
-    const cssProperties = cssPropertiesOf(properties);
+    const cssProperties = cssPropertiesOf(usage.get(name) ?? new Set());
     const entry: SpecEntry = { _syntax: syntaxOf(cssProperties) };
     if (cssProperties.length === 1) {
       entry._property = cssProperties[0];
     } else if (cssProperties.length > 1) {
       entry._property = cssProperties;
+    }
+    const define = defineSourcesOf(defines.get(name) ?? []);
+    if (define !== undefined) {
+      entry._define = define;
     }
 
     const key = specPath.at(-1);
@@ -554,6 +764,13 @@ function renderDefineCss(spec: SpecNode, prefix: string): string {
   return chunks.length === 0 ? '' : `${chunks.join('\n\n')}\n`;
 }
 
+function isInside(dir: string, file: string): boolean {
+  const relative = path.relative(dir, file);
+  return (
+    relative !== '' && !relative.startsWith('..') && !path.isAbsolute(relative)
+  );
+}
+
 function isSpecNode(value: unknown): value is SpecNode {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
@@ -567,6 +784,17 @@ function readRaw(output: string): string | null {
     }
     throw error;
   }
+}
+
+// Rewriting a file with the content it already holds still bumps its mtime,
+// which restarts every watcher looking at the generated output.
+function writeIfChanged(file: string, content: string): void {
+  if (readRaw(file) === content) {
+    return;
+  }
+  // css/ and dist/ are build artifacts, so they may not exist yet.
+  mkdirSync(path.dirname(file), { recursive: true });
+  writeFileSync(file, content);
 }
 
 // Re-reading before every write would feed this plugin its own half-finished
@@ -599,6 +827,7 @@ function registryFor(output: string): Registry {
     // rebuilds after the previous one finished, and the last file to arrive
     // therefore writes last, with every file's records in hand.
     queue: Promise.resolve(),
+    version: 0,
   };
   registries.set(output, registry);
   return registry;
@@ -606,7 +835,12 @@ function registryFor(output: string): Registry {
 
 const extractCssVariables = (options: Options = {}): Plugin => {
   const cwd = options.cwd ?? process.cwd();
+  const sourceDir =
+    options.sourceDir === undefined
+      ? undefined
+      : path.resolve(cwd, options.sourceDir);
   const prefix = options.prefix ?? defaultPrefix;
+  const defineAtRule = options.defineAtRule ?? defaultDefineAtRule;
   const output = path.resolve(cwd, options.output ?? defaultOutput);
   const defineOutput = path.resolve(
     cwd,
@@ -625,9 +859,17 @@ const extractCssVariables = (options: Options = {}): Plugin => {
     // only ever see the source tree, missing every generated var() reference.
     OnceExit(root, { result }) {
       const from = result.opts.from;
+      // Vivliostyle CLI serves a theme through vite, which picks up this very
+      // config and hands the already generated CSS back to the plugin. A spec
+      // rebuilt from that input rewrites every output on each request, and the
+      // preview reloads on the change it just caused, forever.
+      if (sourceDir && !(from && isInside(sourceDir, from))) {
+        return;
+      }
       const file = from ? path.relative(cwd, from) : '<no source>';
-      const records: UsageRecord[] = [];
-      files.set(file, records);
+      const usages: UsageRecord[] = [];
+      const defines: DefineRecord[] = [];
+      files.set(file, { usages, defines });
 
       // Hand edits to the spec file change the generated `_define` output, so
       // `postcss --watch` has to rebuild on them as it would for an @import.
@@ -640,18 +882,39 @@ const extractCssVariables = (options: Options = {}): Plugin => {
         });
       }
 
+      // `@define` blocks are consumed before the usage walk: their
+      // declarations are definitions, not usage sites, and the block itself
+      // must not reach the compiled output.
+      root.walkAtRules(defineAtRule, (atRule) => {
+        if (atRule.parent?.type !== 'root') {
+          throw atRule.error(`@${defineAtRule} must be at the top level`);
+        }
+        defines.push(
+          ...collectDefines(atRule, prefix, (name, definedName) => {
+            usages.push({ name, property: definedName });
+          }),
+        );
+        atRule.remove();
+      });
+
       root.walkDecls((decl) => {
         scanValue(decl.value, (name) => {
-          records.push({ name, property: decl.prop });
+          usages.push({ name, property: decl.prop });
         });
       });
       root.walkAtRules((atRule) => {
         scanValue(atRule.params, (name) => {
-          records.push({ name, property: `@${atRule.name}` });
+          usages.push({ name, property: `@${atRule.name}` });
         });
       });
 
-      registry.queue = registry.queue.then(async () => {
+      const version = ++registry.version;
+      const run = async (): Promise<void> => {
+        // A newer enqueue supersedes this rebuild entirely: the later task
+        // sees a superset of the same records and overwrites every output.
+        if (version !== registry.version) {
+          return;
+        }
         const current = refreshExisting(registry, output);
         const spec = build(files, registry.existing, prefix);
         const yaml = stringify(spec, {
@@ -660,28 +923,32 @@ const extractCssVariables = (options: Options = {}): Plugin => {
           lineWidth: 0,
         });
         const written = await format(output, yaml);
+        const defineCss = await format(
+          defineOutput,
+          renderDefineCss(spec, prefix),
+        );
+        const json = await format(
+          jsonOutput,
+          `${JSON.stringify(spec, null, 2)}\n`,
+        );
+        // Formatting is async, so a rebuild enqueued while it ran supersedes
+        // this one just as an earlier check would have caught.
+        if (version !== registry.version) {
+          return;
+        }
         // The spec file is watched as a dependency of every input, so writing
         // it unconditionally would make `postcss --watch` rebuild forever.
         if (written !== current) {
           writeFileSync(output, written);
         }
         registry.lastWritten = written;
-        // css/ and dist/ are build artifacts, so they may not exist yet.
-        mkdirSync(path.dirname(defineOutput), { recursive: true });
-        writeFileSync(
-          defineOutput,
-          await format(defineOutput, renderDefineCss(spec, prefix)),
-        );
-        mkdirSync(path.dirname(jsonOutput), { recursive: true });
-        writeFileSync(
-          jsonOutput,
-          await format(
-            jsonOutput,
-            `${JSON.stringify(spec, null, 2)}
-`,
-          ),
-        );
-      });
+        writeIfChanged(defineOutput, defineCss);
+        writeIfChanged(jsonOutput, json);
+      };
+      // Both branches chain `run` so that one failed rebuild (a definition
+      // conflict, a formatter error) cannot poison every later rebuild of a
+      // long-lived watch.
+      registry.queue = registry.queue.then(run, run);
       return registry.queue;
     },
   };

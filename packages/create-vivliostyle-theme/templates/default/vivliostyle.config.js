@@ -3,7 +3,7 @@ import { defineConfig } from '@vivliostyle/cli';
 
 export default defineConfig({
   language: 'en',
-  theme: ['node_modules/@vivliostyle/theme-base', '.'],
+  theme: '.',
   entry: ['example/default.md'],
   workspaceDir: '.vivliostyle',
   output: [

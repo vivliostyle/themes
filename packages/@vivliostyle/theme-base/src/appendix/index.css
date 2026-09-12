@@ -1,0 +1,79 @@
+@define {
+  :root {
+    --vs-appendix--call-content: var(--vs-appendix--label)
+      var(--vs-crossref-call-counter-prefix, '')
+      target-counter(
+        attr(href),
+        vs-counter-appendix,
+        var(--vs-appendix--counter-style, var(--vs-counter-style))
+      );
+    --vs-appendix--counter-style: upper-alpha;
+    --vs-appendix--label: 'Appendix ';
+    --vs-appendix--marker-content: var(--vs-appendix--label)
+      var(--vs-crossref-marker-counter-prefix, '')
+      counter(
+        vs-counter-appendix,
+        var(--vs-appendix--counter-style, var(--vs-counter-style))
+      )
+      ' ';
+    --vs-appendix--root-counter-reset: vs-counter-appendix
+      var(--vs-appendix--root-counter-appendix,);
+  }
+
+  @media screen {
+    :root {
+      --vs-appendix--call-content: var(--vs-appendix--label) '???';
+    }
+  }
+
+  :root:lang(ja) {
+    --vs-appendix--label: '付録';
+    --vs-appendix--marker-content: var(--vs-appendix--label)
+      var(--vs-crossref-marker-counter-prefix, '')
+      counter(
+        vs-counter-appendix,
+        var(--vs-appendix--counter-style, var(--vs-counter-style))
+      )
+      '　';
+  }
+}
+
+@var appendix {
+  @var call {
+    a[data-ref='appendix']::before {
+      content: ;
+      display: ;
+    }
+  }
+
+  @var marker {
+    section > h1.appendix:first-child::before,
+    section[role='doc-appendix']
+      > :is(h1, h2, h3, h4, h5, h6):first-child::before,
+    :is(html, body):is(.appendix, [role='doc-appendix'])
+      section
+      > h1:first-child::before {
+      content: ;
+      display: ;
+    }
+  }
+}
+
+section:is(:has(> h1.appendix:first-child), [role='doc-appendix']) {
+  counter-increment: vs-counter-appendix;
+}
+
+/*
+ * A document-level appendix (.appendix or doc-appendix on html/body) letters
+ * across documents through the page counter (see page.css). The per-document
+ * counter-reset on body would shadow that page counter with a zero-valued
+ * element scope, so it is diverted to a dummy counter here, and in-document
+ * section appendices stop counting so that the two hooks cannot double-count.
+ */
+:is(html, body):is(.appendix, [role='doc-appendix']) {
+  --vs-appendix--root-counter-reset: __dummy;
+
+  section:is(:has(> h1.appendix:first-child), [role='doc-appendix']) {
+    counter-increment: none;
+  }
+}

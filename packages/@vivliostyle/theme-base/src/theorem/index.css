@@ -1,0 +1,75 @@
+@define {
+  :root {
+    --vs-theorem--call-content: var(--vs-theorem--label)
+      var(--vs-crossref-call-counter-prefix, '')
+      target-counter(
+        attr(href),
+        vs-counter-thm,
+        var(--vs-theorem--counter-style, var(--vs-counter-style))
+      );
+    --vs-theorem--label: 'Theorem ';
+    --vs-theorem--margin-block: var(--vs-spacing-rlh);
+    --vs-theorem--marker-suffix: '. ';
+    --vs-theorem--root-counter-reset: vs-counter-thm
+      var(--vs-theorem--root-counter-thm,);
+  }
+
+  @media screen {
+    :root {
+      --vs-theorem--call-content: var(--vs-theorem--label) '???';
+    }
+  }
+
+  :root:lang(ja) {
+    --vs-theorem--label: '定理';
+    --vs-theorem--marker-suffix: '　';
+  }
+}
+
+@var theorem {
+  @var . {
+    .theorem {
+      margin-block: ;
+    }
+  }
+
+  @var call {
+    a[data-ref='thm']::before {
+      content: ;
+      display: ;
+    }
+  }
+
+  /*
+   * An inline ::before of a block is wrapped in an anonymous block of its own
+   * and falls on a separate line, so the label of a single-paragraph theorem
+   * sits on the paragraph to run in with its text. Any other structure keeps
+   * the label on the block, where it forms a label line of its own.
+   *
+   * The default content is assembled here rather than in a :root definition:
+   * a custom property resolves its var() references where it is declared, so
+   * a :root-assembled default would freeze the label and per-type overrides
+   * such as `.lemma { --vs-theorem--label: 'Lemma' }` could never apply.
+   */
+  @var marker {
+    .theorem > p:only-child::before,
+    .theorem:not(:has(> p:only-child))::before {
+      content: var(--vs-theorem--label, '')
+        var(--vs-crossref-marker-counter-prefix, '')
+        counter(
+          vs-counter-thm,
+          var(--vs-theorem--counter-style, var(--vs-counter-style))
+        )
+        var(--vs-theorem--marker-suffix, '');
+      display: ;
+      font-family: ;
+      font-style: ;
+      font-weight: ;
+      margin-inline: ;
+    }
+  }
+}
+
+.theorem {
+  counter-increment: vs-counter-thm;
+}

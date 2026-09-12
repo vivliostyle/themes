@@ -11,12 +11,19 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/**
+ *  Logical longhands rather than the `margin` / `padding` shorthands: the
+ *  shorthands do not reliably cancel the logical properties the UA stylesheet
+ *  sets, which leaves an inline-direction remainder behind.
+ */
 body {
-  margin: 0;
+  margin-block: 0;
+  margin-inline: 0;
   line-height: inherit;
 }
 
 hr {
+  color: inherit;
   height: 0;
 }
 
@@ -34,7 +41,6 @@ sup {
 
 table {
   text-indent: 0;
-  border-color: inherit;
   border-collapse: collapse;
 }
 
@@ -51,15 +57,18 @@ hr,
 figure,
 p,
 pre {
-  margin: 0;
+  margin-block: 0;
+  margin-inline: 0;
 }
 
 ol,
 ul,
 menu {
   list-style: none;
-  margin: 0;
-  padding: 0;
+  margin-block: 0;
+  margin-inline: 0;
+  padding-block: 0;
+  padding-inline: 0;
 }
 
 img,

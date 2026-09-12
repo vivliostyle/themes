@@ -28,16 +28,13 @@
   "scripts": {
     "example:build": "vivliostyle build",
     "example:preview": "vivliostyle preview",
-    "validate": "vivliostyle-theme-scripts validate"
+    "validate": "vivliostyle theme validate"
   },
   "dependencies": {
     "@vivliostyle/theme-base": "workspace:*"
   },
-  "devDependencies": {
-    "vivliostyle-theme-scripts": "workspace:*"
-  },
   "peerDependencies": {
-    "@vivliostyle/cli": ">=11"
+    "@vivliostyle/cli": ">=11.3.1"
   },
   "peerDependenciesMeta": {
     "@vivliostyle/cli": {

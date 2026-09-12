@@ -1,0 +1,54 @@
+@define {
+  :root {
+    --vs-figure--call-content: var(--vs-figure--label)
+      var(--vs-crossref-call-counter-prefix, '')
+      target-counter(
+        attr(href),
+        vs-counter-fig,
+        var(--vs-figure--counter-style, var(--vs-counter-style))
+      );
+    --vs-figure--label: 'Figure ';
+    --vs-figure--marker-content: var(--vs-figure--label)
+      var(--vs-crossref-marker-counter-prefix, '')
+      counter(
+        vs-counter-fig,
+        var(--vs-figure--counter-style, var(--vs-counter-style))
+      )
+      ': ';
+    --vs-figure--root-counter-reset: vs-counter-fig
+      var(--vs-figure--root-counter-fig,);
+  }
+
+  @media screen {
+    :root {
+      --vs-figure--call-content: var(--vs-figure--label) '???';
+    }
+  }
+
+  :root:lang(ja) {
+    --vs-figure--label: '図';
+  }
+}
+
+@var figure {
+  @var call {
+    a[data-ref='fig']::before {
+      content: ;
+      display: ;
+    }
+  }
+
+  @var marker {
+    figure:is(.fig, :has(> :is(img, picture))) figcaption::before,
+    .fig-caption::before {
+      content: ;
+      display: ;
+      margin-inline: ;
+    }
+  }
+}
+
+figure:is(.fig, :has(> :is(img, picture))),
+.fig-caption {
+  counter-increment: vs-counter-fig;
+}

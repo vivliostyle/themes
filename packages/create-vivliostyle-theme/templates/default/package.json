@@ -24,11 +24,11 @@
     "@vivliostyle/theme-base": "latest"
   },
   "devDependencies": {
-    "@vivliostyle/cli": "^11.1.0",
+    "@vivliostyle/cli": "^11.3.1",
     "vivliostyle-theme-scripts": "^0.3.6"
   },
   "peerDependencies": {
-    "@vivliostyle/cli": ">=11"
+    "@vivliostyle/cli": ">=11.3.1"
   },
   "peerDependenciesMeta": {
     "@vivliostyle/cli": {

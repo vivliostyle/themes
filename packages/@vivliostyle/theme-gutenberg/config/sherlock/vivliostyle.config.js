@@ -5,7 +5,7 @@ export default defineConfig({
   title: 'The Adventures of Sherlock Holmes',
   language: 'en',
   size: 'A5',
-  theme: ['../theme-base', 'sherlock.css'],
+  theme: ['sherlock.css'],
   entry: [
     'example/sherlock/cover.md',
     'example/sherlock/copyright.md',

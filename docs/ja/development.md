@@ -2,37 +2,39 @@
 
 ## Themeを作成する
 
-### create-vivliostyle-themeによる雛形生成
+### `vivliostyle theme create`による雛形生成
 
-`create-vivliostyle-theme` CLIを使って、テーマプロジェクトの雛形を生成します。
+Vivliostyle CLIでテーマプロジェクトの雛形を生成します。`npm create vivliostyle-theme` は同じコマンドのエイリアスです。
 
 ```bash
-npm create vivliostyle-theme <theme-name>
+npx vivliostyle theme create <directory>
+# または
+npm create vivliostyle-theme <directory>
 ```
 
-対話形式で以下の項目を入力します。
+対話形式で以下の項目を入力します。いずれもコマンドラインオプションで指定できます。
 
-| 項目          | 説明                                                                 |
-| ------------- | -------------------------------------------------------------------- |
-| `description` | テーマの説明                                                         |
-| `author`      | 作者名                                                               |
-| `email`       | メールアドレス                                                       |
-| `license`     | ライセンス（MIT、Apache-2.0等）                                      |
-| `category`    | テーマの分類（`novel` / `magazine` / `journal` / `report` / `misc`） |
-
-実行後、`vivliostyle-theme-<theme-name>` ディレクトリが生成されます。
+| 項目         | オプション      | 説明                                                                 |
+| ------------ | --------------- | -------------------------------------------------------------------- |
+| パッケージ名 | `--name`        | テーマのnpmパッケージ名（既定値: `vivliostyle-theme-<directory>`）   |
+| 説明         | `--description` | テーマの説明                                                         |
+| 作者         | `--author`      | 作者名                                                               |
+| 分類         | `--category`    | テーマの分類（`novel` / `magazine` / `journal` / `report` / `misc`） |
 
 ### 生成されるファイル構成
 
 ```
-vivliostyle-theme-<name>/
+<directory>/
 ├── .gitignore
 ├── package.json          # パッケージ定義（vivliostyle.theme 設定を含む）
 ├── README.md             # テーマの説明・使い方
 ├── theme.css             # テーマのメイン CSS
 ├── vivliostyle.config.js # プレビュー用の設定ファイル
 └── example/
-    └── default.md        # サンプル原稿（VFM 形式）
+    ├── 01_typography.md      # サンプル原稿（VFM 形式）
+    ├── 02_figures-and-tables.md
+    ├── 03_code-and-math.md
+    └── assets/
 ```
 
 各ファイルの役割:
@@ -41,22 +43,38 @@ vivliostyle-theme-<name>/
 | ----------------------- | --------------------------------------------------------------------------------------------- |
 | `package.json`          | テーマのメタ情報。`vivliostyle.theme` プロパティでテーマ名・作者・メインCSS・カテゴリを定義   |
 | `theme.css`             | テーマのスタイル定義本体。theme-baseの `@import` とCSS変数のカスタマイズが初期設定済み        |
-| `vivliostyle.config.js` | `vivliostyle preview` でテーマの動作確認に使用。entryに `example/default.md` を指定           |
-| `example/default.md`    | テーマ適用例を示すサンプルMarkdown。[VFM](https://vivliostyle.github.io/vfm/#/vfm) 記法に対応 |
+| `vivliostyle.config.js` | `vivliostyle preview` でテーマの動作確認に使用。entryに `example/` の原稿を指定               |
+| `example/*.md`          | テーマ適用例を示すサンプルMarkdown。[VFM](https://vivliostyle.github.io/vfm/#/vfm) 記法に対応 |
 
 ## 雛形をカスタマイズする
 
 ### theme.cssの編集
 
-生成直後の `theme.css` にはtheme-baseの全モジュールインポートとCSS変数のカスタマイズ例が含まれています。
+生成直後の `theme.css` は、theme-baseのモジュールをインポートし、CSS変数でカスタマイズする次のような構成になっています。
 
 ```css
-/* theme-base の全モジュールをインポート */
-@import url(../@vivliostyle/theme-base/theme-all.css);
+/* theme-base の基本モジュールをインポート */
+@import '@vivliostyle/theme-base';
+
+/* 機能モジュールをインポート */
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/endnote';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/footnote';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/math';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/sidenote';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/toc';
 
 /* コードハイライト（Prism）を追加 */
-@import url(../@vivliostyle/theme-base/css/lib/prism/base.css);
-@import url(../@vivliostyle/theme-base/css/lib/prism/theme-okaidia.css);
+@import '@vivliostyle/theme-base/prism';
+@import '@vivliostyle/theme-base/prism/theme-okaidia';
 
 :root {
   /* 基本スタイル */
@@ -69,11 +87,11 @@ vivliostyle-theme-<name>/
   --vs-footnote--call-content: '[' counter(footnote) ']';
 
   /* ページレイアウト */
-  --vs-page--mbox-content-bottom-center: counter(page);
-  --vs-page--mbox-content-top-left: env(doc-title);
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-top-left-content: env(doc-title);
 
   /* 目次 */
-  --vs-toc--marker-margin-inline: 8rem;
+  --vs-toc--ol-indent-size: 1.5rem;
 }
 ```
 
@@ -88,37 +106,40 @@ vivliostyle-theme-<name>/
 
 ### theme-baseのモジュール活用
 
-theme-baseは機能ごとにモジュール分割されています。全モジュールが不要な場合は、`theme-all.css` の代わりに必要なモジュールのみをインポートできます。
+theme-baseは機能ごとにモジュール分割されています。パッケージエントリに含まれるのは基本モジュールだけなので、必要な機能モジュールのインポートだけを残せます。
 
 ```css
 /* 基本モジュールのみ */
-@import url(../@vivliostyle/theme-base/css/define.css);
-@import url(../@vivliostyle/theme-base/css/reset.css);
-@import url(../@vivliostyle/theme-base/css/basic.css);
+@import '@vivliostyle/theme-base';
 
 /* 必要な機能モジュールを追加 */
-@import url(../@vivliostyle/theme-base/css/toc.css);
-@import url(../@vivliostyle/theme-base/css/footnote.css);
+@import '@vivliostyle/theme-base/toc';
+@import '@vivliostyle/theme-base/footnote';
 ```
 
-利用可能なモジュール一覧:
+利用可能なモジュール一覧（`@vivliostyle/theme-base/<サブパス>` でインポート）:
 
-| カテゴリ | モジュール                                               | CSS変数プレフィックス |
-| -------- | -------------------------------------------------------- | --------------------- |
-| common   | `meta-properties.css` — ドキュメント全体のメタプロパティ | `--vs-`               |
-| common   | `reset.css` — CSSリセット                                | —                     |
-| common   | `basic.css` — 基本HTMLタグのスタイル                     | `--vs--`              |
-| partial  | `crossref.css` — 図表・引用の相互参照                    | `--vs-crossref--`     |
-| partial  | `endnote.css` — 後注                                     | `--vs-endnote--`      |
-| partial  | `footnote.css` — 脚注                                    | `--vs-footnote--`     |
-| partial  | `footnote-external-link.css` — 外部リンクの脚注化        | `--vs-footnote--`     |
-| partial  | `page.css` — ページメディア                              | `--vs-page--`         |
-| partial  | `section.css` — 見出し番号・節参照                       | `--vs-section--`      |
-| partial  | `toc.css` — 目次                                         | `--vs-toc--`          |
-| partial  | `utility-classes.css` — ユーティリティクラス             | —                     |
-| lib      | `prism/base.css` — コードハイライト基盤                  | `--vs-prism--`        |
-| lib      | `prism/theme-prism.css` — Prismデフォルトテーマ          | `--vs-prism--`        |
-| lib      | `prism/theme-okaidia.css` — Okaidiaテーマ                | `--vs-prism--`        |
+| サブパス                                                                    | 内容                                            | CSS変数プレフィックス |
+| --------------------------------------------------------------------------- | ----------------------------------------------- | --------------------- |
+| （パッケージエントリ）                                                      | CSSリセット・変数の規定値・基本HTMLタグのスタイル | `--vs-`, `--vs--`     |
+| `figure`                                                                    | 図の採番・相互参照                              | `--vs-figure--`       |
+| `table`                                                                     | 表の採番・相互参照                              | `--vs-table--`        |
+| `citation`                                                                  | 引用文献の採番・相互参照                        | `--vs-citation--`     |
+| `listing`                                                                   | コードリストの採番・相互参照                    | `--vs-listing--`      |
+| `equation`                                                                  | 数式の採番・相互参照                            | `--vs-equation--`     |
+| `theorem`                                                                   | 定理の採番・相互参照                            | `--vs-theorem--`      |
+| `appendix`                                                                  | 付録の採番・相互参照                            | `--vs-appendix--`     |
+| `endnote`                                                                   | 後注                                            | `--vs-endnote--`      |
+| `footnote`                                                                  | 脚注                                            | `--vs-footnote--`     |
+| `footnote/external-links`                                                   | 外部リンクの脚注化                              | `--vs-footnote--`     |
+| `page`                                                                      | ページメディア                                  | `--vs-page--`         |
+| `section`                                                                   | 見出し番号・節参照                              | `--vs-section--`      |
+| `toc`                                                                       | 目次                                            | `--vs-toc--`          |
+| `math`                                                                      | 数式 (MathML / MathJax) の表示                  | `--vs-math--`         |
+| `sidenote`                                                                  | 番号付き傍注                                    | `--vs-sidenote--`     |
+| `prism`                                                                     | コードハイライト基盤                            | `--vs-prism--`        |
+| `prism/theme-prism`                                                         | Prismデフォルトテーマ                           | `--vs-prism--`        |
+| `prism/theme-okaidia`                                                       | Okaidiaテーマ                                   | `--vs-prism--`        |
 
 詳細は [theme-baseのREADME](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-base#available-modules-and-css-variables) を参照してください。
 
@@ -136,13 +157,13 @@ theme-baseや各テーマが公開するCSS変数を `:root` で上書きする�
   --vs--h1-font-size: 2em;
   --vs--heading-line-height: 1.4;
 
-  /* 相互参照のカウンタスタイル */
-  --vs-crossref--counter-style: upper-roman;
+  /* 相互参照の共通カウンタスタイル */
+  --vs-counter-style: upper-roman;
 
   /* ページヘッダ・フッタ */
-  --vs-page--mbox-content-top-left: env(pub-title);
-  --vs-page--mbox-content-top-right: env(doc-title);
-  --vs-page--mbox-content-bottom-center: counter(page);
+  --vs-page--mbox-top-left-content: env(pub-title);
+  --vs-page--mbox-top-right-content: env(doc-title);
+  --vs-page--mbox-bottom-center-content: counter(page);
 }
 ```
 
@@ -154,8 +175,6 @@ theme-baseや各テーマが公開するCSS変数を `:root` で上書きする�
   --vs-theme--blockquote-color-bg: #ecf0f1;
   --vs-theme--inline-code-color-bg: #ecf0f1;
   --vs-theme--image-resolution-for-figure-image: 300dpi;
-  --vs-theme--page-top-left-content: env(pub-title);
-  --vs-theme--page-bottom-content: counter(page);
 }
 ```
 
@@ -177,7 +196,7 @@ npm run example:preview
 
 ### 事前検証
 
-公開前に `vivliostyle-theme-scripts validate` を実行して、パッケージの妥当性を検証します。
+公開前に `vivliostyle theme validate` を実行して、パッケージの妥当性を検証します。生成された雛形では `npm run validate` に割り当てられています。
 
 ```bash
 npm run validate
@@ -185,10 +204,13 @@ npm run validate
 
 検証項目:
 
-| チェック         | 種別   | 内容                                                                      |
-| ---------------- | ------ | ------------------------------------------------------------------------- |
-| スタイルロケータ | エラー | `vivliostyle.theme.style`、`style`、`main` のいずれかが設定されていること |
-| 作者情報         | 警告   | `vivliostyle.theme.author` または `author` が設定されていること           |
+| チェック         | 種別   | 内容                                                                             |
+| ---------------- | ------ | --------------------------------------------------------------------------------- |
+| スタイルロケータ | エラー | `vivliostyle.theme.style`、`style`、`main` のいずれかが設定されていること        |
+| スタイルファイル | エラー | パッケージ内に実在すること（拡張子が `.css` でない場合は警告）                   |
+| 作者情報         | 警告   | `vivliostyle.theme.author` または `author` が設定されていること                  |
+| キーワード       | 警告   | `keywords` に `vivliostyle-theme` が含まれていること                             |
+| 分類             | 警告   | `vivliostyle.theme.category` が上記の分類のいずれかであること                    |
 
 ### プレビュー確認
 

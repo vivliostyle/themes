@@ -1,0 +1,85 @@
+@define {
+  :root {
+    --vs-equation--call-content: var(--vs-equation--label) '('
+      var(--vs-crossref-call-counter-prefix, '')
+      target-counter(
+        attr(href),
+        vs-counter-eq,
+        var(--vs-equation--counter-style, var(--vs-counter-style))
+      )
+      ')';
+    --vs-equation--item-text-align: center;
+    --vs-equation--label: 'Eq. ';
+    --vs-equation--margin-block: var(--vs-spacing-rlh);
+    --vs-equation--marker-content: '('
+      var(--vs-crossref-marker-counter-prefix, '')
+      counter(
+        vs-counter-eq,
+        var(--vs-equation--counter-style, var(--vs-counter-style))
+      )
+      ')';
+    --vs-equation--root-counter-reset: vs-counter-eq
+      var(--vs-equation--root-counter-eq,);
+  }
+
+  @media screen {
+    :root {
+      --vs-equation--call-content: var(--vs-equation--label) '(???)';
+    }
+  }
+
+  :root:lang(ja) {
+    --vs-equation--label: '式';
+  }
+}
+
+@var equation {
+  @var . {
+    .equation {
+      margin-block: ;
+    }
+  }
+
+  @var item {
+    .equation > :is(math, p) {
+      text-align: ;
+    }
+  }
+
+  @var call {
+    a[data-ref='eq']::before {
+      content: ;
+      display: ;
+    }
+  }
+
+  @var marker {
+    .equation::after {
+      content: ;
+      display: ;
+      font-family: ;
+      font-size: ;
+      margin-inline: ;
+    }
+  }
+}
+
+/* Grid cannot split across pages, so the side number is laid out with flex. */
+.equation {
+  align-items: center;
+  break-inside: avoid;
+  counter-increment: vs-counter-eq;
+  display: flex;
+}
+
+.equation > :is(math, p) {
+  flex: 1 1 auto;
+  margin: 0;
+  min-width: 0;
+  text-indent: 0;
+}
+
+.equation::after {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}

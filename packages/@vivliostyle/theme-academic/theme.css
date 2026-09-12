@@ -1,4 +1,18 @@
-@import url(../theme-base/theme-all.css);
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/endnote';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/footnote';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/math';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/sidenote';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/toc';
 
 /**
  * Theme variables
@@ -47,16 +61,21 @@
 
   --vs-page--margin-top: 25mm;
   --vs-page--margin-bottom: 25mm;
-  --vs-page--margin-inner: 20mm;
-  --vs-page--margin-outer: 20mm;
-  --vs-page--mbox-content-bottom-center: counter(page);
-  --vs-page--mbox-content-top-left: env(pub-title);
+  --vs-page--margin-left: 20mm;
+  --vs-page--margin-right: 20mm;
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-top-left-content: env(pub-title);
 
-  --vs-crossref--marker-fig-content: 'Figure '
-    counter(vs-counter-fig, var(--vs-crossref--counter-style));
-  --vs-crossref--marker-tbl-content: 'Table '
-    counter(vs-counter-tbl, var(--vs-crossref--counter-style));
-  --vs-crossref--marker-margin-inline: 0 1rem;
+  --vs-figure--marker-content: 'Figure '
+    counter(vs-counter-fig, var(--vs-counter-style));
+  --vs-table--marker-content: 'Table '
+    counter(vs-counter-tbl, var(--vs-counter-style));
+  --vs-citation--marker-margin-inline: 0 1rem;
+  --vs-equation--marker-margin-inline: 0 1rem;
+  --vs-figure--marker-margin-inline: 0 1rem;
+  --vs-listing--marker-margin-inline: 0 1rem;
+  --vs-table--marker-margin-inline: 0 1rem;
+  --vs-theorem--marker-margin-inline: 0 1rem;
 
   --vs-section--marker-display: inline;
   --vs-section--h1-marker-display: none;
@@ -74,10 +93,10 @@
 }
 
 :root:lang(ja) {
-  --vs-crossref--marker-fig-content: '図 '
-    counter(vs-counter-fig, var(--vs-crossref--counter-style));
-  --vs-crossref--marker-tbl-content: '表 '
-    counter(vs-counter-tbl, var(--vs-crossref--counter-style));
+  --vs-figure--marker-content: '図 '
+    counter(vs-counter-fig, var(--vs-counter-style));
+  --vs-table--marker-content: '表 '
+    counter(vs-counter-tbl, var(--vs-counter-style));
 }
 
 figure img {

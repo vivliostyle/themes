@@ -63,7 +63,7 @@ You can specify your CSS file and manuscript file for preview in vivliostyle.con
 ```js
 module.exports = {
   language: 'en',
-  theme: ['node_modules/@vivliostyle/theme-base', '.'],
+  theme: '.',
   entry: [
       'example/default.md',
       // and more...

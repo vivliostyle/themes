@@ -1,26 +1,185 @@
-/**
- *  Shared tokens referenced from other variables' default values.
- *  Declared here so that they are registered even though no CSS property
- *  consumes them directly.
- */
-@var {
+@define {
   :root {
-    --font-weight-bold: ;
-    --spacing-inline-indent: ;
-    --spacing-rlh: ;
-    --widows-orphans: ;
+    /*
+     * Design tokens
+     */
+    --vs-border-width: 1px;
+    --vs-color-foreground: #000;
+    --vs-color-foreground-alt: var(--vs-color-foreground);
+    --vs-color-background: transparent;
+    --vs-color-background-alt: var(--vs-color-background);
+    --vs-color-border: currentColor;
+    --vs-color-border-alt: var(--vs-color-border);
+    --vs-counter-style: decimal;
+    --vs-font-family: sans-serif;
+    --vs-font-family-alt: var(--vs-font-family);
+    --vs-font-family-monospace: monospace;
+    --vs-font-weight: 400;
+    --vs-font-weight-bold: 700;
+    --vs-spacing-inline-indent: min(2ch, 5vw);
+    --vs-spacing-rlh: calc(var(--vs-line-height) * 1rem);
+    --vs-widows-orphans: 1;
+
+    /*
+     * Root element properties
+     */
+    --vs-column-fill: balance;
+    --vs-column-gap: 1rem;
+    --vs-column-rule-color: var(--vs-color-border);
+    --vs-column-rule-style: solid;
+    --vs-column-rule-width: 0;
+    --vs-columns: 1;
+    --vs-font-feature-settings: normal;
+    --vs-font-kerning: auto;
+    --vs-font-size: 100%;
+    --vs-font-stretch: normal;
+    --vs-font-style: normal;
+    --vs-font-synthesis: weight style small-caps;
+    --vs-font-variant: normal;
+    --vs-font-variant-numeric: normal;
+    --vs-font-variation-settings: normal;
+    --vs-hanging-punctuation: none;
+    --vs-hyphens: auto;
+    --vs-letter-spacing: 0;
+    --vs-line-break: strict;
+    --vs-line-height: 1.5;
+    --vs-orphans: var(--vs-widows-orphans);
+    --vs-overflow-wrap: anywhere;
+    --vs-tab-size: 4;
+    --vs-text-align: start;
+    --vs-text-orientation: mixed;
+    --vs-text-spacing: auto;
+    --vs-text-underline-offset: auto;
+    --vs-text-underline-position: left;
+    --vs-word-break: normal;
+    --vs-word-spacing: normal;
+    --vs-widows: var(--vs-widows-orphans);
+    --vs-writing-mode: horizontal-tb;
+
+    /*
+     * Basic element properties
+     */
+    --vs--anchor-text-color: var(--vs-color-foreground);
+    --vs--anchor-text-decoration: underline;
+    --vs--big-font-size: 1.17em;
+    --vs--blockquote-border-color: var(--vs-color-border);
+    --vs--blockquote-margin-block: var(--vs-spacing-rlh);
+    --vs--blockquote-margin-inline: var(--vs-spacing-inline-indent) 0;
+    --vs--bold-font-weight: var(--vs-font-weight-bold);
+    --vs--cite-font-style: italic;
+    --vs--crossref-call-text-decoration: none;
+    --vs--dd-margin-inline-start: var(--vs-spacing-inline-indent);
+    --vs--del-text-decoration: line-through;
+    --vs--emphasis-font-style: italic;
+    --vs--figcaption-break-inside: avoid;
+    --vs--figcaption-margin-block: var(--vs-spacing-rlh);
+    --vs--figcaption-text-indent: 0;
+    --vs--figure-align-items: center;
+    --vs--figure-break-inside: avoid;
+    --vs--figure-display: flex;
+    --vs--figure-flex-direction: column;
+    --vs--figure-item-max-size-block: 100%;
+    --vs--figure-item-max-size-inline: 100%;
+    --vs--figure-margin-block: var(--vs-spacing-rlh);
+    --vs--h1-font-size: 2em;
+    --vs--h2-font-size: 1.5em;
+    --vs--h3-font-size: 1.17em;
+    --vs--h5-font-size: 0.83em;
+    --vs--h6-font-size: 0.67em;
+    --vs--heading-border-color: var(--vs-color-border);
+    --vs--heading-break-after: avoid;
+    --vs--heading-break-inside: avoid;
+    --vs--heading-font-weight: var(--vs-font-weight-bold);
+    --vs--heading-hyphens: none;
+    --vs--heading-margin-block: var(--vs-spacing-rlh);
+    --vs--heading-text-indent: 0;
+    --vs--hr-border-color: var(--vs-color-border);
+    --vs--hr-border-width-block-start: var(--vs-border-width);
+    --vs--hr-margin-block: var(--vs-spacing-rlh);
+    --vs--img-image-resolution: from-image;
+    --vs--lists-margin-block: var(--vs-spacing-rlh);
+    --vs--lists-padding-inline-start: 2rem;
+    --vs--lists-text-indent: 0;
+    --vs--monospace-font-family: var(--vs-font-family-monospace);
+    --vs--monospace-font-kerning: none;
+    --vs--monospace-hyphens: none;
+    --vs--monospace-text-spacing: none;
+    --vs--ol-list-style-type: decimal;
+    --vs--p-margin-block: var(--vs-spacing-rlh);
+    --vs--p-text-align: justify;
+    --vs--p-text-indent: 0;
+    --vs--pre-border-color: var(--vs-color-border);
+    --vs--pre-margin-block: var(--vs-spacing-rlh);
+    --vs--pre-overflow-x: auto;
+    --vs--pre-text-align: start;
+    --vs--pre-white-space: pre;
+    --vs--pre-word-break: break-all;
+    --vs--rt-font-size: 0.5em;
+    --vs--rt-letter-spacing: normal;
+    --vs--small-font-size: 0.83em;
+    --vs--sub-font-size: 0.8em;
+    --vs--sub-inset-block-end: -0.25em;
+    --vs--sub-line-height: 0;
+    --vs--sup-font-size: 0.8em;
+    --vs--sup-inset-block-start: -0.5em;
+    --vs--sup-line-height: 0;
+    --vs--table-border-collapse: collapse;
+    --vs--table-border-color: var(--vs-color-border);
+    --vs--table-border-width: var(--vs-border-width);
+    --vs--table-break-inside: avoid;
+    --vs--table-cell-padding-block: 0.25rem;
+    --vs--table-cell-padding-inline: 0.5rem;
+    --vs--table-cell-vertical-align: middle;
+    --vs--table-container-overflow-x: auto;
+    --vs--table-margin-block: var(--vs-spacing-rlh);
+    --vs--table-margin-inline: auto;
+    --vs--table-max-size-block: 100%;
+    --vs--table-max-size-inline: 100%;
+    --vs--ul-list-style-type: disc;
+  }
+
+  @media (hover: hover) {
+    a:hover {
+      --vs--anchor-text-decoration: none;
+    }
+  }
+
+  @media (hover: hover) {
+    a[data-ref]:hover {
+      --vs--crossref-call-text-decoration: underline;
+    }
+  }
+
+  @media print {
+    :root {
+      --vs--pre-overflow-x: visible;
+      --vs--pre-white-space: pre-wrap;
+      --vs--table-container-overflow-x: visible;
+    }
   }
 }
 
 *,
 *::before,
 *::after {
-  border-color: var(--vs-border-color);
+  border-color: var(--vs-color-border);
+}
+
+html {
+  background-color: var(--vs-color-background);
+  color: var(--vs-color-foreground);
+  font-family: var(--vs-font-family);
+  font-weight: var(--vs-font-weight);
 }
 
 @var {
   html {
-    font-family: ;
+    column-fill: ;
+    column-gap: ;
+    column-rule-color: ;
+    column-rule-style: ;
+    column-rule-width: ;
+    columns: ;
     font-feature-settings: ;
     font-kerning: ;
     font-size: ;
@@ -28,36 +187,38 @@
     font-style: ;
     font-synthesis: ;
     font-variant: ;
+    font-variant-numeric: ;
     font-variation-settings: ;
-    font-weight: ;
-    letter-spacing: ;
-    line-height: ;
-    background-color: ;
-    color: ;
-    tab-size: ;
+    hanging-punctuation: ;
     hyphens: ;
+    letter-spacing: ;
     line-break: ;
+    line-height: ;
+    orphans: ;
     overflow-wrap: ;
-    word-break: ;
-    columns: ;
-    column-fill: ;
-    column-gap: ;
+    tab-size: ;
+    text-align: ;
     text-orientation: ;
+    text-spacing: ;
     text-underline-offset: ;
     text-underline-position: ;
-    orphans: ;
+    word-break: ;
+    word-spacing: ;
     widows: ;
     writing-mode: ;
-    text-spacing: ;
-    hanging-punctuation: ;
-    text-align: ;
-    word-spacing: ;
   }
 }
 
 body {
-  counter-reset: var(--vs-crossref--root-counter-reset,)
+  counter-reset: var(--vs-figure--root-counter-reset,)
+    var(--vs-table--root-counter-reset,) var(--vs-listing--root-counter-reset,)
+    var(--vs-citation--root-counter-reset,)
+    var(--vs-equation--root-counter-reset,)
+    var(--vs-theorem--root-counter-reset,)
+    var(--vs-appendix--root-counter-reset,)
+    var(--vs-endnote--root-counter-reset,)
     var(--vs-footnote--root-counter-reset,)
+    var(--vs-sidenote--root-counter-reset,)
     var(--vs-section--root-counter-reset,)
     var(--vs-document-root-counter-reset,);
 }
@@ -73,6 +234,7 @@ body {
     font-size: ;
     font-stretch: ;
     font-variant: ;
+    font-variant-ligatures: ;
     font-variation-settings: ;
     font-weight: ;
     hyphens: ;
@@ -88,16 +250,68 @@ h1 {
   @var -h1 {
     & {
       font-size: ;
+      string-set: ;
     }
   }
   @var -h1, -heading {
     & {
+      background-color: ;
+      border-block-end-color: var(
+        --vs--h1-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-block-end-style: var(
+        --vs--h1-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-block-end-width: var(
+        --vs--h1-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-block-start-color: var(
+        --vs--h1-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-block-start-style: var(
+        --vs--h1-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-block-start-width: var(
+        --vs--h1-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-inline-end-color: var(
+        --vs--h1-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-inline-end-style: var(
+        --vs--h1-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-inline-end-width: var(
+        --vs--h1-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-inline-start-color: var(
+        --vs--h1-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-inline-start-style: var(
+        --vs--h1-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-inline-start-width: var(
+        --vs--h1-border-width,
+        var(--vs--heading-border-width, 0)
+      );
       break-after: ;
       break-inside: ;
+      color: ;
       font-family: ;
       font-feature-settings: ;
       font-kerning: ;
       font-stretch: ;
+      font-style: ;
       font-variant: ;
       font-variation-settings: ;
       font-weight: ;
@@ -106,9 +320,12 @@ h1 {
       line-height: ;
       margin-block: ;
       margin-inline: ;
+      padding-block: ;
+      padding-inline: ;
       text-align: ;
       text-indent: ;
       text-spacing: ;
+      text-transform: ;
       word-break: ;
       word-spacing: ;
     }
@@ -119,16 +336,68 @@ h2 {
   @var -h2 {
     & {
       font-size: ;
+      string-set: ;
     }
   }
   @var -h2, -heading {
     & {
+      background-color: ;
+      border-block-end-color: var(
+        --vs--h2-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-block-end-style: var(
+        --vs--h2-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-block-end-width: var(
+        --vs--h2-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-block-start-color: var(
+        --vs--h2-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-block-start-style: var(
+        --vs--h2-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-block-start-width: var(
+        --vs--h2-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-inline-end-color: var(
+        --vs--h2-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-inline-end-style: var(
+        --vs--h2-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-inline-end-width: var(
+        --vs--h2-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-inline-start-color: var(
+        --vs--h2-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-inline-start-style: var(
+        --vs--h2-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-inline-start-width: var(
+        --vs--h2-border-width,
+        var(--vs--heading-border-width, 0)
+      );
       break-after: ;
       break-inside: ;
+      color: ;
       font-family: ;
       font-feature-settings: ;
       font-kerning: ;
       font-stretch: ;
+      font-style: ;
       font-variant: ;
       font-variation-settings: ;
       font-weight: ;
@@ -137,9 +406,12 @@ h2 {
       line-height: ;
       margin-block: ;
       margin-inline: ;
+      padding-block: ;
+      padding-inline: ;
       text-align: ;
       text-indent: ;
       text-spacing: ;
+      text-transform: ;
       word-break: ;
       word-spacing: ;
     }
@@ -150,16 +422,68 @@ h3 {
   @var -h3 {
     & {
       font-size: ;
+      string-set: ;
     }
   }
   @var -h3, -heading {
     & {
+      background-color: ;
+      border-block-end-color: var(
+        --vs--h3-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-block-end-style: var(
+        --vs--h3-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-block-end-width: var(
+        --vs--h3-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-block-start-color: var(
+        --vs--h3-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-block-start-style: var(
+        --vs--h3-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-block-start-width: var(
+        --vs--h3-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-inline-end-color: var(
+        --vs--h3-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-inline-end-style: var(
+        --vs--h3-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-inline-end-width: var(
+        --vs--h3-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-inline-start-color: var(
+        --vs--h3-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-inline-start-style: var(
+        --vs--h3-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-inline-start-width: var(
+        --vs--h3-border-width,
+        var(--vs--heading-border-width, 0)
+      );
       break-after: ;
       break-inside: ;
+      color: ;
       font-family: ;
       font-feature-settings: ;
       font-kerning: ;
       font-stretch: ;
+      font-style: ;
       font-variant: ;
       font-variation-settings: ;
       font-weight: ;
@@ -168,9 +492,12 @@ h3 {
       line-height: ;
       margin-block: ;
       margin-inline: ;
+      padding-block: ;
+      padding-inline: ;
       text-align: ;
       text-indent: ;
       text-spacing: ;
+      text-transform: ;
       word-break: ;
       word-spacing: ;
     }
@@ -181,16 +508,68 @@ h4 {
   @var -h4 {
     & {
       font-size: ;
+      string-set: ;
     }
   }
   @var -h4, -heading {
     & {
+      background-color: ;
+      border-block-end-color: var(
+        --vs--h4-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-block-end-style: var(
+        --vs--h4-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-block-end-width: var(
+        --vs--h4-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-block-start-color: var(
+        --vs--h4-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-block-start-style: var(
+        --vs--h4-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-block-start-width: var(
+        --vs--h4-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-inline-end-color: var(
+        --vs--h4-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-inline-end-style: var(
+        --vs--h4-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-inline-end-width: var(
+        --vs--h4-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-inline-start-color: var(
+        --vs--h4-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-inline-start-style: var(
+        --vs--h4-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-inline-start-width: var(
+        --vs--h4-border-width,
+        var(--vs--heading-border-width, 0)
+      );
       break-after: ;
       break-inside: ;
+      color: ;
       font-family: ;
       font-feature-settings: ;
       font-kerning: ;
       font-stretch: ;
+      font-style: ;
       font-variant: ;
       font-variation-settings: ;
       font-weight: ;
@@ -199,9 +578,12 @@ h4 {
       line-height: ;
       margin-block: ;
       margin-inline: ;
+      padding-block: ;
+      padding-inline: ;
       text-align: ;
       text-indent: ;
       text-spacing: ;
+      text-transform: ;
       word-break: ;
       word-spacing: ;
     }
@@ -212,16 +594,68 @@ h5 {
   @var -h5 {
     & {
       font-size: ;
+      string-set: ;
     }
   }
   @var -h5, -heading {
     & {
+      background-color: ;
+      border-block-end-color: var(
+        --vs--h5-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-block-end-style: var(
+        --vs--h5-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-block-end-width: var(
+        --vs--h5-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-block-start-color: var(
+        --vs--h5-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-block-start-style: var(
+        --vs--h5-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-block-start-width: var(
+        --vs--h5-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-inline-end-color: var(
+        --vs--h5-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-inline-end-style: var(
+        --vs--h5-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-inline-end-width: var(
+        --vs--h5-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-inline-start-color: var(
+        --vs--h5-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-inline-start-style: var(
+        --vs--h5-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-inline-start-width: var(
+        --vs--h5-border-width,
+        var(--vs--heading-border-width, 0)
+      );
       break-after: ;
       break-inside: ;
+      color: ;
       font-family: ;
       font-feature-settings: ;
       font-kerning: ;
       font-stretch: ;
+      font-style: ;
       font-variant: ;
       font-variation-settings: ;
       font-weight: ;
@@ -230,9 +664,12 @@ h5 {
       line-height: ;
       margin-block: ;
       margin-inline: ;
+      padding-block: ;
+      padding-inline: ;
       text-align: ;
       text-indent: ;
       text-spacing: ;
+      text-transform: ;
       word-break: ;
       word-spacing: ;
     }
@@ -243,16 +680,68 @@ h6 {
   @var -h6 {
     & {
       font-size: ;
+      string-set: ;
     }
   }
   @var -h6, -heading {
     & {
+      background-color: ;
+      border-block-end-color: var(
+        --vs--h6-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-block-end-style: var(
+        --vs--h6-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-block-end-width: var(
+        --vs--h6-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-block-start-color: var(
+        --vs--h6-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-block-start-style: var(
+        --vs--h6-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-block-start-width: var(
+        --vs--h6-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-inline-end-color: var(
+        --vs--h6-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-inline-end-style: var(
+        --vs--h6-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-inline-end-width: var(
+        --vs--h6-border-width,
+        var(--vs--heading-border-width, 0)
+      );
+      border-inline-start-color: var(
+        --vs--h6-border-color,
+        var(--vs--heading-border-color)
+      );
+      border-inline-start-style: var(
+        --vs--h6-border-style,
+        var(--vs--heading-border-style, solid)
+      );
+      border-inline-start-width: var(
+        --vs--h6-border-width,
+        var(--vs--heading-border-width, 0)
+      );
       break-after: ;
       break-inside: ;
+      color: ;
       font-family: ;
       font-feature-settings: ;
       font-kerning: ;
       font-stretch: ;
+      font-style: ;
       font-variant: ;
       font-variation-settings: ;
       font-weight: ;
@@ -261,34 +750,33 @@ h6 {
       line-height: ;
       margin-block: ;
       margin-inline: ;
+      padding-block: ;
+      padding-inline: ;
       text-align: ;
       text-indent: ;
       text-spacing: ;
+      text-transform: ;
       word-break: ;
       word-spacing: ;
     }
   }
 }
 
-b,
-strong {
-  @var -bold {
-    & {
-      font-size: ;
-      font-weight: ;
-      vertical-align: ;
-    }
-  }
-
-  @var -bold, -heading {
-    & {
-      font-family: ;
-      font-feature-settings: ;
-      font-kerning: ;
-      font-stretch: ;
-      font-variant: ;
-      font-variation-settings: ;
-    }
+@var -bold {
+  b,
+  strong {
+    color: ;
+    font-family: ;
+    font-feature-settings: ;
+    font-kerning: ;
+    font-size: ;
+    font-stretch: ;
+    font-variant: ;
+    font-variation-settings: ;
+    font-weight: ;
+    line-height: ;
+    margin-inline: ;
+    vertical-align: ;
   }
 }
 
@@ -355,6 +843,14 @@ em :is(b, strong) {
   }
 }
 
+@var -cite {
+  cite {
+    font-family: ;
+    font-size: ;
+    font-style: ;
+  }
+}
+
 @var -big {
   big {
     font-size: ;
@@ -371,28 +867,58 @@ em :is(b, strong) {
 
 @var -sub {
   sub {
+    color: ;
+    font-family: ;
     font-size: ;
+    font-weight: ;
     inset-block-end: ;
+    letter-spacing: ;
+    line-height: ;
+    margin-inline: ;
+    text-combine-upright: ;
+    vertical-align: ;
   }
 }
 
 @var -sup {
   sup {
+    color: ;
+    font-family: ;
     font-size: ;
+    font-weight: ;
     inset-block-start: ;
+    letter-spacing: ;
+    line-height: ;
+    margin-inline: ;
+    text-combine-upright: ;
+    vertical-align: ;
+  }
+}
+
+@var -ruby {
+  ruby {
+    ruby-align: ;
+    ruby-position: ;
   }
 }
 
 @var -rt {
   rt {
+    color: ;
+    font-family: ;
     font-size: ;
+    font-weight: ;
+    letter-spacing: ;
+    line-height: ;
   }
 }
 
 @var -hr {
   hr {
-    border-block-start-width: ;
+    border-block-start-style: solid;
+    border-block-start-width: 0;
     border-color: ;
+    inline-size: ;
     margin-block: ;
     margin-inline: ;
   }
@@ -405,6 +931,14 @@ em :is(b, strong) {
   }
 }
 
+@var -crossref-call {
+  a[data-ref] {
+    color: var(--vs--anchor-text-color);
+    text-decoration: var(--vs--anchor-text-decoration);
+    margin-inline: ;
+  }
+}
+
 @var -img {
   img {
     image-resolution: ;
@@ -413,12 +947,15 @@ em :is(b, strong) {
 
 @var -p {
   p {
+    font-size: ;
     hanging-punctuation: ;
     hyphens: ;
     letter-spacing: ;
     line-height: ;
     margin-block: ;
     margin-inline: ;
+    padding-block: ;
+    padding-inline: ;
     text-align: ;
     text-indent: ;
     text-spacing: ;
@@ -427,12 +964,53 @@ em :is(b, strong) {
   }
 }
 
+/**
+ *  A paragraph that opens a block is conventionally set without the indent the
+ *  following ones get. Falls back to the common indent, so the distinction only
+ *  appears once `--vs--p-first-text-indent` is set.
+ */
+@var -p-first, -p {
+  :is(h1, h2, h3, h4, h5, h6, figure, blockquote, pre, table) + p,
+  p:first-child {
+    text-indent: ;
+  }
+}
+
 @var -blockquote {
   blockquote {
+    background-color: ;
+    border-block-end-color: var(--vs--blockquote-border-color);
+    border-block-end-style: var(--vs--blockquote-border-style, solid);
+    border-block-end-width: var(--vs--blockquote-border-width, 0);
+    border-block-start-color: var(--vs--blockquote-border-color);
+    border-block-start-style: var(--vs--blockquote-border-style, solid);
+    border-block-start-width: var(--vs--blockquote-border-width, 0);
+    border-inline-end-color: var(--vs--blockquote-border-color);
+    border-inline-end-style: var(--vs--blockquote-border-style, solid);
+    border-inline-end-width: var(--vs--blockquote-border-width, 0);
+    border-inline-start-color: var(--vs--blockquote-border-color);
+    border-inline-start-style: var(--vs--blockquote-border-style, solid);
+    border-inline-start-width: var(--vs--blockquote-border-width, 0);
+    border-radius: ;
+    break-inside: ;
+    color: ;
+    font-family: ;
     font-size: ;
+    line-height: ;
     margin-block: ;
     margin-inline: ;
+    padding-block: ;
+    padding-inline: ;
+    text-align: ;
     writing-mode: ;
+  }
+}
+
+@var -blockquote-p, -p {
+  blockquote p {
+    margin-block: ;
+    text-align: ;
+    text-indent: ;
   }
 }
 
@@ -440,42 +1018,108 @@ em :is(b, strong) {
   figure {
     align-items: ;
     break-inside: ;
-    display: ;
+    display: block;
     flex-direction: ;
     margin-block: ;
     margin-inline: ;
+    text-align: ;
     writing-mode: ;
   }
 }
 
-figure > :not(:is(picture, figcaption)),
-figure > picture > img {
-  max-inline-size: 100%;
-  padding-inline: var(--vs--figure-item-padding-inline);
+/**
+ *  Only replaced content is sized here. A `pre`, `div` or `table` placed in a
+ *  figure keeps whatever size its own rules give it.
+ */
+@var -figure-item {
+  figure > :is(img, picture, svg, video, canvas),
+  figure > picture > img {
+    inline-size: ;
+    max-block-size: ;
+    max-inline-size: ;
+    padding-inline: ;
+  }
 }
 
 figure img {
   object-fit: contain;
 }
 
-figure table {
-  margin: 0;
+@var -figure-table {
+  figure table {
+    margin-block: ;
+    margin-inline: ;
+  }
 }
 
 @var -figcaption {
   figcaption {
     break-inside: ;
+    color: ;
+    display: block;
+    font-family: ;
     font-size: ;
+    font-style: ;
+    font-weight: ;
+    letter-spacing: ;
+    line-height: ;
+    margin-block: ;
+    margin-inline: ;
+    order: ;
+    text-align: ;
+    text-indent: ;
+    text-transform: ;
+    writing-mode: ;
+  }
+}
+
+/*
+ * Caption paragraph
+ * VFM only processes math written as a paragraph, so a raw-HTML <figcaption>
+ * holds a <p> that would push the caption text below the generated number.
+ * Only a lone paragraph is laid inline; a multi-paragraph caption keeps its
+ * block layout.
+ */
+@var -figcaption-p {
+  figcaption > p:only-child {
+    display: inline;
+  }
+}
+
+@var -caption {
+  caption {
+    display: table-caption;
+  }
+}
+
+@var -caption, -figcaption {
+  caption {
+    break-inside: ;
+    color: ;
+    font-family: ;
+    font-size: ;
+    font-style: ;
+    font-weight: ;
+    letter-spacing: ;
+    line-height: ;
     margin-block: ;
     margin-inline: ;
     text-align: ;
     text-indent: ;
+    text-transform: ;
+    writing-mode: ;
   }
 }
 
 @var -lists {
   ul,
-  ol,
+  ol {
+    margin-block: ;
+    margin-inline: ;
+  }
+}
+
+@var -dl, -lists {
   dl {
     margin-block: ;
     margin-inline: ;
@@ -496,18 +1140,12 @@ ul {
   }
   @var -ul, -lists {
     & {
+      list-style-position: ;
       padding-inline-start: ;
       text-align: ;
       text-indent: ;
     }
   }
-}
-
-ul:not(:is(ul *, ol *)) {
-  padding-inline-start: max(
-    var(--vs--ul-padding-inline-start),
-    var(--vs--ul-minimum-inline-indent-size)
-  );
 }
 
 ol {
@@ -518,6 +1156,7 @@ ol {
   }
   @var -ol, -lists {
     & {
+      list-style-position: ;
       padding-inline-start: ;
       text-align: ;
       text-indent: ;
@@ -525,17 +1164,29 @@ ol {
   }
 }
 
-ol:not(:is(ul *, ol *)) {
-  padding-inline-start: max(
-    var(--vs--ol-padding-inline-start),
-    var(--vs--ol-minimum-inline-indent-size)
-  );
+@var -li {
+  li {
+    font-size: ;
+    line-height: ;
+    margin-block: ;
+    padding-block: ;
+    padding-inline: ;
+  }
+}
+
+@var -lists-marker {
+  li::marker {
+    color: ;
+    font-family: ;
+    font-size: ;
+    font-weight: ;
+  }
 }
 
 @var -dt-dd {
   dt,
   dd {
-    display: ;
+    display: block;
   }
 }
 
@@ -563,9 +1214,28 @@ dd {
 
 @var -pre {
   pre {
+    background-color: ;
+    border-block-end-color: var(--vs--pre-border-color);
+    border-block-end-style: var(--vs--pre-border-style, solid);
+    border-block-end-width: var(--vs--pre-border-width, 0);
+    border-block-start-color: var(--vs--pre-border-color);
+    border-block-start-style: var(--vs--pre-border-style, solid);
+    border-block-start-width: var(--vs--pre-border-width, 0);
+    border-inline-end-color: var(--vs--pre-border-color);
+    border-inline-end-style: var(--vs--pre-border-style, solid);
+    border-inline-end-width: var(--vs--pre-border-width, 0);
+    border-inline-start-color: var(--vs--pre-border-color);
+    border-inline-start-style: var(--vs--pre-border-style, solid);
+    border-inline-start-width: var(--vs--pre-border-width, 0);
+    border-radius: ;
+    break-inside: ;
+    color: ;
+    font-family: ;
+    font-size: ;
+    inline-size: ;
+    line-height: ;
     margin-block: ;
     margin-inline: ;
-    font-size: ;
     overflow-x: ;
     padding-block: ;
     padding-inline: ;
@@ -576,44 +1246,77 @@ dd {
   }
 }
 
+:where(table, tr, th, td) {
+  border-color: var(--vs--table-border-color);
+}
+
 @var -table {
   table {
-    border-block-start-width: var(
-      --vs--table-border-width-outer,
-      var(--vs--table-border-width)
+    background-color: ;
+    border-block-end-color: var(
+      --vs--table-border-color-outer,
+      var(--vs--table-border-color)
+    );
+    border-block-end-style: var(
+      --vs--table-border-style-outer,
+      var(--vs--table-border-style, solid)
     );
     border-block-end-width: var(
       --vs--table-border-width-outer,
-      var(--vs--table-border-width)
+      var(--vs--table-border-width, 0)
     );
-    border-inline-start-width: var(
+    border-block-start-color: var(
+      --vs--table-border-color-outer,
+      var(--vs--table-border-color)
+    );
+    border-block-start-style: var(
+      --vs--table-border-style-outer,
+      var(--vs--table-border-style, solid)
+    );
+    border-block-start-width: var(
       --vs--table-border-width-outer,
-      var(--vs--table-border-width)
+      var(--vs--table-border-width, 0)
+    );
+    border-inline-end-color: var(
+      --vs--table-border-color-outer,
+      var(--vs--table-border-color)
+    );
+    border-inline-end-style: var(
+      --vs--table-border-style-outer,
+      var(--vs--table-border-style, solid)
     );
     border-inline-end-width: var(
       --vs--table-border-width-outer,
-      var(--vs--table-border-width)
+      var(--vs--table-border-width, 0)
     );
+    border-inline-start-color: var(
+      --vs--table-border-color-outer,
+      var(--vs--table-border-color)
+    );
+    border-inline-start-style: var(
+      --vs--table-border-style-outer,
+      var(--vs--table-border-style, solid)
+    );
+    border-inline-start-width: var(
+      --vs--table-border-width-outer,
+      var(--vs--table-border-width, 0)
+    );
+    border-collapse: ;
     break-inside: ;
+    color: ;
+    font-family: ;
     font-size: ;
+    font-variant-numeric: ;
+    inline-size: ;
+    letter-spacing: ;
+    line-height: ;
     margin-block: ;
     margin-inline: ;
+    max-block-size: ;
+    max-inline-size: ;
+    table-layout: ;
     writing-mode: ;
   }
-}
-
-@var -table {
-  table,
-  tr,
-  th,
-  td {
-    border-color: var(--vs-border-color);
-  }
-}
-
-table {
-  max-block-size: 100%;
-  max-inline-size: 100%;
 }
 
 @var -table-container {
@@ -622,71 +1325,140 @@ table {
   }
 }
 
-@var -table-cell {
-  th,
-  td {
-    padding-block: ;
-    padding-inline: ;
-  }
-}
-
-@var -th, -bold, -heading {
-  th {
-    font-family: ;
-    font-feature-settings: ;
-    font-kerning: ;
-    font-stretch: ;
-    font-variant: ;
-    font-variation-settings: ;
-  }
-}
-
-@var -th, -bold {
-  th {
-    font-size: ;
-    font-weight: ;
-  }
-}
-
-@var -th, -table {
-  th {
-    text-align: center;
-  }
-}
-
-@var -td, -table {
-  td {
-    text-align: ;
-  }
-}
-
-tr:not(:last-child) {
+/**
+ *  Row and column rules are matched with `:where()` so that a plain
+ *  `th, td { border-width }` written by a theme still wins the cascade.
+ */
+:where(tr:not(:last-child)) {
+  border-block-end-color: var(
+    --vs--table-border-color-row,
+    var(--vs--table-border-color-cell, var(--vs--table-border-color))
+  );
+  border-block-end-style: var(
+    --vs--table-border-style-row,
+    var(--vs--table-border-style-cell, var(--vs--table-border-style, solid))
+  );
   border-block-end-width: var(
     --vs--table-border-width-row,
-    var(--vs--table-border-width-cell, var(--vs--table-border-width))
+    var(--vs--table-border-width-cell, var(--vs--table-border-width, 0))
   );
 }
 
-thead > tr:last-child {
+:where(thead > tr:last-child) {
+  border-block-end-color: var(
+    --vs--table-border-color-thead-inner,
+    var(--vs--table-border-color-cell, var(--vs--table-border-color))
+  );
+  border-block-end-style: var(
+    --vs--table-border-style-thead-inner,
+    var(--vs--table-border-style-cell, var(--vs--table-border-style, solid))
+  );
   border-block-end-width: var(
     --vs--table-border-width-thead-inner,
-    var(--vs--table-border-width-cell, var(--vs--table-border-width))
+    var(--vs--table-border-width-cell, var(--vs--table-border-width, 0))
   );
 }
 
-tfoot > tr:first-child {
+:where(tfoot > tr:first-child) {
+  border-block-start-color: var(
+    --vs--table-border-color-tfoot-inner,
+    var(--vs--table-border-color-cell, var(--vs--table-border-color))
+  );
+  border-block-start-style: var(
+    --vs--table-border-style-tfoot-inner,
+    var(--vs--table-border-style-cell, var(--vs--table-border-style, solid))
+  );
   border-block-start-width: var(
     --vs--table-border-width-tfoot-inner,
-    var(--vs--table-border-width-cell, var(--vs--table-border-width))
+    var(--vs--table-border-width-cell, var(--vs--table-border-width, 0))
   );
 }
 
-th:not(:last-child),
-td:not(:last-child) {
+:where(th:not(:last-child), td:not(:last-child)) {
+  border-inline-end-color: var(
+    --vs--table-border-color-column,
+    var(--vs--table-border-color-cell, var(--vs--table-border-color))
+  );
+  border-inline-end-style: var(
+    --vs--table-border-style-column,
+    var(--vs--table-border-style-cell, var(--vs--table-border-style, solid))
+  );
   border-inline-end-width: var(
     --vs--table-border-width-column,
-    var(--vs--table-border-width-cell, var(--vs--table-border-width))
+    var(--vs--table-border-width-cell, var(--vs--table-border-width, 0))
   );
+}
+
+@var -table-row-odd {
+  :where(tbody > tr:nth-child(odd)) {
+    background-color: ;
+  }
+}
+
+@var -table-row-even {
+  :where(tbody > tr:nth-child(even)) {
+    background-color: ;
+  }
+}
+
+th {
+  @var -th, -bold {
+    & {
+      font-family: ;
+      font-feature-settings: ;
+      font-kerning: ;
+      font-size: ;
+      font-stretch: ;
+      font-variant: ;
+      font-variation-settings: ;
+      font-weight: ;
+    }
+  }
+
+  @var -th, -table-cell {
+    & {
+      background-color: ;
+      color: ;
+      letter-spacing: ;
+      line-height: ;
+      min-block-size: ;
+      padding-block: ;
+      padding-inline: ;
+      text-transform: ;
+      vertical-align: ;
+      white-space: ;
+    }
+  }
+
+  @var -th, -table {
+    & {
+      text-align: center;
+    }
+  }
+}
+
+td {
+  @var -td, -table-cell {
+    & {
+      background-color: ;
+      color: ;
+      font-size: ;
+      letter-spacing: ;
+      line-height: ;
+      min-block-size: ;
+      padding-block: ;
+      padding-inline: ;
+      text-transform: ;
+      vertical-align: ;
+      white-space: ;
+    }
+  }
+
+  @var -td, -table {
+    & {
+      text-align: ;
+    }
+  }
 }
 
 :is(tr, th, td, tbody, thead, tfoot, col, colgroup)[align='left'] {

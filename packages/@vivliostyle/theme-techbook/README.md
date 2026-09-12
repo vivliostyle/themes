@@ -22,7 +22,7 @@ module.exports = {
 
 ### Color theme of code blocks
 
-This theme imports [`theme-okaidia`](../theme-base/css/lib/prism/theme-okaidia.css) as a default color theme of code blocks. If you want to use other themes, please import the CSS like this.
+This theme imports [`theme-okaidia`](../theme-base/src/prism/theme-okaidia.css) as a default color theme of code blocks. If you want to use other themes, please import the CSS like this.
 
 ```js
 module.exports = {
@@ -30,7 +30,7 @@ module.exports = {
     '@vivliostyle/theme-techbook',
     {
       specifier: '@vivliostyle/theme-base',
-      import: 'css/lib/prism/theme-prism.css',
+      import: 'prism/theme-prism',
     },
   ],
 };
@@ -52,12 +52,18 @@ module.exports = {
    *  Displaying image resolution of raster images
    */
   --vs-theme--image-resolution-for-figure-image: 300dpi;
-  /**
-   *  Styles for page top/bottom contents
-   */
-  --vs-theme--page-top-left-content: env(pub-title);
-  --vs-theme--page-top-right-content: env(doc-title);
-  --vs-theme--page-bottom-content: counter(page);
+}
+```
+
+The running head and the page number use the page variables of the base theme: the document title sits at the outer top corner and the page number at the outer bottom corner, and left pages show the publication title instead.
+
+```css
+:root {
+  --vs-page--mbox-top-outside-content: env(doc-title);
+  --vs-page--mbox-bottom-outside-content: counter(page);
+}
+@page :left {
+  --vs-page--mbox-top-outside-content: env(pub-title);
 }
 ```
 

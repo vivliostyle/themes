@@ -3,6 +3,9 @@
 *.code-workspace
 .envrc
 
+# Local-only generated example themes (own pnpm workspace, kept out of git)
+/examples/
+
 # Created by https://www.toptal.com/developers/gitignore/api/node
 # Edit at https://www.toptal.com/developers/gitignore?templates=node
 

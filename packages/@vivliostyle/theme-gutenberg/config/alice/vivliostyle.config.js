@@ -5,7 +5,7 @@ export default defineConfig({
   title: 'Alice’s Adventures in Wonderland',
   language: 'en',
   size: 'A5',
-  theme: ['../theme-base', 'alice.css'],
+  theme: ['alice.css'],
   entry: [
     'example/alice/cover.md',
     'example/alice/copyright.md',

@@ -2,37 +2,40 @@
 
 ## Creating a Theme
 
-### Scaffolding with create-vivliostyle-theme
+### Scaffolding with `vivliostyle theme create`
 
-Use the `create-vivliostyle-theme` CLI to generate a theme project scaffold.
+Vivliostyle CLI generates a theme project scaffold. `npm create vivliostyle-theme` is an alias of the same command.
 
 ```bash
-npm create vivliostyle-theme <theme-name>
+vivliostyle theme create <directory>
+# or
+npm create vivliostyle-theme <directory>
 ```
 
-You will be prompted to enter the following:
+You will be prompted to enter the following. Each one can also be given as a command-line option.
 
-| Field         | Description                                                           |
-| ------------- | --------------------------------------------------------------------- |
-| `description` | Theme description                                                     |
-| `author`      | Author name                                                           |
-| `email`       | Email address                                                         |
-| `license`     | License (MIT, Apache-2.0, etc.)                                       |
-| `category`    | Theme category (`novel` / `magazine` / `journal` / `report` / `misc`) |
+| Field         | Option          | Description                                                                |
+| ------------- | --------------- | -------------------------------------------------------------------------- |
+| Package name  | `--name`        | npm package name of the theme (default: `vivliostyle-theme-<directory>`)   |
+| Description   | `--description` | Theme description                                                          |
+| Author        | `--author`      | Author name                                                                |
+| Category      | `--category`    | Theme category (`novel` / `magazine` / `journal` / `report` / `misc`)      |
 
-After completion, a `vivliostyle-theme-<theme-name>` directory is created.
 
 ### Generated File Structure
 
 ```
-vivliostyle-theme-<name>/
+<directory>/
 ├── .gitignore
 ├── package.json          # Package definition (includes vivliostyle.theme config)
 ├── README.md             # Theme description and usage
 ├── theme.css             # Main theme CSS
 ├── vivliostyle.config.js # Configuration for previewing
 └── example/
-    └── default.md        # Sample manuscript (VFM format)
+    ├── 01_typography.md      # Sample manuscripts (VFM format)
+    ├── 02_figures-and-tables.md
+    ├── 03_code-and-math.md
+    └── assets/
 ```
 
 File roles:
@@ -41,22 +44,38 @@ File roles:
 | ----------------------- | --------------------------------------------------------------------------------------------------------------- |
 | `package.json`          | Theme metadata. The `vivliostyle.theme` property defines the theme name, author, main CSS, and category         |
 | `theme.css`             | The main style definition. Pre-configured with theme-base `@import` and CSS variable customizations             |
-| `vivliostyle.config.js` | Used with `vivliostyle preview` to check the theme. Entry points to `example/default.md`                        |
-| `example/default.md`    | Sample Markdown demonstrating theme application. Supports [VFM](https://vivliostyle.github.io/vfm/#/vfm) syntax |
+| `vivliostyle.config.js` | Used with `vivliostyle preview` to check the theme. Entry points to the manuscripts in `example/`               |
+| `example/*.md`          | Sample Markdown demonstrating theme application. Supports [VFM](https://vivliostyle.github.io/vfm/#/vfm) syntax |
 
 ## Customizing the Scaffold
 
 ### Editing theme.css
 
-The generated `theme.css` includes theme-base module imports and CSS variable customization examples.
+The generated `theme.css` imports the theme-base modules and customizes them through CSS variables, along these lines:
 
 ```css
-/* Import all theme-base modules */
-@import url(../@vivliostyle/theme-base/theme-all.css);
+/* Import the basic modules of theme-base */
+@import '@vivliostyle/theme-base';
+
+/* Import feature modules */
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/endnote';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/footnote';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/math';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/sidenote';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/toc';
 
 /* Add code highlighting (Prism) */
-@import url(../@vivliostyle/theme-base/css/lib/prism/base.css);
-@import url(../@vivliostyle/theme-base/css/lib/prism/theme-okaidia.css);
+@import '@vivliostyle/theme-base/prism';
+@import '@vivliostyle/theme-base/prism/theme-okaidia';
 
 :root {
   /* Basic styles */
@@ -69,11 +88,11 @@ The generated `theme.css` includes theme-base module imports and CSS variable cu
   --vs-footnote--call-content: '[' counter(footnote) ']';
 
   /* Page layout */
-  --vs-page--mbox-content-bottom-center: counter(page);
-  --vs-page--mbox-content-top-left: env(doc-title);
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-top-left-content: env(doc-title);
 
   /* Table of contents */
-  --vs-toc--marker-margin-inline: 8rem;
+  --vs-toc--ol-indent-size: 1.5rem;
 }
 ```
 
@@ -88,37 +107,40 @@ Add your own styles at the end of this file. For example, to set the page size:
 
 ### Using theme-base Modules
 
-theme-base is divided into functional modules. If you don't need all modules, you can import only the ones you need instead of `theme-all.css`.
+theme-base is divided into functional modules. The package entry contains only the basic modules, so keep just the feature module imports you need.
 
 ```css
 /* Basic modules only */
-@import url(../@vivliostyle/theme-base/css/define.css);
-@import url(../@vivliostyle/theme-base/css/reset.css);
-@import url(../@vivliostyle/theme-base/css/basic.css);
+@import '@vivliostyle/theme-base';
 
 /* Add required feature modules */
-@import url(../@vivliostyle/theme-base/css/toc.css);
-@import url(../@vivliostyle/theme-base/css/footnote.css);
+@import '@vivliostyle/theme-base/toc';
+@import '@vivliostyle/theme-base/footnote';
 ```
 
-Available modules:
+Available modules (imported as `@vivliostyle/theme-base/<subpath>`):
 
-| Category | Module                                                          | CSS Variable Prefix |
-| -------- | --------------------------------------------------------------- | ------------------- |
-| common   | `meta-properties.css` — Document-wide meta properties           | `--vs-`             |
-| common   | `reset.css` — CSS reset                                         | —                   |
-| common   | `basic.css` — Basic HTML tag styles                             | `--vs--`            |
-| partial  | `crossref.css` — Cross-reference for figures, tables, citations | `--vs-crossref--`   |
-| partial  | `endnote.css` — Endnotes                                        | `--vs-endnote--`    |
-| partial  | `footnote.css` — Footnotes                                      | `--vs-footnote--`   |
-| partial  | `footnote-external-link.css` — Footnotes for external links     | `--vs-footnote--`   |
-| partial  | `page.css` — Paged media                                        | `--vs-page--`       |
-| partial  | `section.css` — Heading counters and section references         | `--vs-section--`    |
-| partial  | `toc.css` — Table of contents                                   | `--vs-toc--`        |
-| partial  | `utility-classes.css` — Utility classes                         | —                   |
-| lib      | `prism/base.css` — Code highlighting base                       | `--vs-prism--`      |
-| lib      | `prism/theme-prism.css` — Prism default theme                   | `--vs-prism--`      |
-| lib      | `prism/theme-okaidia.css` — Okaidia theme                       | `--vs-prism--`      |
+| Subpath                                                                     | Contents                                            | CSS Variable Prefix       |
+| --------------------------------------------------------------------------- | --------------------------------------------------- | ------------------------- |
+| (package entry)                                                             | CSS reset, variable defaults, basic HTML tag styles | `--vs-`, `--vs--`         |
+| `figure`                                                                    | Figure numbering and cross-references               | `--vs-figure--`           |
+| `table`                                                                     | Table numbering and cross-references                | `--vs-table--`            |
+| `citation`                                                                  | Citation numbering and cross-references             | `--vs-citation--`         |
+| `listing`                                                                   | Code listing numbering and cross-references         | `--vs-listing--`          |
+| `equation`                                                                  | Equation numbering and cross-references             | `--vs-equation--`         |
+| `theorem`                                                                   | Theorem numbering and cross-references              | `--vs-theorem--`          |
+| `appendix`                                                                  | Appendix lettering and cross-references             | `--vs-appendix--`         |
+| `endnote`                                                                   | Endnotes                                            | `--vs-endnote--`          |
+| `footnote`                                                                  | Footnotes                                           | `--vs-footnote--`         |
+| `footnote/external-links`                                                   | Footnotes for external links                        | `--vs-footnote--`         |
+| `page`                                                                      | Paged media                                         | `--vs-page--`             |
+| `section`                                                                   | Heading counters and section references             | `--vs-section--`          |
+| `toc`                                                                       | Table of contents                                   | `--vs-toc--`              |
+| `math`                                                                      | Math (MathML / MathJax) display                     | `--vs-math--`             |
+| `sidenote`                                                                  | Numbered sidenotes                                  | `--vs-sidenote--`         |
+| `prism`                                                                     | Code highlighting base                              | `--vs-prism--`            |
+| `prism/theme-prism`                                                         | Prism default theme                                 | `--vs-prism--`            |
+| `prism/theme-okaidia`                                                       | Okaidia theme                                       | `--vs-prism--`            |
 
 For details, see the [theme-base README](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-base#available-modules-and-css-variables).
 
@@ -136,13 +158,13 @@ You can customize themes by overriding CSS variables exposed by theme-base and i
   --vs--h1-font-size: 2em;
   --vs--heading-line-height: 1.4;
 
-  /* Cross-reference counter style */
-  --vs-crossref--counter-style: upper-roman;
+  /* Shared cross-reference counter style */
+  --vs-counter-style: upper-roman;
 
   /* Page header/footer */
-  --vs-page--mbox-content-top-left: env(pub-title);
-  --vs-page--mbox-content-top-right: env(doc-title);
-  --vs-page--mbox-content-bottom-center: counter(page);
+  --vs-page--mbox-top-left-content: env(pub-title);
+  --vs-page--mbox-top-right-content: env(doc-title);
+  --vs-page--mbox-bottom-center-content: counter(page);
 }
 ```
 
@@ -154,8 +176,6 @@ As a practical example, [theme-techbook](https://github.com/vivliostyle/themes/t
   --vs-theme--blockquote-color-bg: #ecf0f1;
   --vs-theme--inline-code-color-bg: #ecf0f1;
   --vs-theme--image-resolution-for-figure-image: 300dpi;
-  --vs-theme--page-top-left-content: env(pub-title);
-  --vs-theme--page-bottom-content: counter(page);
 }
 ```
 
@@ -177,7 +197,7 @@ npm run example:preview
 
 ### Pre-publish Validation
 
-Run `vivliostyle-theme-scripts validate` before publishing to verify your package.
+Run `vivliostyle theme validate` before publishing to verify your package. In the generated scaffold it is wired to `npm run validate`.
 
 ```bash
 npm run validate
@@ -185,10 +205,13 @@ npm run validate
 
 Validation checks:
 
-| Check         | Severity | Description                                                      |
-| ------------- | -------- | ---------------------------------------------------------------- |
-| Style locator | Error    | One of `vivliostyle.theme.style`, `style`, or `main` must be set |
-| Author info   | Warning  | `vivliostyle.theme.author` or `author` should be set             |
+| Check         | Severity | Description                                                                              |
+| ------------- | -------- | ---------------------------------------------------------------------------------------- |
+| Style locator | Error    | One of `vivliostyle.theme.style`, `style`, or `main` must be set                         |
+| Style file    | Error    | The style file must exist inside the package directory (a warning if it is not a `.css`) |
+| Author info   | Warning  | `vivliostyle.theme.author` or `author` should be set                                     |
+| Keywords      | Warning  | `keywords` should include `vivliostyle-theme`                                            |
+| Category      | Warning  | `vivliostyle.theme.category` must be one of the categories above                         |
 
 ### Preview Check
 

@@ -28,59 +28,54 @@ module.exports = {
 
 This package is designed to be modular so that it can be referenced and used by other themes. Each setting is configured as a CSS variable so that it can be changed to suit your preferences.
 
-There're several presets to import modules we recommend.
-
-- [**theme-all.css**](theme-all.css): imports all modules, including typesetting-specific features (cross reference, footnote etc.)
-- [**theme-basic.css**](theme-basic.css): imports basic modules such as css reset and basic styling
+The package entry ([theme.css](theme.css)) contains the basic modules: the CSS reset, the variable defaults and the styles of basic HTML tags. Every other module is opt-in and imported through its own subpath such as `@vivliostyle/theme-base/footnote`.
 
 #### Import from vivliostyle.config.js
 
 ```js
-// Import theme-all.css
 module.exports = {
-  theme: {
-    specifier: '@vivliostyle/theme-academic',
-    import: 'theme-all.css',
-  },
-};
-// Import theme-basic.css
-module.exports = {
-  theme: {
-    specifier: '@vivliostyle/theme-academic',
-    import: 'theme-basic.css',
-  },
+  theme: '@vivliostyle/theme-base',
 };
 ```
 
 #### Import from CSS
 
 ```css
-/* Import theme-all.css */
-@import url(@vivliostyle/theme-base/theme-all.css);
-/* Import theme-basic.css */
-@import url(@vivliostyle/theme-base/theme-basic.css);
+/* Import the basic modules */
+@import '@vivliostyle/theme-base';
+/* Import feature modules as needed */
+@import '@vivliostyle/theme-base/footnote';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/toc';
 ```
 
 ## Available modules and CSS variables
 
-| Modules                                               | theme-all.css | theme-basic.css |
-| :---------------------------------------------------- | :-----------: | :-------------: |
-| [Basic](#basic)                                       |      ✅       |       ✅        |
-| [Cross-reference](#cross-reference)                   |      ✅       |        -        |
-| [Endnotes](#endnotes)                                 |      ✅       |        -        |
-| [Footnotes](#footnotes)                               |      ✅       |        -        |
-| [Page layout](#page-layout)                           |      ✅       |        -        |
-| [Section references](#section-references)             |      ✅       |        -        |
-| [Table of Contents](#table-of-contents)               |      ✅       |        -        |
-| [Utility classes](#utility-classes)                   |      ✅       |        -        |
-| [Prism (Code highlighting)](#prism-code-highlighting) |       -       |        -        |
+Each module is imported as `@vivliostyle/theme-base/<subpath>` and documented next to its source, in `src/<subpath>/README.md`. The basic modules are the package entry and need no subpath.
+
+| Module                                                           | Description                                                                                       |
+| :--------------------------------------------------------------- | :------------------------------------------------------------------------------------------------ |
+| [Basic](#basic)                                                  | The package entry: CSS reset, variable defaults and basic HTML tag styles                          |
+| [`figure`](src/figure/README.md)                                 | Figure numbering and cross-references                                                              |
+| [`table`](src/table/README.md)                                   | Table numbering and cross-references                                                               |
+| [`citation`](src/citation/README.md)                             | Citation numbering and cross-references                                                            |
+| [`listing`](src/listing/README.md)                               | Code listing numbering and cross-references                                                        |
+| [`equation`](src/equation/README.md)                             | Equation numbering and cross-references                                                            |
+| [`theorem`](src/theorem/README.md)                               | Theorem numbering and cross-references                                                             |
+| [`appendix`](src/appendix/README.md)                             | Appendix lettering and cross-references                                                            |
+| [`endnote`](src/endnote/README.md)                               | Endnotes                                                                                           |
+| [`footnote`](src/footnote/README.md)                             | Footnotes, with the optional `footnote/external-links` stylesheet that footnotes external links    |
+| [`page`](src/page/README.md)                                     | Paged media: page margin boxes and page references                                                 |
+| [`section`](src/section/README.md)                               | Heading counters and section references                                                            |
+| [`toc`](src/toc/README.md)                                       | Table of contents (TOC) pages                                                                      |
+| [`math`](src/math/README.md)                                     | Math (MathML / MathJax) display                                                                    |
+| [`sidenote`](src/sidenote/README.md)                             | Numbered sidenotes floated to the inline-end side                                                  |
+| [`prism`](src/prism/README.md)                                   | Prism code highlighting, with the color themes `prism/theme-prism` and `prism/theme-okaidia`       |
 
 ### Basic
 
 ```css
-@import url(@vivliostyle/theme-base/css/define.css);
-@import url(@vivliostyle/theme-base/css/reset.css);
-@import url(@vivliostyle/theme-base/css/basic.css);
+@import '@vivliostyle/theme-base';
 
 /* Configuration examples */
 :root {
@@ -91,152 +86,96 @@ module.exports = {
 }
 ```
 
-- [**define.css**](css/define.css) defines CSS variables that affect document-wide styles
+The entry loads three stylesheets:
+
+- [**reset.css**](src/reset.css) resets the default styles of the browser
+- **define.css** defines the default values of CSS variables, including the ones
+  that affect document-wide styles
   - Name of css variable starts with `--vs-`
-- [**basic.css**](css/basic.css) defines styles of basic HTML tags
+  - Generated from the `@define` blocks of the sources when the package is built
+- [**basic.css**](src/basic.css) defines styles of basic HTML tags
   - Name of css variable starts with `--vs--`
+
+Every variable, including the ones without a default value, is listed in
+[css-variables.yml](css-variables.yml) and published as
+`@vivliostyle/theme-base/css-variables.json`.
+
+#### Document-wide design tokens
+
+A handful of `--vs-` variables carry a role rather than a single property, and
+element variables fall back to them. Setting one of these changes every place
+that role is used.
+
+| Variable                     | Role                | Used by                                                                              |
+| :--------------------------- | :------------------ | :----------------------------------------------------------------------------------- |
+| `--vs-color-foreground`      | text                | the `color` of the document, `--vs--anchor-text-color`, `--vs-page--mbox-text-color` |
+| `--vs-color-background`      | document background | the `background-color` of the document, `--vs-page--background-color`                |
+| `--vs-color-border`          | rules and borders   | every `*-border-color` variable, `--vs-column-rule-color`                            |
+| `--vs-border-width`          | thickness of rules  | `--vs--hr-border-width-block-start`, `--vs--table-border-width`                      |
+| `--vs-font-family`           | main typeface       | the `font-family` of the document                                                    |
+| `--vs-font-family-monospace` | monospace typeface  | `--vs--monospace-font-family` (`code`, `kbd`, `pre`, `samp`)                         |
+
+`--vs-color-foreground-alt`, `--vs-color-background-alt`, `--vs-color-border-alt`
+and `--vs-font-family-alt` are the secondary slots of the same roles. They
+default to the primary token, and no element variable reads them, so the theme
+decides where they apply.
+
+```css
+:root {
+  --vs-color-foreground-alt: #666;
+  --vs-color-background-alt: #f2f4f7;
+  --vs-font-family-alt: 'Helvetica Neue', sans-serif;
+
+  --vs--figcaption-text-color: var(--vs-color-foreground-alt);
+  --vs--th-background-color: var(--vs-color-background-alt);
+  --vs--figcaption-font-family: var(--vs-font-family-alt);
+}
+```
+
+#### Notes on writing values
+
+- Lengths need a unit. `0` is a `<number>`, not a `<length>`, and a variable
+  holding it is dropped wherever a length is required.
+- Set `--vs--*` variables rather than re-declaring the property. Theme rules use
+  logical properties, and a physical `margin` / `padding` shorthand does not
+  reliably cancel them.
+- Element variables are ordinary custom properties, so they can be set on any
+  ancestor, not only `:root`:
+  `.sidebar { --vs--p-font-size: 0.8rem; }`.
 
 ### Cross-reference
 
-```css
-@import url(@vivliostyle/theme-base/css/crossref.css);
+Each reference type lives in its own module: [figure](src/figure/README.md), [table](src/table/README.md), [citation](src/citation/README.md), [listing](src/listing/README.md), [equation](src/equation/README.md), [theorem](src/theorem/README.md) and [appendix](src/appendix/README.md); page references ship with the [page](src/page/README.md) module. An empty in-text call `<a data-ref="…" href="#id"></a>` is filled with the resolved number, and per-type variables start with `--vs-figure--`, `--vs-table--`, `--vs-citation--`, `--vs-listing--`, `--vs-equation--`, `--vs-theorem--`, `--vs-appendix--`, `--vs-page--`.
 
+The shared defaults are part of the basic stylesheet, so they need no separate import:
+
+```css
 /* Configuration examples */
 :root {
-  --vs-crossref--counter-style: upper-roman;
-  --vs-crossref--marker-cite-content: target-counter(attr(href), cite) '.';
+  /* Shared numbering style; each type can override it with its own
+     --vs-<type>--counter-style (figure, table, citation, listing, equation,
+     theorem; appendix defaults to upper-alpha on its own). */
+  --vs-counter-style: upper-roman;
+
+  /* Chapter-prefixed numbers such as "Figure 2.3". The prefix is prepended
+     to every default marker/call content (fig, tbl, lst, eq, thm). */
+  --vs-crossref-marker-counter-prefix: counter(vs-counter-chapter) '.';
+  --vs-crossref-call-counter-prefix: target-counter(
+      attr(href),
+      vs-counter-chapter
+    )
+    '.';
 }
 ```
 
-- [**crossref.css**](css/crossref.css) defines styles about cross-reference of figure, table and citation
-  - Name of CSS variable starts with `--vs-crossref--`
-
-### Endnotes
-
-```css
-@import url(@vivliostyle/theme-base/css/endnote.css);
-
-/* Configuration examples */
-:root {
-  --vs-endnote--call-font-size: 90%;
-  --vs-endnote--section-ol-list-style-type: lower-latin;
-}
-```
-
-- [**endnote.css**](css/endnote.css) defines styles about endnotes
-  - Name of CSS variable starts with `--vs-endnote--`
-
-### Footnotes
-
-```css
-@import url(@vivliostyle/theme-base/css/footnote.css);
-@import url(@vivliostyle/theme-base/css/footnote-external-link.css);
-
-/* Configuration examples */
-:root {
-  --vs-footnote--call-content: '[' counter(footnote) ']';
-  --vs-footnote--area-before-margin-inline: 0 80%;
-}
-```
-
-- [**footnote.css**](css/footnote.css) defines styles about footnotes
-  - Name of CSS variable starts with `--vs-footnote--`
-- [**footnote-external-link.css**](css/footnote-external-link.css) adds footnotes for external links so that its URL can be recognized on print media
-
-### Page layout
-
-```css
-@import url(@vivliostyle/theme-base/css/page.css);
-
-/* Configuration examples */
-:root {
-  --vs-page--mbox-content-bottom-center: counter(page);
-  /*
-   * Vivliostyle.js provides env(doc-title) and env(pub-title)
-   * https://docs.vivliostyle.org/#/supported-css-features#values
-   */
-  --vs-page--mbox-content-top-left: env(doc-title);
-  --vs-page--mbox-content-top-right: string(section-title);
-}
-/*
- * Setting named string
- * https://www.w3.org/TR/css-gcpm-3/#named-strings
- */
-h1 {
-  string-set: section-title content();
-}
-```
-
-- [**page.css**](css/page.css) defines styles about paged media
-  - Name of CSS variable starts with `--vs-page--`
-
-### Section references
-
-```css
-@import url(@vivliostyle/theme-base/css/section.css);
-
-/* Configuration examples */
-:root {
-  --vs-section--marker-display: inline;
-  --vs-section--call-content: 'Sec. ' target-counters(attr(href), sections, '.');
-}
-```
-
-- [**section.css**](css/section.css) defines styles about heading counters and section reference
-  - Name of CSS variable starts with `--vs-section--`
-
-### Table of contents
-
-```css
-@import url(@vivliostyle/theme-base/css/toc.css);
-
-/* Configuration examples */
-:root {
-  --vs-toc--marker-margin-inline: 8rem;
-}
-```
-
-- [**toc.css**](css/toc.css) defines styles about table of contents (TOC) pages
-  - Name of CSS variable starts with `--vs-toc--`
-
-### Utility classes
-
-```css
-@import url(@vivliostyle/theme-base/css/utility-classes.css);
-```
-
-- [**utility-classes.css**](css/utility-classes.css) provides HTML utility classes related to page layout.
-
-### Prism (Code highlighting)
-
-```css
-@import url(@vivliostyle/theme-base/css/lib/prism/base.css);
-/* Use okaidia theme */
-@import url(@vivliostyle/theme-base/css/lib/prism/theme-okaidia.css);
-/* Use prism theme */
-@import url(@vivliostyle/theme-base/css/lib/prism/theme-prism.css);
-
-/* Configuration examples */
-:root {
-  --vs-prism--background: #aaa;
-  --vs-prism--block-code-padding: 2rem 1rem;
-}
-```
-
-- [**prism/base.css**](css/lib/prism/base.css) defines styles compatible with [Prism](https://prismjs.com/) (code highlighting library)
-  - Name of CSS variable starts with `--vs-prism--`
-- [**prism/theme-prism.css**](css/lib/prism/theme-prism.css) enables Prism.js default theme
-  - Original theme: https://github.com/PrismJS/prism/blob/master/themes/prism.css
-
-<img width="691" alt="Highlighting examples of Prism.js default theme" src="https://user-images.githubusercontent.com/1771005/210739391-32dfac1b-e9c7-405a-ba8b-8e6f659b4f78.png">
-
-- [**prism/theme-okaidia.css**](css/lib/prism/theme-okaidia.css) enables okaidia theme
-  - Original theme: https://github.com/PrismJS/prism/blob/master/themes/prism-okaidia.css
-
-<img width="692" alt="Highlighting examples of okaidia theme" src="https://user-images.githubusercontent.com/1771005/210739448-19332a60-f24f-42d8-8e79-f028edab458e.png">
+- The shared knobs are `--vs-counter-style`, `--vs-crossref-{marker,call}-counter-prefix` and the `--vs--crossref-call-*` anchor settings
+- All `a[data-ref]` anchors drop the default underline; the text color falls back to `--vs--anchor-text-color` and can be overridden with `--vs--crossref-call-text-color`
+- Note: many defaults are also defined on `:root:lang(ja)` (Japanese wording). When overriding such variables on `:root` alone, the `:lang(ja)` defaults still win in Japanese documents. Override both `:root` and `:root:lang(ja)`, or set the variable on `:root:lang(ja)` as well
 
 ## License
 
-CC0 1.0
+Everything the npm package ships (the `files` field of `package.json`: `theme.css`, `css/`, `dist/`, `example/` and `vivliostyle.config.js`) is dedicated to the public domain under [CC0 1.0](LICENSES/CC0-1.0.txt), so a theme built on it carries no attribution or license requirement. The rest of this directory (`src/`, `plugins/`, the build configuration) is licensed under the [Apache License 2.0](LICENSES/Apache-2.0.txt).
+
+The Prism color schemes (`css/prism/theme-prism.css` and `css/prism/theme-okaidia.css`) are derived from the [Prism](https://prismjs.com/) themes and remain under the [MIT License](LICENSES/MIT.txt); their file headers carry the notice. `REUSE.toml` records the license of every file.
 
 > Original author: Vivliostyle project team

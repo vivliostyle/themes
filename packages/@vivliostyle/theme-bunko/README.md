@@ -30,11 +30,6 @@ module.exports = {
   --vs-theme--num-of-line: 15;
   --vs-theme--num-of-character: 39;
   /**
-   *  Content to be displayed in the upper left/upper right corner of the page spread
-   */
-  --vs-theme--page-top-left-content: counter(page) '　' env(doc-title);
-  --vs-theme--page-top-right-content: counter(page);
-  /**
    *  Indent size of subsection
    */
   --vs-theme--subsection-text-indent: 3rem;
@@ -42,6 +37,17 @@ module.exports = {
    *  Color of anchor texts on screen media
    */
   --vs-theme--anchor-color-body: darkblue;
+}
+```
+
+The running head uses the page variables of the base theme: the page number sits at the outer top corner of every page, and left pages add the document title.
+
+```css
+:root {
+  --vs-page--mbox-top-outside-content: counter(page);
+}
+@page :left {
+  --vs-page--mbox-top-outside-content: counter(page) '　' env(doc-title);
 }
 ```
 

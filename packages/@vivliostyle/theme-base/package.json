@@ -7,7 +7,7 @@
     "vivliostyle-theme"
   ],
   "homepage": "https://github.com/vivliostyle/themes",
-  "license": "CC0-1.0",
+  "license": "(Apache-2.0 AND CC0-1.0 AND MIT)",
   "author": "Vivliostyle <mail@vivliostyle.org>",
   "repository": {
     "type": "git",
@@ -15,18 +15,36 @@
     "directory": "packages/@vivliostyle/theme-base"
   },
   "files": [
-    "*.css",
+    "theme.css",
     "css",
     "dist",
     "example",
-    "vivliostyle.config.js"
+    "vivliostyle.config.js",
+    "LICENSES",
+    "REUSE.toml"
   ],
   "type": "module",
-  "main": "theme-all.css",
+  "main": "theme.css",
   "exports": {
-    ".": "./theme-all.css",
+    ".": "./theme.css",
+    "./package.json": "./package.json",
     "./css-variables.json": "./dist/css-variables.json",
-    "./*": "./*"
+    "./appendix": "./css/appendix/index.css",
+    "./citation": "./css/citation/index.css",
+    "./endnote": "./css/endnote/index.css",
+    "./equation": "./css/equation/index.css",
+    "./figure": "./css/figure/index.css",
+    "./footnote": "./css/footnote/index.css",
+    "./listing": "./css/listing/index.css",
+    "./math": "./css/math/index.css",
+    "./page": "./css/page/index.css",
+    "./prism": "./css/prism/index.css",
+    "./section": "./css/section/index.css",
+    "./sidenote": "./css/sidenote/index.css",
+    "./table": "./css/table/index.css",
+    "./theorem": "./css/theorem/index.css",
+    "./toc": "./css/toc/index.css",
+    "./*": "./css/*.css"
   },
   "publishConfig": {
     "access": "public"
@@ -36,7 +54,7 @@
     "dev": "postcss \"src/**/*.css\" --base src --dir css --no-map -w",
     "example:build": "vivliostyle build",
     "example:preview": "vivliostyle preview",
-    "validate": "vivliostyle-theme-scripts validate"
+    "validate": "vivliostyle theme validate"
   },
   "devDependencies": {
     "@types/css-tree": "3.2.0",
@@ -44,12 +62,11 @@
     "postcss": "8.5.25",
     "postcss-cli": "11.0.1",
     "postcss-value-parser": "4.2.0",
-    "postcss-variable-theming": "0.5.0",
-    "vivliostyle-theme-scripts": "workspace:*",
+    "postcss-variable-theming": "0.5.1",
     "yaml": "2.9.0"
   },
   "peerDependencies": {
-    "@vivliostyle/cli": ">=11"
+    "@vivliostyle/cli": ">=11.3.1"
   },
   "peerDependenciesMeta": {
     "@vivliostyle/cli": {
@@ -60,7 +77,7 @@
     "theme": {
       "name": "Vivliostyle Base Theme",
       "author": "Vivliostyle <mail@vivliostyle.org>",
-      "style": "theme-all.css",
+      "style": "theme.css",
       "category": "misc",
       "topics": []
     }

@@ -1,0 +1,182 @@
+@define {
+  :root {
+    --vs-endnote--call-font-size: 0.8em;
+    --vs-endnote--root-counter-reset: vs-counter-endnote
+      var(--vs-endnote--root-counter-endnote,) vs-counter-endnote-call
+      var(--vs-endnote--root-counter-endnote-call,);
+    --vs-endnote--section-border-color: var(--vs-color-border);
+    --vs-endnote--section-heading-display: block;
+    --vs-endnote--section-heading-margin-block: var(--vs-spacing-rlh);
+    --vs-endnote--section-hr-display: block;
+    --vs-endnote--section-hr-margin-block: var(--vs--hr-margin-block);
+    --vs-endnote--section-margin-block: var(--vs-spacing-rlh);
+    --vs-endnote--section-ol-list-style-type: decimal;
+    --vs-endnote--section-ol-margin-block: var(--vs--lists-margin-block);
+    --vs-endnote--section-ol-padding-inline-start: var(
+      --vs--ol-padding-inline-start,
+      var(--vs--lists-padding-inline-start)
+    );
+  }
+
+  @media (hover: hover) {
+    a:is(.footnote-ref, .footnote-back):hover {
+      --vs-endnote--anchor-text-decoration: underline;
+    }
+  }
+
+  @media print {
+    :root {
+      --vs-endnote--backlink-display: none;
+    }
+  }
+}
+
+@var endnote {
+  @var call {
+    .footnote-ref {
+      color: var(--vs--anchor-text-color);
+      font-family: ;
+      font-size: ;
+      font-weight: ;
+      line-height: ;
+      margin-inline: ;
+    }
+  }
+
+  @var call-sup {
+    .footnote-ref > sup {
+      display: ;
+      font-size: ;
+      text-combine-upright: var(--vs--sup-text-combine-upright,);
+      text-orientation: ;
+      vertical-align: var(--vs--sup-vertical-align,);
+    }
+  }
+
+  @var anchor {
+    a:is(.footnote-ref, .footnote-back) {
+      text-decoration: ;
+    }
+  }
+
+  @var section {
+    [role='doc-endnotes'] {
+      border-block-end-color: var(--vs-endnote--section-border-color);
+      border-block-end-style: var(--vs-endnote--section-border-style, solid);
+      border-block-end-width: var(--vs-endnote--section-border-width, 0);
+      border-block-start-color: var(--vs-endnote--section-border-color);
+      border-block-start-style: var(--vs-endnote--section-border-style, solid);
+      border-block-start-width: var(--vs-endnote--section-border-width, 0);
+      border-inline-end-color: var(--vs-endnote--section-border-color);
+      border-inline-end-style: var(--vs-endnote--section-border-style, solid);
+      border-inline-end-width: var(--vs-endnote--section-border-width, 0);
+      border-inline-start-color: var(--vs-endnote--section-border-color);
+      border-inline-start-style: var(--vs-endnote--section-border-style, solid);
+      border-inline-start-width: var(--vs-endnote--section-border-width, 0);
+      color: ;
+      font-size: ;
+      letter-spacing: ;
+      line-height: ;
+      margin-block: ;
+      margin-inline: ;
+      padding-block: ;
+      padding-inline: ;
+    }
+  }
+
+  @var section-heading {
+    [role='doc-endnotes']::before {
+      content: ;
+      display: ;
+      font-family: ;
+      font-size: ;
+      font-weight: ;
+      letter-spacing: ;
+      margin-block: ;
+      text-align: ;
+    }
+  }
+
+  @var section-ol {
+    [role='doc-endnotes'] > ol {
+      list-style-position: ;
+      list-style-type: ;
+      margin-block: ;
+      padding-inline-start: ;
+      text-align: ;
+      text-indent: ;
+    }
+  }
+
+  @var section-hr {
+    [role='doc-endnotes'] > hr {
+      border-color: var(--vs--hr-border-color);
+      border-block-start-style: var(--vs--hr-border-style-block-start, solid);
+      border-block-start-width: var(--vs--hr-border-width-block-start, 0);
+      display: ;
+      inline-size: ;
+      margin-block: ;
+      margin-inline: ;
+    }
+  }
+
+  @var item {
+    [role='doc-endnotes'] > ol > li {
+      font-family: ;
+      font-size: ;
+      line-height: ;
+      margin-block: ;
+      padding-inline-start: ;
+      text-align: ;
+      text-indent: ;
+    }
+  }
+
+  @var marker {
+    [role='doc-endnotes'] > ol > li::before {
+      color: ;
+      content: ;
+      display: ;
+      font-family: ;
+      font-size: ;
+      font-weight: ;
+      inline-size: ;
+      line-height: ;
+      margin-inline: ;
+      text-combine-upright: ;
+      text-indent: ;
+      text-orientation: ;
+      vertical-align: ;
+    }
+  }
+
+  @var backlink {
+    [role='doc-backlink'] {
+      display: ;
+    }
+  }
+}
+
+@var endnote {
+  @var call {
+    .footnote-ref::before {
+      content: ;
+      text-combine-upright: ;
+      text-orientation: ;
+      vertical-align: ;
+      inset-block-start: ;
+    }
+  }
+}
+
+.footnote-ref {
+  counter-increment: vs-counter-endnote-call;
+}
+
+.footnote-ref::before {
+  position: relative;
+}
+
+[role='doc-endnotes'] > ol > li {
+  counter-increment: vs-counter-endnote;
+}

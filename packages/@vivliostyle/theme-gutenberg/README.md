@@ -68,12 +68,16 @@ module.exports = {
   --vs-theme--dropcap-font-weight: var(--vs-font-weight-bold);
   --vs-theme--dropcap-line-height: 1;
   --vs-theme--dropcap-text-indent: 0;
-  /**
-   *  Styles for page top/bottom contents
-   */
-  --vs-theme--page-top-content: env(pub-title);
-  --vs-theme--page-top-color-body: gray;
-  --vs-theme--page-bottom-content: counter(page);
+}
+```
+
+The running head and the page number use the page variables of the base theme: the publication title sits at the top center and the page number at the outer bottom corner.
+
+```css
+:root {
+  --vs-page--mbox-top-center-content: env(pub-title);
+  --vs-page--mbox-bottom-outside-content: counter(page);
+  --vs-page--mbox-text-color: gray;
 }
 ```
 

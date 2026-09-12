@@ -1,8 +1,8 @@
-@import url(../theme-base/theme-basic.css);
-@import url(../theme-base/css/page.css);
-@import url(../theme-base/css/utility-classes.css);
-@import url(../theme-base/css/lib/prism/base.css);
-@import url(../theme-base/css/lib/prism/theme-prism.css);
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/page';
+
+@import '@vivliostyle/theme-base/prism';
+@import '@vivliostyle/theme-base/prism/theme-prism';
 
 /**
  * Theme variables
@@ -34,8 +34,7 @@
 :root {
   --vs-font-family: 'Noto', 'YuGothic', 'Yu Gothic', 'Meiryo', sans-serif;
   --vs-font-size: 16pt;
-  --vs-background-color: var(--vs-theme--color-bg);
-  --vs-text-color: var(--vs-theme--color-body);
+  --vs-color-foreground: var(--vs-theme--color-body);
 
   --vs--heading-text-align: var(--vs-theme--section-align-items, center);
   --vs--monospace-font-family:
@@ -56,15 +55,15 @@
   --vs--figcaption-margin-block: 0;
   --vs--table-font-size: 0.83rem;
 
-  --vs-page--mbox-content-top-right: env(pub-title);
-  --vs-page--mbox-content-top-right-corner: counter(page);
+  --vs-page--mbox-top-right-content: env(pub-title);
+  --vs-page--mbox-top-right-corner-content: counter(page);
   --vs-page--mbox-font-size: 11pt;
-  --vs-page--mbox-padding-right-inner: 3mm;
-  --vs-page--mbox-padding-right-outer: 2mm;
+  --vs-page--mbox-right-inner-padding-right: 3mm;
+  --vs-page--mbox-left-padding-right: 2mm;
   --vs-page--margin-top: 15mm;
   --vs-page--margin-bottom: 15mm;
-  --vs-page--margin-inner: 15mm;
-  --vs-page--margin-outer: 15mm;
+  --vs-page--margin-left: 15mm;
+  --vs-page--margin-right: 15mm;
 }
 
 h1 {
@@ -168,13 +167,20 @@ section:has(> .cover:first-child) {
   --vs-theme--h2-color: var(--vs-theme--cover-page-color-body);
   --vs-theme--h3-color: var(--vs-theme--cover-page-color-body);
   --vs-theme--h4-color: var(--vs-theme--cover-page-color-body);
-  --vs-text-color: var(--vs-theme--cover-page-color-body);
-  --vs-background-color: var(--vs-theme--cover-page-color-bg);
-  background-color: var(--vs-theme--cover-page-color-bg);
+  --vs-color-foreground: var(--vs-theme--cover-page-color-body);
+  --vs-color-background: var(--vs-theme--cover-page-color-bg);
+  color: var(--vs-theme--cover-page-color-body);
   display: flex;
   flex-direction: column;
   align-items: var(--vs-theme--cover-page-align-items);
   justify-content: var(--vs-theme--cover-page-justify-content);
+}
+
+@media screen {
+  .cover,
+  section:has(> .cover:first-child) {
+    background-color: var(--vs-theme--cover-page-color-bg);
+  }
 }
 
 .cover h1,

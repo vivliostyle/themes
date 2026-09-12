@@ -3,7 +3,7 @@ import { defineConfig } from '@vivliostyle/cli';
 
 export default defineConfig({
   language: 'ja',
-  theme: ['../theme-base', 'theme.css'],
+  theme: ['theme.css'],
   entry: ['example/bunko.md'],
   size: '148mm,210mm',
   output: [
