@@ -23,18 +23,22 @@ module.exports = {
 ```css
 :root {
   /**
-   *  Max width/height of figure img
-   */
-  --vs-theme--figure-img-max-height: 8cm;
-  --vs-theme--figure-img-max-width: 10cm;
-  /**
    *  Styles for frame elements
    */
-  --vs-theme--frame-border: var(--vs-border-width) solid;
-  --vs-theme--frame-box-decoration-break: slice;
-  --vs-theme--frame-margin-block: var(--vs-spacing-rlh);
-  --vs-theme--frame-margin-inline: 0;
-  --vs-theme--frame-padding: 1rem;
+  --vs-theme-academic--frame-border: var(--vs-border-width) solid;
+  --vs-theme-academic--frame-box-decoration-break: slice;
+  --vs-theme-academic--frame-margin-block: var(--vs-spacing-rlh);
+  --vs-theme-academic--frame-margin-inline: 0;
+  --vs-theme-academic--frame-padding: 1rem;
+}
+```
+
+The maximum size of figure images is controlled by variables of the base theme:
+
+```css
+:root {
+  --vs--figure-item-max-size-block: 8cm;
+  --vs--figure-item-max-size-inline: 10cm;
 }
 ```
 

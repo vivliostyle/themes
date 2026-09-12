@@ -40,18 +40,29 @@ module.exports = {
 
 ```css
 :root {
-  --vs-theme--anchor-color-body: #3498db;
-  --vs-theme--blockquote-color-bg: #ecf0f1;
-  --vs-theme--blockquote-color-body: #34495e;
-  --vs-theme--inline-code-color-bg: #ecf0f1;
-  --vs-theme--inline-code-color-body: #34495e;
-  --vs-theme--footnote-color-bg-on-screen: #e6f6d7;
-  --vs-theme--crossref-anchor-color-bg-on-screen: rgba(255, 0, 0, 0.3);
-  --vs-theme--crossref-anchor-color-body-on-screen: #e74c3c;
+  --vs-theme-techbook--inline-code-color-bg: #ecf0f1;
+  --vs-theme-techbook--inline-code-color-body: #34495e;
+  --vs-theme-techbook--footnote-color-bg-on-screen: #e6f6d7;
+  --vs-theme-techbook--crossref-anchor-color-bg-on-screen: rgba(255, 0, 0, 0.3);
+  --vs-theme-techbook--crossref-anchor-color-body-on-screen: #e74c3c;
   /**
    *  Displaying image resolution of raster images
    */
-  --vs-theme--image-resolution-for-figure-image: 300dpi;
+  --vs-theme-techbook--image-resolution-for-figure-image: 300dpi;
+}
+```
+
+The colors of blockquotes and links are the variables of the base theme (the link color applies to screen media only):
+
+```css
+:root {
+  --vs--blockquote-background-color: #ecf0f1;
+  --vs--blockquote-text-color: #34495e;
+}
+@media screen {
+  :root {
+    --vs--anchor-text-color: #3498db;
+  }
 }
 ```
 

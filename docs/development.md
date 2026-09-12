@@ -168,14 +168,14 @@ You can customize themes by overriding CSS variables exposed by theme-base and i
 }
 ```
 
-As a practical example, [theme-techbook](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-techbook) exposes theme-specific CSS variables (`--vs-theme--*`):
+As a practical example, [theme-techbook](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-techbook) exposes theme-specific CSS variables (`--vs-theme-<name>--*`):
 
 ```css
 :root {
-  --vs-theme--anchor-color-body: #3498db;
-  --vs-theme--blockquote-color-bg: #ecf0f1;
-  --vs-theme--inline-code-color-bg: #ecf0f1;
-  --vs-theme--image-resolution-for-figure-image: 300dpi;
+  --vs-theme-techbook--inline-code-color-bg: #ecf0f1;
+  --vs-theme-techbook--inline-code-color-body: #34495e;
+  --vs-theme-techbook--footnote-color-bg-on-screen: #e6f6d7;
+  --vs-theme-techbook--image-resolution-for-figure-image: 300dpi;
 }
 ```
 

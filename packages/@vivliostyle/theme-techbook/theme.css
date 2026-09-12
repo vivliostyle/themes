@@ -21,15 +21,12 @@
  * Theme variables
 */
 :root {
-  --vs-theme--anchor-color-body: #3498db;
-  --vs-theme--blockquote-color-bg: #ecf0f1;
-  --vs-theme--blockquote-color-body: #34495e;
-  --vs-theme--inline-code-color-bg: #ecf0f1;
-  --vs-theme--inline-code-color-body: #34495e;
-  --vs-theme--footnote-color-bg-on-screen: #e6f6d7;
-  --vs-theme--crossref-anchor-color-bg-on-screen: rgba(255, 0, 0, 0.3);
-  --vs-theme--crossref-anchor-color-body-on-screen: #e74c3c;
-  --vs-theme--image-resolution-for-figure-image: 300dpi;
+  --vs-theme-techbook--inline-code-color-bg: #ecf0f1;
+  --vs-theme-techbook--inline-code-color-body: #34495e;
+  --vs-theme-techbook--footnote-color-bg-on-screen: #e6f6d7;
+  --vs-theme-techbook--crossref-anchor-color-bg-on-screen: rgba(255, 0, 0, 0.3);
+  --vs-theme-techbook--crossref-anchor-color-body-on-screen: #e74c3c;
+  --vs-theme-techbook--image-resolution-for-figure-image: 300dpi;
 }
 
 :root {
@@ -47,7 +44,12 @@
   --vs--h4-font-size: 1.2em;
   --vs--h5-font-size: 1em;
   --vs--h6-font-size: 0.83em;
+  --vs--blockquote-background-color: #ecf0f1;
+  --vs--blockquote-border-radius: var(--vs-prism--block-code-border-radius);
   --vs--blockquote-margin-inline: 0;
+  --vs--blockquote-padding-block: var(--vs-prism--block-code-padding);
+  --vs--blockquote-padding-inline: var(--vs-prism--block-code-padding);
+  --vs--blockquote-text-color: #34495e;
   --vs--ul-padding-inline-start: 1rem;
   --vs--table-border-width-block-start: 1px;
   --vs--table-border-width-block-end: 1px;
@@ -76,7 +78,7 @@
 
 @media screen {
   :root {
-    --vs--anchor-text-color: var(--vs-theme--anchor-color-body);
+    --vs--anchor-text-color: #3498db;
     --vs--anchor-text-decoration: none;
   }
 }
@@ -91,13 +93,6 @@
   :root {
     --vs-font-size: 75%;
   }
-}
-
-blockquote {
-  background-color: var(--vs-theme--blockquote-color-bg);
-  border-radius: var(--vs-prism--block-code-border-radius);
-  color: var(--vs-theme--blockquote-color-body);
-  padding: var(--vs-prism--block-code-padding);
 }
 
 blockquote > p:first-child {
@@ -124,14 +119,14 @@ figure
     [src$='.apng']
   ) {
   --vs--img-image-resolution: var(
-    --vs-theme--image-resolution-for-figure-image
+    --vs-theme-techbook--image-resolution-for-figure-image
   );
 }
 
 /* format for inline code */
 :not(pre) > code {
-  --vs-prism--background: var(--vs-theme--inline-code-color-bg);
-  --vs-prism--text-color: var(--vs-theme--inline-code-color-body);
+  --vs-prism--background: var(--vs-theme-techbook--inline-code-color-bg);
+  --vs-prism--text-color: var(--vs-theme-techbook--inline-code-color-body);
 }
 
 @media screen {
@@ -143,15 +138,17 @@ figure
 
   .footnote {
     display: block;
-    background-color: var(--vs-theme--footnote-color-bg-on-screen);
+    background-color: var(--vs-theme-techbook--footnote-color-bg-on-screen);
     border-radius: var(--vs-prism--block-code-border-radius);
     margin-block: var(--vs--blockquote-margin-block);
     padding: var(--vs-prism--block-code-padding);
   }
 
   a[data-ref] {
-    color: var(--vs-theme--crossref-anchor-color-body-on-screen);
-    background-color: var(--vs-theme--crossref-anchor-color-bg-on-screen);
+    color: var(--vs-theme-techbook--crossref-anchor-color-body-on-screen);
+    background-color: var(
+      --vs-theme-techbook--crossref-anchor-color-bg-on-screen
+    );
   }
 }
 

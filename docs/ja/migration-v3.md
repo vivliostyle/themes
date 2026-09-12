@@ -265,7 +265,7 @@ Vivliostyle CLI 11.3.0以降はCSSからインポートされたVivliostyle Them
 | :--------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------- |
 | `--vs--ul-minimum-inline-indent-size`・`--vs--ol-minimum-inline-indent-size` | `--vs--ul-padding-inline-start`／`--vs--ol-padding-inline-start`、または共通の`--vs--lists-padding-inline-start`でインデントを直接設定する |
 | `--vs-page--cover-break-before`・`--vs-page--cover-break-after`              | どの規則からも参照されていなかった。表紙要素自体に`break-before`／`break-after`を設定する                                     |
-| 公式テーマの`--vs-theme--page-*`                                             | [公式テーマ](#手順8-公式テーマ)を参照                                                                                             |
+| 公式テーマの`--vs-theme--*`                                                  | [公式テーマ](#手順8-公式テーマ)を参照                                                                                             |
 
 ## 手順5 既定値の変更
 
@@ -366,6 +366,36 @@ h2 {
 | `theme-bunko`     | `--vs-theme--page-top-left-content`・`--vs-theme--page-top-right-content`                                    | `--vs-page--mbox-top-outside-content`（`counter(page)`。左ページは`@page :left`で`counter(page) '　' env(doc-title)`に上書き）                                          |
 | `theme-techbook`  | `--vs-theme--page-top-left-content`・`--vs-theme--page-top-right-content`・`--vs-theme--page-bottom-content` | `--vs-page--mbox-top-outside-content`（`env(doc-title)`。左ページは`@page :left`で`env(pub-title)`）、`--vs-page--mbox-bottom-outside-content`（`counter(page)`）       |
 | `theme-gutenberg` | `--vs-theme--page-top-content`・`--vs-theme--page-top-color-body`・`--vs-theme--page-bottom-content`         | `--vs-page--mbox-top-center-content`（`env(pub-title)`）、`--vs-page--mbox-text-color`（`gray`）、`--vs-page--mbox-bottom-outside-content`（`counter(page)`）           |
+
+### `theme-base`の変数に置き換えられた変数
+
+テーマ固有の変数のうち、`theme-base`の変数で設定可能なものは削除されました。
+
+| テーマ           | 削除                                                                                             | 代替                                                                                                                                                                        |
+| :--------------- | :----------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `theme-academic` | `--vs-theme--figure-img-max-height`・`--vs-theme--figure-img-max-width`                          | `--vs--figure-item-max-size-block`（`8cm`）、`--vs--figure-item-max-size-inline`（`10cm`）                                                                                  |
+| `theme-bunko`    | `--vs-theme--subsection-text-indent`・`--vs-theme--anchor-color-body`                            | `--vs--heading-text-indent`（`3rem`。`--vs--h1-text-indent`は`0`のまま）、`--vs--anchor-text-color`（`darkblue`。`@media screen`内で設定）                                  |
+| `theme-slide`    | `--vs-theme--color-bg`・`--vs-theme--color-body`                                                 | `--vs-color-background`、`--vs-color-foreground`（`#000`。`--vs-theme--color-bg`は効果がありませんでした）                                                                  |
+| `theme-slide`    | `--vs-theme--h1-color`・`--vs-theme--h2-color`・`--vs-theme--h3-color`・`--vs-theme--h4-color`   | `--vs--h1-text-color`（`#212057`）、`--vs--h2-text-color`・`--vs--h3-text-color`・`--vs--h4-text-color`（`#e84e39`）                                                        |
+| `theme-slide`    | `--vs-theme--anchor-color`                                                                       | `--vs--anchor-text-color`（`#3498db`）                                                                                                                                      |
+| `theme-techbook` | `--vs-theme--anchor-color-body`                                                                  | `--vs--anchor-text-color`（`#3498db`。`@media screen`内で設定）                                                                                                             |
+| `theme-techbook` | `--vs-theme--blockquote-color-bg`・`--vs-theme--blockquote-color-body`                           | `--vs--blockquote-background-color`（`#ecf0f1`）、`--vs--blockquote-text-color`（`#34495e`）                                                                                |
+
+### テーマ固有の変数の改名
+
+テーマ固有の変数名`--vs-theme--*`は`--vs-theme-<name>--*`に変更されました。
+
+```css
+/* 変更前 */
+:root {
+  --vs-theme--inline-code-color-bg: #ecf0f1;
+}
+
+/* 変更後 */
+:root {
+  --vs-theme-techbook--inline-code-color-bg: #ecf0f1;
+}
+```
 
 ### その他の変更
 

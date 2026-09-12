@@ -264,7 +264,7 @@ These have no one-to-one replacement.
 | :--------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------- |
 | `--vs--ul-minimum-inline-indent-size`, `--vs--ol-minimum-inline-indent-size` | Set the indent directly with `--vs--ul-padding-inline-start` / `--vs--ol-padding-inline-start`, or the shared `--vs--lists-padding-inline-start` |
 | `--vs-page--cover-break-before`, `--vs-page--cover-break-after`              | They were never read by any rule. Set `break-before` / `break-after` on the cover element itself                              |
-| `--vs-theme--page-*` of the official themes                                  | See [official themes](#step-8-official-themes)                                                                                |
+| `--vs-theme--*` of the official themes                                       | See [official themes](#step-8-official-themes)                                                                                |
 
 ## Step 5. Changed defaults
 
@@ -365,6 +365,36 @@ All official themes require `@vivliostyle/cli` 11.3.1 or later. Their stylesheet
 | `theme-bunko`     | `--vs-theme--page-top-left-content`, `--vs-theme--page-top-right-content`                                    | `--vs-page--mbox-top-outside-content` (`counter(page)`; left pages override it with `counter(page) '　' env(doc-title)` in `@page :left`)                               |
 | `theme-techbook`  | `--vs-theme--page-top-left-content`, `--vs-theme--page-top-right-content`, `--vs-theme--page-bottom-content` | `--vs-page--mbox-top-outside-content` (`env(doc-title)`; `env(pub-title)` on left pages via `@page :left`), `--vs-page--mbox-bottom-outside-content` (`counter(page)`) |
 | `theme-gutenberg` | `--vs-theme--page-top-content`, `--vs-theme--page-top-color-body`, `--vs-theme--page-bottom-content`         | `--vs-page--mbox-top-center-content` (`env(pub-title)`), `--vs-page--mbox-text-color` (`gray`), `--vs-page--mbox-bottom-outside-content` (`counter(page)`)             |
+
+### Variables replaced by the variables of `theme-base`
+
+Theme-specific variables that can be set with the variables of `theme-base` are removed.
+
+| Theme            | Removed                                                                                          | Replacement                                                                                                                                                                 |
+| :--------------- | :----------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `theme-academic` | `--vs-theme--figure-img-max-height`, `--vs-theme--figure-img-max-width`                          | `--vs--figure-item-max-size-block` (`8cm`), `--vs--figure-item-max-size-inline` (`10cm`)                                                                                    |
+| `theme-bunko`    | `--vs-theme--subsection-text-indent`, `--vs-theme--anchor-color-body`                            | `--vs--heading-text-indent` (`3rem`; `--vs--h1-text-indent` stays `0`), `--vs--anchor-text-color` (`darkblue`, set in `@media screen`)                                      |
+| `theme-slide`    | `--vs-theme--color-bg`, `--vs-theme--color-body`                                                 | `--vs-color-background`, `--vs-color-foreground` (`#000`; `--vs-theme--color-bg` had no effect)                                                                             |
+| `theme-slide`    | `--vs-theme--h1-color`, `--vs-theme--h2-color`, `--vs-theme--h3-color`, `--vs-theme--h4-color`   | `--vs--h1-text-color` (`#212057`), `--vs--h2-text-color`, `--vs--h3-text-color`, `--vs--h4-text-color` (`#e84e39`)                                                          |
+| `theme-slide`    | `--vs-theme--anchor-color`                                                                       | `--vs--anchor-text-color` (`#3498db`)                                                                                                                                       |
+| `theme-techbook` | `--vs-theme--anchor-color-body`                                                                  | `--vs--anchor-text-color` (`#3498db`, set in `@media screen`)                                                                                                               |
+| `theme-techbook` | `--vs-theme--blockquote-color-bg`, `--vs-theme--blockquote-color-body`                           | `--vs--blockquote-background-color` (`#ecf0f1`), `--vs--blockquote-text-color` (`#34495e`)                                                                                  |
+
+### Renamed theme-specific variables
+
+The theme-specific variables `--vs-theme--*` are renamed to `--vs-theme-<name>--*`.
+
+```css
+/* Before */
+:root {
+  --vs-theme--inline-code-color-bg: #ecf0f1;
+}
+
+/* After */
+:root {
+  --vs-theme-techbook--inline-code-color-bg: #ecf0f1;
+}
+```
 
 ### Other changes
 
