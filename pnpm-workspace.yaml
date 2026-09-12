@@ -25,3 +25,4 @@ allowBuilds:
   core-js: false
   es5-ext: false
   husky: false
+  pnpm: false

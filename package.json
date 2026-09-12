@@ -34,7 +34,7 @@
     "oxlint": "1.76.0",
     "oxlint-tsgolint": "7.0.2001",
     "pdfjs-dist": "4.6.82",
-    "pnpm": "11.17.0",
+    "pnpm": "12.3.4",
     "typescript": "^5.3.3"
   },
   "lint-staged": {
@@ -46,5 +46,5 @@
   "engines": {
     "node": ">=24"
   },
-  "packageManager": "pnpm@11.17.0"
+  "packageManager": "pnpm@12.3.4"
 }
