@@ -136,13 +136,10 @@ ${badge(pkg.meta.name)}
 ${pkg.meta.description}`,
     )
     .join('\n\n');
-  return `## Official Themes
-
-${themeTable}
-
-## Tools
-
-${toolsTable}`;
+  return [
+    `## Official Themes\n\n${themeTable}`,
+    ...(tools.length > 0 ? [`## Tools\n\n${toolsTable}`] : []),
+  ].join('\n\n');
 }
 
 const top = await createToP();

@@ -35,8 +35,7 @@
     "oxlint-tsgolint": "7.0.2001",
     "pdfjs-dist": "4.6.82",
     "pnpm": "11.17.0",
-    "typescript": "^5.3.3",
-    "vivliostyle-theme-scripts": "workspace:*"
+    "typescript": "^5.3.3"
   },
   "lint-staged": {
     "*": [

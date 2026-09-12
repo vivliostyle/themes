@@ -1,7 +1,5 @@
 packages:
   - packages/@vivliostyle/*
-  - packages/create-vivliostyle-theme
-  - packages/vivliostyle-theme-scripts
 
 saveExact: true
 ignoreWorkspaceRootCheck: true
