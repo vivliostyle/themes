@@ -38,32 +38,38 @@ module.exports = {
 
 ```css
 :root {
-  --vs-theme--color-bg: #fff;
-  --vs-theme--color-body: #000;
-  --vs-theme--section-align-items: center;
-  --vs-theme--section-justify-content: center;
-  --vs-theme--h1-color: #212057;
-  --vs-theme--h2-color: #e84e39;
-  --vs-theme--h3-color: #e84e39;
-  --vs-theme--h4-color: #e84e39;
-  --vs-theme--anchor-color: #3498db;
-  --vs-theme--blockquote-mark-color: #d6a;
-  --vs-theme--table-heading-color-bg: rgb(0, 0, 0, 0.1);
-  --vs-theme--page-ref-call-color: forestgreen;
-  --vs-theme--page-ref-call-content: '(p.' target-counter(attr(href url), page) ')';
-  --vs-theme--max-inline-size-on-screen: 40rem;
+  --vs-theme-slide--section-align-items: center;
+  --vs-theme-slide--section-justify-content: center;
+  --vs-theme-slide--blockquote-mark-color: #d6a;
+  --vs-theme-slide--table-heading-color-bg: rgb(0, 0, 0, 0.1);
+  --vs-theme-slide--page-ref-call-color: forestgreen;
+  --vs-theme-slide--page-ref-call-content: '(p.' target-counter(attr(href url), page) ')';
+  --vs-theme-slide--max-inline-size-on-screen: 40rem;
   /**
    *  Styles for cover pages
    */
-  --vs-theme--cover-page-color-bg: #212057;
-  --vs-theme--cover-page-color-body: #fff;
-  --vs-theme--cover-page-align-items: center;
-  --vs-theme--cover-page-justify-content: center;
+  --vs-theme-slide--cover-page-color-bg: #212057;
+  --vs-theme-slide--cover-page-color-body: #fff;
+  --vs-theme-slide--cover-page-align-items: center;
+  --vs-theme-slide--cover-page-justify-content: center;
   /**
    * Styles for image full pages
    */
-  --vs-theme--image-full-page-margin: 0;
-  --vs-theme--image-full-page-object-fit: cover;
+  --vs-theme-slide--image-full-page-margin: 0;
+  --vs-theme-slide--image-full-page-object-fit: cover;
+}
+```
+
+The colors of the body text, headings and links are the variables of the base theme:
+
+```css
+:root {
+  --vs-color-foreground: #000;
+  --vs--h1-text-color: #212057;
+  --vs--h2-text-color: #e84e39;
+  --vs--h3-text-color: #e84e39;
+  --vs--h4-text-color: #e84e39;
+  --vs--anchor-text-color: #3498db;
 }
 ```
 

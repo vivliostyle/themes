@@ -57,12 +57,12 @@ module.exports = {
 
 ### CSS変数の命名規則
 
-| プレフィックス    | 用途                                     | 例                                                                 |
-| ----------------- | ---------------------------------------- | ------------------------------------------------------------------ |
-| `--vs-`           | ドキュメント全体に影響するメタプロパティ | `--vs-font-family`, `--vs-font-size`                               |
-| `--vs--`          | 基本HTMLタグのスタイル                   | `--vs--heading-line-height`, `--vs--h1-font-size`                  |
-| `--vs-{module}--` | モジュール固有の設定                     | `--vs-footnote--call-content`, `--vs-toc--ol-indent-size`    |
-| `--vs-theme--`    | テーマ固有の設定                         | `--vs-theme--anchor-color-body`, `--vs-theme--blockquote-color-bg` |
+| プレフィックス        | 用途                                     | 例                                                                                   |
+| --------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------ |
+| `--vs-`               | ドキュメント全体に影響するメタプロパティ | `--vs-font-family`, `--vs-font-size`                                                 |
+| `--vs--`              | 基本HTMLタグのスタイル                   | `--vs--heading-line-height`, `--vs--h1-font-size`                                    |
+| `--vs-{module}--`     | モジュール固有の設定                     | `--vs-footnote--call-content`, `--vs-toc--ol-indent-size`                            |
+| `--vs-theme-{name}--` | テーマ固有の設定                         | `--vs-theme-techbook--inline-code-color-bg`, `--vs-theme-slide--cover-page-color-bg` |
 
 ### カスタマイズの例
 
@@ -72,7 +72,8 @@ module.exports = {
 
 ```css
 :root {
-  --vs-theme--anchor-color-body: #e74c3c;
+  --vs--anchor-text-color: #e74c3c;
+  --vs-theme-techbook--inline-code-color-bg: #fdebd0;
   --vs-page--mbox-top-outside-content: 'My Book Title';
   --vs-page--mbox-bottom-outside-content: counter(page);
 }

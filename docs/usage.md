@@ -57,12 +57,12 @@ Each theme exposes configuration values as CSS custom properties (CSS variables)
 
 ### CSS Variable Naming Convention
 
-| Prefix            | Purpose                                       | Examples                                                           |
-| ----------------- | --------------------------------------------- | ------------------------------------------------------------------ |
-| `--vs-`           | Meta properties affecting the entire document | `--vs-font-family`, `--vs-font-size`                               |
-| `--vs--`          | Styles for basic HTML tags                    | `--vs--heading-line-height`, `--vs--h1-font-size`                  |
-| `--vs-{module}--` | Module-specific settings                      | `--vs-footnote--call-content`, `--vs-toc--ol-indent-size`    |
-| `--vs-theme--`    | Theme-specific settings                       | `--vs-theme--anchor-color-body`, `--vs-theme--blockquote-color-bg` |
+| Prefix                | Purpose                                       | Examples                                                                             |
+| --------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------ |
+| `--vs-`               | Meta properties affecting the entire document | `--vs-font-family`, `--vs-font-size`                                                 |
+| `--vs--`              | Styles for basic HTML tags                    | `--vs--heading-line-height`, `--vs--h1-font-size`                                    |
+| `--vs-{module}--`     | Module-specific settings                      | `--vs-footnote--call-content`, `--vs-toc--ol-indent-size`                            |
+| `--vs-theme-{name}--` | Theme-specific settings                       | `--vs-theme-techbook--inline-code-color-bg`, `--vs-theme-slide--cover-page-color-bg` |
 
 ### Customization Example
 
@@ -72,7 +72,8 @@ Create a custom CSS file that overrides the theme's CSS variables, then add it i
 
 ```css
 :root {
-  --vs-theme--anchor-color-body: #e74c3c;
+  --vs--anchor-text-color: #e74c3c;
+  --vs-theme-techbook--inline-code-color-bg: #fdebd0;
   --vs-page--mbox-top-outside-content: 'My Book Title';
   --vs-page--mbox-bottom-outside-content: counter(page);
 }

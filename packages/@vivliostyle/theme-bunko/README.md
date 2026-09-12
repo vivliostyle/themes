@@ -27,16 +27,22 @@ module.exports = {
   /**
    *  Number of lines per page/Number of characters per line
    */
-  --vs-theme--num-of-line: 15;
-  --vs-theme--num-of-character: 39;
-  /**
-   *  Indent size of subsection
-   */
-  --vs-theme--subsection-text-indent: 3rem;
-  /**
-   *  Color of anchor texts on screen media
-   */
-  --vs-theme--anchor-color-body: darkblue;
+  --vs-theme-bunko--num-of-line: 15;
+  --vs-theme-bunko--num-of-character: 39;
+}
+```
+
+The indent of subsection headings and the color of links are the variables of the base theme (the link color applies to screen media only):
+
+```css
+:root {
+  --vs--heading-text-indent: 3rem;
+  --vs--h1-text-indent: 0;
+}
+@media screen {
+  :root {
+    --vs--anchor-text-color: darkblue;
+  }
 }
 ```
 

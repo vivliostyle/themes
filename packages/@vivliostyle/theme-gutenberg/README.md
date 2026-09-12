@@ -64,10 +64,10 @@ module.exports = {
   /**
    *  Styles for drop caps
    */
-  --vs-theme--dropcap-font-size: 1.8em;
-  --vs-theme--dropcap-font-weight: var(--vs-font-weight-bold);
-  --vs-theme--dropcap-line-height: 1;
-  --vs-theme--dropcap-text-indent: 0;
+  --vs-theme-gutenberg--dropcap-font-size: 1.8em;
+  --vs-theme-gutenberg--dropcap-font-weight: var(--vs-font-weight-bold);
+  --vs-theme-gutenberg--dropcap-line-height: 1;
+  --vs-theme-gutenberg--dropcap-text-indent: 0;
 }
 ```
 

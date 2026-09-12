@@ -167,14 +167,14 @@ theme-baseや各テーマが公開するCSS変数を `:root` で上書きする�
 }
 ```
 
-実際のテーマでの活用例として、[theme-techbook](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-techbook) はテーマ固有のCSS変数（`--vs-theme--*`）を公開しています:
+実際のテーマでの活用例として、[theme-techbook](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-techbook) はテーマ固有のCSS変数（`--vs-theme-<name>--*`）を公開しています:
 
 ```css
 :root {
-  --vs-theme--anchor-color-body: #3498db;
-  --vs-theme--blockquote-color-bg: #ecf0f1;
-  --vs-theme--inline-code-color-bg: #ecf0f1;
-  --vs-theme--image-resolution-for-figure-image: 300dpi;
+  --vs-theme-techbook--inline-code-color-bg: #ecf0f1;
+  --vs-theme-techbook--inline-code-color-body: #34495e;
+  --vs-theme-techbook--footnote-color-bg-on-screen: #e6f6d7;
+  --vs-theme-techbook--image-resolution-for-figure-image: 300dpi;
 }
 ```
 

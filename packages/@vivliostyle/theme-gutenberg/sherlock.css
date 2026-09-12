@@ -5,7 +5,7 @@
 :root {
   --vs-font-family: baskerville, 'Libre Baskerville', Georgia, serif;
 
-  --vs-theme--dropcap-font-weight: initial;
+  --vs-theme-gutenberg--dropcap-font-weight: initial;
 
   --vs--heading-font-family:
     'Quattrocento', baskerville, 'Libre Baskerville', Georgia, serif;

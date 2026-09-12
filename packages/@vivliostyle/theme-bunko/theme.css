@@ -18,10 +18,8 @@
  * Theme variables
  */
 :root {
-  --vs-theme--num-of-line: 15;
-  --vs-theme--num-of-character: 39;
-  --vs-theme--subsection-text-indent: 3rem;
-  --vs-theme--anchor-color-body: darkblue;
+  --vs-theme-bunko--num-of-line: 15;
+  --vs-theme-bunko--num-of-character: 39;
 }
 
 :root {
@@ -32,6 +30,8 @@
   --vs-writing-mode: vertical-rl;
 
   --vs--heading-font-weight: var(--vs-font-weight);
+  --vs--heading-text-indent: 3rem;
+  --vs--h1-text-indent: 0;
   --vs--h1-font-size: 1.35rem;
   --vs--h1-font-weight: var(--vs-font-weight-bold);
   --vs--h1-letter-spacing: 0.125em;
@@ -57,9 +57,9 @@
 
   /* Adding extra 1px to avoid unexpected page feeds */
   --vs-page--width: calc(
-    1rem * var(--vs-line-height) * var(--vs-theme--num-of-line) + 1px
+    1rem * var(--vs-line-height) * var(--vs-theme-bunko--num-of-line) + 1px
   );
-  --vs-page--height: calc(1rem * var(--vs-theme--num-of-character));
+  --vs-page--height: calc(1rem * var(--vs-theme-bunko--num-of-character));
   --vs-page--margin-top: auto;
   --vs-page--margin-bottom: auto;
   --vs-page--margin-left: auto;
@@ -102,7 +102,7 @@
 
 @media screen {
   :root {
-    --vs--anchor-text-color: var(--vs-theme--anchor-color-body);
+    --vs--anchor-text-color: darkblue;
     --vs--anchor-text-decoration: none;
   }
 }
@@ -122,14 +122,6 @@
 h1,
 h2 {
   break-after: avoid;
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
-  text-indent: var(--vs-theme--subsection-text-indent);
 }
 
 figure {
@@ -190,7 +182,7 @@ figure > picture > img {
 
 @media screen {
   body {
-    max-inline-size: calc(1rem * var(--vs-theme--num-of-character));
+    max-inline-size: calc(1rem * var(--vs-theme-bunko--num-of-character));
     margin: 2rem;
   }
 
