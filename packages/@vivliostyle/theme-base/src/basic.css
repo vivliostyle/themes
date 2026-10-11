@@ -109,6 +109,8 @@
     --vs--p-text-align: justify;
     --vs--p-text-indent: 0;
     --vs--pre-border-color: var(--vs-color-border);
+    --vs--pre-font-family: var(--vs--monospace-font-family);
+    --vs--pre-line-height: var(--vs--monospace-line-height);
     --vs--pre-margin-block: var(--vs-spacing-rlh);
     --vs--pre-overflow-x: auto;
     --vs--pre-text-align: start;

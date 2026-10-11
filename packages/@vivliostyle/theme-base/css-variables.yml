@@ -1861,12 +1861,14 @@ _basic:
   pre-font-family:
     _syntax: '*'
     _property: 'font-family'
+    _define: 'var(--vs--monospace-font-family)'
   pre-font-size:
     _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
     _property: 'font-size'
   pre-line-height:
     _syntax: 'normal | <length> | <number> | <percentage>'
     _property: 'line-height'
+    _define: 'var(--vs--monospace-line-height)'
   pre-margin-block:
     _syntax: '*'
     _property: 'margin-block'
