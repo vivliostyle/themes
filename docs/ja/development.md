@@ -192,6 +192,16 @@ theme-baseや各テーマが公開するCSS変数を `:root` で上書きする�
 npm run example:preview
 ```
 
+### exampleをテンプレートとして提供する
+
+ユーザーがexampleからプロジェクトを始められるようにし、[theme.vivliostyle.org](https://theme.vivliostyle.org)でサムネイルとプレビューとして表示されるようにするには、exampleをテンプレートにします。
+
+1. `example/`を`template/default/`に移し、`vivliostyle.config.js`のパスと`package.json`の`files`を更新します。
+2. `vivliostyle create`で選ばれたタイトル、著者、テーマを受け取る`template/default/vivliostyle.config.js`を追加します。
+3. `package.json`の`vivliostyle.template`でテンプレートを宣言します。
+
+詳しくは仕様の[`vivliostyle.template`](./spec.md#vivliostyletemplate-プロパティ)と[template/](./spec.md#template)を参照してください。
+
 ## Themeを公開する
 
 ### 事前検証
