@@ -79,7 +79,12 @@
       "author": "Vivliostyle <mail@vivliostyle.org>",
       "style": "theme.css",
       "category": "misc",
-      "topics": []
+      "topics": [],
+      "i18n": {
+        "ja": {
+          "description": "Vivliostyleテーマのためのベーステーマ兼CSSツールキット"
+        }
+      }
     }
   }
 }

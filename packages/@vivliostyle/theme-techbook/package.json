@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-techbook",
   "version": "3.0.0",
-  "description": "Techbook (技術同人誌) theme",
+  "description": "Theme for Japanese technical doujinshi (self-published tech books)",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -43,11 +43,18 @@
   "vivliostyle": {
     "theme": {
       "name": "Techbook",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
       "category": "misc",
       "style": "theme.css",
       "topics": [
-        "Techbook"
-      ]
+        "technical",
+        "horizontal-writing"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "技術同人誌用のテーマ"
+        }
+      }
     }
   }
 }

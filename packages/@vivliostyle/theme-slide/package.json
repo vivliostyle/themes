@@ -43,11 +43,18 @@
   "vivliostyle": {
     "theme": {
       "name": "Slide",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
       "category": "misc",
       "style": "theme.css",
       "topics": [
-        "Slide"
-      ]
+        "slides",
+        "sans-serif"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "スライド用のテーマ"
+        }
+      }
     }
   }
 }

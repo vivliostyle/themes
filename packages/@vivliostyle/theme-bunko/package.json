@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-bunko",
   "version": "3.0.0",
-  "description": "文庫用のテーマ",
+  "description": "Theme for Japanese bunko paperbacks",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -43,12 +43,19 @@
   "vivliostyle": {
     "theme": {
       "name": "Bunko",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
       "style": "theme.css",
       "category": "novel",
       "topics": [
-        "小説",
-        "縦書き"
-      ]
+        "literature",
+        "vertical-writing",
+        "mincho"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "文庫用のテーマ"
+        }
+      }
     }
   }
 }
