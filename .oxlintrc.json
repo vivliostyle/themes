@@ -76,5 +76,10 @@
     "curly": "error",
     "prefer-const": ["error", { "destructuring": "all" }]
   },
-  "ignorePatterns": ["packages/*/lib/**"]
+  "ignorePatterns": [
+    "packages/*/lib/**",
+    // Handlebars templates, which become JavaScript only after
+    // `vivliostyle create` fills them in.
+    "packages/@vivliostyle/*/template/**/vivliostyle.config.js"
+  ]
 }

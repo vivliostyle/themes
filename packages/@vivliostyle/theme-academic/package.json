@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "template",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -56,6 +56,12 @@
         "ja": {
           "description": "学術論文やレポート用のテーマ"
         }
+      }
+    },
+    "template": {
+      "default": {
+        "name": "Academic sample",
+        "source": "./template/default"
       }
     }
   }

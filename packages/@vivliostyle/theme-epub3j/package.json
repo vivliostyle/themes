@@ -17,7 +17,7 @@
   "files": [
     "*.css",
     "ebpaj_epub3guide",
-    "example",
+    "template",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -53,6 +53,12 @@
         "ja": {
           "description": "日本語EPUB用テーマ（電書協EPUB3制作ガイド準拠）"
         }
+      }
+    },
+    "template": {
+      "default": {
+        "name": "EPUB3 (Japanese) sample",
+        "source": "./template/default"
       }
     }
   }

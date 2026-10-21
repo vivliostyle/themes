@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "template",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -54,6 +54,12 @@
         "ja": {
           "description": "技術同人誌用のテーマ"
         }
+      }
+    },
+    "template": {
+      "default": {
+        "name": "Techbook sample",
+        "source": "./template/default"
       }
     }
   }

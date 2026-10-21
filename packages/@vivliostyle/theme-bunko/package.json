@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "template",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -55,6 +55,12 @@
         "ja": {
           "description": "文庫用のテーマ"
         }
+      }
+    },
+    "template": {
+      "default": {
+        "name": "Bunko sample",
+        "source": "./template/default"
       }
     }
   }
