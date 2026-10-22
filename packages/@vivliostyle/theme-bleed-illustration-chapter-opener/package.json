@@ -1,0 +1,60 @@
+{
+  "name": "@vivliostyle/theme-bleed-illustration-chapter-opener",
+  "version": "0.0.0",
+  "description": "児童向け冒険小説の章扉テーマ。裁ち落とし挿絵に特大の章題を重ね、2段組の本文にドロップキャップを添える",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-bleed-illustration-chapter-opener"
+  },
+  "files": [
+    "*.css",
+    "example",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Bleed Illustration Chapter Opener",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "novel",
+      "topics": [
+        "novel",
+        "children-literature",
+        "adventure",
+        "illustrated",
+        "two-column",
+        "visual",
+        "sans-serif"
+      ]
+    }
+  }
+}

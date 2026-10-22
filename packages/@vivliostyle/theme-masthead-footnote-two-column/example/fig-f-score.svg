@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 210" role="img" aria-label="図1: 探索ステップに対するF値の推移。提案手法が基準手法Bを一貫して上回る折れ線グラフ。">
+<style>
+text { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+</style>
+<line x1="42" y1="14" x2="42" y2="170" stroke="#8c8c8c" stroke-width="0.8" />
+<line x1="42" y1="170" x2="286" y2="170" stroke="#8c8c8c" stroke-width="0.8" />
+<g stroke="#d8d8d3" stroke-width="0.5">
+<line x1="42" y1="138.8" x2="286" y2="138.8" />
+<line x1="42" y1="107.6" x2="286" y2="107.6" />
+<line x1="42" y1="76.4" x2="286" y2="76.4" />
+<line x1="42" y1="45.2" x2="286" y2="45.2" />
+</g>
+<g fill="#4a4a4a" font-size="9" text-anchor="end">
+<text x="37" y="173">0.0</text>
+<text x="37" y="141.8">0.2</text>
+<text x="37" y="110.6">0.4</text>
+<text x="37" y="79.4">0.6</text>
+<text x="37" y="48.2">0.8</text>
+<text x="37" y="17">1.0</text>
+</g>
+<g fill="#4a4a4a" font-size="9" text-anchor="middle">
+<text x="42" y="182">0</text>
+<text x="90.8" y="182">10</text>
+<text x="139.6" y="182">20</text>
+<text x="188.4" y="182">30</text>
+<text x="237.2" y="182">40</text>
+<text x="286" y="182">50</text>
+</g>
+<polyline points="42,170 66.4,124.8 90.8,88.9 139.6,60.8 188.4,48.3 237.2,42.1 286,38.6" fill="none" stroke="#161616" stroke-width="1.6" />
+<polyline points="42,170 66.4,145 90.8,120.1 139.6,92 188.4,74.8 237.2,63.9 286,57.8" fill="none" stroke="#8c8c8c" stroke-width="1.4" stroke-dasharray="4 3" />
+<g fill="#161616">
+<circle cx="66.4" cy="124.8" r="2.4" />
+<circle cx="90.8" cy="88.9" r="2.4" />
+<circle cx="139.6" cy="60.8" r="2.4" />
+<circle cx="188.4" cy="48.3" r="2.4" />
+<circle cx="237.2" cy="42.1" r="2.4" />
+<circle cx="286" cy="38.6" r="2.4" />
+</g>
+<g fill="#8c8c8c">
+<rect x="64.1" y="142.7" width="4.6" height="4.6" />
+<rect x="88.5" y="117.8" width="4.6" height="4.6" />
+<rect x="137.3" y="89.7" width="4.6" height="4.6" />
+<rect x="186.1" y="72.5" width="4.6" height="4.6" />
+<rect x="234.9" y="61.6" width="4.6" height="4.6" />
+<rect x="283.7" y="55.5" width="4.6" height="4.6" />
+</g>
+<g font-size="9" fill="#161616">
+<rect x="150" y="128" width="128" height="34" fill="#fafaf7" stroke="#8c8c8c" stroke-width="0.5" />
+<line x1="158" y1="139" x2="182" y2="139" stroke="#161616" stroke-width="1.6" />
+<circle cx="170" cy="139" r="2.4" fill="#161616" />
+<text x="188" y="142">提案手法</text>
+<line x1="158" y1="153" x2="182" y2="153" stroke="#8c8c8c" stroke-width="1.4" stroke-dasharray="4 3" />
+<rect x="167.7" y="150.7" width="4.6" height="4.6" fill="#8c8c8c" />
+<text x="188" y="156">基準手法B</text>
+</g>
+<text x="14" y="92" transform="rotate(-90 14 92)" text-anchor="middle" font-size="9.5" fill="#4a4a4a">F値(総合指標)</text>
+<text x="164" y="200" text-anchor="middle" font-size="9.5" fill="#4a4a4a">探索ステップ(×10³)</text>
+</svg>

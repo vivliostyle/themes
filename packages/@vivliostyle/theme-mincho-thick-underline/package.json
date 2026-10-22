@@ -1,0 +1,61 @@
+{
+  "name": "@vivliostyle/theme-mincho-thick-underline",
+  "version": "0.0.0",
+  "description": "A4縦・明朝1段組の国内研究会配布資料向けテーマ。右寄せの柱、太下罫付き章見出し、上下太罫の学術表、巻末の注を組む",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-mincho-thick-underline"
+  },
+  "files": [
+    "*.css",
+    "example",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Mincho Thick Underline",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "journal",
+      "topics": [
+        "academic-conference",
+        "research-group",
+        "a4",
+        "single-column",
+        "formal-report",
+        "japanese",
+        "footnotes",
+        "traditional"
+      ]
+    }
+  }
+}

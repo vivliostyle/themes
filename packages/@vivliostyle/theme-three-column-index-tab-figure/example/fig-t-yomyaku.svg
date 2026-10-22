@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 150" role="img" aria-label="葉脈の模式図。羽状脈・掌状脈・三行脈の三通りの脈の走り方を同じ輪郭で比べて示す。">
+<style>
+.leaf-blade { fill: #557a55; fill-opacity: 0.46; stroke: #2c352c; stroke-width: 1.3; stroke-linejoin: round; }
+.leaf-vein { fill: none; stroke: #2c352c; stroke-width: 0.7; opacity: 0.65; }
+.leaf-stem { fill: none; stroke: #6f6142; stroke-width: 2.2; stroke-linecap: round; }
+.fig-acc { fill: #557a55; fill-opacity: 0.4; stroke: #2c352c; stroke-width: 1; stroke-linejoin: round; }
+.fig-berry { fill: #a9483d; fill-opacity: 0.85; stroke: #6f2a24; stroke-width: 0.7; }
+.fig-flower { fill: #ddb9be; fill-opacity: 0.8; stroke: #b98b35; stroke-width: 0.7; }
+.fig-scale { stroke: #252a26; stroke-width: 1; }
+.fig-scale-t { fill: #252a26; font: 500 7px "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; letter-spacing: 0.03em; }
+.fig-lbl { fill: #3a463a; font: 6.5px "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+.fig-lead { fill: none; stroke: #9aa89a; stroke-width: 0.5; }
+</style>
+<path class="leaf-stem" d="M28,118 L28,132" />
+<path class="leaf-blade" d="M28,118 C14,98 14,58 28,34 C42,58 42,98 28,118 Z" />
+<path class="leaf-vein" d="M28,116 L28,38 M28,100 Q22,94 18,86 M28,100 Q34,94 38,86 M28,84 Q22,78 18,70 M28,84 Q34,78 38,70 M28,68 Q23,62 20,56 M28,68 Q33,62 36,56" />
+<text class="fig-lbl" x="28" y="144" text-anchor="middle">羽状脈</text>
+<path class="leaf-stem" d="M80,118 L80,132" />
+<path class="leaf-blade" d="M80,118 C66,98 66,58 80,34 C94,58 94,98 80,118 Z" />
+<path class="leaf-vein" d="M80,116 L80,38 M80,110 Q70,86 69,54 M80,110 Q90,86 91,54 M80,110 Q67,92 67,74 M80,110 Q93,92 93,74" />
+<text class="fig-lbl" x="80" y="144" text-anchor="middle">掌状脈</text>
+<path class="leaf-stem" d="M132,118 L132,132" />
+<path class="leaf-blade" d="M132,118 C118,98 118,58 132,34 C146,58 146,98 132,118 Z" />
+<path class="leaf-vein" d="M132,116 L132,38 M132,110 Q123,86 127,52 M132,110 Q141,86 137,52" />
+<text class="fig-lbl" x="132" y="144" text-anchor="middle">三行脈</text>
+</svg>

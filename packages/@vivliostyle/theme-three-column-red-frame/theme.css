@@ -1,0 +1,262 @@
+/*
+ * 学会の講演要旨集向けテーマ。
+ * A4縦・3段組・6.2pt/1.18 の超高密度な要旨集ページ。赤の白抜きタイトルバー・
+ * キーワードラベル・全周枠罫でアクセントを付ける。
+ *
+ * VFM 出力の DOM:
+ *   body > (header, section.level2 …, footer)
+ * 要旨 1 件が section.level2、その参考文献が section.level3。
+ * 3段は body の multicol で、要旨は段・ページをまたいで流れる。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  /* ---- テーマ固有 ---- */
+  --vs-theme-three-column-red-frame--color-accent: #d9534f;
+  --vs-theme-three-column-red-frame--color-accent-tint: #f9e4e3;
+  --vs-theme-three-column-red-frame--color-on-accent: #ffffff;
+  --vs-theme-three-column-red-frame--color-column-rule: #8a8a8a;
+  /* 枠罫から本文までのアキ */
+  --vs-page--padding-top: 3mm;
+  --vs-page--padding-right: 2.5mm;
+  --vs-page--padding-bottom: 2.5mm;
+  --vs-page--padding-left: 2.5mm;
+  /* 演題番号。会告の付番規則 (接頭辞・開始番号・幅) は原稿側で与える */
+  --vs-theme-three-column-red-frame--entry-marker-content: counter(
+    vs-counter-sec-h2
+  );
+  --vs-theme-three-column-red-frame--entry-marker-size-inline: 5mm;
+  --vs-theme-three-column-red-frame--reference-marker-content: counter(
+      vs-counter-reference
+    )
+    ') ';
+  --vs-theme-three-column-red-frame--notice-marker-content: counter(
+      vs-counter-notice
+    )
+    '. ';
+
+  /* ---- theme-base メタ変数 ---- */
+  /* 実描画では 6.5pt だと段の下端がクリップされるため本文を 6.2pt に詰める */
+  --vs-font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  --vs-font-size: 6.2pt;
+  --vs-line-height: 1.18;
+  --vs-spacing-rlh: 1.18rem;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-background: #ffffff;
+  --vs-columns: 1; /* html は単段のまま。3段は body に掛ける */
+  --vs-column-gap: 5.2mm;
+  --vs-hyphens: none;
+
+  --vs-page--size: A4;
+  --vs-page--margin-top: 12mm;
+  --vs-page--margin-bottom: 12mm;
+  --vs-page--margin-left: 10mm;
+  --vs-page--margin-right: 10mm;
+  --vs-page--background-color: #ffffff;
+  /* 全周の枠罫。天は太罫で柱下の見出し罫を兼ねる */
+  --vs-page--border-width: 0.4pt;
+  --vs-page--border-width-top: 2.4pt;
+  --vs-page--border-color: var(--vs-theme-three-column-red-frame--color-accent);
+  --vs-page--mbox-top-left-content: env(doc-title);
+  --vs-page--mbox-top-right-content: string(running-session) '　' counter(page);
+  --vs-page--mbox-font-family:
+    'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  --vs-page--mbox-font-size: 8pt;
+  --vs-page--mbox-font-weight: 700;
+  --vs-page--mbox-text-color: var(--vs-color-foreground);
+  --vs-page--mbox-top-padding-bottom: 1.4mm;
+  --vs-page--mbox-top-vertical-align: bottom;
+
+  /* ---- theme-base 要素変数 ---- */
+  --vs--heading-font-family:
+    'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+
+  --vs--h2-font-size: 7pt;
+  --vs--h2-line-height: 1.36;
+  --vs--h2-letter-spacing: 0.005em;
+  --vs--h2-margin-block: 0 1.8mm;
+  --vs--h2-background-color: var(
+    --vs-theme-three-column-red-frame--color-accent
+  );
+  --vs--h2-text-color: var(--vs-theme-three-column-red-frame--color-on-accent);
+  --vs--h2-padding-block: 1.4mm 1.6mm;
+  --vs--h2-padding-inline: 1.8mm;
+
+  --vs--h3-font-size: 1em;
+  --vs--h3-margin-block: 1.5mm 0.8mm;
+
+  /* 段幅が狭いので justify にしない */
+  --vs--p-margin-block: 0 1.3mm;
+  --vs--p-text-align: start;
+
+  --vs--sub-font-size: 0.7em;
+  --vs--sup-font-size: 0.7em;
+
+  /* 参考文献・注意事項は番号を ::before で組むためマーカーと字下げを解除 */
+  --vs--lists-margin-block: 0;
+  --vs--ol-list-style-type: none;
+  --vs--ol-padding-inline-start: 0px;
+
+  --vs--blockquote-margin-inline: 0;
+
+  /* ---- 演題番号は h2 のセクションカウンタで採る ---- */
+  --vs-section--marker-display: inline;
+  --vs-section--h2-marker-content: var(
+    --vs-theme-three-column-red-frame--entry-marker-content
+  );
+  --vs-section--h2-marker-display: inline-block;
+  --vs-section--h2-marker-margin-inline-end: 0;
+  --vs-section--h3-marker-display: none;
+}
+
+body {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  columns: 3;
+  column-gap: var(--vs-column-gap);
+  column-fill: auto;
+  column-rule-width: 0.35pt;
+  column-rule-style: solid;
+  column-rule-color: var(--vs-theme-three-column-red-frame--color-column-rule);
+}
+
+/* ── セッションの開催情報。3段の上に全幅で置く ── */
+body > header {
+  column-span: all;
+  margin-block-end: 2.8mm;
+  padding: 1.4mm 2mm 1.6mm;
+  border-width: 0.8pt;
+  border-style: solid;
+  border-color: var(--vs-theme-three-column-red-frame--color-accent);
+  background-color: var(--vs-theme-three-column-red-frame--color-accent-tint);
+}
+
+body > header p {
+  margin-block: 0;
+}
+
+.session-title {
+  string-set: running-session content();
+  margin-block-end: 0.8mm;
+  color: var(--vs-theme-three-column-red-frame--color-accent);
+  font-size: 8.4pt;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* ── 要旨エントリ (section.level2 = 演題1件, section.level3 = 参考文献) ── */
+section.level2 {
+  margin-block-end: 3.5mm;
+}
+
+section.level3 {
+  margin: 0;
+}
+
+/* 演題番号 + 白抜きタイトルの赤バー。演題番号の幅ぶんぶら下げて、タイトルの
+   2行目以降を揃える (flex にすると題中の <sub> が別の flex item になり
+   タイトルが分断される)。赤バーが段をまたぐと体裁が崩れるので分割しない */
+section > h2:first-child {
+  break-after: avoid;
+  break-inside: avoid;
+  padding-inline-start: calc(
+    var(--vs--h2-padding-inline) +
+      var(--vs-theme-three-column-red-frame--entry-marker-size-inline)
+  );
+  text-indent: calc(
+    var(--vs-theme-three-column-red-frame--entry-marker-size-inline) * -1
+  );
+}
+
+section > h2:first-child::before {
+  font-size: 8.4pt;
+  inline-size: var(--vs-theme-three-column-red-frame--entry-marker-size-inline);
+  letter-spacing: 0.02em;
+  text-indent: 0;
+}
+
+/* 見出し直後の1段落目が著者名、2段落目がキーワード行 */
+section.level2 > h2 + p {
+  margin-block-end: 1.1mm;
+}
+
+section.level2 > h2 + p + p {
+  font-weight: 700;
+  margin-block-end: 1.5mm;
+}
+
+section.level2 > h2 + p + p > strong:first-child {
+  color: var(--vs-theme-three-column-red-frame--color-accent);
+}
+
+/* 参考文献 (ぶら下げ + "1)" 形式)。
+   <footer> は最後の演題の section に入るので、直下の小節だけを対象にする */
+section.level2 > section.level3 ol {
+  counter-reset: vs-counter-reference;
+}
+
+section.level2 > section.level3 ol > li {
+  counter-increment: vs-counter-reference;
+  padding-inline-start: 3.6mm;
+  text-indent: -3.6mm;
+  margin-block-end: 0.7mm;
+}
+
+section.level2 > section.level3 ol > li::before {
+  content: var(--vs-theme-three-column-red-frame--reference-marker-content);
+}
+
+/* ── 段末の後付け (謝辞・注意事項・連絡先) ── */
+footer {
+  margin-block-start: 4mm;
+}
+
+footer > section.level3:first-child h3 {
+  margin-block-start: 0;
+}
+
+footer ol {
+  counter-reset: vs-counter-notice;
+}
+
+footer ol > li {
+  counter-increment: vs-counter-notice;
+  padding-inline-start: 4.2mm;
+  text-indent: -4.2mm;
+  margin-block-end: 1.3mm;
+}
+
+footer ol > li::before {
+  content: var(--vs-theme-three-column-red-frame--notice-marker-content);
+}
+
+address {
+  font-style: normal;
+}
+
+/* 赤枠・淡赤地の注意ボックス */
+footer blockquote {
+  --vs--blockquote-margin-block: 2.4mm 0;
+  --vs--blockquote-padding-block: 2.4mm;
+  --vs--blockquote-padding-inline: 2mm;
+  --vs--blockquote-background-color: var(
+    --vs-theme-three-column-red-frame--color-accent-tint
+  );
+  --vs--blockquote-text-color: var(
+    --vs-theme-three-column-red-frame--color-accent
+  );
+  border-width: 0.8pt;
+  border-style: solid;
+  border-color: var(--vs-theme-three-column-red-frame--color-accent);
+  break-inside: avoid;
+  font-weight: 500;
+}
+
+footer blockquote p {
+  margin-block: 0;
+  color: var(--vs-theme-three-column-red-frame--color-accent);
+  font-weight: 500;
+}

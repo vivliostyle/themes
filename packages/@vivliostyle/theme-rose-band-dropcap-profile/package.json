@@ -1,0 +1,60 @@
+{
+  "name": "@vivliostyle/theme-rose-band-dropcap-profile",
+  "version": "0.0.0",
+  "description": "A4判・墨とローズレッドの二色刷りエッセイアンソロジー篇頭テーマ。色ベタ帯の大題とドロップキャップ、著者プロフィール欄を組む",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-rose-band-dropcap-profile"
+  },
+  "files": [
+    "*.css",
+    "example",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Rose Band Dropcap Profile",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "novel",
+      "topics": [
+        "essay-critique",
+        "anthology",
+        "essay",
+        "multi-author",
+        "a4",
+        "modern",
+        "colorful"
+      ]
+    }
+  }
+}

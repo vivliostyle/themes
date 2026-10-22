@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 252 116" role="img" aria-label="A ship's bell hanging from an iron bracket, with a pull-rope coiled beside it.">
+  <!-- bracket -->
+  <g stroke="#8B887F" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M62,18 L188,18" />
+    <path d="M62,10 L62,30" />
+    <path d="M188,10 L188,30" />
+  </g>
+  <path d="M124,18 L124,30" stroke="#5F6365" stroke-width="2.6" />
+  <!-- bell -->
+  <path d="M124,30 C112,30 108,42 108,54 C108,70 100,82 92,90 L156,90 C148,82 140,70 140,54 C140,42 136,30 124,30 Z" fill="#E7E3DA" stroke="#5F6365" stroke-width="2.2" />
+  <path d="M115,44 C111,58 108,72 100,86" fill="none" stroke="#B7B3A9" stroke-width="1.2" />
+  <ellipse cx="124" cy="90" rx="32" ry="5" fill="#EDEAE1" stroke="#5F6365" stroke-width="1.8" />
+  <path d="M124,90 L124,98" stroke="#5F6365" stroke-width="1.6" />
+  <circle cx="124" cy="102" r="5" fill="#33383A" />
+  <!-- pull-rope -->
+  <path d="M129,102 C154,110 178,100 196,84" fill="none" stroke="#8B887F" stroke-width="2" />
+  <path d="M196,84 C210,72 214,88 202,94 C192,99 186,90 194,86" fill="none" stroke="#8B887F" stroke-width="2" />
+  <!-- two rings -->
+  <g fill="none" stroke="#B7B3A9" stroke-width="1.6" opacity="0.9">
+    <path d="M70,44 C58,54 58,68 68,80" />
+    <path d="M52,36 C34,52 34,74 50,90" />
+  </g>
+</svg>

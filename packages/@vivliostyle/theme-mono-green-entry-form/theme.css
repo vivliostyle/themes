@@ -1,0 +1,216 @@
+/*
+ * 釣果記録帳 (mono-green-entry-form)
+ * スリム手帳判(105×173mm)の釣果記録フォーム。等幅組みで緑1色(アクセント
+ * #27ae60 + 濃緑の記入インク)に統一し、記入下線・淡緑ヘッダーの釣果テーブル・
+ * TACKLE 欄・グレー罫の NOTES を1ページに収める。
+ * 1 記録 = h1 で始まる section.level1 = 1 ページで、通し番号は h1 の
+ * セクションカウンタから振る。TACKLE / NOTES は section.level2、
+ * 釣果表は Markdown の table。
+ */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+/* 記録番号は 3 桁ゼロ詰め */
+@counter-style vs-theme--sheet-number {
+  system: extends decimal;
+  pad: 3 '0';
+}
+
+:root {
+  /* テーマ固有 */
+  --vs-theme-mono-green-entry-form--color-accent: #27ae60;
+  --vs-theme-mono-green-entry-form--color-tint: #eaf7f0;
+  --vs-theme-mono-green-entry-form--color-rule: #c8cdc9;
+  --vs-theme-mono-green-entry-form--field-label-size-inline: 13mm;
+  --vs-theme-mono-green-entry-form--field-label-size-inline-2nd: 17mm;
+  --vs-theme-mono-green-entry-form--row-size-block: 3.8mm;
+  --vs-theme-mono-green-entry-form--rule-size-block: 4.8mm;
+  --vs-theme-mono-green-entry-form--sheet-number-content: 'No. '
+    counter(vs-counter-sec-h1, vs-theme--sheet-number);
+  --vs-theme-mono-green-entry-form--sheet-call-content: target-counter(
+    attr(href),
+    vs-counter-sec-h1,
+    vs-theme--sheet-number
+  );
+
+  --vs-page--size: 105mm 173mm;
+  --vs-page--margin-top: 8mm;
+  --vs-page--margin-bottom: 8mm;
+  --vs-page--margin-left: 8mm;
+  --vs-page--margin-right: 8mm;
+
+  /* ノンブル */
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-font-family: 'JetBrains Mono', monospace;
+  --vs-page--mbox-font-size: 8pt;
+  --vs-page--mbox-text-color: #1c7a46;
+
+  --vs-font-family: 'JetBrains Mono', 'Noto Sans JP', ui-monospace, monospace;
+  --vs-font-size: 8pt;
+  --vs-line-height: 1.5;
+  --vs-color-foreground: #1c7a46;
+  --vs-color-background: #fbfbf8;
+  --vs-columns: 1;
+
+  --vs--heading-font-family:
+    'JetBrains Mono', 'Noto Sans JP', ui-monospace, monospace;
+
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 0;
+  --vs--p-text-align: start;
+
+  /* ヘッダ: FISHING LOG + No. */
+  --vs--h1-font-size: 12pt;
+  --vs--h1-font-weight: 700;
+  --vs--h1-line-height: 1.2;
+  --vs--h1-letter-spacing: 0.14em;
+  --vs--h1-margin-block: 0 3.5mm;
+  --vs--h1-text-color: var(--vs-theme-mono-green-entry-form--color-accent);
+  --vs--h1-border-width-block-end: 1.6pt;
+  --vs--h1-border-style-block-end: solid;
+  --vs--h1-border-color-block-end: var(
+    --vs-theme-mono-green-entry-form--color-accent
+  );
+  --vs--h1-padding-block: 0 1.4mm;
+
+  /* 記録用紙は 1 枚 = 1 ページ */
+  --vs-section--h1-break-before: page;
+
+  /* TACKLE / NOTES 見出し */
+  --vs--h2-font-size: 8.5pt;
+  --vs--h2-font-weight: 700;
+  --vs--h2-line-height: 1.5;
+  --vs--h2-letter-spacing: 0.08em;
+  --vs--h2-margin-block: 0 1.5mm;
+  --vs--h2-text-color: var(--vs-theme-mono-green-entry-form--color-accent);
+
+  /* 記入欄 (dl) と NOTES 罫 (ul) は装飾を自前で持つのでリストの既定を落とす */
+  --vs--lists-margin-block: 0;
+  --vs--lists-margin-inline: 0;
+  --vs--dd-margin-inline-start: 0;
+  --vs--ul-padding-inline-start: 0px;
+
+  /* 釣果テーブル: 外枠 0.9pt / セル罫 0.4pt の緑罫。
+     欄幅は原稿の記入内容に合わせて自動で決める */
+  --vs--table-table-layout: auto;
+  --vs--table-size-inline: 100%;
+  --vs--table-border-width: 0;
+  --vs--table-border-color: #27ae60;
+  --vs--table-border-width-outer: 0.9pt;
+  --vs--table-border-width-cell: 0.4pt;
+  --vs--table-margin-block: 1.5mm 3.5mm;
+  --vs--table-margin-inline: 0;
+  --vs--table-cell-padding-block: 0.7mm;
+  --vs--table-cell-padding-inline: 2mm;
+  --vs--th-font-size: 100%;
+  --vs--th-font-weight: 500;
+  --vs--th-background-color: var(--vs-theme-mono-green-entry-form--color-tint);
+  --vs--th-text-color: var(--vs-theme-mono-green-entry-form--color-accent);
+}
+
+/* ---- ヘッダ: 用紙名を左、記録番号を右に振り分ける ---- */
+h1 {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+section > h1:first-child:not(:has(.no))::after {
+  content: var(--vs-theme-mono-green-entry-form--sheet-number-content);
+}
+
+h1 .no,
+section > h1:first-child::after {
+  font-size: 9pt;
+  line-height: 1.5;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+/* 原稿が見出しに番号を書き入れた用紙 (総括・記入例など) は
+   記録の通し番号を消費しない */
+section:has(> h1:first-child:has(.no)) {
+  counter-increment: none;
+}
+
+/* 他の用紙の番号を引く参照 */
+a[data-ref='sheet'] {
+  color: inherit;
+  text-decoration: none;
+}
+
+a[data-ref='sheet']::before {
+  content: var(--vs-theme-mono-green-entry-form--sheet-call-content);
+}
+
+/* ---- 記入欄: ラベル + 下線 (flex 1行) ---- */
+.field {
+  margin-bottom: 1mm;
+}
+/* 記入値が 1 行に収まらないときは折り返して伸ばす。stretch にしておくと
+   同じ行の記入罫が伸びたほうの下端で揃う */
+.field dl {
+  display: flex;
+  align-items: stretch;
+  margin-block-end: 1.8mm;
+}
+/* ラベル幅を固定して行をまたいだ記入欄の列位置を揃える */
+.field dt {
+  flex: 0 0 var(--vs-theme-mono-green-entry-form--field-label-size-inline);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--vs-theme-mono-green-entry-form--color-accent);
+}
+/* 記入値は本文より一段小さく組み、記入欄の幅を稼ぐ */
+.field dd {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0 0.6mm 0.5mm;
+  border-bottom-width: 0.4pt;
+  border-bottom-style: solid;
+  border-bottom-color: var(--vs-theme-mono-green-entry-form--color-accent);
+  font-size: 7pt;
+}
+/* 1 行に 2 組並べるときの 2 つめのラベル */
+.field dd + dt {
+  flex-basis: var(--vs-theme-mono-green-entry-form--field-label-size-inline-2nd);
+  padding-left: 2.5mm;
+}
+
+/* ---- 釣果テーブル (Markdown の table) ---- */
+/* 記入行は書き込める高さを確保する */
+th,
+td {
+  height: var(--vs-theme-mono-green-entry-form--row-size-block);
+  white-space: nowrap;
+}
+thead th {
+  letter-spacing: 0.05em;
+  height: auto;
+}
+/* 欄の寄せは原稿の桁揃え指定 (:--- / :-: / ---:) に従う */
+tbody td[align='right'] {
+  padding-inline-end: 3.5mm;
+}
+
+/* ---- NOTES 罫線: 段落・箇条書き・空罫をすべて記入罫として扱う ---- */
+h2.notes {
+  margin-block-start: 1.5mm;
+}
+h2.notes ~ p,
+h2.notes ~ ul li {
+  min-height: var(--vs-theme-mono-green-entry-form--rule-size-block);
+  padding: 0.4mm 1mm 0.2mm;
+  border-bottom-width: 0.3pt;
+  border-bottom-style: solid;
+  border-bottom-color: var(--vs-theme-mono-green-entry-form--color-rule);
+}
+/* 罫線を版面幅いっぱいに引くため、マーカーは li の内側に置く */
+h2.notes ~ ul {
+  list-style-position: inside;
+}
+h2.notes ~ ul li::marker {
+  color: var(--vs-theme-mono-green-entry-form--color-accent);
+}

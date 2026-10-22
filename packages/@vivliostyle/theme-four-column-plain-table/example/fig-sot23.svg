@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 158" role="img" aria-label="SOT-23 パッケージのピン配置図 (上面図)">
+  <style>
+    text { font-family: "JetBrains Mono", "Menlo", "Consolas", monospace; fill: #1a1a1a; font-size: 11px; }
+    .outline { fill: none; stroke: #1a1a1a; stroke-width: 1.6; }
+    .lead { fill: none; stroke: #1a1a1a; stroke-width: 1.2; }
+  </style>
+  <rect class="outline" x="70" y="46" width="100" height="58"/>
+  <rect class="lead" x="112" y="26" width="16" height="20"/>
+  <rect class="lead" x="85" y="104" width="16" height="20"/>
+  <rect class="lead" x="139" y="104" width="16" height="20"/>
+  <text x="108" y="20" text-anchor="end">3</text>
+  <text x="134" y="20">OUT</text>
+  <text x="93" y="139" text-anchor="middle">1</text>
+  <text x="93" y="152" text-anchor="middle">IN</text>
+  <text x="147" y="139" text-anchor="middle">2</text>
+  <text x="147" y="152" text-anchor="middle">GND</text>
+</svg>

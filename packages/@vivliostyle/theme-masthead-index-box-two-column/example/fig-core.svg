@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" role="img" aria-label="Schematic of the Ostrand Basin core: a stratigraphic column beside a plot of varve thickness against depth, with the laminated interval, the frayed transition and the massive clay below marked">
+<style>
+text { font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif; }
+.lbl { font-size: 15px; fill: #62615d; }
+.tick { font-size: 13px; fill: #62615d; }
+.key { font-size: 14px; fill: #1a1a1a; }
+</style>
+
+<rect x="60" y="40" width="46" height="118" fill="#f2efe6" stroke="#1a1a1a" stroke-width="1.2"/>
+<g stroke="#62615d" stroke-width="1">
+<line x1="60" y1="47" x2="106" y2="47"/><line x1="60" y1="54" x2="106" y2="54"/>
+<line x1="60" y1="61" x2="106" y2="61"/><line x1="60" y1="68" x2="106" y2="68"/>
+<line x1="60" y1="75" x2="106" y2="75"/><line x1="60" y1="82" x2="106" y2="82"/>
+<line x1="60" y1="89" x2="106" y2="89"/><line x1="60" y1="96" x2="106" y2="96"/>
+<line x1="60" y1="103" x2="106" y2="103"/><line x1="60" y1="110" x2="106" y2="110"/>
+<line x1="60" y1="117" x2="106" y2="117"/><line x1="60" y1="124" x2="106" y2="124"/>
+<line x1="60" y1="131" x2="106" y2="131"/><line x1="60" y1="138" x2="106" y2="138"/>
+<line x1="60" y1="145" x2="106" y2="145"/><line x1="60" y1="152" x2="106" y2="152"/>
+</g>
+
+<rect x="60" y="158" width="46" height="52" fill="#e2ded1" stroke="#1a1a1a" stroke-width="1.2"/>
+<g stroke="#62615d" stroke-width="1" stroke-dasharray="7 9">
+<line x1="60" y1="167" x2="106" y2="167"/><line x1="60" y1="181" x2="106" y2="181"/>
+<line x1="60" y1="196" x2="106" y2="196"/>
+</g>
+
+<rect x="60" y="210" width="46" height="60" fill="#cfcabb" stroke="#1a1a1a" stroke-width="1.2"/>
+
+<line x1="52" y1="40" x2="52" y2="270" stroke="#62615d" stroke-width="1"/>
+<g stroke="#62615d" stroke-width="1">
+<line x1="46" y1="40" x2="52" y2="40"/><line x1="46" y1="158" x2="52" y2="158"/>
+<line x1="46" y1="210" x2="52" y2="210"/><line x1="46" y1="270" x2="52" y2="270"/>
+</g>
+<text class="tick" x="40" y="45" text-anchor="end">0.0</text>
+<text class="tick" x="40" y="163" text-anchor="end">4.1</text>
+<text class="tick" x="40" y="215" text-anchor="end">5.9</text>
+<text class="tick" x="40" y="275" text-anchor="end">11.4</text>
+<text class="lbl" x="30" y="22">Depth (m)</text>
+
+<g stroke="#b0ada2" stroke-width="1">
+<line x1="106" y1="99" x2="122" y2="99"/>
+<line x1="106" y1="185" x2="122" y2="185"/>
+<line x1="106" y1="241" x2="122" y2="241"/>
+</g>
+<text class="key" x="130" y="103">Laminated: paired silt and organic couplets</text>
+<text class="key" x="130" y="189">Frayed: burrow mottling, boundaries lost</text>
+<text class="key" x="130" y="245">Massive grey clay: no annual structure</text>
+
+<line x1="500" y1="40" x2="500" y2="270" stroke="#62615d" stroke-width="1.2"/>
+<line x1="500" y1="270" x2="775" y2="270" stroke="#62615d" stroke-width="1.2"/>
+<g stroke="#e0dcd0" stroke-width="1">
+<line x1="560" y1="40" x2="560" y2="270"/>
+<line x1="620" y1="40" x2="620" y2="270"/>
+<line x1="680" y1="40" x2="680" y2="270"/>
+<line x1="740" y1="40" x2="740" y2="270"/>
+</g>
+<rect x="500" y="158" width="275" height="52" fill="#e2ded1"/>
+<rect x="500" y="210" width="275" height="60" fill="#cfcabb"/>
+
+<polyline fill="none" stroke="#1a1a1a" stroke-width="2"
+ points="626,40 638,47 620,54 632,61 650,68 644,75 626,82 614,89 620,96 638,103 656,110 644,117 632,124 620,131 608,138 620,145 632,152 626,158"/>
+<polyline fill="none" stroke="#62615d" stroke-width="2" stroke-dasharray="6 5"
+ points="626,158 644,167 602,176 656,185 596,194 632,203 614,210"/>
+
+<g stroke="#62615d" stroke-width="1">
+<line x1="560" y1="270" x2="560" y2="276"/><line x1="620" y1="270" x2="620" y2="276"/>
+<line x1="680" y1="270" x2="680" y2="276"/><line x1="740" y1="270" x2="740" y2="276"/>
+</g>
+<text class="tick" x="500" y="290" text-anchor="middle">0</text>
+<text class="tick" x="560" y="290" text-anchor="middle">1</text>
+<text class="tick" x="620" y="290" text-anchor="middle">2</text>
+<text class="tick" x="680" y="290" text-anchor="middle">3</text>
+<text class="tick" x="740" y="290" text-anchor="middle">4</text>
+<text class="lbl" x="470" y="22">Couplet thickness (mm)</text>
+</svg>

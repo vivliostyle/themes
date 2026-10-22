@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" role="img" aria-label="Figure 1: Architecture overview showing the monitor, estimator, and reallocator components alongside the shared cache">
+<style>
+text {
+  font-family: "STIX Two Text", "Times New Roman", Times, serif;
+}
+</style>
+<rect x="24" y="18" width="196" height="76" fill="#eef0fa" stroke="#14148c" stroke-width="2" />
+<rect x="302" y="18" width="196" height="76" fill="#eef0fa" stroke="#14148c" stroke-width="2" />
+<rect x="580" y="18" width="196" height="76" fill="#eef0fa" stroke="#14148c" stroke-width="2" />
+<rect x="222" y="216" width="356" height="76" fill="#f4f5fa" stroke="#14148c" stroke-width="2" />
+<line x1="220" y1="56" x2="296" y2="56" stroke="#14148c" stroke-width="2" />
+<polygon points="302,56 288,50 288,62" fill="#14148c" />
+<line x1="498" y1="56" x2="574" y2="56" stroke="#14148c" stroke-width="2" />
+<polygon points="580,56 566,50 566,62" fill="#14148c" />
+<line x1="122" y1="216" x2="122" y2="100" stroke="#8f8fbe" stroke-width="2" stroke-dasharray="6 5" />
+<polygon points="122,94 116,108 128,108" fill="#8f8fbe" />
+<line x1="678" y1="100" x2="678" y2="248" stroke="#14148c" stroke-width="2" />
+<line x1="678" y1="248" x2="584" y2="248" stroke="#14148c" stroke-width="2" />
+<polygon points="578,248 592,242 592,254" fill="#14148c" />
+<line x1="122" y1="216" x2="216" y2="216" stroke="#8f8fbe" stroke-width="2" stroke-dasharray="6 5" />
+<text x="122" y="62" text-anchor="middle" font-size="21" fill="#17171b">Monitor</text>
+<text x="400" y="62" text-anchor="middle" font-size="21" fill="#17171b">Estimator</text>
+<text x="678" y="62" text-anchor="middle" font-size="21" fill="#17171b">Reallocator</text>
+<text x="400" y="252" text-anchor="middle" font-size="21" fill="#17171b">Shared cache · 1,000 shards</text>
+<text x="400" y="278" text-anchor="middle" font-size="16" fill="#555563">per-tenant regions, migrated in place</text>
+<text x="255" y="44" text-anchor="middle" font-size="15" fill="#555563">counters</text>
+<text x="536" y="44" text-anchor="middle" font-size="15" fill="#555563">gain / cost</text>
+<text x="152" y="160" font-size="15" fill="#555563">hit &amp; miss samples</text>
+<text x="694" y="180" font-size="15" fill="#555563">migration plan</text>
+</svg>

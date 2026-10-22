@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 182" role="img" aria-label="折り返し処理の流れ。入力文字列から幅の境界を求め、候補位置を後方探索して折り返し位置を決定し、複数行を出力する。">
+<style>
+.lbl { font-family: "Noto Sans JP", "Hiragino Sans", sans-serif; font-size: 8.5px; fill: #0066cc; }
+.dots { font-family: "Noto Sans JP", "Hiragino Sans", sans-serif; font-size: 11px; fill: #5c9bd6; }
+</style>
+
+<g class="lbl">
+  <text x="132" y="10" text-anchor="middle">入力文字列</text>
+  <text x="54" y="50" text-anchor="end">幅の境界</text>
+  <text x="54" y="78" text-anchor="end">候補位置を</text>
+  <text x="54" y="89" text-anchor="end">後方探索</text>
+  <text x="54" y="117" text-anchor="end">折り返し</text>
+  <text x="54" y="128" text-anchor="end">位置を決定</text>
+  <text x="54" y="150" text-anchor="end">出力</text>
+  <text x="54" y="161" text-anchor="end">（複数行）</text>
+</g>
+
+<g fill="none" stroke="#0066cc" stroke-width="1.1">
+  <path d="M60 18 H196 L206 27 L196 36 H60 Z" />
+  <path d="M68 27 H188" stroke-dasharray="1.5 3.5" stroke-width="1.4" />
+</g>
+
+<g stroke="#5c9bd6" stroke-width="0.7" stroke-dasharray="2.5 2.5">
+  <path d="M84 38 V132" />
+  <path d="M110 38 V132" />
+  <path d="M136 38 V132" />
+  <path d="M162 38 V132" />
+  <path d="M188 38 V132" />
+</g>
+
+<g fill="none" stroke="#0066cc" stroke-width="1.1">
+  <path d="M84 42 V62 M80.5 57 L84 62 L87.5 57" />
+  <path d="M110 42 V62 M106.5 57 L110 62 L113.5 57" />
+  <path d="M136 42 V62 M132.5 57 L136 62 L139.5 57" />
+  <path d="M162 42 V62 M158.5 57 L162 62 L165.5 57" />
+  <path d="M188 42 V62 M184.5 57 L188 62 L191.5 57" />
+  <path d="M108 84 H86 M91 80.5 L86 84 L91 87.5" />
+  <path d="M134 84 H112 M117 80.5 L112 84 L117 87.5" />
+  <path d="M160 84 H138 M143 80.5 L138 84 L143 87.5" />
+  <path d="M186 84 H164 M169 80.5 L164 84 L169 87.5" />
+  <path d="M84 106 V130 M80.5 125 L84 130 L87.5 125" />
+  <path d="M136 106 V130 M132.5 125 L136 130 L139.5 125" />
+  <path d="M188 106 V130 M184.5 125 L188 130 L191.5 125" />
+</g>
+
+<g fill="#ffffff" stroke="#0066cc" stroke-width="1.1">
+  <rect x="60" y="138" width="44" height="22" rx="2.5" />
+  <rect x="112" y="138" width="44" height="22" rx="2.5" />
+  <rect x="164" y="138" width="44" height="22" rx="2.5" />
+</g>
+
+<g class="dots">
+  <text x="73" y="153">…</text>
+  <text x="125" y="153">…</text>
+  <text x="177" y="153">…</text>
+</g>
+</svg>

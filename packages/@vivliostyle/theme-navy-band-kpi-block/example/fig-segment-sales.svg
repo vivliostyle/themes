@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 152" role="img" aria-labelledby="fig2-title fig2-desc">
+<title id="fig2-title">セグメント別 売上高（連結）</title>
+<desc id="fig2-desc">セグメント別の連結売上高を当第1四半期と前第1四半期で比較した横棒グラフ。単位は百万円。精密機器事業は当第1四半期26,500、前第1四半期22,900。計測システム事業は13,900と12,700。その他は2,400と2,400。</desc>
+<style>
+text {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  font-size: 8.5px;
+  fill: #1f2328;
+}
+.num {
+  /* 画像として読み込まれる SVG ではローカルフォントの中太が weight 500 で
+     拾われないため、ファミリ名でも Medium を指定する */
+  font-family: "Roboto Medium", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  font-size: 8.5px;
+  font-weight: 500;
+  fill: #174ea6;
+}
+.unit {
+  font-size: 9px;
+  fill: #57606a;
+}
+.seg {
+  text-anchor: end;
+}
+</style>
+<text class="unit" x="320" y="8" text-anchor="end">（百万円）</text>
+<line x1="70" y1="10" x2="70" y2="130" stroke="#8b949e" stroke-width="1.1" />
+<g>
+<rect x="70" y="14" width="190" height="13" fill="#1a73e8" />
+<rect x="70" y="29" width="164.19" height="13" fill="#174ea6" />
+<rect x="70" y="56" width="99.66" height="13" fill="#1a73e8" />
+<rect x="70" y="71" width="91.06" height="13" fill="#174ea6" />
+<rect x="70" y="98" width="17.21" height="13" fill="#1a73e8" />
+<rect x="70" y="113" width="17.21" height="13" fill="#174ea6" />
+</g>
+<g class="num">
+<text x="264" y="23.5">26,500</text>
+<text x="238.19" y="38.5">22,900</text>
+<text x="173.66" y="65.5">13,900</text>
+<text x="165.06" y="80.5">12,700</text>
+<text x="91.21" y="107.5">2,400</text>
+<text x="91.21" y="122.5">2,400</text>
+</g>
+<g class="seg">
+<text x="64" y="31">精密機器</text>
+<text x="64" y="73">計測システム</text>
+<text x="64" y="115">その他</text>
+</g>
+<g>
+<rect x="70" y="138" width="9" height="9" fill="#1a73e8" />
+<text x="83" y="146">当第1四半期</text>
+<rect x="150" y="138" width="9" height="9" fill="#174ea6" />
+<text x="163" y="146">前第1四半期</text>
+</g>
+</svg>

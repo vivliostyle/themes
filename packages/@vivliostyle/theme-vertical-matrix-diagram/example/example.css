@@ -1,0 +1,148 @@
+/*
+ * example 専用の追補。theme.css が持つ図表イディオムはポジショニング・マトリクスと
+ * データ表の二つだけなので、章を通して組むのに必要な図版 (入れ子の層図・横棒図・
+ * 工程図・四象限の要点図) をここで足す。いずれも theme.css の図表バンドの体裁
+ * (aside 内・横組み・0.5pt の黒罫・淡グレーの網) に合わせている。
+ */
+
+.layers .stack,
+.bars .chart,
+.flow .chain,
+.quad .cells {
+  width: var(--vs-theme-vertical-matrix-diagram--aside-size-inline);
+}
+
+/* 市場の三層 (入れ子の帯) */
+.layers .stack {
+  font-size: 6.2pt;
+  line-height: 1.25;
+}
+.layers .band {
+  border-width: 0.5pt;
+  padding: 1.2mm;
+}
+.layers .band .band {
+  margin-top: 1.2mm;
+}
+.layers .band > .head {
+  display: block;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.layers .band > .note {
+  display: block;
+  font-size: 5.4pt;
+}
+.layers .core {
+  background-color: var(--vs-theme-vertical-matrix-diagram--color-tint);
+}
+
+/* 参入障壁の高さ (横棒) */
+.bars .chart {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2mm;
+  font-size: 5.8pt;
+  line-height: 1.2;
+}
+.bars .row {
+  display: flex;
+  align-items: center;
+  gap: 1.4mm;
+}
+.bars .name {
+  flex: 0 0 13mm;
+  text-align: end;
+}
+.bars .bar {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.9mm;
+}
+/* 指数 100 の棒でも数値の入る幅が残るよう、目盛りは軸長の 0.85 倍で描く */
+.bars .bar::before {
+  content: '';
+  flex: none;
+  block-size: 2.2mm;
+  inline-size: calc(var(--v) * 0.85%);
+  border-width: 0.5pt;
+  background-color: var(--vs-theme-vertical-matrix-diagram--color-tint);
+}
+.bars .val {
+  font-size: 5.2pt;
+}
+
+/* 工程図 (縦に連ねた箱と矢印) */
+.flow .chain {
+  font-size: 6pt;
+  line-height: 1.25;
+}
+.flow .step {
+  display: block;
+  border-width: 0.5pt;
+  padding: 1mm 1.2mm;
+}
+.flow .step.emph {
+  background-color: var(--vs-theme-vertical-matrix-diagram--color-tint);
+}
+.flow .name {
+  font-weight: 700;
+}
+.flow .desc {
+  display: block;
+  font-size: 5.2pt;
+}
+.flow .arrow {
+  display: block;
+  text-align: center;
+  font-size: 4.4pt;
+  line-height: 1;
+  padding: 0.7mm 0;
+}
+.flow .metrics .colhead,
+.flow .metrics .step {
+  display: flex;
+  align-items: center;
+}
+.flow .metrics .colhead {
+  font-size: 5pt;
+  padding: 0 1.2mm 0.7mm;
+}
+.flow .metrics .colhead > :first-child,
+.flow .metrics .step > :first-child {
+  flex: 1 1 auto;
+}
+.flow .metrics .colhead > :nth-child(n + 2),
+.flow .metrics .step > :nth-child(n + 2) {
+  flex: 0 0 8mm;
+  text-align: end;
+}
+.flow .metrics .step > :nth-child(n + 2) {
+  font-size: 5.6pt;
+}
+
+/* 要点の四象限 */
+.quad .cells {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2mm;
+  font-size: 5.6pt;
+  line-height: 1.2;
+}
+.quad .cell {
+  flex: 0 0 calc(50% - 0.6mm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+  border-width: 0.5pt;
+  padding: 1.1mm;
+}
+.quad .head {
+  font-weight: 700;
+  font-size: 6.4pt;
+  letter-spacing: 0.06em;
+}
+.quad .note {
+  font-size: 5pt;
+}

@@ -1,0 +1,377 @@
+/*
+ * 短篇アンソロジー・複数筆者 (ornamental-frame-corner-title)
+ * 四六判 127×188mm・墨一色。Shippori Mincho の見出し + Noto Serif JP 本文。
+ * 二重の飾り枠と四隅の唐草角飾りを立てた「飾りページ」(書名扉・目次・篇の中扉) と、
+ * 枠を外して柱とノンブルだけを置く本文ページの2種類でアンソロジーを組む。
+ *
+ * 原稿の書き方 (frontmatter の class):
+ *   plate plate--title    書名扉
+ *   plate plate--toc      目次 (中身は <nav role="doc-toc"> のリスト)
+ *   plate plate--work     篇の中扉。chapter を併記すると篇番号が自動で振られる
+ *   (指定なし)            本文。柱は frontmatter の title から取る
+ */
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600&family=EB+Garamond:wght@400;500&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/toc';
+
+:root {
+  --vs-page--size: 127mm 188mm;
+  /* --vs-page--size と対で持つ。飾り枠の高さを版面から導くのに使う */
+  --vs-theme-ornamental-frame-corner-title--page-height: 188mm;
+
+  --vs-font-family: 'Noto Serif JP', serif;
+  --vs-font-size: 10pt;
+  --vs-line-height: 1.7;
+  --vs-color-foreground: #1c1c1c;
+  --vs-color-background: #faf7f1;
+
+  --vs-page--background-color: #faf7f1;
+
+  --vs--heading-font-family: 'Shippori Mincho', 'Noto Serif JP', serif;
+  --vs--h1-font-size: 23pt;
+  --vs--h1-font-weight: 600;
+  --vs--h1-line-height: 1.1;
+  --vs--h1-letter-spacing: 0.4em;
+  --vs--h1-text-align: center;
+  --vs--h1-margin-block: 2.5mm 3.5mm;
+  --vs--h1-margin-inline: 0.4em 0;
+
+  --vs--p-margin-block: 0;
+  --vs--p-margin-inline: 0;
+
+  --vs--lists-margin-block: 0;
+
+  /* 篇題のルビは行送りを崩さないよう小振りに。親の明朝・字送りは引き継がせない */
+  --vs--rt-font-family: 'Noto Serif JP', serif;
+  --vs--rt-font-weight: 400;
+  --vs--rt-letter-spacing: 0;
+  --vs--rt-line-height: 1;
+
+  --vs--hr-border-color: #1c1c1c;
+  --vs--hr-border-width-block-start: 0.6pt;
+  --vs--hr-margin-inline: auto;
+
+  --vs-theme-ornamental-frame-corner-title--font-numeral:
+    'EB Garamond', 'Times New Roman', serif;
+  --vs-theme-ornamental-frame-corner-title--color-byline: #4a463f;
+  --vs-theme-ornamental-frame-corner-title--color-lead: #6f6a60;
+
+  /* 飾りページの枠と角飾り */
+  --vs-theme-ornamental-frame-corner-title--plate-margin: 6mm;
+  --vs-theme-ornamental-frame-corner-title--plate-min-height: calc(
+    var(--vs-theme-ornamental-frame-corner-title--page-height) -
+      var(--vs-theme-ornamental-frame-corner-title--plate-margin) * 2
+  );
+  --vs-theme-ornamental-frame-corner-title--plate-padding: 5mm 11mm 0;
+  --vs-theme-ornamental-frame-corner-title--plate-border-width: 1.4pt;
+  --vs-theme-ornamental-frame-corner-title--plate-inner-border-inset: 1.9mm;
+  --vs-theme-ornamental-frame-corner-title--plate-inner-border-width: 0.5pt;
+  --vs-theme-ornamental-frame-corner-title--plate-corner-size: 15mm;
+  --vs-theme-ornamental-frame-corner-title--plate-corner-inset: 1.1mm;
+  /* 扉の見出し塊を天から落とす位置 */
+  --vs-theme-ornamental-frame-corner-title--plate-headline-margin-block-start: 58mm;
+  --vs-theme-ornamental-frame-corner-title--plate-folio-inset-block-end: 6mm;
+  /* 中扉の篇番号 */
+  --vs-theme-ornamental-frame-corner-title--work-marker-content: '第'
+    counter(vs-counter-chapter, cjk-ideographic) '篇';
+
+  /* ---- 本文ページ ---- */
+  --vs-page--margin-top: 16mm;
+  --vs-page--margin-bottom: 15mm;
+  --vs-page--margin-left: 12mm;
+  --vs-page--margin-right: 12mm;
+
+  --vs--p-text-indent: 1em;
+  --vs--rt-font-size: 0.5em;
+  --vs--hr-size-inline: 14mm;
+  --vs--hr-margin-block: 5.5mm;
+
+  --vs-page--mbox-top-center-content: env(doc-title);
+  --vs-page--mbox-top-font-family: var(--vs--heading-font-family);
+  --vs-page--mbox-top-font-size: 8pt;
+  --vs-page--mbox-top-letter-spacing: 0.3em;
+  --vs-page--mbox-top-text-color: var(
+    --vs-theme-ornamental-frame-corner-title--color-byline
+  );
+
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-bottom-font-family: var(
+    --vs-theme-ornamental-frame-corner-title--font-numeral
+  );
+  --vs-page--mbox-bottom-font-size: 11pt;
+  --vs-page--mbox-bottom-font-feature-settings: 'onum' 1;
+  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
+}
+
+/* 篇の起こしページには柱を立てない */
+@page :nth(1) {
+  --vs-page--mbox-top-center-content: none;
+}
+
+/* 本文末尾に置く著者名 */
+body:not(.plate) .byline {
+  margin-block-start: var(--vs-spacing-rlh);
+  text-align: end;
+  text-indent: 0;
+}
+
+/* ---- 飾りページ ---- */
+
+html.plate {
+  /* 枠を版面いっぱいに立てるので余白は狭く取る */
+  --vs-page--margin-top: var(
+    --vs-theme-ornamental-frame-corner-title--plate-margin
+  );
+  --vs-page--margin-bottom: var(
+    --vs-theme-ornamental-frame-corner-title--plate-margin
+  );
+  --vs-page--margin-left: var(
+    --vs-theme-ornamental-frame-corner-title--plate-margin
+  );
+  --vs-page--margin-right: var(
+    --vs-theme-ornamental-frame-corner-title--plate-margin
+  );
+
+  /* 柱もノンブルも枠の内側に置くのでページ余白の箱は使わない */
+  --vs-page--mbox-top-center-content: none;
+  --vs-page--mbox-bottom-center-content: none;
+
+  --vs--p-text-indent: 0;
+  --vs--rt-font-size: 0.4em;
+  --vs--hr-margin-block: 2.2mm 0;
+}
+
+/*
+ * 飾り枠は body 自身に掛かる (VFM では本文ラッパが body になる)。
+ * 版面の高さを最低限とするので短い扉でも枠が版面いっぱいに立ち、
+ * 内容が溢れたときは枠ごと次ページへ送られる。
+ */
+body.plate {
+  position: relative;
+  box-sizing: border-box;
+  min-height: var(--vs-theme-ornamental-frame-corner-title--plate-min-height);
+  padding: var(--vs-theme-ornamental-frame-corner-title--plate-padding);
+  border-width: var(
+    --vs-theme-ornamental-frame-corner-title--plate-border-width
+  );
+  border-style: solid;
+  box-decoration-break: clone;
+}
+
+/* 二重罫の内側の線 */
+body.plate::before {
+  content: '';
+  position: absolute;
+  inset: var(
+    --vs-theme-ornamental-frame-corner-title--plate-inner-border-inset
+  );
+  border-width: var(
+    --vs-theme-ornamental-frame-corner-title--plate-inner-border-width
+  );
+  border-style: solid;
+  pointer-events: none;
+}
+
+/* 四隅の角飾り (同一 SVG を鏡映して4隅へ) */
+.corners {
+  height: 0;
+}
+.corner {
+  position: absolute;
+  width: var(--vs-theme-ornamental-frame-corner-title--plate-corner-size);
+  height: var(--vs-theme-ornamental-frame-corner-title--plate-corner-size);
+}
+.corner:nth-of-type(1) {
+  top: var(--vs-theme-ornamental-frame-corner-title--plate-corner-inset);
+  left: var(--vs-theme-ornamental-frame-corner-title--plate-corner-inset);
+}
+.corner:nth-of-type(2) {
+  top: var(--vs-theme-ornamental-frame-corner-title--plate-corner-inset);
+  right: var(--vs-theme-ornamental-frame-corner-title--plate-corner-inset);
+  transform: scaleX(-1);
+}
+.corner:nth-of-type(3) {
+  bottom: var(--vs-theme-ornamental-frame-corner-title--plate-corner-inset);
+  left: var(--vs-theme-ornamental-frame-corner-title--plate-corner-inset);
+  transform: scaleY(-1);
+}
+.corner:nth-of-type(4) {
+  bottom: var(--vs-theme-ornamental-frame-corner-title--plate-corner-inset);
+  right: var(--vs-theme-ornamental-frame-corner-title--plate-corner-inset);
+  transform: scale(-1, -1);
+}
+
+/* 柱 + 中央短罫 */
+body.plate > header {
+  text-align: center;
+}
+body.plate > header p,
+body.plate--work > header::before {
+  /* theme が p に text-align を直接当てるため継承では中央にならない */
+  display: block;
+  text-align: center;
+  margin-inline-start: 0.3em;
+  font-family: var(--vs--heading-font-family);
+  font-size: 9.5pt;
+  line-height: 1.3;
+  letter-spacing: 0.3em;
+}
+body.plate > header hr {
+  --vs--hr-size-inline: 20mm;
+}
+
+/* 中扉の篇番号は base のドキュメントカウンタから振る */
+body.plate--work > header::before {
+  content: var(--vs-theme-ornamental-frame-corner-title--work-marker-content);
+}
+
+/* 扉の見出し塊 */
+body.plate--title section,
+body.plate--work section {
+  margin-block-start: var(
+    --vs-theme-ornamental-frame-corner-title--plate-headline-margin-block-start
+  );
+}
+
+body.plate--title .subtitle {
+  margin-block-start: 5mm;
+  font-family: var(--vs--heading-font-family);
+  font-size: 13pt;
+  letter-spacing: 0.5em;
+  text-align: center;
+  text-indent: 0.5em;
+}
+
+body.plate--title .byline,
+body.plate--work .byline {
+  display: block;
+  margin-inline: 0;
+  font-family: var(--vs--heading-font-family);
+  font-size: 10.5pt;
+  letter-spacing: 0.35em;
+  text-align: center;
+  text-indent: 0.35em;
+}
+body.plate--title .byline {
+  margin-block-start: 16mm;
+}
+body.plate--work .byline {
+  margin-block-start: 7mm;
+}
+
+body.plate--title .imprint {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 12mm;
+  font-family: var(--vs--heading-font-family);
+  font-size: 9.5pt;
+  letter-spacing: 0.4em;
+  text-align: center;
+  text-indent: 0.4em;
+  color: var(--vs-theme-ornamental-frame-corner-title--color-byline);
+}
+
+body.plate--work .lead {
+  margin-block-start: 13mm;
+  font-size: 8pt;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  text-align: center;
+  color: var(--vs-theme-ornamental-frame-corner-title--color-lead);
+}
+
+/* 目次のノンブルは枠の内側へ入れる */
+body.plate--toc::after {
+  content: counter(page);
+  position: absolute;
+  inset-inline: 0;
+  bottom: var(
+    --vs-theme-ornamental-frame-corner-title--plate-folio-inset-block-end
+  );
+  text-align: center;
+  font-family: var(--vs-theme-ornamental-frame-corner-title--font-numeral);
+  font-size: 11pt;
+}
+
+/* ---- 目次 ---- */
+
+[role='doc-toc'] {
+  --vs-toc--ol-indent-size: 13mm;
+  --vs-toc--marker-display: block;
+  --vs-toc--marker-content: counter(
+    vs-counter-toc,
+    var(
+      --vs-theme-ornamental-frame-corner-title--toc-counter-style,
+      cjk-ideographic
+    )
+  );
+  --vs-toc--marker-padding-inline-end: 3mm;
+}
+
+[role='doc-toc'] li {
+  margin-block-end: 3.4mm;
+}
+
+[role='doc-toc'] li::before {
+  font-family: var(--vs--heading-font-family);
+  font-size: 15pt;
+}
+
+/*
+ * 各項の1行目 = 篇題 + 著者 + リーダー + 頁。
+ * 内容紹介を持たせるため Markdown の loose list になり <li> > <p> > <a> と
+ * 一段深くなるので、base の toc.css の li > a の指定をここで当て直す。
+ */
+[role='doc-toc'] li > p:first-child {
+  line-height: 1.2;
+}
+
+[role='doc-toc'] li > p:first-child > a,
+[role='doc-toc'] .afterword > a {
+  font-family: var(--vs--heading-font-family);
+  font-size: 15pt;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: inherit;
+  text-decoration: var(--vs-toc--anchor-text-decoration);
+}
+
+[role='doc-toc'] li > p:first-child > a::after,
+[role='doc-toc'] .afterword > a::after {
+  content: var(--vs-toc--page-leader-content)
+    target-counter(attr(href), page, var(--vs-toc--page-counter-style));
+  display: var(--vs-toc--page-counter-display);
+  font-family: var(--vs-theme-ornamental-frame-corner-title--font-numeral);
+  font-size: 12pt;
+  font-weight: 400;
+  letter-spacing: 0;
+  font-feature-settings: 'onum' 1;
+}
+
+[role='doc-toc'] .byline {
+  margin-inline-start: 0.9em;
+  font-size: 8.5pt;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: var(--vs-theme-ornamental-frame-corner-title--color-byline);
+}
+
+/* 各項の2行目 = 内容紹介 */
+[role='doc-toc'] li > p + p {
+  margin-block: 0.8mm 0;
+  margin-inline: 13mm 0;
+  font-size: 7pt;
+  line-height: 1.35;
+  letter-spacing: 0.08em;
+  color: var(--vs-theme-ornamental-frame-corner-title--color-lead);
+}
+
+/* 編者あとがきなど、番号と内容紹介を持たない項 */
+[role='doc-toc'] .afterword {
+  margin-block: 3.5mm 0;
+  margin-inline: 13mm 0;
+}
+[role='doc-toc'] .afterword > a {
+  font-size: 12pt;
+}

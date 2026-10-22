@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 124" role="img" aria-label="合成形と分解形。1文字の「が」「ぱ」は、分解すると「か」と濁点、「は」と半濁点の2文字になり、合成すると元に戻る。">
+<style>
+.lbl { font-family: "Noto Sans JP", "Hiragino Sans", sans-serif; font-size: 8.5px; fill: #0066cc; }
+.gly { font-family: "Noto Sans JP", "Hiragino Sans", sans-serif; font-size: 17px; fill: #0066cc; }
+</style>
+
+<g class="lbl">
+  <text x="56" y="10" text-anchor="middle">合成形</text>
+  <text x="154" y="10" text-anchor="middle">分解形</text>
+  <text x="104" y="26" text-anchor="middle">分解</text>
+  <text x="104" y="56" text-anchor="middle">合成</text>
+  <text x="56" y="68" text-anchor="middle">1文字</text>
+  <text x="154" y="68" text-anchor="middle">2文字</text>
+</g>
+
+<g fill="#ffffff" stroke="#0066cc" stroke-width="1.1">
+  <rect x="28" y="16" width="56" height="34" rx="2.5" />
+  <rect x="126" y="16" width="26" height="34" rx="2.5" />
+  <rect x="156" y="16" width="26" height="34" rx="2.5" />
+  <rect x="28" y="78" width="56" height="34" rx="2.5" />
+  <rect x="126" y="78" width="26" height="34" rx="2.5" />
+  <rect x="156" y="78" width="26" height="34" rx="2.5" />
+</g>
+
+<g class="gly">
+  <text x="56" y="41" text-anchor="middle">が</text>
+  <text x="139" y="41" text-anchor="middle">か</text>
+  <text x="169" y="41" text-anchor="middle">゛</text>
+  <text x="56" y="103" text-anchor="middle">ぱ</text>
+  <text x="139" y="103" text-anchor="middle">は</text>
+  <text x="169" y="103" text-anchor="middle">゜</text>
+</g>
+
+<g fill="none" stroke="#0066cc" stroke-width="1.1">
+  <path d="M88 30 H120 M115 26.5 L120 30 L115 33.5" />
+  <path d="M120 42 H88 M93 38.5 L88 42 L93 45.5" />
+  <path d="M88 92 H120 M115 88.5 L120 92 L115 95.5" />
+  <path d="M120 104 H88 M93 100.5 L88 104 L93 107.5" />
+</g>
+
+</svg>

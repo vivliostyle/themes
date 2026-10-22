@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" role="img" aria-label="B-B 断面図">
+  <style>
+    .fignum { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 14px; font-weight: 700; fill: #202020; }
+    .axis { font-family: "Roboto Mono", ui-monospace, monospace; font-size: 10px; fill: #202020; }
+    .dim { font-family: "Roboto Mono", ui-monospace, monospace; font-size: 9px; fill: #555555; }
+    .lev { font-family: "Roboto Mono", ui-monospace, monospace; font-size: 9px; fill: #202020; }
+    .note { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 9px; fill: #404040; letter-spacing: 0.06em; }
+  </style>
+
+  <rect x="8" y="8" width="60" height="24" fill="none" stroke="#202020" stroke-width="1.4" />
+  <text x="38" y="26" text-anchor="middle" class="fignum">図 03</text>
+
+  <polygon points="130,100 320,38 510,100 510,108 320,46 130,108" fill="#F1F1EE" stroke="#202020" stroke-width="2" />
+
+  <g stroke="#202020" stroke-width="2" fill="none">
+    <line x1="168" y1="96" x2="168" y2="210" />
+    <line x1="471" y1="96" x2="471" y2="210" />
+    <line x1="168" y1="96" x2="320" y2="46" />
+    <line x1="320" y1="46" x2="471" y2="96" />
+    <line x1="232" y1="193" x2="471" y2="193" />
+    <line x1="232" y1="193" x2="232" y2="210" />
+  </g>
+
+  <line x1="110" y1="210" x2="530" y2="210" stroke="#202020" stroke-width="3" />
+  <g fill="#202020">
+    <rect x="163" y="196" width="10" height="20" /><rect x="239" y="196" width="10" height="20" />
+    <rect x="353" y="196" width="10" height="20" /><rect x="466" y="196" width="10" height="20" />
+  </g>
+
+  <g stroke="#555555" stroke-width="0.9" fill="none">
+    <rect x="256" y="118" width="42" height="75" />
+    <line x1="256" y1="131" x2="298" y2="131" /><line x1="256" y1="143" x2="298" y2="143" />
+    <line x1="256" y1="156" x2="298" y2="156" /><line x1="256" y1="168" x2="298" y2="168" />
+    <line x1="256" y1="181" x2="298" y2="181" />
+    <rect x="332" y="118" width="42" height="75" />
+    <line x1="332" y1="131" x2="374" y2="131" /><line x1="332" y1="143" x2="374" y2="143" />
+    <line x1="332" y1="156" x2="374" y2="156" /><line x1="332" y1="168" x2="374" y2="168" />
+    <line x1="332" y1="181" x2="374" y2="181" />
+    <rect x="408" y="118" width="42" height="75" />
+    <line x1="408" y1="131" x2="450" y2="131" /><line x1="408" y1="143" x2="450" y2="143" />
+    <line x1="408" y1="156" x2="450" y2="156" /><line x1="408" y1="168" x2="450" y2="168" />
+    <line x1="408" y1="181" x2="450" y2="181" />
+  </g>
+
+  <g stroke="#555555" stroke-width="1" fill="none">
+    <rect x="186" y="150" width="34" height="43" />
+  </g>
+
+  <g stroke="#555555" stroke-width="0.6" fill="none">
+    <line x1="150" y1="32" x2="162" y2="88" />
+    <line x1="452" y1="32" x2="436" y2="72" />
+  </g>
+  <g class="note" text-anchor="middle">
+    <text x="150" y="26">登り梁 105&#215;240 @910</text>
+    <text x="452" y="26">屋根断熱 充填 200</text>
+  </g>
+
+  <g stroke="#555555" stroke-width="0.6" fill="none">
+    <line x1="326" y1="38" x2="600" y2="38" stroke-dasharray="4 2" />
+    <line x1="516" y1="96" x2="600" y2="96" stroke-dasharray="4 2" />
+    <line x1="516" y1="210" x2="612" y2="210" stroke-dasharray="4 2" />
+    <line x1="616" y1="38" x2="616" y2="96" />
+    <line x1="616" y1="96" x2="616" y2="210" />
+  </g>
+  <g class="lev">
+    <text x="556" y="32">&#9661;+4120</text>
+    <text x="556" y="90">&#9661;+2730</text>
+    <text x="556" y="204">&#9661;&#177;0</text>
+  </g>
+  <g class="dim" text-anchor="middle">
+    <text x="628" y="67" transform="rotate(-90 628 67)">1390</text>
+    <text x="628" y="153" transform="rotate(-90 628 153)">2730</text>
+  </g>
+  <text x="248" y="205" text-anchor="middle" class="lev">&#9661;+400</text>
+
+  <g stroke="#555555" stroke-width="0.6" fill="none">
+    <line x1="168" y1="232" x2="471" y2="232" />
+    <g stroke-width="0.7">
+      <line x1="168" y1="228" x2="168" y2="236" /><line x1="244" y1="228" x2="244" y2="236" />
+      <line x1="358" y1="228" x2="358" y2="236" /><line x1="471" y1="228" x2="471" y2="236" />
+    </g>
+  </g>
+  <g class="dim" text-anchor="middle">
+    <text x="206" y="245">1820</text><text x="301" y="245">2730</text><text x="414" y="245">2730</text>
+  </g>
+  <g class="axis" text-anchor="middle">
+    <text x="168" y="256">A</text><text x="244" y="256">B</text>
+    <text x="358" y="256">C</text><text x="471" y="256">D</text>
+  </g>
+</svg>

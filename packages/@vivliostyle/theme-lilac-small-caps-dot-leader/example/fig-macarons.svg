@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="118" viewBox="0 0 150 118" role="img" aria-label="重なり合う3個のマカロンのイラスト">
+  <ellipse cx="72" cy="106" rx="56" ry="8" fill="#ede2f0" />
+  <ellipse cx="52" cy="76" rx="30" ry="12" fill="#dde4c5" stroke="#b3c295" stroke-width="1" />
+  <ellipse cx="52" cy="86" rx="31" ry="4.6" fill="#c6d2a6" stroke="#a9b98a" stroke-width="0.8" />
+  <ellipse cx="52" cy="93" rx="28" ry="9" fill="#dde4c5" stroke="#b3c295" stroke-width="1" />
+  <path d="M30 72 Q52 62 74 72" fill="none" stroke="#eef2df" stroke-width="1.6" />
+  <ellipse cx="80" cy="42" rx="29" ry="12" fill="#ddc5e4" stroke="#b98cc0" stroke-width="1" />
+  <ellipse cx="80" cy="52" rx="30" ry="4.6" fill="#c9a5d3" stroke="#ac82b6" stroke-width="0.8" />
+  <ellipse cx="80" cy="59" rx="27" ry="9" fill="#ddc5e4" stroke="#b98cc0" stroke-width="1" />
+  <path d="M59 38 Q80 28 101 38" fill="none" stroke="#f0e3f3" stroke-width="1.6" />
+  <g transform="rotate(18 114 82)">
+    <ellipse cx="114" cy="70" rx="27" ry="11" fill="#f3e5cb" stroke="#d3b98e" stroke-width="1" />
+    <ellipse cx="114" cy="79" rx="28" ry="4.4" fill="#e6d2ab" stroke="#c9ac7d" stroke-width="0.8" />
+    <ellipse cx="114" cy="86" rx="25" ry="8.5" fill="#f3e5cb" stroke="#d3b98e" stroke-width="1" />
+    <path d="M94 66 Q114 57 134 66" fill="none" stroke="#faf2e2" stroke-width="1.6" />
+  </g>
+</svg>

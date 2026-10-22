@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" role="img" aria-label="Points in a rectangle divided by a vertical split line, with a strip of half-width d around it.">
+<style>
+.hand { font-family: "Caveat", "Comic Sans MS", cursive; font-size: 15px; fill: #1a1a1a; }
+</style>
+<g fill="none" stroke="#1a1a1a" stroke-width="1.2">
+<rect x="6" y="8" width="108" height="62" />
+<line x1="60" y1="8" x2="60" y2="70" />
+</g>
+<g fill="none" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="3 3">
+<line x1="44" y1="8" x2="44" y2="70" />
+<line x1="76" y1="8" x2="76" y2="70" />
+</g>
+<g fill="#1a1a1a">
+<circle cx="16" cy="22" r="2.2" />
+<circle cx="30" cy="52" r="2.2" />
+<circle cx="38" cy="30" r="2.2" />
+<circle cx="50" cy="60" r="2.2" />
+<circle cx="52" cy="18" r="2.2" />
+<circle cx="68" cy="40" r="2.2" />
+<circle cx="70" cy="62" r="2.2" />
+<circle cx="88" cy="26" r="2.2" />
+<circle cx="98" cy="54" r="2.2" />
+<circle cx="106" cy="36" r="2.2" />
+</g>
+<g fill="none" stroke="#1a1a1a" stroke-width="1">
+<line x1="44" y1="80" x2="76" y2="80" />
+<line x1="44" y1="76" x2="44" y2="84" />
+<line x1="76" y1="76" x2="76" y2="84" />
+</g>
+<text class="hand" x="52" y="98">2d</text>
+</svg>

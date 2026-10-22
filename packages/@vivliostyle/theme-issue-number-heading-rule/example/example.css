@@ -1,0 +1,43 @@
+/*
+ * example 専用の上書き。theme.css には手を入れない。
+ */
+
+/* この合本は第12号から収めた抜粋なので、最初の号だけ号数の起点をずらす */
+html.issue-start {
+  --vs-document-first-page-counter-reset: vs-counter-chapter 11;
+}
+
+body.cover {
+  padding-top: 38mm;
+}
+body.cover h2 {
+  font-size: 17pt;
+  letter-spacing: 0.08em;
+}
+body.cover p {
+  text-align: center;
+  text-indent: 0;
+}
+body.cover hr {
+  margin-block: 5mm 6mm;
+}
+body.cover p:last-child {
+  margin-block-start: 10mm;
+}
+
+body.colophon {
+  padding-top: 24mm;
+}
+body.colophon p {
+  text-indent: 0;
+}
+body.colophon hr {
+  margin-block: 4mm 5mm;
+}
+/* 発行事項は1行1項目。連続する p を明細として組む */
+body.colophon hr ~ p {
+  margin-block-end: 1.6mm;
+}
+body.colophon p:nth-last-of-type(2) {
+  margin-block-start: 3.5mm;
+}

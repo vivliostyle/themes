@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 126" role="img" aria-label="流れの中の石に立つ横向きのカワガラスの線画">
+<style>
+.ink { fill: none; stroke: #1c1c1c; stroke-linecap: round; }
+.hatch { fill: none; stroke: #5a5a5a; stroke-linecap: round; stroke-width: 1; }
+.light { fill: none; stroke: #f6f4ee; stroke-linecap: round; stroke-width: 1.1; }
+</style>
+
+<path class="ink" d="M14,124 C24,106 46,96 76,96 C110,96 140,106 156,124" stroke-width="2.6" stroke-linejoin="round"/>
+<path class="hatch" d="M30,116 L44,110 M36,122 L54,114 M108,106 L124,112 M114,116 L132,122 M92,102 L104,105"/>
+<path class="hatch" d="M0,116 L12,116 M0,123 L8,123 M162,118 L182,118 M170,124 L196,124" stroke-width="1.2"/>
+
+<path class="ink" d="M88,82 L86,96 M100,81 L102,96" stroke-width="2.2"/>
+<path class="ink" d="M84,96 L80,99 M87,96 L88,100 M100,96 L96,99 M103,96 L104,100" stroke-width="1.6"/>
+
+<path d="M36,38 L60,33
+         C66,16 96,16 106,34
+         C122,52 126,68 122,80
+         L158,50 L168,60 L128,88
+         C112,96 88,94 80,84
+         C72,72 70,52 74,40
+         L62,43 L36,42 Z"
+      fill="#1c1c1c" stroke="#1c1c1c" stroke-width="1" stroke-linejoin="round"/>
+
+<circle cx="76" cy="30" r="4.2" fill="#f6f4ee"/>
+<circle cx="77" cy="30" r="2.1" fill="#1c1c1c"/>
+<path class="light" d="M78,54 C84,66 92,76 100,80" stroke-width="1.6"/>
+
+<path class="hatch" d="M100,42 C116,54 124,68 122,80" stroke-width="1.1"/>
+<path class="hatch" d="M96,54 L114,60 M94,66 L112,72 M96,76 L112,82"/>
+<path class="hatch" d="M106,34 C118,44 124,54 125,64" stroke-width="0.9"/>
+<path class="hatch" d="M132,72 L152,58 M136,78 L156,64" stroke-width="0.9"/>
+<path class="hatch" d="M82,56 L88,62 M80,68 L86,74 M84,78 L90,83" stroke-width="0.8"/>
+</svg>

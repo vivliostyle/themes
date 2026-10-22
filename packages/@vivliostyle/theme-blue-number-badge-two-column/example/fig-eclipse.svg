@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 40 740 260" role="img" aria-label="皆既月食が進むようすを7コマ並べた連続写真のイラスト">
+  <defs>
+    <clipPath id="ecl-1"><circle cx="62" cy="242" r="38" /></clipPath>
+    <clipPath id="ecl-2"><circle cx="165" cy="214" r="38" /></clipPath>
+    <clipPath id="ecl-3"><circle cx="267" cy="192" r="38" /></clipPath>
+    <clipPath id="ecl-4"><circle cx="370" cy="182" r="38" /></clipPath>
+    <clipPath id="ecl-5"><circle cx="473" cy="192" r="38" /></clipPath>
+    <clipPath id="ecl-6"><circle cx="575" cy="214" r="38" /></clipPath>
+    <clipPath id="ecl-7"><circle cx="678" cy="242" r="38" /></clipPath>
+  </defs>
+  <rect width="740" height="320" fill="#0a2145" />
+  <circle cx="38" cy="72" r="2" fill="#cfe3f7" />
+  <circle cx="112" cy="108" r="2.5" fill="#cfe3f7" />
+  <circle cx="186" cy="64" r="2" fill="#cfe3f7" />
+  <circle cx="252" cy="112" r="2" fill="#cfe3f7" />
+  <circle cx="318" cy="70" r="2.5" fill="#cfe3f7" />
+  <circle cx="392" cy="106" r="2" fill="#cfe3f7" />
+  <circle cx="458" cy="62" r="2" fill="#cfe3f7" />
+  <circle cx="524" cy="110" r="2.5" fill="#cfe3f7" />
+  <circle cx="596" cy="68" r="2" fill="#cfe3f7" />
+  <circle cx="662" cy="104" r="2" fill="#cfe3f7" />
+  <circle cx="716" cy="66" r="2.5" fill="#cfe3f7" />
+  <circle cx="76" cy="146" r="2" fill="#9dbfe2" />
+  <circle cx="228" cy="150" r="2" fill="#9dbfe2" />
+  <circle cx="430" cy="148" r="2" fill="#9dbfe2" />
+  <circle cx="620" cy="152" r="2" fill="#9dbfe2" />
+  <path d="M62 242 Q370 118 678 242" fill="none" stroke="#1e3f6d" stroke-width="3" stroke-dasharray="9 11" />
+  <circle cx="62" cy="242" r="38" fill="#eef5fc" />
+  <g clip-path="url(#ecl-1)">
+    <circle cx="-168" cy="242" r="185" fill="#1d3a63" />
+  </g>
+  <circle cx="165" cy="214" r="38" fill="#eef5fc" />
+  <g clip-path="url(#ecl-2)">
+    <circle cx="-35" cy="214" r="185" fill="#1d3a63" />
+  </g>
+  <circle cx="267" cy="192" r="38" fill="#eef5fc" />
+  <g clip-path="url(#ecl-3)">
+    <circle cx="102" cy="192" r="185" fill="#1d3a63" />
+  </g>
+  <circle cx="370" cy="182" r="38" fill="#9c5a45" />
+  <circle cx="370" cy="182" r="38" fill="none" stroke="#c07f61" stroke-width="3" />
+  <circle cx="473" cy="192" r="38" fill="#eef5fc" />
+  <g clip-path="url(#ecl-5)">
+    <circle cx="638" cy="192" r="185" fill="#1d3a63" />
+  </g>
+  <circle cx="575" cy="214" r="38" fill="#eef5fc" />
+  <g clip-path="url(#ecl-6)">
+    <circle cx="775" cy="214" r="185" fill="#1d3a63" />
+  </g>
+  <circle cx="678" cy="242" r="38" fill="#eef5fc" />
+  <g clip-path="url(#ecl-7)">
+    <circle cx="908" cy="242" r="185" fill="#1d3a63" />
+  </g>
+</svg>

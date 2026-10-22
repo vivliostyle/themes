@@ -1,0 +1,226 @@
+/*
+ * 北米APA論文様式 第7版 (single-column-double-spaced)
+ * Letter判1段組・ダブルスペースのAPA第7版準拠 学位論文本文ページ。
+ * Tinos(Times New Roman代替)のセリフ本文、本文と同書体の番号付き見出し階層
+ * (Level1=中央・太字 / Level2=左・太字 / Level3=左・太字斜体)、水平罫3本のみの
+ * APA式表、上付き番号の脚注、全大文字のランニングヘッドとアウター側のノンブル。
+ * 黒インク1色のモノトーン。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/footnote';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/math';
+
+:root {
+  /* Page: letter, 四辺25.4mm(1in)の均等余白 */
+  --vs-page--size: letter;
+  --vs-page--margin-top: 25.4mm;
+  --vs-page--margin-bottom: 25.4mm;
+  --vs-page--margin-left: 25.4mm;
+  --vs-page--margin-right: 25.4mm;
+
+  /* Running head(左)+ ノンブル(右)を全ページ共通で天マージンに置く。
+     ランニングヘッドは原稿の p.running-head (短縮タイトル) から採る */
+  --vs-page--mbox-top-left-content: string(running-head);
+  /* ランニングヘッドは APA の規定で全大文字 */
+  --vs-page--mbox-top-left-text-transform: uppercase;
+  --vs-page--mbox-top-right-content: counter(page);
+  --vs-page--mbox-font-family:
+    'Tinos', 'Times New Roman', 'Liberation Serif', serif;
+  --vs-page--mbox-font-size: 11pt;
+  --vs-page--mbox-text-color: #111111;
+  --vs-page--mbox-letter-spacing: 0;
+
+  /* Type: 12pt Times相当, ダブルスペース(2.0), 黒, 単段 */
+  --vs-font-family: 'Tinos', 'Times New Roman', 'Liberation Serif', serif;
+  --vs-font-size: 12pt;
+  --vs-line-height: 2;
+  --vs-color-foreground: #111111;
+  --vs-color-background: #ffffff;
+  --vs-columns: 1;
+  --vs-widows-orphans: 2;
+
+  /* Paragraphs: 段落頭0.5in字下げ, 段落間0, 左揃え(APAはragged right)。
+     ragged right のためハイフネーションは無効 */
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 0.5in;
+  --vs--p-text-align: start;
+  --vs--p-hyphens: none;
+
+  /* Headings: 本文と同じ12pt・太字。Level1のみ中央揃え */
+  --vs--heading-font-family:
+    'Tinos', 'Times New Roman', 'Liberation Serif', serif;
+  --vs--heading-font-weight: 700;
+  --vs--heading-text-align: start;
+  --vs--heading-margin-block: 0;
+  --vs--h1-font-size: 1em;
+  --vs--h2-font-size: 1em;
+  --vs--h3-font-size: 1em;
+  --vs--h1-text-align: center;
+  --vs--h2-margin-block: 0.5em 0;
+  --vs--h3-margin-block: 0.5em 0;
+  --vs--h3-font-style: italic;
+
+  /* 章・節番号と、本文からの参照 (Chapter 4 / Section 5.4 / Table 3)。
+     vs-counter-sections の入れ子は「見出しの直後に下位 section が来る」構造でしか
+     働かないので、階層番号はレベルごとのカウンタを並べて組む */
+  --vs-section--marker-display: inline;
+  --vs-section--h1-marker-content: counter(
+    vs-counter-sec-h1,
+    var(--vs-section--counter-style)
+  );
+  --vs-section--h2-marker-content: counter(
+      vs-counter-sec-h1,
+      var(--vs-section--counter-style)
+    )
+    var(--vs-section--counter-delimiter)
+    counter(vs-counter-sec-h2, var(--vs-section--counter-style));
+  --vs-section--h3-marker-content: counter(
+      vs-counter-sec-h1,
+      var(--vs-section--counter-style)
+    )
+    var(--vs-section--counter-delimiter)
+    counter(vs-counter-sec-h2, var(--vs-section--counter-style))
+    var(--vs-section--counter-delimiter)
+    counter(vs-counter-sec-h3, var(--vs-section--counter-style));
+  --vs-section--call-content: 'Section '
+    target-counter(
+      attr(href),
+      vs-counter-sec-h1,
+      var(--vs-section--counter-style)
+    )
+    var(--vs-section--counter-delimiter)
+    target-counter(
+      attr(href),
+      vs-counter-sec-h2,
+      var(--vs-section--counter-style)
+    );
+  --vs-theme-single-column-double-spaced--chapter-call-content: 'Chapter '
+    target-counter(
+      attr(href),
+      vs-counter-sec-h1,
+      var(--vs-section--counter-style)
+    );
+
+  /* Tables: 横罫のみ(上・見出し下・最下の3本), 縦罫・セル罫なし */
+  --vs--table-border-color: #111111;
+  --vs--table-border-width: 0;
+  --vs--table-border-width-block-start: 1pt;
+  --vs--table-border-width-block-end: 1pt;
+  --vs--table-border-width-inline-start: 0;
+  --vs--table-border-width-inline-end: 0;
+  --vs--table-border-width-cell: 0;
+  --vs--table-border-width-thead-inner: 0.75pt;
+  --vs--table-font-size: 11pt;
+  --vs--table-margin-block: 0 1em;
+  --vs--th-text-align: start;
+  --vs--th-font-weight: 700;
+  --vs--table-cell-padding-block: 0.25rem;
+  --vs--table-cell-padding-inline: 0 1.6em;
+
+  /* 表番号 (太字・別行) + 斜体タイトルの APA 式キャプション。
+     キャプションは版面の左端に揃えるので figure の中央寄せは解く */
+  --vs--figure-align-items: stretch;
+  --vs--figure-margin-block: 0.5em 0;
+  --vs--figcaption-font-style: italic;
+  --vs--figcaption-line-height: 1.7;
+  --vs--figcaption-margin-block: 0 0.4em;
+  --vs--figcaption-text-align: start;
+  --vs-table--marker-content: 'Table ' counter(vs-counter-tbl);
+
+  /* Footnotes: 10pt・シングルスペース・上付き算用数字(APA式) */
+  --vs-footnote--font-size: 10pt;
+  --vs-footnote--line-height: 1.4;
+  --vs-footnote--text-color: #111111;
+  --vs-footnote--text-indent: 0.5in;
+  --vs-footnote--call-content: counter(vs-counter-footnote, decimal);
+  --vs-footnote--call-font-size: 0.72em;
+  /* 本文中の脚注番号を上付きに */
+  --vs-footnote--call-vertical-align: super;
+  /* 脚注側も番号を上付きに */
+  --vs-footnote--marker-content: counter(vs-counter-footnote, decimal) ' ';
+  --vs-footnote--marker-font-size: 0.72em;
+  --vs-footnote--marker-line-height: 0;
+  --vs-footnote--marker-vertical-align: super;
+  --vs-footnote--area-before-margin-inline: 0;
+  --vs-footnote--area-before-border-width-block-start: 0.5pt;
+  --vs-footnote--area-before-border-color-block-start: #111111;
+  /* 脚注の区切り線は左寄せの短い罫 */
+  --vs-footnote--area-before-size-inline: 50mm;
+
+  /* 脚注エリアの既定マージンは1行送り(=24pt)ずつで、ダブルスペース組では脚注1本あたり
+     100pt超を占有し、呼出しと同じページに載らず次ページへ送られる。実寸で詰める */
+  --vs-footnote--area-margin-block: 14pt 0;
+  --vs-footnote--area-before-margin-block: 0 4pt;
+}
+
+/* Heading hierarchy (APA 7th) -------------------------------------------- */
+
+/* 章見出しは前章から改行1行分だけ空ける (段落間0のダブルスペース組のため)。
+   VFM は採番する章の h1 を section で包み、閉じ # で書いた採番しない章
+   (Abstract / References) の h1 は body 直下に置くので、両方を拾う */
+body
+  > :is(h1, section:has(> h1:first-child))
+  ~ section:has(> h1:first-child)
+  > h1,
+body > :is(h1, section:has(> h1:first-child)) ~ h1 {
+  margin-block-start: 1em;
+}
+
+/* 柱へ流す短縮タイトル。紙面には出さない */
+.running-head {
+  string-set: running-head content(text);
+  height: 0;
+  margin-block: 0;
+  text-indent: 0;
+  overflow: hidden;
+}
+
+/* 本文からの参照 (base が扱うのは fig/tbl/cite/sec なので chapter は theme 側で) */
+a[data-ref='chapter'] {
+  --vs--anchor-text-color: inherit;
+  --vs--anchor-text-decoration: none;
+}
+
+a[data-ref='chapter']::before {
+  content: var(--vs-theme-single-column-double-spaced--chapter-call-content);
+}
+
+/* Tables (APA) ----------------------------------------------------------- */
+
+/* 表番号は太字で1行取り、その下に斜体のタイトルを置く */
+figure.tbl > figcaption::before {
+  display: block;
+  font-style: normal;
+  font-weight: 700;
+}
+
+table {
+  width: 100%;
+  line-height: 1.4;
+  break-before: avoid;
+}
+
+/* Reference list (APA) --------------------------------------------------- */
+
+/* 参考文献は番号・記号なしのぶら下げインデント (2行目以降を0.5in下げ) */
+h1 + ul {
+  list-style: none;
+  padding-inline-start: 0;
+  margin-block: 0;
+}
+
+h1 + ul > li {
+  padding-inline-start: 0.5in;
+  text-indent: -0.5in;
+  margin-block: 0;
+}

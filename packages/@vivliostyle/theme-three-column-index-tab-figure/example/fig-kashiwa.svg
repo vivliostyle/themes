@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 150" role="img" aria-label="カシワの葉の模式図。倒卵形で波状の大きな鋸歯をもち、殻斗に包まれた堅果を伴う。">
+<style>
+.leaf-blade { fill: #557a55; fill-opacity: 0.46; stroke: #2c352c; stroke-width: 1.3; stroke-linejoin: round; }
+.leaf-vein { fill: none; stroke: #2c352c; stroke-width: 0.7; opacity: 0.65; }
+.leaf-stem { fill: none; stroke: #6f6142; stroke-width: 2.2; stroke-linecap: round; }
+.fig-acc { fill: #557a55; fill-opacity: 0.4; stroke: #2c352c; stroke-width: 1; stroke-linejoin: round; }
+.fig-berry { fill: #a9483d; fill-opacity: 0.85; stroke: #6f2a24; stroke-width: 0.7; }
+.fig-flower { fill: #ddb9be; fill-opacity: 0.8; stroke: #b98b35; stroke-width: 0.7; }
+.fig-scale { stroke: #252a26; stroke-width: 1; }
+.fig-scale-t { fill: #252a26; font: 500 7px "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; letter-spacing: 0.03em; }
+.fig-lbl { fill: #3a463a; font: 6.5px "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+.fig-lead { fill: none; stroke: #9aa89a; stroke-width: 0.5; }
+</style>
+<path class="leaf-blade" d="M56,130 C46,126 40,118 41,110 C31,113 26,104 33,98 C24,95 25,85 34,84 C27,78 31,68 40,70 C36,60 42,51 51,55 C50,44 59,40 62,49 C69,42 78,48 74,58 C83,56 88,66 81,72 C90,74 90,84 81,86 C88,92 84,101 74,99 C74,108 68,120 56,130 Z" />
+<path class="leaf-vein" d="M56,128 L56,50 M56,104 Q45,100 35,93 M56,104 Q67,100 77,93 M56,82 Q46,77 38,71 M56,82 Q66,77 74,71" />
+<path class="leaf-stem" d="M56,128 L56,143" />
+<path class="leaf-stem" d="M120,109 L120,101" />
+<ellipse class="fig-acc" cx="120" cy="120" rx="8" ry="10.5" />
+<path class="fig-acc" d="M110,113 a10,5.5 0 0 1 20,0 q-10,3.5 -20,0 Z" />
+<path class="fig-lead" d="M80,88 L92,84" />
+<text class="fig-lbl" x="93" y="86">葉縁</text>
+<line class="fig-scale" x1="14" y1="138" x2="44" y2="138" />
+<line class="fig-scale" x1="14" y1="135" x2="14" y2="141" />
+<line class="fig-scale" x1="44" y1="135" x2="44" y2="141" />
+<text class="fig-scale-t" x="29" y="133" text-anchor="middle">2 cm</text>
+</svg>

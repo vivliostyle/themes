@@ -1,0 +1,62 @@
+{
+  "name": "@vivliostyle/theme-numbered-heading-ledger-list",
+  "version": "0.0.0",
+  "description": "B5判・横書き2段組の卒業年度別同窓会名簿テーマ。柱+ヘッダー罫、番号付き年度見出し、№/氏名/職業/連絡先の4列台帳型グリッドを高密度に反復",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-numbered-heading-ledger-list"
+  },
+  "files": [
+    "*.css",
+    "example",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Numbered Heading Ledger List",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "misc",
+      "topics": [
+        "directory-list",
+        "alumni",
+        "membership-list",
+        "two-column",
+        "numbered-entries",
+        "organized-by-class",
+        "contact-info",
+        "formal-structure",
+        "b5"
+      ]
+    }
+  }
+}

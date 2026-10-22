@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 165" width="450" height="165" role="img" aria-label="Discharge characteristic curves at 23 degrees Celsius. The horizontal axis is duration in hours on a logarithmic scale from 1 to 10000. The vertical axis is voltage from 1.0 to 3.5 volts. Three continuous drains are plotted. At 3 milliamps the plateau sits near 2.8 volts and falls through 2.0 volts at about 100 hours. At 1 milliamp the plateau sits near 2.9 volts and falls through 2.0 volts at about 330 hours. At 0.2 milliamps the plateau sits near 3.0 volts and falls through 2.0 volts at about 1700 hours." fill="none" stroke="#111111">
+<style>
+text { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.02em; }
+</style>
+<g stroke="#111111" stroke-width="0.3" stroke-dasharray="1 2.5" opacity="0.45">
+<line x1="83.2" y1="15" x2="83.2" y2="135"/><line x1="99.7" y1="15" x2="99.7" y2="135"/><line x1="111.4" y1="15" x2="111.4" y2="135"/><line x1="120.5" y1="15" x2="120.5" y2="135"/><line x1="128.0" y1="15" x2="128.0" y2="135"/><line x1="134.2" y1="15" x2="134.2" y2="135"/><line x1="139.7" y1="15" x2="139.7" y2="135"/><line x1="144.5" y1="15" x2="144.5" y2="135"/><line x1="177.0" y1="15" x2="177.0" y2="135"/><line x1="193.5" y1="15" x2="193.5" y2="135"/><line x1="205.2" y1="15" x2="205.2" y2="135"/><line x1="214.3" y1="15" x2="214.3" y2="135"/><line x1="221.7" y1="15" x2="221.7" y2="135"/><line x1="228.0" y1="15" x2="228.0" y2="135"/><line x1="233.4" y1="15" x2="233.4" y2="135"/><line x1="238.2" y1="15" x2="238.2" y2="135"/><line x1="270.7" y1="15" x2="270.7" y2="135"/><line x1="287.2" y1="15" x2="287.2" y2="135"/><line x1="298.9" y1="15" x2="298.9" y2="135"/><line x1="308.0" y1="15" x2="308.0" y2="135"/><line x1="315.5" y1="15" x2="315.5" y2="135"/><line x1="321.7" y1="15" x2="321.7" y2="135"/><line x1="327.2" y1="15" x2="327.2" y2="135"/><line x1="332.0" y1="15" x2="332.0" y2="135"/><line x1="364.5" y1="15" x2="364.5" y2="135"/><line x1="381.0" y1="15" x2="381.0" y2="135"/><line x1="392.7" y1="15" x2="392.7" y2="135"/><line x1="401.8" y1="15" x2="401.8" y2="135"/><line x1="409.2" y1="15" x2="409.2" y2="135"/><line x1="415.5" y1="15" x2="415.5" y2="135"/><line x1="420.9" y1="15" x2="420.9" y2="135"/><line x1="425.7" y1="15" x2="425.7" y2="135"/>
+</g>
+<g stroke="#111111" stroke-width="0.45" stroke-dasharray="1 2" opacity="0.7">
+<line x1="148.8" y1="15" x2="148.8" y2="135"/>
+<line x1="242.5" y1="15" x2="242.5" y2="135"/>
+<line x1="336.2" y1="15" x2="336.2" y2="135"/>
+<line x1="55" y1="39" x2="430" y2="39"/>
+<line x1="55" y1="63" x2="430" y2="63"/>
+<line x1="55" y1="87" x2="430" y2="87"/>
+<line x1="55" y1="111" x2="430" y2="111"/>
+</g>
+<rect x="55" y="15" width="375" height="120" stroke="#111111" stroke-width="0.9" />
+<path d="M55,49.6 L148.8,50.8 C180,52 208,53.5 228,57 C235,58.4 240,70 242.5,87 C244,99 246,116 248,128" stroke="#111111" stroke-width="1.6" />
+<path d="M55,43.8 L148.8,44.8 L242.5,46.2 C270,47.2 281,48.5 286,53 C288.5,55.5 289.5,70 290.6,87 C291.8,105 293.5,118 295.5,128" stroke="#111111" stroke-width="1.6" />
+<path d="M55,39 L242.5,40.4 L336.2,42.3 C346,43.5 352,45.5 355.5,52 C357,55.5 357.5,70 358.3,87 C359.2,105 360.5,118 362,128" stroke="#111111" stroke-width="1.6" />
+<g fill="#ffffff" stroke="none">
+<rect x="217" y="99" width="23.5" height="9.5"/>
+<rect x="265" y="99" width="23.5" height="9.5"/>
+<rect x="322" y="99" width="33.5" height="9.5"/>
+</g>
+<g font-size="8.5" fill="#111111" stroke="none" text-anchor="end">
+<text x="239" y="106">3 mA</text>
+<text x="287" y="106">1 mA</text>
+<text x="354" y="106">0.2 mA</text>
+</g>
+<g font-size="8.5" fill="#111111" stroke="none" text-anchor="end">
+<text x="49" y="18">3.5</text>
+<text x="49" y="42">3.0</text>
+<text x="49" y="66">2.5</text>
+<text x="49" y="90">2.0</text>
+<text x="49" y="114">1.5</text>
+<text x="49" y="138">1.0</text>
+</g>
+<g font-size="8.5" fill="#111111" stroke="none" text-anchor="middle">
+<text x="55" y="150">1</text>
+<text x="148.8" y="150">10</text>
+<text x="242.5" y="150">100</text>
+<text x="336.2" y="150">1000</text>
+<text x="430" y="150">10000</text>
+</g>
+<text x="242.5" y="162" font-size="9" fill="#111111" stroke="none" text-anchor="middle">Duration (h)</text>
+<text x="14" y="75" font-size="9" fill="#111111" stroke="none" text-anchor="middle" transform="rotate(-90 14 75)">Voltage (V)</text>
+</svg>

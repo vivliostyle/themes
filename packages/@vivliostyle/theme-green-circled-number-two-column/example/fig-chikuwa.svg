@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" role="img" aria-label="皿に盛ったちくわの磯辺揚げ">
+<rect width="400" height="320" fill="#f4f2ec" />
+<circle cx="200" cy="160" r="124" fill="#fbfaf6" stroke="#e5e2d8" stroke-width="2" />
+<circle cx="200" cy="160" r="104" fill="#f5f2ea" />
+<ellipse cx="200" cy="232" rx="94" ry="12" fill="#e9e4d5" />
+<g transform="rotate(-12 156 187)">
+<rect x="110" y="172" width="92" height="30" rx="15" fill="#edd39b" stroke="#d7b678" stroke-width="3" />
+<rect x="124" y="181" width="64" height="12" rx="6" fill="#ddb87f" />
+<circle cx="132" cy="178" r="3" fill="#6f9d33" />
+<circle cx="166" cy="196" r="2.6" fill="#6f9d33" />
+<circle cx="188" cy="179" r="2.4" fill="#6f9d33" />
+</g>
+<g transform="rotate(8 209 209)">
+<rect x="164" y="194" width="90" height="30" rx="15" fill="#eacd91" stroke="#d7b678" stroke-width="3" />
+<rect x="178" y="203" width="62" height="12" rx="6" fill="#ddb87f" />
+<circle cx="186" cy="200" r="3" fill="#6f9d33" />
+<circle cx="218" cy="218" r="2.6" fill="#6f9d33" />
+<circle cx="242" cy="201" r="2.4" fill="#6f9d33" />
+</g>
+<g transform="rotate(6 164 139)">
+<rect x="116" y="124" width="96" height="30" rx="15" fill="#edd39b" stroke="#d7b678" stroke-width="3" />
+<rect x="130" y="133" width="68" height="12" rx="6" fill="#ddb87f" />
+<circle cx="138" cy="130" r="3" fill="#6f9d33" />
+<circle cx="174" cy="148" r="2.6" fill="#6f9d33" />
+<circle cx="198" cy="131" r="2.4" fill="#6f9d33" />
+</g>
+<g transform="rotate(-9 241 153)">
+<rect x="194" y="138" width="94" height="30" rx="15" fill="#eacd91" stroke="#d7b678" stroke-width="3" />
+<rect x="208" y="147" width="66" height="12" rx="6" fill="#ddb87f" />
+<circle cx="216" cy="144" r="3" fill="#6f9d33" />
+<circle cx="250" cy="162" r="2.6" fill="#6f9d33" />
+<circle cx="274" cy="145" r="2.4" fill="#6f9d33" />
+</g>
+<g transform="rotate(15 244 197)">
+<rect x="202" y="182" width="84" height="30" rx="15" fill="#edd39b" stroke="#d7b678" stroke-width="3" />
+<rect x="216" y="191" width="56" height="12" rx="6" fill="#ddb87f" />
+<circle cx="224" cy="188" r="3" fill="#6f9d33" />
+<circle cx="254" cy="206" r="2.6" fill="#6f9d33" />
+<circle cx="272" cy="189" r="2.4" fill="#6f9d33" />
+</g>
+</svg>

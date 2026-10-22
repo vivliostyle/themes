@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 150" role="img" aria-label="ホオノキの葉の模式図。枝先に集まる大きな倒卵形の葉と、円柱形の集合果を伴う。">
+<style>
+.leaf-blade { fill: #557a55; fill-opacity: 0.46; stroke: #2c352c; stroke-width: 1.3; stroke-linejoin: round; }
+.leaf-vein { fill: none; stroke: #2c352c; stroke-width: 0.7; opacity: 0.65; }
+.leaf-stem { fill: none; stroke: #6f6142; stroke-width: 2.2; stroke-linecap: round; }
+.fig-acc { fill: #557a55; fill-opacity: 0.4; stroke: #2c352c; stroke-width: 1; stroke-linejoin: round; }
+.fig-berry { fill: #a9483d; fill-opacity: 0.85; stroke: #6f2a24; stroke-width: 0.7; }
+.fig-flower { fill: #ddb9be; fill-opacity: 0.8; stroke: #b98b35; stroke-width: 0.7; }
+.fig-scale { stroke: #252a26; stroke-width: 1; }
+.fig-scale-t { fill: #252a26; font: 500 7px "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; letter-spacing: 0.03em; }
+.fig-lbl { fill: #3a463a; font: 6.5px "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+.fig-lead { fill: none; stroke: #9aa89a; stroke-width: 0.5; }
+</style>
+<path class="leaf-blade" d="M56,128 C50,114 40,102 36,82 C32,58 42,36 56,30 C70,36 80,58 76,82 C72,102 62,114 56,128 Z" />
+<path class="leaf-vein" d="M56,126 L56,34 M56,108 Q46,102 39,92 M56,108 Q66,102 73,92 M56,90 Q45,84 37,76 M56,90 Q67,84 75,76 M56,72 Q46,66 40,58 M56,72 Q66,66 72,58" />
+<path class="leaf-stem" d="M56,128 L56,146" />
+<ellipse class="fig-acc" cx="122" cy="110" rx="7" ry="15" />
+<circle class="fig-berry" cx="118" cy="102" r="2.2" />
+<circle class="fig-berry" cx="126" cy="108" r="2.2" />
+<circle class="fig-berry" cx="118" cy="116" r="2.2" />
+<circle class="fig-berry" cx="126" cy="94" r="2.2" />
+<path class="leaf-stem" d="M122,125 L122,140" />
+<path class="fig-lead" d="M56,138 L74,134" />
+<text class="fig-lbl" x="75" y="136">葉柄</text>
+<line class="fig-scale" x1="14" y1="138" x2="44" y2="138" />
+<line class="fig-scale" x1="14" y1="135" x2="14" y2="141" />
+<line class="fig-scale" x1="44" y1="135" x2="44" y2="141" />
+<text class="fig-scale-t" x="29" y="133" text-anchor="middle">2 cm</text>
+</svg>

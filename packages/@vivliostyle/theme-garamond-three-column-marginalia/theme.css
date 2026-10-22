@@ -1,0 +1,499 @@
+/*
+ * 大学・学会などの記念誌 (学史アンソロジー) — A4縦・3段組の本文ページ。
+ * EB Garamond のオールドスタイル・セリフ本文に、Libre Caslon Text の見出し、
+ * Archivo の柱・ノンブル・図表キャプションを合わせる。墨一色 (クリーム紙)。
+ *
+ * 原稿の構成 (VFM):
+ *   章の md   … frontmatter に `class: chapter` (h1 = 章題、h2 = 節題)
+ *   付録の md … `class: appendix` (h1 = 付録の表題)
+ *   前付・後付 … class なし (h1 の番号は出さない)
+ *   標題紙     … `class: title-page` (柱・ノンブルを出さない)
+ * 3段組は本文が流れる単位 (章の md では節、それ以外では本文全体) に掛け、
+ * 見出しと段抜きの表は column-span: all で段抜きする。
+ */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Archivo:wght@400;500;600&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/footnote';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/toc';
+
+:root {
+  --vs-page--size: A4;
+  --vs-page--margin-top: 18mm;
+  --vs-page--margin-bottom: 18mm;
+  --vs-page--margin-left: 22mm;
+  --vs-page--margin-right: 22mm;
+  --vs-page--border-width-top: 0.7pt;
+  --vs-page--border-color-top: var(--vs-color-foreground);
+  --vs-page--mbox-top-vertical-align: bottom;
+  --vs-page--mbox-top-padding-bottom: 2mm;
+
+  /* 柱 (中央) + ノンブル (右)。その下の共通罫は版面の上罫 */
+  --vs-page--mbox-top-center-font-family: var(
+    --vs-theme-garamond-three-column-marginalia--font-meta
+  );
+  --vs-page--mbox-top-center-font-size: 8pt;
+  --vs-page--mbox-top-center-font-weight: 500;
+  --vs-page--mbox-top-center-letter-spacing: 0.18em;
+  --vs-page--mbox-top-center-text-transform: uppercase;
+  --vs-page--mbox-top-center-text-color: var(--vs-color-foreground);
+  --vs-page--mbox-top-right-content: counter(page);
+  --vs-page--mbox-top-right-font-family: var(
+    --vs-theme-garamond-three-column-marginalia--font-meta
+  );
+  --vs-page--mbox-top-right-font-size: 9.5pt;
+  --vs-page--mbox-top-right-font-weight: 600;
+  --vs-page--mbox-top-right-letter-spacing: 0.04em;
+  --vs-page--mbox-top-right-text-color: var(--vs-color-foreground);
+
+  --vs-font-family: 'EB Garamond', 'Georgia', 'Times New Roman', serif;
+  --vs-font-size: 8.4pt;
+  --vs-line-height: 1.42;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-background: #f7f4ec;
+  --vs-widows-orphans: 2;
+  --vs-font-feature-settings: 'onum' 1, 'liga' 1, 'kern' 1;
+
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 1.1em;
+  --vs--p-text-align: justify;
+  --vs--p-hyphens: auto;
+
+  --vs--heading-text-align: start;
+  --vs--heading-font-family: 'Libre Caslon Text', 'Georgia', serif;
+
+  /* h1 は前付・付録の表題、h2 は章の中の節のマストヘッド。どちらも同じ大きさで組む */
+  --vs--h1-font-size: 22pt;
+  --vs--h1-font-weight: 400;
+  --vs--h1-line-height: 1.1;
+  --vs--h1-letter-spacing: 0.005em;
+  --vs--h1-margin-block: 0;
+  --vs--h1-margin-inline: 0;
+  --vs--h1-string-set: chapter-title content();
+
+  --vs--h2-font-size: 22pt;
+  --vs--h2-font-weight: 400;
+  --vs--h2-line-height: 1.1;
+  --vs--h2-letter-spacing: 0.005em;
+  --vs--h2-margin-block: 0;
+  --vs--h2-margin-inline: 0;
+
+  --vs--figure-margin-block: 1.6mm 2.4mm;
+  --vs--figure-margin-inline: 0;
+  --vs--figure-item-size-inline: 66%;
+  --vs--figcaption-font-size: 7pt;
+  --vs--figcaption-margin-block: 1.6mm 0;
+  --vs--figcaption-margin-inline: 0;
+  --vs--figcaption-text-align: start;
+  --vs--figcaption-text-indent: 0;
+
+  --vs--cite-font-style: italic;
+
+  --vs--table-size-inline: 100%;
+  --vs--table-font-size: 8pt;
+  --vs--table-margin-block: 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-border-color: var(
+    --vs-theme-garamond-three-column-marginalia--color-rule
+  );
+  --vs--table-border-width: 0;
+  --vs--table-border-width-row: 0.4pt;
+  --vs--th-background-color: var(
+    --vs-theme-garamond-three-column-marginalia--color-halftone
+  );
+  --vs--th-text-color: var(--vs-color-background);
+  --vs--th-font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --vs--th-font-size: 7.4pt;
+  --vs--th-font-weight: 500;
+  --vs--th-text-align: center;
+  --vs--th-padding-block: 1.1mm;
+  --vs--th-padding-inline: 2mm;
+  --vs--td-text-align: center;
+  --vs--td-padding-block: 0.8mm;
+  --vs--td-padding-inline: 2mm;
+
+  --vs-footnote--font-family:
+    'EB Garamond', 'Georgia', 'Times New Roman', serif;
+  --vs-footnote--font-size: 7pt;
+  --vs-footnote--line-height: 1.3;
+  /* 脚注番号 (呼び出し) の書体は本文と分けて Archivo に */
+  --vs-footnote--call-font-family: var(
+    --vs-theme-garamond-three-column-marginalia--font-meta
+  );
+  --vs-footnote--call-font-weight: 500;
+
+  /* 節番号は「章番号.章内の連番」。章番号は文書カウンタ (class: chapter) から取る */
+  --vs-section--marker-display: none;
+  --vs-section--h2-marker-display: inline;
+  --vs-section--h2-marker-content: counter(vs-counter-chapter) '.'
+    counter(vs-counter-sec-h2);
+  --vs-section--h2-marker-margin-inline-end: 0.5em;
+  --vs-section--call-content: '\00A7\00A0'
+    target-counter(attr(href), vs-counter-chapter) '.'
+    target-counter(attr(href), vs-counter-sec-h2);
+
+  /* 図表番号も章番号を冠する (要素カウンタは md ごとに振り直されるため) */
+  --vs-figure--marker-content: 'Fig.\00A0' counter(vs-counter-chapter) '.'
+    counter(vs-counter-fig) '.\00A0';
+  --vs-figure--call-content: 'Fig.\00A0'
+    target-counter(attr(href), vs-counter-chapter) '.'
+    target-counter(attr(href), vs-counter-fig);
+  --vs-table--marker-content: 'Table\00A0' counter(vs-counter-chapter) '.'
+    counter(vs-counter-tbl) '\00A0\2014\00A0';
+  --vs-table--call-content: 'Table\00A0'
+    target-counter(attr(href), vs-counter-chapter) '.'
+    target-counter(attr(href), vs-counter-tbl);
+
+  --vs-theme-garamond-three-column-marginalia--font-display:
+    'Libre Caslon Text', 'Georgia', serif;
+  --vs-theme-garamond-three-column-marginalia--font-meta:
+    'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --vs-theme-garamond-three-column-marginalia--color-halftone: #8a8a8a;
+  --vs-theme-garamond-three-column-marginalia--color-rule: #c9c4b6;
+
+  --vs-theme-garamond-three-column-marginalia--chapter-marker-content: 'Chapter '
+    counter(vs-counter-chapter) ' \00B7';
+  --vs-theme-garamond-three-column-marginalia--chapter-call-content: target-counter(
+    attr(href),
+    vs-counter-chapter
+  );
+  --vs-theme-garamond-three-column-marginalia--chapter-toc-content: 'Chapter '
+    target-counter(attr(href), vs-counter-chapter) ' \00B7\00A0';
+  --vs-theme-garamond-three-column-marginalia--appendix-marker-content: 'Appendix '
+    counter(vs-counter-appendix, upper-alpha) '.';
+  --vs-theme-garamond-three-column-marginalia--appendix-call-content: target-counter(
+    attr(href),
+    vs-counter-appendix,
+    upper-alpha
+  );
+  --vs-theme-garamond-three-column-marginalia--appendix-toc-content: target-counter(
+      attr(href),
+      vs-counter-appendix,
+      upper-alpha
+    )
+    '.\00A0';
+  --vs-theme-garamond-three-column-marginalia--appendix-fig-call-content: 'Fig.\00A0'
+    target-counter(attr(href), vs-counter-appendix, upper-alpha) '.'
+    target-counter(attr(href), vs-counter-fig);
+  --vs-theme-garamond-three-column-marginalia--appendix-tbl-call-content: 'Table\00A0'
+    target-counter(attr(href), vs-counter-appendix, upper-alpha) '.'
+    target-counter(attr(href), vs-counter-tbl);
+  --vs-theme-garamond-three-column-marginalia--toc-sec-content: target-counter(
+      attr(href),
+      vs-counter-chapter
+    )
+    '.' target-counter(attr(href), vs-counter-sec-h2) '\00A0\00A0';
+  --vs-theme-garamond-three-column-marginalia--running-head-content: env(
+    pub-title
+  );
+}
+
+/* 和文で使う場合も図表番号に章番号を冠する (base の :lang(ja) 既定に勝たせる) */
+:root:lang(ja) {
+  --vs-figure--marker-content: '図' counter(vs-counter-chapter) '-'
+    counter(vs-counter-fig) '\3000';
+  --vs-figure--call-content: '図' target-counter(attr(href), vs-counter-chapter)
+    '-' target-counter(attr(href), vs-counter-fig);
+  --vs-table--marker-content: '表' counter(vs-counter-chapter) '-'
+    counter(vs-counter-tbl) '\3000';
+  --vs-table--call-content: '表' target-counter(attr(href), vs-counter-chapter)
+    '-' target-counter(attr(href), vs-counter-tbl);
+}
+
+/*
+ * 文書の種別
+ */
+
+/* 章の md: h1 は節のマストヘッドの上に置く小さな章標、節は改ページで起こす */
+body.chapter {
+  --vs-section--h1-marker-display: inline;
+  --vs-section--h1-marker-content: var(
+    --vs-theme-garamond-three-column-marginalia--chapter-marker-content
+  );
+  --vs-section--h1-marker-margin-inline-end: 0.5em;
+  --vs-section--h2-break-before: page;
+  --vs--h1-font-family: var(
+    --vs-theme-garamond-three-column-marginalia--font-meta
+  );
+  --vs--h1-font-size: 8pt;
+  --vs--h1-font-weight: 600;
+  --vs--h1-letter-spacing: 0.18em;
+  --vs--h1-line-height: 1.2;
+  --vs--h1-text-transform: uppercase;
+  --vs--h1-margin-block: 0 3mm;
+}
+
+html.appendix,
+body.appendix {
+  page: appendix-document;
+  --vs-section--h1-marker-display: inline;
+  --vs-section--h1-marker-content: var(
+    --vs-theme-garamond-three-column-marginalia--appendix-marker-content
+  );
+  /* base の文書単位付録 marker が節見出し規則に勝つため、書式を揃えて渡す */
+  --vs-appendix--marker-content: var(
+    --vs-theme-garamond-three-column-marginalia--appendix-marker-content
+  );
+  --vs-section--h1-marker-margin-inline-end: 0.35em;
+  --vs-figure--marker-content: 'Fig.\00A0'
+    counter(vs-counter-appendix, upper-alpha) '.' counter(vs-counter-fig)
+    '.\00A0';
+  --vs-table--marker-content: 'Table\00A0'
+    counter(vs-counter-appendix, upper-alpha) '.' counter(vs-counter-tbl)
+    '\00A0\2014\00A0';
+}
+
+html.title-page,
+body.title-page {
+  page: title-page;
+}
+
+/* 付録は md ごとに A, B … と数える (base の章カウンタと同じ流儀) */
+@page appendix-document {
+  --vs-document-first-page-counter-increment: vs-counter-appendix;
+}
+
+/* 柱の内容は名前付きページごとに --vs-theme-garamond-three-column-marginalia--running-head-content を差し替えて決めるので、
+   その参照は :root ではなくページ側に置く (:root では値が先に確定してしまう)。
+   margin box の text-align は theme-base に変数が無いため直書き。 */
+@page {
+  --vs-page--mbox-top-center-content: var(
+    --vs-theme-garamond-three-column-marginalia--running-head-content
+  );
+}
+
+@page chapter-document {
+  --vs-theme-garamond-three-column-marginalia--running-head-content: 'Chapter '
+    counter(vs-counter-chapter) ' \00B7 ' string(chapter-title);
+}
+
+@page appendix-document {
+  --vs-theme-garamond-three-column-marginalia--running-head-content: 'Appendix '
+    counter(vs-counter-appendix, upper-alpha) ' \00B7 ' string(chapter-title);
+}
+
+@page title-page {
+  --vs-page--border-width-top: 0;
+  --vs-page--mbox-top-center-content: '';
+  --vs-page--mbox-top-right-content: '';
+}
+
+/*
+ * 本文
+ */
+
+/* 段組は本文が流れる単位に掛ける。章の md では節ごと、それ以外は本文全体 */
+body:not(.chapter) > section.level1,
+body.chapter > section.level1 > section.level2 {
+  columns: 3;
+  column-gap: 7mm;
+  column-fill: balance;
+}
+
+:is(h1, h2) {
+  column-span: all;
+}
+
+/* 章の最初の節は章標に続けて組む (改ページで章標だけが残らないように) */
+section > h1:first-child + section:has(> h2:first-child) {
+  break-before: auto;
+}
+
+/* イタリックのリード文: マストヘッド直後の段落 */
+section > :is(h1, h2):first-child + p {
+  column-span: all;
+  font-style: italic;
+  font-size: 11pt;
+  line-height: 1.3;
+  text-indent: 0;
+  text-align: start;
+  margin-block: 1.6mm 3.6mm;
+}
+
+/* 本文の書き出し段落は字下げしない */
+section > :is(h1, h2):first-child + p + p {
+  text-indent: 0;
+}
+
+/* base が扱わない参照アンカーにも本文と同じ体裁を与える */
+a:is(
+  [data-ref='chapter'],
+  [data-ref='appendix'],
+  [data-ref='fig-appendix'],
+  [data-ref='tbl-appendix']
+) {
+  color: inherit;
+  text-decoration: none;
+}
+
+a[data-ref='chapter']::before {
+  content: var(
+    --vs-theme-garamond-three-column-marginalia--chapter-call-content
+  );
+}
+
+a[data-ref='appendix']::before {
+  content: var(
+    --vs-theme-garamond-three-column-marginalia--appendix-call-content
+  );
+}
+
+/* 付録の図表は章番号ではなく付録記号を冠するので、参照側も別の data-ref で指す */
+a[data-ref='fig-appendix']::before {
+  content: var(
+    --vs-theme-garamond-three-column-marginalia--appendix-fig-call-content
+  );
+}
+
+a[data-ref='tbl-appendix']::before {
+  content: var(
+    --vs-theme-garamond-three-column-marginalia--appendix-tbl-call-content
+  );
+}
+
+/* 小口側の傍注: イタリックの脇注を小口マージンへ float させる */
+aside {
+  float: right;
+  clear: right;
+  width: 22mm;
+  margin-block: 0.6mm 1.4mm;
+  margin-inline: 3mm -4mm;
+  font-style: italic;
+  font-size: 7.2pt;
+  line-height: 1.3;
+  text-align: start;
+  text-indent: 0;
+  hyphens: none;
+  break-inside: avoid;
+}
+
+/* display は var() 経由では効かないため直書きする */
+figure {
+  display: block;
+}
+
+figure img {
+  display: block;
+  height: auto;
+  margin-inline: auto;
+}
+
+figcaption {
+  font-family: var(--vs-theme-garamond-three-column-marginalia--font-meta);
+  line-height: 1.3;
+}
+
+figure:has(> img) > figcaption::before {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* 段抜きのデータ表ブロック: キャプション + 横罫主体の表 */
+.full-width {
+  column-span: all;
+  break-inside: avoid;
+  margin-block: 2.4mm 0;
+}
+
+figure:has(table) > figcaption {
+  font-family: var(--vs-theme-garamond-three-column-marginalia--font-display);
+  font-weight: 700;
+  font-size: 9.5pt;
+  line-height: 1.2;
+  margin-block: 0 1.4mm;
+  break-after: avoid;
+}
+
+/* 標題紙などで使う独立した表題行 */
+.caption {
+  font-family: var(--vs-theme-garamond-three-column-marginalia--font-display);
+  font-weight: 700;
+  font-size: 9.5pt;
+  line-height: 1.2;
+  text-align: start;
+  text-indent: 0;
+  margin-block: 0 1.4mm;
+  break-after: avoid;
+}
+
+table {
+  font-feature-settings:
+    'tnum' 1,
+    'lnum' 1;
+}
+
+thead th:first-child {
+  text-align: start;
+}
+
+thead th {
+  letter-spacing: 0.03em;
+}
+
+tbody td:first-child {
+  text-align: start;
+}
+
+/* 合計行: 上下を太罫で挟み、数字を太字にする */
+tbody tr:last-child td {
+  font-weight: 600;
+  border-block-start-width: 0.9pt;
+  border-block-start-style: solid;
+  border-block-start-color: var(--vs-color-foreground);
+  border-block-end-width: 0.9pt;
+  border-block-end-style: solid;
+  border-block-end-color: var(--vs-color-foreground);
+}
+
+/*
+ * 目次
+ */
+
+:is(#toc, [role='doc-toc']) ol {
+  margin-block: 0;
+  padding-inline-start: 0;
+}
+
+:is(#toc, [role='doc-toc']) li {
+  margin-block-end: 0.6mm;
+  text-indent: 0;
+}
+
+/* 部立てのラベル行 (Front Matter / Chapter N / Appendices …) */
+:is(#toc, [role='doc-toc']) li.toc-part {
+  font-family: var(--vs-theme-garamond-three-column-marginalia--font-meta);
+  font-size: 7.2pt;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-block: 2.2mm 1mm;
+  break-after: avoid;
+}
+
+:is(#toc, [role='doc-toc']) li.toc-part:first-child {
+  margin-block-start: 0;
+}
+
+/* 目次では番号のあとに見出し名が続くため、本文中の参照とは別の体裁にする */
+:is(#toc, [role='doc-toc']) a[data-ref='sec']::before {
+  content: var(--vs-theme-garamond-three-column-marginalia--toc-sec-content);
+}
+
+:is(#toc, [role='doc-toc']) a[data-ref='chapter']::before {
+  content: var(
+    --vs-theme-garamond-three-column-marginalia--chapter-toc-content
+  );
+}
+
+:is(#toc, [role='doc-toc']) a[data-ref='appendix']::before {
+  content: var(
+    --vs-theme-garamond-three-column-marginalia--appendix-toc-content
+  );
+}

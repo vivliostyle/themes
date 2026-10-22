@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 238" role="img" aria-label="2026年6月度の事業部別営業利益差異の棒グラフ">
+<style>
+text { font-family: "Noto Sans JP", "Hiragino Sans", sans-serif; font-size: 13px; fill: #1f2428; }
+</style>
+<line x1="60" y1="12.5" x2="60" y2="187.5" stroke="#5a5e63" stroke-width="1" />
+<text x="52" y="17.5" text-anchor="end">4,000</text>
+<text x="52" y="75.8333" text-anchor="end">0</text>
+<text x="52" y="134.1667" text-anchor="end">−4,000</text>
+<text x="52" y="192.5" text-anchor="end">−8,000</text>
+<rect x="113.625" y="70.8333" width="64" height="75.8333" fill="#c05621" />
+<rect x="284.875" y="70.8333" width="64" height="91.875" fill="#c05621" />
+<rect x="456.125" y="35.8333" width="64" height="35" fill="#8e9297" />
+<rect x="627.375" y="70.8333" width="64" height="71.4583" fill="#c05621" />
+<line x1="60" y1="70.8333" x2="745" y2="70.8333" stroke="#44484d" stroke-width="1.2" />
+<text x="145.625" y="162.9167" text-anchor="middle">−5,200</text>
+<text x="316.875" y="178.9583" text-anchor="middle">−6,300</text>
+<text x="488.125" y="27.7083" text-anchor="middle">2,400</text>
+<text x="659.375" y="158.5417" text-anchor="middle">−4,900</text>
+<text x="145.625" y="217.5" text-anchor="middle">生活雑貨事業部</text>
+<text x="316.875" y="217.5" text-anchor="middle">食品事業部</text>
+<text x="488.125" y="217.5" text-anchor="middle">オンライン事業部</text>
+<text x="659.375" y="217.5" text-anchor="middle">法人事業部</text>
+</svg>

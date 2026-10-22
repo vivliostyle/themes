@@ -1,0 +1,280 @@
+/*
+ * 現金出納帳 (landscape-ruled-ledger)
+ * B5 判・横書きの事務用帳簿。装飾を排したモノクロ実務設計。
+ * Noto Sans JP の帳票名・列見出しに IBM Plex Mono の等幅タブラー数字を重ね、
+ * 日付(月/日)・摘要・収入・支出・残高の全幅罫組み表を主役に据える。外周と表頭下線を
+ * 濃く太く、列罫を中間グレー、記入行罫を淡グレーの3階調で階層を刻む。記入行は
+ * 件数に関わらずページ下部まで一定ピッチで反復し、表頭を繰り返して次ページへ続く。
+ * 月頭の繰越行 (月欄に月を書いた行) と月計行 (摘要を太字で書いた行) を強調する。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  /* Page: JIS B5 portrait (182x257mm), asymmetric ledger margins, no header */
+  --vs-page--size: JIS-B5;
+  --vs-page--margin-top: 12mm;
+  --vs-page--margin-bottom: 12mm;
+  --vs-page--margin-left: 13.5mm;
+  --vs-page--margin-right: 13.5mm;
+
+  /* Type: gothic body, 9pt on a 1.6 lead */
+  --vs-font-family:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+  --vs-font-size: 9pt;
+  --vs-line-height: 1.6;
+  --vs-color-foreground: #242424;
+  --vs-color-background: #faf9f5; /* 帳簿用紙色 */
+  --vs-columns: 1;
+
+  --vs--monospace-font-family: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --vs--heading-font-family:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+  --vs--heading-font-weight: 700;
+
+  /* Form title */
+  --vs--h1-font-size: 13pt;
+  --vs--h1-line-height: 1.1;
+  --vs--h1-letter-spacing: 0.04em;
+  --vs--h1-margin-block: 0 3mm;
+  --vs--h1-margin-inline: 0;
+
+  /* 帳票番号: 一冊に複数の帳票を綴じたときの通し番号 */
+  --vs-section--h1-marker-display: inline;
+  --vs-section--h1-marker-content: counter(vs-counter-sec-h1);
+  --vs-section--h1-marker-margin-inline-end: 0.55em;
+
+  /* Table: explicit 3-tone rules, no blanket border */
+  --vs--table-border-width: 0;
+  --vs--table-border-color: var(
+    --vs-theme-landscape-ruled-ledger--color-rule
+  ); /* 列罫・主要横罫 */
+  --vs--table-border-color-outer: var(
+    --vs-theme-landscape-ruled-ledger--color-rule-strong
+  );
+  --vs--table-border-color-row: var(
+    --vs-theme-landscape-ruled-ledger--color-rule-soft
+  );
+  --vs--table-border-width-outer: 1pt; /* 外枠 (太) */
+  --vs--table-border-width-column: 0.5pt; /* 列罫 (中) */
+  --vs--table-border-width-row: 0.4pt; /* 記入行罫 (細) */
+  --vs--table-break-inside: auto;
+  --vs--table-font-size: 9pt;
+  --vs--table-margin-block: 0;
+  --vs--table-cell-padding-block: 0.9mm;
+  --vs--table-cell-padding-inline: 2.4mm;
+  --vs--th-font-size: 9pt;
+  --vs--th-font-weight: 500;
+  --vs--th-text-align: center;
+
+  /* Folio: 小口側 (右ページは右下、左ページは左下) */
+  --vs-page--mbox-bottom-outside-content: counter(page, decimal-leading-zero);
+  --vs-page--mbox-bottom-font-family: var(
+    --vs-theme-landscape-ruled-ledger--font-mono
+  );
+  --vs-page--mbox-bottom-font-size: 8pt;
+  --vs-page--mbox-bottom-text-color: var(
+    --vs-theme-landscape-ruled-ledger--color-muted
+  );
+  --vs-page--mbox-bottom-letter-spacing: 0.06em;
+
+  /* Theme-specific tokens */
+  --vs-theme-landscape-ruled-ledger--font-mono:
+    'IBM Plex Mono', ui-monospace, monospace;
+  --vs-theme-landscape-ruled-ledger--color-rule-strong: #242424; /* 外枠・表頭罫 */
+  --vs-theme-landscape-ruled-ledger--color-rule: #777777; /* 列罫・主要横罫 */
+  --vs-theme-landscape-ruled-ledger--color-rule-soft: #b8b8b8; /* 記入行罫 */
+  --vs-theme-landscape-ruled-ledger--color-muted: #666666; /* 補助文字 */
+  --vs-theme-landscape-ruled-ledger--color-tint: #f0efe9; /* 計行のごく淡い地 */
+  --vs-theme-landscape-ruled-ledger--ledger-date-width: 7%;
+  --vs-theme-landscape-ruled-ledger--ledger-description-width: 39%;
+  --vs-theme-landscape-ruled-ledger--ledger-amount-width: 18%;
+  --vs-theme-landscape-ruled-ledger--date-group-label: '日付';
+  --vs-theme-landscape-ruled-ledger--date-group-block-size: 4.6mm;
+}
+
+/* --- Masthead: 帳票名 (左) + 年/月の記入枠 (右) --- */
+h1 {
+  display: flex;
+  align-items: flex-end;
+}
+
+h1 .field {
+  display: flex;
+  gap: 4mm;
+  align-items: flex-end;
+  margin-inline-start: auto;
+}
+
+h1 .field label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6mm;
+  font-size: 8pt;
+  font-weight: 500;
+  letter-spacing: normal;
+}
+
+.answer-space {
+  display: block;
+  width: 26mm;
+  height: 7mm;
+  border-width: 0.6pt;
+  border-style: solid;
+  border-color: var(--vs-theme-landscape-ruled-ledger--color-rule-strong);
+  background: transparent;
+}
+
+/* Caption strip above the ledger: shop name (left) and money unit (right) */
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 8pt;
+  color: var(--vs-theme-landscape-ruled-ledger--color-muted);
+  letter-spacing: 0.02em;
+  margin-block: 0 1.6mm;
+  margin-inline: 0;
+}
+
+/* --- Ledger table (VFM の Markdown 表) --- */
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+th,
+td {
+  vertical-align: middle;
+}
+
+/* 列比: 月/日・摘要・金額3列 */
+thead th:first-child,
+thead th:nth-child(2) {
+  width: var(--vs-theme-landscape-ruled-ledger--ledger-date-width);
+}
+thead th:nth-child(3) {
+  width: var(--vs-theme-landscape-ruled-ledger--ledger-description-width);
+}
+thead th:nth-child(n + 4) {
+  width: var(--vs-theme-landscape-ruled-ledger--ledger-amount-width);
+}
+
+/* Two-tier head: 「日付」 が 月/日 の2列にまたがる。Markdown の表は
+   colspan を書けないため、先頭セルの ::before を2列幅に伸ばして帯を作る。 */
+thead {
+  break-inside: avoid;
+}
+
+thead th {
+  border-block-end-width: 1pt;
+  border-block-end-style: solid;
+  border-block-end-color: var(
+    --vs-theme-landscape-ruled-ledger--color-rule-strong
+  );
+  border-block-start-width: 1pt;
+  border-block-start-style: solid;
+  border-block-start-color: var(
+    --vs-theme-landscape-ruled-ledger--color-rule-strong
+  );
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  padding-block: 1.4mm;
+  white-space: nowrap;
+}
+
+thead th:first-child,
+thead th:nth-child(2) {
+  vertical-align: bottom;
+}
+
+thead th:first-child {
+  padding-block-start: 0;
+}
+
+/* 「日付」帯: 月/日 の2列分に伸ばし、地色で列罫を覆って下罫だけを引く。
+   セル罫は擬似要素の背景より後に描かれるため、重ね順を上げないと帯が分断される。 */
+thead th:first-child::before {
+  content: var(--vs-theme-landscape-ruled-ledger--date-group-label);
+  display: block;
+  position: relative;
+  z-index: 1;
+  inline-size: calc(200% + 4 * var(--vs--table-cell-padding-inline));
+  block-size: var(--vs-theme-landscape-ruled-ledger--date-group-block-size);
+  line-height: var(--vs-theme-landscape-ruled-ledger--date-group-block-size);
+  margin-inline-start: calc(-1 * var(--vs--table-cell-padding-inline));
+  background-color: var(--vs-color-background);
+  text-align: center;
+  letter-spacing: 0.04em;
+  border-block-end-width: 0.5pt;
+  border-block-end-style: solid;
+  border-block-end-color: var(--vs-theme-landscape-ruled-ledger--color-rule);
+}
+
+/* --- Body rows --- */
+tbody tr {
+  break-inside: avoid;
+}
+
+/* 月 / 日: monospace, centred */
+tbody td:first-child,
+tbody td:nth-child(2) {
+  font-family: var(--vs-theme-landscape-ruled-ledger--font-mono);
+  text-align: center;
+  padding-inline: 1mm;
+  white-space: nowrap;
+}
+
+/* 摘要: gothic, left */
+tbody td:nth-child(3) {
+  text-align: start;
+}
+
+/* 収入 / 支出 / 残高: monospace tabular, right, breathing room off the rule */
+tbody td:nth-child(n + 4) {
+  font-family: var(--vs-theme-landscape-ruled-ledger--font-mono);
+  font-variant-numeric: tabular-nums;
+  text-align: end;
+  padding-inline-end: 3mm;
+}
+
+/* 月頭の繰越行: 月欄に月を書いた行 */
+tbody tr:has(> td:first-child:not(:empty)) > td:nth-child(3) {
+  font-weight: 500;
+}
+
+/* 月計行: 摘要を太字で書いた行。淡い地・太字・上に中罫/下に濃罫 */
+tbody tr:has(strong) {
+  background-color: var(--vs-theme-landscape-ruled-ledger--color-tint);
+}
+
+tbody tr:has(strong) > td {
+  border-block-start-width: 0.6pt;
+  border-block-start-style: solid;
+  border-block-start-color: var(--vs-theme-landscape-ruled-ledger--color-rule);
+  border-block-end-width: 0.7pt;
+  border-block-end-style: solid;
+  border-block-end-color: var(
+    --vs-theme-landscape-ruled-ledger--color-rule-strong
+  );
+  font-weight: 700;
+}
+
+tbody tr:has(strong) > td:nth-child(3) {
+  text-align: end;
+  letter-spacing: 0.08em;
+}
+
+tbody tr:has(strong) strong {
+  font-weight: inherit;
+}

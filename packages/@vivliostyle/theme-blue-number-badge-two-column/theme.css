@@ -1,0 +1,300 @@
+/*
+ * 部活動記録集（活動報告書） — B5判縦・横組2段。
+ * Noto Sans JP のゴシック本文に、学園ブルーのアクセント
+ * (数字バッジ付き節見出し・青縦棒付き大見出し・青二重罫の柱・囲み記事)。
+ *
+ * 原稿の構成 (VFM):
+ *   1 団体の報告 = 1 md。冒頭に `<header class="headline">` (生 HTML の h1 + 部署名)、
+ *   以降は `## 見出し` で節を切る (節番号 01〜 は theme-base の見出しカウンタで振る)。
+ *   記録表は `<div class="record">` + 生 HTML の h3、部長のひとことは `<aside class="note">`。
+ * 段組は theme-base のルート段組 (--vs-columns) に任せ、本文はページをまたいで流れる。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  /* テーマ固有 */
+  --vs-theme-blue-number-badge-two-column--color-accent: #0066cc;
+  --vs-theme-blue-number-badge-two-column--color-on-accent: #ffffff;
+  --vs-theme-blue-number-badge-two-column--color-rule: #b9c8d8;
+  --vs-theme-blue-number-badge-two-column--color-rule-light: #c5d6ea;
+  --vs-theme-blue-number-badge-two-column--color-tint: #eef5fc;
+  --vs-theme-blue-number-badge-two-column--color-tint-row: #f2f7fc;
+  --vs-theme-blue-number-badge-two-column--badge-size: 7.2mm;
+
+  --vs-page--size: 182mm 257mm;
+  --vs-page--margin-top: 19mm;
+  --vs-page--margin-bottom: 18mm;
+  --vs-page--margin-left: 14mm;
+  --vs-page--margin-right: 14mm;
+  --vs-page--border-width-top: 1.1mm;
+  --vs-page--border-color-top: var(
+    --vs-theme-blue-number-badge-two-column--color-accent
+  );
+  --vs-page--mbox-top-vertical-align: top;
+  --vs-page--mbox-top-margin-bottom: 1mm;
+
+  /* 柱は左が書名・右が報告の題、ノンブルは地中央。box ごとに書体が異なる */
+  --vs-page--mbox-top-left-content: env(pub-title);
+  --vs-page--mbox-top-left-font-family: 'Noto Sans JP', sans-serif;
+  --vs-page--mbox-top-left-font-weight: 700;
+  --vs-page--mbox-top-left-font-size: 10pt;
+  --vs-page--mbox-top-left-text-color: var(--vs-color-foreground);
+  --vs-page--mbox-top-left-vertical-align: bottom;
+  --vs-page--mbox-top-right-content: env(doc-title);
+  --vs-page--mbox-top-right-font-family: 'Noto Sans JP', sans-serif;
+  --vs-page--mbox-top-right-font-weight: 700;
+  --vs-page--mbox-top-right-font-size: 9pt;
+  --vs-page--mbox-top-right-letter-spacing: 0.04em;
+  --vs-page--mbox-top-right-text-color: var(
+    --vs-theme-blue-number-badge-two-column--color-accent
+  );
+  --vs-page--mbox-top-right-vertical-align: bottom;
+  --vs-page--mbox-bottom-center-content: '\2014\3000' counter(page) '\3000\2014';
+  --vs-page--mbox-bottom-center-font-family: 'Noto Sans JP', sans-serif;
+  --vs-page--mbox-bottom-center-font-weight: 500;
+  --vs-page--mbox-bottom-center-font-size: 9pt;
+  --vs-page--mbox-bottom-center-text-color: var(--vs-color-foreground);
+
+  --vs-font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --vs-font-size: 7.8pt;
+  --vs-line-height: 1.55;
+  --vs-color-foreground: #1a1a1a;
+
+  /* 2段組は本文全体に掛け、段間に細い境界罫を引く */
+  --vs-columns: 2;
+  --vs-column-fill: auto;
+  --vs-column-gap: 11mm;
+  --vs-column-rule-width: 0.2mm;
+  --vs-column-rule-style: solid;
+  --vs-column-rule-color: var(
+    --vs-theme-blue-number-badge-two-column--color-rule
+  );
+
+  --vs--heading-font-family:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+
+  /* 大見出し (青縦棒付きの特大題字) */
+  --vs--h1-font-size: 17pt;
+  --vs--h1-font-weight: 900;
+  --vs--h1-line-height: 1.25;
+  --vs--h1-margin-block: 0;
+
+  /* 節見出し (青角バッジ + 太字) */
+  --vs--h2-font-size: 10.5pt;
+  --vs--h2-line-height: 1.3;
+  --vs--h2-margin-block: 0 1.8mm;
+
+  /* 小見出し (記録欄・囲み記事) */
+  --vs--h3-font-size: 8.6pt;
+  --vs--h3-line-height: 1.3;
+  --vs--h3-margin-block: 0;
+
+  --vs--p-margin-block: 1mm 0;
+  --vs--p-text-indent: 1em;
+
+  /* 観測データの箇条書きは青角マーカーを ::before で自前に描く */
+  --vs--lists-margin-block: 1.6mm 0;
+  --vs--ul-list-style-type: none;
+  --vs--ul-padding-inline-start: 4mm;
+
+  --vs--figure-margin-block: 2mm 0;
+  --vs--figure-item-size-inline: 100%;
+  --vs--figcaption-font-size: 7pt;
+  --vs--figcaption-margin-block: 1mm 0;
+  --vs--figcaption-text-align: center;
+  --vs--figcaption-font-weight: 700;
+  --vs--figcaption-text-color: var(
+    --vs-theme-blue-number-badge-two-column--color-accent
+  );
+  --vs--figcaption-line-height: 1.3;
+
+  /* 表: 罫は tbody セルの下罫 (淡青) だけ。外枠・段罫は引かない */
+  --vs--table-size-inline: 100%;
+  --vs--table-line-height: 1.35;
+  --vs--table-font-size: 6.5pt;
+  --vs--table-margin-block: 1.6mm 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-border-color: var(
+    --vs-theme-blue-number-badge-two-column--color-rule
+  );
+  --vs--table-border-width: 0;
+  --vs--table-border-width-row: 0.15mm;
+  --vs--table-cell-padding-block: 0.6mm;
+  --vs--table-cell-padding-inline: 1.4mm;
+  --vs--th-text-align: left;
+  --vs--th-background-color: var(
+    --vs-theme-blue-number-badge-two-column--color-accent
+  );
+  --vs--th-text-color: var(
+    --vs-theme-blue-number-badge-two-column--color-on-accent
+  );
+  --vs--td-vertical-align: top;
+
+  /* 節番号は theme-base の見出しカウンタ (md ごとに 01 から) */
+  --vs-section--marker-display: none;
+  --vs-section--h2-marker-display: inline-block;
+  --vs-section--h2-marker-content: counter(
+    vs-counter-sec-h2,
+    decimal-leading-zero
+  );
+  --vs-section--h2-marker-margin-inline-end: 2.5mm;
+}
+
+body {
+  padding-block-start: 2mm;
+  box-decoration-break: clone;
+}
+
+/* ---- 大見出し (青縦棒 + 特大題字 + 校名) ---- */
+
+.headline {
+  border-left-width: 4.5mm;
+  border-left-style: solid;
+  border-left-color: var(--vs-theme-blue-number-badge-two-column--color-accent);
+  padding-left: 4mm;
+  margin: 0 0 3mm;
+  break-after: avoid;
+}
+
+.headline .byline {
+  font-size: 10pt;
+  font-weight: 700;
+  margin-block: 1.2mm 0;
+  text-indent: 0;
+}
+
+/* リード文 (大見出し直後の段落) */
+.headline + p {
+  margin-block: 0 2mm;
+}
+
+/* ---- 節: 青角バッジ (01〜 自動採番) + 太字見出し ---- */
+
+section {
+  margin-top: 3.2mm;
+}
+
+/*
+ * バッジは inline-block でぶら下げる (見出しを flex にすると題名中の
+ * インライン要素が別の flex item に分かれてしまうため)。
+ */
+section > h2:first-child {
+  padding-inline-start: calc(
+    var(--vs-theme-blue-number-badge-two-column--badge-size) +
+      var(--vs-section--h2-marker-margin-inline-end)
+  );
+  text-indent: calc(
+    -1 *
+      (var(--vs-theme-blue-number-badge-two-column--badge-size) +
+        var(--vs-section--h2-marker-margin-inline-end))
+  );
+  break-after: avoid;
+}
+
+section > h2:first-child::before {
+  inline-size: var(--vs-theme-blue-number-badge-two-column--badge-size);
+  block-size: var(--vs-theme-blue-number-badge-two-column--badge-size);
+  line-height: var(--vs-theme-blue-number-badge-two-column--badge-size);
+  text-align: center;
+  text-indent: 0;
+  vertical-align: middle;
+  border-radius: 0.9mm;
+  background-color: var(--vs-theme-blue-number-badge-two-column--color-accent);
+  color: var(--vs-theme-blue-number-badge-two-column--color-on-accent);
+  font-size: 11.5pt;
+  font-weight: 700;
+}
+
+/* ---- 箇条書き (観測データ) ---- */
+
+ul li {
+  position: relative;
+  margin-block: 0.5mm 0;
+  line-height: 1.45;
+}
+
+ul li::before {
+  content: '';
+  position: absolute;
+  left: -3mm;
+  top: 1.1mm;
+  width: 1.5mm;
+  height: 1.5mm;
+  border-radius: 0.3mm;
+  background-color: var(--vs-theme-blue-number-badge-two-column--color-accent);
+}
+
+/* ---- 図版 (外部 SVG) ---- */
+
+figure img {
+  display: block;
+  border-width: 0.2mm;
+  border-style: solid;
+  border-color: var(--vs-theme-blue-number-badge-two-column--color-rule-light);
+}
+
+/* ---- 活動記録・実績の表 ---- */
+
+.record {
+  margin-top: 3.2mm;
+  break-inside: avoid;
+}
+
+.record + .record {
+  margin-top: 4mm;
+}
+
+.record h3 {
+  padding-left: 2.6mm;
+  border-left-width: 2.2mm;
+  border-left-style: solid;
+  border-left-color: var(--vs-theme-blue-number-badge-two-column--color-accent);
+}
+
+tbody tr:nth-child(even) td {
+  background-color: var(
+    --vs-theme-blue-number-badge-two-column--color-tint-row
+  );
+}
+
+tbody td:last-child {
+  white-space: nowrap;
+}
+
+/* ---- 部長のひとこと (角丸青枠囲み) ---- */
+
+.note {
+  margin-top: 3mm;
+  border-width: 0.55mm;
+  border-style: solid;
+  border-color: var(--vs-theme-blue-number-badge-two-column--color-accent);
+  border-radius: 2.5mm;
+  background-color: var(--vs-theme-blue-number-badge-two-column--color-tint);
+  padding: 2.4mm 3.2mm 2.6mm;
+  break-inside: avoid;
+}
+
+.note h3 {
+  display: inline-block;
+  background-color: var(--vs-theme-blue-number-badge-two-column--color-accent);
+  color: var(--vs-theme-blue-number-badge-two-column--color-on-accent);
+  font-size: 8.5pt;
+  line-height: 1;
+  padding: 1.2mm 3.2mm 1.4mm;
+  border-radius: 1mm;
+  margin-block: 0 1.5mm;
+}
+
+.note p {
+  font-size: 7.5pt;
+}
+
+.note .signature {
+  text-align: right;
+  text-indent: 0;
+  font-weight: 500;
+  margin-block-start: 1.5mm;
+}

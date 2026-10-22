@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 92" role="img" aria-label="Bars for the cost of each level of a recursion tree, shrinking by a constant factor.">
+<style>
+.hand { font-family: "Caveat", "Comic Sans MS", cursive; font-size: 15px; fill: #1a1a1a; }
+</style>
+<g fill="#fafaf7" stroke="#1a1a1a" stroke-width="1.2">
+<rect x="6" y="8" width="70" height="13" />
+<rect x="6" y="32" width="26" height="13" />
+<rect x="6" y="56" width="10" height="13" />
+</g>
+<text class="hand" x="82" y="19">cn&#178;</text>
+<text class="hand" x="38" y="43">&#215;3/16</text>
+<text class="hand" x="22" y="67">&#8943;</text>
+</svg>

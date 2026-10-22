@@ -1,0 +1,18 @@
+/*
+ * theme.css だけでこの論文は組める。ここで補うのは、VFM が MathJax で組む数式が
+ * theme.css の想定する MathML の要素構造と食い違う分だけ。
+ */
+
+/* MathJax は x ハイトを合わせるため既定で 116.7% を掛ける。theme.css は数式を本文と
+   ほぼ同じ大きさで組む設計で、段幅もそれを前提にしているので掛け戻す */
+.math.inline,
+.math.display {
+  font-size: 0.9em;
+}
+
+/* MathJax のディスプレイ数式は自前に 1em の上下マージンを持つので、
+   外側のマージンと二重にしない */
+.equation .math.display,
+.theorem .math.display {
+  margin-block: 0;
+}

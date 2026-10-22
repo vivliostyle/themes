@@ -1,0 +1,383 @@
+/*
+ * 実用海外旅行ガイド (orange-badge-column-rule)
+ * A4縦・2段組の本文面。Noto Sans JP のゴシック本文/見出しに、
+ * Barlow Condensed の章番号・料金数字・参照ページ、M PLUS 1p のデータ欄/表を重ね、
+ * オレンジ (#ff6600) を章番号バッジ・段間罫・情報ボックス枠・矢印に一貫して差す。
+ * 左段: 俯瞰略図 + 本文 + 番号付き小見出し / 右段: DATA ボックス + モデルコース + 料金表。
+ *
+ * 原稿 (VFM) の書き方:
+ *   # 章題<span class="subhead">欧文サブ</span>  章番号バッジは自動で付く
+ *   ## 小見出し                                  「章-連番」を自動で付ける
+ *   ## スポットDATA {.data-box}                  枠付きのデータ欄 (表を1つ置く)
+ *   ## モデルコース {.course}                    番号付きリストが矢印のフローになる
+ *   ## 料金表 {.fee}                             料金表
+ *   <p class="ref"><a href="#id" data-ref="page"></a></p>   → P.** の参照
+ */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=M+PLUS+1p:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  --vs-theme-orange-badge-column-rule--font-condensed:
+    'Barlow Condensed', 'Noto Sans JP', sans-serif;
+  --vs-theme-orange-badge-column-rule--font-caption:
+    'M PLUS 1p', 'Noto Sans JP', sans-serif;
+  --vs-theme-orange-badge-column-rule--color-accent: #ff6600;
+  --vs-theme-orange-badge-column-rule--color-muted: #8a8a8a;
+  --vs-theme-orange-badge-column-rule--color-rule: #e2ddd0;
+  --vs-theme-orange-badge-column-rule--color-reverse: #fff;
+
+  /* 「→ P.**」のページ参照 */
+  --vs-page--call-content: '→ P.' target-counter(attr(href), page);
+
+  /* Page: A4 縦, やや詰めた余白 */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 13mm;
+  --vs-page--margin-bottom: 14mm;
+  --vs-page--margin-left: 14mm;
+  --vs-page--margin-right: 14mm;
+  --vs-color-background: #fdfcf8;
+  --vs-page--background-color: #fdfcf8;
+
+  /* 柱(running head)・ノンブルは margin box に描画する。書体・色はボックスごとに
+     異なるので、ノンブル側 (Barlow Condensed) を既定にし、柱側は box 別に与える */
+  --vs-page--mbox-top-left-content: env(pub-title);
+  --vs-page--mbox-top-left-font-family: 'Noto Sans JP', sans-serif;
+  --vs-page--mbox-top-left-font-weight: 700;
+  --vs-page--mbox-top-left-font-size: 9pt;
+  --vs-page--mbox-top-left-text-color: #1f1f1f;
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-font-family: 'Barlow Condensed', sans-serif;
+  --vs-page--mbox-font-weight: 600;
+  --vs-page--mbox-font-size: 11pt;
+  --vs-page--mbox-letter-spacing: 0.04em;
+  --vs-page--mbox-text-color: #8a8a8a;
+
+  /* Type: ゴシック 9pt / 1.55 */
+  --vs-font-family: 'Noto Sans JP', sans-serif;
+  --vs-font-size: 9pt;
+  --vs-line-height: 1.55;
+  --vs-color-foreground: #1f1f1f;
+
+  --vs--p-margin-block: 0 1.6mm;
+  --vs--p-text-indent: 0;
+  --vs--p-text-align: justify;
+
+  --vs--heading-font-family: 'Noto Sans JP', sans-serif;
+  --vs--heading-font-weight: 700;
+  --vs--heading-text-align: start;
+  --vs--heading-margin-block: 0;
+
+  --vs--h1-font-size: 33pt;
+  --vs--h1-font-weight: 900;
+  --vs--h1-line-height: 1.02;
+  --vs--h1-letter-spacing: 0.005em;
+  --vs--h1-margin-block: 0 6mm;
+
+  --vs--figure-display: block;
+  --vs--figure-margin-block: 0 3.5mm;
+  --vs--figure-item-size-inline: 100%;
+  --vs--figcaption-font-family: var(
+    --vs-theme-orange-badge-column-rule--font-caption
+  );
+  --vs--figcaption-font-size: 7pt;
+  --vs--figcaption-line-height: 1.4;
+  --vs--figcaption-margin-block: 1.2mm 0;
+  --vs--figcaption-text-align: start;
+  --vs--figcaption-text-color: var(
+    --vs-theme-orange-badge-column-rule--color-muted
+  );
+
+  --vs--lists-margin-block: 0 2.5mm;
+  --vs--table-border-width: 0;
+
+  /* 章番号バッジ (h1) と「章-連番」の小見出し番号 (h2) */
+  --vs-section--h1-break-before: page;
+  --vs-section--h1-marker-display: block;
+  --vs-section--h1-marker-content: counter(vs-counter-sec-h1);
+  --vs-section--h1-marker-margin-inline-end: 4mm;
+  --vs-section--h2-marker-display: inline;
+  --vs-section--h2-marker-content: counter(vs-counter-sec-h1) '-'
+    counter(vs-counter-sec-h2);
+  --vs-section--h2-marker-margin-inline-end: 1.4mm;
+}
+
+/* 定型枠 (DATA欄・コース・料金表) は枠の体裁に section が要るので section のまま置き、
+   小見出しの番号だけを落とす */
+section:has(> h2:is(.data-box, .course, .fee):first-child) {
+  counter-increment: none;
+}
+section > h2:is(.data-box, .course, .fee):first-child::before {
+  content: none;
+}
+
+/* ---- 2段組は本文ラッパ (section.level1) に掛け、段間にオレンジ罫 ---- */
+body > section.level1 {
+  columns: 2;
+  column-gap: 8mm;
+  column-fill: auto;
+  column-rule-width: 1pt;
+  column-rule-style: solid;
+  column-rule-color: var(--vs-theme-orange-badge-column-rule--color-accent);
+}
+
+/* ============ 章ヘッダー: オレンジ番号バッジ + 大見出し + 欧文サブ ============ */
+body > section.level1 > h1 {
+  column-span: all;
+  border-top: 2.2pt solid;
+  padding-top: 3mm;
+  /* 回り込みで抜けたバッジが本文に食い込まないよう、バッジ分の高さを確保する */
+  min-block-size: 17mm;
+}
+
+body > section.level1 > h1::before {
+  float: inline-start;
+  inline-size: 17mm;
+  block-size: 17mm;
+  background-color: var(--vs-theme-orange-badge-column-rule--color-accent);
+  color: var(--vs-theme-orange-badge-column-rule--color-reverse);
+  font-family: var(--vs-theme-orange-badge-column-rule--font-condensed);
+  font-weight: 700;
+  font-size: 42pt;
+  line-height: 17mm;
+  text-align: center;
+}
+
+.subhead {
+  display: block;
+  font-family: var(--vs-theme-orange-badge-column-rule--font-condensed);
+  font-weight: 600;
+  font-size: 13.5pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--vs-theme-orange-badge-column-rule--color-accent);
+  margin-top: 1.4mm;
+}
+
+/* ============ 本文 ============ */
+
+/* 左段の番号付き小見出し */
+section.level2 > h2:first-child {
+  font-size: 15pt;
+  line-height: 1.25;
+  margin-block: 4.5mm 2mm;
+  margin-inline: 0;
+}
+section > h2:first-child::before {
+  font-family: var(--vs-theme-orange-badge-column-rule--font-condensed);
+  font-weight: 700;
+  font-size: 1.05em;
+  letter-spacing: 0.01em;
+  color: var(--vs-theme-orange-badge-column-rule--color-accent);
+}
+
+/* ============ 俯瞰略図 (外部 SVG を img で参照) ============ */
+body > section.level1 > figure img {
+  display: block;
+  border-radius: 1.2mm;
+}
+
+figcaption::before {
+  font-family: var(--vs-theme-orange-badge-column-rule--font-condensed);
+  font-weight: 700;
+  color: var(--vs-theme-orange-badge-column-rule--color-accent);
+}
+
+/* ============ スポットDATA ボックス ============ */
+section:has(> h2.data-box) {
+  border-width: 1.5pt;
+  border-style: solid;
+  border-color: var(--vs-theme-orange-badge-column-rule--color-accent);
+  border-radius: 2.6mm;
+  background-color: var(--vs-theme-orange-badge-column-rule--color-reverse);
+  padding: 0 4.5mm 3.5mm;
+  margin-block: 4mm 6mm;
+  margin-inline: 0;
+  break-before: column;
+  break-inside: avoid;
+}
+/* 見出しは枠の上辺に食い込むタブ。position:absolute は multicol で
+   段送り前の位置にも描画されてしまうため、負マージンの block で作る */
+section > h2.data-box {
+  display: table;
+  margin-block: -2.9mm 2.6mm;
+  margin-inline: -1mm 0;
+  background-color: var(--vs-theme-orange-badge-column-rule--color-accent);
+  color: var(--vs-theme-orange-badge-column-rule--color-reverse);
+  font-size: 10.5pt;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  padding: 0.9mm 2.8mm;
+  border-radius: 1.2mm;
+}
+/* 見出し行は不要 (アイコン + 説明の2列だけを見せる) */
+section:has(> h2.data-box) thead {
+  display: none;
+}
+section:has(> h2.data-box) table {
+  width: 100%;
+  border-collapse: collapse;
+  border: none;
+  margin-block: 0;
+  margin-inline: 0;
+}
+section:has(> h2.data-box) td {
+  border: none;
+  padding: 2.2mm 0;
+  vertical-align: top;
+  font-family: var(--vs-theme-orange-badge-column-rule--font-caption);
+  font-size: 8pt;
+  line-height: 1.5;
+}
+section:has(> h2.data-box) tbody tr + tr td {
+  border-top-width: 0.9pt;
+  border-top-style: dashed;
+  border-top-color: var(--vs-theme-orange-badge-column-rule--color-accent);
+}
+section:has(> h2.data-box) td:first-child {
+  width: 7mm;
+  padding-right: 2.6mm;
+}
+section:has(> h2.data-box) td img {
+  display: block;
+  width: 7mm;
+  height: auto;
+  margin-top: 0.4mm;
+}
+
+/* ============ 右段の小見出し (モデルコース / 料金表) ============ */
+section > h2:is(.course, .fee) {
+  display: flex;
+  align-items: center;
+  gap: 2.5mm;
+  font-size: 12pt;
+  color: var(--vs-theme-orange-badge-column-rule--color-accent);
+  margin-block: 5mm 2.5mm;
+  margin-inline: 0;
+}
+section > h2.course::after {
+  content: '';
+  flex: 1 1 auto;
+  border-top-width: 1.4pt;
+  border-top-style: dotted;
+  border-top-color: var(--vs-theme-orange-badge-column-rule--color-accent);
+  transform: translateY(0.1em);
+}
+
+/* ============ モデルコースのフロー ============ */
+section:has(> h2.course) ol {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding-inline-start: 0;
+  break-inside: avoid;
+}
+section:has(> h2.course) li {
+  position: relative;
+  border-width: 1.3pt;
+  border-style: solid;
+  border-color: var(--vs-theme-orange-badge-column-rule--color-accent);
+  border-radius: 1.4mm;
+  padding: 1.4mm 2mm;
+  margin: 0 6mm 0 0;
+  font-size: 8.5pt;
+  font-weight: 700;
+  background-color: var(--vs-theme-orange-badge-column-rule--color-reverse);
+  white-space: nowrap;
+}
+section:has(> h2.course) li:last-child {
+  margin-right: 0;
+}
+section:has(> h2.course) li:not(:last-child)::after {
+  content: '\2192';
+  position: absolute;
+  right: -5mm;
+  top: 50%;
+  transform: translateY(-52%);
+  color: var(--vs-theme-orange-badge-column-rule--color-accent);
+  font-weight: 700;
+  font-size: 11pt;
+}
+
+/* ============ 料金表 ============ */
+section:has(> h2.fee) table {
+  width: 100%;
+  border-collapse: collapse;
+  border-width: 0.9pt;
+  border-style: solid;
+  border-color: var(--vs-theme-orange-badge-column-rule--color-rule);
+  margin-block: 0 2.5mm;
+  margin-inline: 0;
+  break-inside: avoid;
+}
+section:has(> h2.fee) th {
+  background-color: var(--vs-theme-orange-badge-column-rule--color-accent);
+  color: var(--vs-theme-orange-badge-column-rule--color-reverse);
+  font-family: var(--vs-theme-orange-badge-column-rule--font-caption);
+  font-weight: 700;
+  font-size: 8.5pt;
+  text-align: left;
+  padding: 1.7mm 2.6mm;
+  letter-spacing: 0.02em;
+  border: none;
+}
+section:has(> h2.fee) th:last-child {
+  text-align: right;
+}
+section:has(> h2.fee) td {
+  border: none;
+  border-top-width: 0.6pt;
+  border-top-style: solid;
+  border-top-color: var(--vs-theme-orange-badge-column-rule--color-rule);
+  padding: 1.6mm 2.6mm;
+  font-family: var(--vs-theme-orange-badge-column-rule--font-caption);
+  font-size: 8.5pt;
+}
+section:has(> h2.fee) td:first-child {
+  border-right-width: 0.6pt;
+  border-right-style: solid;
+  border-right-color: var(--vs-theme-orange-badge-column-rule--color-rule);
+}
+section:has(> h2.fee) td:last-child {
+  text-align: right;
+  font-family: var(--vs-theme-orange-badge-column-rule--font-condensed);
+  font-weight: 600;
+  font-size: 11.5pt;
+  letter-spacing: 0.02em;
+}
+
+/* ============ 右段の解説文 (小級のキャプション体) ============ */
+section:has(> h2:is(.course, .fee)) > p {
+  font-family: var(--vs-theme-orange-badge-column-rule--font-caption);
+  font-size: 8pt;
+  line-height: 1.5;
+  margin-block: 0;
+  margin-inline: 0;
+}
+
+/* クロスリファレンス → P.**  (キャプション体より後に置いて詳細度の同点勝ちを取る) */
+body > section.level1 p.ref,
+section.level2 p.ref {
+  font-family: var(--vs-theme-orange-badge-column-rule--font-condensed);
+  font-weight: 600;
+  font-size: 10.5pt;
+  letter-spacing: 0.03em;
+  color: var(--vs-theme-orange-badge-column-rule--color-accent);
+  text-align: right;
+  line-height: 1.2;
+  margin-block: 1.5mm 0;
+  margin-inline: 0;
+}
+
+/* ページ参照は地の文と同じ色 */
+a[data-ref='page'] {
+  color: inherit;
+}

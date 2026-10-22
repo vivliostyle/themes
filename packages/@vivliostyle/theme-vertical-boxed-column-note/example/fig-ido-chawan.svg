@@ -1,0 +1,26 @@
+<svg viewBox="0 0 230 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="井戸形の茶碗の線画">
+<ellipse cx="115" cy="42" rx="92" ry="20" fill="none" stroke="#1a1a1a" stroke-width="1.7" />
+<ellipse cx="115" cy="42" rx="83" ry="15" fill="none" stroke="#1a1a1a" stroke-width="0.9" />
+<path d="M23,44 C24,86 40,122 74,140 C86,146 100,149 115,149" fill="none" stroke="#1a1a1a" stroke-width="1.7" />
+<path d="M207,44 C206,86 190,122 156,140 C144,146 130,149 115,149" fill="none" stroke="#1a1a1a" stroke-width="1.7" />
+<path d="M28,62 Q115,80 202,62" fill="none" stroke="#1a1a1a" stroke-width="0.7" />
+<path d="M36,86 Q115,104 194,86" fill="none" stroke="#1a1a1a" stroke-width="0.6" />
+<path d="M48,110 Q115,126 182,110" fill="none" stroke="#1a1a1a" stroke-width="0.6" />
+<path d="M64,130 Q115,142 166,130" fill="none" stroke="#1a1a1a" stroke-width="0.5" />
+<path d="M93,149 L90,167 L140,167 L137,149" fill="none" stroke="#1a1a1a" stroke-width="1.5" />
+<path d="M90,167 Q115,173 140,167" fill="none" stroke="#1a1a1a" stroke-width="1.1" />
+<path d="M40,74 C44,80 46,88 45,94" fill="none" stroke="#1a1a1a" stroke-width="0.5" />
+<path d="M182,80 C186,88 186,96 184,102" fill="none" stroke="#1a1a1a" stroke-width="0.5" />
+<path d="M78,120 C84,124 92,127 98,128" fill="none" stroke="#1a1a1a" stroke-width="0.4" />
+<circle cx="70" cy="92" r="0.8" fill="#1a1a1a" />
+<circle cx="88" cy="76" r="0.7" fill="#1a1a1a" />
+<circle cx="120" cy="96" r="0.8" fill="#1a1a1a" />
+<circle cx="146" cy="82" r="0.7" fill="#1a1a1a" />
+<circle cx="160" cy="112" r="0.8" fill="#1a1a1a" />
+<circle cx="104" cy="118" r="0.7" fill="#1a1a1a" />
+<circle cx="132" cy="134" r="0.7" fill="#1a1a1a" />
+<circle cx="58" cy="106" r="0.7" fill="#1a1a1a" />
+<path d="M146,172 L170,176" stroke="#1a1a1a" stroke-width="0.5" />
+<path d="M144,176 L162,179" stroke="#1a1a1a" stroke-width="0.4" />
+<path d="M66,176 Q115,183 142,180" fill="none" stroke="#1a1a1a" stroke-width="0.4" />
+</svg>

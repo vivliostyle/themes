@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 334" role="img" aria-label="Figure 2: Line chart of aggregate throughput as the number of shards increases, comparing the proposed method against a static-partitioning baseline">
+<style>
+text {
+  font-family: "STIX Two Text", "Times New Roman", Times, serif;
+}
+</style>
+<line x1="70" y1="44" x2="770" y2="44" stroke="#e6e6f0" stroke-width="1" />
+<line x1="70" y1="104" x2="770" y2="104" stroke="#e6e6f0" stroke-width="1" />
+<line x1="70" y1="164" x2="770" y2="164" stroke="#e6e6f0" stroke-width="1" />
+<line x1="70" y1="224" x2="770" y2="224" stroke="#e6e6f0" stroke-width="1" />
+<line x1="70" y1="44" x2="70" y2="284" stroke="#555563" stroke-width="1.5" />
+<line x1="70" y1="284" x2="770" y2="284" stroke="#555563" stroke-width="1.5" />
+<polyline points="70,284 210,238 350,193 490,147 630,102 770,56" fill="none" stroke="#14148c" stroke-width="3.5" />
+<polyline points="70,284 210,242 350,208 490,179 630,150 770,124" fill="none" stroke="#9a9ab8" stroke-width="3.5" stroke-dasharray="9 6" />
+<circle cx="770" cy="56" r="5" fill="#14148c" />
+<circle cx="770" cy="124" r="5" fill="#9a9ab8" />
+<text x="62" y="48" text-anchor="end" font-size="16" fill="#555563">200k</text>
+<text x="62" y="108" text-anchor="end" font-size="16" fill="#555563">150k</text>
+<text x="62" y="168" text-anchor="end" font-size="16" fill="#555563">100k</text>
+<text x="62" y="228" text-anchor="end" font-size="16" fill="#555563">50k</text>
+<text x="70" y="304" text-anchor="middle" font-size="16" fill="#555563">0</text>
+<text x="350" y="304" text-anchor="middle" font-size="16" fill="#555563">400</text>
+<text x="630" y="304" text-anchor="middle" font-size="16" fill="#555563">800</text>
+<text x="770" y="304" text-anchor="middle" font-size="16" fill="#555563">1,000</text>
+<text x="20" y="20" font-size="16" fill="#555563">Served throughput (ops/s)</text>
+<text x="420" y="326" text-anchor="middle" font-size="16" fill="#555563">Number of shards</text>
+<line x1="330" y1="262" x2="374" y2="262" stroke="#14148c" stroke-width="3.5" />
+<text x="382" y="267" font-size="16" fill="#17171b">Proposed</text>
+<line x1="530" y1="262" x2="574" y2="262" stroke="#9a9ab8" stroke-width="3.5" stroke-dasharray="9 6" />
+<text x="582" y="267" font-size="16" fill="#17171b">Static shares</text>
+</svg>

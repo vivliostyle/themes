@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 300" role="img" aria-label="入力ページから領域分割，特徴抽出，強度予測，グリーキング描画を経て指標算出と総合スコアに至る処理の流れを示すブロック図。">
+  <style>
+    .lbl { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 18px; fill: #1a1a1a; }
+    .box { fill: none; stroke: #1a1a1a; stroke-width: 1.3; }
+    .flow { stroke: #1a1a1a; stroke-width: 1.3; fill: none; }
+    .head { fill: #1a1a1a; }
+  </style>
+
+  <g class="box">
+    <rect x="5" y="45" width="130" height="70" />
+    <rect x="175" y="45" width="130" height="70" />
+    <rect x="335" y="45" width="130" height="70" />
+    <rect x="5" y="185" width="130" height="70" />
+    <rect x="175" y="185" width="130" height="70" />
+    <rect x="335" y="185" width="130" height="70" />
+  </g>
+
+  <g class="lbl" text-anchor="middle">
+    <text x="70" y="87">入力ページ</text>
+    <text x="240" y="87">領域分割</text>
+    <text x="400" y="87">特徴抽出</text>
+    <text x="400" y="227">強度予測</text>
+    <text x="240" y="216">グリーキング</text>
+    <text x="240" y="240">描画</text>
+    <text x="70" y="216">指標算出と</text>
+    <text x="70" y="240">総合スコア</text>
+  </g>
+
+  <g class="flow">
+    <line x1="135" y1="80" x2="167" y2="80" />
+    <line x1="305" y1="80" x2="337" y2="80" />
+    <line x1="400" y1="115" x2="400" y2="177" />
+    <line x1="335" y1="220" x2="303" y2="220" />
+    <line x1="175" y1="220" x2="143" y2="220" />
+  </g>
+
+  <g class="head">
+    <polygon points="175,80 165,75.5 165,84.5" />
+    <polygon points="335,80 325,75.5 325,84.5" />
+    <polygon points="400,185 395.5,175 404.5,175" />
+    <polygon points="305,220 315,215.5 315,224.5" />
+    <polygon points="135,220 145,215.5 145,224.5" />
+  </g>
+</svg>

@@ -1,0 +1,218 @@
+/*
+ * マネー本のデータテーブル型 (green-heading-zebra-table)
+ *
+ * レター判縦・2 段組・8.4pt/1.45 の金融書・実用書本文ページ。
+ * ダークグリーンの色ベタ帯に白抜きした番号付き見出し、緑ヘッダー行 + 淡緑ゼブラの
+ * レッジャー表、ゼロ基線の棒グラフで構成する。
+ * 柱は原稿の <header> を running element として天に流し、ノンブルは小口側下部。
+ * 節番号・図表番号は「章番号.連番」形式。章番号は原稿の frontmatter `class: chapter`
+ * から base のドキュメントカウンタで数える。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700&family=Zilla+Slab:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/math';
+
+:root {
+  /* Theme tokens */
+  --vs-theme-green-heading-zebra-table--color-accent: #1a472a;
+  --vs-theme-green-heading-zebra-table--color-accent-tint: #dce8df;
+  --vs-theme-green-heading-zebra-table--color-on-accent: #f7f5f0;
+  --vs-theme-green-heading-zebra-table--color-rule: #b8b8ae;
+  --vs-theme-green-heading-zebra-table--font-tabular:
+    'Zilla Slab', 'Rockwell', serif;
+
+  /* 図版は段幅いっぱいに置かず、左右にわずかな余白を残す */
+  --vs-theme-green-heading-zebra-table--figure-image-size-inline: 94%;
+
+  /* Page: letter portrait, 柱のぶん天を深くとる */
+  --vs-page--size: letter;
+  --vs-page--margin-top: 19mm;
+  --vs-page--margin-bottom: 11mm;
+  --vs-page--margin-left: 15mm;
+  --vs-page--margin-right: 15mm;
+  --vs-color-background: #f7f5f0;
+  --vs-page--background-color: #f7f5f0;
+
+  /* 柱: 原稿の <header> を天中央に流し、黒の太め罫で本文と切り離す */
+  --vs-page--mbox-top-center-content: element(vs-theme-running-head);
+  --vs-page--border-color-top: var(--vs-color-foreground);
+  --vs-page--border-width-top: 1pt;
+  /* ノンブルは小口下 (右ページは右下、左ページは左下) */
+  --vs-page--mbox-bottom-outside-content: counter(page);
+  --vs-page--mbox-bottom-font-family: var(--vs-font-family);
+  --vs-page--mbox-bottom-font-size: 10pt;
+  --vs-page--mbox-bottom-font-weight: 500;
+  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
+
+  /* 2 段組。段間に細い縦罫を引き、段は順に埋める */
+  --vs-columns: 2;
+  --vs-column-fill: auto;
+  --vs-column-gap: 8.2mm;
+  --vs-column-rule-width: 0.35pt;
+  --vs-column-rule-color: var(--vs-theme-green-heading-zebra-table--color-rule);
+
+  /* Type: slab serif 8.4pt / 1.45 */
+  --vs-font-family: 'Roboto Slab', 'Rockwell', serif;
+  --vs-font-size: 8.4pt;
+  --vs-line-height: 1.45;
+  --vs-color-foreground: #1c1c1c;
+
+  --vs--heading-font-family: 'Roboto Slab', 'Rockwell', serif;
+
+  --vs--p-margin-block: 0 1.6mm;
+  --vs--p-text-align: justify;
+  --vs--p-text-indent: 0;
+
+  --vs--h2-font-size: 11pt;
+  --vs--h2-font-weight: 700;
+  --vs--h2-line-height: 1.25;
+  --vs--h2-letter-spacing: 0.01em;
+  --vs--h2-margin-block: 2.5mm 3mm;
+  /* 番号付き見出し: 濃緑の色ベタ帯に白抜き */
+  --vs--h2-background-color: var(
+    --vs-theme-green-heading-zebra-table--color-accent
+  );
+  --vs--h2-text-color: var(
+    --vs-theme-green-heading-zebra-table--color-on-accent
+  );
+  --vs--h2-padding-block: 1.4mm 1.6mm;
+  --vs--h2-padding-inline: 2.5mm;
+
+  /* 節番号・図表番号は「章番号.連番」 */
+  --vs-section--marker-display: inline;
+  --vs-section--h2-marker-content: counter(vs-counter-chapter) '.'
+    counter(vs-counter-sec-h2);
+  --vs-section--h2-marker-margin-inline-end: 0.5em;
+  --vs-section--call-content: 'Section '
+    target-counter(attr(href), vs-counter-chapter) '.'
+    target-counter(attr(href), vs-counter-sec-h2);
+  --vs-figure--marker-content: 'Fig. ' counter(vs-counter-chapter) '.'
+    counter(vs-counter-fig);
+  --vs-table--marker-content: 'Table ' counter(vs-counter-chapter) '.'
+    counter(vs-counter-tbl);
+  --vs-figure--call-content: 'Figure '
+    target-counter(attr(href), vs-counter-chapter) '.'
+    target-counter(attr(href), vs-counter-fig);
+  --vs-table--call-content: 'Table '
+    target-counter(attr(href), vs-counter-chapter) '.'
+    target-counter(attr(href), vs-counter-tbl);
+  --vs-citation--marker-margin-inline: 0 0.5em;
+  --vs-equation--marker-margin-inline: 0 0.5em;
+  --vs-figure--marker-margin-inline: 0 0.5em;
+  --vs-listing--marker-margin-inline: 0 0.5em;
+  --vs-table--marker-margin-inline: 0 0.5em;
+  --vs-theorem--marker-margin-inline: 0 0.5em;
+
+  /* Ledger table: 罫を持たない緑ヘッダー行 + 淡緑ゼブラ */
+  --vs--table-border-width: 0;
+  --vs--table-font-family: var(
+    --vs-theme-green-heading-zebra-table--font-tabular
+  );
+  --vs--table-font-variant-numeric: tabular-nums;
+  --vs--table-font-size: 7.8pt;
+  --vs--table-margin-block: 0 2.5mm;
+  --vs--table-margin-inline: 0;
+  --vs--table-border-color: #b8b8ae;
+  --vs--table-cell-padding-block: 1.3mm;
+  --vs--table-cell-padding-inline: 2.2mm;
+  --vs--th-font-family: var(--vs-theme-green-heading-zebra-table--font-tabular);
+  --vs--th-font-weight: 600;
+  --vs--th-text-align: start;
+  --vs--th-background-color: var(
+    --vs-theme-green-heading-zebra-table--color-accent
+  );
+  --vs--th-text-color: var(
+    --vs-theme-green-heading-zebra-table--color-on-accent
+  );
+
+  --vs--figure-margin-block: 1mm 3mm;
+  --vs--figure-margin-inline: 0;
+  --vs--figcaption-font-family: var(
+    --vs-theme-green-heading-zebra-table--font-tabular
+  );
+  --vs--figcaption-font-size: 8.8pt;
+  --vs--figcaption-font-style: italic;
+  --vs--figcaption-margin-block: 1.4mm 0;
+  --vs--figcaption-text-align: center;
+
+  --vs--ol-padding-inline-start: 5mm;
+  --vs--lists-margin-block: 0 1.6mm;
+}
+
+/* 柱は本文から抜き出して天の margin box で使う */
+header {
+  position: running(vs-theme-running-head);
+  text-align: center;
+  font-size: 9.5pt;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+/* 図表の番号は本文と同じ太さで立てる */
+:is(figcaption, caption)::before {
+  font-weight: 700;
+}
+
+/* 表は表題を上に置き、段幅いっぱいに収める。表題と表は同じ段に留める */
+figure.tbl {
+  --vs--figcaption-font-size: 9.5pt;
+  --vs--figcaption-margin-block: 0 1.8mm;
+  --vs--figcaption-text-align: start;
+
+  display: block;
+}
+
+figure.tbl > table {
+  width: 100%;
+}
+
+/* 図版は段幅より少し狭く、キャプションは図の下 */
+figure:not(.tbl) {
+  --vs--figure-item-size-inline: var(
+    --vs-theme-green-heading-zebra-table--figure-image-size-inline
+  );
+}
+
+tbody tr:nth-child(even) td {
+  background-color: var(
+    --vs-theme-green-heading-zebra-table--color-accent-tint
+  );
+}
+
+/* 数値列は中央揃え。2 列表 (Year/配当) は全列中央 */
+th:not(:first-child),
+td:not(:first-child),
+th:first-child:nth-last-child(2),
+td:first-child:nth-last-child(2) {
+  text-align: center;
+}
+
+/* チェックリストなどの番号付きリストは本文と同じ体裁で組む */
+li {
+  text-align: justify;
+}
+
+li::marker {
+  font-family: var(--vs-theme-green-heading-zebra-table--font-tabular);
+  font-weight: 600;
+}
+
+:root {
+  --vs-math--display-margin-block: 1.5mm 2.6mm;
+}
+
+/* 参照は本文と地続きに読ませる */
+a:is([data-ref='fig'], [data-ref='tbl'], [data-ref='sec']) {
+  --vs--anchor-text-color: inherit;
+}

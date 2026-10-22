@@ -1,0 +1,149 @@
+/*
+ * 中公新書ふう学術新書 (vertical-numbered-heading-graph)
+ * 新書判 105×173mm・縦組み1段・明朝 9pt / 行送り 1.75 の墨1色。天の柱と小口下のノンブル、
+ * 漢数字の節見出し、巻末注への上付き注番号、版面の地に横組みで置く図版を組む。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/endnote';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  --vs-writing-mode: vertical-rl;
+
+  --vs-page--size: 105mm 173mm;
+  --vs-page--background-color: #f7f5f0;
+  --vs-page--margin-top: 13mm;
+  --vs-page--margin-bottom: 17mm;
+  --vs-page--margin-left: 7.5mm;
+  --vs-page--margin-right: 7.5mm;
+  --vs-page--mbox-font-family: 'Noto Serif JP', serif;
+  --vs-page--mbox-text-color: #1a1a1a;
+  --vs-page--mbox-top-right-content: env(pub-title);
+  --vs-page--mbox-bottom-right-content: counter(page);
+  --vs-page--mbox-top-font-size: 7pt;
+  --vs-page--mbox-top-letter-spacing: 0.1em;
+  --vs-page--mbox-bottom-font-size: 8pt;
+  --vs-page--mbox-bottom-letter-spacing: 0.04em;
+
+  --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --vs-font-size: 9pt;
+  --vs-line-height: 1.75;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-background: #f7f5f0;
+  --vs-columns: 1;
+
+  /* 墨1色。参照リンクも本文と同じ色で組む。 */
+  --vs--anchor-text-color: inherit;
+
+  --vs--heading-font-family:
+    'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 1em;
+  --vs--p-text-align: justify;
+
+  /* 番号付き節見出し。前後に空きを取り、天から一字下げる。 */
+  --vs--h2-font-size: 11.5pt;
+  --vs--h2-font-weight: 600;
+  --vs--h2-line-height: 1.35;
+  --vs--h2-letter-spacing: 0.06em;
+  --vs--h2-margin-block: 5mm;
+  --vs--h2-padding-inline: 11mm 0;
+
+  /* 節番号は漢数字。番号と見出し語のあいだは全角アキ。 */
+  --vs-section--counter-style: cjk-ideographic;
+  --vs-section--h2-marker-display: inline;
+  --vs-section--h2-marker-content: counter(
+    vs-counter-sec-h2,
+    var(--vs-section--counter-style)
+  );
+  --vs-section--marker-margin-inline-end: 1em;
+
+  /* 本文中の上付き注番号 (巻末注)。縦中横で正立させる。 */
+  --vs--sup-font-size: 0.62em;
+  /* reset.css の sub,sup { line-height: 0 } では縦組みの行が詰まる。 */
+  --vs--sup-line-height: 1;
+
+  /* ルビは本文の約半分。 */
+  --vs--rt-font-size: 0.5em;
+
+  /* 図版は横組みに戻して版面の地側に置く。 */
+  --vs--figure-writing-mode: horizontal-tb;
+  --vs--figure-margin-block: 3mm 0;
+  --vs--figure-item-size-inline: var(
+    --vs-theme-vertical-numbered-heading-graph--figure-size-inline
+  );
+  --vs--figcaption-font-size: 6.6pt;
+  --vs--figcaption-margin-block: 2mm 0;
+  --vs--figcaption-text-align: left;
+  --vs--figcaption-text-color: inherit;
+
+  /* 地に置く図版が版面の横幅 (縦組みの行方向) から食う量。 */
+  --vs-theme-vertical-numbered-heading-graph--figure-size-inline: 50mm;
+
+  /* 巻末注。本文より小さい字を、合印ぶら下げ (2em) で組む。 */
+  --vs-endnote--section-heading-content: '注';
+  --vs-endnote--section-heading-font-family: var(--vs--heading-font-family);
+  --vs-endnote--section-heading-font-size: 10pt;
+  --vs-endnote--section-heading-font-weight: 600;
+  --vs-endnote--section-heading-margin-block: 0 5mm;
+  --vs-endnote--section-hr-display: none;
+  --vs-endnote--section-margin-block: 0;
+  --vs-endnote--section-ol-list-style-type: none;
+  --vs-endnote--item-font-size: 7.2pt;
+  --vs-endnote--item-line-height: 1.6;
+  --vs-endnote--item-margin-block: 0 0.8mm;
+  --vs-endnote--item-padding-inline-start: 2em;
+  --vs-endnote--item-text-indent: -2em;
+  /* 合印は縦中横。ぶら下げ幅ぶんだけ後ろにアキを取る。 */
+  --vs-endnote--marker-content: counter(vs-counter-endnote);
+  --vs-endnote--marker-text-combine-upright: all;
+  --vs-endnote--marker-margin-inline: 0 1em;
+  /* 本文側の注番号も縦中横で正立させる。 */
+  --vs-endnote--call-sup-text-combine-upright: all;
+}
+
+:root:lang(ja) {
+  /* 図表番号は漢数字。縦組みの本文中でも縦中横を要さない。 */
+  --vs-counter-style: cjk-ideographic;
+  --vs-figure--call-content: '図'
+    target-counter(attr(href), vs-counter-fig, var(--vs-counter-style));
+  --vs-table--call-content: '表'
+    target-counter(attr(href), vs-counter-tbl, var(--vs-counter-style));
+  --vs-figure--marker-content: '図'
+    counter(vs-counter-fig, var(--vs-counter-style)) '　';
+  --vs-table--marker-content: '表'
+    counter(vs-counter-tbl, var(--vs-counter-style)) '　';
+}
+
+.tcy {
+  text-combine-upright: all;
+}
+
+/*
+ * 版面の地に図版を寄せ、本文を回り込ませる。ページフロートなので図版の前後で
+ * 本文が分断されず、行数に関係なく組める。
+ */
+figure:has(> :is(img, picture, svg)) {
+  float: bottom left;
+  float-reference: page;
+}
+
+figcaption {
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+/* 巻末注は改ページして起こす。 */
+[role='doc-endnotes'] {
+  break-before: page;
+}

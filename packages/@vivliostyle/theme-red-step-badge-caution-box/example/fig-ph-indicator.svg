@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 56" role="img" aria-label="3本の試験管に指示薬を加えて色の違いを比べる線画">
+<rect x="3" y="43" width="66" height="9" rx="1.6" fill="#eaf2fa" stroke="#48607a" stroke-width="1.2" />
+<path d="M8 5 h13 v36 q0 6.5 -6.5 6.5 q-6.5 0 -6.5 -6.5 z" fill="#eef4fb" stroke="#48607a" stroke-width="1.3" />
+<path d="M8.7 24 h11.6 v17 q0 5.8 -5.8 5.8 q-5.8 0 -5.8 -5.8 z" fill="#ecd98a" />
+<path d="M29 5 h13 v36 q0 6.5 -6.5 6.5 q-6.5 0 -6.5 -6.5 z" fill="#eef4fb" stroke="#48607a" stroke-width="1.3" />
+<path d="M29.7 24 h11.6 v17 q0 5.8 -5.8 5.8 q-5.8 0 -5.8 -5.8 z" fill="#a9d0a4" />
+<path d="M50 5 h13 v36 q0 6.5 -6.5 6.5 q-6.5 0 -6.5 -6.5 z" fill="#eef4fb" stroke="#48607a" stroke-width="1.3" />
+<path d="M50.7 24 h11.6 v17 q0 5.8 -5.8 5.8 q-5.8 0 -5.8 -5.8 z" fill="#8fb8dd" />
+</svg>

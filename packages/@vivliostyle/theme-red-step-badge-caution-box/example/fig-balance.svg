@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 58" role="img" aria-label="電子てんびんで薬包紙にとった試薬をはかる線画">
+<path d="M5 50 h54 v-13 q0 -2.4 -2.4 -2.4 h-49.2 q-2.4 0 -2.4 2.4 z" fill="#eef4fb" stroke="#48607a" stroke-width="1.4" />
+<rect x="39" y="38" width="16" height="8.4" rx="1.2" fill="#ffffff" stroke="#48607a" stroke-width="1" />
+<path d="M41.6 42.2 h10.8" stroke="#48607a" stroke-width="1.1" fill="none" />
+<rect x="12" y="29.4" width="26" height="5.2" rx="1.2" fill="#eaf2fa" stroke="#48607a" stroke-width="1.2" />
+<path d="M18 29.4 l4.4 -8.6 h6.2 l4.4 8.6 z" fill="#ffffff" stroke="#48607a" stroke-width="1.1" />
+<path d="M21.5 24 q4 -2.6 8 0" fill="#dbe9f6" stroke="#48607a" stroke-width="0.9" />
+<path d="M44 26 q4 -3 8 -1" fill="none" stroke="#48607a" stroke-width="1.1" />
+<path d="M50 21.5 l3 3.6 -4.6 0.6" fill="#48607a" />
+<circle cx="12" cy="42.2" r="2.2" fill="#48607a" />
+</svg>

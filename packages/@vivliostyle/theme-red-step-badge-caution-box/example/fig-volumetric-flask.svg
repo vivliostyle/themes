@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 86" role="img" aria-label="メスフラスコの標線まで純水を加えて正確にうすめる線画">
+<path d="M22 12 V40 C22 47 8 50 8 64 C8 75 16 81 27 81 C38 81 46 75 46 64 C46 50 32 47 32 40 V12 Z" fill="#eef4fb" stroke="#48607a" stroke-width="1.4" />
+<path d="M22.8 32 V40 C22.8 46.6 8.8 49.6 8.8 64 C8.8 74.4 16.4 80.2 27 80.2 C37.6 80.2 45.2 74.4 45.2 64 C45.2 49.6 31.2 46.6 31.2 40 V32 Z" fill="#cfe3f5" />
+<path d="M22 32 q5 1.8 10 0" fill="none" stroke="#7fb3e0" stroke-width="0.9" />
+<path d="M19 32 h16" stroke="#d34040" stroke-width="1.3" fill="none" />
+<rect x="21" y="3" width="12" height="9" rx="1.4" fill="#c9d6e2" stroke="#48607a" stroke-width="1.2" />
+</svg>

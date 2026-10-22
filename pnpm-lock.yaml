@@ -6,6 +6,9 @@ importers:
   .:
     configDependencies: {}
     packageManagerDependencies:
+      '@pnpm/exe':
+        specifier: 12.3.4
+        version: 12.3.4
       pnpm:
         specifier: 12.3.4
         version: 12.3.4
@@ -56,6 +59,11 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@pnpm/exe@12.3.4':
+    resolution: {integrity: sha512-Rq7JokWAyYF9IFfn8zofB/q2AgnZlmoMuH5fMHB2+Ta61I9aD7sNm+woZpx6iH+5vb38chdSoYRvOtSqlH72YQ==}
+    engines: {node: '>=18.*'}
+    hasBin: true
+
   pnpm@12.3.4:
     resolution: {integrity: sha512-lhqkH7B32joEpEHZ+OFevAyW2o73ELLrZ7+e58sGEOq9SPH9hfUc/+c4RnhfoPh8VqOocqHYk/hEZ0G1zORUVw==}
     engines: {node: '>=18.*'}
@@ -86,6 +94,17 @@ snapshots:
 
   '@pnpm/exe.win32-x64@12.3.4':
     optional: true
+
+  '@pnpm/exe@12.3.4':
+    optionalDependencies:
+      '@pnpm/exe.darwin-arm64': 12.3.4
+      '@pnpm/exe.darwin-x64': 12.3.4
+      '@pnpm/exe.linux-arm64': 12.3.4
+      '@pnpm/exe.linux-arm64-musl': 12.3.4
+      '@pnpm/exe.linux-x64': 12.3.4
+      '@pnpm/exe.linux-x64-musl': 12.3.4
+      '@pnpm/exe.win32-arm64': 12.3.4
+      '@pnpm/exe.win32-x64': 12.3.4
 
   pnpm@12.3.4:
     optionalDependencies:
@@ -158,6 +177,15 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
+  packages/@vivliostyle/theme-all-mono-black-band-warning:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
   packages/@vivliostyle/theme-base:
     dependencies:
       '@vivliostyle/cli':
@@ -186,7 +214,124 @@ importers:
         specifier: 2.9.0
         version: 2.9.0
 
+  packages/@vivliostyle/theme-bleed-illustration-chapter-opener:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-blue-header-ledger:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-blue-number-badge-two-column:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-blue-side-border-two-column:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-brown-double-frame-cream:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
   packages/@vivliostyle/theme-bunko:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-centered-heading-bracket-subhead:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-centered-heading-line-graph:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-dense-mono-two-column:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-dense-reversed-band-notes:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-dense-ruled-table-drawing:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-dense-serif-roman-numeral:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-dot-grid-checkbox:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-double-rule-split-form:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -201,7 +346,340 @@ importers:
         specifier: '>=11.3.1'
         version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
 
+  packages/@vivliostyle/theme-four-column-plain-table:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-garamond-three-column-marginalia:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-gold-speaker-hanging-two-column:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-green-circled-number-two-column:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-green-heading-zebra-table:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
   packages/@vivliostyle/theme-gutenberg:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-hanging-heading-dropcap-marginalia:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-issue-number-heading-rule:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-jupyter-cell-layout:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-landscape-grid-drawing:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-landscape-ruled-ledger:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-latex-two-column-theorem:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-lilac-small-caps-dot-leader:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-masthead-footnote-two-column:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-masthead-index-box-two-column:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-mincho-thick-underline:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-mono-graph-comparison-table:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-mono-green-entry-form:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-mono-hairline-two-column:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-mono-hanging-number-sidenote:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-monotone-one-record-page:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-navy-band-kpi-block:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-navy-ruled-ledger-two-column:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-numbered-article-clause:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-numbered-heading-ledger-list:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-orange-badge-column-rule:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-orange-black-header-table:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-ornamental-frame-corner-title:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-pseudocode-math-sidenote:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-purple-rule-marginalia:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-red-band-grid-table:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-red-step-badge-caution-box:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-rose-band-dropcap-profile:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-serif-line-numbered-code:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-side-border-heading-math:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-single-column-double-spaced:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-single-column-mono-chapter:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-slate-blue-two-column:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -219,7 +697,187 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
+  packages/@vivliostyle/theme-spanning-title-two-column-mono:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-split-body-recommendation-box:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
   packages/@vivliostyle/theme-techbook:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-three-column-card-table-syntax:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-three-column-index-tab-figure:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-three-column-mono-signature:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-three-column-red-frame:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-three-column-warning-grid:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-two-column-blue-sidenote:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-two-column-three-line-table:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-two-column-verse-number:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-vertical-boxed-column-note:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-vertical-dropcap-endnote:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-vertical-line-drawing-spec-table:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-vertical-matrix-diagram:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-vertical-mincho-photo-caption:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-vertical-numbered-heading-graph:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-vertical-spanning-title-boxed:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-vertical-three-column-thumb-index:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-wide-margin-ruleless-list:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-wide-margin-speaker-indent:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'

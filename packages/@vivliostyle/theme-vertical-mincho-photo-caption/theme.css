@@ -1,0 +1,289 @@
+/*
+ * 自分史・回想録（縦組版） — 四六判 (127×188mm)・縦組み1段。
+ * Noto Serif JP の明朝を 9pt / 行送り 1.9 で組み、右肩の章題の下に細い横罫を添える。
+ * 版面下端にモノクロ写真と縦組みキャプション、章末に細罫で区切った注、
+ * 天の柱と小口下の漢数字ノンブルを置く。墨一色・生成り地。
+ *
+ * 原稿の構成 (VFM):
+ *   章の md   … frontmatter に `class: chapter` (h1 = 章題。第N章の N は文書順から数える)
+ *   標題紙    … `class: title-page` (柱・ノンブルを出さない)
+ *   目次      … `<nav role="doc-toc">` (theme-base が柱・ノンブルを外す)
+ *   あとがき等 … class なし (h1 に章番号は付かない)
+ *   注は VFM の `[^n]` 記法で書き、theme-base の endnote モジュールで章末に出す。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Noto+Serif+JP:wght@400;500&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/endnote';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/toc';
+
+:root {
+  --vs-page--size: 127mm 188mm;
+  --vs-page--margin-top: 18mm;
+  --vs-page--margin-bottom: 18mm;
+  --vs-page--margin-left: 11mm;
+  --vs-page--margin-right: 11mm;
+  --vs-page--background-color: #f7f5f0;
+
+  /* 柱 (天) は横組み、ノンブル (地) は縦組み */
+  --vs-page--mbox-top-left-font-family: var(--vs-font-family);
+  --vs-page--mbox-top-left-font-size: 8pt;
+  --vs-page--mbox-top-left-text-color: var(
+    --vs-theme-vertical-mincho-photo-caption--color-muted
+  );
+  --vs-page--mbox-top-left-letter-spacing: 0.08em;
+  --vs-page--mbox-top-left-writing-mode: horizontal-tb;
+  --vs-page--mbox-bottom-left-font-family: var(--vs-font-family);
+  --vs-page--mbox-bottom-left-font-size: 9.5pt;
+  --vs-page--mbox-bottom-left-text-color: var(
+    --vs-theme-vertical-mincho-photo-caption--color-muted
+  );
+  --vs-page--mbox-bottom-left-letter-spacing: 0.12em;
+  --vs-page--mbox-bottom-left-writing-mode: vertical-rl;
+
+  --vs-writing-mode: vertical-rl;
+  --vs-font-family:
+    'Noto Serif JP', 'Shippori Mincho', 'Hiragino Mincho ProN', 'Yu Mincho',
+    serif;
+  --vs-font-size: 9pt;
+  --vs-line-height: 1.9;
+  --vs-letter-spacing: 0;
+  --vs-text-align: justify;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-background: #f7f5f0;
+  --vs-columns: 1;
+
+  --vs--heading-font-family:
+    'Noto Serif JP', 'Shippori Mincho', 'Hiragino Mincho ProN', 'Yu Mincho',
+    serif;
+
+  /* 章題: 右肩から縦一行 */
+  --vs--h1-font-size: 16pt;
+  --vs--h1-font-weight: 500;
+  --vs--h1-letter-spacing: 0.04em;
+  --vs--h1-line-height: 1.3;
+  --vs--h1-margin-block: 0 4mm;
+  --vs--h1-margin-inline: 0;
+  --vs--h1-text-align: start;
+  --vs--h1-padding-block: 0 2mm;
+  --vs--h1-border-width-block-end: 0.4pt;
+  --vs--h1-border-style-block-end: solid;
+  --vs--h1-border-color-block-end: var(
+    --vs-theme-vertical-mincho-photo-caption--color-rule
+  );
+  --vs--h1-string-set: chapter-title content(text);
+
+  --vs--p-margin-block: 0;
+  --vs--p-margin-inline: 0;
+  --vs--p-text-align: justify;
+  --vs--p-text-indent: 1em;
+
+  --vs--figure-margin-block: 2mm 3.5mm;
+  --vs--figure-margin-inline: 4mm 0;
+
+  --vs--figcaption-font-size: 6.8pt;
+  --vs--figcaption-margin-block: 2.2mm 0;
+  --vs--figcaption-margin-inline: 0;
+  --vs--figcaption-text-align: start;
+  --vs--figcaption-text-indent: 0;
+
+  /* 章末の注: 罫と番号は theme 側で組むので base の hr と ::marker は使わず、
+     本文と切る細罫は inline-start (=上端) の section 罫で引く */
+  --vs-endnote--section-hr-display: none;
+  --vs-endnote--section-border-color-inline-start: var(
+    --vs-theme-vertical-mincho-photo-caption--color-rule
+  );
+  --vs-endnote--section-border-style-inline-start: solid;
+  --vs-endnote--section-border-width-inline-start: 0.4pt;
+  --vs-endnote--section-ol-list-style-type: none;
+  --vs-endnote--section-ol-margin-block: 0;
+  --vs-endnote--section-ol-padding-inline-start: 0;
+  --vs-endnote--section-margin-block: 4mm 0;
+  --vs-endnote--section-margin-inline: auto 0;
+  --vs-endnote--section-padding-inline: 2.5mm 0;
+  --vs-endnote--section-font-size: 6.8pt;
+  --vs-endnote--section-line-height: 1.55;
+  --vs-endnote--section-letter-spacing: 0.01em;
+  --vs-endnote--section-text-color: var(
+    --vs-theme-vertical-mincho-photo-caption--color-muted
+  );
+  --vs-endnote--backlink-display: none;
+  --vs-endnote--call-font-size: 1em;
+  --vs-endnote--call-sup-font-size: 0.62em;
+  --vs-endnote--call-sup-text-combine-upright: all;
+  /* 本文中の注番号は肩付きにせず行中に置く */
+  --vs-endnote--call-sup-vertical-align: baseline;
+  --vs-endnote--call-margin-inline: 0.15em;
+  --vs-endnote--item-font-size: 6.8pt;
+  --vs-endnote--item-line-height: 1.5;
+  --vs-endnote--item-margin-block: 0 1.4mm;
+  --vs-endnote--item-text-align: start;
+  --vs-endnote--item-text-indent: 0;
+  /* 注番号は縦中横 */
+  --vs-endnote--marker-content: counter(vs-counter-endnote);
+  --vs-endnote--marker-text-combine-upright: all;
+  --vs-endnote--marker-margin-inline: 0 0.6em;
+
+  /* 目次: ドットリーダーは使わず、全角空きのあとに漢数字のノンブルを置く */
+  --vs-toc--ol-indent-size: 0;
+  --vs-toc--page-counter-style: cjk-decimal;
+  --vs-toc--page-leader-content: '\3000';
+
+  --vs-theme-vertical-mincho-photo-caption--color-muted: #3c3934;
+  --vs-theme-vertical-mincho-photo-caption--color-rule: #9a948a;
+  --vs-theme-vertical-mincho-photo-caption--color-photo-frame: #c9c4b9;
+
+  --vs-theme-vertical-mincho-photo-caption--chapter-marker-content: '第'
+    counter(vs-counter-chapter, cjk-ideographic) '章\3000';
+  --vs-theme-vertical-mincho-photo-caption--chapter-toc-content: '第'
+    target-counter(attr(href), vs-counter-chapter, cjk-ideographic) '章\3000';
+  --vs-theme-vertical-mincho-photo-caption--running-head-content: env(pub-title)
+    '\3000' string(chapter-title);
+  --vs-theme-vertical-mincho-photo-caption--folio-content: counter(
+    page,
+    cjk-decimal
+  );
+  --vs-theme-vertical-mincho-photo-caption--chapter-title-size-inline: 80mm;
+}
+
+/* 章の md: 章番号は文書の順序 (theme-base の vs-counter-chapter) から数える */
+body.chapter {
+  --vs-section--h1-marker-display: inline;
+  --vs-section--h1-marker-content: var(
+    --vs-theme-vertical-mincho-photo-caption--chapter-marker-content
+  );
+  --vs-section--h1-marker-margin-inline-end: 0;
+}
+
+html.title-page,
+body.title-page {
+  page: title-page;
+}
+
+/* 柱とノンブルの内容は名前付きページごとに差し替えるので、その参照は :root ではなく
+   ページ側に置く (:root では値が先に確定してしまう) */
+@page {
+  --vs-page--mbox-top-left-content: var(
+    --vs-theme-vertical-mincho-photo-caption--running-head-content
+  );
+  --vs-page--mbox-bottom-left-content: var(
+    --vs-theme-vertical-mincho-photo-caption--folio-content
+  );
+}
+
+@page chapter-document {
+  --vs-theme-vertical-mincho-photo-caption--running-head-content: env(pub-title)
+    '\3000\7B2C' counter(vs-counter-chapter, cjk-ideographic) '\7AE0\3000'
+    string(chapter-title);
+}
+
+/* 標題紙と目次には柱もノンブルも置かない */
+@page title-page {
+  --vs-theme-vertical-mincho-photo-caption--running-head-content: none;
+  --vs-theme-vertical-mincho-photo-caption--folio-content: none;
+}
+
+@page toc-document {
+  --vs-theme-vertical-mincho-photo-caption--running-head-content: none;
+  --vs-theme-vertical-mincho-photo-caption--folio-content: none;
+}
+
+/* 章題の行長 (見出し用の inline-size 変数はないため直書き) */
+h1 {
+  inline-size: var(
+    --vs-theme-vertical-mincho-photo-caption--chapter-title-size-inline
+  );
+}
+
+.tcy {
+  text-combine-upright: all;
+}
+
+/*
+ * 図版: 縦組みでは float: right が line-right = 版面下端側への回り込みになる。
+ * display は var() 経由では効かないため直書きする (flex 既定を解除して
+ * 写真の左 (block-end 側) に縦組みキャプションが続くようにする)。
+ */
+figure {
+  float: right;
+  inline-size: 35mm;
+  display: block;
+}
+
+figure img {
+  display: block;
+  width: 34mm;
+  height: auto;
+  border-width: 0.3pt;
+  border-style: solid;
+  border-color: var(
+    --vs-theme-vertical-mincho-photo-caption--color-photo-frame
+  );
+}
+
+figcaption {
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  color: var(--vs-theme-vertical-mincho-photo-caption--color-muted);
+}
+
+/*
+ * 章末の注: 版面の下端に小さな組で置く。clear で図版より下に確実に送る
+ * (clear と幅の変数は base に無いため直書き)。
+ */
+[role='doc-endnotes'] {
+  clear: both;
+  inline-size: 58mm;
+}
+
+/*
+ * 標題紙: 書名を天から縦一行に置き、著者名と刊記を小口側に添える
+ */
+.title-page h1 {
+  inline-size: auto;
+  margin-block: 16mm 14mm;
+  margin-inline: 28mm 0;
+  padding-block: 0;
+  border-block-end-style: none;
+  font-size: 22pt;
+  letter-spacing: 0.22em;
+}
+
+.title-page p {
+  inline-size: 58mm;
+  margin-block: 0 5mm;
+  margin-inline: auto 0;
+  text-indent: 0;
+  font-size: 10pt;
+  letter-spacing: 0.2em;
+}
+
+.title-page p:last-of-type {
+  inline-size: 44mm;
+  font-size: 8pt;
+  color: var(--vs-theme-vertical-mincho-photo-caption--color-muted);
+}
+
+/*
+ * 目次
+ */
+
+:is(#toc, [role='doc-toc']) ol {
+  margin-block: 0;
+  margin-inline: 0;
+}
+
+:is(#toc, [role='doc-toc']) li {
+  margin-block: 0 4mm;
+  padding-inline: 0;
+  letter-spacing: 0.06em;
+}
+
+:is(#toc, [role='doc-toc']) a {
+  color: inherit;
+}
+
+:is(#toc, [role='doc-toc']) a[data-ref='chapter']::before {
+  content: var(--vs-theme-vertical-mincho-photo-caption--chapter-toc-content);
+}

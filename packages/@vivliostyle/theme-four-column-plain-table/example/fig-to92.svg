@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-label="TO-92 パッケージのピン配置図 (上面図・電圧検出器)">
+  <style>
+    text { font-family: "JetBrains Mono", "Menlo", "Consolas", monospace; fill: #1a1a1a; font-size: 11px; }
+    .outline { fill: none; stroke: #1a1a1a; stroke-width: 1.6; }
+    .lead { fill: none; stroke: #1a1a1a; stroke-width: 1.2; }
+    .thin { fill: none; stroke: #1a1a1a; stroke-width: 1; }
+    .small { font-size: 9px; }
+  </style>
+  <path class="outline" d="M 82 92 A 44 44 0 1 1 158 92 Z"/>
+  <rect class="lead" x="96" y="92" width="9" height="32"/>
+  <rect class="lead" x="116" y="92" width="9" height="32"/>
+  <rect class="lead" x="136" y="92" width="9" height="32"/>
+  <text x="100" y="139" text-anchor="middle">1</text>
+  <text x="100" y="152" text-anchor="middle">OUT</text>
+  <text x="120" y="139" text-anchor="middle">2</text>
+  <text x="120" y="152" text-anchor="middle">GND</text>
+  <text x="141" y="139" text-anchor="middle">3</text>
+  <text x="141" y="152" text-anchor="middle">VDD</text>
+  <polyline class="thin" points="78,92 60,92"/>
+  <text class="small" x="56" y="95" text-anchor="end">FLAT</text>
+  <text class="small" x="56" y="107" text-anchor="end">FACE</text>
+</svg>

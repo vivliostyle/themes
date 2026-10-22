@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 150" role="img" aria-label="ケヤキの葉の模式図。卵状披針形で先の尖った葉に鋭い単鋸歯が並び、小さな果実を伴う。">
+<style>
+.leaf-blade { fill: #557a55; fill-opacity: 0.46; stroke: #2c352c; stroke-width: 1.3; stroke-linejoin: round; }
+.leaf-vein { fill: none; stroke: #2c352c; stroke-width: 0.7; opacity: 0.65; }
+.leaf-stem { fill: none; stroke: #6f6142; stroke-width: 2.2; stroke-linecap: round; }
+.fig-acc { fill: #557a55; fill-opacity: 0.4; stroke: #2c352c; stroke-width: 1; stroke-linejoin: round; }
+.fig-berry { fill: #a9483d; fill-opacity: 0.85; stroke: #6f2a24; stroke-width: 0.7; }
+.fig-flower { fill: #ddb9be; fill-opacity: 0.8; stroke: #b98b35; stroke-width: 0.7; }
+.fig-scale { stroke: #252a26; stroke-width: 1; }
+.fig-scale-t { fill: #252a26; font: 500 7px "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; letter-spacing: 0.03em; }
+.fig-lbl { fill: #3a463a; font: 6.5px "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+.fig-lead { fill: none; stroke: #9aa89a; stroke-width: 0.5; }
+</style>
+<path class="leaf-blade" d="M56,126 L50,120 L44,116 L46,110 L40,106 L42,100 L36,96 L38,90 L33,86 L36,80 L32,76 L36,68 L34,62 L40,54 L46,46 L56,36 L66,46 L72,54 L78,62 L76,68 L80,76 L76,80 L79,86 L74,90 L76,96 L70,100 L72,106 L66,110 L68,116 L62,120 Z" />
+<path class="leaf-vein" d="M56,124 L56,40 M56,116 L44,116 M56,116 L68,116 M56,104 L40,106 M56,104 L72,106 M56,92 L36,96 M56,92 L76,96 M56,78 L32,76 M56,78 L80,76 M56,64 L34,62 M56,64 L78,62" />
+<path class="leaf-stem" d="M56,126 L56,142" />
+<path class="leaf-stem" d="M120,128 L120,112" />
+<ellipse class="fig-acc" cx="115" cy="108" rx="5" ry="4" />
+<ellipse class="fig-acc" cx="125" cy="112" rx="5" ry="4" />
+<ellipse class="fig-acc" cx="122" cy="102" rx="4.5" ry="3.6" />
+<path class="fig-lead" d="M34,84 L22,88" />
+<text class="fig-lbl" x="8" y="90">鋸歯</text>
+<line class="fig-scale" x1="96" y1="138" x2="126" y2="138" />
+<line class="fig-scale" x1="96" y1="135" x2="96" y2="141" />
+<line class="fig-scale" x1="126" y1="135" x2="126" y2="141" />
+<text class="fig-scale-t" x="111" y="133" text-anchor="middle">2 cm</text>
+</svg>

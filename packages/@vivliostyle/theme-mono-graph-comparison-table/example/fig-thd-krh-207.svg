@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 292" role="img" aria-label="高調波歪率グラフ。横軸は60から110dB SPLの出力音圧レベル、縦軸は0.01から10パーセントの対数目盛。100Hz・1kHz・10kHzの3曲線がU字を描き、中域で最小値をとったのち高出力側で再び上昇する。">
+<style>
+.grid-h line, .grid-v line { stroke: #1a1a1a; stroke-width: 0.4; stroke-dasharray: 1 2.4; }
+.grid-hm line { stroke: #9a9a9a; stroke-width: 0.3; stroke-dasharray: 1 2.4; }
+.frame { fill: none; stroke: #1a1a1a; stroke-width: 0.8; }
+.c0 { fill: none; stroke: #1a1a1a; stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+.c15 { fill: none; stroke: #1a1a1a; stroke-width: 1.3; stroke-linejoin: round; stroke-linecap: round; stroke-dasharray: 6 3.5; }
+.c30 { fill: none; stroke: #1a1a1a; stroke-width: 1.3; stroke-linejoin: round; stroke-linecap: round; stroke-dasharray: 1.4 2.6; }
+.legend rect { fill: #ffffff; stroke: #1a1a1a; stroke-width: 0.5; }
+.legend text { font-family: "Noto Sans JP", sans-serif; font-weight: 400; font-size: 12px; fill: #1a1a1a; }
+.ylab text, .xlab text { font-family: "IBM Plex Mono", monospace; font-size: 12px; fill: #1a1a1a; }
+.ylab text { text-anchor: end; }
+.xlab text { text-anchor: middle; }
+.axtitle { font-family: "Noto Sans JP", sans-serif; font-weight: 400; font-size: 12px; fill: #1a1a1a; }
+</style>
+
+<g class="grid-hm">
+<line x1="44" y1="50" x2="386" y2="50" />
+<line x1="44" y1="67" x2="386" y2="67" />
+<line x1="44" y1="80" x2="386" y2="80" />
+<line x1="44" y1="124" x2="386" y2="124" />
+<line x1="44" y1="141" x2="386" y2="141" />
+<line x1="44" y1="154" x2="386" y2="154" />
+<line x1="44" y1="198" x2="386" y2="198" />
+<line x1="44" y1="215" x2="386" y2="215" />
+<line x1="44" y1="228" x2="386" y2="228" />
+</g>
+<g class="grid-h">
+<line x1="44" y1="28" x2="386" y2="28" />
+<line x1="44" y1="102" x2="386" y2="102" />
+<line x1="44" y1="176" x2="386" y2="176" />
+<line x1="44" y1="250" x2="386" y2="250" />
+</g>
+<g class="grid-v">
+<line x1="44" y1="28" x2="44" y2="250" />
+<line x1="112" y1="28" x2="112" y2="250" />
+<line x1="181" y1="28" x2="181" y2="250" />
+<line x1="249" y1="28" x2="249" y2="250" />
+<line x1="318" y1="28" x2="318" y2="250" />
+<line x1="386" y1="28" x2="386" y2="250" />
+</g>
+<rect class="frame" x="44" y="28" width="342" height="222" />
+
+<polyline class="c0" points="44,123 61.1,126.7 78.2,130.3 95.3,134 112.4,137.6 129.5,140.5 146.6,143.4 163.7,146.3 180.8,149.2 197.9,150.6 215,152 232.1,153.4 249.2,151.3 266.3,148.3 283.4,143.5 300.5,136 317.6,128.4 334.7,116 351.8,103.6 368.9,89.7" />
+<polyline class="c15" points="44,141.8 61.1,146.1 78.2,150.4 95.3,154.7 112.4,158.9 129.5,163.2 146.6,167.5 163.7,171.7 180.8,176 197.9,178.5 215,181 232.1,183.5 249.2,182.9 266.3,181.5 283.4,180.1 300.5,174.9 317.6,169.7 334.7,163 351.8,155.4 368.9,143.7" />
+<polyline class="c30" points="44,134.8 61.1,139.2 78.2,143.5 95.3,147.8 112.4,152.2 129.5,156 146.6,159.9 163.7,163.7 180.8,167.6 197.9,169.7 215,171.9 232.1,174 249.2,172.5 266.3,170 283.4,167.6 300.5,161.1 317.6,154.7 334.7,147.1 351.8,138.6 368.9,126.7" />
+
+<g class="legend">
+<rect x="52" y="188" width="132" height="58" />
+<line class="c0" x1="62" y1="203" x2="92" y2="203" />
+<text x="100" y="206">100Hz</text>
+<line class="c15" x1="62" y1="220" x2="92" y2="220" />
+<text x="100" y="223">1kHz</text>
+<line class="c30" x1="62" y1="237" x2="92" y2="237" />
+<text x="100" y="240">10kHz</text>
+</g>
+
+<g class="ylab">
+<text x="39" y="31">10</text>
+<text x="39" y="105">1</text>
+<text x="39" y="179">0.1</text>
+<text x="39" y="253">0.01</text>
+</g>
+<text class="axtitle" x="20" y="20">THD (%)</text>
+
+<g class="xlab">
+<text x="44" y="264">60</text>
+<text x="112" y="264">70</text>
+<text x="181" y="264">80</text>
+<text x="249" y="264">90</text>
+<text x="318" y="264">100</text>
+<text x="386" y="264">110</text>
+</g>
+<text class="axtitle" x="215" y="284" text-anchor="middle">出力音圧レベル (dB SPL)</text>
+</svg>

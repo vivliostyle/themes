@@ -1,0 +1,10 @@
+/*
+ * theme.css だけでこの拡張アブストラクトは組める。ここで与えるのは、この見本の
+ * SVG の縦横比に合わせた寸法だけ。
+ */
+
+/* 段抜きの図は横長で、段幅いっぱいに引き伸ばすと版面の下端をはみ出すため、
+   幅で高さを詰める */
+:root {
+  --vs-theme-two-column-blue-sidenote--figure-full-width-size-inline: 87%;
+}

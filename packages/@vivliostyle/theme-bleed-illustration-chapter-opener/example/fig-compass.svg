@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="34 88 252 116" role="img" aria-label="A brass pocket compass resting on an unrolled map, with a feather quill lying beside it.">
+  <g stroke="#8B887F" stroke-width="1.4" fill="#E7E3DA">
+    <path d="M42,150 L228,120 L262,166 L74,196 Z" />
+    <path d="M60,120 L236,96 L266,138 L84,164 Z" fill="#EDEAE1" />
+  </g>
+  <g stroke="#B7B3A9" stroke-width="0.9" fill="none" opacity="0.85">
+    <path d="M96,120 q40,10 96,-6" />
+    <path d="M104,138 q52,12 120,-8" />
+    <path d="M118,156 q44,8 96,-4" />
+    <path d="M150,102 q14,26 -6,54" />
+  </g>
+  <!-- compass -->
+  <circle cx="150" cy="150" r="46" fill="#F1EEE6" stroke="#5F6365" stroke-width="2.4" />
+  <circle cx="150" cy="150" r="38" fill="none" stroke="#9A968C" stroke-width="1" />
+  <g stroke="#5F6365" stroke-width="1.6">
+    <line x1="150" y1="108" x2="150" y2="118" />
+    <line x1="150" y1="182" x2="150" y2="192" />
+    <line x1="108" y1="150" x2="118" y2="150" />
+    <line x1="182" y1="150" x2="192" y2="150" />
+  </g>
+  <path d="M150,122 L160,150 L150,144 L140,150 Z" fill="#33383A" />
+  <path d="M150,178 L140,150 L150,156 L160,150 Z" fill="#8A8781" />
+  <circle cx="150" cy="150" r="3.4" fill="#33383A" />
+  <!-- feather quill -->
+  <path d="M214,196 C232,150 250,120 276,96" fill="none" stroke="#5F6365" stroke-width="2" />
+  <path d="M276,96 C258,110 250,132 244,150 C240,162 236,176 230,188 C244,180 256,166 262,150 C268,132 272,114 276,96 Z" fill="#C7C3B9" stroke="#8B887F" stroke-width="1" />
+</svg>

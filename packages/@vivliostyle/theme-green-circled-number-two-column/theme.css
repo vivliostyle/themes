@@ -1,0 +1,263 @@
+/*
+ * green-circled-number-two-column
+ * A5縦・横書き2段のコンパクトな実用レシピ集テーマ。1段に1品を組み、
+ * フレッシュグリーン (#66cc00) を番号バッジ・データバー・表罫に反復し、
+ * 調理時間/人数/保存期間のデータバーの特大数字を最も目立たせる。
+ * 品数のぶんだけ段が増え、段が尽きればページが増える。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  /* テーマ固有 */
+  --vs-theme-green-circled-number-two-column--color-accent: #66cc00;
+  --vs-theme-green-circled-number-two-column--color-rule: #b8e386;
+  --vs-theme-green-circled-number-two-column--color-tint: #eef8e0;
+  --vs-theme-green-circled-number-two-column--color-heading: #1a1a1a;
+  --vs-theme-green-circled-number-two-column--color-on-accent: #ffffff;
+
+  --vs-page--size: A5;
+  --vs-page--margin-top: 10mm;
+  --vs-page--margin-bottom: 10mm;
+  --vs-page--margin-left: 8mm;
+  --vs-page--margin-right: 8mm;
+
+  /* ノンブル */
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-bottom-font-size: 9pt;
+  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
+
+  --vs-font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --vs-font-size: 8.5pt;
+  --vs-line-height: 1.5;
+  --vs-color-foreground: #333333;
+
+  /* 2段。段境は淡いグリーンの細罫 */
+  --vs-columns: 2;
+  --vs-column-fill: auto;
+  --vs-column-gap: 8mm;
+  --vs-column-rule-width: 0.5pt;
+  --vs-column-rule-style: solid;
+  --vs-column-rule-color: var(
+    --vs-theme-green-circled-number-two-column--color-rule
+  );
+
+  --vs--heading-font-family:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+
+  --vs--p-margin-block: 0 2.6mm;
+  --vs--p-text-indent: 0;
+  --vs--p-text-align: start;
+
+  /* レシピ見出し */
+  --vs--h2-font-size: 12.5pt;
+  --vs--h2-font-weight: 900;
+  --vs--h2-line-height: 1.2;
+  --vs--h2-letter-spacing: 0.01em;
+  --vs--h2-margin-block: 0 2.4mm;
+  --vs--h2-margin-inline: 0;
+  --vs--h2-break-after: avoid;
+  --vs--h2-text-color: var(
+    --vs-theme-green-circled-number-two-column--color-heading
+  );
+
+  /* 品番は原稿の見出し順から振る。桁の体裁は example 側で差し替えられる */
+  --vs-theme-green-circled-number-two-column--recipe-marker-content: counter(
+    vs-counter-sec-h2,
+    decimal-leading-zero
+  );
+  --vs-section--h2-marker-display: inline-block;
+  --vs-section--h2-marker-content: var(
+    --vs-theme-green-circled-number-two-column--recipe-marker-content
+  );
+  --vs-section--h2-marker-margin-inline-end: 2.4mm;
+  /* 1段 = 1品 */
+  --vs-section--h2-break-before: column;
+
+  /* 手順番号 */
+  --vs-theme-green-circled-number-two-column--step-marker-content: counter(
+    vs-counter-step
+  );
+
+  /* 完成写真 (Markdown 画像 → figure > img) */
+  --vs--figure-display: block;
+  --vs--figure-margin-block: 0 2.8mm;
+  --vs--figure-margin-inline: 0;
+  --vs--figure-item-size-inline: 100%;
+  /* 写真は採番対象ではない。キャプションが要る原稿は block に戻す */
+  --vs--figcaption-display: none;
+
+  /* データバーの ul も手順の ol も装飾を自前で持つのでリストの既定を全て落とす */
+  --vs--lists-margin-block: 0;
+  --vs--lists-margin-inline: 0;
+  --vs--lists-padding-inline-start: 0;
+  --vs--ul-list-style-type: none;
+  --vs--ol-list-style-type: none;
+
+  /* 材料表 */
+  --vs--table-size-inline: 100%;
+  --vs--table-font-size: 8pt;
+  --vs--table-margin-block: 2.6mm 3mm;
+  --vs--table-margin-inline: 0;
+  --vs--table-border-color: var(
+    --vs-theme-green-circled-number-two-column--color-accent
+  );
+  --vs--table-border-width: 0;
+  --vs--table-border-width-outer: 0.35mm;
+  --vs--table-border-width-thead-inner: 0.3mm;
+  /* 行罫・段罫は theme 既定のヘアラインのまま (現行 base の既定は 0 なので明示する) */
+  --vs--table-border-width-cell: 1px;
+  --vs--table-cell-padding-block: 1.1mm;
+  --vs--table-cell-padding-inline: 2mm;
+  --vs--th-font-weight: 700;
+  --vs--th-text-align: center;
+  --vs--th-background-color: var(
+    --vs-theme-green-circled-number-two-column--color-tint
+  );
+  --vs--td-line-height: 1.3;
+}
+
+/*
+ * レシピ見出し: 緑角丸バッジの白抜き番号 + 太字レシピ名。
+ * バッジは flex ではなく負の text-indent でぶら下げる (flex は見出し中の
+ * ルビ・強調などのインライン要素を別アイテムに割ってしまう)
+ */
+section > h2:first-child {
+  padding-inline-start: 11.2mm;
+  text-indent: -11.2mm;
+}
+section > h2:first-child::before {
+  inline-size: 8.8mm;
+  block-size: 8.8mm;
+  border-radius: 2.4mm;
+  background-color: var(
+    --vs-theme-green-circled-number-two-column--color-accent
+  );
+  color: var(--vs-theme-green-circled-number-two-column--color-on-accent);
+  font-size: 13.5pt;
+  font-weight: 900;
+  line-height: 8.8mm;
+  text-align: center;
+  text-indent: 0;
+  letter-spacing: 0;
+  /* バッジを1行目の行ボックスに合わせて沈める (middle は行を膨らませる) */
+  vertical-align: -3.1mm;
+}
+
+figure img {
+  display: block;
+  height: auto;
+  border-radius: 1.2mm;
+}
+
+/* データバー: 時計/人数/冷蔵/冷凍の4セル・特大グリーン数字 */
+.stat-block {
+  margin-block-end: 2.8mm;
+  break-inside: avoid;
+}
+.stat-block ul {
+  display: flex;
+  border-width: 0.4mm;
+  border-style: solid;
+  border-color: var(--vs-theme-green-circled-number-two-column--color-accent);
+  border-radius: 1.6mm;
+}
+.stat-block li {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.6mm;
+  padding: 1.6mm 0.5mm 1.3mm;
+}
+.stat-block li + li {
+  border-left-width: 0.4pt;
+  border-left-style: solid;
+  border-left-color: var(
+    --vs-theme-green-circled-number-two-column--color-rule
+  );
+}
+.stat-block img {
+  width: 4.6mm;
+  height: 4.6mm;
+  margin-bottom: auto;
+}
+.stat-block em {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 6pt;
+  line-height: 1;
+}
+.stat-block strong {
+  font-size: 14pt;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--vs-theme-green-circled-number-two-column--color-accent);
+  white-space: nowrap;
+}
+.stat-block strong > span {
+  font-size: 6.5pt;
+  font-weight: 700;
+  color: var(--vs-color-foreground);
+}
+
+/* 材料表: 薄緑地ヘッダ + グリーン罫 */
+/* 外枠と表頭下罫だけアクセント、行罫・段罫は淡いグリーン */
+tr,
+th,
+td {
+  border-color: var(--vs-theme-green-circled-number-two-column--color-rule);
+}
+thead > tr:last-child {
+  border-color: var(--vs-theme-green-circled-number-two-column--color-accent);
+}
+table th + th,
+table td + td {
+  width: 38%;
+}
+
+/* 手順: 緑丸数字 + 本文。読み物の見出しは閉じ # で書き section に包まれないため、
+   その手順リストは body 直下に置かれる */
+:is(body, section) > ol {
+  counter-reset: vs-counter-step;
+}
+:is(body, section) > ol > li {
+  counter-increment: vs-counter-step;
+  padding-inline-start: 6mm;
+  text-indent: -6mm;
+  font-size: 8pt;
+  line-height: 1.45;
+  margin-bottom: 1.7mm;
+}
+:is(body, section) > ol > li::before {
+  content: var(--vs-theme-green-circled-number-two-column--step-marker-content);
+  display: inline-block;
+  inline-size: 4.2mm;
+  block-size: 4.2mm;
+  margin-inline-end: 1.8mm;
+  text-indent: 0;
+  border-radius: 50%;
+  background-color: var(
+    --vs-theme-green-circled-number-two-column--color-accent
+  );
+  color: var(--vs-theme-green-circled-number-two-column--color-on-accent);
+  font-size: 7pt;
+  font-weight: 700;
+  line-height: 4.2mm;
+  text-align: center;
+  vertical-align: -1.2mm;
+}
+:is(body, section) > ol > li:last-child {
+  margin-bottom: 0;
+}

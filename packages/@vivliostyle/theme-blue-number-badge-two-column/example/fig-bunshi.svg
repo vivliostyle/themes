@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 34 740 272" role="img" aria-label="机に広げた原稿用紙と部誌「南原文藝」を真上から見たイラスト">
+  <rect width="740" height="340" fill="#dcebf8" />
+  <rect x="0" y="34" width="740" height="12" fill="#c8ddf1" />
+  <rect x="0" y="286" width="740" height="54" fill="#c8ddf1" />
+  <g transform="rotate(-5 200 180)">
+    <rect x="42" y="62" width="316" height="228" fill="#f7fbfe" stroke="#9dbfe2" stroke-width="4" />
+    <rect x="58" y="78" width="284" height="196" fill="none" stroke="#c5d6ea" stroke-width="3" />
+    <path d="M58 111 h284 M58 144 h284 M58 176 h284 M58 209 h284 M58 241 h284" stroke="#d4e3f3" stroke-width="2" />
+    <path d="M93 78 v196 M128 78 v196 M164 78 v196 M199 78 v196 M235 78 v196 M270 78 v196 M306 78 v196" stroke="#d4e3f3" stroke-width="2" />
+    <rect x="199" y="78" width="1" height="196" fill="#b3cbe6" />
+    <rect x="270" y="112" width="30" height="30" fill="#1c4d8f" opacity="0.85" />
+    <rect x="270" y="145" width="30" height="30" fill="#1c4d8f" opacity="0.85" />
+    <rect x="270" y="178" width="30" height="30" fill="#1c4d8f" opacity="0.6" />
+    <rect x="235" y="112" width="30" height="30" fill="#1c4d8f" opacity="0.7" />
+    <rect x="235" y="145" width="30" height="30" fill="#1c4d8f" opacity="0.45" />
+    <rect x="199" y="112" width="30" height="30" fill="#1c4d8f" opacity="0.3" />
+  </g>
+  <g transform="rotate(4 552 176)">
+    <rect x="410" y="52" width="286" height="248" fill="#ffffff" stroke="#9dbfe2" stroke-width="4" />
+    <rect x="410" y="52" width="20" height="248" fill="#2f6fbe" />
+    <rect x="452" y="88" width="212" height="6" fill="#2f6fbe" />
+    <text x="558" y="168" text-anchor="middle" font-size="46" font-weight="bold" fill="#123055" font-family="'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif">南原文藝</text>
+    <text x="558" y="212" text-anchor="middle" font-size="24" font-weight="bold" fill="#2f6fbe" font-family="'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif">第48号</text>
+    <rect x="452" y="240" width="212" height="5" fill="#c5d6ea" />
+    <text x="558" y="276" text-anchor="middle" font-size="18" fill="#4a719c" font-family="'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif">みなみのはら高校　文芸部</text>
+  </g>
+  <g transform="rotate(-24 300 250)">
+    <rect x="196" y="240" width="208" height="17" rx="8" fill="#123055" />
+    <rect x="196" y="240" width="46" height="17" rx="8" fill="#3f77b8" />
+    <path d="M404 240 l34 8 l-34 9 Z" fill="#8fb2d8" />
+  </g>
+  <rect x="52" y="46" width="62" height="44" rx="3" fill="#9c5a45" opacity="0.75" transform="rotate(8 83 68)" />
+  <rect x="118" y="42" width="62" height="44" rx="3" fill="#5f8fc6" transform="rotate(-6 149 64)" />
+</svg>

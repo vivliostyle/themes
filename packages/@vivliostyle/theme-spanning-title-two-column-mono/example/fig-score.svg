@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 300" role="img" aria-label="ページ番号に対する評価スコアの推移を示す折れ線グラフ。右上がりに揺れながら上昇する。">
+  <style>
+    .num { font-family: "STIX Two Text", "Times New Roman", serif; font-size: 13px; fill: #1a1a1a; }
+    .lbl { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 13px; fill: #1a1a1a; }
+    .axis { stroke: #1a1a1a; stroke-width: 1.2; }
+    .tick { stroke: #1a1a1a; stroke-width: 1; }
+    .series { fill: none; stroke: #1a1a1a; stroke-width: 1.3; }
+    .dot { fill: #1a1a1a; }
+  </style>
+
+  <g class="num" text-anchor="end">
+    <text x="41" y="30">1.0</text>
+    <text x="41" y="76">0.8</text>
+    <text x="41" y="122">0.6</text>
+    <text x="41" y="168">0.4</text>
+    <text x="41" y="214">0.2</text>
+    <text x="41" y="260">0.0</text>
+  </g>
+  <g class="num" text-anchor="middle">
+    <text x="50" y="278">0</text>
+    <text x="130" y="278">20</text>
+    <text x="210" y="278">40</text>
+    <text x="290" y="278">60</text>
+    <text x="370" y="278">80</text>
+    <text x="450" y="278">100</text>
+  </g>
+
+  <g class="tick">
+    <line x1="45" y1="25" x2="50" y2="25" />
+    <line x1="45" y1="71" x2="50" y2="71" />
+    <line x1="45" y1="117" x2="50" y2="117" />
+    <line x1="45" y1="163" x2="50" y2="163" />
+    <line x1="45" y1="209" x2="50" y2="209" />
+    <line x1="130" y1="255" x2="130" y2="260" />
+    <line x1="210" y1="255" x2="210" y2="260" />
+    <line x1="290" y1="255" x2="290" y2="260" />
+    <line x1="370" y1="255" x2="370" y2="260" />
+    <line x1="450" y1="255" x2="450" y2="260" />
+  </g>
+
+  <line class="axis" x1="50" y1="25" x2="50" y2="255" />
+  <line class="axis" x1="50" y1="255" x2="455" y2="255" />
+
+  <polyline class="series" points="50,209 70,186 90,179 110,151 130,151 150,140 162,112 170,151 190,122 210,99 230,94 250,89 262,82 270,112 290,89 310,94 330,89 350,76 370,66 390,82 410,71 430,76 450,71" />
+
+  <g class="dot">
+    <circle cx="50" cy="209" r="3" />
+    <circle cx="70" cy="186" r="3" />
+    <circle cx="90" cy="179" r="3" />
+    <circle cx="110" cy="151" r="3" />
+    <circle cx="130" cy="151" r="3" />
+    <circle cx="150" cy="140" r="3" />
+    <circle cx="162" cy="112" r="3" />
+    <circle cx="170" cy="151" r="3" />
+    <circle cx="190" cy="122" r="3" />
+    <circle cx="210" cy="99" r="3" />
+    <circle cx="230" cy="94" r="3" />
+    <circle cx="250" cy="89" r="3" />
+    <circle cx="262" cy="82" r="3" />
+    <circle cx="270" cy="112" r="3" />
+    <circle cx="290" cy="89" r="3" />
+    <circle cx="310" cy="94" r="3" />
+    <circle cx="330" cy="89" r="3" />
+    <circle cx="350" cy="76" r="3" />
+    <circle cx="370" cy="66" r="3" />
+    <circle cx="390" cy="82" r="3" />
+    <circle cx="410" cy="71" r="3" />
+    <circle cx="430" cy="76" r="3" />
+    <circle cx="450" cy="71" r="3" />
+  </g>
+
+  <text class="lbl" x="252" y="296" text-anchor="middle">ページ番号</text>
+  <text class="lbl" transform="translate(15 140) rotate(-90)" text-anchor="middle">評価スコア</text>
+</svg>

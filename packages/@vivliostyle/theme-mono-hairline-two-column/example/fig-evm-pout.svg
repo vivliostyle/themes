@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 180" role="img" aria-label="Line graph of transmit error vector magnitude versus output power for a 64-QAM 100 MHz carrier at 1 GHz. EVM is about 1.25 percent between 8 and 12 dBm, 1.8 percent at 18 dBm, and rises steeply above 20 dBm, passing 3.5 percent at 20.5 dBm." fill="none" stroke="#171717">
+<style>
+text { font-family: "Roboto Mono", "IBM Plex Mono", ui-monospace, monospace; stroke: none; }
+</style>
+<text x="4" y="12" font-size="7.3" font-weight="500" fill="#171717" stroke="none">TX EVM vs OUTPUT POWER  (64-QAM, 100 MHz, 1.0 GHz)</text>
+<g stroke="#d6d6d6" stroke-width="0.5">
+<line x1="42" y1="48.3" x2="350" y2="48.3" />
+<line x1="42" y1="68.7" x2="350" y2="68.7" />
+<line x1="42" y1="89" x2="350" y2="89" />
+<line x1="42" y1="109.3" x2="350" y2="109.3" />
+<line x1="42" y1="129.7" x2="350" y2="129.7" />
+<line x1="112" y1="28" x2="112" y2="150" />
+<line x1="182" y1="28" x2="182" y2="150" />
+<line x1="252" y1="28" x2="252" y2="150" />
+<line x1="322" y1="28" x2="322" y2="150" />
+</g>
+<rect x="42" y="28" width="308" height="122" stroke="#171717" stroke-width="0.8" />
+<polyline points="42,118.5 98,122.5 154,124.6 210,124 252,121.9 280,117.5 294,113.4 308,105.3 322,92.1 329,78.8 336,62.6 341.6,42.2" stroke="#171717" stroke-width="1.2" />
+<g font-size="6" fill="#555555" stroke="none" text-anchor="end">
+<text x="38" y="30.2">6</text>
+<text x="38" y="50.5">5</text>
+<text x="38" y="70.9">4</text>
+<text x="38" y="91.2">3</text>
+<text x="38" y="111.5">2</text>
+<text x="38" y="131.9">1</text>
+<text x="38" y="152.2">0</text>
+</g>
+<g font-size="6" fill="#555555" stroke="none" text-anchor="middle">
+<text x="42" y="160">0</text>
+<text x="112" y="160">5</text>
+<text x="182" y="160">10</text>
+<text x="252" y="160">15</text>
+<text x="322" y="160">20</text>
+</g>
+<text x="196" y="174" font-size="6.5" fill="#555555" stroke="none" text-anchor="middle">Output power (dBm)</text>
+<text x="12" y="89" font-size="6.5" fill="#555555" stroke="none" text-anchor="middle" transform="rotate(-90 12 89)">EVM (%rms)</text>
+</svg>

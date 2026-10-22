@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 172" role="img" aria-label="DIP-8 パッケージのピン配置図 (上面図)">
+  <style>
+    text { font-family: "JetBrains Mono", "Menlo", "Consolas", monospace; fill: #1a1a1a; }
+    .pin { font-size: 10px; }
+    .lbl { font-size: 10px; }
+    .amp { font-size: 9px; }
+    .outline { fill: none; stroke: #1a1a1a; stroke-width: 1.6; }
+    .lead { fill: none; stroke: #1a1a1a; stroke-width: 1.2; }
+    .thin { fill: none; stroke: #1a1a1a; stroke-width: 1; }
+  </style>
+  <rect class="outline" x="85" y="18" width="70" height="122"/>
+  <path class="outline" d="M 111 18 A 9 9 0 0 0 129 18"/>
+  <rect class="lead" x="68" y="28" width="17" height="9"/>
+  <rect class="lead" x="68" y="58" width="17" height="9"/>
+  <rect class="lead" x="68" y="88" width="17" height="9"/>
+  <rect class="lead" x="68" y="118" width="17" height="9"/>
+  <rect class="lead" x="155" y="28" width="17" height="9"/>
+  <rect class="lead" x="155" y="58" width="17" height="9"/>
+  <rect class="lead" x="155" y="88" width="17" height="9"/>
+  <rect class="lead" x="155" y="118" width="17" height="9"/>
+  <text class="pin" x="93" y="36">1</text>
+  <text class="pin" x="93" y="66">2</text>
+  <text class="pin" x="93" y="96">3</text>
+  <text class="pin" x="93" y="126">4</text>
+  <text class="pin" x="147" y="36" text-anchor="end">8</text>
+  <text class="pin" x="147" y="66" text-anchor="end">7</text>
+  <text class="pin" x="147" y="96" text-anchor="end">6</text>
+  <text class="pin" x="147" y="126" text-anchor="end">5</text>
+  <text class="lbl" x="63" y="36" text-anchor="end">OUT A</text>
+  <text class="lbl" x="63" y="66" text-anchor="end">-IN A</text>
+  <text class="lbl" x="63" y="96" text-anchor="end">+IN A</text>
+  <text class="lbl" x="63" y="126" text-anchor="end">V-</text>
+  <text class="lbl" x="177" y="36">V+</text>
+  <text class="lbl" x="177" y="66">OUT B</text>
+  <text class="lbl" x="177" y="96">-IN B</text>
+  <text class="lbl" x="177" y="126">+IN B</text>
+  <polygon class="lead" points="101,48 101,76 124,62"/>
+  <text class="amp" x="106" y="65">A</text>
+  <polygon class="lead" points="139,100 139,128 116,114"/>
+  <text class="amp" x="128" y="117">B</text>
+  <polyline class="thin" points="97,162 80,162 80,10 108,12"/>
+  <text class="lbl" x="102" y="165">NOTCH MARK</text>
+</svg>

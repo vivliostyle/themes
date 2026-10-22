@@ -1,0 +1,62 @@
+{
+  "name": "@vivliostyle/theme-masthead-footnote-two-column",
+  "version": "0.0.0",
+  "description": "A5判・精密2段組の学会予稿ページテーマ。マストヘッド + 概要 + 2段組本文 + 図表 + 脚注 + 参考文献 + 索引語を高密度に収める",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-masthead-footnote-two-column"
+  },
+  "files": [
+    "*.css",
+    "example",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Masthead Footnote Two Column",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "journal",
+      "topics": [
+        "directory-list",
+        "academic",
+        "conference",
+        "abstracts",
+        "two-column",
+        "a5",
+        "technical",
+        "scholarly",
+        "indexed-references"
+      ]
+    }
+  }
+}

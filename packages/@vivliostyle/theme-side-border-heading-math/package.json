@@ -1,0 +1,61 @@
+{
+  "name": "@vivliostyle/theme-side-border-heading-math",
+  "version": "0.0.0",
+  "description": "A4縦・1段組の高等数学ジャーナルテーマ (Elsevier / Advances in Mathematics 風)。節見出しの左に太い群青バー、外余白のサイドノート、定理環境と別行立て数式を配置する",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-side-border-heading-math"
+  },
+  "files": [
+    "*.css",
+    "example",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Side Border Heading Math",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "journal",
+      "topics": [
+        "academic-journal",
+        "academic",
+        "a4",
+        "single-column",
+        "pure-mathematics",
+        "side-border-heading",
+        "elegant",
+        "long-form"
+      ]
+    }
+  }
+}

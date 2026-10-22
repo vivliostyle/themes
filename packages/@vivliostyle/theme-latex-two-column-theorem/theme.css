@@ -1,0 +1,490 @@
+/*
+ * 統計学系の学術誌テーマ (A4判2段組・墨1色)。
+ * EB Garamond のセリフ本文に LaTeX 風の番号付き見出し、罫線ボックスの定理環境、
+ * 段の右端に式番号を置くディスプレイ数式、booktabs 風の統計表、ページ下部の脚注を
+ * 配置する。柱は左が著者、右が誌名で、どちらも原稿から取る。
+ * 節番号・定理番号・式番号・表番号・引用番号はすべてカウンタが付ける。
+ */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/footnote';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/math';
+
+:root {
+  --vs-theme-latex-two-column-theorem--font-math:
+    'STIX Two Math', 'Cambria Math', 'Latin Modern Math', math;
+
+  /* Page */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 16mm;
+  --vs-page--margin-bottom: 18mm;
+  --vs-page--margin-left: 15mm;
+  --vs-page--margin-right: 15mm;
+  --vs-page--background-color: #fafaf7;
+  /* 柱の下の細罫 = 版面の上罫 */
+  --vs-page--border-width-top: 0.4pt;
+  --vs-page--border-color-top: var(--vs-color-border);
+  /* 罫と本文のアキ */
+  --vs-page--padding-top: 4mm;
+
+  /* 柱は左が著者、右が誌名。ノンブルは下中央 */
+  --vs-page--mbox-top-left-content: element(running-author);
+  --vs-page--mbox-top-right-content: string(journal-title);
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-font-family: 'EB Garamond', 'Times New Roman', serif;
+  --vs-page--mbox-font-size: 9pt;
+  --vs-page--mbox-text-color: #333333;
+
+  /* Type */
+  --vs-font-family: 'EB Garamond', 'STIX Two Text', 'Times New Roman', serif;
+  --vs-font-size: 9pt;
+  --vs-line-height: 1.4;
+  --vs-spacing-rlh: 1.4rem;
+  --vs-color-foreground: #333333;
+  --vs-color-background: #fafaf7;
+  --vs-color-border: #333333;
+  --vs-widows-orphans: 2;
+
+  /* 段組は body に掛けるので html は単段のまま */
+  --vs-columns: 1;
+  --vs-column-gap: 7mm;
+
+  --vs--p-hyphens: auto;
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 1.2em;
+  --vs--p-text-align: justify;
+  --vs--p-first-text-indent: 0;
+
+  --vs--heading-font-family:
+    'EB Garamond', 'STIX Two Text', 'Times New Roman', serif;
+  --vs--heading-font-weight: 600;
+  --vs--heading-text-align: start;
+
+  --vs--h1-font-size: 13.5pt;
+  --vs--h1-font-weight: 600;
+  --vs--h1-line-height: 1.2;
+  --vs--h1-text-align: center;
+  --vs--h1-margin-block: 0 3.4mm;
+
+  --vs--h2-font-size: 9.8pt;
+  --vs--h2-line-height: 1.25;
+  --vs--h2-margin-block: 4.5mm 1.8mm;
+
+  --vs--h3-font-size: 9.2pt;
+  --vs--h3-line-height: 1.25;
+  --vs--h3-margin-block: 4.5mm 1.6mm;
+
+  --vs--bold-font-weight: 600;
+
+  /* 節番号は「1.」「3.1」。本文からの参照は「Section 3.1」 */
+  --vs-section--marker-display: inline;
+  --vs-section--marker-margin-inline-end: 0.5em;
+  --vs-section--h2-marker-content: counters(
+      vs-counter-sections,
+      var(--vs-section--counter-delimiter),
+      var(--vs-section--counter-style)
+    )
+    '.';
+  --vs-section--call-content: 'Section '
+    target-counters(
+      attr(href),
+      vs-counter-sections,
+      var(--vs-section--counter-delimiter),
+      var(--vs-section--counter-style)
+    );
+
+  /* 表の欄などで番号だけを出す節参照 */
+  --vs-theme-latex-two-column-theorem--section-number-call-content: target-counters(
+    attr(href),
+    vs-counter-sections,
+    var(--vs-section--counter-delimiter),
+    var(--vs-section--counter-style)
+  );
+
+  /* 付録は本文の節番号を消費せず英字で採番する */
+  --vs-theme-latex-two-column-theorem--appendix-counter-style: upper-alpha;
+  --vs-theme-latex-two-column-theorem--appendix-marker-content: 'Appendix '
+    counter(
+      vs-counter-appendix,
+      var(--vs-theme-latex-two-column-theorem--appendix-counter-style)
+    )
+    '.';
+  --vs-theme-latex-two-column-theorem--appendix-call-content: 'Appendix '
+    target-counter(
+      attr(href),
+      vs-counter-appendix,
+      var(--vs-theme-latex-two-column-theorem--appendix-counter-style)
+    );
+
+  /* 定理環境: ラベルは種別ごとの変数で差し替える */
+  --vs-theme-latex-two-column-theorem--theorem-label-theorem: 'Theorem';
+  --vs-theme-latex-two-column-theorem--theorem-label-lemma: 'Lemma';
+  --vs-theme-latex-two-column-theorem--theorem-label-proposition: 'Proposition';
+  --vs-theme-latex-two-column-theorem--theorem-label-corollary: 'Corollary';
+  --vs-theme-latex-two-column-theorem--theorem-label-definition: 'Definition';
+  --vs-theme-latex-two-column-theorem--theorem-label-example: 'Example';
+  --vs-theme-latex-two-column-theorem--theorem-label-remark: 'Remark';
+  --vs-theme-latex-two-column-theorem--theorem-label-proof: 'Proof';
+  --vs-theme-latex-two-column-theorem--theorem-label-proof-sketch: 'Proof sketch';
+  --vs-theme-latex-two-column-theorem--theorem-number-content: counter(
+      vs-counter-sec-h2
+    )
+    '.' counter(vs-counter-thm);
+  --vs-theme-latex-two-column-theorem--theorem-call-content: target-counter(
+      attr(href),
+      vs-counter-sec-h2
+    )
+    '.' target-counter(attr(href), vs-counter-thm);
+  --vs-theme-latex-two-column-theorem--proof-qed-content: '\2003\25A1';
+
+  /* 式番号は文書を通した連番。参照もラベルなしの '(N)' */
+  --vs-equation--call-content: '(' target-counter(attr(href), vs-counter-eq) ')';
+  --vs-equation--margin-block: 0;
+  --vs-equation--item-text-align: inherit;
+  --vs-equation--marker-margin-inline: 2mm 0;
+  --vs-citation--marker-inset-inline-start: -4.4mm;
+
+  /* 表番号は「Table 1.」。図は使わないが同じ組みに揃えておく */
+  --vs-table--marker-content: 'Table '
+    counter(vs-counter-tbl, var(--vs-counter-style)) '. ';
+  --vs-figure--marker-content: 'Figure '
+    counter(vs-counter-fig, var(--vs-counter-style)) '. ';
+
+  /* booktabs: 上下の太罫 + ヘッダ下の細罫のみ */
+  --vs--table-border-color: #333333;
+  --vs--table-border-width: 0;
+  --vs--table-border-width-block-start: 1.1pt;
+  --vs--table-border-width-block-end: 1.1pt;
+  --vs--table-border-width-thead-inner: 0.5pt;
+  --vs--table-font-size: 8.2pt;
+  --vs--table-margin-block: 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-size-inline: 100%;
+  --vs--table-text-align: center;
+  --vs--table-cell-padding-block: 1.15mm;
+  --vs--table-cell-padding-inline: 0.6mm;
+  --vs--th-font-weight: 400;
+
+  --vs--figure-display: block;
+  --vs--figure-margin-block: 3.5mm;
+  --vs--figcaption-font-size: 8.4pt;
+  --vs--figcaption-line-height: 1.3;
+  --vs--figcaption-text-align: start;
+  --vs--figcaption-margin-block: 0 1.6mm;
+
+  /* 脚注はページ下部。短い区切り罫 + ぶら下げインデント */
+  --vs-footnote--call-content: counter(vs-counter-footnote, decimal);
+  --vs-footnote--call-font-size: 0.72em;
+  --vs-footnote--marker-content: counter(vs-counter-footnote, decimal) '\2002';
+  --vs-footnote--font-size: 7.6pt;
+  --vs-footnote--line-height: 1.35;
+  --vs-footnote--area-margin-block: 4mm 0;
+  --vs-footnote--area-before-border-color-block-start: #333333;
+  --vs-footnote--padding-inline-start: 1.5em;
+  --vs-footnote--text-indent: -1.5em;
+  --vs-footnote--area-before-border-width-block-start: 0.4pt;
+  --vs-footnote--area-before-margin-block: 0 1.6mm;
+  --vs-footnote--area-before-margin-inline: 0;
+  --vs-footnote--area-before-size-inline: 34%;
+}
+
+/* base の --vs-document-root-counter-reset は原稿側のフックなので、
+   テーマ独自カウンタの初期化は base が使わない :root で行う */
+:root {
+  counter-reset: vs-counter-thm vs-counter-appendix;
+}
+
+/* 定理番号は節ごとに振り直す。base が section 要素に持つ counter-reset を
+   潰さないよう、リセットは見出し要素側に置く (カウンタは h2 と後続の兄弟に及ぶ) */
+section > h2:first-child {
+  counter-reset: vs-counter-thm;
+}
+
+/* 付録は本文の節番号を進めず、英字の付録番号を持つ。base の
+   counter-increment ごと差し替えるので節番号は本文の続きにならない。
+   VFM の属性記法 (`## 見出し {.appendix}`) は class を h2 に付ける */
+section:has(> h2.appendix:first-child) {
+  counter-increment: vs-counter-appendix;
+  --vs-section--h2-marker-content: var(
+    --vs-theme-latex-two-column-theorem--appendix-marker-content
+  );
+  --vs-theme-latex-two-column-theorem--theorem-number-content: counter(
+      vs-counter-appendix,
+      var(--vs-theme-latex-two-column-theorem--appendix-counter-style)
+    )
+    '.' counter(vs-counter-thm);
+}
+
+/* 本文から付録の定理を参照するときは番号の節部分が英字になる */
+a[data-ref='thm'].appendix {
+  --vs-theme-latex-two-column-theorem--theorem-call-content: target-counter(
+      attr(href),
+      vs-counter-appendix,
+      var(--vs-theme-latex-two-column-theorem--appendix-counter-style)
+    )
+    '.' target-counter(attr(href), vs-counter-thm);
+}
+
+a[data-ref='sec'].appendix::before {
+  content: var(--vs-theme-latex-two-column-theorem--appendix-call-content);
+}
+
+a[data-ref='sec'].number::before {
+  content: var(
+    --vs-theme-latex-two-column-theorem--section-number-call-content
+  );
+}
+
+/* 墨1色の紙面なので参照も地の文と同じ見た目にする。base が既定を打ち消して
+   いるのは fig/tbl/cite/sec だけなので、テーマ独自の参照を補う */
+a:is([data-ref='eq'], [data-ref='thm']) {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 標題は段抜き、本文は 2 段。段は文章量に応じてページを送る */
+body {
+  columns: 2;
+  column-gap: var(--vs-column-gap);
+  column-fill: auto;
+}
+
+body > .titleblock {
+  column-span: all;
+}
+
+/* 見出しが段末・ページ末に取り残されないように */
+:is(h1, h2, h3),
+figcaption {
+  break-after: avoid;
+}
+
+/* カスタム要素の直後は base の自動字下げ解除の対象外なので直書きする */
+:is(.equation, .theorem, .proof, figure) + p {
+  text-indent: 0;
+}
+
+/* ---- 標題ブロック ---- */
+.jref,
+.byline,
+.affil,
+.kwd {
+  hyphens: none;
+  text-align: center;
+  text-indent: 0;
+}
+
+.jref {
+  font-size: 8pt;
+  font-style: italic;
+  line-height: 1.3;
+  margin-block: 0 6mm;
+}
+
+/* 誌名を柱に流す */
+.journal {
+  string-set: journal-title content();
+}
+
+/* 柱に出す著者名。本文には出さず running element として柱だけに置く。
+   柱の書体は margin box 側では指定できないので要素自身に持たせる */
+.running-author {
+  position: running(running-author);
+  font-style: italic;
+}
+
+.byline {
+  font-size: 10.5pt;
+  margin-block: 0 1.4mm;
+}
+
+.affil {
+  font-size: 8.4pt;
+  margin-block: 0 4.4mm;
+}
+
+.abstract {
+  margin-inline: 15mm;
+}
+
+.abstract p {
+  font-size: 8.4pt;
+  line-height: 1.42;
+  text-indent: 0;
+}
+
+.kwd {
+  font-size: 8.2pt;
+  margin-block: 2.4mm 0;
+  padding-inline: 15mm;
+}
+
+/* ---- 数式 ---- */
+:root {
+  --vs-math--font-family: var(--vs-theme-latex-two-column-theorem--font-math);
+  --vs-math--display-margin-block: 2.4mm;
+}
+
+math[display='block'] {
+  font-size: 1.05em;
+}
+
+/* ---- 定理環境: 罫線ボックス ----
+   ラベルを含む content は種別クラスが決まる .theorem 上で組み立てる。
+   :root で組み立てると、そこで未定義の --vs-theme-latex-two-column-theorem--theorem-label が
+   置換され content 全体が無効になる */
+.theorem {
+  border-width: 0.5pt;
+  border-style: solid;
+  break-inside: avoid;
+  counter-increment: vs-counter-thm;
+  margin-block: 3.4mm;
+  padding: 2.6mm 3mm 2.4mm;
+  --vs--p-text-indent: 0;
+  --vs-theme-latex-two-column-theorem--theorem-label: var(
+    --vs-theme-latex-two-column-theorem--theorem-label-theorem
+  );
+  --vs-theme-latex-two-column-theorem--theorem-marker-content: var(
+      --vs-theme-latex-two-column-theorem--theorem-label
+    )
+    ' ' var(--vs-theme-latex-two-column-theorem--theorem-number-content) '.';
+}
+
+.theorem.lemma {
+  --vs-theme-latex-two-column-theorem--theorem-label: var(
+    --vs-theme-latex-two-column-theorem--theorem-label-lemma
+  );
+}
+
+.theorem.proposition {
+  --vs-theme-latex-two-column-theorem--theorem-label: var(
+    --vs-theme-latex-two-column-theorem--theorem-label-proposition
+  );
+}
+
+.theorem.corollary {
+  --vs-theme-latex-two-column-theorem--theorem-label: var(
+    --vs-theme-latex-two-column-theorem--theorem-label-corollary
+  );
+}
+
+.theorem.definition {
+  --vs-theme-latex-two-column-theorem--theorem-label: var(
+    --vs-theme-latex-two-column-theorem--theorem-label-definition
+  );
+}
+
+.theorem.example {
+  --vs-theme-latex-two-column-theorem--theorem-label: var(
+    --vs-theme-latex-two-column-theorem--theorem-label-example
+  );
+}
+
+.theorem.remark {
+  --vs-theme-latex-two-column-theorem--theorem-label: var(
+    --vs-theme-latex-two-column-theorem--theorem-label-remark
+  );
+}
+
+.theorem > p {
+  font-style: italic;
+  margin-block: 0;
+}
+
+.theorem > p:first-child::before {
+  content: var(--vs-theme-latex-two-column-theorem--theorem-marker-content);
+  font-style: normal;
+  font-weight: var(--vs--bold-font-weight);
+  margin-inline-end: 0.35em;
+}
+
+a[data-ref='thm']::before {
+  content: var(--vs-theme-latex-two-column-theorem--theorem-call-content);
+}
+
+/* ---- 証明 ---- */
+.proof {
+  margin-block: 1.6mm 0;
+}
+
+.proof > p {
+  text-indent: 0;
+}
+
+.proof > p + p {
+  text-indent: var(--vs--p-text-indent);
+}
+
+.proof > p:first-child::before {
+  content: var(
+      --vs-theme-latex-two-column-theorem--proof-label,
+      var(--vs-theme-latex-two-column-theorem--theorem-label-proof)
+    )
+    '.';
+  font-style: italic;
+  margin-inline-end: 0.35em;
+}
+
+.proof.sketch {
+  --vs-theme-latex-two-column-theorem--proof-label: var(
+    --vs-theme-latex-two-column-theorem--theorem-label-proof-sketch
+  );
+}
+
+/* 別行立ての数式を挟んで続く証明は冒頭のラベルを繰り返さない */
+.proof.continued > p:first-child::before {
+  content: none;
+}
+
+.proof.qed > p:last-child::after {
+  content: var(--vs-theme-latex-two-column-theorem--proof-qed-content);
+}
+
+/* 数式は地の文の斜体を継がない */
+.theorem .math,
+.proof .math {
+  font-style: normal;
+}
+
+/* ---- 表 ---- */
+figure:is(.tbl, :has(table)) > figcaption::before {
+  font-weight: var(--vs--bold-font-weight);
+}
+
+figcaption > p {
+  margin-block: 0;
+}
+
+/* 長い表はページをまたいで流す */
+figure:is(.tbl, :has(table)) {
+  break-inside: auto;
+}
+
+th:first-child,
+td:first-child {
+  text-align: start;
+  padding-inline-start: 1.4mm;
+}
+
+/* ---- 参考文献: 番号をぶら下げた小さな組み ---- */
+:root {
+  --vs-citation--items-font-size: 7.5pt;
+  --vs-citation--items-hyphens: auto;
+  --vs-citation--items-line-height: 1.3;
+  --vs-citation--items-padding-inline-start: 4.4mm;
+  --vs-citation--item-margin-block: 0 0.9mm;
+  --vs-citation--item-text-align: start;
+}
+
+ol.cite-items > li > p {
+  margin-block: 0;
+  text-indent: 0;
+}

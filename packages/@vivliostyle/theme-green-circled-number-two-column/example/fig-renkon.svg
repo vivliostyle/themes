@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" role="img" aria-label="皿に盛ったれんこんのきんぴら">
+<rect width="400" height="320" fill="#f4f2ec" />
+<circle cx="200" cy="160" r="124" fill="#fbfaf6" stroke="#e5e2d8" stroke-width="2" />
+<circle cx="200" cy="160" r="104" fill="#f5f2ea" />
+<ellipse cx="200" cy="232" rx="94" ry="12" fill="#e9e4d5" />
+<g transform="translate(150 140)">
+<circle r="38" fill="#e8d3a2" stroke="#c9a86e" stroke-width="3" />
+<circle r="8.5" fill="#c9ac72" />
+<circle cx="0" cy="-20" r="7.5" fill="#c9ac72" />
+<circle cx="19" cy="-10" r="7.5" fill="#c9ac72" />
+<circle cx="19" cy="10" r="7.5" fill="#c9ac72" />
+<circle cx="0" cy="20" r="7.5" fill="#c9ac72" />
+<circle cx="-19" cy="10" r="7.5" fill="#c9ac72" />
+<circle cx="-19" cy="-10" r="7.5" fill="#c9ac72" />
+</g>
+<g transform="translate(242 148) rotate(18)">
+<circle r="38" fill="#ecd9ac" stroke="#c9a86e" stroke-width="3" />
+<circle r="8.5" fill="#c9ac72" />
+<circle cx="0" cy="-20" r="7.5" fill="#c9ac72" />
+<circle cx="19" cy="-10" r="7.5" fill="#c9ac72" />
+<circle cx="19" cy="10" r="7.5" fill="#c9ac72" />
+<circle cx="0" cy="20" r="7.5" fill="#c9ac72" />
+<circle cx="-19" cy="10" r="7.5" fill="#c9ac72" />
+<circle cx="-19" cy="-10" r="7.5" fill="#c9ac72" />
+</g>
+<g transform="translate(192 210) rotate(-12)">
+<circle r="36" fill="#e8d3a2" stroke="#c9a86e" stroke-width="3" />
+<circle r="8" fill="#c9ac72" />
+<circle cx="0" cy="-19" r="7" fill="#c9ac72" />
+<circle cx="18" cy="-9" r="7" fill="#c9ac72" />
+<circle cx="18" cy="9" r="7" fill="#c9ac72" />
+<circle cx="0" cy="19" r="7" fill="#c9ac72" />
+<circle cx="-18" cy="9" r="7" fill="#c9ac72" />
+<circle cx="-18" cy="-9" r="7" fill="#c9ac72" />
+</g>
+<circle cx="266" cy="204" r="14" fill="none" stroke="#d9482f" stroke-width="7" />
+<circle cx="126" cy="200" r="11" fill="none" stroke="#d9482f" stroke-width="6" />
+<circle cx="222" cy="98" r="10" fill="none" stroke="#d9482f" stroke-width="6" />
+<ellipse cx="176" cy="170" rx="3.4" ry="2.4" fill="#fbf6e6" transform="rotate(-20 176 170)" />
+<ellipse cx="214" cy="176" rx="3.4" ry="2.4" fill="#fbf6e6" transform="rotate(14 214 176)" />
+<ellipse cx="196" cy="150" rx="3.2" ry="2.2" fill="#fbf6e6" />
+<ellipse cx="252" cy="196" rx="3.2" ry="2.2" fill="#fbf6e6" transform="rotate(-10 252 196)" />
+<ellipse cx="140" cy="188" rx="3.2" ry="2.2" fill="#fbf6e6" transform="rotate(18 140 188)" />
+<ellipse cx="230" cy="118" rx="3.2" ry="2.2" fill="#fbf6e6" transform="rotate(-6 230 118)" />
+</svg>

@@ -1,0 +1,24 @@
+/*
+ * theme.css だけでこの研究会資料は組める。ここで与えるのは、この見本の図と表の
+ * 列数に合わせた寸法だけ。
+ */
+
+/* 5 ブロックの系統図は theme.css の枠幅では版面に収まらないため詰める */
+.steps.compact {
+  --vs-theme-mincho-thick-underline--steps-min-size-inline: 21mm;
+  font-size: 9.5pt;
+}
+
+.steps.compact > div {
+  padding-inline: 2mm;
+}
+
+/* 4 列と 3 列の比較表は theme.css の 9mm のアキでは版面を超える */
+figure.tbl.wide {
+  --vs--table-cell-padding-inline: 4mm;
+}
+
+figure.tbl.wide tbody td:first-child,
+figure.tbl.wide thead th:first-child {
+  --vs--table-text-align: start;
+}

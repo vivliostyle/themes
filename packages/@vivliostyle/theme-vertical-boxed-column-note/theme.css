@@ -1,0 +1,179 @@
+/*
+ * 教養新書コラム多数版 (vertical-boxed-column-note)
+ * 新書判 105×173mm・縦組み1段・明朝 8.5pt / 行送り 1.7・墨1色。小口上の横組み柱と地の中央の
+ * ノンブル、hanging の節見出し。罫囲みコラムを本文中の縦帯に、図版をノド側のページフロートに、
+ * 注をページ脚注に流し、本文はページをまたいで組む。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/footnote';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  --vs-writing-mode: vertical-rl;
+  --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --vs-font-size: 8.5pt;
+  --vs-line-height: 1.7;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-background: #faf7f0;
+  --vs-color-border: #1a1a1a;
+
+  --vs-page--size: 105mm 173mm;
+  --vs-page--margin-top: 13mm;
+  --vs-page--margin-bottom: 17mm;
+  --vs-page--margin-left: 7.5mm;
+  --vs-page--margin-right: 7.5mm;
+  --vs-page--background-color: #faf7f0;
+  --vs-page--mbox-font-family: 'Noto Serif JP', serif;
+  --vs-page--mbox-text-color: #1a1a1a;
+  --vs-page--mbox-top-left-content: '「' env(pub-title) '」';
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-top-font-size: 6.5pt;
+  --vs-page--mbox-top-letter-spacing: 0.06em;
+  --vs-page--mbox-bottom-font-size: 8pt;
+  --vs-page--mbox-bottom-letter-spacing: 0.04em;
+
+  /* 墨1色。参照リンクも本文と同じ色で組む。 */
+  --vs--anchor-text-color: inherit;
+
+  --vs--heading-font-family:
+    'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+
+  --vs--p-margin-block: 0;
+  --vs--p-text-align: justify;
+  --vs--p-text-indent: 1em;
+
+  /* 番号付き節見出し。天から一字下げた hanging 縦組。 */
+  --vs--h2-font-size: 11.5pt;
+  --vs--h2-font-weight: 500;
+  --vs--h2-letter-spacing: 0.08em;
+  --vs--h2-line-height: 1.4;
+  --vs--h2-margin-block: 1mm 3.5mm;
+  --vs--h2-padding-inline: 7mm 0;
+
+  /* コラム見出し。 */
+  --vs--h3-font-size: 7.2pt;
+  --vs--h3-font-weight: 600;
+  --vs--h3-letter-spacing: 0.05em;
+  --vs--h3-line-height: 1.5;
+  --vs--h3-margin-block: 0 2.5mm;
+
+  /* 節番号は漢数字。番号と見出し語のあいだは全角アキ。 */
+  --vs-section--counter-style: cjk-ideographic;
+  --vs-section--h2-marker-display: inline;
+  --vs-section--h2-marker-content: counter(
+    vs-counter-sec-h2,
+    var(--vs-section--counter-style)
+  );
+  --vs-section--marker-margin-inline-end: 1em;
+
+  /* 傍注合印 (＊一 など)。 */
+  --vs--sup-font-size: 0.62em;
+
+  /* 縦組みキャプションの block 方向は右→左。図の左脇に添える。 */
+  --vs--figcaption-font-size: 6.5pt;
+  --vs--figcaption-margin-block: 1.5mm 0;
+  --vs--figcaption-margin-inline: 0;
+  --vs--figcaption-text-color: inherit;
+
+  --vs--figure-align-items: flex-start;
+  --vs--figure-flex-direction: row;
+  --vs--figure-margin-inline: 0;
+  --vs--figure-item-size-inline: var(
+    --vs-theme-vertical-boxed-column-note--figure-size-inline
+  );
+  /* 図版は横組みに戻す。 */
+  --vs--figure-writing-mode: horizontal-tb;
+
+  /* ノド側に置く図版の幅。 */
+  --vs-theme-vertical-boxed-column-note--figure-size-inline: 23mm;
+  --vs-theme-vertical-boxed-column-note--column-marker-content: 'コラム'
+    counter(vs-counter-column, cjk-ideographic) '　';
+
+  /* 脚注。短罫で区切った縦組み小字。 */
+  --vs-footnote--counter-style: cjk-ideographic;
+  --vs-footnote--call-content: '＊'
+    counter(vs-counter-footnote, var(--vs-footnote--counter-style));
+  --vs-footnote--call-font-size: 0.62em;
+  --vs-footnote--marker-content: '＊'
+    counter(vs-counter-footnote, var(--vs-footnote--counter-style));
+  --vs-footnote--marker-margin-inline: 0 0.25em;
+  --vs-footnote--font-size: 6.3pt;
+  --vs-footnote--line-height: 1.6;
+  --vs-footnote--item-margin-block: 0 1mm;
+  /* 合印のぶら下げ。 */
+  --vs-footnote--text-indent: -1.8em;
+  --vs-footnote--padding-inline-start: 1.8em;
+  --vs-footnote--area-margin-block: 3mm 0;
+  --vs-footnote--area-before-border-width-block-start: 0.25mm;
+  --vs-footnote--area-before-margin-block: 0 2.5mm;
+  --vs-footnote--area-before-margin-inline: 0 60%;
+
+  --vs-document-root-counter-reset: vs-counter-column;
+}
+
+:root:lang(ja) {
+  /* 図番号は漢数字。縦組みの本文中でも縦中横を要さない。 */
+  --vs-counter-style: cjk-ideographic;
+  --vs-figure--call-content: '図'
+    target-counter(attr(href), vs-counter-fig, var(--vs-counter-style));
+  --vs-figure--marker-content: '図'
+    counter(vs-counter-fig, var(--vs-counter-style)) '　';
+}
+
+.tcy {
+  text-combine-upright: all;
+}
+
+/*
+ * 罫囲みコラムは本文の流れに置く縦組みの帯。縦組みでは通常のブロックが版面の
+ * 天地いっぱいに伸びるので、分割を禁じるだけで帯として成立する。
+ */
+.column {
+  break-inside: avoid;
+  margin-block: 3.5mm;
+}
+
+/*
+ * 図版はノド側 (縦組みの block-end) の地へ送るページフロート。本文が脇を
+ * 回り込むので、小さな図が版面の天地いっぱいの帯を占めることがない。
+ */
+figure:has(> :is(img, picture, svg)) {
+  float: bottom left;
+  float-reference: page;
+  margin-block: 0 3.5mm;
+}
+
+/* 罫囲みコラム。1〜2級小さい縦組を細罫で囲む。 */
+.column {
+  counter-increment: vs-counter-column;
+  border-style: solid;
+  border-width: 0.3mm;
+  padding: 2.5mm;
+}
+
+.column > h3::before {
+  content: var(--vs-theme-vertical-boxed-column-note--column-marker-content);
+}
+
+.column p {
+  font-size: 7pt;
+  line-height: 1.55;
+  text-indent: 0;
+}
+
+/* Markdown 画像は img → figcaption の順に出力されるため、order でキャプションを図の左脇へ戻す。 */
+figcaption {
+  order: -1;
+  writing-mode: vertical-rl;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+}

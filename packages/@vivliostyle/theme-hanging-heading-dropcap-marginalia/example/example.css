@@ -1,0 +1,8 @@
+/*
+ * example 専用の上書き。theme.css には手を入れない。
+ */
+
+/* この例は単行本の第2章だけを収めた抜粋なので、章番号を 2 から始める */
+:root {
+  --vs-document-first-page-counter-reset: vs-counter-chapter 1;
+}

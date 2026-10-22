@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" role="img" aria-label="QFN-48 package outline drawings: top view showing a 6.00 by 6.00 mm body with leads on four sides and a pin-1 indicator, side view showing a 0.75 mm nominal height with seating plane, and bottom view showing the exposed thermal pad. Lead pitch is 0.40 mm." fill="none" stroke="#171717">
+<style>
+text { font-family: "Roboto Mono", "IBM Plex Mono", ui-monospace, monospace; stroke: none; }
+</style>
+<defs>
+<marker id="dim" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+<path d="M0,3 L6,1 L6,5 Z" fill="#555555" stroke="none" />
+</marker>
+</defs>
+<rect x="30" y="45" width="80" height="80" stroke-width="1" />
+<line x1="34" y1="41" x2="106" y2="41" stroke-width="4" stroke-dasharray="2 4" />
+<line x1="34" y1="129" x2="106" y2="129" stroke-width="4" stroke-dasharray="2 4" />
+<line x1="26" y1="49" x2="26" y2="121" stroke-width="4" stroke-dasharray="2 4" />
+<line x1="114" y1="49" x2="114" y2="121" stroke-width="4" stroke-dasharray="2 4" />
+<circle cx="38" cy="53" r="2.5" fill="#171717" />
+<text x="70" y="82" font-size="6.5" fill="#171717" stroke="none" text-anchor="middle">NSR7420</text>
+<text x="70" y="91" font-size="6" fill="#555555" stroke="none" text-anchor="middle">XXXXXX</text>
+<text x="70" y="100" font-size="6" fill="#555555" stroke="none" text-anchor="middle">YYWW</text>
+<text x="22" y="52" font-size="5.5" fill="#555555" stroke="none" text-anchor="end">1</text>
+<line x1="30" y1="35" x2="110" y2="35" stroke="#555555" stroke-width="0.5" marker-start="url(#dim)" marker-end="url(#dim)" />
+<text x="70" y="32" font-size="6" fill="#555555" stroke="none" text-anchor="middle">6.00 mm</text>
+<text x="16" y="87" font-size="6" fill="#555555" stroke="none" text-anchor="middle" transform="rotate(-90 16 87)">6.00 mm</text>
+<text x="70" y="150" font-size="6.5" font-weight="500" fill="#171717" stroke="none" text-anchor="middle">TOP VIEW</text>
+<line x1="150" y1="104" x2="232" y2="104" stroke="#a8a8a8" stroke-width="0.5" stroke-dasharray="3 2" />
+<rect x="152" y="88" width="78" height="14" stroke-width="1" />
+<rect x="150" y="100" width="6" height="4" stroke-width="0.8" />
+<rect x="226" y="100" width="6" height="4" stroke-width="0.8" />
+<line x1="242" y1="88" x2="242" y2="104" stroke="#555555" stroke-width="0.5" />
+<text x="246" y="98" font-size="6" fill="#555555" stroke="none">A</text>
+<text x="150" y="120" font-size="5.8" fill="#555555" stroke="none">A1 = 0.02 mm (standoff)</text>
+<text x="191" y="150" font-size="6.5" font-weight="500" fill="#171717" stroke="none" text-anchor="middle">SIDE VIEW</text>
+<rect x="270" y="45" width="80" height="80" stroke-width="1" />
+<line x1="274" y1="41" x2="346" y2="41" stroke-width="4" stroke-dasharray="2 4" />
+<line x1="274" y1="129" x2="346" y2="129" stroke-width="4" stroke-dasharray="2 4" />
+<line x1="266" y1="49" x2="266" y2="121" stroke-width="4" stroke-dasharray="2 4" />
+<line x1="354" y1="49" x2="354" y2="121" stroke-width="4" stroke-dasharray="2 4" />
+<rect x="292" y="67" width="36" height="36" stroke-width="0.8" stroke="#555555" />
+<text x="310" y="83" font-size="6" fill="#171717" stroke="none" text-anchor="middle">EP</text>
+<text x="310" y="92" font-size="5.5" fill="#555555" stroke="none" text-anchor="middle">3.80×3.80</text>
+<text x="310" y="150" font-size="6.5" font-weight="500" fill="#171717" stroke="none" text-anchor="middle">BOTTOM VIEW</text>
+<text x="180" y="176" font-size="6.3" fill="#555555" stroke="none" text-anchor="middle">48-lead QFN · 6.00 × 6.00 × 0.75 mm · pitch e = 0.40 mm</text>
+</svg>

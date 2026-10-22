@@ -1,0 +1,379 @@
+/*
+ * 学術ニュース誌 (masthead-index-box-two-column)
+ * B5判 (176×250mm) の英文学術ニュース誌 記事面。Source Serif 4 の題目/節見出し/
+ * 本文/注に、Source Sans 3 の柱・記事種別・著者・索引・ノンブルを重ね、墨と温白の
+ * みで抑制して組む。全幅マストヘッド(太罫の柱 + 中央寄せの大見出し・デッキ・署名)
+ * + 均等2段組本文 + 段抜きの図版・表 + 薄地の索引ボックス + 全幅の巻末注、という
+ * ニュース誌の中面レイアウト。
+ *
+ * 原稿は `## 節見出し` で1節。節番号・図番号・表番号・注番号はいずれも base の
+ * カウンタが付けるので、原稿には書かない。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/endnote';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  /* Page: B5, wide even margins */
+  --vs-page--size: 176mm 250mm;
+  --vs-page--margin-top: 13mm;
+  --vs-page--margin-bottom: 13mm;
+  --vs-page--margin-left: 18mm;
+  --vs-page--margin-right: 18mm;
+  --vs-page--background-color: #f7f5ef;
+
+  /* フォリオは小口側の地 (右ページは右下、左ページは左下) */
+  --vs-page--mbox-bottom-outside-content: counter(page);
+  --vs-page--mbox-bottom-font-family: var(--vs-font-family-alt);
+  --vs-page--mbox-bottom-font-size: 8pt;
+  --vs-page--mbox-bottom-letter-spacing: 0.06em;
+  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground-alt);
+
+  /* Type: serif body, 9.5pt / 1.6, justified with hyphenation */
+  --vs-font-family: 'Source Serif 4', 'Noto Serif', Georgia, serif;
+  --vs-font-size: 9.5pt;
+  --vs-line-height: 1.6;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-background: #f7f5ef;
+  --vs-widows-orphans: 2;
+
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 1em;
+  --vs--p-text-align: justify;
+  --vs--p-hyphens: auto;
+
+  /* Headings: serif, near-black */
+  --vs--heading-font-family: 'Source Serif 4', 'Noto Serif', Georgia, serif;
+  --vs--heading-font-weight: 600;
+  --vs--heading-letter-spacing: 0.005em;
+  --vs--heading-text-align: start;
+  --vs--heading-margin-block: 0 3mm;
+  --vs--heading-break-after: avoid;
+
+  /* Article title (masthead) */
+  --vs--h1-font-size: 25pt;
+  --vs--h1-line-height: 1.04;
+  --vs--h1-text-align: center;
+
+  /* Numbered section headings */
+  --vs--h2-font-size: 13pt;
+  --vs--h2-line-height: 1.15;
+  --vs--h2-margin-block: 4.5mm 3mm;
+
+  --vs-section--marker-display: inline;
+  --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '.';
+  --vs-section--h2-marker-margin-inline-end: 0.35em;
+
+  /* Figure / table numbering */
+  --vs-figure--marker-content: 'Figure '
+    counter(vs-counter-fig, var(--vs-counter-style)) ' — ';
+  --vs-table--marker-content: 'Table '
+    counter(vs-counter-tbl, var(--vs-counter-style)) ' — ';
+  --vs--figcaption-text-color: var(--vs-color-foreground-alt);
+  --vs--table-font-family: var(--vs-font-family-alt);
+
+  /* Footnote reference marks */
+  --vs--sup-font-size: 0.66em;
+
+  /* 紙面ではリンクに下線を引かない */
+  --vs--anchor-text-decoration: none;
+
+  /* 索引ボックスのリストは自前で組む (マーカー・字下げなし) */
+  --vs--lists-margin-block: 0;
+  --vs--ul-list-style-type: none;
+  --vs--ul-padding-inline-start: 0;
+  --vs--ol-padding-inline-start: 0;
+
+  /* ---- テーマ固有 ---- */
+  --vs-font-family-alt: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  --vs-color-foreground-alt: #62615d;
+  --vs-color-background-alt: #ebe8df;
+  --vs-theme-masthead-index-box-two-column--color-leader: #b0ada2;
+  --vs-theme-masthead-index-box-two-column--columns: 2;
+  --vs-theme-masthead-index-box-two-column--column-gap: 7mm;
+}
+
+/* ---- 2-column body; masthead, wide blocks & notes span both columns ----
+   VFM 出力は body > (header / section.level2 … / section.footnotes) で
+   article ラッパが無いため、段組は body に掛ける (段抜きを伴う多段組は
+   --vs-columns では組めない)。 */
+body {
+  columns: var(
+    --vs-theme-masthead-index-box-two-column--columns
+  );
+  column-gap: var(
+    --vs-theme-masthead-index-box-two-column--column-gap
+  );
+  column-fill: auto;
+}
+
+body > header,
+body > [role='doc-endnotes'] {
+  column-span: all;
+}
+
+/* ---- Masthead ---- */
+body > header {
+  margin-block-end: 5mm;
+}
+
+header p {
+  text-indent: 0;
+}
+
+/* Running head: top rule + department, sans caps, tracked */
+header .meta {
+  font-family: var(--vs-font-family-alt);
+  font-weight: 500;
+  font-size: 7.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  text-align: start;
+  border-top-width: 1.5pt;
+  border-top-style: solid;
+  border-top-color: var(--vs-color-foreground);
+  padding-top: 1.8mm;
+  margin-block: 0 3.5mm;
+}
+
+/* Kicker (article kind): sans caps, centered, tracked */
+header .subhead {
+  font-family: var(--vs-font-family-alt);
+  font-weight: 600;
+  font-size: 8pt;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  text-align: center;
+  margin-block: 0 1.5mm;
+}
+
+/* Deck / standfirst */
+header .lead {
+  font-size: 10.5pt;
+  line-height: 1.42;
+  text-align: center;
+  max-width: 124mm;
+  margin-block: 0 3mm;
+  margin-inline: auto;
+}
+
+/* Byline: sans, bold, caps, tracked */
+header .byline {
+  font-family: var(--vs-font-family-alt);
+  font-weight: 700;
+  font-size: 8.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-align: center;
+  margin-block: 0 1mm;
+}
+
+/* Affiliation: serif italic, muted, centered */
+header .credit {
+  font-style: italic;
+  font-size: 10pt;
+  text-align: center;
+  color: var(--vs-color-foreground-alt);
+}
+
+/* 記事冒頭の節見出しは柱アキの直後なので上マージンを持たない */
+body > header + section > h2:first-child {
+  margin-block-start: 0;
+}
+
+/* Footnote reference marks in the body */
+sup {
+  color: var(--vs-color-foreground-alt);
+  vertical-align: super;
+  margin-inline-start: 0.1em;
+}
+
+/* ---- 図版・表: 段抜きで置く ---- */
+.wide {
+  column-span: all;
+  break-inside: avoid;
+}
+
+figure {
+  margin-block: 4mm 4.5mm;
+}
+
+figure > img {
+  inline-size: 100%;
+}
+
+/* 図版のキャプションは図の下、細罫を挟んで小さく */
+figure:has(> :is(img, picture)) > figcaption {
+  font-size: 7.5pt;
+  line-height: 1.4;
+  text-align: start;
+  text-indent: 0;
+  margin-block: 2mm 0;
+  padding-block-start: 1.6mm;
+  border-block-start-width: 0.5pt;
+  border-block-start-style: solid;
+  border-block-start-color: var(
+    --vs-theme-masthead-index-box-two-column--color-leader
+  );
+}
+
+/* ---- 表: 縦罫なし・天地の太罫と見出し下の細罫だけで組む ---- */
+
+/* 表のキャプションは表の上、サンセリフの小見出しとして */
+figure:has(table) > figcaption {
+  font-family: var(--vs-font-family-alt);
+  font-weight: 600;
+  font-size: 7.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  text-indent: 0;
+  text-align: start;
+  margin-block: 0 1.6mm;
+  break-after: avoid;
+}
+
+figure table {
+  inline-size: 100%;
+  font-size: 7.8pt;
+  line-height: 1.3;
+  margin-block: 0;
+  border-block-start-width: 1.2pt;
+  border-block-end-width: 1.2pt;
+  border-inline-width: 0;
+  border-color: var(--vs-color-foreground);
+}
+
+figure :is(th, td) {
+  border-width: 0;
+  padding-block: 1.1mm;
+  padding-inline: 0 3mm;
+  text-align: start;
+  vertical-align: baseline;
+}
+
+figure th {
+  background-color: transparent;
+  font-weight: 600;
+  color: var(--vs-color-foreground-alt);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-block-end-width: 0.5pt;
+  border-block-end-style: solid;
+  border-block-end-color: var(--vs-color-foreground-alt);
+}
+
+figure tbody tr + tr td {
+  border-block-start-width: 0.5pt;
+  border-block-start-style: solid;
+  border-block-start-color: var(
+    --vs-theme-masthead-index-box-two-column--color-leader
+  );
+}
+
+/* ---- Topic index box ---- */
+.card {
+  break-inside: avoid;
+  background-color: var(--vs-color-background-alt);
+  padding: 2.8mm 4.5mm 3mm;
+  margin-block: 5mm;
+}
+
+.card .meta {
+  font-family: var(--vs-font-family-alt);
+  font-weight: 600;
+  font-size: 7.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-align: center;
+  text-indent: 0;
+  margin-block: 0 2mm;
+}
+
+.card ul {
+  font-size: 8pt;
+  line-height: 1.45;
+}
+
+.card p:not(.meta) {
+  font-size: 8pt;
+  line-height: 1.42;
+  text-indent: 0;
+  margin-block: 0 1.8mm;
+}
+
+.card p:last-child {
+  margin-block-end: 0;
+}
+
+/* リーダーと参照先のノンブルは leader() + target-counter() で引く */
+.card li > a {
+  color: var(--vs-color-foreground);
+}
+
+.card li > a::after {
+  content: leader('.') ' ' target-counter(attr(href), page);
+  color: var(--vs-color-foreground-alt);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- 中見出し代わりの引用 ---- */
+blockquote.pull {
+  break-inside: avoid;
+  margin-block: 4mm;
+  margin-inline: 0;
+  padding-block: 2.6mm;
+  border-block-width: 1.2pt 0.5pt;
+  border-block-style: solid;
+  border-block-color: var(--vs-color-foreground);
+  border-inline-width: 0;
+}
+
+blockquote.pull p {
+  font-size: 12pt;
+  line-height: 1.26;
+  text-align: start;
+  text-indent: 0;
+  margin-block: 0;
+}
+
+blockquote.pull .attribution {
+  font-family: var(--vs-font-family-alt);
+  font-weight: 600;
+  font-size: 7.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--vs-color-foreground-alt);
+  margin-block-start: 2mm;
+}
+
+/* ---- 巻末注: 全幅・細罫・ぶら下げ番号 ---- */
+:root {
+  --vs-endnote--section-margin-block: 5mm 0;
+  --vs-endnote--section-hr-margin-block: 0 2.6mm;
+  --vs-endnote--section-hr-border-width-block-start: 0.5pt;
+  --vs-endnote--section-hr-border-color: var(--vs-color-foreground-alt);
+  --vs-endnote--section-hr-size-inline: 100%;
+  --vs-endnote--section-font-size: 7.5pt;
+  --vs-endnote--section-text-color: var(--vs-color-foreground-alt);
+  --vs-endnote--section-ol-list-style-type: none;
+  --vs-endnote--marker-content: counter(vs-counter-endnote) '. ';
+  --vs-endnote--marker-font-family: var(--vs-font-family-alt);
+  --vs-endnote--marker-font-weight: 500;
+  --vs-endnote--marker-text-color: var(--vs-color-foreground);
+  --vs-endnote--item-line-height: 1.35;
+  --vs-endnote--item-margin-block: 0 0.8mm;
+  --vs-endnote--item-padding-inline-start: 2.4em;
+  --vs-endnote--item-text-indent: -2.4em;
+  --vs-endnote--item-text-align: justify;
+  /* 紙面では往復リンクを見せない */
+  --vs-endnote--backlink-display: none;
+}

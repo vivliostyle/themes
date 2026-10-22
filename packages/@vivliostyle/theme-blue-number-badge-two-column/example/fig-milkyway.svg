@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 65 740 355" role="img" aria-label="天の川の下で星空を見上げる4人のシルエットのイラスト">
+  <rect width="740" height="420" fill="#0a2145" />
+  <ellipse cx="380" cy="180" rx="420" ry="88" fill="#d9e9f8" opacity="0.09" transform="rotate(-22 380 180)" />
+  <ellipse cx="380" cy="180" rx="400" ry="50" fill="#d9e9f8" opacity="0.1" transform="rotate(-22 380 180)" />
+  <ellipse cx="380" cy="180" rx="380" ry="22" fill="#e6f0fa" opacity="0.12" transform="rotate(-22 380 180)" />
+  <circle cx="80" cy="296" r="2" fill="#eef5fc" />
+  <circle cx="120" cy="270" r="2.5" fill="#eef5fc" />
+  <circle cx="150" cy="282" r="1.6" fill="#eef5fc" />
+  <circle cx="185" cy="250" r="2" fill="#eef5fc" />
+  <circle cx="220" cy="236" r="2.5" fill="#eef5fc" />
+  <circle cx="255" cy="246" r="1.6" fill="#eef5fc" />
+  <circle cx="290" cy="214" r="2" fill="#eef5fc" />
+  <circle cx="330" cy="200" r="2.5" fill="#eef5fc" />
+  <circle cx="360" cy="210" r="1.6" fill="#eef5fc" />
+  <circle cx="395" cy="182" r="2" fill="#eef5fc" />
+  <circle cx="430" cy="168" r="2.5" fill="#eef5fc" />
+  <circle cx="465" cy="176" r="1.6" fill="#eef5fc" />
+  <circle cx="500" cy="148" r="2" fill="#eef5fc" />
+  <circle cx="540" cy="132" r="2.5" fill="#eef5fc" />
+  <circle cx="570" cy="142" r="1.6" fill="#eef5fc" />
+  <circle cx="605" cy="116" r="2" fill="#eef5fc" />
+  <circle cx="640" cy="100" r="2.5" fill="#eef5fc" />
+  <circle cx="675" cy="108" r="1.6" fill="#eef5fc" />
+  <circle cx="700" cy="88" r="2" fill="#eef5fc" />
+  <circle cx="40" cy="60" r="2" fill="#cfe3f7" />
+  <circle cx="110" cy="40" r="2" fill="#cfe3f7" />
+  <circle cx="200" cy="80" r="2.5" fill="#cfe3f7" />
+  <circle cx="300" cy="50" r="2" fill="#cfe3f7" />
+  <circle cx="420" cy="60" r="2" fill="#cfe3f7" />
+  <circle cx="500" cy="40" r="2.5" fill="#cfe3f7" />
+  <circle cx="600" cy="50" r="2" fill="#cfe3f7" />
+  <circle cx="680" cy="30" r="2" fill="#cfe3f7" />
+  <circle cx="60" cy="180" r="2" fill="#cfe3f7" />
+  <circle cx="160" cy="150" r="2" fill="#cfe3f7" />
+  <circle cx="560" cy="220" r="2" fill="#cfe3f7" />
+  <circle cx="650" cy="190" r="2" fill="#cfe3f7" />
+  <circle cx="700" cy="250" r="2" fill="#cfe3f7" />
+  <circle cx="90" cy="120" r="1.8" fill="#cfe3f7" />
+  <circle cx="360" cy="90" r="2" fill="#cfe3f7" />
+  <polygon points="0,340 40,320 70,336 120,306 160,334 210,318 260,336 320,300 370,332 430,314 480,336 540,308 600,332 650,318 700,336 740,322 740,420 0,420" fill="#06182f" />
+  <circle cx="250" cy="318" r="14" fill="#030d1c" />
+  <path d="M232 420 V352 q0-22 18-22 q18 0 18 22 V420 Z" fill="#030d1c" />
+  <circle cx="325" cy="308" r="15" fill="#030d1c" />
+  <path d="M306 420 V344 q0-24 19-24 q19 0 19 24 V420 Z" fill="#030d1c" />
+  <polygon points="340,336 392,298 398,308 350,346" fill="#030d1c" />
+  <circle cx="405" cy="314" r="14" fill="#030d1c" />
+  <path d="M387 420 V350 q0-22 18-22 q18 0 18 22 V420 Z" fill="#030d1c" />
+  <circle cx="478" cy="322" r="13" fill="#030d1c" />
+  <path d="M461 420 V356 q0-21 17-21 q17 0 17 21 V420 Z" fill="#030d1c" />
+</svg>

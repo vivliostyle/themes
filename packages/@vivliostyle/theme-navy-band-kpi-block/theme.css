@@ -1,0 +1,368 @@
+/*
+ * 四半期決算短信〔速報〕 (navy-band-kpi-block)
+ * B5判(182×257mm)横組み2段組の決算速報向けテーマ。Noto Sans JP のゴシックで
+ * 情報密度の高い紙面を組み、Roboto の等幅タブラー数字で KPI・グラフ・財務表の桁を揃える。
+ * 版面は 全幅の紺青タイトルバンド / 淡青の KPI ブロック / 2段組本文(青ブロック見出し・
+ * 棒グラフ・淡青ヘッダの財務表・青枠の注記ボックス) で構成する。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Roboto:wght@400;500;700&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  /* Theme tokens */
+  --vs-theme-navy-band-kpi-block--color-accent: #1a73e8;
+  --vs-theme-navy-band-kpi-block--color-accent-deep: #174ea6;
+  --vs-theme-navy-band-kpi-block--color-on-accent: #ffffff;
+  --vs-theme-navy-band-kpi-block--color-tint: #e8f0fe;
+  --vs-theme-navy-band-kpi-block--color-tint-subtle: #f4f8fe;
+  --vs-theme-navy-band-kpi-block--color-tint-faint: #f7fafe;
+  --vs-theme-navy-band-kpi-block--color-muted: #57606a;
+  --vs-theme-navy-band-kpi-block--color-rule: #d0d7de;
+  --vs-theme-navy-band-kpi-block--font-numeric:
+    'Roboto', 'Noto Sans JP', sans-serif;
+
+  /* 財務表: 科目名列の幅と合計行の強調 (表ごとに上書きして使う) */
+  --vs-theme-navy-band-kpi-block--table-label-size-inline: 34%;
+  --vs-theme-navy-band-kpi-block--table-sum-background-color: var(
+    --vs-theme-navy-band-kpi-block--color-tint-subtle
+  );
+  --vs-theme-navy-band-kpi-block--table-sum-rule-color: var(
+    --vs-theme-navy-band-kpi-block--color-accent-deep
+  );
+  --vs-theme-navy-band-kpi-block--table-sum-rule-width: 0.9pt;
+
+  /* Page: B5 portrait, top18 / bottom12 / left12 / right12, folio only */
+  --vs-page--size: 182mm 257mm;
+  --vs-page--margin-top: 18mm;
+  --vs-page--margin-bottom: 12mm;
+  --vs-page--margin-left: 12mm;
+  --vs-page--margin-right: 12mm;
+  /* ノンブルは小口下 (右ページは右下、左ページは左下) */
+  --vs-page--mbox-bottom-outside-content: counter(page);
+  --vs-page--mbox-bottom-font-family: var(
+    --vs-theme-navy-band-kpi-block--font-numeric
+  );
+  --vs-page--mbox-bottom-font-size: 9pt;
+  --vs-page--mbox-bottom-text-color: var(
+    --vs-theme-navy-band-kpi-block--color-muted
+  );
+  --vs-color-background: #ffffff;
+
+  /* Type: gothic body 9pt / 1.5 */
+  --vs-font-family:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --vs-font-size: 9pt;
+  --vs-line-height: 1.5;
+  --vs-color-foreground: #1f2328;
+  --vs--p-margin-block: 0 2.4mm;
+  --vs--p-text-indent: 0;
+  --vs--p-text-align: justify;
+
+  --vs--heading-font-family:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --vs--heading-font-weight: 700;
+  --vs--heading-text-align: start;
+  --vs--heading-margin-block: 0;
+  --vs--h1-font-size: 17pt;
+  --vs--h1-font-weight: 900;
+  --vs--h1-line-height: 1.15;
+  --vs--h1-letter-spacing: 0.01em;
+  --vs--h2-font-size: 11pt;
+  --vs--h2-letter-spacing: 0.02em;
+  --vs--h2-margin-block: 0 2.5mm;
+  --vs--h3-font-size: 8.5pt;
+  --vs--h3-margin-block: 0 1.4mm;
+
+  /* 節番号は「1．」、項番号は「（1）」。表題バンドの h1 には番号を出さない */
+  --vs-section--marker-display: inline;
+  --vs-section--h1-marker-display: none;
+  --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '．';
+  --vs-section--h2-marker-margin-inline-end: 0;
+  --vs-section--h3-marker-content: '（' counter(vs-counter-sec-h3) '）';
+  --vs-section--h3-marker-margin-inline-end: 0;
+  --vs-section--call-content: target-counters(
+      attr(href),
+      vs-counter-sections,
+      '．'
+    )
+    '．' target-text(attr(href));
+
+  /* figure は素の block として使い、図題と本体を分断しない */
+  --vs--figure-display: block;
+  --vs--figure-break-inside: avoid;
+  --vs--figure-margin-block: 0;
+  --vs--figure-margin-inline: 0;
+  --vs--figure-item-size-inline: 100%;
+  --vs--figcaption-font-size: 7.5pt;
+  --vs--figcaption-font-weight: 700;
+  --vs--figcaption-line-height: 1.35;
+  --vs--figcaption-margin-block: 0 1.2mm;
+  --vs--figcaption-text-align: start;
+
+  /* Table: thin grid, tint header, tabular numerals */
+  --vs--table-border-color: #d0d7de;
+  --vs--table-border-width: 0.4pt;
+  --vs--table-font-size: 7.5pt;
+  --vs--table-margin-block: 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-cell-padding-block: 0.9mm;
+  --vs--table-cell-padding-inline: 0.9mm;
+  --vs--th-font-weight: 700;
+  --vs--th-text-align: center;
+  /* 多列の財務表でも期別見出しを折り返さず収めるため、見出し行だけ級数を詰める */
+  --vs--th-font-size: 5.8pt;
+  --vs--td-text-align: end;
+}
+
+/* 図表番号は和文組版の「図1　」「表1　」形式 */
+:root:lang(ja) {
+  --vs-figure--marker-content: '図'
+    counter(vs-counter-fig, var(--vs-counter-style)) '　';
+  --vs-table--marker-content: '表'
+    counter(vs-counter-tbl, var(--vs-counter-style)) '　';
+}
+
+/* 参照は本文と地続きに読ませる */
+a:is([data-ref='fig'], [data-ref='tbl'], [data-ref='sec']) {
+  --vs--anchor-text-color: inherit;
+}
+
+/*
+ * 表題バンドの h1 は番号を持たないので、節番号の通し番号も消費させない
+ * (消費すると節見出しの番号と参照の番号がずれる)。
+ */
+section:has(> h1:first-child) {
+  counter-increment: vs-counter-sec-h1;
+}
+
+/* ---- Full-bleed title banner ---- */
+/* VFM: <header class="banner"> > section.level1 > (h1, p.issuer) */
+.banner {
+  background-color: var(--vs-theme-navy-band-kpi-block--color-accent);
+  color: var(--vs-theme-navy-band-kpi-block--color-on-accent);
+  margin-block: calc(-1 * var(--vs-page--margin-top)) 4mm;
+  margin-inline: calc(-1 * var(--vs-page--margin-left))
+    calc(-1 * var(--vs-page--margin-right));
+  padding-block: 5mm 4.5mm;
+  padding-inline: var(--vs-page--margin-left) var(--vs-page--margin-right);
+  border-bottom-width: 2mm;
+  border-bottom-style: solid;
+  border-bottom-color: var(--vs-theme-navy-band-kpi-block--color-accent-deep);
+}
+
+.banner .issuer {
+  margin: 1.5mm 0 0;
+  font-weight: 700;
+  font-size: 9.5pt;
+  text-align: end;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+
+.banner .issuer span {
+  font-weight: 400;
+  font-size: 0.86em;
+  opacity: 0.9;
+}
+
+/* ---- KPI blocks ---- */
+/* 1行に収まる短い帯なので、分割不能な flex コンテナで等分してよい */
+.kpi {
+  display: flex;
+  gap: 3mm;
+  margin-block-end: 5mm;
+  break-inside: avoid;
+}
+
+.kpi > div {
+  flex: 1 1 0;
+  background-color: var(--vs-theme-navy-band-kpi-block--color-tint);
+  border-top-width: 1mm;
+  border-top-style: solid;
+  border-top-color: var(--vs-theme-navy-band-kpi-block--color-accent);
+  padding: 2.6mm 2mm 3mm;
+  text-align: center;
+}
+
+.kpi-label {
+  margin: 0 0 1mm;
+  font-size: 9pt;
+  font-weight: 700;
+}
+
+.kpi-value {
+  margin: 0;
+  font-family: var(--vs-theme-navy-band-kpi-block--font-numeric);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  font-size: 25pt;
+  line-height: 1;
+  color: var(--vs-theme-navy-band-kpi-block--color-accent);
+  letter-spacing: -0.01em;
+}
+
+.kpi-value small {
+  font-family: var(--vs-font-family);
+  font-weight: 700;
+  font-size: 0.44em;
+  color: var(--vs-color-foreground);
+  margin-inline-start: 0.5mm;
+}
+
+/* ---- Two-column flow ---- */
+.flow {
+  columns: 2;
+  column-gap: 7mm;
+  column-fill: auto;
+  column-rule-width: 0.4pt;
+  column-rule-style: solid;
+  column-rule-color: var(--vs-theme-navy-band-kpi-block--color-rule);
+}
+
+.flow > section {
+  break-inside: auto;
+}
+
+/* Block-background section headings */
+.flow h2 {
+  background-color: var(--vs-theme-navy-band-kpi-block--color-accent);
+  color: var(--vs-theme-navy-band-kpi-block--color-on-accent);
+  padding: 1.4mm 3mm;
+  border-left-width: 1.6mm;
+  border-left-style: solid;
+  border-left-color: var(--vs-theme-navy-band-kpi-block--color-accent-deep);
+}
+
+.flow > section + section h2 {
+  margin-block-start: 1mm;
+}
+
+/* ---- Chart ---- */
+figure.chart {
+  margin-block: 1mm 3mm;
+}
+
+figure.chart > figcaption {
+  font-size: 8.5pt;
+  margin-block-end: 1.5mm;
+}
+
+figure.chart > img {
+  display: block;
+  height: auto;
+}
+
+.legend {
+  margin: 1mm 0 0;
+  font-size: 6.8pt;
+  line-height: 1.4;
+  color: var(--vs-theme-navy-band-kpi-block--color-muted);
+  text-align: start;
+}
+
+.legend .sw {
+  display: inline-block;
+  width: 2.4mm;
+  height: 2.4mm;
+  vertical-align: -0.3mm;
+  margin-inline: 0 0.6mm;
+}
+
+.legend .sw + .sw,
+.legend br + .sw {
+  margin-inline-start: 0;
+}
+
+.legend .sw-now {
+  background-color: var(--vs-theme-navy-band-kpi-block--color-accent);
+}
+
+.legend .sw-prev {
+  background-color: var(--vs-theme-navy-band-kpi-block--color-accent-deep);
+}
+
+/* ---- Financial table ---- */
+/* Markdown 由来の表: 見出し行は thead th、本体は td のみ */
+figure.tbl {
+  margin-block: 0 2.6mm;
+}
+
+figure.tbl > figcaption span {
+  font-weight: 400;
+  color: var(--vs-theme-navy-band-kpi-block--color-muted);
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+thead th {
+  background-color: var(--vs-theme-navy-band-kpi-block--color-tint);
+  line-height: 1.1;
+  vertical-align: middle;
+  /* 期別見出しを2行に収めるため字送りと左右余白も詰める */
+  letter-spacing: -0.06em;
+  padding-inline: 0.3mm;
+}
+
+thead th:first-child {
+  width: var(--vs-theme-navy-band-kpi-block--table-label-size-inline);
+}
+
+td {
+  font-family: var(--vs-theme-navy-band-kpi-block--font-numeric);
+  font-variant-numeric: tabular-nums;
+}
+
+/* 科目名の列は和文左揃え */
+tbody td:first-child {
+  font-family: var(--vs-font-family);
+  font-size: 7.2pt;
+  text-align: start;
+}
+
+/* 総計行。原稿側で表に .sum-last を付けて使う */
+.sum-last > table > tbody > tr:last-child > td {
+  background-color: var(
+    --vs-theme-navy-band-kpi-block--table-sum-background-color
+  );
+  border-block-start-color: var(
+    --vs-theme-navy-band-kpi-block--table-sum-rule-color
+  );
+  border-block-start-style: solid;
+  border-block-start-width: var(
+    --vs-theme-navy-band-kpi-block--table-sum-rule-width
+  );
+  font-weight: 700;
+}
+
+/* ---- Boxed note ---- */
+.note {
+  border-width: 0.9pt;
+  border-style: solid;
+  border-color: var(--vs-theme-navy-band-kpi-block--color-accent);
+  background-color: var(--vs-theme-navy-band-kpi-block--color-tint-faint);
+  padding: 2.4mm 3mm 2.6mm;
+  margin: 1.5mm 0 0;
+  break-inside: avoid;
+}
+
+.note h3 {
+  color: var(--vs-theme-navy-band-kpi-block--color-accent-deep);
+}
+
+.flow .note p {
+  margin-block: 0;
+  font-size: 8pt;
+  line-height: 1.45;
+}

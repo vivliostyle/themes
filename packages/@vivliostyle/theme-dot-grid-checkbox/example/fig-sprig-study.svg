@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 150" role="img" aria-label="Botanical study: a sprig with three leaves over a dashed construction circle, with dimension marks and an axis.">
+  <style>
+    text { font-family: "Inter", "Helvetica Neue", Arial, sans-serif; }
+  </style>
+  <circle cx="86" cy="98" r="19" fill="#E8EDF0" />
+  <g fill="none" stroke="#34495E" stroke-width="0.7" stroke-dasharray="2.4 2.4">
+    <circle cx="122" cy="80" r="43" />
+    <line x1="60" y1="80" x2="188" y2="80" />
+    <line x1="122" y1="30" x2="122" y2="134" />
+    <line x1="70" y1="98" x2="102" y2="98" />
+    <line x1="86" y1="82" x2="86" y2="114" />
+  </g>
+  <circle cx="122" cy="80" r="4" fill="#FCFBF7" stroke="#34495E" stroke-width="0.9" />
+  <circle cx="86" cy="98" r="1.4" fill="#34495E" />
+  <g fill="none" stroke="#34495E" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M122 132 L122 60" />
+    <path d="M122 62 C126 42 138 30 152 28 C150 44 140 56 123 60 Z" />
+    <path d="M124 60 L148 34" />
+    <path d="M122 82 C136 74 150 74 162 80 C150 90 136 90 123 84 Z" />
+    <path d="M124 83 L158 80" />
+    <path d="M122 92 C110 84 100 72 96 60 C110 62 120 74 123 90 Z" />
+    <path d="M123 89 L100 64" />
+  </g>
+  <g fill="none" stroke="#34495E" stroke-width="0.9">
+    <line x1="100" y1="140" x2="150" y2="140" />
+    <line x1="104" y1="136" x2="104" y2="140" />
+    <line x1="116" y1="135" x2="116" y2="140" />
+    <line x1="128" y1="136" x2="128" y2="140" />
+    <line x1="140" y1="135" x2="140" y2="140" />
+  </g>
+  <g fill="none" stroke="#34495E" stroke-width="0.8">
+    <line x1="190" y1="46" x2="190" y2="112" />
+    <line x1="186" y1="46" x2="194" y2="46" />
+    <line x1="186" y1="112" x2="194" y2="112" />
+  </g>
+  <g fill="none" stroke="#34495E" stroke-width="0.9" stroke-linecap="round">
+    <path d="M48 140 L48 104" />
+    <path d="M48 140 L80 140" />
+    <path d="M45 110 L48 104 L51 110" />
+    <path d="M74 137 L80 140 L74 143" />
+  </g>
+  <g fill="none" stroke="#34495E" stroke-width="0.8" stroke-linecap="round">
+    <path d="M170 40 C176 36 182 38 184 44" />
+    <path d="M180 40 L184 44 L179 46" />
+  </g>
+  <g fill="#34495E" font-size="6" letter-spacing="1">
+    <text x="94" y="40">axil</text>
+    <text x="196" y="82" text-anchor="start">72</text>
+    <text x="148" y="149">50 mm</text>
+  </g>
+  <g fill="#87929A" font-size="6" letter-spacing="1">
+    <text x="30" y="149">north</text>
+  </g>
+</svg>

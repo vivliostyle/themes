@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 155" role="img" aria-label="Bar chart: five-year cumulative total return by fund, 2021 to 2025">
+<style>
+text { font-family: "Zilla Slab", "Rockwell", serif; fill: #1c1c1c; }
+.tick { font-size: 11px; }
+.cat { font-size: 10px; font-weight: 600; }
+</style>
+<line x1="46" y1="6" x2="46" y2="130" stroke="#1c1c1c" stroke-width="1" />
+<line x1="41" y1="10" x2="46" y2="10" stroke="#1c1c1c" stroke-width="1" />
+<line x1="41" y1="34" x2="46" y2="34" stroke="#1c1c1c" stroke-width="1" />
+<line x1="41" y1="58" x2="46" y2="58" stroke="#1c1c1c" stroke-width="1" />
+<line x1="41" y1="82" x2="46" y2="82" stroke="#1c1c1c" stroke-width="1" />
+<line x1="41" y1="106" x2="46" y2="106" stroke="#1c1c1c" stroke-width="1" />
+<line x1="41" y1="130" x2="46" y2="130" stroke="#1c1c1c" stroke-width="1" />
+<text x="38" y="14" text-anchor="end" class="tick">50%</text>
+<text x="38" y="38" text-anchor="end" class="tick">40%</text>
+<text x="38" y="62" text-anchor="end" class="tick">30%</text>
+<text x="38" y="86" text-anchor="end" class="tick">20%</text>
+<text x="38" y="110" text-anchor="end" class="tick">10%</text>
+<text x="38" y="134" text-anchor="end" class="tick">0%</text>
+<rect x="67.2" y="11.2" width="30" height="118.8" fill="#1a472a" />
+<rect x="123.6" y="18.64" width="30" height="111.36" fill="#1a472a" />
+<rect x="180" y="53.92" width="30" height="76.08" fill="#1a472a" />
+<rect x="236.4" y="58" width="30" height="72" fill="#1a472a" />
+<rect x="292.8" y="116.08" width="30" height="13.92" fill="#1a472a" />
+<line x1="46" y1="130" x2="336" y2="130" stroke="#1c1c1c" stroke-width="1.2" />
+<text x="82.2" y="146" text-anchor="middle" class="cat">Thornbeck</text>
+<text x="138.6" y="146" text-anchor="middle" class="cat">Saltmarch</text>
+<text x="195" y="146" text-anchor="middle" class="cat">Quillmark</text>
+<text x="251.4" y="146" text-anchor="middle" class="cat">Larkmere</text>
+<text x="307.8" y="146" text-anchor="middle" class="cat">Greyfen</text>
+</svg>

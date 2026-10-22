@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 410 158" width="410" height="158" role="img" aria-label="Outline drawing of the TM-20L45 button cell. Left, the top view of the negative face is a double circle with horizontal and vertical centrelines: the case rim is dimensioned 20.0 millimetres in diameter and a leader marks the negative cap flat at 16.0 millimetres. Right, the side view is a flat disc dimensioned 4.5 millimetres high, with the crimp seam drawn near the negative face at the top and the negative and positive faces marked." fill="none" stroke="#111111">
+<style>
+text { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.02em; }
+</style>
+<defs>
+<marker id="arw" markerWidth="8" markerHeight="7" refX="6" refY="3.5" orient="auto">
+<path d="M0,0 L7,3.5 L0,7 Z" fill="#111111" stroke="none" />
+</marker>
+</defs>
+<line x1="45" y1="70" x2="175" y2="70" stroke-width="0.5" />
+<line x1="110" y1="8" x2="110" y2="136" stroke-width="0.5" />
+<circle cx="110" cy="70" r="55" stroke-width="1.1" />
+<circle cx="110" cy="70" r="44" stroke-width="0.8" />
+<line x1="55" y1="127" x2="55" y2="150" stroke-width="0.5" />
+<line x1="165" y1="127" x2="165" y2="150" stroke-width="0.5" />
+<line x1="90" y1="148" x2="57" y2="148" stroke-width="0.8" marker-end="url(#arw)" />
+<line x1="130" y1="148" x2="163" y2="148" stroke-width="0.8" marker-end="url(#arw)" />
+<text x="110" y="152" font-size="13" text-anchor="middle" fill="#111111" stroke="none">&#8960;20.0</text>
+<line x1="185" y1="118" x2="143.5" y2="102.4" stroke-width="0.8" marker-end="url(#arw)" />
+<line x1="185" y1="118" x2="202" y2="118" stroke-width="0.8" />
+<text x="205" y="122" font-size="13" text-anchor="start" fill="#111111" stroke="none">&#8960;16.0</text>
+<line x1="242" y1="70" x2="368" y2="70" stroke-width="0.5" />
+<rect x="250" y="57.6" width="110" height="24.8" rx="1.6" ry="1.6" stroke-width="1.1" />
+<line x1="250" y1="63.1" x2="360" y2="63.1" stroke-width="0.5" />
+<line x1="360" y1="57.6" x2="380" y2="57.6" stroke-width="0.5" />
+<line x1="360" y1="82.4" x2="380" y2="82.4" stroke-width="0.5" />
+<line x1="374" y1="70" x2="374" y2="58.6" stroke-width="0.8" marker-end="url(#arw)" />
+<line x1="374" y1="70" x2="374" y2="81.4" stroke-width="0.8" marker-end="url(#arw)" />
+<text x="384" y="74.5" font-size="13" text-anchor="start" fill="#111111" stroke="none">4.5</text>
+<text x="305" y="52" font-size="11" text-anchor="middle" fill="#111111" stroke="none">(&#8722;)</text>
+<text x="305" y="96" font-size="11" text-anchor="middle" fill="#111111" stroke="none">(+)</text>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 150" role="img" aria-label="ヤマグワの葉の模式図。しばしば不規則に切れ込む卵形の葉と、円柱形に集まる果実を伴う。">
+<style>
+.leaf-blade { fill: #557a55; fill-opacity: 0.46; stroke: #2c352c; stroke-width: 1.3; stroke-linejoin: round; }
+.leaf-vein { fill: none; stroke: #2c352c; stroke-width: 0.7; opacity: 0.65; }
+.leaf-stem { fill: none; stroke: #6f6142; stroke-width: 2.2; stroke-linecap: round; }
+.fig-acc { fill: #557a55; fill-opacity: 0.4; stroke: #2c352c; stroke-width: 1; stroke-linejoin: round; }
+.fig-berry { fill: #a9483d; fill-opacity: 0.85; stroke: #6f2a24; stroke-width: 0.7; }
+.fig-flower { fill: #ddb9be; fill-opacity: 0.8; stroke: #b98b35; stroke-width: 0.7; }
+.fig-scale { stroke: #252a26; stroke-width: 1; }
+.fig-scale-t { fill: #252a26; font: 500 7px "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; letter-spacing: 0.03em; }
+.fig-lbl { fill: #3a463a; font: 6.5px "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+.fig-lead { fill: none; stroke: #9aa89a; stroke-width: 0.5; }
+</style>
+<path class="leaf-blade" d="M56,130 C66,122 74,110 77,96 C79,88 73,86 71,80 C76,74 80,64 76,54 C72,42 64,36 56,32 C44,38 34,52 33,70 C32,94 42,116 56,130 Z" />
+<path class="leaf-vein" d="M56,128 L56,38 M56,108 Q46,102 39,94 M56,108 Q68,102 75,94 M56,88 Q46,82 40,78 M56,88 Q68,82 74,76 M56,68 Q47,60 40,56 M56,68 Q66,60 72,54" />
+<path class="leaf-stem" d="M56,130 L56,146" />
+<path class="fig-lead" d="M75,82 L88,76" />
+<text class="fig-lbl" x="89" y="78">切れ込み</text>
+<circle class="fig-berry" cx="120" cy="122" r="3" />
+<circle class="fig-berry" cx="127" cy="119" r="3" />
+<circle class="fig-berry" cx="121" cy="114" r="3" />
+<circle class="fig-berry" cx="128" cy="111" r="3" />
+<circle class="fig-berry" cx="122" cy="106" r="3" />
+<circle class="fig-berry" cx="128" cy="102" r="3" />
+<path class="leaf-stem" d="M124,126 L124,138" />
+<line class="fig-scale" x1="14" y1="140" x2="44" y2="140" />
+<line class="fig-scale" x1="14" y1="137" x2="14" y2="143" />
+<line class="fig-scale" x1="44" y1="137" x2="44" y2="143" />
+<text class="fig-scale-t" x="29" y="135" text-anchor="middle">2 cm</text>
+</svg>

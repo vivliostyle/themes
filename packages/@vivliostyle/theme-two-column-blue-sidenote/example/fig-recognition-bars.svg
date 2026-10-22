@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 262" role="img" aria-label="Figure 4: grouped bar chart of recognition by material, Tactile Echoes in blue against the rigid link in orange, with a dashed chance line at 0.20">
+<line x1="40" y1="34" x2="404" y2="34" stroke="#e7ebef" stroke-width="1" />
+<line x1="40" y1="70" x2="404" y2="70" stroke="#e7ebef" stroke-width="1" />
+<line x1="40" y1="106" x2="404" y2="106" stroke="#e7ebef" stroke-width="1" />
+<line x1="40" y1="142" x2="404" y2="142" stroke="#e7ebef" stroke-width="1" />
+<line x1="40" y1="34" x2="40" y2="214" stroke="#66717d" stroke-width="1" />
+<line x1="40" y1="214" x2="404" y2="214" stroke="#66717d" stroke-width="1" />
+
+<text x="34" y="37" text-anchor="end" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">1.0</text>
+<text x="34" y="73" text-anchor="end" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">0.8</text>
+<text x="34" y="109" text-anchor="end" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">0.6</text>
+<text x="34" y="145" text-anchor="end" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">0.4</text>
+<text x="34" y="181" text-anchor="end" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">0.2</text>
+<text x="34" y="217" text-anchor="end" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">0</text>
+
+<rect x="52" y="41" width="20" height="173" fill="#0066cc" />
+<rect x="74" y="74" width="20" height="140" fill="#f29e4c" />
+<rect x="122" y="52" width="20" height="162" fill="#0066cc" />
+<rect x="144" y="90" width="20" height="124" fill="#f29e4c" />
+<rect x="192" y="48" width="20" height="166" fill="#0066cc" />
+<rect x="214" y="86" width="20" height="128" fill="#f29e4c" />
+<rect x="262" y="45" width="20" height="169" fill="#0066cc" />
+<rect x="284" y="79" width="20" height="135" fill="#f29e4c" />
+<rect x="332" y="74" width="20" height="140" fill="#0066cc" />
+<rect x="354" y="102" width="20" height="112" fill="#f29e4c" />
+
+<line x1="40" y1="178" x2="404" y2="178" stroke="#66717d" stroke-width="1" stroke-dasharray="4 3" />
+<text x="404" y="190" text-anchor="end" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">chance</text>
+
+<text x="73" y="228" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="8" fill="#66717d">oak</text>
+<text x="143" y="228" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="8" fill="#66717d">brass</text>
+<text x="213" y="228" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="8" fill="#66717d">resin</text>
+<text x="283" y="228" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="8" fill="#66717d">felt</text>
+<text x="353" y="228" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="8" fill="#66717d">steel</text>
+
+<rect x="128" y="248" width="10" height="10" fill="#0066cc" />
+<text x="142" y="257" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="8" fill="#66717d">Tactile Echoes</text>
+<rect x="234" y="248" width="10" height="10" fill="#f29e4c" />
+<text x="248" y="257" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="8" fill="#66717d">rigid link</text>
+</svg>

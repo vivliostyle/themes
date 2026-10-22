@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 300" role="img" aria-label="人手評価の平均値に対する総合スコアの散布図。右上がりの直線に沿って分布し，中間帯でばらつきが大きい。">
+  <style>
+    .num { font-family: "STIX Two Text", "Times New Roman", serif; font-size: 13px; fill: #1a1a1a; }
+    .lbl { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 13px; fill: #1a1a1a; }
+    .axis { stroke: #1a1a1a; stroke-width: 1.2; }
+    .tick { stroke: #1a1a1a; stroke-width: 1; }
+    .fit { fill: none; stroke: #1a1a1a; stroke-width: 1.1; stroke-dasharray: 6 4; }
+    .dot { fill: none; stroke: #1a1a1a; stroke-width: 1.1; }
+  </style>
+
+  <g class="num" text-anchor="end">
+    <text x="41" y="30">1.0</text>
+    <text x="41" y="76">0.8</text>
+    <text x="41" y="122">0.6</text>
+    <text x="41" y="168">0.4</text>
+    <text x="41" y="214">0.2</text>
+    <text x="41" y="260">0.0</text>
+  </g>
+  <g class="num" text-anchor="middle">
+    <text x="50" y="278">1</text>
+    <text x="151" y="278">2</text>
+    <text x="253" y="278">3</text>
+    <text x="354" y="278">4</text>
+    <text x="455" y="278">5</text>
+  </g>
+
+  <g class="tick">
+    <line x1="45" y1="25" x2="50" y2="25" />
+    <line x1="45" y1="71" x2="50" y2="71" />
+    <line x1="45" y1="117" x2="50" y2="117" />
+    <line x1="45" y1="163" x2="50" y2="163" />
+    <line x1="45" y1="209" x2="50" y2="209" />
+    <line x1="151" y1="255" x2="151" y2="260" />
+    <line x1="253" y1="255" x2="253" y2="260" />
+    <line x1="354" y1="255" x2="354" y2="260" />
+    <line x1="455" y1="255" x2="455" y2="260" />
+  </g>
+
+  <line class="axis" x1="50" y1="25" x2="50" y2="255" />
+  <line class="axis" x1="50" y1="255" x2="455" y2="255" />
+
+  <line class="fit" x1="50" y1="220" x2="455" y2="51" />
+
+  <g class="dot">
+    <circle cx="70" cy="214" r="3.2" />
+    <circle cx="91" cy="195" r="3.2" />
+    <circle cx="111" cy="204" r="3.2" />
+    <circle cx="131" cy="184" r="3.2" />
+    <circle cx="151" cy="175" r="3.2" />
+    <circle cx="161" cy="191" r="3.2" />
+    <circle cx="182" cy="158" r="3.2" />
+    <circle cx="202" cy="165" r="3.2" />
+    <circle cx="212" cy="145" r="3.2" />
+    <circle cx="232" cy="154" r="3.2" />
+    <circle cx="242" cy="129" r="3.2" />
+    <circle cx="253" cy="138" r="3.2" />
+    <circle cx="263" cy="149" r="3.2" />
+    <circle cx="283" cy="122" r="3.2" />
+    <circle cx="293" cy="112" r="3.2" />
+    <circle cx="303" cy="131" r="3.2" />
+    <circle cx="313" cy="103" r="3.2" />
+    <circle cx="334" cy="115" r="3.2" />
+    <circle cx="344" cy="92" r="3.2" />
+    <circle cx="354" cy="99" r="3.2" />
+    <circle cx="364" cy="83" r="3.2" />
+    <circle cx="374" cy="94" r="3.2" />
+    <circle cx="394" cy="73" r="3.2" />
+    <circle cx="405" cy="85" r="3.2" />
+    <circle cx="415" cy="64" r="3.2" />
+    <circle cx="425" cy="71" r="3.2" />
+    <circle cx="435" cy="53" r="3.2" />
+    <circle cx="445" cy="62" r="3.2" />
+  </g>
+
+  <text class="lbl" x="252" y="296" text-anchor="middle">人手評価の平均値</text>
+  <text class="lbl" transform="translate(15 140) rotate(-90)" text-anchor="middle">総合スコア</text>
+</svg>

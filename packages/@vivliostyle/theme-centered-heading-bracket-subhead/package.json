@@ -1,0 +1,61 @@
+{
+  "name": "@vivliostyle/theme-centered-heading-bracket-subhead",
+  "version": "0.0.0",
+  "description": "B5判・単段の民事判例解説テーマ。中央寄せの事件名見出しと隅付き小見出し、争点整理の罫線表で組む",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-centered-heading-bracket-subhead"
+  },
+  "files": [
+    "*.css",
+    "example",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Centered Heading Bracket Subhead",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "report",
+      "topics": [
+        "legal-contract",
+        "case-law",
+        "judicial",
+        "b5",
+        "single-column",
+        "serif",
+        "centered-headings",
+        "reference"
+      ]
+    }
+  }
+}

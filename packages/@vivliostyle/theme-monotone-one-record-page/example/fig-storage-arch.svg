@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 100" role="img" aria-label="アプリケーション（構成管理）から構成データ保存層（選定方式）を経て永続化ストレージ（バックエンド）へ至る保存方式の構成図">
+<style>
+.lbl { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 14px; fill: #1c1c1c; }
+</style>
+<g fill="none" stroke="#1c1c1c" stroke-width="1.1">
+  <rect x="1" y="14" width="146" height="60" />
+  <rect x="177" y="14" width="146" height="60" />
+  <rect x="353" y="14" width="146" height="60" />
+</g>
+<g stroke="#1c1c1c" fill="#1c1c1c">
+  <line x1="149" y1="44" x2="172" y2="44" stroke-width="1.4" />
+  <path d="M175 44 l-8 -4 v8 z" />
+  <line x1="325" y1="44" x2="348" y2="44" stroke-width="1.4" />
+  <path d="M351 44 l-8 -4 v8 z" />
+</g>
+<g class="lbl" text-anchor="middle">
+  <text x="74" y="40">拠点エージェント</text>
+  <text x="74" y="60">（構成の適用）</text>
+  <text x="250" y="40">差分配信 API</text>
+  <text x="250" y="60">（リビジョン差分）</text>
+  <text x="426" y="40">構成正本テーブル</text>
+  <text x="426" y="60">（JSONB・追記のみ）</text>
+</g>
+</svg>

@@ -1,0 +1,258 @@
+/*
+ * 予実管理レポート(予算対実績) orange-black-header-table
+ * A4縦・横組み1段・ゴシック 9.5pt/1.5。白地 + バーントオレンジ (#c05621) アクセント。
+ * 黒太下罫の柱、オレンジ縦棒見出し、黒ベタヘッダーの予実対比表 (超過セルは淡オレンジ地 + ▲)、
+ * 差異推移棒グラフ、※注記のぶら下げリスト、淡オレンジ角丸の対策メモで構成。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  --vs-theme-orange-black-header-table--color-accent: #c05621;
+  --vs-theme-orange-black-header-table--color-accent-tint: #fbe9df;
+  --vs-theme-orange-black-header-table--color-rule: #1f2428;
+
+  /* 予実対比表の列幅 (項目 / 予算・実績・差異 / 差異率 / 合印) */
+  --vs-theme-orange-black-header-table--table-label-size-inline: 21%;
+  --vs-theme-orange-black-header-table--table-value-size-inline: 18%;
+  --vs-theme-orange-black-header-table--table-rate-size-inline: 17%;
+  --vs-theme-orange-black-header-table--table-remark-size-inline: 8%;
+
+  /* 注記のぶら下げ番号「※1　」と本文中の合印 */
+  --vs-theme-orange-black-header-table--remark-marker-content: '※'
+    counter(vs-counter-remark) '　';
+  --vs-theme-orange-black-header-table--remark-marker-size-inline: 9mm;
+  --vs-theme-orange-black-header-table--remark-call-content: '※'
+    target-counter(attr(href), vs-counter-remark);
+
+  --vs-page--size: A4;
+  --vs-page--margin-top: 18mm;
+  --vs-page--margin-bottom: 18mm;
+  --vs-page--margin-left: 16mm;
+  --vs-page--margin-right: 16mm;
+
+  /* 柱: 左に文書名 (frontmatter の title)、右は原稿の .issuer を流す */
+  --vs-page--mbox-top-left-content: env(doc-title);
+  --vs-page--mbox-top-right-content: element(vs-theme-issuer);
+  /* 片面の帳票なのでノンブルは常に右下 */
+  --vs-page--mbox-bottom-right-content: counter(page);
+  --vs-page--mbox-top-font-size: 12pt;
+  --vs-page--mbox-top-font-weight: 700;
+  --vs-page--border-color-top: var(
+    --vs-theme-orange-black-header-table--color-rule
+  );
+  --vs-page--border-width-top: 1.6pt;
+  --vs-page--mbox-bottom-font-size: 9pt;
+  --vs-page--mbox-text-color: var(--vs-color-foreground);
+  --vs-page--mbox-font-family: var(--vs-font-family);
+
+  --vs-font-family: 'Noto Sans JP', sans-serif;
+  --vs-font-size: 9.5pt;
+  --vs-line-height: 1.5;
+  --vs-color-foreground: #1f2428;
+
+  --vs--heading-font-family: 'Noto Sans JP', sans-serif;
+  --vs--heading-break-after: avoid;
+  --vs--h2-font-size: 13.5pt;
+  --vs--h2-line-height: 1.3;
+  --vs--h2-margin-block: 4mm 3mm;
+  --vs--h2-border-width-inline-start: 2.4mm;
+  --vs--h2-border-color-inline-start: var(
+    --vs-theme-orange-black-header-table--color-accent
+  );
+  --vs--h2-padding-inline: 3mm 0;
+
+  /* 節番号は「1. 」 */
+  --vs-section--marker-display: inline;
+  --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '. ';
+  --vs-section--h2-marker-margin-inline-end: 0;
+
+  --vs--p-text-indent: 0;
+  --vs--p-margin-block: 0 2.8mm;
+
+  --vs--table-size-inline: 100%;
+  --vs--table-table-layout: fixed;
+  /* 費目数の多い予実表は 1 ページに収まらないことがあるので改ページを許す */
+  --vs--table-break-inside: auto;
+  --vs--table-font-variant-numeric: tabular-nums;
+  --vs--table-cell-line-height: 1.4;
+  --vs--table-margin-block: 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-font-size: 8.5pt;
+  --vs--table-border-width: 0.4pt;
+  --vs--table-border-color: #c9ccd0;
+  --vs--table-cell-padding-block: 1.85mm;
+  --vs--table-cell-padding-inline: 2.4mm;
+  --vs--td-text-align: right;
+  --vs--th-background-color: #24272b;
+  --vs--th-text-color: #ffffff;
+
+  --vs--figure-margin-block: 4.5mm 0;
+  --vs--figure-item-size-inline: 100%;
+  --vs--figcaption-font-size: 11pt;
+  --vs--figcaption-font-weight: 700;
+  --vs--figcaption-margin-block: 0 1.5mm;
+  --vs--figcaption-text-align: center;
+  --vs--figcaption-order: -1;
+
+  --vs--lists-margin-block: 0;
+  --vs--lists-margin-inline: 0;
+  --vs--ul-list-style-type: none;
+  --vs--ul-padding-inline-start: 0;
+
+  counter-reset: vs-counter-remark;
+}
+
+/* 図番号は和文組版の「図1　」形式 */
+:root:lang(ja) {
+  --vs-figure--marker-content: '図'
+    counter(vs-counter-fig, var(--vs-counter-style)) '　';
+}
+
+/* ---- 柱に流す発行部署 ---- */
+.issuer {
+  position: running(vs-theme-issuer);
+  font-size: 8pt;
+  font-weight: 500;
+}
+
+/* ---- 予実対比表 ---- */
+th:nth-child(1),
+td:nth-child(1) {
+  width: var(--vs-theme-orange-black-header-table--table-label-size-inline);
+}
+
+th:nth-child(2),
+td:nth-child(2),
+th:nth-child(3),
+td:nth-child(3),
+th:nth-child(4),
+td:nth-child(4) {
+  width: var(--vs-theme-orange-black-header-table--table-value-size-inline);
+}
+
+th:nth-child(5),
+td:nth-child(5) {
+  width: var(--vs-theme-orange-black-header-table--table-rate-size-inline);
+}
+
+th:nth-child(6),
+td:nth-child(6) {
+  width: var(--vs-theme-orange-black-header-table--table-remark-size-inline);
+}
+
+/* 黒ベタヘッダーはセル自身に罫を持たせ、border-collapse で表の淡色罫に勝たせる (theme-base に th 罫の変数はない) */
+th {
+  border-width: 0.4pt;
+  border-color: #24272b;
+  border-inline-color: #55585c;
+}
+
+td:first-child {
+  text-align: left;
+}
+
+td:last-child {
+  text-align: left;
+  padding-inline: 1.2mm;
+}
+
+/* 予算超過セル: span をセル一杯に広げて淡オレンジ地を敷く */
+td .neg {
+  display: block;
+  margin-block: calc(-1 * var(--vs--table-cell-padding-block));
+  margin-inline: calc(-1 * var(--vs--table-cell-padding-inline));
+  padding-block: var(--vs--table-cell-padding-block);
+  padding-inline: var(--vs--table-cell-padding-inline);
+  background-color: var(
+    --vs-theme-orange-black-header-table--color-accent-tint
+  );
+  color: var(--vs-theme-orange-black-header-table--color-accent);
+  font-weight: 500;
+}
+
+/* ---- 単位注記 (表・グラフの直後の段落) ---- */
+table + p,
+figure + p {
+  font-size: 8pt;
+  margin-block: 1.8mm 2.8mm;
+}
+
+/* ---- 注記 (※N のぶら下げリスト) ---- */
+.remarks > li {
+  counter-increment: vs-counter-remark;
+  font-size: 10pt;
+  line-height: 1.6;
+  padding-inline-start: var(
+    --vs-theme-orange-black-header-table--remark-marker-size-inline
+  );
+  text-indent: calc(
+    -1 * var(--vs-theme-orange-black-header-table--remark-marker-size-inline)
+  );
+  margin-block-end: 2.3mm;
+  break-inside: avoid;
+}
+
+.remarks > li::before {
+  content: var(--vs-theme-orange-black-header-table--remark-marker-content);
+  display: inline-block;
+  inline-size: var(
+    --vs-theme-orange-black-header-table--remark-marker-size-inline
+  );
+  text-indent: 0;
+}
+
+a[data-ref='remark'] {
+  --vs--anchor-text-color: inherit;
+  --vs--anchor-text-decoration: none;
+}
+
+a[data-ref='remark']::before {
+  content: var(--vs-theme-orange-black-header-table--remark-call-content);
+}
+
+/* ---- 対策メモ ---- */
+aside.note {
+  background-color: var(
+    --vs-theme-orange-black-header-table--color-accent-tint
+  );
+  border-width: 0.8pt;
+  border-color: var(--vs-theme-orange-black-header-table--color-accent);
+  border-radius: 2.5mm;
+  padding: 3.4mm 5mm 3.6mm;
+  margin-block-start: 3.4mm;
+  break-inside: avoid;
+}
+
+aside.note > p:first-child {
+  font-size: 11.5pt;
+  font-weight: 700;
+  color: var(--vs-theme-orange-black-header-table--color-accent);
+  margin-block-end: 1.8mm;
+}
+
+aside.note li {
+  font-size: 10pt;
+  line-height: 1.6;
+  padding-inline-start: 4mm;
+  text-indent: -4mm;
+  margin-block-end: 1mm;
+}
+
+aside.note li::before {
+  content: '・';
+}
+
+/* 参照は本文と地続きに読ませる */
+a:is([data-ref='fig'], [data-ref='tbl'], [data-ref='sec']) {
+  --vs--anchor-text-color: inherit;
+}

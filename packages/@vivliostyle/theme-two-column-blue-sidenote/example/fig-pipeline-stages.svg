@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 250" role="img" aria-label="Figure 2: four-stage remote making pipeline from capture, to graph mapping, to cloud model, to playback">
+<rect x="8" y="8" width="206" height="180" rx="6" fill="#ffffff" stroke="#e7ebef" />
+<circle cx="30" cy="30" r="12" fill="#0066cc" />
+<text x="30" y="34" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="12" fill="#ffffff">1</text>
+<text x="48" y="34" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="11" fill="#20252b">Capture</text>
+<rect x="22" y="48" width="178" height="62" rx="4" fill="#f4f7fb" stroke="#e7ebef" />
+<circle cx="70" cy="70" r="9" fill="#dceeff" />
+<line x1="104" y1="98" x2="70" y2="70" stroke="#20252b" stroke-width="3" stroke-linecap="round" />
+<circle cx="70" cy="70" r="4.5" fill="#0066cc" />
+<path d="M84 66 q7 -6 14 0" fill="none" stroke="#0066cc" stroke-width="1.5" />
+<path d="M88 60 q10 -8 20 0" fill="none" stroke="#0066cc" stroke-width="1.5" />
+<rect x="22" y="118" width="100" height="28" rx="3" fill="#ffffff" stroke="#e7ebef" />
+<path d="M28 132 q4 -8 8 0 t8 0 t8 0 t8 0 t8 0 t8 0" fill="none" stroke="#0066cc" stroke-width="1.5" />
+<text x="22" y="162" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">12 kHz force trace</text>
+<text x="22" y="174" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">from the stylus tip</text>
+
+<rect x="236" y="8" width="206" height="180" rx="6" fill="#ffffff" stroke="#e7ebef" />
+<circle cx="258" cy="30" r="12" fill="#0066cc" />
+<text x="258" y="34" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="12" fill="#ffffff">2</text>
+<text x="276" y="34" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="11" fill="#20252b">Map</text>
+<rect x="250" y="48" width="178" height="62" rx="4" fill="#f4f7fb" stroke="#e7ebef" />
+<line x1="288" y1="66" x2="322" y2="60" stroke="#c7d2dc" stroke-width="1.5" />
+<line x1="322" y1="60" x2="352" y2="74" stroke="#c7d2dc" stroke-width="1.5" />
+<line x1="288" y1="66" x2="312" y2="92" stroke="#c7d2dc" stroke-width="1.5" />
+<line x1="312" y1="92" x2="352" y2="74" stroke="#c7d2dc" stroke-width="1.5" />
+<line x1="322" y1="60" x2="312" y2="92" stroke="#c7d2dc" stroke-width="1.5" />
+<circle cx="288" cy="66" r="6" fill="#0066cc" />
+<circle cx="322" cy="60" r="6" fill="#0066cc" />
+<circle cx="352" cy="74" r="6" fill="#0066cc" />
+<circle cx="312" cy="92" r="6" fill="#66717d" />
+<rect x="250" y="118" width="100" height="28" rx="3" fill="#ffffff" stroke="#e7ebef" />
+<path d="M256 132 q4 -8 8 0 t8 0 t8 0 t8 0 t8 0 t8 0" fill="none" stroke="#0066cc" stroke-width="1.5" />
+<text x="250" y="162" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">contact graph, one</text>
+<text x="250" y="174" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">node per stroke</text>
+
+<rect x="464" y="8" width="206" height="180" rx="6" fill="#ffffff" stroke="#e7ebef" />
+<circle cx="486" cy="30" r="12" fill="#0066cc" />
+<text x="486" y="34" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="12" fill="#ffffff">3</text>
+<text x="504" y="34" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="11" fill="#20252b">Model</text>
+<rect x="478" y="48" width="178" height="62" rx="4" fill="#f4f7fb" stroke="#e7ebef" />
+<ellipse cx="548" cy="72" rx="26" ry="11" fill="#eaf2fc" />
+<circle cx="536" cy="67" r="10" fill="#eaf2fc" />
+<circle cx="551" cy="62" r="12" fill="#eaf2fc" />
+<circle cx="562" cy="68" r="9" fill="#eaf2fc" />
+<text x="548" y="75" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="9" fill="#20252b">model</text>
+<ellipse cx="548" cy="90" rx="14" ry="4" fill="none" stroke="#66717d" stroke-width="1.2" />
+<path d="M534 90 v10 a14 4 0 0 0 28 0 v-10" fill="none" stroke="#66717d" stroke-width="1.2" />
+<line x1="548" y1="84" x2="548" y2="80" stroke="#0066cc" stroke-width="1.4" />
+<polygon points="545,82 548,78 551,82" fill="#0066cc" />
+<rect x="478" y="118" width="100" height="28" rx="3" fill="#ffffff" stroke="#e7ebef" />
+<path d="M484 132 q4 -8 8 0 t8 0 t8 0 t8 0 t8 0 t8 0" fill="none" stroke="#0066cc" stroke-width="1.5" />
+<text x="478" y="162" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">shared latent model,</text>
+<text x="478" y="174" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">six-bit codebook</text>
+
+<rect x="692" y="8" width="200" height="180" rx="6" fill="#ffffff" stroke="#e7ebef" />
+<circle cx="714" cy="30" r="12" fill="#0066cc" />
+<text x="714" y="34" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="12" fill="#ffffff">4</text>
+<text x="732" y="34" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="11" fill="#20252b">Replay</text>
+<rect x="706" y="48" width="172" height="62" rx="4" fill="#f4f7fb" stroke="#e7ebef" />
+<circle cx="752" cy="70" r="9" fill="#fde7d4" />
+<line x1="786" y1="98" x2="752" y2="70" stroke="#66717d" stroke-width="3" stroke-linecap="round" />
+<circle cx="752" cy="70" r="4.5" fill="#f29e4c" />
+<path d="M766 66 q7 -6 14 0" fill="none" stroke="#f29e4c" stroke-width="1.5" />
+<path d="M770 60 q10 -8 20 0" fill="none" stroke="#f29e4c" stroke-width="1.5" />
+<rect x="706" y="118" width="100" height="28" rx="3" fill="#ffffff" stroke="#e7ebef" />
+<path d="M712 132 q4 -8 8 0 t8 0 t8 0 t8 0 t8 0 t8 0" fill="none" stroke="#f29e4c" stroke-width="1.5" />
+<text x="706" y="162" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">voice-coil actuator</text>
+<text x="706" y="174" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">renders the echo</text>
+
+<line x1="214" y1="79" x2="234" y2="79" stroke="#0066cc" stroke-width="2" />
+<polygon points="234,75 242,79 234,83" fill="#0066cc" />
+<line x1="442" y1="79" x2="462" y2="79" stroke="#0066cc" stroke-width="2" />
+<polygon points="462,75 470,79 462,83" fill="#0066cc" />
+<line x1="670" y1="79" x2="690" y2="79" stroke="#0066cc" stroke-width="2" />
+<polygon points="690,75 698,79 690,83" fill="#0066cc" />
+
+<line x1="270" y1="220" x2="298" y2="220" stroke="#0066cc" stroke-width="2" />
+<polygon points="298,216 306,220 298,224" fill="#0066cc" />
+<text x="312" y="223" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="8" fill="#66717d">upstream · capture side</text>
+<line x1="512" y1="220" x2="540" y2="220" stroke="#f29e4c" stroke-width="2" stroke-dasharray="5 3" />
+<polygon points="540,216 548,220 540,224" fill="#f29e4c" />
+<text x="554" y="223" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="8" fill="#66717d">downstream · replay side</text>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 20" role="presentation" aria-hidden="true">
+<line x1="8" y1="10" x2="103" y2="10" stroke="#4a3f35" stroke-width="1.1" />
+<line x1="157" y1="10" x2="252" y2="10" stroke="#4a3f35" stroke-width="1.1" />
+<path d="M130 3 L137 10 L130 17 L123 10 Z" fill="#4a3f35" />
+<path d="M112 6 L116 10 L112 14 L108 10 Z" fill="none" stroke="#4a3f35" stroke-width="1" />
+<path d="M148 6 L152 10 L148 14 L144 10 Z" fill="none" stroke="#4a3f35" stroke-width="1" />
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 165" width="450" height="165" role="img" aria-label="Capacity retention after storage. The horizontal axis is the storage period in years from 0 to 10. The vertical axis is retention from 60 to 100 per cent. Stored at 23 degrees Celsius the cell retains about 98 per cent after 2 years and about 90 per cent after 10 years. Stored at 45 degrees Celsius it retains about 93 per cent after 2 years and about 72 per cent after 10 years." fill="none" stroke="#111111">
+<style>
+text { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.02em; }
+</style>
+<g stroke="#111111" stroke-width="0.3" stroke-dasharray="1 2.5" opacity="0.45">
+<line x1="92.5" y1="15" x2="92.5" y2="135"/><line x1="167.5" y1="15" x2="167.5" y2="135"/><line x1="242.5" y1="15" x2="242.5" y2="135"/><line x1="317.5" y1="15" x2="317.5" y2="135"/><line x1="392.5" y1="15" x2="392.5" y2="135"/>
+</g>
+<g stroke="#111111" stroke-width="0.45" stroke-dasharray="1 2" opacity="0.7">
+<line x1="130" y1="15" x2="130" y2="135"/>
+<line x1="205" y1="15" x2="205" y2="135"/>
+<line x1="280" y1="15" x2="280" y2="135"/>
+<line x1="355" y1="15" x2="355" y2="135"/>
+<line x1="55" y1="45" x2="430" y2="45"/>
+<line x1="55" y1="75" x2="430" y2="75"/>
+<line x1="55" y1="105" x2="430" y2="105"/>
+</g>
+<rect x="55" y="15" width="375" height="120" stroke="#111111" stroke-width="0.9" />
+<path d="M55,15 L92.5,18 L130,21 L167.5,24 L205,27 L242.5,30 L317.5,37.5 L430,45" stroke="#111111" stroke-width="1.6" />
+<path d="M55,15 L92.5,27 L130,36 L167.5,45 L205,54 L242.5,63 L317.5,81 L430,99" stroke="#111111" stroke-width="1.6" />
+<g fill="#ffffff" stroke="none">
+<rect x="399" y="29" width="27" height="9.5"/>
+<rect x="399" y="81" width="27" height="9.5"/>
+</g>
+<g font-size="8.5" fill="#111111" stroke="none" text-anchor="end">
+<text x="426" y="36">23&#176;C</text>
+<text x="426" y="88">45&#176;C</text>
+</g>
+<g font-size="8.5" fill="#111111" stroke="none" text-anchor="end">
+<text x="49" y="18">100</text>
+<text x="49" y="48">90</text>
+<text x="49" y="78">80</text>
+<text x="49" y="108">70</text>
+<text x="49" y="138">60</text>
+</g>
+<g font-size="8.5" fill="#111111" stroke="none" text-anchor="middle">
+<text x="55" y="150">0</text>
+<text x="130" y="150">2</text>
+<text x="205" y="150">4</text>
+<text x="280" y="150">6</text>
+<text x="355" y="150">8</text>
+<text x="430" y="150">10</text>
+</g>
+<text x="242.5" y="162" font-size="9" fill="#111111" stroke="none" text-anchor="middle">Storage period (years)</text>
+<text x="14" y="75" font-size="9" fill="#111111" stroke="none" text-anchor="middle" transform="rotate(-90 14 75)">Retention (%)</text>
+</svg>

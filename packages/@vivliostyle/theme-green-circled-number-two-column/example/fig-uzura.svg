@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" role="img" aria-label="皿に盛ったうずら卵のカレーピクルス">
+<rect width="400" height="320" fill="#f4f2ec" />
+<circle cx="200" cy="160" r="124" fill="#fbfaf6" stroke="#e5e2d8" stroke-width="2" />
+<circle cx="200" cy="160" r="104" fill="#f5f2ea" />
+<ellipse cx="200" cy="232" rx="94" ry="12" fill="#e9e4d5" />
+<g transform="rotate(-12 150 138)">
+<ellipse cx="150" cy="138" rx="28" ry="24" fill="#f3d768" stroke="#ddb93b" stroke-width="2.5" />
+<ellipse cx="141" cy="129" rx="10" ry="6" fill="#f9ecab" />
+</g>
+<g transform="rotate(10 234 128)">
+<ellipse cx="234" cy="128" rx="28" ry="24" fill="#f1d260" stroke="#ddb93b" stroke-width="2.5" />
+<ellipse cx="225" cy="119" rx="10" ry="6" fill="#f9ecab" />
+</g>
+<g transform="rotate(-4 192 194)">
+<ellipse cx="192" cy="194" rx="29" ry="25" fill="#f3d768" stroke="#ddb93b" stroke-width="2.5" />
+<ellipse cx="182" cy="185" rx="11" ry="6.5" fill="#f9ecab" />
+</g>
+<g transform="rotate(14 262 190)">
+<ellipse cx="262" cy="190" rx="27" ry="23" fill="#f1d260" stroke="#ddb93b" stroke-width="2.5" />
+<ellipse cx="253" cy="181" rx="10" ry="6" fill="#f9ecab" />
+</g>
+<g transform="rotate(8 126 194)">
+<ellipse cx="126" cy="194" rx="27" ry="23" fill="#f3d768" stroke="#ddb93b" stroke-width="2.5" />
+<ellipse cx="117" cy="185" rx="10" ry="6" fill="#f9ecab" />
+</g>
+<circle cx="172" cy="156" r="3.4" fill="#4a3a20" />
+<circle cx="224" cy="168" r="3" fill="#4a3a20" />
+<circle cx="146" cy="176" r="2.8" fill="#4a3a20" />
+<circle cx="196" cy="124" r="2.6" fill="#c48f2c" />
+<circle cx="252" cy="152" r="2.4" fill="#c48f2c" />
+<circle cx="164" cy="204" r="2.4" fill="#c48f2c" />
+<circle cx="230" cy="212" r="2.6" fill="#c48f2c" />
+<circle cx="116" cy="150" r="2.4" fill="#c48f2c" />
+</svg>

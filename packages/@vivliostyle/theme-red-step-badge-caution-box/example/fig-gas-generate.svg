@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 64" role="img" aria-label="ゴム栓とガラス管をつけた三角フラスコで気体を発生させる線画">
+<path d="M27 14 v8 L14 52 q-1.8 3.4 2 3.4 h32 q3.8 0 2 -3.4 L37 22 v-8 z" fill="#eef4fb" stroke="#48607a" stroke-width="1.4" />
+<path d="M22 45 L18.6 52 q-1.4 2.6 1.6 2.6 h23.6 q3 0 1.6 -2.6 L42 45 z" fill="#cfe3f5" />
+<path d="M25 10 h14 v5.4 h-14 z" fill="#c9d6e2" stroke="#48607a" stroke-width="1.2" />
+<path d="M30.6 10 v-5 h2.8 v5" fill="#eaf2fa" stroke="#48607a" stroke-width="1.1" />
+<path d="M32 5 h22 v22" fill="none" stroke="#48607a" stroke-width="1.4" />
+<circle cx="26" cy="40" r="1.4" fill="#9dbede" />
+<circle cx="33" cy="35" r="1.1" fill="#9dbede" />
+<circle cx="38" cy="41" r="1.2" fill="#9dbede" />
+<circle cx="30" cy="30" r="0.9" fill="#9dbede" />
+</svg>

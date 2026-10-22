@@ -1,0 +1,242 @@
+/*
+ * example 専用の上書き。theme.css には手を入れない。
+ */
+
+/* ---- 章の見出しまわり ---- */
+
+/* 節見出し: theme.css は章見出し (h1) しか持たないので、対談の左欄 20mm と
+   同じ位置に小さな黒角を置いた中見出しを足す */
+h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 2.6mm;
+  --vs--h2-font-size: 1.08em;
+  --vs--h2-font-weight: 700;
+  --vs--h2-letter-spacing: 0.06em;
+  --vs--h2-line-height: 1.4;
+  --vs--h2-margin-block: 2em 0.9em;
+  --vs--h2-break-after: avoid;
+}
+
+h2::before {
+  content: '';
+  flex: 0 0 auto;
+  width: 2.2mm;
+  height: 2.2mm;
+  background-color: var(--vs-theme-wide-margin-speaker-indent--color-rule);
+}
+
+/* 章の頭に置く日付と舞台のクレジット */
+.chapter-lead {
+  margin-block: -0.4em 1.6em;
+  font-size: 0.82em;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--vs-theme-wide-margin-speaker-indent--color-muted);
+}
+
+/* ---- 対談以外の本文要素 ---- */
+
+/* 箇条書き・表・用語表はコード欄と同じ 20mm の位置に寄せて、
+   対談の流れから一段引いた資料として見せる */
+ul,
+ol {
+  --vs--lists-margin-block: 0.9em;
+  --vs--lists-margin-inline: 20mm 3mm;
+  --vs--lists-padding-inline-start: 6mm;
+}
+
+li {
+  --vs--li-margin-block: 0 0.35em;
+}
+
+.inset {
+  margin-block: 1.1em;
+  margin-inline: 20mm 3mm;
+  break-inside: avoid;
+}
+
+.inset table {
+  --vs--table-size-inline: 100%;
+  --vs--table-margin-block: 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-font-size: 0.92em;
+  --vs--table-border-width: 0;
+  --vs--table-border-width-column: 0;
+  --vs--table-border-width-row: 0.4pt;
+  --vs--table-border-style-row: solid;
+  --vs--table-border-color-row: #cccccc;
+  --vs--table-cell-padding-block: 1.1mm;
+  --vs--table-cell-padding-inline: 0 3mm;
+  --vs--table-cell-vertical-align: baseline;
+  --vs--th-background-color: transparent;
+  --vs--th-text-align: start;
+  --vs--th-font-weight: 700;
+}
+
+/* ---- 表紙 ---- */
+
+body.cover {
+  page: cover;
+}
+
+@page cover {
+  --vs-page--border-width-top: 0;
+  --vs-page--mbox-top-left-content: none;
+  --vs-page--mbox-bottom-center-content: none;
+}
+
+.cover h1 {
+  --vs--h1-font-size: 3.6em;
+  --vs--h1-letter-spacing: 0.14em;
+  --vs--h1-line-height: 1.1;
+  --vs--h1-margin-block: 52mm 0;
+  --vs--h1-text-align: center;
+}
+
+.cover-sub {
+  margin-block: 4mm 0;
+  padding-block: 3.4mm 0;
+  border-block-start-width: 0.6pt;
+  border-block-start-style: solid;
+  border-block-start-color: var(
+    --vs-theme-wide-margin-speaker-indent--color-rule
+  );
+  font-size: 1.15em;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-align: center;
+  text-indent: 0.3em;
+}
+
+.cover-lead {
+  margin-block: 2.6mm 0;
+  font-size: 0.95em;
+  letter-spacing: 0.16em;
+  color: var(--vs-theme-wide-margin-speaker-indent--color-muted);
+  text-align: center;
+  text-indent: 0.16em;
+}
+
+.cover-toc {
+  margin-block: 46mm 0;
+  margin-inline: 34mm;
+  padding-block: 3mm 3.4mm;
+  border-block-start-width: 0.6pt;
+  border-block-start-style: solid;
+  border-block-start-color: var(
+    --vs-theme-wide-margin-speaker-indent--color-rule
+  );
+  border-block-end-width: 0.6pt;
+  border-block-end-style: solid;
+  border-block-end-color: var(
+    --vs-theme-wide-margin-speaker-indent--color-rule
+  );
+}
+
+.cover-toc p {
+  margin-block: 0 1.2mm;
+  font-size: 0.9em;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.cover-toc p:last-child {
+  margin-block-end: 0;
+}
+
+.cover-imprint {
+  margin-block: 32mm 0;
+  font-size: 0.88em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.9;
+  text-align: center;
+  text-indent: 0.14em;
+}
+
+/* ---- もくじ ---- */
+
+[role='doc-toc'] ol {
+  margin-block: 0;
+  margin-inline: 6mm 3mm;
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+[role='doc-toc'] li {
+  break-inside: avoid;
+  line-height: 1.9;
+}
+
+/* base toc.css のページ番号 (leader + target-counter) を行いっぱいに伸ばす */
+[role='doc-toc'] li > a {
+  display: flex;
+  color: inherit;
+  font-variant-numeric: tabular-nums;
+}
+
+[role='doc-toc'] li.toc-chapter {
+  margin-block-start: 3.4mm;
+  font-weight: 700;
+}
+
+[role='doc-toc'] li.toc-chapter:first-child {
+  margin-block-start: 0;
+}
+
+[role='doc-toc'] li.toc-entry {
+  margin-inline-start: 8mm;
+  font-size: 0.92em;
+  color: var(--vs-theme-wide-margin-speaker-indent--color-muted);
+}
+
+.toc-note {
+  margin-block: 8mm 0;
+  margin-inline: 6mm 3mm;
+  padding-block-start: 2.4mm;
+  border-block-start-width: 0.5pt;
+  border-block-start-style: solid;
+  border-block-start-color: #cccccc;
+  font-size: 0.9em;
+  color: var(--vs-theme-wide-margin-speaker-indent--color-muted);
+}
+
+/* ---- 奥付 ---- */
+
+.colophon-meta {
+  --vs--table-size-inline: 100%;
+  --vs--table-margin-block: 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-font-size: 0.95em;
+  --vs--table-border-width: 0;
+  --vs--table-border-width-column: 0;
+  --vs--table-border-width-row: 0.4pt;
+  --vs--table-border-style-row: solid;
+  --vs--table-border-color-row: #cccccc;
+  --vs--table-cell-padding-block: 1.4mm;
+  --vs--table-cell-padding-inline: 0 4mm;
+  --vs--table-cell-vertical-align: baseline;
+  --vs--th-background-color: transparent;
+  --vs--th-text-align: start;
+  --vs--th-font-weight: 700;
+  --vs--th-white-space: nowrap;
+}
+
+.colophon-meta th {
+  width: 26mm;
+}
+
+/* 罫は行間にしか引かれないので、表の終わりを示す一本を足す */
+.inset table tr:last-child,
+.colophon-meta tr:last-child {
+  border-block-end-width: 0.4pt;
+  border-block-end-style: solid;
+  border-block-end-color: #cccccc;
+}
+
+.colophon-note {
+  margin-block: 8mm 0;
+  font-size: 0.9em;
+  color: var(--vs-theme-wide-margin-speaker-indent--color-muted);
+}

@@ -1,0 +1,502 @@
+/*
+ * 機械学習ノートブック コード埋め込み説明型 (jupyter-cell-layout)
+ * B5縦・横組み・1段。Jupyter Notebook のセル構造を模した ML 実験章。
+ * 白地 + Jupyter 橙 (#f37726)。コード fence の figure/figcaption を
+ * 「実行番号ラベル + セル本体」に、段落・表・図・リストをそのままセルとして扱う。
+ * 1 章 = 1 ファイル (frontmatter に class: chapter) とし、章番号は base の
+ * ドキュメントカウンタ vs-counter-chapter から起こす。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/math';
+
+:root {
+  /* ---- Page ---- */
+  --vs-page--size: 182mm 257mm;
+  --vs-page--margin-top: 12mm;
+  --vs-page--margin-bottom: 16mm;
+  --vs-page--margin-left: 13mm;
+  --vs-page--margin-right: 13mm;
+
+  /* 柱は「CHAPTER 04 · 章題」。章題は原稿の章見出しから取る */
+  --vs-theme-jupyter-cell-layout--running-head-content: 'CHAPTER '
+    counter(
+      vs-counter-chapter,
+      var(--vs-theme-jupyter-cell-layout--chapter-counter-style)
+    )
+    ' · ' string(chapter-title);
+  --vs-page--mbox-top-left-content: var(
+    --vs-theme-jupyter-cell-layout--running-head-content
+  );
+  --vs-page--mbox-top-left-text-transform: uppercase;
+  --vs-page--mbox-top-font-family: 'Source Sans 3', sans-serif;
+  --vs-page--mbox-top-font-size: 6.8pt;
+  --vs-page--mbox-top-font-weight: 600;
+  --vs-page--mbox-top-letter-spacing: 0.14em;
+  --vs-page--mbox-top-padding-bottom: 1.6mm;
+  --vs-page--mbox-top-text-color: #6f767c;
+  --vs-page--mbox-top-vertical-align: bottom;
+  /* ノンブルは小口下 (右ページは右下、左ページは左下) */
+  --vs-page--mbox-bottom-outside-content: counter(page);
+  --vs-page--mbox-bottom-font-family: 'IBM Plex Mono', monospace;
+  --vs-page--mbox-bottom-font-size: 8pt;
+  --vs-page--mbox-bottom-text-color: #23272b;
+
+  /* ---- theme-base メタ変数 ---- */
+  --vs-font-family: 'Source Sans 3', 'Helvetica Neue', sans-serif;
+  --vs-font-size: 8.5pt;
+  --vs-line-height: 1.5;
+  --vs-color-foreground: #23272b;
+  --vs-color-background: #fffdf9;
+  --vs-page--background-color: #fffdf9;
+
+  /* ---- theme-base 要素変数 ---- */
+  --vs--monospace-font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  --vs--heading-font-family: 'Source Sans 3', 'Helvetica Neue', sans-serif;
+
+  --vs--h2-font-size: 15pt;
+  --vs--h2-font-weight: 700;
+  --vs--h2-line-height: 1.1;
+  --vs--h2-letter-spacing: -0.01em;
+  --vs--h2-margin-block: 0 3mm;
+  --vs--h2-break-after: avoid;
+
+  /* 章番号は 2 桁ゼロ詰め。節番号は「04.3」 */
+  --vs-theme-jupyter-cell-layout--chapter-counter-style: decimal-leading-zero;
+  --vs-section--h2-marker-content: counter(
+      vs-counter-chapter,
+      var(--vs-theme-jupyter-cell-layout--chapter-counter-style)
+    )
+    '.' counter(vs-counter-sec-h2);
+  --vs-section--h2-marker-display: inline;
+  --vs-section--h2-marker-margin-inline-end: 0;
+  --vs-section--call-content: target-counter(
+      attr(href),
+      vs-counter-chapter,
+      var(--vs-theme-jupyter-cell-layout--chapter-counter-style)
+    )
+    '.' target-counter(attr(href), vs-counter-sec-h2);
+  --vs-theme-jupyter-cell-layout--section-title-call-content: var(
+      --vs-section--call-content
+    )
+    ' ' target-text(attr(href));
+
+  /* 章表題の見出しは章番号だけを付ける */
+  --vs-theme-jupyter-cell-layout--chapter-marker-content: counter(
+    vs-counter-chapter,
+    var(--vs-theme-jupyter-cell-layout--chapter-counter-style)
+  );
+
+  /* 実行番号ラベル「In [3]:」の [3]: の部分 */
+  --vs-theme-jupyter-cell-layout--cell-number-content: ' ['
+    counter(vs-counter-cell) ']:';
+
+  /* 図番号は「Fig. 04.2 — 」。コードのキャプションには番号を付けない */
+  --vs-listing--marker-display: none;
+  --vs-figure--marker-content: 'Fig. '
+    counter(
+      vs-counter-chapter,
+      var(--vs-theme-jupyter-cell-layout--chapter-counter-style)
+    )
+    '.' counter(vs-counter-fig) ' — ';
+  --vs-figure--call-content: 'Fig. '
+    target-counter(
+      attr(href),
+      vs-counter-chapter,
+      var(--vs-theme-jupyter-cell-layout--chapter-counter-style)
+    )
+    '.' target-counter(attr(href), vs-counter-fig);
+
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 0;
+  --vs--p-text-align: start;
+
+  --vs--pre-margin-block: 0;
+  --vs--pre-overflow-x: visible;
+
+  --vs--figure-align-items: flex-start;
+  --vs--figure-margin-block: 0;
+  --vs--figure-margin-inline: 0;
+
+  --vs--lists-margin-block: 0;
+
+  --vs--blockquote-margin-block: 0;
+  --vs--blockquote-margin-inline: 0;
+
+  --vs--table-margin-block: 0;
+  --vs--table-margin-inline: 0;
+
+  /* ---- テーマ固有 ---- */
+  --vs-theme-jupyter-cell-layout--font-math:
+    'STIX Two Text', 'Times New Roman', serif;
+
+  --vs-theme-jupyter-cell-layout--color-accent: #f37726;
+  --vs-theme-jupyter-cell-layout--color-rule: #cfd3d6;
+  --vs-theme-jupyter-cell-layout--color-muted: #6f767c;
+  --vs-theme-jupyter-cell-layout--color-cell-bg: #ffffff;
+  --vs-theme-jupyter-cell-layout--color-code-bg: #f1f2f3;
+  --vs-theme-jupyter-cell-layout--color-code-rule: #e2e4e6;
+  --vs-theme-jupyter-cell-layout--color-output-bg: #faf7f3;
+  --vs-theme-jupyter-cell-layout--color-output-rule: #efe7dc;
+  --vs-theme-jupyter-cell-layout--color-note-bg: #fffaf6;
+  --vs-theme-jupyter-cell-layout--color-token-keyword: #2a63b8;
+  --vs-theme-jupyter-cell-layout--color-token-string: #d1590f;
+  --vs-theme-jupyter-cell-layout--color-token-comment: #8a9096;
+
+  --vs-theme-jupyter-cell-layout--cell-border-width: 0.4pt;
+  --vs-theme-jupyter-cell-layout--cell-border-radius: 0.8mm;
+  --vs-theme-jupyter-cell-layout--cell-gutter-width: 0.6mm;
+}
+
+/* ---- セルの積み ---- */
+:root {
+  counter-reset: vs-counter-cell;
+}
+
+body > section.level2 > * {
+  break-inside: avoid;
+}
+
+body > section.level2 > * + * {
+  margin-block-start: 1.4mm;
+}
+
+/* 入力セルと出力セルはノートブックでは一組なので、間で改ページさせない */
+body > section.level2 > figure.language-text {
+  break-before: avoid;
+}
+
+/* ---- 見出し (橙罫 + 番号) ---- */
+h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 7mm;
+  padding-top: 4mm;
+  border-top-width: 0.7pt;
+  border-top-style: solid;
+  border-top-color: var(--vs-theme-jupyter-cell-layout--color-accent);
+}
+
+section > h2:first-child::before {
+  color: var(--vs-theme-jupyter-cell-layout--color-accent);
+}
+
+/* 章の表題。番号は節番号を消費せず、章番号だけを出す */
+h2.chapter-title {
+  string-set: chapter-title content();
+}
+
+section:has(> h2.chapter-title:first-child) {
+  counter-increment: none;
+}
+
+section > h2.chapter-title:first-child::before {
+  content: var(--vs-theme-jupyter-cell-layout--chapter-marker-content);
+}
+
+/* ---- 相互参照 ---- */
+a[data-ref='sec-title']::before {
+  content: var(--vs-theme-jupyter-cell-layout--section-title-call-content);
+}
+
+a:is([data-ref='sec'], [data-ref='sec-title'], [data-ref='fig']) {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---- 説明セル (通常段落) ---- */
+section.level2 > p {
+  padding: 2mm 3.6mm;
+  border-width: var(--vs-theme-jupyter-cell-layout--cell-border-width);
+  border-style: solid;
+  border-color: var(--vs-theme-jupyter-cell-layout--color-rule);
+  border-radius: var(--vs-theme-jupyter-cell-layout--cell-border-radius);
+  background-color: var(--vs-theme-jupyter-cell-layout--color-cell-bg);
+  font-size: 7.9pt;
+  line-height: 1.45;
+}
+section.level2 > p sub {
+  font-size: 0.72em;
+  line-height: 0;
+}
+
+/* ---- コードセル / 出力セル ----
+   VFM の ```lang title="In" は
+   <figure class="language-lang"><figcaption>In</figcaption><pre>…</pre></figure>
+   になる。figcaption を橙の実行番号ガター、pre をセル本体として横並びにする。 */
+figure[class*='language-'] {
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
+}
+
+/* 実行番号は入力セルごとに進む。出力セル (```text) は直前の入力と同じ番号を示す */
+figure[class*='language-']:not(.language-text) {
+  counter-increment: vs-counter-cell;
+}
+
+figure[class*='language-'] > figcaption::after {
+  content: var(--vs-theme-jupyter-cell-layout--cell-number-content);
+}
+figure[class*='language-'] > figcaption {
+  flex: 0 0 14mm;
+  border-left-width: var(--vs-theme-jupyter-cell-layout--cell-gutter-width);
+  border-left-style: solid;
+  border-left-color: var(--vs-theme-jupyter-cell-layout--color-accent);
+  padding: 0.4mm 1.6mm 0 1.6mm;
+  font-family: var(--vs--monospace-font-family);
+  font-size: 6.6pt;
+  font-weight: 500;
+  color: var(--vs-theme-jupyter-cell-layout--color-accent);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  text-align: start;
+}
+/* padding-inline は theme の `figure > :not(picture, figcaption)` (--vs--figure-item-padding-inline)
+   に負けるため、--vs--pre-padding-inline ではなくこのセレクタで指定する */
+figure[class*='language-'] > pre {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 1.8mm 3.6mm;
+  border-width: var(--vs-theme-jupyter-cell-layout--cell-border-width);
+  border-style: solid;
+  border-color: var(--vs-theme-jupyter-cell-layout--color-code-rule);
+  border-radius: var(--vs-theme-jupyter-cell-layout--cell-border-radius);
+  background-color: var(--vs-theme-jupyter-cell-layout--color-code-bg);
+}
+figure[class*='language-'] > pre code {
+  font-size: 5.7pt;
+  line-height: 1.18;
+  background: none;
+}
+figure.language-text > pre {
+  background-color: var(--vs-theme-jupyter-cell-layout--color-output-bg);
+  border-color: var(--vs-theme-jupyter-cell-layout--color-output-rule);
+}
+
+/* Prism トークン (theme-base の prism partial は使わず最小限だけ着色) */
+.token.keyword,
+.token.builtin {
+  color: var(--vs-theme-jupyter-cell-layout--color-token-keyword);
+  font-weight: 500;
+}
+.token.string {
+  color: var(--vs-theme-jupyter-cell-layout--color-token-string);
+}
+.token.comment {
+  color: var(--vs-theme-jupyter-cell-layout--color-token-comment);
+}
+.token.number,
+.token.operator,
+.token.punctuation {
+  color: var(--vs-color-foreground);
+}
+
+/* ---- 数式セル (イタリックセリフ手組み) ---- */
+.math-cell {
+  border-width: var(--vs-theme-jupyter-cell-layout--cell-border-width);
+  border-style: solid;
+  border-color: var(--vs-theme-jupyter-cell-layout--color-rule);
+  border-radius: var(--vs-theme-jupyter-cell-layout--cell-border-radius);
+  background-color: var(--vs-theme-jupyter-cell-layout--color-cell-bg);
+  padding: 2.4mm 3mm;
+}
+/* VFM のディスプレイ数式 (MathML) は手組みの .math と同じ大きさでセル中央に置く */
+.math-cell > math[display='block'] {
+  margin-block: 1em;
+  font-size: 10pt;
+}
+.math {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4.5mm;
+  font-family: var(--vs-theme-jupyter-cell-layout--font-math);
+  font-size: 8.6pt;
+}
+.math var,
+.math .expr {
+  font-family: var(--vs-theme-jupyter-cell-layout--font-math);
+}
+.math var {
+  font-style: italic;
+  font-weight: 400;
+}
+.math .expr {
+  display: flex;
+  align-items: center;
+  gap: 0.9mm;
+  white-space: nowrap;
+}
+.math .sep {
+  padding: 0 0.5mm;
+}
+.math sub {
+  font-size: 0.68em;
+}
+.frac {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  margin: 0 0.6mm;
+}
+.frac .num-line,
+.frac .den-line {
+  display: block;
+  font-size: 0.86em;
+  line-height: 1.25;
+  padding: 0 0.6mm;
+  white-space: nowrap;
+}
+.frac .num-line {
+  border-bottom-width: 0.35pt;
+  border-bottom-style: solid;
+  border-bottom-color: var(--vs-color-foreground);
+}
+.sum {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+  margin: 0 0.6mm;
+}
+.sum .sigma {
+  font-size: 1.5em;
+  line-height: 0.95;
+  font-style: normal;
+}
+.sum .lim {
+  font-size: 0.55em;
+  line-height: 1.1;
+  font-family: var(--vs-theme-jupyter-cell-layout--font-math);
+}
+
+/* ---- METRICS 表 ---- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-width: var(--vs-theme-jupyter-cell-layout--cell-border-width);
+  border-style: solid;
+  border-color: var(--vs-theme-jupyter-cell-layout--color-rule);
+  border-radius: var(--vs-theme-jupyter-cell-layout--cell-border-radius);
+  background-color: var(--vs-theme-jupyter-cell-layout--color-cell-bg);
+}
+thead th {
+  font-size: 6.2pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  border-bottom-width: 0.7pt;
+  border-bottom-style: solid;
+  border-bottom-color: var(--vs-color-foreground);
+  padding: 1.2mm 2mm 0.8mm;
+}
+thead th:first-child {
+  text-align: start;
+}
+tbody td {
+  font-size: 7pt;
+  text-align: center;
+  padding: 0.7mm 2mm;
+  border-left-width: var(--vs-theme-jupyter-cell-layout--cell-border-width);
+  border-left-style: dotted;
+  border-left-color: var(--vs-theme-jupyter-cell-layout--color-rule);
+}
+tbody td:first-child {
+  text-align: start;
+  font-family: var(--vs--monospace-font-family);
+  font-size: 6.6pt;
+  border-left: none;
+}
+tbody tr:last-child td {
+  padding-bottom: 1.6mm;
+}
+tbody strong {
+  color: var(--vs-theme-jupyter-cell-layout--color-accent);
+}
+
+/* ---- チャート (Markdown 画像 → figure > img + figcaption) ----
+   SVG 内部のスタイルは fig-drift.svg 側に持たせている (外部 SVG は
+   <img> で読み込まれるため親文書の CSS が効かない)。 */
+figure:not([class]) {
+  padding: 2mm 3.6mm 1.4mm;
+  border-width: var(--vs-theme-jupyter-cell-layout--cell-border-width);
+  border-style: solid;
+  border-color: var(--vs-theme-jupyter-cell-layout--color-rule);
+  border-radius: var(--vs-theme-jupyter-cell-layout--cell-border-radius);
+  background-color: var(--vs-theme-jupyter-cell-layout--color-cell-bg);
+}
+figure:not([class]) img {
+  width: 100%;
+  display: block;
+}
+figure:not([class]) figcaption {
+  margin-top: 1mm;
+  font-size: 6.2pt;
+  line-height: 1.35;
+  color: var(--vs-theme-jupyter-cell-layout--color-muted);
+  text-align: start;
+}
+
+/* ---- 結論セル (箇条書き + 再現手順ノートの2列) ---- */
+.concl {
+  display: flex;
+  gap: 5mm;
+  padding: 2.8mm 3.6mm;
+  border-width: var(--vs-theme-jupyter-cell-layout--cell-border-width);
+  border-style: solid;
+  border-color: var(--vs-theme-jupyter-cell-layout--color-rule);
+  border-radius: var(--vs-theme-jupyter-cell-layout--cell-border-radius);
+  background-color: var(--vs-theme-jupyter-cell-layout--color-cell-bg);
+}
+.concl ul {
+  --vs--ul-padding-inline-start: 3.4mm;
+  flex: 1 1 0;
+  min-width: 0;
+  padding-right: 5mm;
+  border-right-width: var(--vs-theme-jupyter-cell-layout--cell-border-width);
+  border-right-style: dashed;
+  border-right-color: var(--vs-theme-jupyter-cell-layout--color-rule);
+}
+.concl li {
+  font-size: 7.2pt;
+  line-height: 1.35;
+  margin-bottom: 1.2mm;
+}
+.concl li::marker {
+  color: var(--vs-theme-jupyter-cell-layout--color-accent);
+}
+.concl blockquote {
+  flex: 0 0 42%;
+  padding: 2.4mm 3mm;
+  border-width: var(--vs-theme-jupyter-cell-layout--cell-border-width);
+  border-style: solid;
+  border-color: var(--vs-theme-jupyter-cell-layout--color-rule);
+  border-left-width: var(--vs-theme-jupyter-cell-layout--cell-gutter-width);
+  border-left-color: var(--vs-theme-jupyter-cell-layout--color-accent);
+  border-radius: 0.6mm;
+  align-self: flex-start;
+  background-color: var(--vs-theme-jupyter-cell-layout--color-note-bg);
+}
+.concl blockquote p {
+  font-size: 7pt;
+  line-height: 1.45;
+}
+.concl blockquote code {
+  font-size: 6.4pt;
+}
+
+:root {
+  --vs--table-border-width: 0;
+}

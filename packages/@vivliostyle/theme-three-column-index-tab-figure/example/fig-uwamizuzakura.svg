@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 150" role="img" aria-label="ウワミズザクラの葉の模式図。長楕円形で先の尖った葉と、総状に立つ小白花の花序を伴う。">
+<style>
+.leaf-blade { fill: #557a55; fill-opacity: 0.46; stroke: #2c352c; stroke-width: 1.3; stroke-linejoin: round; }
+.leaf-vein { fill: none; stroke: #2c352c; stroke-width: 0.7; opacity: 0.65; }
+.leaf-stem { fill: none; stroke: #6f6142; stroke-width: 2.2; stroke-linecap: round; }
+.fig-acc { fill: #557a55; fill-opacity: 0.4; stroke: #2c352c; stroke-width: 1; stroke-linejoin: round; }
+.fig-berry { fill: #a9483d; fill-opacity: 0.85; stroke: #6f2a24; stroke-width: 0.7; }
+.fig-flower { fill: #ddb9be; fill-opacity: 0.8; stroke: #b98b35; stroke-width: 0.7; }
+.fig-scale { stroke: #252a26; stroke-width: 1; }
+.fig-scale-t { fill: #252a26; font: 500 7px "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; letter-spacing: 0.03em; }
+.fig-lbl { fill: #3a463a; font: 6.5px "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+.fig-lead { fill: none; stroke: #9aa89a; stroke-width: 0.5; }
+</style>
+<path class="leaf-blade" d="M56,132 C42,124 33,102 34,76 C35,52 46,26 56,16 C66,26 77,52 78,76 C79,102 70,124 56,132 Z" />
+<path class="leaf-vein" d="M56,130 L56,20 M56,104 Q45,100 36,92 M56,104 Q67,100 76,92 M56,80 Q46,75 38,68 M56,80 Q66,75 74,68 M56,58 Q48,54 42,48 M56,58 Q64,54 70,48" />
+<path class="leaf-stem" d="M56,130 L56,144" />
+<path class="leaf-stem" d="M120,142 L116,66" />
+<circle class="fig-flower" cx="110" cy="74" r="3" />
+<circle class="fig-flower" cx="122" cy="80" r="3" />
+<circle class="fig-flower" cx="112" cy="88" r="3" />
+<circle class="fig-flower" cx="124" cy="94" r="3" />
+<circle class="fig-flower" cx="114" cy="102" r="3" />
+<circle class="fig-flower" cx="122" cy="110" r="3" />
+<path class="fig-lead" d="M108,80 L98,74" />
+<text class="fig-lbl" x="86" y="76">花序</text>
+<line class="fig-scale" x1="14" y1="138" x2="44" y2="138" />
+<line class="fig-scale" x1="14" y1="135" x2="14" y2="141" />
+<line class="fig-scale" x1="44" y1="135" x2="44" y2="141" />
+<text class="fig-scale-t" x="29" y="133" text-anchor="middle">2 cm</text>
+</svg>

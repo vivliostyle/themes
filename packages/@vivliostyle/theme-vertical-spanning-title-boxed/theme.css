@@ -1,0 +1,203 @@
+/*
+ * 総合誌 特集論考ページ (vertical-spanning-title-boxed)
+ * A4 縦・墨1色・黄味のある本文用紙。縦組み明朝の上下2段組で、記事の頭に段抜きの
+ * 大題と縦罫・著者名を立てる戦後論壇誌風の紙面。合印の付いた註は版面の地
+ * (縦組みでは左端) の脚注欄へ落とし、著者略歴と用語解説の囲み記事は段の地へ回す。
+ *
+ * 上下2段は縦組みの multicol (縦組みでは段が上下に積まれる)。本文は段とページを
+ * またいで流れるので、原稿の分量に合わせてページ数が増減する。
+ * 柱の特集名は原稿の <p class="running-feature"> から取る。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/footnote';
+@import '@vivliostyle/theme-base/page';
+
+:root {
+  --vs-page--size: A4;
+  --vs-page--margin-top: 22mm;
+  --vs-page--margin-bottom: 22mm;
+  --vs-page--margin-left: 23mm;
+  --vs-page--margin-right: 23mm;
+  --vs-page--background-color: #f5f2ea;
+  --vs-page--border-width-top: 0.4pt;
+  --vs-page--border-color-top: var(--vs-color-foreground);
+
+  /* 柱・ノンブルは縦組みの版面でも横組みで置く */
+  --vs-page--mbox-writing-mode: horizontal-tb;
+  --vs-page--mbox-top-right-content: element(vs-theme-feature);
+  --vs-page--mbox-bottom-left-content: counter(page);
+  --vs-page--mbox-top-font-size: 8.5pt;
+  --vs-page--mbox-top-letter-spacing: 0.16em;
+  --vs-page--mbox-top-text-color: var(--vs-color-foreground);
+  --vs-page--mbox-bottom-font-size: 10.5pt;
+  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
+
+  --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --vs-font-size: 9pt;
+  --vs-line-height: 1.75;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-background: #f5f2ea;
+  --vs-color-border: #1a1a1a;
+  --vs-writing-mode: vertical-rl;
+  --vs-columns: 1; /* 段組は body に掛ける (段抜きを伴うため) */
+
+  --vs--heading-font-family:
+    'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 1em;
+  --vs--p-text-align: justify;
+
+  --vs--rt-font-size: 0.42em;
+
+  --vs--h1-font-size: 26pt;
+  --vs--h1-line-height: 1.15;
+  --vs--h1-letter-spacing: 0.08em;
+  --vs--h1-margin-block: 0;
+
+  /* 段中の小見出し */
+  --vs--h2-font-size: 11pt;
+  --vs--h2-font-weight: 700;
+  --vs--h2-line-height: 1.35;
+  --vs--h2-letter-spacing: 0.18em;
+  --vs--h2-margin-block: 3mm 2mm;
+  --vs--h2-text-align: start;
+  --vs--heading-break-after: avoid;
+
+  --vs--figure-margin-block: 0 1.2mm;
+  --vs--figcaption-margin-block: 1.2mm 0;
+
+  /* 註: 合印は ＊ + 番号。版面の地に細罫を引いて落とす */
+  --vs-footnote--font-size: 6.5pt;
+  --vs-footnote--letter-spacing: 0.02em;
+  --vs-footnote--line-height: 1.7;
+  --vs-footnote--call-content: '＊' counter(vs-counter-footnote);
+  --vs-footnote--call-font-size: 0.72em;
+  --vs-footnote--marker-content: '＊' counter(vs-counter-footnote);
+  --vs-footnote--marker-margin-inline: 0 0.3em;
+  /* 合印の数字は縦組みでも寝かせない */
+  --vs-footnote--call-text-orientation: upright;
+  --vs-footnote--marker-text-orientation: upright;
+  --vs-footnote--item-margin-block: 0 1.6mm;
+  --vs-footnote--area-before-border-width-block-start: 0.4pt;
+  --vs-footnote--area-before-margin-block: 0 2.6mm;
+  --vs-footnote--area-before-margin-inline: 0 55%;
+
+  --vs-theme-vertical-spanning-title-boxed--columns: 2;
+  --vs-theme-vertical-spanning-title-boxed--column-gap: 6mm;
+  --vs-theme-vertical-spanning-title-boxed--headline-margin-block-end: 5mm;
+  --vs-theme-vertical-spanning-title-boxed--card-size-inline: 62mm;
+}
+
+/* 縦中横 */
+.tcy {
+  text-combine-upright: all;
+}
+
+/* 柱に流す特集名は原稿から取る */
+.running-feature {
+  position: running(vs-theme-feature);
+  writing-mode: horizontal-tb;
+  text-indent: 0;
+}
+
+/* ---- 上下2段: 縦組みの段組では段が上下に積まれる ---- */
+body {
+  columns: var(--vs-theme-vertical-spanning-title-boxed--columns);
+  column-gap: var(--vs-theme-vertical-spanning-title-boxed--column-gap);
+  column-fill: auto;
+}
+
+/* ---- 大題 (段抜き・記事の頭。縦組みなので版面の右端に立つ) ---- */
+header.headline {
+  column-span: all;
+  margin-block-end: var(
+    --vs-theme-vertical-spanning-title-boxed--headline-margin-block-end
+  );
+  break-after: avoid;
+}
+
+header.headline h1 {
+  padding-block-start: 1mm;
+}
+
+header.headline h1 .subhead {
+  font-size: 16.5pt;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+/* 著者名行: 大題との間に縦罫 */
+header.headline .byline {
+  margin-block: 5mm 0;
+  padding-block-start: 4.5mm;
+  padding-inline-start: 5mm;
+  border-block-start-width: 0.4pt;
+  border-block-start-style: solid;
+  font-size: 13pt;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-indent: 0;
+  line-height: 1;
+}
+
+header.headline .byline .meta {
+  font-size: 8.5pt;
+  letter-spacing: 0.1em;
+}
+
+/* ---- 囲み記事 (肖像 + 略歴 + 用語解説): 段の地へ回す ---- */
+.card {
+  float: inline-end;
+  float-reference: column;
+  inline-size: var(--vs-theme-vertical-spanning-title-boxed--card-size-inline);
+  border-width: 0.5pt;
+  border-style: solid;
+  padding: 2mm;
+  margin-block-end: 3mm;
+  background-color: var(--vs-color-background);
+  break-inside: avoid;
+}
+
+.card figure img {
+  display: block;
+  inline-size: 84%;
+  margin: 0 auto;
+}
+
+.card figure figcaption {
+  font-size: 6pt;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.5;
+  text-align: start;
+}
+
+.card .bio p {
+  margin-block: 0 2mm;
+  font-size: 6pt;
+  line-height: 1.55;
+  text-indent: 0;
+  text-align: justify;
+}
+
+.card .glossary {
+  border-block-start-width: 0.4pt;
+  border-block-start-style: solid;
+  padding-block-start: 1.4mm;
+}
+
+.card .glossary p {
+  margin-block: 0 0.8mm;
+  font-size: 6pt;
+  line-height: 1.55;
+  text-indent: 0;
+  text-align: justify;
+}
+
+.card .glossary .subhead {
+  font-size: 6.8pt;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}

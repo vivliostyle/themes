@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" role="img" aria-label="A-A 断面図">
+  <style>
+    .fignum { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 14px; font-weight: 700; fill: #202020; }
+    .axis { font-family: "Roboto Mono", ui-monospace, monospace; font-size: 10px; fill: #202020; }
+    .dim { font-family: "Roboto Mono", ui-monospace, monospace; font-size: 9px; fill: #555555; }
+    .lev { font-family: "Roboto Mono", ui-monospace, monospace; font-size: 9px; fill: #202020; }
+    .note { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 9px; fill: #404040; letter-spacing: 0.06em; }
+  </style>
+
+  <rect x="8" y="8" width="60" height="24" fill="none" stroke="#202020" stroke-width="1.4" />
+  <text x="38" y="26" text-anchor="middle" class="fignum">図 06</text>
+
+  <polygon points="155,109 292,40 474,132 474,140 292,48 155,117" fill="#F1F1EE" stroke="#202020" stroke-width="2" />
+
+  <g stroke="#202020" stroke-width="2" fill="none">
+    <line x1="170" y1="110" x2="170" y2="215" />
+    <line x1="413" y1="110" x2="413" y2="200" />
+    <line x1="231" y1="135" x2="231" y2="200" />
+    <line x1="170" y1="135" x2="231" y2="135" />
+    <line x1="231" y1="200" x2="413" y2="200" />
+    <line x1="231" y1="200" x2="231" y2="215" />
+  </g>
+
+  <line x1="110" y1="215" x2="540" y2="215" stroke="#202020" stroke-width="3" />
+  <g fill="#202020">
+    <rect x="165" y="201" width="10" height="20" /><rect x="226" y="201" width="10" height="20" />
+    <rect x="347" y="186" width="10" height="20" /><rect x="408" y="186" width="10" height="20" />
+  </g>
+
+  <g stroke="#555555" stroke-width="0.9" fill="none">
+    <line x1="413" y1="122" x2="413" y2="200" stroke-width="1.4" />
+    <line x1="409" y1="122" x2="417" y2="122" />
+    <line x1="409" y1="164" x2="417" y2="164" />
+  </g>
+
+  <g stroke="#555555" stroke-width="1" fill="none">
+    <rect x="178" y="150" width="44" height="18" />
+    <circle cx="190" cy="159" r="5" />
+  </g>
+  <g stroke="#555555" stroke-width="0.8" fill="none">
+    <line x1="240" y1="196" x2="404" y2="196" />
+    <line x1="292" y1="96" x2="292" y2="48" stroke-dasharray="3 2" />
+  </g>
+  <g stroke="#555555" stroke-width="1.4" fill="none">
+    <line x1="252" y1="96" x2="332" y2="96" />
+    <line x1="262" y1="96" x2="262" y2="86" /><line x1="322" y1="96" x2="322" y2="86" />
+  </g>
+
+  <g stroke="#555555" stroke-width="0.6" fill="none">
+    <line x1="200" y1="30" x2="212" y2="80" />
+    <line x1="452" y1="30" x2="458" y2="120" />
+  </g>
+  <g class="note" text-anchor="middle">
+    <text x="200" y="24">小屋梁 150&#215;300 @1820</text>
+    <text x="452" y="24">軒の出 1820</text>
+  </g>
+
+  <g stroke="#555555" stroke-width="0.6" fill="none">
+    <line x1="298" y1="40" x2="600" y2="40" stroke-dasharray="4 2" />
+    <line x1="480" y1="110" x2="600" y2="110" stroke-dasharray="4 2" />
+    <line x1="480" y1="215" x2="612" y2="215" stroke-dasharray="4 2" />
+    <line x1="616" y1="40" x2="616" y2="110" />
+    <line x1="616" y1="110" x2="616" y2="215" />
+  </g>
+  <g class="lev">
+    <text x="556" y="34">&#9661;+5240</text>
+    <text x="556" y="104">&#9661;+3150</text>
+    <text x="556" y="209">&#9661;&#177;0</text>
+  </g>
+  <g class="dim" text-anchor="middle">
+    <text x="628" y="75" transform="rotate(-90 628 75)">2090</text>
+    <text x="628" y="163" transform="rotate(-90 628 163)">3150</text>
+  </g>
+  <text x="270" y="212" text-anchor="middle" class="lev">&#9661;+450</text>
+
+  <g stroke="#555555" stroke-width="0.6" fill="none">
+    <line x1="170" y1="232" x2="474" y2="232" />
+    <g stroke-width="0.7">
+      <line x1="170" y1="228" x2="170" y2="236" /><line x1="231" y1="228" x2="231" y2="236" />
+      <line x1="352" y1="228" x2="352" y2="236" /><line x1="413" y1="228" x2="413" y2="236" />
+      <line x1="474" y1="228" x2="474" y2="236" />
+    </g>
+  </g>
+  <g class="dim" text-anchor="middle">
+    <text x="200" y="245">1820</text><text x="291" y="245">3640</text>
+    <text x="382" y="245">1820</text><text x="443" y="245">1820</text>
+  </g>
+  <g class="axis" text-anchor="middle">
+    <text x="170" y="256">1</text><text x="231" y="256">2</text>
+    <text x="352" y="256">3</text><text x="413" y="256">4</text>
+  </g>
+</svg>

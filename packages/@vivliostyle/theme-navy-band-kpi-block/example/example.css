@@ -1,0 +1,136 @@
+/*
+ * example 専用の上書き。theme.css には手を入れない。
+ */
+
+/* バナー直下の開示メタ情報 */
+.meta {
+  margin: 0 0 3.5mm;
+  padding-block-end: 1.2mm;
+  border-block-end-width: 0.4pt;
+  border-block-end-style: solid;
+  border-block-end-color: var(--vs-theme-navy-band-kpi-block--color-rule);
+  font-size: 7pt;
+  line-height: 1.4;
+  color: var(--vs-theme-navy-band-kpi-block--color-muted);
+  text-align: end;
+}
+
+/* KPI ブロックに前年同期比を添える */
+.kpi-delta {
+  margin: 1.2mm 0 0;
+  font-family: var(--vs-theme-navy-band-kpi-block--font-numeric);
+  font-variant-numeric: tabular-nums;
+  font-size: 6.8pt;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--vs-theme-navy-band-kpi-block--color-muted);
+  white-space: nowrap;
+}
+
+/* 予想値の系列を表す凡例スウォッチ */
+.legend .sw-est {
+  background-color: #8ab4f8;
+}
+
+/* 節内の小見出しは本文と同級のため、色で階層を示す */
+.flow h3 {
+  color: var(--vs-theme-navy-band-kpi-block--color-accent-deep);
+}
+
+.flow .note h3 {
+  margin-block-end: 1.6mm;
+}
+
+.flow .note p + p {
+  margin-block-start: 1.6mm;
+}
+
+/*
+ * 表ごとの科目名列の幅。table-layout: fixed のため、残りの列は等分される。
+ */
+.tbl-pl,
+.tbl-qt {
+  --vs-theme-navy-band-kpi-block--table-label-size-inline: 40%;
+}
+
+.tbl-sg {
+  --vs-theme-navy-band-kpi-block--table-label-size-inline: 32%;
+}
+
+.tbl-std {
+  --vs-theme-navy-band-kpi-block--table-label-size-inline: 27%;
+}
+
+.tbl-cf {
+  --vs-theme-navy-band-kpi-block--table-label-size-inline: 46%;
+}
+
+.tbl-fc,
+.tbl-od {
+  --vs-theme-navy-band-kpi-block--table-label-size-inline: 30%;
+}
+
+.tbl-sh {
+  --vs-theme-navy-band-kpi-block--table-label-size-inline: 44%;
+}
+
+/* 連結財政状態 (8 行): 資産合計・負債合計・純資産合計は小計 */
+.tbl-std
+  > table
+  > tbody
+  > tr:is(:nth-child(3), :nth-child(6), :nth-child(7))
+  > td {
+  background-color: var(
+    --vs-theme-navy-band-kpi-block--table-sum-background-color
+  );
+  font-weight: 700;
+}
+
+/* キャッシュ・フロー (6 行): 増減額から下が小計 */
+.tbl-cf > table > tbody > tr:nth-child(5) > td {
+  background-color: var(
+    --vs-theme-navy-band-kpi-block--table-sum-background-color
+  );
+  border-block-start-color: var(
+    --vs-theme-navy-band-kpi-block--table-sum-rule-color
+  );
+  border-block-start-style: solid;
+  border-block-start-width: var(
+    --vs-theme-navy-band-kpi-block--table-sum-rule-width
+  );
+  font-weight: 700;
+}
+
+/* 配当 (2 行): 年間合計の列を強調 */
+.tbl-dv > table :is(thead, tbody) :is(th, td):last-child {
+  background-color: var(
+    --vs-theme-navy-band-kpi-block--table-sum-background-color
+  );
+  font-weight: 700;
+}
+
+.tbl-dv > table > thead th:last-child {
+  background-color: var(--vs-theme-navy-band-kpi-block--color-tint);
+}
+
+/* 四半期業績の推移 (6 行): 5 行目から当期に切り替わる */
+.tbl-qt > table > tbody > tr:nth-child(n + 5) > td {
+  background-color: var(
+    --vs-theme-navy-band-kpi-block--table-sum-background-color
+  );
+}
+
+.tbl-qt > table > tbody > tr:nth-child(5) > td {
+  border-block-start-color: var(
+    --vs-theme-navy-band-kpi-block--table-sum-rule-color
+  );
+  border-block-start-style: solid;
+  border-block-start-width: var(
+    --vs-theme-navy-band-kpi-block--table-sum-rule-width
+  );
+}
+
+/* 奥付は URL を含むため両端揃えにしない */
+.flow .colophon p {
+  text-align: start;
+}

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -12 350 164" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">セグメント別売上高の比較</title>
+<desc id="fig-desc">第41期と第42期のセグメント別売上高を比較した横棒グラフ。生活雑貨事業68,214百万円から72,480百万円、食品事業55,486百万円から58,930百万円、オンライン事業33,905百万円から41,268百万円、法人事業21,319百万円から24,627百万円。</desc>
+<style>
+text {
+  font-family: "Noto Serif JP", "Hiragino Mincho ProN", "YuMincho", serif;
+  fill: #1a1a1a;
+}
+/* 値ラベルが目盛線と重なるため、地色で縁取って可読性を保つ */
+.val {
+  paint-order: stroke;
+  stroke: #f7f6f2;
+  stroke-width: 2.4;
+  stroke-linejoin: round;
+}
+</style>
+<text x="0" y="-3" font-size="8.5">(百万円)</text>
+<rect x="206" y="-10" width="10" height="8" fill="#b9b9b5" stroke="#2a2a2a" stroke-width="0.5" />
+<text x="219" y="-3" font-size="8.5">第41期</text>
+<rect x="262" y="-10" width="10" height="8" fill="#565656" stroke="#2a2a2a" stroke-width="0.5" />
+<text x="275" y="-3" font-size="8.5">第42期</text>
+<line x1="138" y1="4" x2="138" y2="136" stroke="#b5b5b5" stroke-width="0.6" />
+<line x1="204" y1="4" x2="204" y2="136" stroke="#b5b5b5" stroke-width="0.6" />
+<line x1="270" y1="4" x2="270" y2="136" stroke="#b5b5b5" stroke-width="0.6" />
+<line x1="336" y1="4" x2="336" y2="136" stroke="#b5b5b5" stroke-width="0.6" />
+<text x="68" y="23" font-size="8.5" text-anchor="end">生活雑貨事業</text>
+<text x="68" y="57" font-size="8.5" text-anchor="end">食品事業</text>
+<text x="68" y="91" font-size="8.5" text-anchor="end">オンライン事業</text>
+<text x="68" y="125" font-size="8.5" text-anchor="end">法人事業</text>
+<rect x="72" y="7" width="180.1" height="11" fill="#b9b9b5" stroke="#2a2a2a" stroke-width="0.5" />
+<rect x="72" y="20" width="191.4" height="11" fill="#565656" stroke="#2a2a2a" stroke-width="0.5" />
+<rect x="72" y="41" width="146.5" height="11" fill="#b9b9b5" stroke="#2a2a2a" stroke-width="0.5" />
+<rect x="72" y="54" width="155.6" height="11" fill="#565656" stroke="#2a2a2a" stroke-width="0.5" />
+<rect x="72" y="75" width="89.5" height="11" fill="#b9b9b5" stroke="#2a2a2a" stroke-width="0.5" />
+<rect x="72" y="88" width="109.0" height="11" fill="#565656" stroke="#2a2a2a" stroke-width="0.5" />
+<rect x="72" y="109" width="56.3" height="11" fill="#b9b9b5" stroke="#2a2a2a" stroke-width="0.5" />
+<rect x="72" y="122" width="65.0" height="11" fill="#565656" stroke="#2a2a2a" stroke-width="0.5" />
+<text class="val" x="255.1" y="15.5" font-size="8">68,214</text>
+<text class="val" x="266.4" y="28.5" font-size="8">72,480</text>
+<text class="val" x="221.5" y="49.5" font-size="8">55,486</text>
+<text class="val" x="230.6" y="62.5" font-size="8">58,930</text>
+<text class="val" x="164.5" y="83.5" font-size="8">33,905</text>
+<text class="val" x="184.0" y="96.5" font-size="8">41,268</text>
+<text class="val" x="131.3" y="117.5" font-size="8">21,319</text>
+<text class="val" x="140.0" y="130.5" font-size="8">24,627</text>
+<line x1="72" y1="4" x2="72" y2="136" stroke="#333333" stroke-width="0.9" />
+<text x="72" y="146" font-size="8" text-anchor="middle">0</text>
+<text x="138" y="146" font-size="8" text-anchor="middle">25,000</text>
+<text x="204" y="146" font-size="8" text-anchor="middle">50,000</text>
+<text x="270" y="146" font-size="8" text-anchor="middle">75,000</text>
+<text x="336" y="146" font-size="8" text-anchor="middle">100,000</text>
+</svg>

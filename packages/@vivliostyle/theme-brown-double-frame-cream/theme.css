@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Noto+Serif+JP:wght@400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+/*
+ * 同窓会報（エレガント） (elegant)
+ * A5縦・1段組の会報。Shippori Mincho の中央揃い誌名/柱、Noto Serif JP の8.5pt 横組み本文、
+ * Zen Old Mincho の縦組み傍注とキャプション。焦茶(#4a3f35)の二重飾り罫でクリーム地の
+ * 版面を囲み、飾り罫・上下罫見出し・小口余白の縦傍注・モノクロ記念写真で静かな品位を組む。
+ *
+ * 記事 (h1) はページから起こし、柱には号を構成する各章の題を掲げる。章題は原稿
+ * (md) の frontmatter の title、章番号は base のドキュメントカウンタから組むので、
+ * 章を分けるには md を分けて frontmatter に `class: chapter` を書く。
+ */
+
+:root {
+  /* Page: A5縦・小口/ノド10, 天15, 地12 */
+  --vs-page--size: A5;
+  --vs-page--margin-top: 15mm;
+  --vs-page--margin-bottom: 12mm;
+  --vs-page--margin-left: 10mm;
+  --vs-page--margin-right: 10mm;
+  --vs-color-background: #f7f3ec;
+  --vs-page--background-color: #f7f3ec;
+
+  /* Type: セリフ本文 8.5pt / 行送り1.6 / 単段 */
+  --vs-font-family: 'Noto Serif JP', serif;
+  --vs-font-size: 8.5pt;
+  --vs-line-height: 1.6;
+  --vs-color-foreground: #2b2620;
+  --vs-letter-spacing: 0.02em;
+  --vs-columns: 1;
+
+  /* 飾り罫・見出し罫はすべて焦茶 */
+  --vs-color-border: #4a3f35;
+
+  --vs-theme-brown-double-frame-cream--font-display: 'Shippori Mincho', serif;
+  --vs-theme-brown-double-frame-cream--font-note: 'Zen Old Mincho', serif;
+  --vs-theme-brown-double-frame-cream--color-accent: #4a3f35;
+  /* 縦傍注の行長。長い傍注はこの長さで折り返してガターに収まる */
+  --vs-theme-brown-double-frame-cream--marginalia-size: 62mm;
+  /* 版面を囲む二重飾り罫 */
+  --vs-page--border-width: 4.4px;
+  --vs-page--border-style: double;
+  --vs-page--border-color: var(--vs-color-border);
+  /* 飾り罫と本文の間隔 */
+  --vs-page--padding-top: 7mm;
+  --vs-page--padding-right: 8mm;
+  --vs-page--padding-bottom: 6mm;
+  --vs-page--padding-left: 8mm;
+  /* 柱の章番号。番号を出さない章は空文字にする */
+  --vs-theme-brown-double-frame-cream--running-chapter-content: '第'
+    counter(vs-counter-chapter, cjk-ideographic) '章　';
+
+  /* 柱(中央)は章題、ノンブルは小口(右上) */
+  --vs-page--mbox-top-center-content: var(
+      --vs-theme-brown-double-frame-cream--running-chapter-content
+    )
+    env(doc-title);
+  --vs-page--mbox-top-center-font-family: var(
+    --vs-theme-brown-double-frame-cream--font-display
+  );
+  --vs-page--mbox-top-center-font-size: 8.5pt;
+  --vs-page--mbox-top-center-font-weight: 500;
+  --vs-page--mbox-top-center-text-color: var(
+    --vs-theme-brown-double-frame-cream--color-accent
+  );
+  --vs-page--mbox-top-center-letter-spacing: 0.22em;
+  --vs-page--mbox-top-right-content: counter(page);
+  --vs-page--mbox-top-right-font-family: var(
+    --vs-theme-brown-double-frame-cream--font-note
+  );
+  --vs-page--mbox-top-right-font-size: 12pt;
+  --vs-page--mbox-top-right-text-color: var(
+    --vs-theme-brown-double-frame-cream--color-accent
+  );
+  --vs-page--mbox-top-right-letter-spacing: 0.04em;
+
+  --vs--heading-font-family: 'Shippori Mincho', serif;
+
+  /* 記事名 (中央・大明朝)。記事はページから起こす */
+  --vs--h1-font-size: 1.9em;
+  --vs--h1-font-weight: 500;
+  --vs--h1-line-height: 1.25;
+  --vs--h1-letter-spacing: 0.12em;
+  --vs--h1-text-align: center;
+  --vs--h1-margin-block: 2mm 2mm;
+  --vs-section--h1-break-before: page;
+
+  /* セクション見出し=上下の太罫で挟む中央見出し (プルクオート的) */
+  --vs--h2-font-size: 1.75em;
+  --vs--h2-font-weight: 500;
+  --vs--h2-line-height: 1.4;
+  --vs--h2-letter-spacing: 0.12em;
+  --vs--h2-text-align: center;
+  --vs--h2-margin-block: 4mm 3mm;
+  --vs--h2-padding-block: 2mm;
+  --vs--h2-border-width-block-start: 2.2px;
+  --vs--h2-border-width-block-end: 2.2px;
+  --vs--h2-border-style-block-start: solid;
+  --vs--h2-border-style-block-end: solid;
+
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 0;
+  --vs--p-text-align: justify;
+  --vs--p-line-height: 1.65;
+
+  /* モノクロ記念写真 + 中央キャプション (Markdown 画像が作る無 class の figure) */
+  --vs--figure-display: block;
+  --vs--figure-margin-block: 4mm 0;
+  --vs--figure-text-align: center;
+  --vs--figure-item-size-inline: 66mm;
+  --vs--figcaption-font-family: var(
+    --vs-theme-brown-double-frame-cream--font-note
+  );
+  --vs--figcaption-font-size: 8pt;
+  --vs--figcaption-letter-spacing: 0.08em;
+  --vs--figcaption-margin-block: 2.5mm 0;
+  --vs--figcaption-text-align: center;
+
+  /* 収支表・行事予定表: 天地と見出し下を太罫、行間を細罫で仕切る横罫だけの表 */
+  --vs--table-margin-block: 1mm 3mm;
+  --vs--table-font-size: 8pt;
+  --vs--table-letter-spacing: 0.02em;
+  --vs--table-text-align: start;
+  --vs--table-border-width: 0;
+  --vs--table-border-width-block-start: 1.6px;
+  --vs--table-border-width-block-end: 1.6px;
+  --vs--table-border-width-cell: 0;
+  --vs--table-border-width-row: 0.6px;
+  --vs--table-border-width-thead-inner: 1.6px;
+  --vs--table-cell-padding-block: 1.5mm;
+  --vs--table-cell-padding-inline: 1.5mm;
+  --vs--table-cell-vertical-align: baseline;
+  --vs--th-font-family: var(--vs-theme-brown-double-frame-cream--font-display);
+  --vs--th-font-weight: 500;
+  --vs--th-letter-spacing: 0.1em;
+}
+
+body {
+  margin: 0;
+}
+
+/* 号頭に掲げる誌名 */
+h1.masthead {
+  font-size: 2.5em;
+  letter-spacing: 0.16em;
+}
+
+/* 誌名・記事名の下に敷く飾り罫 */
+.ornament {
+  display: block;
+  width: 56mm;
+  height: auto;
+  margin: 0 auto 4mm;
+}
+
+p + p {
+  margin-block-start: 0.6em;
+}
+
+/* 号数・発行日を誌名の下に添える一行 */
+.issue {
+  margin-block-end: 3mm;
+  font-family: var(--vs-theme-brown-double-frame-cream--font-note);
+  font-size: 7.6pt;
+  letter-spacing: 0.16em;
+  text-align: center;
+}
+
+/* 記事末尾の署名 */
+.signature {
+  margin-block-start: 3mm;
+  font-family: var(--vs-theme-brown-double-frame-cream--font-note);
+  letter-spacing: 0.1em;
+  text-align: end;
+}
+
+/* 連絡先 */
+.contact {
+  margin-block-start: 3.5mm;
+  font-family: var(--vs-theme-brown-double-frame-cream--font-note);
+  letter-spacing: 0.08em;
+  line-height: 1.9;
+  text-align: center;
+}
+
+/* 奥付 */
+.colophon {
+  margin-block-start: 1mm;
+  font-family: var(--vs-theme-brown-double-frame-cream--font-note);
+  font-size: 8pt;
+  letter-spacing: 0.06em;
+  line-height: 2;
+  text-align: center;
+}
+
+/* Markdown の列揃え指定は align 属性で出るため、text-align の上書きに合わせて拾い直す */
+[align='right'] {
+  text-align: end;
+}

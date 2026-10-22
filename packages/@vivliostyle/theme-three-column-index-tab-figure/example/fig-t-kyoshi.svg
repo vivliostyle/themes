@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 150" role="img" aria-label="鋸歯の模式図。葉縁の一部を拡大し、単鋸歯と重鋸歯の刻みを比べて示す。">
+<style>
+.leaf-blade { fill: #557a55; fill-opacity: 0.46; stroke: #2c352c; stroke-width: 1.3; stroke-linejoin: round; }
+.leaf-vein { fill: none; stroke: #2c352c; stroke-width: 0.7; opacity: 0.65; }
+.leaf-stem { fill: none; stroke: #6f6142; stroke-width: 2.2; stroke-linecap: round; }
+.fig-acc { fill: #557a55; fill-opacity: 0.4; stroke: #2c352c; stroke-width: 1; stroke-linejoin: round; }
+.fig-berry { fill: #a9483d; fill-opacity: 0.85; stroke: #6f2a24; stroke-width: 0.7; }
+.fig-flower { fill: #ddb9be; fill-opacity: 0.8; stroke: #b98b35; stroke-width: 0.7; }
+.fig-scale { stroke: #252a26; stroke-width: 1; }
+.fig-scale-t { fill: #252a26; font: 500 7px "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; letter-spacing: 0.03em; }
+.fig-lbl { fill: #3a463a; font: 6.5px "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+.fig-lead { fill: none; stroke: #9aa89a; stroke-width: 0.5; }
+</style>
+<text class="fig-lbl" x="18" y="34">単鋸歯</text>
+<path class="leaf-blade" d="M18,72 L18,54 L28,40 L34,54 L44,40 L50,54 L60,40 L66,54 L76,40 L82,54 L92,40 L98,54 L108,40 L114,54 L124,40 L130,54 L140,40 L140,72 Z" />
+<path class="leaf-vein" d="M18,66 L140,66 M30,66 L28,44 M46,66 L44,44 M62,66 L60,44 M78,66 L76,44 M94,66 L92,44 M110,66 L108,44 M126,66 L124,44" />
+<text class="fig-lbl" x="18" y="98">重鋸歯</text>
+<path class="leaf-blade" d="M18,136 L18,118 L24,110 L28,116 L34,104 L38,112 L44,118 L50,110 L54,116 L60,104 L64,112 L70,118 L76,110 L80,116 L86,104 L90,112 L96,118 L102,110 L106,116 L112,104 L116,112 L122,118 L128,110 L132,116 L138,104 L140,112 L140,136 Z" />
+<path class="leaf-vein" d="M18,130 L140,130 M36,130 L34,108 M62,130 L60,108 M88,130 L86,108 M114,130 L112,108" />
+</svg>

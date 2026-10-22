@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 170" role="img" aria-label="Figure 5: four interface states, the third shown selected on a light-blue field">
+<rect x="14" y="14" width="88" height="128" rx="6" fill="#ffffff" stroke="#e7ebef" />
+<rect x="14" y="14" width="88" height="20" rx="6" fill="#f4f7fb" />
+<rect x="24" y="46" width="68" height="42" rx="3" fill="#ffffff" stroke="#e7ebef" />
+<path d="M28 68 q5 -10 10 0 t10 0 t10 0 t10 0 t10 0" fill="none" stroke="#0066cc" stroke-width="1.5" />
+<rect x="24" y="98" width="68" height="6" rx="3" fill="#e7ebef" />
+<rect x="24" y="110" width="46" height="6" rx="3" fill="#e7ebef" />
+<text x="58" y="158" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">idle</text>
+
+<rect x="116" y="14" width="88" height="128" rx="6" fill="#ffffff" stroke="#e7ebef" />
+<rect x="116" y="14" width="88" height="20" rx="6" fill="#f4f7fb" />
+<rect x="126" y="46" width="68" height="42" rx="3" fill="#ffffff" stroke="#e7ebef" />
+<path d="M130 68 q5 -8 10 0 t10 0 t10 0 t10 0 t10 0" fill="none" stroke="#66717d" stroke-width="1.5" />
+<rect x="126" y="98" width="68" height="6" rx="3" fill="#e7ebef" />
+<rect x="126" y="110" width="52" height="6" rx="3" fill="#e7ebef" />
+<text x="160" y="158" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">tracking</text>
+
+<rect x="218" y="14" width="88" height="128" rx="6" fill="#dceeff" stroke="#0066cc" stroke-width="1.5" />
+<rect x="218" y="14" width="88" height="20" rx="6" fill="#c7e2fb" />
+<rect x="228" y="46" width="68" height="42" rx="3" fill="#ffffff" stroke="#bcd8f2" />
+<path d="M232 68 q5 -11 10 0 t10 0 t10 0 t10 0 t10 0" fill="none" stroke="#0066cc" stroke-width="2" />
+<rect x="228" y="98" width="68" height="6" rx="3" fill="#bcd8f2" />
+<rect x="228" y="110" width="58" height="6" rx="3" fill="#bcd8f2" />
+<text x="262" y="158" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="7.5" fill="#0066cc">echo locked</text>
+
+<rect x="320" y="14" width="88" height="128" rx="6" fill="#ffffff" stroke="#e7ebef" />
+<rect x="320" y="14" width="88" height="20" rx="6" fill="#f4f7fb" />
+<rect x="330" y="46" width="68" height="42" rx="3" fill="#ffffff" stroke="#e7ebef" />
+<path d="M334 68 q5 -9 10 0 t10 0 t10 0 t10 0 t10 0" fill="none" stroke="#f29e4c" stroke-width="1.5" />
+<rect x="330" y="98" width="68" height="6" rx="3" fill="#e7ebef" />
+<rect x="330" y="110" width="44" height="6" rx="3" fill="#e7ebef" />
+<text x="364" y="158" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">replay</text>
+</svg>

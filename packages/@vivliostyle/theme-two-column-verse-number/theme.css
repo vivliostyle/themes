@@ -1,0 +1,210 @@
+/*
+ * 聖書・2段組節番号型 (two-column-verse-number)
+ * A4縦・端正な2段組の聖典本文ページ。段間中央に極細の縦罫、天部に小口寄せの柱と版面の
+ * 上罫、左段冒頭に大きめの章題を置き、各節は行頭の太字ノンブル(節番号)で導く。
+ * 下部は footnote 機構で全幅の注釈領域を作り、
+ * 参照はサンセリフの号数で現代的に整理する。黒に近い墨色と温白色、細いウォームグレー罫のみ。
+ *
+ * 章番号・節番号はカウンタで生成する。原稿の見出しには章番号を書かず、段落の頭にも
+ * 節番号を書かない。柱は書名 (frontmatter の title = env(doc-title)) と章番号から組む。
+ * 注の中の「書名 章:節」の参照は `<a href="…#id" data-ref="verse"></a>` で書き、
+ * 章:節は参照先のカウンタから解決する。
+ *
+ * DOM は VFM 出力: body > section.level2 (章) > h2 + p (節)。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/footnote';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  --vs-theme-two-column-verse-number--font-sans:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --vs-color-foreground-alt: #4e4b45;
+  --vs-theme-two-column-verse-number--color-rule: #a7a198;
+
+  /* Page: A4 portrait, odd (recto) page — inner(left) 20mm / outer(right) 15mm */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 20mm;
+  --vs-page--margin-bottom: 20mm;
+  --vs-page--margin-left: 17.5mm;
+  --vs-page--margin-right: 17.5mm;
+  --vs-color-background: #f7f4ec;
+  --vs-page--background-color: #f7f4ec;
+  --vs-page--border-width-top: 0.4pt;
+  --vs-page--border-color-top: var(
+    --vs-theme-two-column-verse-number--color-rule
+  );
+
+  /* Margin box: chapter pillar (serif, medium); folio overridden to sans below */
+  --vs-page--mbox-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+  --vs-page--mbox-font-size: 7.8pt;
+  --vs-page--mbox-font-weight: 500;
+  --vs-page--mbox-text-color: #4e4b45;
+  --vs-page--mbox-letter-spacing: 0.08em;
+
+  /* Pillar and folio sit on the outer edge (right on a recto, left on a verso) */
+  --vs-page--mbox-top-outside-content: var(
+    --vs-theme-two-column-verse-number--pillar-content
+  );
+  --vs-page--mbox-bottom-outside-content: counter(page);
+
+  /* Folio set to sans */
+  --vs-page--mbox-bottom-left-font-family: var(
+    --vs-theme-two-column-verse-number--font-sans
+  );
+  --vs-page--mbox-bottom-left-font-weight: 400;
+  --vs-page--mbox-bottom-left-font-size: 8.4pt;
+  --vs-page--mbox-bottom-left-letter-spacing: 0.02em;
+  --vs-page--mbox-bottom-right-font-family: var(
+    --vs-theme-two-column-verse-number--font-sans
+  );
+  --vs-page--mbox-bottom-right-font-weight: 400;
+  --vs-page--mbox-bottom-right-font-size: 8.4pt;
+  --vs-page--mbox-bottom-right-letter-spacing: 0.02em;
+
+  /* Type: quiet, evenly-set mincho body at 9pt / 1.7 */
+  --vs-font-family:
+    'Shippori Mincho', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho ProN', serif;
+  --vs-font-size: 9pt;
+  --vs-line-height: 1.7;
+  --vs-color-foreground: #171613;
+  --vs-widows-orphans: 2;
+
+  /* Verses: flush left, no indent, tight gap between verses, justified.
+     0.42rem は rlh (1.7rem) の整数分数に載らない実測値。
+     calc(0.25 * var(--vs-spacing-rlh)) = 0.425rem にすると全体が 1pt 下にずれるため
+     リテラルのまま据え置く。 */
+  --vs--p-margin-block: 0.42rem 0;
+  --vs--p-text-indent: 0;
+  --vs--p-text-align: justify;
+
+  /* Chapter heading: wide and calm, set in the second (Noto) mincho */
+  --vs--heading-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+  --vs--heading-font-weight: 600;
+  --vs--heading-letter-spacing: 0.14em;
+  --vs--heading-line-height: 1.3;
+  --vs--heading-text-align: start;
+  --vs--heading-margin-block: 0 1rem;
+  --vs--h2-font-size: 1.62em;
+
+  /* 章番号「第N章」 */
+  --vs-section--h2-marker-content: '第'
+    counter(
+      vs-counter-sec-h2,
+      var(--vs-theme-two-column-verse-number--chapter-counter-style)
+    )
+    '章';
+  --vs-section--h2-marker-display: inline;
+  --vs-section--h2-marker-margin-inline-end: 1em;
+  --vs-theme-two-column-verse-number--chapter-counter-style: cjk-ideographic;
+
+  /* 柱: 書名と章番号 (章番号は算用数字で、章題見出しの漢数字と対にする) */
+  --vs-theme-two-column-verse-number--pillar-content: env(doc-title)
+    '\00a0\00a0' counter(vs-counter-sec-h2);
+
+  /* 節番号: 見出し書体の太字を行頭に流し込む */
+  --vs-theme-two-column-verse-number--verse-counter-style: decimal;
+  --vs-theme-two-column-verse-number--verse-marker-content: counter(
+    vs-counter-verse,
+    var(--vs-theme-two-column-verse-number--verse-counter-style)
+  );
+  --vs-theme-two-column-verse-number--verse-marker-font-size: 1.06em;
+  --vs-theme-two-column-verse-number--verse-opening-marker-font-size: 1.72em;
+  /* 注の中の「書名 章:節」参照。書名は原稿に書き、章:節をここで解決する */
+  --vs-theme-two-column-verse-number--verse-call-content: target-counter(
+      attr(href),
+      vs-counter-sec-h2,
+      var(--vs-theme-two-column-verse-number--verse-counter-style)
+    )
+    ':'
+    target-counter(
+      attr(href),
+      vs-counter-verse,
+      var(--vs-theme-two-column-verse-number--verse-counter-style)
+    );
+
+  /* Footnotes: bracketed reference marks, short warm-grey separator on the left */
+  --vs-footnote--font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+  --vs-footnote--font-size: 7pt;
+  --vs-footnote--text-color: #4e4b45;
+  --vs-footnote--line-height: 1.5;
+  --vs-footnote--call-content: '[' counter(vs-counter-footnote) ']';
+  --vs-footnote--call-font-size: 0.72em;
+  --vs-footnote--marker-content: '[' counter(vs-counter-footnote) ']\00a0';
+  --vs-footnote--item-margin-block: 0.06rem 0;
+  --vs-footnote--area-before-border-color-block-start: #a7a198;
+  --vs-footnote--area-before-border-width-block-start: 0.5pt;
+  --vs-footnote--area-before-margin-inline: 0 62%;
+
+  counter-reset: vs-counter-verse;
+}
+
+/* Two-column body with a hairline column rule. VFM wraps the chapter in
+   body > section.level2, which takes the place of the old <article>.
+   column-fill: auto packs each column to the page bottom for a dense, even page.
+   --vs-columns only reaches html, so the columns are declared here. */
+body > section.level2 {
+  columns: 2;
+  column-gap: 7mm;
+  column-rule-width: 0.4pt;
+  column-rule-style: solid;
+  column-rule-color: var(--vs-theme-two-column-verse-number--color-rule);
+  column-fill: auto;
+  padding-block-start: 3mm;
+}
+
+/* 節番号は章題を持つセクション直下の段落ごとに繰る。章をまたぐと 1 に戻す */
+section > :is(h1, h2):first-child {
+  counter-reset: vs-counter-verse;
+}
+
+section:has(> :is(h1, h2):first-child) > p {
+  counter-increment: vs-counter-verse;
+}
+
+/* 節番号の行頭流し込み。太字ラン・インのあとの空きに当たるテーマ変数は base に無い */
+section:has(> :is(h1, h2):first-child) > p::before {
+  content: var(--vs-theme-two-column-verse-number--verse-marker-content);
+  font-family: var(--vs--heading-font-family);
+  font-weight: 700;
+  font-size: var(--vs-theme-two-column-verse-number--verse-marker-font-size);
+  line-height: 1;
+  margin-inline-end: 0.4em;
+}
+
+/* Enlarged number opening the chapter's first verse */
+section > :is(h1, h2):first-child + p::before {
+  font-size: var(
+    --vs-theme-two-column-verse-number--verse-opening-marker-font-size
+  );
+  margin-inline-end: 0.32em;
+}
+
+/* 節番号を持たない段落 (前書き・結びなど) */
+p.unnumbered {
+  counter-increment: none;
+}
+
+p.unnumbered::before {
+  content: none;
+}
+
+/* Cross-reference tokens in the footnotes: quiet sans, the one modern accent */
+.footnote .meta {
+  font-family: var(--vs-theme-two-column-verse-number--font-sans);
+  font-size: 0.92em;
+  letter-spacing: 0.02em;
+  margin-inline-start: 0.5em;
+  color: var(--vs-color-foreground-alt);
+}
+
+a[data-ref='verse'] {
+  color: inherit;
+  text-decoration: none;
+}
+
+a[data-ref='verse']::before {
+  content: var(--vs-theme-two-column-verse-number--verse-call-content);
+}

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 240" role="img" aria-label="南立面図">
+  <style>
+    .fignum { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 14px; font-weight: 700; fill: #202020; }
+    .axis { font-family: "Roboto Mono", ui-monospace, monospace; font-size: 10px; fill: #202020; }
+    .lev { font-family: "Roboto Mono", ui-monospace, monospace; font-size: 9px; fill: #202020; }
+    .note { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 9px; fill: #404040; letter-spacing: 0.06em; }
+  </style>
+
+  <rect x="8" y="8" width="60" height="24" fill="none" stroke="#202020" stroke-width="1.4" />
+  <text x="38" y="26" text-anchor="middle" class="fignum">図 05</text>
+
+  <rect x="170" y="141" width="303" height="64" fill="#FAFAF8" stroke="none" />
+  <g fill="#FFFFFF" stroke="#202020" stroke-width="1">
+    <rect x="176" y="152" width="64" height="47" />
+    <rect x="252" y="152" width="63" height="47" />
+    <rect x="327" y="152" width="64" height="47" />
+    <rect x="403" y="152" width="64" height="47" />
+  </g>
+  <g stroke="#555555" stroke-width="0.7">
+    <line x1="208" y1="152" x2="208" y2="199" /><line x1="283" y1="152" x2="283" y2="199" />
+    <line x1="359" y1="152" x2="359" y2="199" /><line x1="435" y1="152" x2="435" y2="199" />
+    <line x1="176" y1="176" x2="240" y2="176" /><line x1="252" y1="176" x2="315" y2="176" />
+    <line x1="327" y1="176" x2="391" y2="176" /><line x1="403" y1="176" x2="467" y2="176" />
+  </g>
+  <g stroke="#202020" stroke-width="2.2" fill="none">
+    <line x1="170" y1="141" x2="170" y2="205" /><line x1="246" y1="141" x2="246" y2="205" />
+    <line x1="321" y1="141" x2="321" y2="205" /><line x1="397" y1="141" x2="397" y2="205" />
+    <line x1="473" y1="141" x2="473" y2="205" />
+  </g>
+
+  <rect x="158" y="59" width="327" height="82" fill="#F1F1EE" stroke="#202020" stroke-width="1.6" />
+  <g stroke="#555555" stroke-width="0.5">
+    <line x1="212" y1="59" x2="212" y2="141" /><line x1="266" y1="59" x2="266" y2="141" />
+    <line x1="320" y1="59" x2="320" y2="141" /><line x1="374" y1="59" x2="374" y2="141" />
+    <line x1="428" y1="59" x2="428" y2="141" />
+  </g>
+  <line x1="158" y1="141" x2="485" y2="141" stroke="#202020" stroke-width="2.6" />
+
+  <line x1="40" y1="205" x2="600" y2="205" stroke="#202020" stroke-width="3" />
+  <line x1="150" y1="199" x2="493" y2="199" stroke="#555555" stroke-width="0.9" />
+
+  <g stroke="#555555" stroke-width="0.6" fill="none">
+    <line x1="238" y1="48" x2="248" y2="80" />
+    <line x1="140" y1="186" x2="172" y2="176" />
+  </g>
+  <g class="note">
+    <text x="180" y="44">立平葺き 鋼板 5寸勾配</text>
+    <text x="60" y="190">杉戸・ガラス戸 H=2100</text>
+  </g>
+
+  <g stroke="#555555" stroke-width="0.6" fill="none">
+    <line x1="491" y1="59" x2="600" y2="59" stroke-dasharray="4 2" />
+    <line x1="491" y1="141" x2="600" y2="141" stroke-dasharray="4 2" />
+    <line x1="491" y1="205" x2="612" y2="205" stroke-dasharray="4 2" />
+  </g>
+  <polygon points="596,55 604,55 600,61" fill="#202020" />
+  <polygon points="596,137 604,137 600,143" fill="#202020" />
+  <polygon points="596,201 604,201 600,207" fill="#202020" />
+  <g class="lev">
+    <text x="556" y="53">&#9661;+5240</text>
+    <text x="556" y="135">&#9661;+2500</text>
+    <text x="556" y="199">&#9661;&#177;0</text>
+  </g>
+
+  <g class="axis" text-anchor="middle">
+    <text x="170" y="226">A</text><text x="246" y="226">B</text><text x="321" y="226">C</text>
+    <text x="397" y="226">D</text><text x="473" y="226">E</text>
+  </g>
+</svg>

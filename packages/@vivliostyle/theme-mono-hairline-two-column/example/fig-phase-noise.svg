@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 180" role="img" aria-label="Line graph of local oscillator phase noise versus offset frequency on a logarithmic axis for a 1 GHz carrier. Phase noise is minus 92 dBc per hertz at 1 kHz offset, minus 102 at 10 kHz, minus 118 at 100 kHz, minus 140 at 1 MHz and flattens near minus 155 above 10 MHz." fill="none" stroke="#171717">
+<style>
+text { font-family: "Roboto Mono", "IBM Plex Mono", ui-monospace, monospace; stroke: none; }
+</style>
+<text x="4" y="12" font-size="7.3" font-weight="500" fill="#171717" stroke="none">LO PHASE NOISE vs OFFSET  (fLO = 1.0 GHz, TA = 25 &#176;C)</text>
+<g stroke="#d6d6d6" stroke-width="0.5">
+<line x1="42" y1="58.5" x2="350" y2="58.5" />
+<line x1="42" y1="89" x2="350" y2="89" />
+<line x1="42" y1="119.5" x2="350" y2="119.5" />
+<line x1="103.6" y1="28" x2="103.6" y2="150" />
+<line x1="165.2" y1="28" x2="165.2" y2="150" />
+<line x1="226.8" y1="28" x2="226.8" y2="150" />
+<line x1="288.4" y1="28" x2="288.4" y2="150" />
+</g>
+<rect x="42" y="28" width="308" height="122" stroke="#171717" stroke-width="0.8" />
+<polyline points="42,46.3 71.4,53.9 103.6,61.5 133,73.8 165.2,86 194.6,102.7 226.8,119.5 256.2,131.7 288.4,137.8 317.8,140.8 350,142.4" stroke="#171717" stroke-width="1.2" />
+<g font-size="6" fill="#555555" stroke="none" text-anchor="end">
+<text x="38" y="30.2">-80</text>
+<text x="38" y="60.7">-100</text>
+<text x="38" y="91.2">-120</text>
+<text x="38" y="121.7">-140</text>
+<text x="38" y="152.2">-160</text>
+</g>
+<g font-size="6" fill="#555555" stroke="none" text-anchor="middle">
+<text x="42" y="160">1k</text>
+<text x="103.6" y="160">10k</text>
+<text x="165.2" y="160">100k</text>
+<text x="226.8" y="160">1M</text>
+<text x="288.4" y="160">10M</text>
+<text x="350" y="160">100M</text>
+</g>
+<text x="196" y="174" font-size="6.5" fill="#555555" stroke="none" text-anchor="middle">Offset frequency</text>
+<text x="12" y="89" font-size="6.5" fill="#555555" stroke="none" text-anchor="middle" transform="rotate(-90 12 89)">Phase noise (dBc/Hz)</text>
+</svg>

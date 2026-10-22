@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 116" role="img" aria-label="Recursion tree with root cn, level cn over 2, and level cn over 4.">
+<style>
+.hand { font-family: "Caveat", "Comic Sans MS", cursive; font-size: 15px; fill: #1a1a1a; }
+</style>
+<g fill="none" stroke="#1a1a1a" stroke-width="1.2">
+<line x1="44" y1="16" x2="26" y2="50" />
+<line x1="44" y1="16" x2="62" y2="50" />
+<line x1="26" y1="60" x2="14" y2="94" />
+<line x1="26" y1="60" x2="38" y2="94" />
+<line x1="62" y1="60" x2="50" y2="94" />
+<line x1="62" y1="60" x2="74" y2="94" />
+</g>
+<g fill="#fafaf7" stroke="#1a1a1a" stroke-width="1.2">
+<circle cx="44" cy="12" r="6" />
+<circle cx="26" cy="56" r="6" />
+<circle cx="62" cy="56" r="6" />
+<circle cx="14" cy="100" r="6" />
+<circle cx="38" cy="100" r="6" />
+<circle cx="50" cy="100" r="6" />
+<circle cx="74" cy="100" r="6" />
+</g>
+<text class="hand" x="56" y="16">cn</text>
+<text class="hand" x="78" y="60">cn/2</text>
+<text class="hand" x="86" y="104">cn/4</text>
+</svg>

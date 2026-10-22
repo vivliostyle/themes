@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" role="img" aria-label="皿に盛ったにんじんとツナのラペ">
+<rect width="400" height="320" fill="#f4f2ec" />
+<circle cx="200" cy="160" r="124" fill="#fbfaf6" stroke="#e5e2d8" stroke-width="2" />
+<circle cx="200" cy="160" r="104" fill="#f5f2ea" />
+<ellipse cx="200" cy="232" rx="94" ry="12" fill="#e9e4d5" />
+<rect x="126" y="192" width="88" height="10" rx="5" fill="#e88b39" transform="rotate(-14 170 197)" />
+<rect x="170" y="204" width="84" height="10" rx="5" fill="#f09a4a" transform="rotate(6 212 209)" />
+<rect x="212" y="190" width="80" height="10" rx="5" fill="#e88b39" transform="rotate(18 252 195)" />
+<rect x="112" y="168" width="96" height="10" rx="5" fill="#f5aa60" transform="rotate(-6 160 173)" />
+<rect x="160" y="178" width="92" height="10" rx="5" fill="#f09a4a" transform="rotate(10 206 183)" />
+<rect x="204" y="166" width="88" height="10" rx="5" fill="#f5aa60" transform="rotate(-3 248 171)" />
+<rect x="126" y="148" width="94" height="10" rx="5" fill="#f09a4a" transform="rotate(8 173 153)" />
+<rect x="178" y="152" width="90" height="10" rx="5" fill="#e88b39" transform="rotate(-12 223 157)" />
+<rect x="218" y="142" width="80" height="10" rx="5" fill="#f5aa60" transform="rotate(14 258 147)" />
+<rect x="138" y="128" width="92" height="10" rx="5" fill="#f5aa60" transform="rotate(-8 184 133)" />
+<rect x="184" y="124" width="86" height="10" rx="5" fill="#f09a4a" transform="rotate(7 227 129)" />
+<rect x="150" y="110" width="84" height="10" rx="5" fill="#e88b39" transform="rotate(16 192 115)" />
+<rect x="196" y="104" width="80" height="10" rx="5" fill="#f5aa60" transform="rotate(-6 236 109)" />
+<rect x="108" y="188" width="20" height="11" rx="5" fill="#ece0c2" transform="rotate(-18 118 193)" />
+<rect x="166" y="166" width="22" height="11" rx="5" fill="#f2e8d0" transform="rotate(12 177 171)" />
+<rect x="238" y="176" width="20" height="11" rx="5" fill="#ece0c2" transform="rotate(-9 248 181)" />
+<rect x="200" y="136" width="21" height="11" rx="5" fill="#f2e8d0" transform="rotate(22 210 141)" />
+<rect x="146" y="120" width="19" height="11" rx="5" fill="#ece0c2" transform="rotate(-14 155 125)" />
+<rect x="256" y="152" width="20" height="11" rx="5" fill="#f2e8d0" transform="rotate(8 266 157)" />
+<circle cx="190" cy="188" r="2.4" fill="#4a4a3f" />
+<circle cx="228" cy="128" r="2.2" fill="#4a4a3f" />
+<circle cx="146" cy="160" r="2.2" fill="#4a4a3f" />
+<circle cx="268" cy="188" r="2" fill="#4a4a3f" />
+<circle cx="172" cy="140" r="2" fill="#4a4a3f" />
+</svg>

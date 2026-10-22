@@ -1,0 +1,10 @@
+/*
+ * theme.css だけでこの論文は組める。ここで補うのは、VFM が MathJax で組む数式が
+ * theme.css の想定する MathML の要素構造と食い違う分だけ。
+ */
+
+/* MathJax がディスプレイ数式に付ける 1em の上下マージンは、
+   theme.css の .equation 側の空きと二重になる */
+.equation .MJXc-display {
+  margin-block: 0;
+}

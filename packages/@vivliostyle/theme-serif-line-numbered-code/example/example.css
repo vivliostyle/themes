@@ -1,0 +1,10 @@
+/*
+ * theme.css だけでこの論文は組める。ここで与えるのは、この見本の表と作図に
+ * 合わせた寸法だけ。
+ */
+
+/* 既定の overflow-wrap: anywhere は列幅の狭い表見出しを語中で折ってしまう */
+th,
+td {
+  overflow-wrap: normal;
+}

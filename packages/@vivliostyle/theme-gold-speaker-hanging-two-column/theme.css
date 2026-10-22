@@ -1,0 +1,216 @@
+/*
+ * ポッドキャストの書き起こし (gold-speaker-hanging-two-column)
+ * letter判縦位置・横組2段。発言は段落 (<p>) 1件=1発言、話者名は行頭の
+ * <span class="speaker"> を金茶 (#d4a574) でぶら下げる。
+ * 回タイトルとコーナー見出しは段抜き、大型引用符付きのプルクオート、
+ * タイムコード付きの脚注を版面下部に置く。
+ *
+ * 原稿 (VFM) の書き方:
+ *   1 回 = 1 ファイル。frontmatter に `class: chapter` を書くと「第N回」が自動で付く。
+ *   # 回タイトル
+ *   ## コーナー見出し
+ *   <span class="speaker">話者：</span>発言
+ *   > プルクオート
+ *   <span class="footnote"><span class="tc">[00:03:20]</span>　注</span>  版面下部の脚注
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;700&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/footnote';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  --vs-theme-gold-speaker-hanging-two-column--color-accent: #d4a574;
+  --vs-theme-gold-speaker-hanging-two-column--color-rule: #c9c9c9;
+  --vs-theme-gold-speaker-hanging-two-column--font-numeric:
+    'Inter', 'Noto Sans JP', sans-serif;
+  --vs-theme-gold-speaker-hanging-two-column--quote-font-family:
+    Georgia, 'Noto Sans JP', serif;
+  /* 話者ラベルのぶら下げ幅 */
+  --vs-theme-gold-speaker-hanging-two-column--speaker-size-inline: 11mm;
+
+  --vs-page--size: letter;
+  /* ノド側を 2mm 広く取る */
+  --vs-page--margin-top: 19mm;
+  --vs-page--margin-bottom: 19mm;
+  --vs-page--margin-outside: 17mm;
+  --vs-page--margin-inside: 15mm;
+
+  /* 柱は小口グレー、ノンブルは小口下 (右ページは右下、左ページは左下) */
+  --vs-page--mbox-top-left-content: env(pub-title);
+  --vs-page--mbox-bottom-outside-content: counter(page);
+  --vs-page--mbox-top-text-color: #9a9a9a;
+  --vs-page--mbox-top-font-family: 'Noto Sans JP', sans-serif;
+  --vs-page--mbox-top-font-size: 8.5pt;
+  --vs-page--mbox-top-font-weight: 500;
+  --vs-page--mbox-top-letter-spacing: 0.08em;
+  --vs-page--mbox-bottom-text-color: #2b2b2b;
+  --vs-page--mbox-bottom-font-family: var(
+    --vs-theme-gold-speaker-hanging-two-column--font-numeric
+  );
+  --vs-page--mbox-bottom-font-size: 9.5pt;
+  --vs-page--mbox-bottom-font-weight: 500;
+
+  --vs-font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --vs-font-size: 9.9pt;
+  --vs-line-height: 1.73;
+  --vs-color-foreground: #2b2b2b;
+  --vs-color-background: #ffffff;
+
+  --vs--heading-font-family:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+
+  /* エピソード見出し: 黒太字 + 下端の金茶罫。回数はドキュメントカウンタ */
+  --vs--h1-font-size: 14pt;
+  --vs--h1-letter-spacing: 0.02em;
+  --vs--h1-margin-block: 0 7mm;
+  --vs--h1-padding-block: 0 3.2mm;
+  --vs--h1-border-width-block-end: 1pt;
+  --vs--h1-border-style-block-end: solid;
+  --vs--h1-border-color-block-end: var(
+    --vs-theme-gold-speaker-hanging-two-column--color-accent
+  );
+  --vs-section--h1-marker-display: inline;
+  --vs-section--h1-marker-content: '第' counter(vs-counter-chapter) '回';
+  --vs-section--h1-marker-margin-inline-end: 1em;
+
+  /* コーナー見出し: h1 の金茶罫を細く受け直した、段抜きの中見出し */
+  --vs--h2-font-size: 11.5pt;
+  --vs--h2-letter-spacing: 0.02em;
+  --vs--h2-margin-block: 0 6mm;
+  --vs--h2-padding-block: 0 2.4mm;
+  --vs--h2-border-width-block-end: 0.5pt;
+  --vs--h2-border-style-block-end: solid;
+  --vs--h2-border-color-block-end: var(
+    --vs-theme-gold-speaker-hanging-two-column--color-rule
+  );
+
+  /* 段内の小見出し */
+  --vs--h3-font-size: 9.9pt;
+  --vs--h3-margin-block: 0 2.8mm;
+  --vs--h3-letter-spacing: 0.02em;
+  --vs--h3-text-color: var(
+    --vs-theme-gold-speaker-hanging-two-column--color-accent
+  );
+
+  --vs--p-margin-block: 0;
+  --vs--p-text-align: start;
+
+  --vs--blockquote-margin-block: 6.5mm 7.5mm;
+  --vs--blockquote-margin-inline: 0;
+
+  /* 脚注: 金茶の番号 + タイムコード。細罫で本文と切る。
+     脚注は書かれた場所の書式を引き継ぐので、見出し中に置いても本文組みに戻す */
+  --vs-footnote--text-color: var(--vs-color-foreground);
+  --vs-footnote--font-weight: 400;
+  --vs-footnote--call-content: counter(vs-counter-footnote);
+  --vs-footnote--call-text-color: var(
+    --vs-theme-gold-speaker-hanging-two-column--color-accent
+  );
+  --vs-footnote--call-font-family: var(
+    --vs-theme-gold-speaker-hanging-two-column--font-numeric
+  );
+  --vs-footnote--call-font-weight: 500;
+  --vs-footnote--call-font-size: 6pt;
+  --vs-footnote--marker-content: counter(vs-counter-footnote);
+  --vs-footnote--marker-text-color: var(
+    --vs-theme-gold-speaker-hanging-two-column--color-accent
+  );
+  --vs-footnote--marker-font-family: var(
+    --vs-theme-gold-speaker-hanging-two-column--font-numeric
+  );
+  --vs-footnote--marker-font-weight: 700;
+  --vs-footnote--marker-margin-inline: 0 1.8mm;
+  --vs-footnote--font-size: 7pt;
+  --vs-footnote--line-height: 1.5;
+  --vs-footnote--item-margin-block: 0 1.4mm;
+  /* 脚注は書かれた場所のぶら下げ (負の text-indent) を引き継ぐので打ち消す */
+  --vs-footnote--text-indent: 0;
+  --vs-footnote--area-margin-block: 5mm 0;
+  --vs-footnote--area-before-border-color-block-start: var(
+    --vs-theme-gold-speaker-hanging-two-column--color-rule
+  );
+  --vs-footnote--area-before-border-width-block-start: 0.4pt;
+  --vs-footnote--area-before-margin-block: 0 2.6mm;
+}
+
+/* 2段組は本文ラッパ (section.level1) に掛け、回タイトルとコーナー見出しは段抜き */
+body > section.level1 {
+  columns: 2;
+  column-gap: 8mm;
+  column-fill: auto;
+}
+
+body > section.level1 > h1,
+section > h2:first-child {
+  column-span: all;
+}
+
+/* 対話行: 話者ラベルぶら下げの hanging スタイル */
+p:has(> .speaker:first-child) {
+  margin-block: 0 2.7mm;
+  padding-inline-start: var(
+    --vs-theme-gold-speaker-hanging-two-column--speaker-size-inline
+  );
+  text-indent: calc(
+    var(--vs-theme-gold-speaker-hanging-two-column--speaker-size-inline) * -1
+  );
+}
+
+.speaker {
+  display: inline-block;
+  inline-size: var(
+    --vs-theme-gold-speaker-hanging-two-column--speaker-size-inline
+  );
+  text-indent: 0;
+  font-weight: 700;
+  color: var(--vs-theme-gold-speaker-hanging-two-column--color-accent);
+}
+
+/* プルクオート: 大型金茶引用符 + 黒太字。
+   flex はページ分割できないので、引用符はぶら下げの inline-block で置く */
+blockquote {
+  break-inside: avoid;
+}
+
+blockquote p {
+  padding-inline-start: 9mm;
+  text-indent: -9mm;
+  font-size: 13.5pt;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+}
+
+blockquote p:first-child::before {
+  content: '\201C';
+  display: inline-block;
+  inline-size: 9mm;
+  text-indent: 0;
+  color: var(--vs-theme-gold-speaker-hanging-two-column--color-accent);
+  font-family: var(
+    --vs-theme-gold-speaker-hanging-two-column--quote-font-family
+  );
+  font-weight: 700;
+  font-size: 34pt;
+  line-height: 0.75;
+  vertical-align: -0.18em;
+}
+
+/* コーナー見出しの頭に置く金茶の角 (base のセクション番号マーカーを転用する) */
+section > h2:first-child::before {
+  content: '';
+  display: inline-block;
+  inline-size: 2.4mm;
+  block-size: 2.4mm;
+  margin-inline-end: 2.4mm;
+  background-color: var(
+    --vs-theme-gold-speaker-hanging-two-column--color-accent
+  );
+}
+
+/* 脚注のタイムコード */
+.tc {
+  font-family: var(--vs-theme-gold-speaker-hanging-two-column--font-numeric);
+  font-weight: 500;
+}

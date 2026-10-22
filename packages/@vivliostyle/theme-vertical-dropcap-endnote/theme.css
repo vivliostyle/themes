@@ -1,0 +1,173 @@
+/*
+ * 文庫巻末詳細解説版 (vertical-dropcap-endnote)
+ * 文庫の巻末解説ページ。A6判・縦組み1段。Noto Serif JP の端正な明朝体で、
+ * ドロップキャップ風の初字・ルビ・小さな註番号を持つ本文を組み、
+ * 小口側に短い縦組み傍注、本文終端の細い縦罫の先に巻末註をコンパクトに収録する。
+ * アクセント色は用いず、墨色と濃灰、単色の細罫のみで学術的な静けさを保つ。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/endnote';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  --vs-theme-vertical-dropcap-endnote--color-sub: #4a4842;
+
+  /* Type: 縦組み明朝 8pt / 行間 1.7 */
+  --vs-writing-mode: vertical-rl;
+  --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --vs-font-size: 8pt;
+  --vs-line-height: 1.7;
+  --vs-spacing-rlh: 1.7rem;
+  --vs-color-foreground: #1d1c1a;
+  --vs-color-background: #f7f3e8;
+  --vs-letter-spacing: 0.02em;
+
+  /* 罫線は巻末註の細罫のみ */
+  --vs-color-border: #aaa59a;
+
+  --vs-page--size: 105mm 148mm;
+  --vs-page--margin-top: 12mm;
+  --vs-page--margin-bottom: 13mm;
+  --vs-page--margin-left: 11mm;
+  --vs-page--margin-right: 11mm;
+  --vs-page--background-color: #f7f3e8;
+  --vs-page--mbox-font-family: 'Noto Serif JP', serif;
+  --vs-page--mbox-text-color: #4a4842;
+  /* 柱は「書名　　解説の題」。ノンブルは文庫の慣習にならい漢数字。 */
+  --vs-page--mbox-top-left-content: env(pub-title) '　　' string(chapter-title);
+  --vs-page--mbox-bottom-right-content: counter(page, cjk-decimal);
+  --vs-page--mbox-top-font-size: 6pt;
+  --vs-page--mbox-top-letter-spacing: 0.06em;
+  --vs-page--mbox-bottom-font-size: 8pt;
+  --vs-page--mbox-bottom-letter-spacing: 0.12em;
+  --vs-page--mbox-bottom-writing-mode: vertical-rl;
+
+  /* Paragraphs: 一字下げ、両端揃え、段間なし */
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 1em;
+  --vs--p-text-align: justify;
+
+  /* Headings: 装飾を抑えた明朝 Medium */
+  --vs--heading-font-family:
+    'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --vs--heading-font-weight: 500;
+
+  /* 章題: 右上から始める一行見出し。字間をやや広く取る */
+  --vs--h1-font-size: 1.28em;
+  --vs--h1-line-height: 1.4;
+  --vs--h1-letter-spacing: 0.18em;
+  --vs--h1-margin-block: 0;
+  --vs--h1-margin-inline: 2.5mm 0;
+  --vs--h1-string-set: chapter-title content();
+
+  /* ルビは本文の約半分 */
+  --vs--rt-font-size: 0.5em;
+
+  /* 巻末註: 本文終端の細罫の先にコンパクトに収める。罫は hr ではなく section の
+     上罫で引く (hr は見出しより後ろに出るため) */
+  --vs-endnote--section-border-color-block-start: var(
+    --vs-theme-vertical-dropcap-endnote--color-sub
+  );
+  --vs-endnote--section-border-style-block-start: solid;
+  --vs-endnote--section-border-width-block-start: 0.4pt;
+  --vs-endnote--section-font-size: 0.7em;
+  --vs-endnote--section-heading-content: '註';
+  --vs-endnote--section-heading-font-size: 1.15em;
+  --vs-endnote--section-heading-font-weight: 500;
+  --vs-endnote--section-heading-margin-block: 0 1.5mm;
+  --vs-endnote--section-hr-display: none;
+  --vs-endnote--section-letter-spacing: 0.01em;
+  --vs-endnote--section-line-height: 1.45;
+  --vs-endnote--section-margin-block: 2.5mm 0;
+  --vs-endnote--section-ol-list-style-type: none;
+  --vs-endnote--section-padding-block: 2.5mm 0;
+  --vs-endnote--section-text-color: var(
+    --vs-theme-vertical-dropcap-endnote--color-sub
+  );
+  --vs-endnote--item-margin-block: 0 1mm;
+  --vs-endnote--item-text-indent: 0;
+  --vs-endnote--call-font-size: 0.72em;
+  --vs-endnote--call-text-color: var(--vs-theme-vertical-dropcap-endnote--color-sub);
+
+  /*
+   * 註番号・傍注番号は括弧付きの縦中横。text-combine-upright は一つのボックス内の
+   * 連続テキストしか合成しないため、合印は ::before で丸ごと生成して <sup> は隠す。
+   */
+  --vs-endnote--call-content: '(' counter(vs-counter-endnote-call) ')';
+  --vs-endnote--call-sup-display: none;
+  --vs-endnote--call-text-combine-upright: all;
+  --vs-endnote--call-margin-inline: 0.1em;
+  --vs-endnote--marker-content: '(' counter(vs-counter-endnote) ')';
+  --vs-endnote--marker-text-combine-upright: all;
+  --vs-endnote--marker-margin-inline: 0 0.2em;
+  --vs-theme-vertical-dropcap-endnote--sidenote-marker-content: '('
+    counter(vs-counter-sidenote) ')';
+  /* 傍注を天から下げる量。小口寄りの短冊として置く。 */
+  --vs-theme-vertical-dropcap-endnote--sidenote-padding-inline-start: 22mm;
+
+  --vs-document-root-counter-reset: vs-counter-sidenote;
+}
+
+/* 冒頭一字をドロップキャップ風に約2.6倍へ拡大する */
+body > section > p:first-of-type {
+  text-indent: 0;
+}
+
+body > section > p:first-of-type > ruby:first-child {
+  font-size: 2.6em;
+  font-weight: 500;
+  line-height: 1;
+}
+
+body > section > p:first-of-type > ruby:first-child rt {
+  font-size: 0.2em;
+  font-weight: 400;
+}
+
+/* 縦中横 */
+.tcy {
+  text-combine-upright: all;
+}
+
+/* 小口側の短い縦組み傍注 */
+.sidebar {
+  font-size: 0.7em;
+  color: var(--vs-theme-vertical-dropcap-endnote--color-sub);
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+  margin-block: 0;
+  padding-inline-start: var(
+    --vs-theme-vertical-dropcap-endnote--sidenote-padding-inline-start
+  );
+}
+
+.sidebar p {
+  counter-increment: vs-counter-sidenote;
+  text-indent: 0;
+  margin-block: 0 0.8mm;
+}
+
+.sidebar p::before {
+  content: var(--vs-theme-vertical-dropcap-endnote--sidenote-marker-content);
+  text-combine-upright: all;
+  margin-inline-end: 0.15em;
+}
+
+/* 章句の切れ目に置く星印 */
+.divider {
+  margin-block: 1.5mm;
+  text-align: center;
+  text-indent: 0;
+}
+
+/* 解説者の署名は末尾に寄せる */
+.byline {
+  margin-block-start: 2mm;
+}
+
+.byline p {
+  text-align: end;
+  text-indent: 0;
+}

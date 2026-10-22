@@ -1,0 +1,197 @@
+/*
+ * 同窓会名簿 (numbered-heading-ledger-list)
+ * B5判・横書き2段組の卒業年度別会員名簿。Noto Sans JP の柱・番号付き年度見出し・本文に、
+ * IBM Plex Sans のタブラー数字で会員番号と連絡先の数字列を揃える。装飾色を排し、
+ * #1a1a1a の墨・#8a8a8a の細横罫・#ededed の淡色ヘッダー地のみで、
+ * 柱 (章題) + ヘッダー罫、番号付き年度見出し、
+ * № / 氏名 / 職業 / 連絡先 の4列台帳型グリッドを高密度に反復させる。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  --vs-theme-numbered-heading-ledger-list--font-numeric:
+    'IBM Plex Sans', 'Noto Sans JP', sans-serif;
+  --vs-theme-numbered-heading-ledger-list--color-rule: #8a8a8a;
+  --vs-theme-numbered-heading-ledger-list--color-fill: #ededed;
+  --vs-theme-numbered-heading-ledger-list--article-marker-content: '第'
+    counter(vs-counter-article) '条';
+
+  /* Page: B5 portrait */
+  --vs-page--size: B5;
+  --vs-page--margin-top: 14mm;
+  --vs-page--margin-bottom: 14mm;
+  --vs-page--margin-left: 12mm;
+  --vs-page--margin-right: 12mm;
+  --vs-color-background: #ffffff;
+  --vs-color-foreground: #1a1a1a;
+
+  /* 柱が章題なので、章は必ず改ページして始める */
+  --vs-section--h1-break-before: page;
+
+  /* 柱は章題 (h1) を running element として天に流し、その下にヘッダー罫を引く */
+  --vs-page--mbox-top-left-content: element(chapter-title);
+  --vs-page--border-width-top: 1.4pt;
+  --vs-page--border-color-top: #1a1a1a;
+  /* ノンブルは小口下 (右ページは右下、左ページは左下) */
+  --vs-page--mbox-bottom-outside-content: counter(page);
+  --vs-page--mbox-bottom-font-family: 'IBM Plex Sans', sans-serif;
+  --vs-page--mbox-bottom-font-size: 9pt;
+  --vs-page--mbox-text-color: #1a1a1a;
+
+  /* 章題 (柱に流す) */
+  --vs--h1-font-size: 8.5pt;
+  --vs--h1-font-weight: 700;
+  --vs--h1-letter-spacing: 0.02em;
+  --vs--h1-margin-block: 0;
+
+  /* 年度見出しの番号。番号を付けない節は閉じ `#` (`## 見出し ##`) で書く */
+  --vs-section--h1-marker-display: inline;
+  --vs-section--h1-marker-content: '第' counter(vs-counter-sec-h1) '章　';
+  --vs-section--h1-marker-margin-inline-end: 0;
+  --vs-section--h2-marker-display: inline;
+  --vs-section--h2-marker-content: counter(vs-counter-sec-h2);
+  --vs-section--h2-marker-margin-inline-end: 2.4mm;
+  --vs-section--call-content: target-counter(attr(href), vs-counter-sec-h2) '節';
+
+  counter-reset: vs-counter-article;
+
+  /* Type: gothic body, single column at html level (段組は本文コンテナに掛ける) */
+  --vs-font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --vs--heading-font-family:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --vs-font-size: 8.5pt;
+  --vs-line-height: 1.4;
+  --vs-columns: 1;
+
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 0;
+
+  /* 番号付き年度見出し */
+  --vs--h2-font-size: 9.5pt;
+  --vs--h2-line-height: 1.2;
+  --vs--h2-margin-block: 3.2mm 1.4mm;
+
+  /* 台帳型グリッド: 縦罫・外枠は無効。thead の上下だけ 0.7pt の墨罫を残す */
+  --vs--table-border-width: 0;
+  --vs--table-border-width-block-start: 0.7pt;
+  --vs--table-border-width-thead-inner: 0.7pt;
+  --vs--table-break-inside: auto;
+  --vs--table-font-size: 6.5pt;
+  --vs--table-margin-block: 0 3.4mm;
+  --vs--table-margin-inline: 0;
+  --vs--table-cell-padding-block: 0.7mm;
+  --vs--table-cell-padding-inline: 0.9mm;
+  --vs--table-cell-line-height: 1.35;
+  --vs--table-cell-vertical-align: top;
+  --vs--table-cell-white-space: nowrap;
+  --vs--td-text-align: start;
+  --vs--th-background-color: var(
+    --vs-theme-numbered-heading-ledger-list--color-fill
+  );
+}
+
+/* 2段組: 年度小節を左右段へ素直に流し込む。段間に細罫
+   (ショートハンド内の var は解決されないため色は longhand で指定) */
+body > section.level1 {
+  columns: 2;
+  column-gap: 7mm;
+  column-fill: auto;
+  column-rule-width: 0.4pt;
+  column-rule-style: solid;
+  column-rule-color: var(--vs-theme-numbered-heading-ledger-list--color-rule);
+}
+
+/* 章題は紙面には出さず、柱として天に流す */
+body > section.level1 > h1 {
+  position: running(chapter-title);
+}
+
+/* 章題は紙面に出ないので、章冒頭の見出しは上の空きを詰める。2 つ目のセレクタは
+   閉じ `#` で書いた非採番の見出し (section に包まれない) の場合 */
+body > section.level1 > h1 + section.level2 > h2,
+body > section.level1 > h1 + h2 {
+  margin-block-start: 0;
+}
+
+/* 年度見出しの番号を左に大きく置く */
+section > h2:first-child::before {
+  font-family: var(--vs-theme-numbered-heading-ledger-list--font-numeric);
+  font-weight: 600;
+  font-size: 14pt;
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+/* 会則などの条文。番号は原稿に書かずカウンタで振る */
+.article {
+  counter-increment: vs-counter-article;
+}
+
+.article::before {
+  content: var(--vs-theme-numbered-heading-ledger-list--article-marker-content);
+}
+
+a[data-ref='sec'] {
+  --vs--anchor-text-color: inherit;
+  --vs--anchor-text-decoration: none;
+}
+
+/* ---- 台帳型グリッド(4列) ---- */
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* colgroup が無いため列幅は先頭行のセルで決める */
+th:nth-child(1),
+td:nth-child(1) {
+  width: 9%;
+}
+th:nth-child(2),
+td:nth-child(2) {
+  width: 20%;
+}
+th:nth-child(3),
+td:nth-child(3) {
+  width: 17%;
+}
+th:nth-child(4),
+td:nth-child(4) {
+  width: 54%;
+}
+
+/* 行の下罫は最終行も含めて出したいため、最終行を除外する
+   --vs--table-border-width-row ではなく td に直書きする */
+tbody td {
+  border-block-end-width: 0.3pt;
+  border-block-end-color: var(
+    --vs-theme-numbered-heading-ledger-list--color-rule
+  );
+}
+
+/* 会員番号: タブラー数字・中央寄せ */
+th:first-child,
+td:first-child {
+  font-family: var(--vs-theme-numbered-heading-ledger-list--font-numeric);
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+/* 連絡先: 住所と数字列。数字はタブラー、やや小さめで収める */
+td:last-child {
+  font-family: var(--vs-theme-numbered-heading-ledger-list--font-numeric);
+  font-variant-numeric: tabular-nums;
+  font-size: 5.8pt;
+  letter-spacing: -0.01em;
+}
+
+/* 行は分断しない。表は段・ページをまたいで流す (tr/tbody に対応する変数は無い) */
+tr {
+  break-inside: avoid;
+}
+tbody {
+  break-inside: auto;
+}

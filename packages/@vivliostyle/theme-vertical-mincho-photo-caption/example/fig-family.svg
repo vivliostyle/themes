@@ -1,0 +1,58 @@
+<svg viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="縁側の前に並ぶ四人家族、昭和期のモノクロ写真">
+  <rect x="0" y="0" width="380" height="300" fill="#d5d1ca" />
+  <rect x="0" y="0" width="380" height="150" fill="#c9c4bc" />
+
+  <rect x="0" y="0" width="380" height="26" fill="#7d776e" />
+  <rect x="0" y="24" width="380" height="10" fill="#8f8a81" />
+  <rect x="0" y="32" width="380" height="112" fill="#b6b1a8" />
+
+  <rect x="22" y="44" width="82" height="86" fill="#e6e2da" />
+  <rect x="22" y="44" width="82" height="86" fill="none" stroke="#6a655c" stroke-width="3" />
+  <path d="M63 44 L63 130 M22 87 L104 87" stroke="#6a655c" stroke-width="2.4" />
+  <rect x="118" y="44" width="82" height="86" fill="#e6e2da" />
+  <rect x="118" y="44" width="82" height="86" fill="none" stroke="#6a655c" stroke-width="3" />
+  <path d="M159 44 L159 130 M118 87 L200 87" stroke="#6a655c" stroke-width="2.4" />
+  <rect x="214" y="44" width="82" height="86" fill="#e6e2da" />
+  <rect x="214" y="44" width="82" height="86" fill="none" stroke="#6a655c" stroke-width="3" />
+  <path d="M255 44 L255 130 M214 87 L296 87" stroke="#6a655c" stroke-width="2.4" />
+  <rect x="310" y="44" width="58" height="86" fill="#a09a91" />
+
+  <rect x="0" y="144" width="380" height="18" fill="#a8a39a" />
+  <rect x="0" y="160" width="380" height="10" fill="#928d84" />
+  <rect x="0" y="168" width="380" height="132" fill="#c2bdb4" />
+  <rect x="0" y="246" width="380" height="54" fill="#b5b0a7" />
+
+  <circle cx="86" cy="152" r="16" fill="#39352f" />
+  <path d="M62 176 L110 176 L116 246 L56 246 Z" fill="#565149" />
+  <rect x="60" y="246" width="22" height="34" fill="#3f3b34" />
+  <rect x="90" y="246" width="22" height="34" fill="#3f3b34" />
+  <path d="M62 180 L48 226" stroke="#565149" stroke-width="11" />
+  <path d="M110 180 L124 226" stroke="#565149" stroke-width="11" />
+  <rect x="76" y="176" width="20" height="34" fill="#6d675e" />
+
+  <circle cx="176" cy="158" r="15" fill="#3a362f" />
+  <path d="M154 180 L198 180 L204 250 L148 250 Z" fill="#6b665d" />
+  <rect x="150" y="250" width="52" height="30" fill="#4d4941" />
+  <path d="M154 184 L142 228" stroke="#6b665d" stroke-width="10" />
+  <path d="M198 184 L210 228" stroke="#6b665d" stroke-width="10" />
+  <rect x="168" y="180" width="16" height="30" fill="#514c44" />
+
+  <circle cx="246" cy="196" r="12" fill="#39352f" />
+  <path d="M230 212 L262 212 L266 258 L226 258 Z" fill="#4b473f" />
+  <rect x="230" y="258" width="14" height="24" fill="#39352f" />
+  <rect x="250" y="258" width="14" height="24" fill="#39352f" />
+  <path d="M230 216 L218 244" stroke="#4b473f" stroke-width="8" />
+  <path d="M262 216 L274 244" stroke="#4b473f" stroke-width="8" />
+
+  <circle cx="308" cy="204" r="11" fill="#39352f" />
+  <path d="M294 219 L322 219 L326 260 L290 260 Z" fill="#5e594f" />
+  <rect x="294" y="260" width="12" height="22" fill="#39352f" />
+  <rect x="312" y="260" width="12" height="22" fill="#39352f" />
+  <path d="M294 222 L282 246" stroke="#5e594f" stroke-width="7" />
+  <path d="M322 222 L334 246" stroke="#5e594f" stroke-width="7" />
+
+  <ellipse cx="86" cy="284" rx="40" ry="6" fill="#a5a097" />
+  <ellipse cx="176" cy="284" rx="40" ry="6" fill="#a5a097" />
+  <ellipse cx="246" cy="286" rx="30" ry="5" fill="#a5a097" />
+  <ellipse cx="308" cy="286" rx="28" ry="5" fill="#a5a097" />
+</svg>

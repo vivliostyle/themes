@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 210" role="img" aria-label="図1: 要約の圧縮率に対する再構成誤差の推移。提案要約器が一様量子化を一貫して下回る折れ線グラフ。">
+<style>
+text { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+</style>
+<line x1="42" y1="14" x2="42" y2="170" stroke="#8c8c8c" stroke-width="0.8" />
+<line x1="42" y1="170" x2="286" y2="170" stroke="#8c8c8c" stroke-width="0.8" />
+<g stroke="#d8d8d3" stroke-width="0.5">
+<line x1="42" y1="138.8" x2="286" y2="138.8" />
+<line x1="42" y1="107.6" x2="286" y2="107.6" />
+<line x1="42" y1="76.4" x2="286" y2="76.4" />
+<line x1="42" y1="45.2" x2="286" y2="45.2" />
+</g>
+<g fill="#4a4a4a" font-size="9" text-anchor="end">
+<text x="37" y="173">0.00</text>
+<text x="37" y="141.8">0.02</text>
+<text x="37" y="110.6">0.04</text>
+<text x="37" y="79.4">0.06</text>
+<text x="37" y="48.2">0.08</text>
+<text x="37" y="17">0.10</text>
+</g>
+<g fill="#4a4a4a" font-size="9" text-anchor="middle">
+<text x="42" y="182">1/64</text>
+<text x="103" y="182">1/32</text>
+<text x="164" y="182">1/16</text>
+<text x="225" y="182">1/8</text>
+<text x="286" y="182">1/4</text>
+</g>
+<polyline points="42,67 103,92 164,107.6 225,118.5 286,124.8" fill="none" stroke="#161616" stroke-width="1.6" />
+<polyline points="42,31.2 103,59.2 164,79.5 225,93.6 286,102.9" fill="none" stroke="#8c8c8c" stroke-width="1.4" stroke-dasharray="4 3" />
+<g fill="#161616">
+<circle cx="42" cy="67" r="2.4" />
+<circle cx="103" cy="92" r="2.4" />
+<circle cx="164" cy="107.6" r="2.4" />
+<circle cx="225" cy="118.5" r="2.4" />
+<circle cx="286" cy="124.8" r="2.4" />
+</g>
+<g fill="#8c8c8c">
+<rect x="39.7" y="28.9" width="4.6" height="4.6" />
+<rect x="100.7" y="56.9" width="4.6" height="4.6" />
+<rect x="161.7" y="77.2" width="4.6" height="4.6" />
+<rect x="222.7" y="91.3" width="4.6" height="4.6" />
+<rect x="283.7" y="100.6" width="4.6" height="4.6" />
+</g>
+<g font-size="9" fill="#161616">
+<rect x="150" y="130" width="128" height="34" fill="#fafaf7" stroke="#8c8c8c" stroke-width="0.5" />
+<line x1="158" y1="141" x2="182" y2="141" stroke="#161616" stroke-width="1.6" />
+<circle cx="170" cy="141" r="2.4" fill="#161616" />
+<text x="188" y="144">提案要約器</text>
+<line x1="158" y1="155" x2="182" y2="155" stroke="#8c8c8c" stroke-width="1.4" stroke-dasharray="4 3" />
+<rect x="167.7" y="152.7" width="4.6" height="4.6" fill="#8c8c8c" />
+<text x="188" y="158">一様量子化</text>
+</g>
+<text x="14" y="92" transform="rotate(-90 14 92)" text-anchor="middle" font-size="9.5" fill="#4a4a4a">再構成誤差ε</text>
+<text x="164" y="200" text-anchor="middle" font-size="9.5" fill="#4a4a4a">要約の圧縮率ρ</text>
+</svg>

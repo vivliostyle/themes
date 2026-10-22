@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 150" role="img" aria-label="葉脚の模式図。くさび形・円形・心形の三通りのつけ根を葉身の下半分で示す。">
+<style>
+.leaf-blade { fill: #557a55; fill-opacity: 0.46; stroke: #2c352c; stroke-width: 1.3; stroke-linejoin: round; }
+.leaf-vein { fill: none; stroke: #2c352c; stroke-width: 0.7; opacity: 0.65; }
+.leaf-stem { fill: none; stroke: #6f6142; stroke-width: 2.2; stroke-linecap: round; }
+.fig-acc { fill: #557a55; fill-opacity: 0.4; stroke: #2c352c; stroke-width: 1; stroke-linejoin: round; }
+.fig-berry { fill: #a9483d; fill-opacity: 0.85; stroke: #6f2a24; stroke-width: 0.7; }
+.fig-flower { fill: #ddb9be; fill-opacity: 0.8; stroke: #b98b35; stroke-width: 0.7; }
+.fig-scale { stroke: #252a26; stroke-width: 1; }
+.fig-scale-t { fill: #252a26; font: 500 7px "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; letter-spacing: 0.03em; }
+.fig-lbl { fill: #3a463a; font: 6.5px "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+.fig-lead { fill: none; stroke: #9aa89a; stroke-width: 0.5; }
+</style>
+<path class="leaf-stem" d="M28,102 L28,122" />
+<path class="leaf-blade" d="M14,38 C14,62 18,86 28,102 C38,86 42,62 42,38 Z" />
+<path class="leaf-vein" d="M28,40 L28,100" />
+<text class="fig-lbl" x="28" y="136" text-anchor="middle">くさび形</text>
+<path class="leaf-stem" d="M80,98 L80,122" />
+<path class="leaf-blade" d="M66,38 C66,64 70,94 80,98 C90,94 94,64 94,38 Z" />
+<path class="leaf-vein" d="M80,40 L80,96" />
+<text class="fig-lbl" x="80" y="136" text-anchor="middle">円形</text>
+<path class="leaf-stem" d="M132,88 L132,122" />
+<path class="leaf-blade" d="M118,38 C118,66 121,90 126,100 L132,88 L138,100 C143,90 146,66 146,38 Z" />
+<path class="leaf-vein" d="M132,40 L132,86" />
+<text class="fig-lbl" x="132" y="136" text-anchor="middle">心形</text>
+</svg>

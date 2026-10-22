@@ -1,0 +1,240 @@
+/*
+ * ボタン電池データシート (dense-ruled-table-drawing)
+ * A6 縦・完全モノクロ・1段組のポケットサイズ仕様書。Inter の見出し/本文、
+ * IBM Plex Mono の数値・型番・寸法。外形寸法図・電気特性の罫線表
+ * (ヘッダ 10% グレー)・放電特性の semilog グラフを高密度に積み、
+ * 脚部の @page margin box に社名・ノンブル・管理番号を置く。社名と管理番号は
+ * 原稿の .headline / .docref から取る。節番号・図番号は base のカウンタが振る。
+ * 高密度紙面のため、縦の間隔は rlh でなく mm でチューニングしている。
+ */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;600&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  /* Page: A6 portrait, narrow margins; the foot band carries the colophon */
+  --vs-page--size: A6;
+  --vs-page--margin-top: 6mm;
+  /* 罫の太さぶん版面が縮んで表が溢れるので、地の余白から差し引く */
+  --vs-page--margin-bottom: calc(7mm - 0.8pt);
+  --vs-page--margin-left: 5mm;
+  --vs-page--margin-right: 5mm;
+  --vs-page--border-width-bottom: 0.8pt;
+  --vs-page--border-color-bottom: #111111;
+  --vs-page--mbox-bottom-padding-top: 1mm;
+  --vs-page--mbox-font-family: 'Inter', sans-serif;
+  --vs-page--mbox-font-size: 6.4pt;
+  --vs-page--mbox-text-color: #111111;
+  --vs-page--mbox-bottom-left-content: string(brand);
+  --vs-page--mbox-bottom-center-content: counter(page) ' / ' counter(pages);
+  --vs-page--mbox-bottom-right-content: string(docref);
+
+  /* Type: dense 7pt Inter body, monospaced data */
+  --vs-font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --vs-font-size: 7pt;
+  --vs-line-height: 1.24;
+  --vs-color-foreground: #111111;
+  --vs--monospace-font-family: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --vs--p-margin-block: 0;
+  --vs--p-text-align: start;
+
+  --vs--heading-font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --vs--heading-text-align: start;
+  --vs--heading-margin-block: 1.3mm 0.5mm;
+  --vs--h2-font-size: 9pt;
+  --vs--h2-font-weight: 700;
+  --vs--h2-line-height: 1.12;
+
+  /* 節番号と、本文からの節参照 */
+  --vs-section--marker-display: inline;
+  --vs-section--marker-margin-inline-end: 1ch;
+  --vs-section--call-content: 'section '
+    target-counters(
+      attr(href),
+      vs-counter-sections,
+      var(--vs-section--counter-delimiter),
+      var(--vs-section--counter-style)
+    );
+
+  /* Drawings are packed tight between the sections */
+  --vs--figure-display: block;
+  --vs--figure-margin-block: 0.3mm;
+  --vs--figure-item-size-inline: 100%;
+  --vs--figure-text-align: center;
+  --vs--figcaption-font-size: 6pt;
+  --vs--figcaption-line-height: 1.24;
+  --vs--figcaption-margin-block: 0.4mm 0;
+  --vs--figcaption-text-align: center;
+  --vs--figcaption-text-color: var(--vs-color-foreground);
+
+  /* 図版の版面幅: 線図は寸法線が読める大きさで足り、グラフは軸目盛のぶん広くとる */
+  --vs-theme-dense-ruled-table-drawing--fig-drawing-size-inline: 72mm;
+  --vs-theme-dense-ruled-table-drawing--fig-chart-size-inline: 95mm;
+
+  /* Tables: full thin grid, shaded head, tabular values.
+     行数の読めない仕様表がページ末で大きな空きを作らないよう分割を許す */
+  --vs--table-size-inline: 100%;
+  --vs--table-table-layout: auto;
+  --vs--table-break-inside: auto;
+  --vs--table-border-color: #111111;
+  --vs--table-border-width: 0.6pt;
+  --vs--table-font-size: 6.5pt;
+  --vs--table-margin-block: 0.3mm 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-cell-padding-block: 0.65mm;
+  --vs--table-cell-padding-inline: 2mm;
+  --vs--table-cell-vertical-align: middle;
+  --vs--table-cell-line-height: 1.2;
+  --vs--th-font-weight: 600;
+  --vs--th-text-align: center;
+  --vs--th-background-color: var(
+    --vs-theme-dense-ruled-table-drawing--color-table-head-fill
+  );
+  --vs--td-text-align: start;
+
+  /* Safety warning list */
+  --vs--lists-margin-block: 0;
+  --vs--ul-list-style-type: square;
+  --vs--ul-padding-inline-start: 3.4mm;
+
+  --vs-theme-dense-ruled-table-drawing--color-rule: #111111;
+  --vs-theme-dense-ruled-table-drawing--color-table-head-fill: #e6e6e6;
+}
+
+/* 図番号は接頭辞だけの短い形にする。base は :root:lang(ja) 側にも既定値を持つ */
+:root,
+:root:lang(ja) {
+  --vs-figure--marker-content: 'Fig. '
+    counter(vs-counter-fig, var(--vs-counter-style)) '\00a0\00a0';
+  --vs-figure--call-content: 'Fig. '
+    target-counter(attr(href), vs-counter-fig, var(--vs-counter-style));
+}
+
+/* Masthead: wordmark left, product designation right, over a rule */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom-width: 0.9pt;
+  border-bottom-color: var(--vs-theme-dense-ruled-table-drawing--color-rule);
+  padding-bottom: 1mm;
+  margin-bottom: 1.4mm;
+}
+
+header .headline {
+  font-size: 10.5pt;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+header .meta {
+  font-size: 7.8pt;
+  font-weight: 600;
+}
+
+/* 脚の社名と管理番号の供給元。管理番号は版面には出さない */
+.headline {
+  string-set: brand content();
+}
+
+.docref {
+  string-set: docref content();
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+body > section.level2:first-of-type > h2 {
+  margin-top: 0.4mm;
+}
+
+/* Technical line drawings and the graphs.
+   Type inside the drawings is styled in the SVG files themselves — an
+   external SVG is loaded as an image and sees none of this stylesheet. */
+figure.fig img {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  max-inline-size: 100%;
+}
+
+figure.drawing img {
+  max-inline-size: var(
+    --vs-theme-dense-ruled-table-drawing--fig-drawing-size-inline
+  );
+}
+
+figure.chart img {
+  max-inline-size: var(--vs-theme-dense-ruled-table-drawing--fig-chart-size-inline);
+}
+
+/* 参照は本文と同じ字面で組む */
+a:is([data-ref='fig'], [data-ref='sec']) {
+  color: inherit;
+}
+
+/* 節の地の文は表・図に添える注記として本文より一段落とす */
+section.level2 > p {
+  margin: 0.6mm 0 0;
+  font-size: 6.2pt;
+  line-height: 1.26;
+}
+
+tbody td {
+  font-family: var(--vs--monospace-font-family);
+}
+
+/* 記入欄は折り返さず table-layout: auto に実幅を計らせる。文章の入る欄は
+   原稿が桁揃え指定 (:---) で示し、そこだけ折り返して余りを引き受ける */
+th,
+td {
+  white-space: nowrap;
+}
+
+td[align='left'] {
+  white-space: normal;
+  font-family: var(--vs-font-family);
+}
+
+/* 長い表がページをまたぐときは見出し行を割らない */
+thead {
+  break-after: avoid;
+}
+
+tr {
+  break-inside: avoid;
+}
+
+/* English safety statement at the foot of the sheet */
+.warning {
+  margin: 1.4mm 0 0;
+  font-size: 6pt;
+  line-height: 1.24;
+}
+
+.warning p {
+  margin: 0 0 0.4mm;
+}
+
+.warning strong {
+  font-weight: 600;
+}
+
+.warning li {
+  line-height: 1.26;
+}

@@ -1,0 +1,60 @@
+{
+  "name": "@vivliostyle/theme-vertical-line-drawing-spec-table",
+  "version": "0.0.0",
+  "description": "新書判・縦組・墨一色のポケット野鳥図鑑テーマ。線画+識別スペック表の上半分と、観察メモ傍注+番号付き節の下半分を1ページに密に組む",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-vertical-line-drawing-spec-table"
+  },
+  "files": [
+    "*.css",
+    "example",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Vertical Line Drawing Spec Table",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "misc",
+      "topics": [
+        "encyclopedia-fieldguide",
+        "birds",
+        "pocket-size",
+        "single-column",
+        "monochrome",
+        "field-guide",
+        "practical"
+      ]
+    }
+  }
+}

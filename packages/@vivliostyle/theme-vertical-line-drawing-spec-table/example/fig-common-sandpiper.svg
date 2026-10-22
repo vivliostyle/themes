@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 126" role="img" aria-label="河原の砂礫の上を歩く横向きのイソシギの線画">
+<style>
+.ink { fill: none; stroke: #1c1c1c; stroke-linecap: round; }
+.hatch { fill: none; stroke: #5a5a5a; stroke-linecap: round; stroke-width: 1; }
+.light { fill: none; stroke: #f6f4ee; stroke-linecap: round; stroke-width: 1.1; }
+</style>
+
+<path class="ink" d="M8,118 C22,108 44,104 68,106 C96,108 122,104 148,110 C168,114 184,118 194,122" stroke-width="2.4"/>
+<path class="ink" d="M40,116 C46,110 58,108 66,112" stroke-width="1.8"/>
+<path class="ink" d="M104,112 C112,106 126,106 134,112" stroke-width="1.8"/>
+<path class="hatch" d="M18,116 L30,112 M76,110 L88,108 M150,114 L164,116 M172,120 L188,122"/>
+
+<path class="ink" d="M96,88 L94,106 M110,87 L112,106" stroke-width="2"/>
+<path class="ink" d="M92,106 L88,109 M95,106 L96,110 M110,106 L106,109 M113,106 L114,110" stroke-width="1.5"/>
+
+<path d="M22,50 L56,43
+         C62,26 84,26 92,41
+         C110,49 132,57 146,65
+         L174,67 L176,78 L142,79
+         C128,93 96,95 84,83
+         C76,73 74,57 78,45
+         L58,49 L22,53 Z"
+      fill="#1c1c1c" stroke="#1c1c1c" stroke-width="1" stroke-linejoin="round"/>
+
+<path d="M80,60 C82,72 88,82 98,88 C86,95 79,85 78,70 Z" fill="#f6f4ee"/>
+<path d="M88,68 C95,62 103,58 112,56 C103,68 94,73 88,75 Z" fill="#f6f4ee"/>
+<path class="light" d="M62,35 L84,34" stroke-width="1.6"/>
+<circle cx="70" cy="39" r="3" fill="#f6f4ee"/>
+<circle cx="71" cy="39" r="1.5" fill="#1c1c1c"/>
+
+<path class="hatch" d="M96,50 C118,58 138,66 150,74" stroke-width="1"/>
+<path class="hatch" d="M100,60 L120,66 M104,70 L124,74 M110,78 L130,80"/>
+<path class="hatch" d="M146,68 L172,72 M144,76 L170,78" stroke-width="0.9"/>
+</svg>

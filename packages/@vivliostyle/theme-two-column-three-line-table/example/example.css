@@ -1,0 +1,17 @@
+/*
+ * この誌面見本に固有の値 (誌名・巻号) と、VFM の MathJax レンダラ向けの微調整。
+ */
+
+/* 天の柱の左に出す誌名・巻号 */
+:root {
+  --vs-theme-two-column-three-line-table--running-publication: 'Transactions of the Meridian Society for Computational Inference, Vol. 12, No. 3, 2026';
+}
+
+/* MathJax は x ハイトを合わせるため既定で 116.7% を掛ける。theme.css は数式を本文と
+   ほぼ同じ大きさで組む設計で、段幅もそれを前提にしているので掛け戻す */
+.math.inline {
+  font-size: 0.9em;
+}
+.math.display {
+  font-size: 0.92em;
+}

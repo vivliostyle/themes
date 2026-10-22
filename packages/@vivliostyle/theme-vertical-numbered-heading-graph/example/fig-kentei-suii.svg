@@ -1,0 +1,47 @@
+<svg viewBox="0 0 510 367" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="度量衡器検定数の推移を示す折れ線グラフ">
+<style>
+text {
+  font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 400;
+}
+</style>
+<rect x="3" y="3" width="504" height="361" fill="none" stroke="#1a1a1a" stroke-width="1.6" />
+<text x="30" y="44" font-size="15" fill="#1a1a1a">（千個）</text>
+<line x1="100" y1="56" x2="100" y2="300" stroke="#1a1a1a" stroke-width="1.4" />
+<line x1="100" y1="300" x2="490" y2="300" stroke="#1a1a1a" stroke-width="1.4" />
+<line x1="94" y1="300" x2="100" y2="300" stroke="#1a1a1a" stroke-width="1.2" />
+<line x1="94" y1="253.2" x2="100" y2="253.2" stroke="#1a1a1a" stroke-width="1.2" />
+<line x1="94" y1="206.4" x2="100" y2="206.4" stroke="#1a1a1a" stroke-width="1.2" />
+<line x1="94" y1="159.6" x2="100" y2="159.6" stroke="#1a1a1a" stroke-width="1.2" />
+<line x1="94" y1="112.8" x2="100" y2="112.8" stroke="#1a1a1a" stroke-width="1.2" />
+<line x1="94" y1="66" x2="100" y2="66" stroke="#1a1a1a" stroke-width="1.2" />
+<text x="88" y="305" font-size="15" fill="#1a1a1a" text-anchor="end">0</text>
+<text x="88" y="258.2" font-size="15" fill="#1a1a1a" text-anchor="end">40</text>
+<text x="88" y="211.4" font-size="15" fill="#1a1a1a" text-anchor="end">80</text>
+<text x="88" y="164.6" font-size="15" fill="#1a1a1a" text-anchor="end">120</text>
+<text x="88" y="117.8" font-size="15" fill="#1a1a1a" text-anchor="end">160</text>
+<text x="88" y="71" font-size="15" fill="#1a1a1a" text-anchor="end">200</text>
+<line x1="126" y1="285.96" x2="126" y2="300" stroke="#1a1a1a" stroke-width="1" />
+<line x1="184" y1="268.41" x2="184" y2="300" stroke="#1a1a1a" stroke-width="1" />
+<line x1="242" y1="246.18" x2="242" y2="300" stroke="#1a1a1a" stroke-width="1" />
+<line x1="300" y1="215.76" x2="300" y2="300" stroke="#1a1a1a" stroke-width="1" />
+<line x1="358" y1="177.15" x2="358" y2="300" stroke="#1a1a1a" stroke-width="1" />
+<line x1="416" y1="138.54" x2="416" y2="300" stroke="#1a1a1a" stroke-width="1" />
+<line x1="474" y1="66" x2="474" y2="300" stroke="#1a1a1a" stroke-width="1" />
+<polyline points="126,285.96 184,268.41 242,246.18 300,215.76 358,177.15 416,138.54 474,66" fill="none" stroke="#1a1a1a" stroke-width="1.8" />
+<circle cx="126" cy="285.96" r="5" fill="#f7f5f0" stroke="#1a1a1a" stroke-width="1.5" />
+<circle cx="184" cy="268.41" r="5" fill="#f7f5f0" stroke="#1a1a1a" stroke-width="1.5" />
+<circle cx="242" cy="246.18" r="5" fill="#f7f5f0" stroke="#1a1a1a" stroke-width="1.5" />
+<circle cx="300" cy="215.76" r="5" fill="#f7f5f0" stroke="#1a1a1a" stroke-width="1.5" />
+<circle cx="358" cy="177.15" r="5" fill="#f7f5f0" stroke="#1a1a1a" stroke-width="1.5" />
+<circle cx="416" cy="138.54" r="5" fill="#f7f5f0" stroke="#1a1a1a" stroke-width="1.5" />
+<circle cx="474" cy="66" r="5" fill="#f7f5f0" stroke="#1a1a1a" stroke-width="1.5" />
+<text x="126" y="322" font-size="14" fill="#1a1a1a" text-anchor="middle">1891</text>
+<text x="184" y="322" font-size="14" fill="#1a1a1a" text-anchor="middle">1896</text>
+<text x="242" y="322" font-size="14" fill="#1a1a1a" text-anchor="middle">1901</text>
+<text x="300" y="322" font-size="14" fill="#1a1a1a" text-anchor="middle">1906</text>
+<text x="358" y="322" font-size="14" fill="#1a1a1a" text-anchor="middle">1911</text>
+<text x="416" y="322" font-size="14" fill="#1a1a1a" text-anchor="middle">1916</text>
+<text x="474" y="322" font-size="14" fill="#1a1a1a" text-anchor="middle">1921</text>
+<text x="474" y="345" font-size="13" fill="#1a1a1a" text-anchor="middle">（年）</text>
+</svg>

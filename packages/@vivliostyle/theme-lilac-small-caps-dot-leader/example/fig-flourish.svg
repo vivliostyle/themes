@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="22" viewBox="0 0 400 22" fill="none" stroke="#b98cc0" role="img" aria-label="唐草模様の飾り罫">
+  <path d="M12 11 H150" stroke-width="0.8" />
+  <path d="M388 11 H250" stroke-width="0.8" />
+  <path d="M150 11 Q166 11 172 6 Q179 1 186 6 Q192 11 200 11" stroke-width="0.9" />
+  <path d="M250 11 Q234 11 228 6 Q221 1 214 6 Q208 11 200 11" stroke-width="0.9" />
+  <path d="M172 6 Q175 12 182 13 Q190 14 194 9" stroke-width="0.7" />
+  <path d="M228 6 Q225 12 218 13 Q210 14 206 9" stroke-width="0.7" />
+  <circle cx="200" cy="11" r="2.2" fill="#d4a8d8" stroke="#b98cc0" stroke-width="0.6" />
+  <path d="M12 11 L7 8.4 L4 11 L7 13.6 Z" fill="#b98cc0" stroke="none" />
+  <path d="M388 11 L393 8.4 L396 11 L393 13.6 Z" fill="#b98cc0" stroke="none" />
+</svg>

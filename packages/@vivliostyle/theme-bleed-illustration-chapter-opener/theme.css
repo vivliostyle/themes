@@ -1,0 +1,226 @@
+/*
+ * 児童冒険小説・画像重視版 (bleed-illustration-chapter-opener)
+ * 章扉を兼ねた本文ページ。A4縦。天・左右へ裁ち落とした木炭調モノクロームの物語挿絵を
+ * 上部に敷き、その霧の余白へ League Spartan の特大章題を重ねる。下半分は Atkinson
+ * Hyperlegible を 11pt / 行送り 1.75 でゆったり組んだ2段組の読み物とし、章頭を
+ * ドロップキャップ、本文中に小さな輪郭画の挿絵を差し込む。色は温かな紙色と数段階の
+ * グレーのみで彩色アクセントは持たない。
+ *
+ * 原稿は `# 章題` 1つで1章。章番号は base のセクションカウンタから生成するので、
+ * 見出しに番号を書かない。挿絵は章題の直後の <header class="bleed"> に置く。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=League+Spartan:wght@600;700;800&family=Noto+Sans:ital,wght@0,400;0,500;1,400&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+/* 児童書の慣例で章番号は英単語で綴る。範囲を超えたら算用数字に落ちる */
+@counter-style vs-theme-chapter-word {
+  system: fixed;
+  symbols: 'One' 'Two' 'Three' 'Four' 'Five' 'Six' 'Seven' 'Eight' 'Nine' 'Ten'
+    'Eleven' 'Twelve' 'Thirteen' 'Fourteen' 'Fifteen' 'Sixteen' 'Seventeen'
+    'Eighteen' 'Nineteen' 'Twenty';
+  fallback: decimal;
+}
+
+:root {
+  --vs-theme-bleed-illustration-chapter-opener--font-display:
+    'League Spartan', 'Arial Narrow', sans-serif;
+  --vs-theme-bleed-illustration-chapter-opener--font-meta:
+    'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+  --vs-theme-bleed-illustration-chapter-opener--color-ink-strong: #17191b;
+  --vs-color-foreground-alt: #6f7374;
+  --vs-theme-bleed-illustration-chapter-opener--color-rule: #a9a69f;
+
+  /* 章扉の帯と、そこへ重ねる章題の位置 */
+  --vs-theme-bleed-illustration-chapter-opener--chapter-band-height: 135mm;
+  --vs-theme-bleed-illustration-chapter-opener--chapter-title-inset-block-start: calc(
+    var(--vs-theme-bleed-illustration-chapter-opener--chapter-band-height) *
+      0.4 - var(--vs-theme-bleed-illustration-chapter-opener--page-margin-top)
+  );
+  --vs-theme-bleed-illustration-chapter-opener--chapter-title-inset-inline-start: 28%;
+  --vs-theme-bleed-illustration-chapter-opener--chapter-columns: 2;
+  --vs-theme-bleed-illustration-chapter-opener--chapter-column-gap: 8mm;
+
+  --vs-page--size: A4;
+  --vs-page--margin-top: 16mm;
+  --vs-page--margin-bottom: 15mm;
+  --vs-page--margin-left: 19mm;
+  --vs-page--margin-right: 19mm;
+  --vs-page--background-color: #f6f1e7;
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-font-family: 'Noto Sans', sans-serif;
+  --vs-page--mbox-font-size: 9pt;
+  --vs-page--mbox-font-weight: 500;
+  --vs-page--mbox-letter-spacing: 0.1em;
+  --vs-page--mbox-text-color: #6f7374;
+
+  /* Type: 児童向けに大きめ・広い行間の sans */
+  --vs-font-family:
+    'Atkinson Hyperlegible', 'Helvetica Neue', Arial, sans-serif;
+  --vs-font-size: 11pt;
+  --vs-line-height: 1.75;
+  --vs-color-foreground: #242629;
+  --vs-color-background: #f6f1e7;
+
+  /* Paragraphs: 一字下げ・段間なし・左揃え(ラグドライト) */
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 1.2em;
+  --vs--p-text-align: start;
+  --vs--p-hyphens: manual; /* 児童書なので分綴しない */
+
+  --vs--figure-margin-block: 1.5mm 3mm;
+
+  --vs--figcaption-font-size: 8.5pt;
+  --vs--figcaption-margin-block: 0.4rem 0;
+  --vs--figcaption-text-align: center;
+
+  /* Headings: 章題は特大の League Spartan */
+  --vs--heading-font-family: 'League Spartan', 'Arial Narrow', sans-serif;
+  --vs--heading-font-weight: 800;
+  --vs--heading-text-align: start;
+  --vs--h1-font-size: 3.5em;
+  --vs--h1-letter-spacing: 0.005em;
+  --vs--h1-line-height: 0.92;
+  --vs--h1-margin-block: 0;
+  --vs--h1-margin-inline: 0;
+  --vs--h1-text-transform: uppercase;
+
+  /* 章番号は章題の上に小さく置く */
+  --vs-section--counter-style: vs-theme-chapter-word;
+  --vs-section--h1-marker-display: block;
+  --vs-section--h1-marker-content: 'Chapter '
+    counter(vs-counter-sec-h1, var(--vs-section--counter-style));
+  --vs-section--h1-marker-margin-inline-end: 0;
+  --vs-section--h1-break-before: page;
+}
+
+/* 章ごとに2段組。章題と裁ち落とし帯だけが段抜きになる */
+section:has(> h1:first-child) {
+  columns: var(--vs-theme-bleed-illustration-chapter-opener--chapter-columns);
+  column-gap: var(
+    --vs-theme-bleed-illustration-chapter-opener--chapter-column-gap
+  );
+}
+
+/* ------- 章扉ヘッダー: 天・左右へ裁ち落とした挿絵 + 重ねた特大章題 ------- */
+
+/*
+ * 章題は帯より前に流れるので、自身は高さを持たずに後続の帯へ重ねる。
+ * こうすると章題が何行になっても帯の位置が動かない。
+ */
+section > h1:first-child {
+  position: relative;
+  z-index: 1;
+  height: 0;
+  overflow: visible;
+  column-span: all;
+  inset-block-start: var(
+    --vs-theme-bleed-illustration-chapter-opener--chapter-title-inset-block-start
+  );
+  margin-inline-start: var(
+    --vs-theme-bleed-illustration-chapter-opener--chapter-title-inset-inline-start
+  );
+  color: var(--vs-theme-bleed-illustration-chapter-opener--color-ink-strong);
+}
+
+section > h1:first-child::before {
+  margin-block-end: 2mm;
+  font-family: var(--vs-theme-bleed-illustration-chapter-opener--font-display);
+  font-size: var(--vs-font-size);
+  font-weight: 600;
+  letter-spacing: 0.36em;
+}
+
+header.bleed {
+  position: relative;
+  column-span: all;
+  break-inside: avoid;
+  height: var(
+    --vs-theme-bleed-illustration-chapter-opener--chapter-band-height
+  );
+  margin-block-start: calc(
+    -1 * var(--vs-theme-bleed-illustration-chapter-opener--page-margin-top)
+  );
+  margin-inline: calc(-1 * var(--vs-page--margin-left));
+  margin-block-end: 8mm;
+  overflow: hidden; /* 挿絵を帯の寸法へ切り抜く */
+}
+
+/* ランニングヘッド: 霧の余白の最上部中央に控えめに置く */
+header.bleed::before {
+  content: env(doc-title);
+  position: absolute;
+  top: 8mm;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: var(--vs-theme-bleed-illustration-chapter-opener--font-meta);
+  font-size: 9pt;
+  font-weight: 500;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--vs-color-foreground-alt);
+}
+
+/* 挿絵は Markdown の ![](fig.svg) → figure > img。キャプションは持たない */
+header.bleed figure {
+  display: block;
+  margin-block: 0;
+  margin-inline: 0;
+  height: 100%;
+}
+
+header.bleed figure img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+header.bleed figure figcaption {
+  display: none;
+}
+
+/* ------- 本文 ------- */
+
+/* 章頭は字下げなし + ドロップキャップ
+   (Atkinson Hyperlegible Bold、約3行取り) */
+section > p:first-of-type {
+  text-indent: 0;
+}
+
+section > p:first-of-type::first-letter {
+  float: left;
+  font-weight: 700;
+  font-size: 3.7em;
+  line-height: 0.72;
+  padding-inline-end: 0.06em;
+  padding-block-start: 0.02em;
+  color: var(--vs-theme-bleed-illustration-chapter-opener--color-ink-strong);
+}
+
+/* ------- 段に食い込む小さな輪郭画の挿絵 ------- */
+section > figure img {
+  display: block;
+  width: 78%;
+  height: auto;
+}
+
+section > figure figcaption {
+  font-family: var(--vs-theme-bleed-illustration-chapter-opener--font-meta);
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--vs-color-foreground-alt);
+  letter-spacing: 0.02em;
+}
+
+section > figure figcaption::before {
+  content: '•\00a0\00a0';
+  color: var(--vs-theme-bleed-illustration-chapter-opener--color-rule);
+}
+
+section > figure figcaption::after {
+  content: '\00a0\00a0•';
+  color: var(--vs-theme-bleed-illustration-chapter-opener--color-rule);
+}

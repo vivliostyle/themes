@@ -1,0 +1,46 @@
+/*
+ * example 専用の上書き。theme.css には手を入れない。
+ */
+
+/* この例は有価証券報告書の「第2 事業の状況」だけを収めた抜粋なので部番号を 2 から始める */
+:root {
+  --vs-section--root-counter-sec-h1: 1;
+}
+
+/*
+ * 表ごとの科目名列の幅。table-layout: fixed のため、残りの列は等分される。
+ */
+.tbl-4 {
+  --vs-theme-dense-mono-two-column--table-label-size-inline: 34%;
+}
+
+.tbl-wide {
+  --vs-theme-dense-mono-two-column--table-label-size-inline: 40%;
+}
+
+.tbl-5 {
+  --vs-theme-dense-mono-two-column--table-label-size-inline: 32%;
+}
+
+/* 回次・決算年月の行は数値列と同じく中央に置く */
+.tbl-highlights > table > tbody > tr:first-child > td {
+  text-align: center;
+}
+
+/* 目標欄に「2021年3月期比50%削減」のような長い値が入るため最終列を広げる */
+.tbl-esg {
+  --vs-theme-dense-mono-two-column--table-label-size-inline: 36%;
+}
+
+.tbl-esg > table thead th:not(:first-child) {
+  width: 18%;
+}
+
+.tbl-esg > table thead th:last-child {
+  width: 28%;
+}
+
+/* 合計行・営業利益行は太らせて小計との区別をつける */
+.tbl-total > table > tbody > tr:last-child > td {
+  font-weight: 600;
+}

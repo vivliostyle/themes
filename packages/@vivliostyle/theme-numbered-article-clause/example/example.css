@@ -1,0 +1,8 @@
+/*
+ * 表を含む項は VFM が本文を <p> で包むため、theme-base の p:first-child (詳細度 0,1,1) が
+ * theme.css の `section > ol li > p { text-indent: inherit }` (0,0,3) に勝ち、
+ * 無番号の第1項だけ一字下げを失う。詳細度を上げて字下げを取り戻す。
+ */
+section > ol > li:first-child > p:first-child {
+  text-indent: 1em;
+}

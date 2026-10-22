@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 78 740 262" role="img" aria-label="屋上で望遠鏡を囲み夜空を見上げる生徒3人のイラスト">
+  <rect width="740" height="340" fill="#0e2a52" />
+  <circle cx="40" cy="36" r="2.5" fill="#cfe3f7" />
+  <circle cx="95" cy="70" r="2" fill="#cfe3f7" />
+  <circle cx="150" cy="30" r="2" fill="#cfe3f7" />
+  <circle cx="210" cy="58" r="2.5" fill="#cfe3f7" />
+  <circle cx="268" cy="24" r="2" fill="#cfe3f7" />
+  <circle cx="330" cy="64" r="2" fill="#cfe3f7" />
+  <circle cx="392" cy="30" r="2.5" fill="#cfe3f7" />
+  <circle cx="455" cy="70" r="2" fill="#cfe3f7" />
+  <circle cx="505" cy="26" r="2" fill="#cfe3f7" />
+  <circle cx="560" cy="56" r="3" fill="#e8f2fb" />
+  <circle cx="620" cy="30" r="2" fill="#cfe3f7" />
+  <circle cx="680" cy="66" r="2.5" fill="#cfe3f7" />
+  <circle cx="716" cy="24" r="2" fill="#cfe3f7" />
+  <circle cx="60" cy="110" r="2" fill="#cfe3f7" />
+  <circle cx="180" cy="100" r="2" fill="#cfe3f7" />
+  <circle cx="300" cy="108" r="2" fill="#cfe3f7" />
+  <circle cx="430" cy="112" r="2" fill="#cfe3f7" />
+  <circle cx="660" cy="110" r="2" fill="#cfe3f7" />
+  <circle cx="710" cy="140" r="2" fill="#cfe3f7" />
+  <circle cx="520" cy="52" r="5" fill="#ffffff" />
+  <rect x="0" y="158" width="52" height="60" fill="#193b63" />
+  <rect x="58" y="176" width="40" height="42" fill="#193b63" />
+  <rect x="104" y="150" width="58" height="68" fill="#193b63" />
+  <rect x="168" y="182" width="34" height="36" fill="#193b63" />
+  <rect x="208" y="164" width="48" height="54" fill="#193b63" />
+  <rect x="262" y="186" width="44" height="32" fill="#193b63" />
+  <rect x="312" y="158" width="50" height="60" fill="#193b63" />
+  <rect x="368" y="178" width="40" height="40" fill="#193b63" />
+  <rect x="414" y="166" width="52" height="52" fill="#193b63" />
+  <rect x="472" y="184" width="38" height="34" fill="#193b63" />
+  <rect x="516" y="160" width="54" height="58" fill="#193b63" />
+  <rect x="576" y="180" width="42" height="38" fill="#193b63" />
+  <rect x="624" y="166" width="50" height="52" fill="#193b63" />
+  <rect x="680" y="184" width="60" height="34" fill="#193b63" />
+  <rect x="16" y="170" width="5" height="8" fill="#5d88b7" />
+  <rect x="120" y="162" width="5" height="8" fill="#5d88b7" />
+  <rect x="140" y="180" width="5" height="8" fill="#5d88b7" />
+  <rect x="226" y="176" width="5" height="8" fill="#5d88b7" />
+  <rect x="330" y="170" width="5" height="8" fill="#5d88b7" />
+  <rect x="430" y="178" width="5" height="8" fill="#5d88b7" />
+  <rect x="534" y="172" width="5" height="8" fill="#5d88b7" />
+  <rect x="642" y="178" width="5" height="8" fill="#5d88b7" />
+  <rect x="0" y="218" width="740" height="5" fill="#3f6ea3" />
+  <rect x="20" y="223" width="4" height="35" fill="#35618f" />
+  <rect x="92" y="223" width="4" height="35" fill="#35618f" />
+  <rect x="164" y="223" width="4" height="35" fill="#35618f" />
+  <rect x="236" y="223" width="4" height="35" fill="#35618f" />
+  <rect x="308" y="223" width="4" height="35" fill="#35618f" />
+  <rect x="380" y="223" width="4" height="35" fill="#35618f" />
+  <rect x="452" y="223" width="4" height="35" fill="#35618f" />
+  <rect x="524" y="223" width="4" height="35" fill="#35618f" />
+  <rect x="596" y="223" width="4" height="35" fill="#35618f" />
+  <rect x="668" y="223" width="4" height="35" fill="#35618f" />
+  <rect x="736" y="223" width="4" height="35" fill="#35618f" />
+  <rect x="0" y="258" width="740" height="82" fill="#1d4166" />
+  <circle cx="165" cy="150" r="24" fill="#12315a" />
+  <path d="M126 340 V214 q0-40 39-40 q39 0 39 40 V340 Z" fill="#d7e6f5" />
+  <rect x="126" y="296" width="78" height="44" fill="#27548a" />
+  <circle cx="285" cy="144" r="24" fill="#12315a" />
+  <path d="M285 160 q12 34 4 66 l-14 0 q6-32 -2-60 Z" fill="#12315a" />
+  <path d="M246 340 V208 q0-42 39-42 q39 0 39 42 V340 Z" fill="#cfe0f2" />
+  <rect x="246" y="292" width="78" height="48" fill="#27548a" />
+  <circle cx="400" cy="150" r="24" fill="#12315a" />
+  <path d="M361 340 V214 q0-40 39-40 q39 0 39 40 V340 Z" fill="#d7e6f5" />
+  <rect x="361" y="296" width="78" height="44" fill="#27548a" />
+  <polygon points="500,214 640,110 664,140 524,244" fill="#0b2244" />
+  <rect x="638" y="102" width="34" height="30" fill="#16375f" transform="rotate(-36 655 117)" />
+  <circle cx="560" cy="232" r="11" fill="#0b2244" />
+  <polygon points="554,232 566,232 590,340 576,340" fill="#0b2244" />
+  <polygon points="554,232 566,232 546,340 532,340" fill="#0b2244" />
+  <polygon points="557,232 563,232 562,340 555,340" fill="#0b2244" />
+</svg>

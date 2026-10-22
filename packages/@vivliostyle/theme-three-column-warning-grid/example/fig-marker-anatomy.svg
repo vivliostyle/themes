@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Anatomy of an allergen marker chip">
+<rect width="400" height="300" fill="#e6e7e8" />
+<rect x="110" y="112" width="180" height="84" fill="#ffffff" stroke="#ff0000" stroke-width="4" />
+<line x1="110" y1="156" x2="290" y2="156" stroke="#f4c6c6" stroke-width="2" />
+<text x="200" y="146" text-anchor="middle" font-family="Roboto Mono, monospace" font-size="30" font-weight="700" letter-spacing="2" fill="#ff0000">PNT</text>
+<text x="200" y="184" text-anchor="middle" font-family="Noto Sans, Helvetica Neue, Arial, sans-serif" font-size="19" font-weight="700" letter-spacing="2" fill="#161616">PEANUT</text>
+<line x1="150" y1="112" x2="150" y2="78" stroke="#8a9095" stroke-width="2" />
+<circle cx="150" cy="112" r="3.5" fill="#8a9095" />
+<text x="150" y="64" text-anchor="middle" font-family="Noto Sans, Helvetica Neue, Arial, sans-serif" font-size="13" letter-spacing="1.5" fill="#8a9095">REGISTER CODE</text>
+<line x1="250" y1="196" x2="250" y2="230" stroke="#8a9095" stroke-width="2" />
+<circle cx="250" cy="196" r="3.5" fill="#8a9095" />
+<text x="250" y="250" text-anchor="middle" font-family="Noto Sans, Helvetica Neue, Arial, sans-serif" font-size="13" letter-spacing="1.5" fill="#8a9095">DECLARED ALLERGEN</text>
+</svg>

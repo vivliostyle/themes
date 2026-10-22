@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66 60" role="img" aria-label="ビーカーの中の混合物をガラス棒でかき混ぜて溶かす線画">
+<path d="M14 12 h34 v34 q0 5 -5 5 h-24 q-5 0 -5 -5 z" fill="#eef4fb" stroke="#48607a" stroke-width="1.4" />
+<path d="M15 26 h32 v20 q0 4 -4 4 h-24 q-4 0 -4 -4 z" fill="#cfe3f5" />
+<path d="M48 12 q4 1 5 4" fill="none" stroke="#48607a" stroke-width="1.3" />
+<path d="M14 18 h34" stroke="#9dbede" stroke-width="0.8" fill="none" />
+<path d="M39 4 L26 40" stroke="#48607a" stroke-width="2" stroke-linecap="round" fill="none" />
+<path d="M22 36 q6 4 12 0" stroke="#7fb3e0" stroke-width="1.1" fill="none" />
+<path d="M20 42 q8 4 16 0" stroke="#7fb3e0" stroke-width="1.1" fill="none" />
+<circle cx="30" cy="46" r="1.1" fill="#7fb3e0" />
+<circle cx="37" cy="43" r="0.9" fill="#7fb3e0" />
+</svg>

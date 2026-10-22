@@ -1,0 +1,13 @@
+/*
+ * example は判例集の第2章だけを抜き出した見本 (注が「本章17」「本書第1章5」など
+ * 前後の章を指しているため、抜粋であることに意味がある)。章番号・事件番号・ノンブルの
+ * 開始値はこの抜粋だけの事情なので theme.css ではなくここで与える。
+ */
+
+:root {
+  /* 事件番号を 12 から起こす */
+  --vs-section--root-counter-sec-h1: 11;
+
+  /* 章番号を 2、ノンブルを 87 から起こす */
+  --vs-document-first-page-counter-reset: page 86 vs-counter-chapter 1;
+}

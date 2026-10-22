@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 252 116" role="img" aria-label="A small round fogfinch perched on a worn stone step, with mist drifting past.">
+  <!-- drifting mist -->
+  <g stroke="#B7B3A9" stroke-width="1.2" fill="none" opacity="0.75">
+    <path d="M14,30 q30,-8 62,2 q34,10 66,-2" />
+    <path d="M132,20 q26,-8 52,0" />
+    <path d="M28,52 q22,-6 44,2" />
+    <path d="M170,44 q28,-8 60,2" />
+  </g>
+  <!-- the step -->
+  <g stroke="#8B887F" stroke-width="1.4" fill="#E7E3DA">
+    <path d="M18,96 L52,84 L236,84 L206,96 Z" />
+  </g>
+  <path d="M18,96 L206,96 L206,108 L18,108 Z" fill="#DAD5CB" stroke="#8B887F" stroke-width="1.4" />
+  <!-- the hollow worn in the step edge -->
+  <path d="M96,88 q26,-9 52,0" fill="none" stroke="#B7B3A9" stroke-width="1.4" />
+  <!-- the bird -->
+  <g fill="#E7E3DA" stroke="#5F6365" stroke-width="1.8">
+    <ellipse cx="112" cy="62" rx="22" ry="18" />
+    <circle cx="132" cy="46" r="12" />
+  </g>
+  <path d="M142,44 L158,47 L142,51 Z" fill="#8A8781" stroke="#5F6365" stroke-width="1.2" />
+  <path d="M92,58 q-18,-6 -30,-18 q26,2 34,10 Z" fill="#C7C3B9" stroke="#5F6365" stroke-width="1.4" />
+  <path d="M104,58 q14,-6 26,4 q-14,10 -26,-4 Z" fill="#C7C3B9" stroke="#8B887F" stroke-width="1.2" />
+  <circle cx="136" cy="43" r="2.6" fill="#33383A" />
+  <g stroke="#5F6365" stroke-width="1.8" fill="none" stroke-linecap="round">
+    <path d="M110,80 L110,88" />
+    <path d="M120,80 L120,88" />
+    <path d="M106,88 L116,88" />
+    <path d="M116,88 L126,88" />
+  </g>
+</svg>

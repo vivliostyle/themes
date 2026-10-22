@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Bench plan showing the clear zone, the flagged zone and the pass">
+<rect width="400" height="300" fill="#e6e7e8" />
+<rect x="20" y="50" width="168" height="192" fill="#d5d7d8" stroke="#8a9095" stroke-width="2" />
+<rect x="212" y="50" width="168" height="192" fill="#fff0f0" stroke="#ff0000" stroke-width="3" />
+<rect x="40" y="74" width="60" height="44" fill="#c4c6c8" />
+<rect x="112" y="74" width="56" height="44" fill="#c4c6c8" />
+<rect x="40" y="140" width="128" height="36" fill="#c4c6c8" />
+<rect x="40" y="192" width="128" height="30" fill="#c4c6c8" />
+<rect x="232" y="74" width="60" height="44" fill="#f4c6c6" />
+<rect x="304" y="74" width="56" height="44" fill="#f4c6c6" />
+<rect x="232" y="140" width="128" height="36" fill="#f4c6c6" />
+<rect x="232" y="192" width="128" height="30" fill="#f4c6c6" />
+<line x1="200" y1="42" x2="200" y2="250" stroke="#ff0000" stroke-width="2" stroke-dasharray="9 7" />
+<text x="104" y="36" text-anchor="middle" font-family="Noto Sans, Helvetica Neue, Arial, sans-serif" font-size="14" letter-spacing="1.6" fill="#5c6266">CLEAR ZONE</text>
+<text x="296" y="36" text-anchor="middle" font-family="Noto Sans, Helvetica Neue, Arial, sans-serif" font-size="14" letter-spacing="1.6" fill="#ff0000">FLAGGED ZONE</text>
+<text x="200" y="278" text-anchor="middle" font-family="Noto Sans, Helvetica Neue, Arial, sans-serif" font-size="13" letter-spacing="1.4" fill="#8a9095">PASS — RESET BETWEEN ORDERS</text>
+</svg>

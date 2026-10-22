@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 150" role="img" aria-label="Receive data port timing. DCLK runs continuously; the 12-bit port DD carries the in-phase word on each rising edge and the quadrature word on each falling edge. DFRAME is high while the in-phase word is on the bus. Marks show the clock period t8, the clock edge to data valid delay t9, and the data setup and hold times t10 and t11 for transmit words." fill="none" stroke="#171717" stroke-width="1">
+<style>
+text { font-family: "Roboto Mono", "IBM Plex Mono", ui-monospace, monospace; stroke: none; }
+</style>
+<defs>
+<marker id="dim4" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+<path d="M0,3 L6,1 L6,5 Z" fill="#555555" stroke="none" />
+</marker>
+</defs>
+<path d="M56,44 L76,44 L76,44 L76,44 L76,33 L98,33 L98,33 L98,33 L98,44 L120,44 L120,44 L120,44 L120,33 L142,33 L142,33 L142,33 L142,44 L164,44 L164,44 L164,44 L164,33 L186,33 L186,33 L186,33 L186,44 L208,44 L208,44 L208,44 L208,33 L230,33 L230,33 L230,33 L230,44 L252,44 L252,44 L252,44 L252,33 L274,33 L274,33 L274,33 L274,44 L296,44 L296,44 L296,44 L296,33 L318,33 L318,33 L318,33 L318,44 L352,44 L352,44" />
+<path d="M56,78 L76,78 L76,78 L76,78 L76,67 L98,67 L98,67 L98,67 L98,78 L120,78 L120,78 L120,78 L120,67 L142,67 L142,67 L142,67 L142,78 L164,78 L164,78 L164,78 L164,67 L186,67 L186,67 L186,67 L186,78 L208,78 L208,78 L208,78 L208,67 L230,67 L230,67 L230,67 L230,78 L252,78 L252,78 L252,78 L252,67 L274,67 L274,67 L274,67 L274,78 L296,78 L296,78 L296,78 L296,67 L318,67 L318,67 L318,67 L318,78 L352,78 L352,78" />
+<line x1="56" y1="106.5" x2="76" y2="106.5" stroke="#a8a8a8" stroke-width="0.8" stroke-dasharray="2 2" />
+<path d="M77.2,106.5 L79.4,101 L94.6,101 L96.8,106.5 L94.6,112 L79.4,112 Z" stroke-width="0.8" />
+<text x="87" y="108.8" font-size="6" fill="#555555" stroke="none" text-anchor="middle">I0</text>
+<path d="M99.2,106.5 L101.4,101 L116.6,101 L118.8,106.5 L116.6,112 L101.4,112 Z" stroke-width="0.8" />
+<text x="109" y="108.8" font-size="6" fill="#555555" stroke="none" text-anchor="middle">Q0</text>
+<path d="M121.2,106.5 L123.4,101 L138.6,101 L140.8,106.5 L138.6,112 L123.4,112 Z" stroke-width="0.8" />
+<text x="131" y="108.8" font-size="6" fill="#555555" stroke="none" text-anchor="middle">I1</text>
+<path d="M143.2,106.5 L145.4,101 L160.6,101 L162.8,106.5 L160.6,112 L145.4,112 Z" stroke-width="0.8" />
+<text x="153" y="108.8" font-size="6" fill="#555555" stroke="none" text-anchor="middle">Q1</text>
+<path d="M165.2,106.5 L167.4,101 L182.6,101 L184.8,106.5 L182.6,112 L167.4,112 Z" stroke-width="0.8" />
+<text x="175" y="108.8" font-size="6" fill="#555555" stroke="none" text-anchor="middle">I2</text>
+<path d="M187.2,106.5 L189.4,101 L204.6,101 L206.8,106.5 L204.6,112 L189.4,112 Z" stroke-width="0.8" />
+<text x="197" y="108.8" font-size="6" fill="#555555" stroke="none" text-anchor="middle">Q2</text>
+<path d="M209.2,106.5 L211.4,101 L226.6,101 L228.8,106.5 L226.6,112 L211.4,112 Z" stroke-width="0.8" />
+<text x="219" y="108.8" font-size="6" fill="#555555" stroke="none" text-anchor="middle">I3</text>
+<path d="M231.2,106.5 L233.4,101 L248.6,101 L250.8,106.5 L248.6,112 L233.4,112 Z" stroke-width="0.8" />
+<text x="241" y="108.8" font-size="6" fill="#555555" stroke="none" text-anchor="middle">Q3</text>
+<path d="M253.2,106.5 L255.4,101 L270.6,101 L272.8,106.5 L270.6,112 L255.4,112 Z" stroke-width="0.8" />
+<text x="263" y="108.8" font-size="6" fill="#555555" stroke="none" text-anchor="middle">I4</text>
+<path d="M275.2,106.5 L277.4,101 L292.6,101 L294.8,106.5 L292.6,112 L277.4,112 Z" stroke-width="0.8" />
+<text x="285" y="108.8" font-size="6" fill="#555555" stroke="none" text-anchor="middle">Q4</text>
+<path d="M297.2,106.5 L299.4,101 L314.6,101 L316.8,106.5 L314.6,112 L299.4,112 Z" stroke-width="0.8" />
+<text x="307" y="108.8" font-size="6" fill="#555555" stroke="none" text-anchor="middle">I5</text>
+<line x1="318" y1="106.5" x2="352" y2="106.5" stroke="#a8a8a8" stroke-width="0.8" stroke-dasharray="2 2" />
+<line x1="76" y1="31" x2="76" y2="117" stroke="#a8a8a8" stroke-width="0.4" stroke-dasharray="1.5 2" />
+<line x1="120" y1="31" x2="120" y2="117" stroke="#a8a8a8" stroke-width="0.4" stroke-dasharray="1.5 2" />
+<line x1="98" y1="31" x2="98" y2="117" stroke="#a8a8a8" stroke-width="0.4" stroke-dasharray="1.5 2" />
+<line x1="76" y1="28" x2="120" y2="28" stroke="#555555" stroke-width="0.5" marker-start="url(#dim4)" marker-end="url(#dim4)" />
+<text x="98" y="26" font-size="5.8" fill="#555555" stroke="none" text-anchor="middle">t8</text>
+<line x1="76" y1="121" x2="96.8" y2="121" stroke="#555555" stroke-width="0.5" marker-start="url(#dim4)" marker-end="url(#dim4)" />
+<text x="86.4" y="119" font-size="5.8" fill="#555555" stroke="none" text-anchor="middle">t9</text>
+<line x1="104" y1="132" x2="120" y2="132" stroke="#555555" stroke-width="0.5" marker-start="url(#dim4)" marker-end="url(#dim4)" />
+<text x="112" y="130" font-size="5.8" fill="#555555" stroke="none" text-anchor="middle">t10</text>
+<line x1="120" y1="132" x2="136" y2="132" stroke="#555555" stroke-width="0.5" marker-start="url(#dim4)" marker-end="url(#dim4)" />
+<text x="128" y="130" font-size="5.8" fill="#555555" stroke="none" text-anchor="middle">t11</text>
+<line x1="120" y1="117" x2="120" y2="134" stroke="#a8a8a8" stroke-width="0.4" stroke-dasharray="1.5 2" />
+<g fill="#171717" stroke="none" font-size="7" text-anchor="end">
+<text x="52" y="41.4">DCLK</text>
+<text x="52" y="75.4">DFRAME</text>
+<text x="52" y="109.4">DD[11:0]</text>
+</g>
+<text x="196" y="14" font-size="7.3" font-weight="500" fill="#171717" stroke="none" text-anchor="middle">RECEIVE DATA PORT, 12-BIT CMOS DDR MODE</text>
+<text x="196" y="145" font-size="6.2" fill="#555555" stroke="none" text-anchor="middle">t9 applies to receive words driven by the device; t10 and t11 apply to transmit words</text>
+</svg>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 150" role="img" aria-label="Binding diagram: an opened section seen at the fold, with five sewing stations, the thread path shown solid outside the fold and dashed inside, dimension marks and kettle stitch labels.">
+  <style>
+    text { font-family: "Inter", "Helvetica Neue", Arial, sans-serif; }
+  </style>
+  <circle cx="105" cy="74" r="13" fill="#E8EDF0" />
+  <g fill="none" stroke="#34495E" stroke-width="0.7" stroke-dasharray="2.4 2.4">
+    <rect x="34" y="34" width="142" height="80" />
+    <line x1="20" y1="74" x2="32" y2="74" />
+    <line x1="105" y1="26" x2="105" y2="122" />
+    <path d="M76 74 C82 86 99 86 105 74" />
+    <path d="M134 74 C140 86 156 86 162 74" />
+  </g>
+  <g fill="none" stroke="#34495E" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M34 74 L176 74" />
+    <path d="M48 74 C54 62 70 62 76 74" />
+    <path d="M105 74 C111 62 128 62 134 74" />
+    <path d="M48 74 C40 70 36 64 38 56" />
+    <path d="M162 74 C170 78 174 84 172 92" />
+  </g>
+  <g fill="#FCFBF7" stroke="#34495E" stroke-width="0.9">
+    <circle cx="105" cy="74" r="4" />
+  </g>
+  <g fill="#34495E">
+    <circle cx="48" cy="74" r="1.4" />
+    <circle cx="76" cy="74" r="1.4" />
+    <circle cx="134" cy="74" r="1.4" />
+    <circle cx="162" cy="74" r="1.4" />
+  </g>
+  <g fill="none" stroke="#34495E" stroke-width="0.9">
+    <line x1="48" y1="136" x2="162" y2="136" />
+    <line x1="48" y1="132" x2="48" y2="136" />
+    <line x1="76" y1="133" x2="76" y2="136" />
+    <line x1="105" y1="132" x2="105" y2="136" />
+    <line x1="134" y1="133" x2="134" y2="136" />
+    <line x1="162" y1="132" x2="162" y2="136" />
+  </g>
+  <g fill="none" stroke="#34495E" stroke-width="0.8">
+    <line x1="190" y1="34" x2="190" y2="114" />
+    <line x1="186" y1="34" x2="194" y2="34" />
+    <line x1="186" y1="114" x2="194" y2="114" />
+  </g>
+  <g fill="none" stroke="#34495E" stroke-width="0.8" stroke-linecap="round">
+    <path d="M26 60 C22 54 24 46 30 44" />
+    <path d="M26 50 L26 60 L34 58" />
+  </g>
+  <g fill="#34495E" font-size="6" letter-spacing="1">
+    <text x="36" y="52">kettle</text>
+    <text x="96" y="30">station 3</text>
+    <text x="147" y="98">tail</text>
+    <text x="145" y="146">114 mm</text>
+    <text x="196" y="76">80</text>
+  </g>
+  <g fill="#87929A" font-size="6" letter-spacing="1">
+    <text x="38" y="90">fold</text>
+  </g>
+</svg>

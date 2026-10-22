@@ -1,0 +1,51 @@
+/*
+ * example は複数の聖典から章を選んで並べた抜粋 (注の参照が前後の章を指すため、
+ * 抜粋であることに意味がある)。章番号とノンブルの開始値はこの抜粋だけの事情なので
+ * theme.css ではなくここで与える。章番号は 1 ファイル = 1 章の起点、
+ * ノンブルは巻全体の 247 ページ目から続ける。
+ */
+
+html.ch-s01 {
+  --vs-section--root-counter-sec-h2: 0;
+  --vs-document-first-page-counter-reset: page 246;
+}
+
+html.ch-s07 {
+  --vs-section--root-counter-sec-h2: 6;
+  --vs-document-first-page-counter-reset: page 247;
+}
+
+html.ch-s09 {
+  --vs-section--root-counter-sec-h2: 8;
+  --vs-document-first-page-counter-reset: page 248;
+}
+
+html.ch-s11 {
+  --vs-section--root-counter-sec-h2: 10;
+  --vs-document-first-page-counter-reset: page 249;
+}
+
+html.ch-s12 {
+  --vs-section--root-counter-sec-h2: 11;
+  --vs-document-first-page-counter-reset: page 250;
+}
+
+html.ch-s13 {
+  --vs-section--root-counter-sec-h2: 12;
+  --vs-document-first-page-counter-reset: page 251;
+}
+
+html.ch-c03 {
+  --vs-section--root-counter-sec-h2: 2;
+  --vs-document-first-page-counter-reset: page 252;
+}
+
+html.ch-y04 {
+  --vs-section--root-counter-sec-h2: 3;
+  --vs-document-first-page-counter-reset: page 253;
+}
+
+html.ch-t02 {
+  --vs-section--root-counter-sec-h2: 1;
+  --vs-document-first-page-counter-reset: page 254;
+}

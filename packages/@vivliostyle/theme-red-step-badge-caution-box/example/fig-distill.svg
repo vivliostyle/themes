@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 78 64" role="img" aria-label="枝付きフラスコと温度計で蒸留する線画">
+<circle cx="24" cy="44" r="15" fill="#eef4fb" stroke="#48607a" stroke-width="1.4" />
+<path d="M12 40 a15 15 0 0 0 24 0 v9 a15 15 0 0 1 -24 0 z" fill="#cfe3f5" />
+<rect x="20" y="8" width="8" height="22" fill="#eef4fb" stroke="#48607a" stroke-width="1.2" />
+<rect x="22.6" y="4" width="2.8" height="26" fill="#eaf2fa" stroke="#48607a" stroke-width="1" />
+<path d="M22.6 10 h2.8 M22.6 14 h2.8 M22.6 18 h2.8" stroke="#48607a" stroke-width="0.7" fill="none" />
+<path d="M28 16 h10 L58 32" fill="none" stroke="#48607a" stroke-width="1.3" />
+<path d="M28 21 h8 L56 37" fill="none" stroke="#48607a" stroke-width="1.3" />
+<path d="M52 32 l14 12 -4 5 -14 -12 z" fill="#eaf2fa" stroke="#48607a" stroke-width="1.2" />
+<path d="M63 50 q1.6 2.4 0 3.8 q-1.6 -1.4 0 -3.8" fill="#7fb3e0" />
+<path d="M15 58 q6 -7 0 -15 q-6 9 0 15" fill="#dbe9f6" stroke="#48607a" stroke-width="1.1" />
+</svg>

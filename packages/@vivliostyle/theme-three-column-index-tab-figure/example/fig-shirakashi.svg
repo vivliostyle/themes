@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 150" role="img" aria-label="シラカシの葉の模式図。厚く光沢のある披針形の常緑葉と、短い殻斗に抱かれた細長い堅果を伴う。">
+<style>
+.leaf-blade { fill: #557a55; fill-opacity: 0.46; stroke: #2c352c; stroke-width: 1.3; stroke-linejoin: round; }
+.leaf-vein { fill: none; stroke: #2c352c; stroke-width: 0.7; opacity: 0.65; }
+.leaf-stem { fill: none; stroke: #6f6142; stroke-width: 2.2; stroke-linecap: round; }
+.fig-acc { fill: #557a55; fill-opacity: 0.4; stroke: #2c352c; stroke-width: 1; stroke-linejoin: round; }
+.fig-berry { fill: #a9483d; fill-opacity: 0.85; stroke: #6f2a24; stroke-width: 0.7; }
+.fig-flower { fill: #ddb9be; fill-opacity: 0.8; stroke: #b98b35; stroke-width: 0.7; }
+.fig-scale { stroke: #252a26; stroke-width: 1; }
+.fig-scale-t { fill: #252a26; font: 500 7px "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; letter-spacing: 0.03em; }
+.fig-lbl { fill: #3a463a; font: 6.5px "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+.fig-lead { fill: none; stroke: #9aa89a; stroke-width: 0.5; }
+</style>
+<path class="leaf-blade" d="M56,134 C50,124 45,100 46,74 C47,48 51,26 56,16 C61,26 65,48 66,74 C67,100 62,124 56,134 Z" />
+<path class="leaf-vein" d="M56,132 L56,18 M56,104 Q50,100 44,94 M56,104 Q62,100 68,94 M56,80 Q51,76 46,71 M56,80 Q61,76 66,71 M56,56 Q52,52 48,48 M56,56 Q60,52 64,48" />
+<path class="leaf-stem" d="M56,132 L56,145" />
+<path class="leaf-stem" d="M120,108 L120,100" />
+<ellipse class="fig-acc" cx="120" cy="120" rx="7" ry="11" />
+<path class="fig-acc" d="M112,113 a8,4.5 0 0 1 16,0 q-8,3 -16,0 Z" />
+<path class="fig-lead" d="M62,86 L84,82" />
+<text class="fig-lbl" x="85" y="84">光沢</text>
+<line class="fig-scale" x1="14" y1="138" x2="44" y2="138" />
+<line class="fig-scale" x1="14" y1="135" x2="14" y2="141" />
+<line class="fig-scale" x1="44" y1="135" x2="44" y2="141" />
+<text class="fig-scale-t" x="29" y="133" text-anchor="middle">2 cm</text>
+</svg>

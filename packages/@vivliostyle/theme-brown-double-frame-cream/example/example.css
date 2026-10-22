@@ -1,0 +1,28 @@
+/*
+ * example 専用の上書き。theme.css には手を入れない。
+ */
+
+/* 編集後記は号を締める記事なので、柱に章番号を出さない */
+html.closing {
+  --vs-theme-brown-double-frame-cream--running-chapter-content: '';
+}
+
+/* 近況欄は投稿ごとに間を空け、氏名は明朝の字間で立てる */
+section:has(> h1.voices:first-child) > p + p {
+  margin-block-start: 1.2em;
+}
+
+section:has(> h1.voices:first-child) strong {
+  font-family: var(--vs-theme-brown-double-frame-cream--font-display);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--vs-theme-brown-double-frame-cream--color-accent);
+}
+
+.note {
+  margin-block-start: 4mm;
+  font-family: var(--vs-theme-brown-double-frame-cream--font-note);
+  font-size: 7.4pt;
+  letter-spacing: 0.04em;
+  text-align: center;
+}

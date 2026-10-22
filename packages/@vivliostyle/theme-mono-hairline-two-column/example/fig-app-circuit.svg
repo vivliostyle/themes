@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 235" role="img" aria-label="Typical application circuit. An antenna feeds a single-pole double-throw switch U2. The receive branch passes through SAW band-pass filter FL1 and balun T1 into the RFIN1 pin of the NSR7420 (U1); the transmit branch leaves RFOUT1 through balun T2 and low-pass filter FL2 back to the switch. A 40 MHz TCXO Y1 drives REF_IN, the exposed pad is grounded, and 3.3 V and 1.8 V rails supply the analog and digital domains. The 12-bit parallel data port, DCLK, DFRAME, TXNRX, the four-wire SPI port and INTB connect to a baseband SoC or FPGA." fill="none" stroke="#171717" stroke-width="1">
+<style>
+text { font-family: "Roboto Mono", "IBM Plex Mono", ui-monospace, monospace; stroke: none; }
+</style>
+<defs>
+<marker id="arw2" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto">
+<path d="M0,0 L6,3 L0,6 Z" fill="#171717" stroke="none" />
+</marker>
+</defs>
+<g>
+<line x1="30" y1="26" x2="30" y2="56" />
+<polyline points="18,14 30,26 42,14" />
+<rect x="12" y="56" width="36" height="28" />
+<line x1="48" y1="64" x2="58" y2="64" />
+<rect x="58" y="52" width="44" height="24" />
+<line x1="102" y1="64" x2="112" y2="64" />
+<rect x="112" y="52" width="40" height="24" />
+<line x1="152" y1="64" x2="170" y2="64" marker-end="url(#arw2)" />
+<line x1="170" y1="140" x2="152" y2="140" marker-end="url(#arw2)" />
+<rect x="112" y="128" width="40" height="24" />
+<line x1="112" y1="140" x2="102" y2="140" />
+<rect x="58" y="128" width="44" height="24" />
+<line x1="58" y1="140" x2="30" y2="140" />
+<line x1="30" y1="140" x2="30" y2="84" />
+<rect x="170" y="40" width="102" height="145" stroke-width="1.2" />
+<line x1="200" y1="18" x2="200" y2="40" marker-end="url(#arw2)" />
+<line x1="243" y1="18" x2="243" y2="40" marker-end="url(#arw2)" />
+<line x1="272" y1="64" x2="330" y2="64" />
+<line x1="272" y1="86" x2="330" y2="86" />
+<line x1="272" y1="108" x2="330" y2="108" />
+<line x1="272" y1="130" x2="330" y2="130" />
+<line x1="272" y1="152" x2="330" y2="152" />
+<line x1="272" y1="174" x2="330" y2="174" />
+<line x1="280" y1="68" x2="288" y2="60" stroke-width="0.8" />
+<line x1="280" y1="156" x2="288" y2="148" stroke-width="0.8" />
+<rect x="330" y="48" width="46" height="142" />
+<rect x="140" y="205" width="70" height="24" />
+<line x1="210" y1="217" x2="230" y2="217" />
+<line x1="230" y1="217" x2="230" y2="185" marker-end="url(#arw2)" />
+<line x1="255" y1="185" x2="255" y2="196" />
+<line x1="249" y1="196" x2="261" y2="196" />
+<line x1="251.5" y1="199" x2="258.5" y2="199" />
+<line x1="254" y1="202" x2="256" y2="202" />
+</g>
+<g fill="#171717" stroke="none">
+<text x="30" y="73" font-size="6.5" text-anchor="middle">SPDT</text>
+<text x="80" y="67" font-size="6.5" text-anchor="middle">SAW BPF</text>
+<text x="132" y="67" font-size="6.5" text-anchor="middle">BALUN</text>
+<text x="132" y="143" font-size="6.5" text-anchor="middle">BALUN</text>
+<text x="80" y="143" font-size="6.5" text-anchor="middle">LPF</text>
+<text x="175" y="220" font-size="6.5" text-anchor="middle">TCXO 40 MHz</text>
+<text x="221" y="105" font-size="9" font-weight="500" text-anchor="middle">NSR7420</text>
+<text x="221" y="117" font-size="6" text-anchor="middle" fill="#555555">WIDEBAND RF</text>
+<text x="221" y="127" font-size="6" text-anchor="middle" fill="#555555">TRANSCEIVER</text>
+<text x="353" y="112" font-size="6.5" text-anchor="middle">BASEBAND</text>
+<text x="353" y="123" font-size="6.5" text-anchor="middle">SoC / FPGA</text>
+</g>
+<g fill="#555555" stroke="none" font-size="6">
+<text x="174" y="60">RFIN1</text>
+<text x="174" y="136">RFOUT1</text>
+<text x="200" y="12" text-anchor="middle">+3.3 V</text>
+<text x="243" y="12" text-anchor="middle">+1.8 V</text>
+<text x="200" y="50" text-anchor="middle">VDD_A</text>
+<text x="243" y="50" text-anchor="middle">VDD_D</text>
+<text x="308" y="60" text-anchor="middle">DD[11:0]</text>
+<text x="304" y="82" text-anchor="middle">DCLK</text>
+<text x="304" y="104" text-anchor="middle">DFRAME</text>
+<text x="304" y="126" text-anchor="middle">TXNRX</text>
+<text x="308" y="148" text-anchor="middle">SPI (4)</text>
+<text x="304" y="170" text-anchor="middle">INTB</text>
+<text x="226" y="200" text-anchor="end">REF_IN</text>
+<text x="263" y="199">EP</text>
+</g>
+<g fill="#555555" stroke="none" font-size="5.5">
+<text x="14" y="54">U2</text>
+<text x="60" y="50">FL1</text>
+<text x="114" y="50">T1</text>
+<text x="114" y="126">T2</text>
+<text x="60" y="126">FL2</text>
+<text x="174" y="50">U1</text>
+<text x="142" y="203">Y1</text>
+</g>
+</svg>

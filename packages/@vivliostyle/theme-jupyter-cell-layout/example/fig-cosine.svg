@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 152" role="img" aria-label="Checkpoint-to-checkpoint cosine similarity of the latent projection">
+<style>
+.tick { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 7px; fill: #6f767c; }
+.axis-label { font-family: "Source Sans 3", sans-serif; font-weight: 600; font-size: 7px; letter-spacing: 0.08em; fill: #6f767c; }
+.legend { font-family: "Source Sans 3", sans-serif; font-weight: 600; font-size: 7.5px; letter-spacing: 0.05em; fill: #3b4045; }
+.lvar { font-family: "STIX Two Text", serif; font-style: italic; font-size: 8.5px; }
+.lsub { font-family: "STIX Two Text", serif; font-style: italic; font-size: 6px; }
+</style>
+
+<line x1="40" y1="126" x2="540" y2="126" stroke="#cfd3d6" stroke-width="1" />
+<line x1="40" y1="88" x2="540" y2="88" stroke="#e4e6e8" stroke-width="1" />
+<line x1="40" y1="50" x2="540" y2="50" stroke="#e4e6e8" stroke-width="1" />
+<line x1="40" y1="12" x2="540" y2="12" stroke="#e4e6e8" stroke-width="1" />
+<line x1="40" y1="12" x2="40" y2="126" stroke="#cfd3d6" stroke-width="1" />
+<text x="36" y="128.5" text-anchor="end" class="tick">0.55</text>
+<text x="36" y="90.5" text-anchor="end" class="tick">0.70</text>
+<text x="36" y="52.5" text-anchor="end" class="tick">0.85</text>
+<text x="36" y="14.5" text-anchor="end" class="tick">1.00</text>
+<line x1="290" y1="12" x2="290" y2="126" stroke="#9aa0a5" stroke-width="0.8" stroke-dasharray="2 2.5" />
+<polyline fill="none" stroke="#9aa0a5" stroke-width="1.2" stroke-dasharray="4 3" points="90,110.3 140,70 190,50.5 240,40.1 290,36.3 340,38.1 390,47.2 440,59.6 490,67.7 540,70.5" />
+<polyline fill="none" stroke="#f37726" stroke-width="1.6" points="90,112.3 140,70.5 190,49.7 240,37.8 290,32 340,29 390,27.2 440,26.2 490,25.4 540,25.2" />
+<circle cx="90" cy="110.3" r="1.8" fill="#9aa0a5" />
+<circle cx="140" cy="70" r="1.8" fill="#9aa0a5" />
+<circle cx="190" cy="50.5" r="1.8" fill="#9aa0a5" />
+<circle cx="240" cy="40.1" r="1.8" fill="#9aa0a5" />
+<circle cx="290" cy="36.3" r="1.8" fill="#9aa0a5" />
+<circle cx="340" cy="38.1" r="1.8" fill="#9aa0a5" />
+<circle cx="390" cy="47.2" r="1.8" fill="#9aa0a5" />
+<circle cx="440" cy="59.6" r="1.8" fill="#9aa0a5" />
+<circle cx="490" cy="67.7" r="1.8" fill="#9aa0a5" />
+<circle cx="540" cy="70.5" r="1.8" fill="#9aa0a5" />
+<circle cx="90" cy="112.3" r="1.8" fill="#f37726" />
+<circle cx="140" cy="70.5" r="1.8" fill="#f37726" />
+<circle cx="190" cy="49.7" r="1.8" fill="#f37726" />
+<circle cx="240" cy="37.8" r="1.8" fill="#f37726" />
+<circle cx="290" cy="32" r="1.8" fill="#f37726" />
+<circle cx="340" cy="29" r="1.8" fill="#f37726" />
+<circle cx="390" cy="27.2" r="1.8" fill="#f37726" />
+<circle cx="440" cy="26.2" r="1.8" fill="#f37726" />
+<circle cx="490" cy="25.4" r="1.8" fill="#f37726" />
+<circle cx="540" cy="25.2" r="1.8" fill="#f37726" />
+<text x="40" y="138" text-anchor="middle" class="tick">0</text>
+<text x="140" y="138" text-anchor="middle" class="tick">40</text>
+<text x="240" y="138" text-anchor="middle" class="tick">80</text>
+<text x="340" y="138" text-anchor="middle" class="tick">120</text>
+<text x="440" y="138" text-anchor="middle" class="tick">160</text>
+<text x="540" y="138" text-anchor="middle" class="tick">200</text>
+<text x="290" y="150" text-anchor="middle" class="axis-label">EPOCH</text>
+<text x="10" y="69" text-anchor="middle" class="axis-label" transform="rotate(-90 10 69)">COSINE&#8195;<tspan class="lvar">S</tspan><tspan dy="2" class="lsub">k</tspan></text>
+<line x1="300" y1="118" x2="324" y2="118" stroke="#f37726" stroke-width="1.6" />
+<text x="330" y="121" class="legend">CLIPPED</text>
+<line x1="392" y1="118" x2="416" y2="118" stroke="#9aa0a5" stroke-width="1.2" stroke-dasharray="4 3" />
+<text x="422" y="121" class="legend">BASELINE</text>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 252 116" role="img" aria-label="An open match tin with its ruined contents, one whole match lying beside it, and a key with a paper tag marked LAMP.">
+  <!-- lid, leaning behind the tin -->
+  <g stroke="#8B887F" stroke-width="1.4" fill="#EDEAE1">
+    <path d="M104,30 L164,16 L172,44 L112,58 Z" />
+  </g>
+  <g stroke="#B7B3A9" stroke-width="1" fill="none" opacity="0.9">
+    <path d="M114,32 L160,21" />
+    <path d="M117,40 L163,29" />
+    <path d="M120,48 L152,40" />
+  </g>
+  <!-- tin: open top and front face -->
+  <g stroke="#5F6365" stroke-width="1.8" fill="#E7E3DA">
+    <path d="M26,54 L52,40 L128,40 L102,54 Z" />
+    <path d="M26,54 L102,54 L102,92 L26,92 Z" />
+  </g>
+  <path d="M102,54 L128,40 L128,78 L102,92 Z" fill="#DAD5CB" stroke="#5F6365" stroke-width="1.8" />
+  <!-- the ruined brick of matches -->
+  <path d="M34,52 L58,44 L120,44 L96,52 Z" fill="#B7B3A9" />
+  <path d="M34,52 L96,52 L96,60 L34,60 Z" fill="#A7A399" />
+  <g stroke="#8B887F" stroke-width="0.9" opacity="0.8">
+    <path d="M46,46 L44,58" />
+    <path d="M64,45 L62,58" />
+    <path d="M84,45 L82,58" />
+  </g>
+  <!-- one whole, dry match -->
+  <path d="M132,96 L204,84" fill="none" stroke="#C7C3B9" stroke-width="4.4" stroke-linecap="round" />
+  <path d="M132,96 L204,84" fill="none" stroke="#8B887F" stroke-width="1" />
+  <ellipse cx="208" cy="83" rx="7" ry="5.6" transform="rotate(-10 208 83)" fill="#33383A" />
+  <!-- key with a paper tag -->
+  <g stroke="#5F6365" stroke-width="2" fill="none">
+    <circle cx="228" cy="30" r="10" />
+    <path d="M221,37 L188,62" />
+    <path d="M196,56 L202,64" />
+    <path d="M206,48 L212,56" />
+  </g>
+  <g stroke="#8B887F" stroke-width="1.2" fill="#EDEAE1">
+    <path d="M176,54 L156,64 L162,80 L182,70 Z" />
+  </g>
+  <path d="M164,64 L176,71" fill="none" stroke="#8B887F" stroke-width="1.2" />
+  <path d="M166,70 L174,74" fill="none" stroke="#8B887F" stroke-width="1.2" />
+</svg>

@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 500" role="img" aria-label="平面図">
+  <style>
+    .fignum { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 15px; font-weight: 700; fill: #202020; }
+    .axis { font-family: "Roboto Mono", ui-monospace, monospace; font-size: 12px; fill: #202020; }
+    .dim { font-family: "Roboto Mono", ui-monospace, monospace; font-size: 9px; fill: #555555; }
+    .lev { font-family: "Roboto Mono", ui-monospace, monospace; font-size: 9px; fill: #202020; }
+    .room { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 11px; fill: #404040; letter-spacing: 0.1em; }
+    .compass { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 11px; font-weight: 700; fill: #202020; }
+  </style>
+
+  <rect x="10" y="10" width="66" height="26" fill="none" stroke="#202020" stroke-width="1.4" />
+  <text x="43" y="29" text-anchor="middle" class="fignum">図 10</text>
+
+  <g stroke="#555555" stroke-width="0.7" stroke-dasharray="5 3">
+    <line x1="200" y1="108" x2="200" y2="475" />
+    <line x1="305" y1="108" x2="305" y2="475" />
+    <line x1="410" y1="108" x2="410" y2="475" />
+    <line x1="515" y1="108" x2="515" y2="475" />
+    <line x1="585" y1="108" x2="585" y2="475" />
+    <line x1="130" y1="180" x2="622" y2="180" />
+    <line x1="130" y1="285" x2="622" y2="285" />
+    <line x1="130" y1="355" x2="622" y2="355" />
+    <line x1="130" y1="425" x2="622" y2="425" />
+  </g>
+
+  <g fill="#FAFAF8" stroke="#202020" stroke-width="0.8">
+    <circle cx="200" cy="96" r="11" /><circle cx="305" cy="96" r="11" />
+    <circle cx="410" cy="96" r="11" /><circle cx="515" cy="96" r="11" />
+    <circle cx="585" cy="96" r="11" />
+    <circle cx="118" cy="180" r="11" /><circle cx="118" cy="285" r="11" />
+    <circle cx="118" cy="355" r="11" /><circle cx="118" cy="425" r="11" />
+  </g>
+  <g class="axis" text-anchor="middle">
+    <text x="200" y="100">A</text><text x="305" y="100">B</text><text x="410" y="100">C</text>
+    <text x="515" y="100">D</text><text x="585" y="100">E</text>
+    <text x="118" y="184">1</text><text x="118" y="289">2</text>
+    <text x="118" y="359">3</text><text x="118" y="429">4</text>
+  </g>
+
+  <g stroke="#555555" stroke-width="0.6" fill="none">
+    <line x1="200" y1="122" x2="585" y2="122" />
+    <line x1="200" y1="142" x2="585" y2="142" />
+    <g stroke-width="0.7">
+      <line x1="200" y1="138" x2="200" y2="146" /><line x1="305" y1="138" x2="305" y2="146" />
+      <line x1="410" y1="138" x2="410" y2="146" /><line x1="515" y1="138" x2="515" y2="146" />
+      <line x1="585" y1="138" x2="585" y2="146" />
+    </g>
+    <line x1="140" y1="180" x2="140" y2="425" />
+    <line x1="160" y1="180" x2="160" y2="425" />
+    <g stroke-width="0.7">
+      <line x1="156" y1="180" x2="164" y2="180" /><line x1="156" y1="285" x2="164" y2="285" />
+      <line x1="156" y1="355" x2="164" y2="355" /><line x1="156" y1="425" x2="164" y2="425" />
+    </g>
+    <line x1="200" y1="468" x2="585" y2="468" />
+    <g stroke-width="0.7">
+      <line x1="200" y1="464" x2="200" y2="472" /><line x1="515" y1="464" x2="515" y2="472" />
+      <line x1="585" y1="464" x2="585" y2="472" />
+    </g>
+  </g>
+  <g class="dim" text-anchor="middle">
+    <text x="392" y="117">10010</text>
+    <text x="252" y="137">2730</text><text x="357" y="137">2730</text>
+    <text x="462" y="137">2730</text><text x="550" y="137">1820</text>
+    <text x="134" y="302" transform="rotate(-90 134 302)">6370</text>
+    <text x="155" y="232" transform="rotate(-90 155 232)">2730</text>
+    <text x="155" y="320" transform="rotate(-90 155 320)">1820</text>
+    <text x="155" y="390" transform="rotate(-90 155 390)">1820</text>
+    <text x="357" y="482">8190</text><text x="550" y="482">1820</text>
+  </g>
+
+  <rect x="177" y="157" width="431" height="291" fill="none" stroke="#555555" stroke-width="0.7" stroke-dasharray="6 3" />
+  <rect x="200" y="180" width="315" height="245" fill="none" stroke="#202020" stroke-width="4" />
+
+  <g stroke="#202020" stroke-width="2" fill="none">
+    <line x1="305" y1="180" x2="305" y2="425" />
+    <line x1="200" y1="285" x2="305" y2="285" />
+    <line x1="200" y1="355" x2="305" y2="355" />
+  </g>
+
+  <g fill="#202020">
+    <rect x="511" y="176" width="8" height="8" /><rect x="511" y="281" width="8" height="8" />
+    <rect x="511" y="351" width="8" height="8" /><rect x="511" y="421" width="8" height="8" />
+    <rect x="581" y="176" width="8" height="8" /><rect x="581" y="281" width="8" height="8" />
+    <rect x="581" y="351" width="8" height="8" /><rect x="581" y="421" width="8" height="8" />
+  </g>
+
+  <g stroke="#202020" stroke-width="1.2" fill="none">
+    <line x1="513" y1="196" x2="513" y2="409" />
+    <line x1="517" y1="196" x2="517" y2="409" />
+  </g>
+  <g stroke="#555555" stroke-width="0.7">
+    <line x1="509" y1="249" x2="521" y2="249" /><line x1="509" y1="302" x2="521" y2="302" />
+    <line x1="509" y1="355" x2="521" y2="355" />
+  </g>
+
+  <g stroke="#555555" stroke-width="1" fill="none">
+    <rect x="212" y="192" width="40" height="44" />
+    <rect x="258" y="192" width="40" height="44" />
+    <ellipse cx="232" cy="210" rx="9" ry="11" />
+    <ellipse cx="278" cy="210" rx="9" ry="11" />
+    <rect x="212" y="252" width="58" height="16" />
+    <circle cx="226" cy="260" r="5" />
+  </g>
+  <g stroke="#555555" stroke-width="0.9" fill="none">
+    <rect x="212" y="296" width="82" height="14" />
+    <line x1="240" y1="296" x2="240" y2="310" /><line x1="267" y1="296" x2="267" y2="310" />
+    <rect x="212" y="322" width="82" height="14" />
+    <line x1="240" y1="322" x2="240" y2="336" /><line x1="267" y1="322" x2="267" y2="336" />
+  </g>
+  <path d="M252 425 A46 46 0 0 1 298 471" fill="none" stroke="#555555" stroke-width="0.9" />
+  <polygon points="243,452 257,452 250,464" fill="#202020" />
+
+  <g stroke="#555555" stroke-width="1" fill="none">
+    <rect x="318" y="188" width="180" height="16" />
+    <rect x="318" y="401" width="180" height="16" />
+    <rect x="368" y="272" width="90" height="46" />
+    <rect x="348" y="284" width="14" height="22" rx="2" />
+    <rect x="464" y="284" width="14" height="22" rx="2" />
+    <rect x="392" y="252" width="22" height="14" rx="2" />
+    <rect x="422" y="252" width="22" height="14" rx="2" />
+    <rect x="392" y="324" width="22" height="14" rx="2" />
+    <rect x="422" y="324" width="22" height="14" rx="2" />
+  </g>
+  <g stroke="#555555" stroke-width="1" fill="none">
+    <rect x="534" y="242" width="34" height="102" />
+    <line x1="534" y1="276" x2="568" y2="276" /><line x1="534" y1="310" x2="568" y2="310" />
+  </g>
+
+  <g class="room" text-anchor="middle">
+    <text x="252" y="280">便所</text>
+    <text x="252" y="350">倉庫</text>
+    <text x="252" y="398">風除室</text>
+    <text x="410" y="240">休憩室</text>
+    <text x="550" y="212">土間テラス</text>
+  </g>
+
+  <text x="410" y="382" text-anchor="middle" class="lev">&#9661;+150</text>
+  <text x="550" y="380" text-anchor="middle" class="lev">&#9661;&#177;0</text>
+
+  <g>
+    <circle cx="644" cy="466" r="22" fill="none" stroke="#555555" stroke-width="0.9" />
+    <polygon points="644,448 638,470 650,470" fill="#202020" />
+    <polygon points="644,484 638,470 650,470" fill="#FAFAF8" stroke="#555555" stroke-width="0.7" />
+    <text x="644" y="440" text-anchor="middle" class="compass">N</text>
+  </g>
+</svg>

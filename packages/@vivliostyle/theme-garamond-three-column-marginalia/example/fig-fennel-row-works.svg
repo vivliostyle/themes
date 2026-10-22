@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 200" role="img"
+     aria-label="Line elevation of the Fennel Row works: a three-bay brick building with a tall boiler chimney, arched composing-room windows above, machine-room windows and a loading door below.">
+  <g fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+    <!-- boiler chimney -->
+    <rect x="26" y="14" width="16" height="156" />
+    <rect x="21" y="8" width="26" height="7" />
+    <g stroke-width="0.5">
+      <line x1="26" y1="40" x2="42" y2="40" />
+      <line x1="26" y1="66" x2="42" y2="66" />
+      <line x1="26" y1="92" x2="42" y2="92" />
+      <line x1="26" y1="118" x2="42" y2="118" />
+    </g>
+    <!-- roof -->
+    <path d="M52,60 L70,40 L260,40 L278,60" />
+    <line x1="52" y1="60" x2="278" y2="60" />
+    <!-- main block -->
+    <rect x="60" y="60" width="210" height="110" stroke-width="1.6" />
+    <line x1="60" y1="116" x2="270" y2="116" />
+    <!-- composing room: arched windows -->
+    <g stroke-width="1.1">
+      <path d="M78,110 L78,92 A20,20 0 0 1 118,92 L118,110 Z" />
+      <path d="M143,110 L143,92 A20,20 0 0 1 183,92 L183,110 Z" />
+      <path d="M208,110 L208,92 A20,20 0 0 1 248,92 L248,110 Z" />
+    </g>
+    <g stroke-width="0.5">
+      <line x1="98" y1="72" x2="98" y2="110" />
+      <line x1="163" y1="72" x2="163" y2="110" />
+      <line x1="228" y1="72" x2="228" y2="110" />
+      <line x1="78" y1="98" x2="118" y2="98" />
+      <line x1="143" y1="98" x2="183" y2="98" />
+      <line x1="208" y1="98" x2="248" y2="98" />
+    </g>
+    <!-- machine room windows and loading door -->
+    <g stroke-width="1.1">
+      <rect x="78" y="126" width="40" height="28" />
+      <rect x="143" y="126" width="40" height="28" />
+      <rect x="205" y="112" width="46" height="58" />
+    </g>
+    <g stroke-width="0.5">
+      <line x1="98" y1="126" x2="98" y2="154" />
+      <line x1="163" y1="126" x2="163" y2="154" />
+      <line x1="228" y1="112" x2="228" y2="170" />
+      <line x1="205" y1="124" x2="251" y2="124" />
+    </g>
+    <!-- figure by the door, for scale -->
+    <circle cx="272" cy="140" r="4" />
+    <path d="M268,146 L276,146 L275,162 L269,162 Z" />
+    <line x1="269" y1="162" x2="267" y2="170" />
+    <line x1="275" y1="162" x2="277" y2="170" />
+    <!-- ground -->
+    <line x1="10" y1="170" x2="332" y2="170" stroke-width="1.4" />
+    <g stroke-width="0.5">
+      <line x1="60" y1="172" x2="54" y2="180" />
+      <line x1="100" y1="172" x2="94" y2="180" />
+      <line x1="140" y1="172" x2="134" y2="180" />
+      <line x1="180" y1="172" x2="174" y2="180" />
+      <line x1="220" y1="172" x2="214" y2="180" />
+      <line x1="260" y1="172" x2="254" y2="180" />
+      <line x1="300" y1="172" x2="294" y2="180" />
+    </g>
+  </g>
+</svg>

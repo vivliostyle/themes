@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 188" role="img" aria-label="梔子丘学園正門前で撮影した昭和会・平成会合同懇親会の記念写真">
+<style>
+.plaque { font-family: "Zen Old Mincho", "Yu Mincho", serif; font-size: 7px; letter-spacing: 1px; fill: #d9d4cb; }
+</style>
+<rect x="0" y="0" width="320" height="188" fill="#c8c3ba" />
+<rect x="0" y="0" width="320" height="112" fill="#b7b2a9" />
+<rect x="196" y="24" width="112" height="112" fill="#8f8a81" />
+<g fill="#7c776e">
+<rect x="204" y="34" width="14" height="18" />
+<rect x="226" y="34" width="14" height="18" />
+<rect x="248" y="34" width="14" height="18" />
+<rect x="270" y="34" width="14" height="18" />
+<rect x="204" y="60" width="14" height="18" />
+<rect x="226" y="60" width="14" height="18" />
+<rect x="248" y="60" width="14" height="18" />
+<rect x="270" y="60" width="14" height="18" />
+</g>
+<ellipse cx="96" cy="70" rx="104" ry="72" fill="#6f6a61" />
+<ellipse cx="150" cy="52" rx="80" ry="52" fill="#7a756c" />
+<rect x="88" y="96" width="10" height="52" fill="#4f4b44" />
+<rect x="150" y="118" width="16" height="48" fill="#8a857c" />
+<rect x="196" y="118" width="16" height="48" fill="#8a857c" />
+<text x="158" y="150" class="plaque" writing-mode="tb">合同懇親会</text>
+<rect x="0" y="150" width="320" height="38" fill="#a39e95" />
+<g fill="#4a463f">
+<circle cx="40" cy="150" r="6" /><rect x="35" y="156" width="10" height="26" />
+<circle cx="62" cy="152" r="6" /><rect x="57" y="158" width="10" height="24" />
+<circle cx="86" cy="150" r="6" /><rect x="81" y="156" width="10" height="26" />
+<circle cx="110" cy="152" r="6" /><rect x="105" y="158" width="10" height="24" />
+<circle cx="134" cy="150" r="6" /><rect x="129" y="156" width="10" height="26" />
+<circle cx="158" cy="152" r="6" /><rect x="153" y="158" width="10" height="24" />
+<circle cx="182" cy="150" r="6" /><rect x="177" y="156" width="10" height="26" />
+<circle cx="206" cy="152" r="6" /><rect x="201" y="158" width="10" height="24" />
+<circle cx="230" cy="150" r="6" /><rect x="225" y="156" width="10" height="26" />
+<circle cx="254" cy="152" r="6" /><rect x="249" y="158" width="10" height="24" />
+<circle cx="278" cy="150" r="6" /><rect x="273" y="156" width="10" height="26" />
+</g>
+<rect x="1" y="1" width="318" height="186" fill="none" stroke="#6f6a61" stroke-width="1" />
+</svg>

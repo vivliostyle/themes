@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 238" role="img" aria-label="2026年1月から6月までの販売費及び一般管理費の費目別差異の棒グラフ">
+<style>
+text { font-family: "Noto Sans JP", "Hiragino Sans", sans-serif; font-size: 13px; fill: #1f2428; }
+</style>
+<line x1="60" y1="12.5" x2="60" y2="187.5" stroke="#5a5e63" stroke-width="1" />
+<text x="52" y="17.5" text-anchor="end">15,000</text>
+<text x="52" y="75.8333" text-anchor="end">0</text>
+<text x="52" y="134.1667" text-anchor="end">−15,000</text>
+<text x="52" y="192.5" text-anchor="end">−30,000</text>
+<rect x="95.0833" y="70.8333" width="44" height="93.7222" fill="#c05621" />
+<rect x="209.25" y="58.3889" width="44" height="12.4444" fill="#8e9297" />
+<rect x="323.4167" y="70.8333" width="44" height="106.5556" fill="#c05621" />
+<rect x="437.5833" y="28.8333" width="44" height="42" fill="#8e9297" />
+<rect x="551.75" y="65.3889" width="44" height="5.4444" fill="#8e9297" />
+<rect x="665.9167" y="65" width="44" height="5.8333" fill="#8e9297" />
+<line x1="60" y1="70.8333" x2="745" y2="70.8333" stroke="#44484d" stroke-width="1.2" />
+<text x="117.0833" y="180.8056" text-anchor="middle">−24,100</text>
+<text x="231.25" y="50.2639" text-anchor="middle">3,200</text>
+<text x="345.4167" y="193.6389" text-anchor="middle">−27,400</text>
+<text x="459.5833" y="20.7083" text-anchor="middle">10,800</text>
+<text x="573.75" y="57.2639" text-anchor="middle">1,400</text>
+<text x="687.9167" y="56.875" text-anchor="middle">1,500</text>
+<text x="117.0833" y="217.5" text-anchor="middle">人件費</text>
+<text x="231.25" y="217.5" text-anchor="middle">地代家賃</text>
+<text x="345.4167" y="217.5" text-anchor="middle">広告宣伝費</text>
+<text x="459.5833" y="217.5" text-anchor="middle">旅費交通費</text>
+<text x="573.75" y="217.5" text-anchor="middle">通信費</text>
+<text x="687.9167" y="217.5" text-anchor="middle">減価償却費</text>
+</svg>

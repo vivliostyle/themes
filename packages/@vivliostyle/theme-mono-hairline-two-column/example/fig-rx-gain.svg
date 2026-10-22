@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 180" role="img" aria-label="Line graph of maximum receiver gain versus frequency at VDD_A equals 3.3 volts and 25 degrees Celsius. Gain is 45 dB from 0.5 to 1 GHz, holds above 43 dB to 3 GHz, and rolls off gradually to about 37 dB at 6 GHz." fill="none" stroke="#171717">
+<style>
+text { font-family: "Roboto Mono", "IBM Plex Mono", ui-monospace, monospace; stroke: none; }
+</style>
+<text x="4" y="12" font-size="7.3" font-weight="500" fill="#171717" stroke="none">RECEIVER GAIN vs FREQUENCY  (VDD_A = 3.3 V, TA = 25 &#176;C)</text>
+<g stroke="#d6d6d6" stroke-width="0.5">
+<line x1="42" y1="52.4" x2="350" y2="52.4" />
+<line x1="42" y1="76.8" x2="350" y2="76.8" />
+<line x1="42" y1="101.2" x2="350" y2="101.2" />
+<line x1="42" y1="125.6" x2="350" y2="125.6" />
+<line x1="79.8" y1="28" x2="79.8" y2="150" />
+<line x1="133.9" y1="28" x2="133.9" y2="150" />
+<line x1="187.9" y1="28" x2="187.9" y2="150" />
+<line x1="241.9" y1="28" x2="241.9" y2="150" />
+<line x1="296" y1="28" x2="296" y2="150" />
+</g>
+<rect x="42" y="28" width="308" height="122" stroke="#171717" stroke-width="0.8" />
+<polyline points="42,54.4 52.8,52.4 79.8,52.4 133.9,55.3 187.9,60.7 241.9,68 296,77.8 350,90.5" stroke="#171717" stroke-width="1.2" />
+<g font-size="6" fill="#555555" stroke="none" text-anchor="end">
+<text x="38" y="30.2">50</text>
+<text x="38" y="54.6">45</text>
+<text x="38" y="79">40</text>
+<text x="38" y="103.4">35</text>
+<text x="38" y="127.8">30</text>
+<text x="38" y="152.2">25</text>
+</g>
+<g font-size="6" fill="#555555" stroke="none" text-anchor="middle">
+<text x="42" y="160">0.3</text>
+<text x="79.8" y="160">1</text>
+<text x="133.9" y="160">2</text>
+<text x="187.9" y="160">3</text>
+<text x="241.9" y="160">4</text>
+<text x="296" y="160">5</text>
+<text x="350" y="160">6</text>
+</g>
+<text x="196" y="174" font-size="6.5" fill="#555555" stroke="none" text-anchor="middle">Frequency (GHz)</text>
+<text x="12" y="89" font-size="6.5" fill="#555555" stroke="none" text-anchor="middle" transform="rotate(-90 12 89)">Gain (dB)</text>
+</svg>

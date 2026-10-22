@@ -1,0 +1,11 @@
+/*
+ * theme.css だけでこの要旨集は組める。ここで与えるのは、この大会の付番規則だけ。
+ */
+
+/* 演題番号はポスターセッション P の 101 番から通しで振られる */
+:root {
+  --vs-theme-three-column-red-frame--entry-marker-content: 'P-'
+    counter(vs-counter-sec-h2);
+  --vs-theme-three-column-red-frame--entry-marker-size-inline: 9.4mm;
+  --vs-section--root-counter-sec-h2: 100;
+}

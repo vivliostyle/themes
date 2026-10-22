@@ -1,0 +1,273 @@
+/*
+ * 口座取引明細書 (blue-header-ledger)
+ * A5判1段の個人向け通帳様式ステートメント。Noto Sans JP のゴシックで帳票の
+ * 見出し・摘要を、IBM Plex Sans JP のタブラー数字で日付・金額・残高の桁を揃える。
+ * 上端に細い青罫の柱(文書題と当該ページの明細区分)、その下に発行者のロゴタイプと
+ * 淡青の口座情報ボックス、青ベタ白抜き表頭の台帳を密に流す。台帳は明細の件数に
+ * かかわらず表頭を繰り返して次ページへ継続する。
+ * DOM は VFM 出力: body > section.level1 > (h1, header, section.level2 > (h2, table))。
+ */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  /* Page: A5 portrait, compact banking margins */
+  --vs-page--size: A5;
+  --vs-page--margin-top: 12mm;
+  --vs-page--margin-bottom: 12mm;
+  --vs-page--margin-left: 9.5mm;
+  --vs-page--margin-right: 9.5mm;
+  /* 柱を版面から切り離す細い青罫 */
+  --vs-page--border-width-top: 0.7pt;
+  --vs-page--border-color-top: var(--vs-theme-blue-header-ledger--color-accent);
+
+  /* Type: gothic 8.5pt body / 1.4 lead */
+  --vs-font-family:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --vs-font-size: 8.5pt;
+  --vs-line-height: 1.4;
+  --vs-color-background: #ffffff;
+  --vs-color-foreground: #1a1a1a;
+  --vs-columns: 1;
+
+  --vs--p-margin-block: calc(0.25 * var(--vs-spacing-rlh));
+  --vs--p-margin-inline: 0;
+  --vs--p-text-indent: 0;
+  --vs--p-text-align: start;
+
+  --vs--heading-font-family:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --vs--heading-font-weight: 700;
+  --vs--heading-text-align: start;
+  --vs--heading-margin-block: 0;
+  --vs--h2-font-size: 12pt;
+  --vs--h2-margin-block: 0 1.6mm;
+
+  /* 明細区分の見出しを柱へ流す */
+  --vs--h2-string-set: section-title content();
+
+  /* Ledger table: 罫は行間のみ 0.4pt、外枠・列罫なし */
+  --vs--table-break-inside: auto;
+  --vs--table-font-size: 7.8pt;
+  --vs--table-margin-block: 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-border-width: 0;
+  --vs--table-border-width-row: 0.4pt;
+  --vs--table-border-color: #d9e6f4;
+  --vs--table-cell-padding-block: 1mm;
+  --vs--table-cell-padding-inline: 2mm;
+  --vs--th-font-size: 8pt;
+  --vs--td-text-align: start;
+
+  /* 柱・ノンブル */
+  --vs-page--mbox-top-left-content: env(doc-title);
+  --vs-page--mbox-top-right-content: string(section-title, start);
+  --vs-page--mbox-bottom-left-content: element(footer-note);
+  --vs-page--mbox-bottom-right-content: counter(page);
+  --vs-page--mbox-top-font-size: 8pt;
+  --vs-page--mbox-top-letter-spacing: 0.06em;
+  --vs-page--mbox-top-text-color: #55606b;
+  --vs-page--mbox-bottom-font-family: var(
+    --vs-theme-blue-header-ledger--font-numeric
+  );
+  --vs-page--mbox-bottom-font-size: 9.5pt;
+  --vs-page--mbox-bottom-font-weight: 500;
+  --vs-page--mbox-bottom-text-color: var(
+    --vs-theme-blue-header-ledger--color-numeric
+  );
+
+  /* Theme-specific */
+  --vs-theme-blue-header-ledger--font-numeric:
+    'IBM Plex Sans JP', 'Noto Sans JP', ui-monospace, monospace;
+  --vs-theme-blue-header-ledger--color-accent: #0066cc;
+  --vs-theme-blue-header-ledger--color-accent-deep: #0b4ea8;
+  --vs-theme-blue-header-ledger--color-tint: #e8f1fb;
+  --vs-theme-blue-header-ledger--color-tint-border: #a9cdf0;
+  --vs-theme-blue-header-ledger--color-numeric: #333333;
+  --vs-theme-blue-header-ledger--ledger-date-width: 14%;
+  --vs-theme-blue-header-ledger--ledger-description-width: 38%;
+  --vs-theme-blue-header-ledger--ledger-amount-width: 16%;
+  --vs-theme-blue-header-ledger--section-margin-block-start: 5mm;
+}
+
+/* 発行者の注記(見本表示・問い合わせ先など)を原稿から地の柱へ流す */
+.footer-note {
+  position: running(footer-note);
+  font-family: var(--vs-font-family);
+  font-size: 7pt;
+  color: #5c6773;
+}
+
+/* h1(文書題)は柱が担うため視覚的に隠す */
+h1 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---- Masthead: 発行者ロゴタイプ + 口座情報ボックス ---- */
+header {
+  margin-block: 1mm 4.5mm;
+}
+
+header::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.headline {
+  margin-block: 0;
+  margin-inline: 0;
+  line-height: 1.05;
+}
+
+.headline b {
+  font-weight: 700;
+  font-size: 22pt;
+  letter-spacing: 0.01em;
+}
+
+.headline span {
+  font-weight: 600;
+  font-size: 11pt;
+  letter-spacing: 0.03em;
+  color: var(--vs-theme-blue-header-ledger--color-accent-deep);
+  margin-inline-start: 1.5mm;
+}
+
+.byline {
+  margin-block: 1.2mm 0;
+  margin-inline: 0;
+  font-weight: 700;
+  font-size: 12pt;
+  letter-spacing: 0.02em;
+}
+
+.card {
+  float: inline-end;
+  margin-inline-start: 6mm;
+  min-width: 62mm;
+  font-style: normal;
+  background-color: var(--vs-theme-blue-header-ledger--color-tint);
+  border-width: 0.5pt;
+  border-style: solid;
+  border-color: var(--vs-theme-blue-header-ledger--color-tint-border);
+  border-radius: 1mm;
+  padding: 2.4mm 3.4mm;
+  font-size: 8pt;
+  line-height: 1.75;
+}
+
+.card span {
+  display: block;
+  white-space: nowrap;
+}
+
+/* ---- Section heading: rule-below ---- */
+h2 {
+  padding-block-end: 1mm;
+  border-block-end-width: 1.4pt;
+  border-block-end-style: solid;
+  border-block-end-color: var(--vs-theme-blue-header-ledger--color-accent);
+}
+
+/* 台帳は天の余白を持たないため、節が続くときだけ見出しの前を空ける */
+section.level2 + section.level2 {
+  margin-block-start: var(
+    --vs-theme-blue-header-ledger--section-margin-block-start
+  );
+}
+
+/* ---- Ledger table (Markdown の表) ---- */
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* colgroup は Markdown の表から生成されないため列幅は thead th で決める
+   (table-layout: fixed は最初の行のセル幅を採用する) */
+thead th:first-child {
+  width: var(--vs-theme-blue-header-ledger--ledger-date-width);
+}
+thead th:nth-child(2) {
+  width: var(--vs-theme-blue-header-ledger--ledger-description-width);
+}
+thead th:nth-child(n + 3) {
+  width: var(--vs-theme-blue-header-ledger--ledger-amount-width);
+}
+
+/* ヘッダーは各ページで繰り返す(表が複数ページに流れる) */
+thead {
+  display: table-header-group;
+}
+
+thead th {
+  background-color: var(--vs-theme-blue-header-ledger--color-accent);
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  padding-block: 1.5mm;
+  padding-inline: 1.8mm;
+}
+
+tbody tr {
+  break-inside: avoid;
+}
+
+/* --vs--table-border-width-row は tr:not(:last-child) にしか掛からないため、
+   台帳の最終行にも罫を引く */
+tbody tr:last-child {
+  border-block-end-width: 0.4pt;
+}
+
+tbody td {
+  vertical-align: baseline;
+}
+
+tbody tr:nth-child(even) td {
+  background-color: var(--vs-theme-blue-header-ledger--color-tint);
+}
+
+/* 日付列: タブラー等幅数字で桁揃え */
+tbody td:first-child {
+  font-family: var(--vs-theme-blue-header-ledger--font-numeric);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  color: var(--vs-theme-blue-header-ledger--color-numeric);
+}
+
+/* 摘要列より後は金額列とみなして右揃えの数字に */
+tbody td:nth-child(n + 3) {
+  font-family: var(--vs-theme-blue-header-ledger--font-numeric);
+  font-variant-numeric: tabular-nums;
+  text-align: end;
+  white-space: nowrap;
+}
+
+/* 入金列は青 */
+tbody td:nth-child(4) {
+  color: var(--vs-theme-blue-header-ledger--color-accent);
+  font-weight: 500;
+}
+
+/* 残高列は青字太字 */
+tbody td:last-child {
+  color: var(--vs-theme-blue-header-ledger--color-accent);
+  font-weight: 700;
+}

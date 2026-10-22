@@ -1,0 +1,36 @@
+/*
+ * example 専用の上書き。theme.css には手を入れない。
+ */
+
+/* この分冊は決定記録15から始まる (14以前は第1分冊)。一覧の
+   ドキュメントでレコード番号を14まで進め、以降の記録を15から起こす */
+html.record-index,
+body.record-index {
+  page: record-index-document;
+}
+
+@page record-index-document {
+  --vs-page--doc-counter-increment: vs-counter-doc vs-counter-chapter 14;
+}
+
+/* 一覧表。theme.css は表を扱わないため、細罫とサンセリフの体裁をここで与える */
+table {
+  --vs--table-font-size: 7.8pt;
+  --vs--table-line-height: 1.5;
+  --vs--table-margin-block: 0 calc(var(--vs-spacing-rlh) / 3);
+  --vs--table-margin-inline: 0;
+  --vs--table-size-inline: 100%;
+  --vs--table-text-align: start;
+  --vs--table-border-color: var(
+    --vs-theme-monotone-one-record-page--color-rule
+  );
+  --vs--table-border-width: 0;
+  --vs--table-border-width-block-start: 0.5pt;
+  --vs--table-border-width-block-end: 0.5pt;
+  --vs--table-border-width-thead-inner: 0.4pt;
+  --vs--table-border-width-row: 0.3pt;
+  --vs--table-cell-padding-block: 0.9mm;
+  --vs--table-cell-padding-inline: 0 2mm;
+  --vs--table-cell-vertical-align: baseline;
+  --vs--th-font-weight: 500;
+}

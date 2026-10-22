@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 196" role="img"
+     aria-label="Bar chart of titles issued by the University Press in each decade from 1876 to 2025, rising from 95 in the first decade to 1,184 in the last, with a fall to 197 in the decade 1936 to 1945.">
+  <g fill="none" stroke="#1A1A1A" stroke-linejoin="round" stroke-linecap="round">
+    <line x1="44" y1="126.0" x2="324" y2="126.0" stroke-width="0.4" stroke-dasharray="2 2" />
+    <line x1="44" y1="76.0" x2="324" y2="76.0" stroke-width="0.4" stroke-dasharray="2 2" />
+    <line x1="44" y1="26.0" x2="324" y2="26.0" stroke-width="0.4" stroke-dasharray="2 2" />
+    <rect x="44.0" y="164.1" width="15.0" height="11.9" stroke-width="1" />
+    <rect x="62.6" y="157.5" width="15.0" height="18.5" stroke-width="1" />
+    <rect x="81.2" y="153.4" width="15.0" height="22.6" stroke-width="1" />
+    <rect x="99.8" y="149.0" width="15.0" height="27.0" stroke-width="1" />
+    <rect x="118.4" y="143.6" width="15.0" height="32.4" stroke-width="1" />
+    <rect x="137.0" y="140.0" width="15.0" height="36.0" stroke-width="1" />
+    <rect x="155.6" y="151.4" width="15.0" height="24.6" stroke-width="1" />
+    <rect x="174.2" y="138.4" width="15.0" height="37.6" stroke-width="1" />
+    <rect x="192.8" y="119.5" width="15.0" height="56.5" stroke-width="1" />
+    <rect x="211.4" y="96.2" width="15.0" height="79.8" stroke-width="1" />
+    <rect x="230.0" y="83.4" width="15.0" height="92.6" stroke-width="1" />
+    <rect x="248.6" y="74.5" width="15.0" height="101.5" stroke-width="1" />
+    <rect x="267.2" y="59.2" width="15.0" height="116.8" stroke-width="1" />
+    <rect x="285.8" y="43.2" width="15.0" height="132.8" stroke-width="1" />
+    <rect x="304.4" y="28.0" width="15.0" height="148.0" stroke-width="1" />
+    <line x1="44" y1="176" x2="324" y2="176" stroke-width="1.4" />
+    <line x1="44" y1="20" x2="44" y2="176" stroke-width="1.4" />
+  </g>
+  <g fill="#1A1A1A" stroke="none" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="7.5">
+    <text x="38" y="178.6" text-anchor="end">0</text>
+    <text x="38" y="128.6" text-anchor="end">400</text>
+    <text x="38" y="78.6" text-anchor="end">800</text>
+    <text x="38" y="28.6" text-anchor="end">1200</text>
+    <text x="51.5" y="188" text-anchor="middle">1876</text>
+    <text x="88.7" y="188" text-anchor="middle">1896</text>
+    <text x="125.9" y="188" text-anchor="middle">1916</text>
+    <text x="163.1" y="188" text-anchor="middle">1936</text>
+    <text x="200.3" y="188" text-anchor="middle">1956</text>
+    <text x="237.5" y="188" text-anchor="middle">1976</text>
+    <text x="274.7" y="188" text-anchor="middle">1996</text>
+    <text x="311.9" y="188" text-anchor="middle">2016</text>
+  </g>
+</svg>

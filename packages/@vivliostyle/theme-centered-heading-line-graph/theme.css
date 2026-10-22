@@ -1,0 +1,215 @@
+/*
+ * 大学教科書のグラフ多用型 (経済学など) 向けテーマ
+ * A4判縦・英文セリフ2段組。Source Serif 4 の本文とセンタリングの番号付き見出し、
+ * PT Serif のキャプション・柱・ノンブル。深緑を見出し番号・表ヘッダ・相互参照に、
+ * 焦げオレンジを第2系列に使う配色を図版側と揃える。
+ * 段組は節ごとの multi-column で、図表は `.wide` で段抜きにする。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/math';
+
+:root {
+  --vs-page--size: A4;
+  --vs-page--margin-top: 22mm;
+  --vs-page--margin-bottom: 17mm;
+  --vs-page--margin-left: 15mm;
+  --vs-page--margin-right: 15mm;
+  --vs-page--border-width-top: 0.4pt;
+  --vs-page--border-color-top: var(
+    --vs-theme-centered-heading-line-graph--color-runhead-rule
+  );
+
+  --vs-font-family: 'Source Serif 4', 'Georgia', serif;
+  --vs-font-size: 8.5pt;
+  --vs-line-height: 1.4;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-background: #fdfdf8;
+  /* 段が細いので、1〜2行だけ取り残される泣き別れを禁じる */
+  --vs-widows-orphans: 3;
+
+  --vs--heading-font-family: 'Source Serif 4', 'Georgia', serif;
+  --vs--h2-font-size: 16pt;
+  --vs--h2-font-weight: 700;
+  --vs--h2-line-height: 1.2;
+  --vs--h2-margin-block: 1mm 4.5mm;
+  --vs--h2-text-align: center;
+
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 1.5em;
+  --vs--p-text-align: justify;
+
+  --vs--anchor-text-color: #006633;
+  --vs--anchor-text-decoration: none;
+
+  --vs--figure-margin-block: 0;
+  --vs--figcaption-font-family: 'PT Serif', 'Georgia', serif;
+  --vs--figcaption-font-style: italic;
+  --vs--figcaption-font-size: 7.8pt;
+  --vs--figcaption-margin-block: 0 2.2mm;
+  --vs--figcaption-text-align: center;
+
+  --vs--table-size-inline: 100%;
+  --vs--table-line-height: 1.25;
+  --vs--table-font-size: 7.8pt;
+  --vs--table-margin-block: 2.5mm 1.2mm;
+  --vs--table-margin-inline: 0;
+  --vs--table-text-align: center;
+  --vs--table-border-width: 0;
+  --vs--table-border-width-outer: 0.4pt;
+  --vs--table-border-color-outer: var(
+    --vs-theme-centered-heading-line-graph--color-rule
+  );
+  /* 行罫は参照PDF実測で墨色の太罫 (v2では淡緑指定が効かず既定罫が出ていた) */
+  --vs--table-border-width-row: 1px;
+  --vs--table-border-color-row: var(--vs-color-foreground);
+  --vs--table-border-width-thead-inner: 1px;
+  --vs--table-border-color-thead-inner: var(--vs-color-foreground);
+  --vs--table-cell-padding-block: 1.1mm;
+  --vs--table-cell-padding-inline: 2mm;
+  --vs--th-background-color: var(
+    --vs-theme-centered-heading-line-graph--color-accent
+  );
+  --vs--th-text-color: var(
+    --vs-theme-centered-heading-line-graph--color-accent-fg
+  );
+  --vs--th-padding-block: 1.4mm;
+
+  --vs-theme-centered-heading-line-graph--font-caption:
+    'PT Serif', 'Georgia', serif;
+  --vs-theme-centered-heading-line-graph--color-accent: #006633;
+  --vs-theme-centered-heading-line-graph--color-accent-fg: #ffffff;
+  --vs-theme-centered-heading-line-graph--color-tint: #e8f0e8;
+  --vs-theme-centered-heading-line-graph--color-rule: #8aa78f;
+  --vs-theme-centered-heading-line-graph--color-rule-light: #b7c9ba;
+  --vs-theme-centered-heading-line-graph--color-panel-bg: #f2f6f0;
+  --vs-theme-centered-heading-line-graph--color-runhead-rule: #55554f;
+  --vs-theme-centered-heading-line-graph--section-columns: 2;
+  --vs-theme-centered-heading-line-graph--section-column-gap: 7mm;
+
+  /* 見出し・図表の番号はいずれも「章番号.通し番号」 */
+  --vs-section--marker-display: inline;
+  --vs-section--h2-marker-content: counter(vs-counter-chapter) '.'
+    counter(vs-counter-sec-h2);
+  --vs-section--h3-marker-content: counter(vs-counter-chapter) '.'
+    counter(vs-counter-sec-h2) '.' counter(vs-counter-sec-h3);
+  --vs-section--call-content: 'Section ' counter(vs-counter-chapter) '.'
+    target-counter(attr(href), vs-counter-sec-h2);
+  --vs-figure--marker-content: 'Figure ' counter(vs-counter-chapter) '.'
+    counter(vs-counter-fig) '\2003';
+  --vs-table--marker-content: 'Table ' counter(vs-counter-chapter) '.'
+    counter(vs-counter-tbl) '\2003';
+  --vs-figure--call-content: 'Figure ' counter(vs-counter-chapter) '.'
+    target-counter(attr(href), vs-counter-fig);
+  --vs-table--call-content: 'Table ' counter(vs-counter-chapter) '.'
+    target-counter(attr(href), vs-counter-tbl);
+
+  /* 柱: 左に章番号と章題 (各章の frontmatter title)、右に書名 */
+  --vs-page--mbox-font-family: 'PT Serif', 'Georgia', serif;
+  --vs-page--mbox-text-color: #1a1a1a;
+  --vs-page--mbox-top-font-size: 8.5pt;
+  --vs-page--mbox-top-letter-spacing: 0.02em;
+  --vs-page--mbox-bottom-font-size: 9pt;
+  --vs-page--mbox-top-left-content: 'CHAPTER ' counter(vs-counter-chapter)
+    '\2002' env(doc-title);
+  --vs-page--mbox-top-right-content: env(pub-title);
+  --vs-page--mbox-top-right-font-style: italic;
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-top-vertical-align: bottom;
+  --vs-page--mbox-top-padding-bottom: 2mm;
+}
+
+/* 段組は節ごとに独立させ、見出しと `.wide` の図表は段抜きにする */
+section:has(> h2:first-child) {
+  columns: var(--vs-theme-centered-heading-line-graph--section-columns);
+  column-gap: var(--vs-theme-centered-heading-line-graph--section-column-gap);
+}
+
+section > h2:first-child {
+  column-span: all;
+}
+
+.wide {
+  column-span: all;
+  margin-block: 3mm 2.5mm;
+}
+
+/* 見出しの節番号は深緑 */
+section > h2:first-child::before {
+  color: var(--vs-theme-centered-heading-line-graph--color-accent);
+  margin-inline-end: 0.35em;
+}
+
+/* 章末のまとめ・練習問題は段組を節単位で掛けるため section のまま置き、番号だけ落とす */
+section:has(> h2.closing:first-child) {
+  counter-increment: none;
+}
+
+section > h2.closing:first-child::before {
+  content: none;
+}
+
+p + p {
+  margin-block-start: 0.6mm;
+}
+
+/* 表: 緑ベタ白抜きヘッダ + 淡緑ゼブラ */
+tbody tr:nth-child(odd) {
+  background-color: var(--vs-theme-centered-heading-line-graph--color-tint);
+}
+
+figure.tbl figcaption {
+  margin-block: 0.8mm 2.2mm;
+}
+
+/* 折れ線チャート: 図番号を持たず、キャプションを図の上に置く (column-reverse) */
+.chart {
+  margin: 2.8mm 0 1.5mm;
+}
+
+.chart figure {
+  flex-direction: column-reverse;
+  counter-increment: none;
+  /* theme-base の figure.css は figure:is(.fig, :has(>img,picture)) figcaption::before
+     というより高詳細度のセレクタで marker-content を出すため、下の content: none だけでは
+     打ち消せず前の図番号が再表示されてしまう (二重表示)。display を変数経由で止める。 */
+  --vs-figure--marker-display: none;
+  --vs--figure-item-size-inline: 96%;
+}
+
+.chart figcaption {
+  font-style: normal;
+  font-size: 8.3pt;
+  margin-block: 0 1mm;
+}
+
+.chart figcaption::before {
+  content: none;
+}
+
+/* グラフ図版: 淡緑パネル (枠は img 自身に持たせ、キャプションは枠の外) */
+.panel {
+  margin: 2.5mm 0 1.5mm;
+}
+
+.panel figure img {
+  width: 100%;
+  padding: 3mm 2.5mm 2mm;
+  background-color: var(--vs-theme-centered-heading-line-graph--color-panel-bg);
+  border-width: 0.4pt;
+  border-style: solid;
+  border-color: var(--vs-theme-centered-heading-line-graph--color-rule-light);
+}
+
+.panel figcaption {
+  margin-block: 0.8mm 0;
+}

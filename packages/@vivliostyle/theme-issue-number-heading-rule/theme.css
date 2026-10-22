@@ -1,0 +1,129 @@
+/*
+ * メールマガジン合本 (issue-number-heading-rule)
+ * 新書判・横組み・1段。中央寄せの号数見出しと連番付き小見出し、
+ * 版面全幅に渡る柱罫で、月刊の便りをまとめた合本の紙面を組む。
+ *
+ * 原稿 (VFM) の書き方:
+ *   1 号 = 1 ファイル。frontmatter に `class: chapter` を書くと「第N号」が自動で付く。
+ *   ## 発行日 {#issue-id}                号見出し。号数は自動、直後の1段落はリード
+ *   ### 小見出し                          号ごとに 1. 2. … と番号が付く
+ *   ## 見出し ##                          号数を振らない扉・前書き・後書き・奥付
+ *   <a href="…#issue-id" data-ref="issue"></a>  「第N号」の相互参照
+ *   frontmatter の class: cover / colophon で扉と奥付 (柱・ノンブルなし) になる
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Noto+Serif+JP:wght@400;500;700&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  --vs-page--size: 105mm 173mm;
+  --vs-page--margin-top: 8mm;
+  --vs-page--margin-bottom: 13mm;
+  --vs-page--margin-left: 13mm;
+  --vs-page--margin-right: 13mm;
+  --vs-page--background-color: #fcfbf7;
+
+  --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+  --vs-font-size: 7.5pt;
+  --vs-line-height: 1.6;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-background: #fcfbf7;
+  --vs-columns: 1;
+  --vs-color-border: #1a1a1a;
+
+  /* 「第N号」の相互参照。扉の号一覧は発行日も見出しから引く */
+  --vs-theme-issue-number-heading-rule--issueref-call-content: '第'
+    target-counter(attr(href), vs-counter-chapter) '号';
+  --vs-theme-issue-number-heading-rule--issue-entry-content: '第'
+    target-counter(attr(href), vs-counter-chapter) '号　'
+    target-text(attr(href));
+
+  --vs-page--mbox-top-left-content: env(pub-title);
+  /* ノンブルは小口下 (右ページは右下、左ページは左下) */
+  --vs-page--mbox-bottom-outside-content: counter(page);
+  --vs-page--mbox-top-size-inline: 100%;
+  --vs-page--border-width-top: 0.5pt;
+  --vs-page--border-color-top: #1a1a1a;
+  --vs-page--mbox-top-font-family: 'Noto Sans JP', sans-serif;
+  --vs-page--mbox-top-font-size: 7pt;
+  --vs-page--mbox-top-font-weight: 500;
+  --vs-page--mbox-top-letter-spacing: 0.04em;
+  --vs-page--mbox-top-vertical-align: bottom;
+  --vs-page--mbox-top-padding-bottom: 1.2mm;
+  --vs-page--mbox-text-color: #1a1a1a;
+  --vs-page--mbox-bottom-font-family: 'Noto Sans JP', sans-serif;
+  --vs-page--mbox-bottom-font-size: 7.5pt;
+
+  --vs--heading-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 1em;
+
+  --vs--hr-border-width-block-start: 0.5pt;
+  --vs--hr-margin-block: 3mm;
+  --vs--hr-margin-inline: auto;
+  --vs--hr-size-inline: 20mm;
+
+  --vs--h2-font-size: 12pt;
+  --vs--h2-line-height: 1.3;
+  --vs--h2-letter-spacing: 0.02em;
+  --vs--h2-text-align: center;
+  --vs--h2-margin-block: 0 1.2mm;
+
+  --vs--h3-font-size: 9.2pt;
+  --vs--h3-line-height: 1.4;
+  --vs--h3-margin-block: 2.2mm 0.8mm;
+
+  /* 号数は文書カウンタ、小見出しの連番は号ごとにリセットされる h3 カウンタ */
+  --vs-section--h2-marker-display: inline;
+  --vs-section--h2-marker-content: '第' counter(vs-counter-chapter) '号';
+  --vs-section--h2-marker-margin-inline-end: 1em;
+  --vs-section--h3-marker-display: inline;
+  --vs-section--h3-marker-content: counter(vs-counter-sec-h3) '.';
+  --vs-section--h3-marker-margin-inline-end: 0.5ch;
+}
+
+/* 扉と奥付は柱もノンブルも罫も伏せる */
+@page cover {
+  --vs-page--mbox-visibility: hidden;
+  --vs-page--border-width-top: 0;
+}
+@page colophon {
+  --vs-page--mbox-visibility: hidden;
+  --vs-page--border-width-top: 0;
+}
+
+body {
+  padding-top: 5mm;
+}
+
+/* 号数見出し直後の一文はリード (号数を振らない見出しは section を作らないので
+   section に依存しない形で書く) */
+h2 + p {
+  margin-block: 0 3mm;
+  font-size: 7.2pt;
+  line-height: 1.5;
+  text-align: center;
+  text-indent: 0;
+}
+
+/* 号の相互参照 */
+a[data-ref='issue'] {
+  color: inherit;
+  text-decoration: none;
+}
+
+a[data-ref='issue']::before {
+  content: var(--vs-theme-issue-number-heading-rule--issueref-call-content);
+}
+
+/* 扉の号一覧: 号数と発行日を各号の見出しから引く */
+.issue-entry {
+  text-align: center;
+  text-indent: 0;
+}
+
+.issue-entry a[data-ref='issue']::before {
+  content: var(--vs-theme-issue-number-heading-rule--issue-entry-content);
+}

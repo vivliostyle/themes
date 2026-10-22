@@ -1,0 +1,64 @@
+<svg viewBox="0 0 380 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="木造の駅舎の前に人が立つ、昭和期のモノクロ写真">
+  <style>
+    .sign { font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif; font-size: 17px; fill: #2b2822; }
+  </style>
+  <rect x="0" y="0" width="380" height="310" fill="#d8d4cd" />
+  <path d="M0 148 L58 121 L128 143 L198 116 L272 140 L380 122 L380 176 L0 176 Z" fill="#bcb7ae" />
+  <rect x="0" y="172" width="380" height="138" fill="#c6c1b8" />
+  <rect x="0" y="236" width="380" height="74" fill="#b2ada4" />
+  <rect x="0" y="288" width="380" height="22" fill="#a7a299" />
+
+  <rect x="234" y="150" width="94" height="88" fill="#989288" />
+  <polygon points="226,156 281,128 336,156" fill="#77726a" />
+  <rect x="248" y="176" width="26" height="26" fill="#aca69d" />
+  <rect x="288" y="176" width="26" height="26" fill="#aca69d" />
+
+  <rect x="40" y="96" width="192" height="142" fill="#8d877d" />
+  <polygon points="24,106 136,52 248,106" fill="#6c675f" />
+  <rect x="24" y="100" width="224" height="9" fill="#585349" />
+  <rect x="40" y="106" width="192" height="11" fill="#7b756c" />
+
+  <rect x="149" y="104" width="72" height="25" fill="#e7e3db" />
+  <rect x="149" y="104" width="72" height="25" fill="none" stroke="#5c574f" stroke-width="2" />
+  <text x="185" y="122" class="sign" text-anchor="middle">青沼駅</text>
+
+  <rect x="95" y="150" width="56" height="88" fill="#45413b" />
+  <rect x="90" y="145" width="66" height="7" fill="#3b3732" />
+  <rect x="88" y="150" width="7" height="88" fill="#5d584f" />
+  <rect x="151" y="150" width="7" height="88" fill="#5d584f" />
+
+  <rect x="50" y="132" width="32" height="30" fill="#b7b2a9" />
+  <rect x="50" y="132" width="32" height="30" fill="none" stroke="#5f5a52" stroke-width="2" />
+  <rect x="163" y="150" width="30" height="34" fill="#aba59c" />
+  <rect x="197" y="150" width="30" height="34" fill="#aba59c" />
+  <rect x="55" y="176" width="22" height="42" fill="#ddd8cf" />
+  <rect x="55" y="176" width="22" height="42" fill="none" stroke="#6a655c" stroke-width="1.5" />
+  <rect x="196" y="196" width="16" height="34" fill="#ddd8cf" />
+
+  <rect x="40" y="232" width="292" height="7" fill="#a49f96" />
+
+  <rect x="300" y="58" width="7" height="180" fill="#6f6a62" />
+  <rect x="287" y="76" width="33" height="5" fill="#6f6a62" />
+  <rect x="287" y="98" width="33" height="5" fill="#6f6a62" />
+  <path d="M0 68 L300 79" stroke="#8f8a81" stroke-width="1.6" fill="none" />
+  <path d="M0 86 L300 99" stroke="#8f8a81" stroke-width="1.6" fill="none" />
+  <path d="M307 79 L380 71" stroke="#8f8a81" stroke-width="1.6" fill="none" />
+
+  <circle cx="205" cy="226" r="7" fill="#39352f" />
+  <rect x="198" y="234" width="15" height="30" fill="#433f39" />
+  <rect x="199" y="262" width="5" height="16" fill="#39352f" />
+  <rect x="207" y="262" width="5" height="16" fill="#39352f" />
+
+  <circle cx="233" cy="228" r="7" fill="#39352f" />
+  <rect x="226" y="236" width="15" height="29" fill="#4b473f" />
+  <rect x="227" y="263" width="5" height="15" fill="#39352f" />
+  <rect x="235" y="263" width="5" height="15" fill="#39352f" />
+
+  <circle cx="72" cy="256" r="15" fill="none" stroke="#4a463f" stroke-width="3" />
+  <circle cx="112" cy="256" r="15" fill="none" stroke="#4a463f" stroke-width="3" />
+  <path d="M72 256 L92 234 L112 256 M92 234 L100 222" stroke="#4a463f" stroke-width="3" fill="none" />
+  <circle cx="95" cy="208" r="7" fill="#39352f" />
+  <rect x="88" y="216" width="14" height="28" fill="#454138" />
+  <ellipse cx="92" cy="282" rx="34" ry="5" fill="#9e998f" />
+  <ellipse cx="219" cy="281" rx="30" ry="5" fill="#9e998f" />
+</svg>

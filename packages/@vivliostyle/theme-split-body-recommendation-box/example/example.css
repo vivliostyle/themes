@@ -1,0 +1,14 @@
+/*
+ * example はガイドライン本編の第3章だけを抜き出した見本 (本文が第4章・第6章を参照している
+ * ため、抜粋であることに意味がある)。章番号とノンブルの開始値はこの抜粋だけの事情なので
+ * theme.css ではなくここで与える。
+ */
+
+:root {
+  /* 章番号を 3 から起こす */
+  --vs-section--root-counter-sections: 2;
+  --vs-section--root-counter-sec-h2: 2;
+
+  /* ノンブルを 47 から起こす */
+  --vs-document-first-page-counter-reset: page 46;
+}

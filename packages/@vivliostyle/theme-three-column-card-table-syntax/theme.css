@@ -1,0 +1,332 @@
+/*
+ * three-column-card-table-syntax
+ * B5縦・等幅書体3段組のカードゲーム規則書 / カード効果対照表向けテーマ。
+ * 章見出しは段抜きの太罫、本体はカード対照表とコード風の構文ブロックを
+ * 3段に流し込む。1章はページ頭から始まり、分量に応じてページが増える。
+ */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=M+PLUS+1+Code:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  --vs-page--size: 182mm 257mm;
+  --vs-page--margin-top: 14mm;
+  --vs-page--margin-bottom: 14mm;
+  --vs-page--margin-left: 14mm;
+  --vs-page--margin-right: 14mm;
+  --vs-page--background-color: var(--vs-color-background);
+
+  /* ノンブルは小口下 (右ページは右下、左ページは左下) */
+  --vs-page--mbox-bottom-outside-content: counter(page);
+  --vs-page--mbox-bottom-font-family: var(--vs-font-family);
+  --vs-page--mbox-bottom-font-size: 8.5pt;
+  --vs-page--mbox-bottom-font-weight: 500;
+  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
+
+  --vs-font-family: 'IBM Plex Mono', 'M PLUS 1 Code', monospace;
+  --vs-font-feature-settings: 'palt' 0;
+  --vs-font-size: 8pt;
+  --vs-line-height: 1.3;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-background: #fafaf7;
+
+  --vs--monospace-font-family: 'IBM Plex Mono', 'M PLUS 1 Code', monospace;
+  --vs--monospace-font-size: 5.6pt;
+  --vs--monospace-line-height: 1.4;
+
+  --vs--heading-font-family: 'M PLUS 1 Code', 'Noto Sans JP', sans-serif;
+
+  --vs--h1-font-size: 13pt;
+  --vs--h1-font-weight: 700;
+  --vs--h1-letter-spacing: 0.05em;
+  --vs--h1-line-height: 1.12;
+  --vs--h1-margin-block: 0 2.4mm;
+  --vs--h1-margin-inline: 0;
+
+  /* 章番号は原稿の見出し順から振る。体裁は変数で差し替えられる */
+  --vs-theme-three-column-card-table-syntax--chapter-marker-content: '第'
+    counter(vs-counter-sec-h1) '章　';
+  --vs-theme-three-column-card-table-syntax--appendix-marker-content: '付録'
+    counter(vs-counter-appendix, upper-alpha) '　';
+  /* 項目番号。章ごとに 1 から数え直す */
+  --vs-theme-three-column-card-table-syntax--entry-marker-content: counter(
+    vs-counter-entry,
+    decimal-leading-zero
+  );
+  --vs-section--h1-marker-display: inline;
+  --vs-section--h1-marker-content: var(
+    --vs-theme-three-column-card-table-syntax--chapter-marker-content
+  );
+  --vs-section--h1-marker-margin-inline-end: 0;
+  /* 章はページ頭から始める */
+  --vs-section--h1-break-before: page;
+
+  /* 章冒頭のリード */
+  --vs--p-line-height: 1.55;
+  --vs--p-margin-block: 0 2.2mm;
+  --vs--p-margin-inline: 0;
+  --vs--p-text-align: justify;
+
+  /* カード効果対照表: 罫線は th / td 側で直接引く */
+  --vs--table-border-color: #cfcfc9;
+  --vs--table-border-width: 0;
+  --vs--table-margin-block: 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-cell-padding-block: 1.15mm;
+  --vs--table-cell-padding-inline: 0.5mm;
+  --vs--th-font-size: 4.6pt;
+
+  /* 構文ブロックは段幅に合わせて折り返さず、等幅の桁をそのまま見せる */
+  --vs--pre-overflow-x: visible;
+  --vs--pre-margin-block: 1.8mm;
+  --vs--pre-margin-inline: 0;
+  --vs--pre-padding-block: 1.3mm;
+  --vs--pre-padding-inline: 1.6mm;
+  --vs--pre-word-break: normal;
+
+  --vs-theme-three-column-card-table-syntax--color-rule: #b6b6b0;
+  --vs-theme-three-column-card-table-syntax--color-tint: #e8e8e4;
+  --vs-theme-three-column-card-table-syntax--color-code-bg: #eeeeea;
+  --vs-theme-three-column-card-table-syntax--color-card-border: #8f8f8a;
+
+  /* 対照表の図版は採番対象ではない。図番号が要る原稿は inline に戻す
+     (付録見出しの番号は残すので appendix は打ち消さない) */
+  --vs-citation--marker-display: none;
+  --vs-equation--marker-display: none;
+  --vs-figure--marker-display: none;
+  --vs-listing--marker-display: none;
+  --vs-table--marker-display: none;
+  --vs-theorem--marker-display: none;
+
+  counter-reset: vs-counter-appendix;
+}
+
+/* 構文ブロックは折り返さず等幅のまま表示する */
+@media print {
+  :root {
+    --vs--pre-white-space: pre;
+  }
+}
+
+/* ---- 3段組。段は章の分量で埋まり、入りきらなければ次ページへ流れる ---- */
+section.level1 {
+  columns: 3;
+  column-gap: 5.2mm;
+  column-rule-width: 0.15mm;
+  column-rule-style: solid;
+  column-rule-color: var(--vs-theme-three-column-card-table-syntax--color-rule);
+  column-fill: auto;
+}
+
+/* ---- 章見出し: 段抜きの太罫 ---- */
+section.level1 > h1:first-child {
+  column-span: all;
+  padding-block-end: 1mm;
+  border-block-end-width: 0.6mm;
+  border-block-end-style: solid;
+  border-block-end-color: var(--vs-color-foreground);
+}
+
+/* 見出し右肩の欧文ラベル。flex にすると見出し中のインライン要素が分断されるので
+   フロートで右端に寄せる */
+h1 .meta {
+  float: inline-end;
+  font-family: var(--vs-font-family);
+  margin-block-start: 2.1mm;
+  font-size: 7.2pt;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  white-space: nowrap;
+}
+
+/* 扉も 3 段組と改ページを本編と揃えるため section のまま置き、章番号だけを落とす */
+section:has(> h1.front:first-child) {
+  counter-increment: none;
+}
+
+section > h1.front:first-child::before {
+  content: none;
+}
+
+/* 付録は本編と別系列で採番する */
+section:has(> h1.appendix:first-child) {
+  counter-increment: vs-counter-appendix;
+}
+
+section > h1.appendix:first-child::before {
+  content: var(
+    --vs-theme-three-column-card-table-syntax--appendix-marker-content
+  );
+}
+
+/* ---- 章冒頭のリード + ドロップキャップ ---- */
+section.level1 > p {
+  font-size: 6pt;
+}
+
+section.level1 > p:first-of-type::first-letter {
+  float: left;
+  font-family: var(--vs--heading-font-family);
+  font-weight: 700;
+  font-size: 27.5pt;
+  line-height: 0.98;
+  margin-inline-end: 1.1mm;
+  margin-block-start: 0.2mm;
+}
+
+/* ---- カード効果対照表 ---- */
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+/*
+ * 項目番号は原稿の行順から振る。番号欄やカードチップを空のまま書くと
+ * カウンタが番号を入れる。章の途中で表が分かれても通し番号は続く。
+ * (カウンタのリセットは base の counter-reset と衝突しないよう見出し側に置く)
+ */
+section > h1:first-child {
+  counter-reset: vs-counter-entry;
+}
+tbody > tr {
+  counter-increment: vs-counter-entry;
+}
+tbody td:nth-child(2):empty::before,
+.card:empty::before {
+  content: var(--vs-theme-three-column-card-table-syntax--entry-marker-content);
+}
+
+/* 目次のページ参照は地の文と同じ色 */
+a[data-ref='page'] {
+  --vs--anchor-text-color: inherit;
+}
+
+/* 同じ一覧の続きの表は見出し行を繰り返さない */
+section.level1 > table ~ table thead {
+  display: none;
+}
+
+th:nth-child(1),
+td:nth-child(1) {
+  width: 38.5%;
+}
+th:nth-child(2),
+td:nth-child(2) {
+  width: 12.5%;
+}
+th:nth-child(3),
+td:nth-child(3) {
+  width: 15%;
+}
+th:nth-child(4),
+td:nth-child(4) {
+  width: 31.5%;
+}
+
+thead th {
+  background-color: var(--vs-theme-three-column-card-table-syntax--color-tint);
+  border-block-start-width: 0.15mm;
+  border-block-start-style: solid;
+  border-block-start-color: var(
+    --vs-theme-three-column-card-table-syntax--color-rule
+  );
+  border-block-end-width: 0.35mm;
+  border-block-end-style: solid;
+  border-block-end-color: var(--vs-color-foreground);
+  padding-block: 0.85mm;
+  padding-inline: 0.15mm;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+}
+thead th + th {
+  border-inline-start-width: 0.12mm;
+  border-inline-start-style: solid;
+  border-inline-start-color: var(
+    --vs-theme-three-column-card-table-syntax--color-rule
+  );
+}
+
+tbody td {
+  border-block-end-width: 0.12mm;
+  border-block-end-style: solid;
+  vertical-align: middle;
+  line-height: 1.25;
+}
+tbody td + td {
+  border-inline-start-width: 0.12mm;
+  border-inline-start-style: solid;
+}
+
+/* カード名セル: ミニチュアのカード枠 + 名称 */
+tbody td:nth-child(1) {
+  font-size: 4.8pt;
+}
+tbody td:nth-child(2) {
+  font-size: 6.2pt;
+  font-weight: 500;
+  text-align: center;
+}
+tbody td:nth-child(3) {
+  font-size: 4.3pt;
+  text-align: center;
+  line-height: 1.3;
+}
+tbody td:nth-child(4) {
+  font-size: 4.4pt;
+  line-height: 1.3;
+  text-align: start;
+}
+
+.card {
+  display: inline-block;
+  vertical-align: middle;
+  width: 5.9mm;
+  height: 6.9mm;
+  border-width: 0.15mm;
+  border-style: solid;
+  border-color: var(
+    --vs-theme-three-column-card-table-syntax--color-card-border
+  );
+  border-radius: 0.4mm;
+  box-shadow:
+    inset 0 0 0 0.32mm var(--vs-color-background),
+    inset 0 0 0 0.47mm var(--vs-color-foreground);
+  background-color: var(--vs-color-background);
+  font-size: 3.9pt;
+  line-height: 6.6mm;
+  text-align: center;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.card + span {
+  display: inline-block;
+  vertical-align: middle;
+  width: calc(100% - 6.9mm);
+  margin-inline-start: 1mm;
+  line-height: 1.25;
+}
+
+/* ---- キーワード能力の構文ブロック ---- */
+pre {
+  border-width: 0.15mm;
+  border-style: solid;
+  border-color: var(--vs-theme-three-column-card-table-syntax--color-rule);
+  border-radius: 0.8mm;
+  background-color: var(
+    --vs-theme-three-column-card-table-syntax--color-code-bg
+  );
+  break-inside: avoid;
+}
+
+pre code {
+  display: block;
+}

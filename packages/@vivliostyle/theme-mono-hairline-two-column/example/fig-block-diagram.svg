@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 432" role="img" aria-label="Functional block diagram of the NSR7420. The receive path runs from RF-IN through an LNA to I and Q mixers driven by a PLL synthesizer and 90-degree hybrid, then baseband low-pass filters and ADCs to the DI and DQ digital ports. The transmit path runs from the TI and TQ ports through DACs, low-pass filters, I and Q mixers and a summing node to a power amplifier at RFOUT. SPI interface, digital control and state machine, and calibration and bias blocks sit along the bottom." fill="none" stroke="#171717" stroke-width="1">
+<style>
+text { font-family: "Roboto Mono", "IBM Plex Mono", ui-monospace, monospace; stroke: none; }
+</style>
+<defs>
+<marker id="arw" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto">
+<path d="M0,0 L6,3 L0,6 Z" fill="#171717" stroke="none" />
+</marker>
+</defs>
+<g>
+<rect x="3" y="26" width="374" height="158" stroke="#a8a8a8" stroke-dasharray="3 3" />
+<line x1="34" y1="70" x2="45" y2="70" marker-end="url(#arw)" />
+<polygon points="46,60 46,80 72,70" />
+<line x1="72" y1="70" x2="86" y2="70" marker-end="url(#arw)" />
+<circle cx="97" cy="70" r="10" />
+<line x1="90" y1="63" x2="104" y2="77" />
+<line x1="90" y1="77" x2="104" y2="63" />
+<line x1="107" y1="70" x2="121" y2="70" marker-end="url(#arw)" />
+<rect x="122" y="60" width="32" height="20" />
+<line x1="154" y1="70" x2="167" y2="70" marker-end="url(#arw)" />
+<rect x="168" y="60" width="32" height="20" />
+<line x1="200" y1="70" x2="214" y2="70" marker-end="url(#arw)" />
+<line x1="82" y1="70" x2="82" y2="120" />
+<line x1="82" y1="120" x2="86" y2="120" marker-end="url(#arw)" />
+<circle cx="97" cy="120" r="10" />
+<line x1="90" y1="113" x2="104" y2="127" />
+<line x1="90" y1="127" x2="104" y2="113" />
+<line x1="107" y1="120" x2="121" y2="120" marker-end="url(#arw)" />
+<rect x="122" y="110" width="32" height="20" />
+<line x1="154" y1="120" x2="167" y2="120" marker-end="url(#arw)" />
+<rect x="168" y="110" width="32" height="20" />
+<line x1="200" y1="120" x2="214" y2="120" marker-end="url(#arw)" />
+<rect x="30" y="150" width="60" height="24" />
+<rect x="118" y="150" width="42" height="24" />
+<line x1="90" y1="162" x2="117" y2="162" marker-end="url(#arw)" />
+<line x1="139" y1="150" x2="139" y2="95" />
+<line x1="139" y1="95" x2="98" y2="95" />
+<line x1="97" y1="95" x2="97" y2="81" marker-end="url(#arw)" />
+<line x1="139" y1="108" x2="98" y2="108" marker-end="url(#arw)" />
+<rect x="3" y="212" width="374" height="150" stroke="#a8a8a8" stroke-dasharray="3 3" />
+<line x1="38" y1="250" x2="51" y2="250" marker-end="url(#arw)" />
+<rect x="52" y="240" width="32" height="20" />
+<line x1="84" y1="250" x2="97" y2="250" marker-end="url(#arw)" />
+<rect x="98" y="240" width="32" height="20" />
+<line x1="130" y1="250" x2="144" y2="250" marker-end="url(#arw)" />
+<circle cx="156" cy="250" r="10" />
+<line x1="149" y1="243" x2="163" y2="257" />
+<line x1="149" y1="257" x2="163" y2="243" />
+<line x1="166" y1="250" x2="210" y2="250" />
+<line x1="210" y1="250" x2="210" y2="263" marker-end="url(#arw)" />
+<line x1="38" y1="300" x2="51" y2="300" marker-end="url(#arw)" />
+<rect x="52" y="290" width="32" height="20" />
+<line x1="84" y1="300" x2="97" y2="300" marker-end="url(#arw)" />
+<rect x="98" y="290" width="32" height="20" />
+<line x1="130" y1="300" x2="144" y2="300" marker-end="url(#arw)" />
+<circle cx="156" cy="300" r="10" />
+<line x1="149" y1="293" x2="163" y2="307" />
+<line x1="149" y1="307" x2="163" y2="293" />
+<line x1="166" y1="300" x2="210" y2="300" />
+<line x1="210" y1="300" x2="210" y2="287" marker-end="url(#arw)" />
+<circle cx="210" cy="275" r="11" />
+<line x1="221" y1="275" x2="235" y2="275" marker-end="url(#arw)" />
+<polygon points="236,265 236,285 262,275" />
+<line x1="262" y1="275" x2="292" y2="275" marker-end="url(#arw)" />
+<circle cx="296" cy="275" r="3" />
+<rect x="118" y="326" width="42" height="22" />
+<line x1="139" y1="326" x2="139" y2="262" />
+<line x1="139" y1="262" x2="145" y2="262" marker-end="url(#arw)" />
+<line x1="139" y1="300" x2="145" y2="300" marker-end="url(#arw)" />
+<line x1="190" y1="362" x2="190" y2="378" stroke="#a8a8a8" stroke-dasharray="2 2" />
+<rect x="6" y="378" width="104" height="30" />
+<rect x="118" y="378" width="150" height="30" />
+<rect x="276" y="378" width="98" height="30" />
+<line x1="24" y1="408" x2="24" y2="420" />
+<line x1="46" y1="408" x2="46" y2="420" />
+<line x1="70" y1="408" x2="70" y2="420" />
+<line x1="92" y1="408" x2="92" y2="420" />
+<line x1="150" y1="408" x2="150" y2="420" />
+<line x1="193" y1="408" x2="193" y2="420" />
+<line x1="236" y1="408" x2="236" y2="420" />
+<line x1="325" y1="408" x2="325" y2="420" />
+</g>
+<g fill="#171717" stroke="none">
+<text x="8" y="20" font-size="9" font-weight="600">RECEIVE PATH</text>
+<text x="6" y="73" font-size="7.5">RF-IN</text>
+<text x="55" y="73" font-size="6.5" text-anchor="middle">LNA</text>
+<text x="138" y="73" font-size="7" text-anchor="middle">LPF</text>
+<text x="184" y="73" font-size="7" text-anchor="middle">ADC</text>
+<text x="216" y="73" font-size="7.5">DI[11:0]</text>
+<text x="138" y="123" font-size="7" text-anchor="middle">LPF</text>
+<text x="184" y="123" font-size="7" text-anchor="middle">ADC</text>
+<text x="216" y="123" font-size="7.5">DQ[11:0]</text>
+<text x="60" y="165" font-size="7" text-anchor="middle">PLL SYNTH</text>
+<text x="139" y="162" font-size="6.5" text-anchor="middle">90°</text>
+<text x="139" y="170" font-size="6.5" text-anchor="middle">HYB</text>
+<text x="103" y="92" font-size="6" fill="#555555">0°</text>
+<text x="103" y="105" font-size="6" fill="#555555">90°</text>
+<text x="30" y="182" font-size="6" fill="#555555">XTAL_IN / XTAL_OUT / REF_IN</text>
+<text x="8" y="206" font-size="9" font-weight="600">TRANSMIT PATH</text>
+<text x="6" y="253" font-size="7.5">TI[11:0]</text>
+<text x="68" y="253" font-size="7" text-anchor="middle">DAC</text>
+<text x="114" y="253" font-size="7" text-anchor="middle">LPF</text>
+<text x="6" y="303" font-size="7.5">TQ[11:0]</text>
+<text x="68" y="303" font-size="7" text-anchor="middle">DAC</text>
+<text x="114" y="303" font-size="7" text-anchor="middle">LPF</text>
+<text x="210" y="279" font-size="9" text-anchor="middle">&#931;</text>
+<text x="245" y="278" font-size="6.5" text-anchor="middle">PA</text>
+<text x="304" y="278" font-size="7.5">RFOUT</text>
+<text x="139" y="337" font-size="6.5" text-anchor="middle">90°</text>
+<text x="139" y="345" font-size="6.5" text-anchor="middle">HYB</text>
+<text x="143" y="272" font-size="6" fill="#555555">0°</text>
+<text x="143" y="296" font-size="6" fill="#555555">90°</text>
+<text x="58" y="396" font-size="7" text-anchor="middle">SPI INTERFACE</text>
+<text x="193" y="392" font-size="7" text-anchor="middle">DIGITAL CONTROL</text>
+<text x="193" y="402" font-size="7" text-anchor="middle">&amp; STATE MACHINE</text>
+<text x="325" y="392" font-size="7" text-anchor="middle">CALIBRATION</text>
+<text x="325" y="402" font-size="7" text-anchor="middle">&amp; BIAS</text>
+<text x="58" y="428" font-size="6" text-anchor="middle" fill="#555555">SCLK  SDI  SDO  CSB</text>
+<text x="193" y="428" font-size="6" text-anchor="middle" fill="#555555">GPIO[3:0]  RSTB  INTB</text>
+<text x="325" y="428" font-size="6" text-anchor="middle" fill="#555555">VBIAS</text>
+</g>
+</svg>

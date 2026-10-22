@@ -1,0 +1,177 @@
+/*
+ * 古語辞典 縦組み高密度版 (vertical-three-column-thumb-index)
+ * A5判・縦組み・上中下3段の古語辞典紙面。紙面を水平罫で3つの帯に分割し、
+ * 各帯の中で 7pt 明朝の縦書き行が右から左へ流れる。太字ゴシックの見出し語
+ * +【漢字表記】+〔品詞〕→ 語義①②③ → 古典用例。
+ * 天の柱にはそのページの見出し語の範囲、小口に黒ベタのツメ見出し、
+ * 地の小口側にノンブルを置く。墨1色 (#1a1a1a)、辞典用紙の地色 (#f7f5ef)。
+ *
+ * DOM は VFM 出力: body > section.level2 (h2 = 見出し語 / p = 語釈)。
+ * 3段は html のマルチカラム (--vs-columns) で組むので、語釈は段とページを
+ * またいで流れる。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&family=Noto+Serif+JP:wght@400;500;700&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+/* 凡例など前付のページは見出し語をもたないので、柱にはその節の題を出す */
+@page preface {
+  --vs-page--mbox-top-right-content: string(vs-kogo-section);
+}
+
+/* 語義番号。fixed の範囲を超えたら decimal に落ちる */
+@counter-style vs-kogo-sense {
+  system: fixed;
+  symbols: '①' '②' '③' '④' '⑤' '⑥' '⑦' '⑧' '⑨' '⑩';
+  suffix: '';
+}
+
+:root {
+  /* 変数の値に var() は書けないため、ゴシックのスタックは
+     --vs--h2-font-family と --vs-theme-vertical-three-column-thumb-index--font-gothic に同じリテラルを持たせる */
+  --vs-theme-vertical-three-column-thumb-index--font-gothic:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+
+  --vs-page--size: A5;
+  --vs-page--margin-top: 12mm;
+  --vs-page--margin-bottom: 10mm;
+  --vs-page--margin-left: 10mm;
+  --vs-page--margin-right: 10mm;
+  --vs-page--mbox-bottom-padding-bottom: 1mm;
+  --vs-page--mbox-bottom-vertical-align: top;
+  --vs-page--mbox-top-padding-bottom: 1.2mm;
+  --vs-page--mbox-top-vertical-align: bottom;
+  --vs-page--mbox-right-top-padding-bottom: 139mm;
+
+  /* 柱はそのページの最初と最後の見出し語、ツメ見出しは running element */
+  --vs-page--mbox-text-color: #1a1a1a;
+  --vs-page--mbox-font-family: 'Noto Serif JP', serif;
+  --vs-page--mbox-top-font-size: 7.5pt;
+  --vs-page--mbox-top-font-weight: 500;
+  --vs-page--mbox-top-letter-spacing: 0.06em;
+  --vs-page--mbox-bottom-font-size: 9.5pt;
+  --vs-page--mbox-top-right-content: string(vs-kogo-headword, first) ' ― '
+    string(vs-kogo-headword, last);
+  --vs-page--mbox-bottom-right-content: counter(page);
+  --vs-page--mbox-right-top-content: element(vs-kogo-thumb);
+
+  /* 上中下 3 段の縦組み。段は天地方向に積まれる */
+  --vs-writing-mode: vertical-rl;
+  --vs-columns: 3;
+  --vs-column-fill: auto;
+  --vs-column-gap: 2.6mm;
+
+  --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --vs-font-size: 7pt;
+  --vs-line-height: 1.2;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-background: #f7f5ef;
+  --vs-page--background-color: #f7f5ef;
+  --vs-color-border: #1a1a1a;
+  --vs-border-width: 0.4pt;
+
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 0;
+  --vs--p-text-align: start;
+
+  /* 前付の節題 (凡例の各項) は算用数字ではなく漢数字で数える */
+  --vs--h1-string-set: vs-kogo-section content();
+  --vs--h1-font-family:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --vs--h1-font-size: 9pt;
+  --vs--h1-margin-block: 0 1.4mm;
+  --vs--h1-text-align: start;
+
+  /* 見出し語行: 太字ゴシックのかな見出し +【漢字表記】+〔品詞〕 */
+  --vs--h2-font-family:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --vs--h2-font-size: 7pt;
+  --vs--h2-font-weight: 700;
+  --vs--h2-letter-spacing: 0;
+  --vs--h2-line-height: 1.2;
+  --vs--h2-margin-block: 0;
+  --vs--h2-margin-inline: 0;
+  --vs--h2-text-align: start;
+
+  --vs--rt-font-size: 3.5pt;
+
+  counter-reset: vs-counter-sense;
+}
+
+/* 前付 (凡例) の節だけ漢数字の連番を出す。見出し語の節には番号を付けない */
+html.preface {
+  --vs-section--h2-marker-display: inline;
+  --vs-section--h2-marker-content: counter(vs-counter-sec-h2, cjk-ideographic);
+  --vs-section--h2-marker-margin-inline-end: 1ch;
+}
+
+/* 天の罫。縦組みでは行送り方向の起点が天なので inline-start に引くと、
+   段とページが変わるたびに各帯の天へ引き直される */
+body {
+  border-inline-start-style: solid;
+  border-inline-start-width: var(--vs-border-width);
+  border-inline-start-color: var(--vs-color-border);
+  padding-inline-start: 2.4mm;
+}
+
+/* ---- 辞書項目 (section.level2 = 1項目) ---- */
+
+/* 項目間はわずかな行間で区切る (帯内は右から左へ密に詰める) */
+section + section {
+  margin-block-start: 0.9mm;
+}
+
+h2 strong {
+  font-family: var(--vs-theme-vertical-three-column-thumb-index--font-gothic);
+  font-weight: 700;
+  font-size: 8pt;
+  letter-spacing: 0.02em;
+  string-set: vs-kogo-headword content();
+}
+
+h2 .meta {
+  font-family: var(--vs-font-family);
+  font-weight: 500;
+  font-size: 6pt;
+}
+
+/* 語義の区分。番号は原稿に書かず空の .sense から起こす */
+section > h2:first-child {
+  counter-reset: vs-counter-sense;
+}
+
+.sense {
+  counter-increment: vs-counter-sense;
+}
+
+.sense::before {
+  content: counter(vs-counter-sense, vs-kogo-sense);
+}
+
+/* 出典名『万葉集』等 */
+cite {
+  font-style: normal;
+  font-size: 6.5pt;
+}
+
+.tcy {
+  text-combine-upright: all;
+  font-size: 6.5pt;
+}
+
+/* 小口のツメ見出し。running element にして、部の続くかぎり全ページに立てる */
+nav.bleed {
+  position: running(vs-kogo-thumb);
+  margin-inline-start: auto;
+  width: 6.5mm;
+  height: 15mm;
+  background-color: var(--vs-color-foreground);
+  color: var(--vs-color-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--vs-theme-vertical-three-column-thumb-index--font-gothic);
+  font-weight: 700;
+  font-size: 9.5pt;
+}

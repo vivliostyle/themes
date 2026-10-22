@@ -1,0 +1,7 @@
+/*
+ * 区分見出しの番号は明細書 1 通で通し。要素カウンタは md ごとに振り直されるため、
+ * 2 枚目の md では base が h1 セクションで行うリセットを上書きして続きから数える。
+ */
+html.continued section:has(> h1:first-child) {
+  counter-reset: vs-counter-sec-h2 3;
+}

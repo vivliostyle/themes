@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 76" role="img" aria-label="酸・塩基・重金属に分けた廃液びんの図">
+<style>
+.lbl { font-family: "Noto Sans JP", "Hiragino Sans", sans-serif; font-size: 5.4px; fill: #1a1a1a; text-anchor: middle; }
+.tag { font-family: "Noto Sans JP", "Hiragino Sans", sans-serif; font-size: 6.4px; fill: #1a1a1a; text-anchor: middle; }
+</style>
+<rect x="20" y="3" width="12" height="5" rx="1.2" fill="#c9d6e2" stroke="#48607a" stroke-width="1.1" />
+<rect x="22" y="8" width="8" height="8" fill="#eaf2fa" stroke="#48607a" stroke-width="1.1" />
+<rect x="12" y="15" width="28" height="38" rx="3" fill="#eef4fb" stroke="#48607a" stroke-width="1.4" />
+<path d="M13 34 h26 v16 q0 2 -2 2 h-22 q-2 0 -2 -2 z" fill="#f3d2d2" />
+<rect x="15" y="24" width="22" height="11" rx="1" fill="#ffffff" stroke="#48607a" stroke-width="1" />
+<text x="26" y="32" class="tag">酸</text>
+<text x="26" y="68" class="lbl">酸の廃液</text>
+<rect x="64" y="3" width="12" height="5" rx="1.2" fill="#c9d6e2" stroke="#48607a" stroke-width="1.1" />
+<rect x="66" y="8" width="8" height="8" fill="#eaf2fa" stroke="#48607a" stroke-width="1.1" />
+<rect x="56" y="15" width="28" height="38" rx="3" fill="#eef4fb" stroke="#48607a" stroke-width="1.4" />
+<path d="M57 34 h26 v16 q0 2 -2 2 h-22 q-2 0 -2 -2 z" fill="#cfe3f5" />
+<rect x="59" y="24" width="22" height="11" rx="1" fill="#ffffff" stroke="#48607a" stroke-width="1" />
+<text x="70" y="32" class="tag">塩基</text>
+<text x="70" y="68" class="lbl">塩基の廃液</text>
+<rect x="108" y="3" width="12" height="5" rx="1.2" fill="#c9d6e2" stroke="#48607a" stroke-width="1.1" />
+<rect x="110" y="8" width="8" height="8" fill="#eaf2fa" stroke="#48607a" stroke-width="1.1" />
+<rect x="100" y="15" width="28" height="38" rx="3" fill="#eef4fb" stroke="#48607a" stroke-width="1.4" />
+<path d="M101 34 h26 v16 q0 2 -2 2 h-22 q-2 0 -2 -2 z" fill="#d8d2e6" />
+<rect x="103" y="24" width="22" height="11" rx="1" fill="#ffffff" stroke="#48607a" stroke-width="1" />
+<text x="114" y="32" class="tag">重金属</text>
+<text x="114" y="68" class="lbl">重金属の廃液</text>
+</svg>

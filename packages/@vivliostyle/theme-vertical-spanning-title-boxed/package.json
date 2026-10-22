@@ -1,0 +1,61 @@
+{
+  "name": "@vivliostyle/theme-vertical-spanning-title-boxed",
+  "version": "0.0.0",
+  "description": "A4縦組み・墨一色の総合誌特集ページテーマ。段抜きの大題と縦罫、傍注列、囲み記事を組む戦後論壇誌風の紙面",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-vertical-spanning-title-boxed"
+  },
+  "files": [
+    "*.css",
+    "example",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Vertical Spanning Title Boxed",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "magazine",
+      "topics": [
+        "magazine-general",
+        "monthly",
+        "vertical-writing",
+        "essay",
+        "intellectual",
+        "elegant",
+        "classic",
+        "japanese"
+      ]
+    }
+  }
+}

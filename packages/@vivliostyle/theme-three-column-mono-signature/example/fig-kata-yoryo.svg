@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 120" role="img" aria-label="Kataの長さと容量。容量を広げても、入っている文字の長さは変わらず、確保された領域だけが右へ伸びる。">
+<style>
+.lbl { font-family: "Noto Sans JP", "Hiragino Sans", sans-serif; font-size: 8.5px; fill: #0066cc; }
+</style>
+
+<g fill="#dbe9f8" stroke="none">
+  <rect x="58" y="16" width="46" height="22" />
+  <rect x="58" y="74" width="46" height="22" />
+</g>
+
+<g fill="none" stroke="#0066cc" stroke-width="1.1">
+  <rect x="58" y="16" width="92" height="22" rx="2" />
+  <rect x="58" y="74" width="146" height="22" rx="2" />
+  <path d="M104 16 V38" />
+  <path d="M104 74 V96" />
+</g>
+
+<g fill="none" stroke="#0066cc" stroke-width="0.9">
+  <path d="M58 48 H84 M62 44.5 L58 48 L62 51.5" />
+  <path d="M124 48 H150 M146 44.5 L150 48 L146 51.5" />
+  <path d="M58 106 H110 M62 102.5 L58 106 L62 109.5" />
+  <path d="M152 106 H204 M200 102.5 L204 106 L200 109.5" />
+</g>
+
+<g fill="none" stroke="#0066cc" stroke-width="1.1">
+  <path d="M177 54 V70 M173.5 65 L177 70 L180.5 65" />
+</g>
+
+<g stroke="#5c9bd6" stroke-width="0.7" stroke-dasharray="2.5 2.5">
+  <path d="M104 38 V74" />
+</g>
+
+<g class="lbl">
+  <text x="52" y="30" text-anchor="end">広げる前</text>
+  <text x="52" y="88" text-anchor="end">広げた後</text>
+  <text x="81" y="30" text-anchor="middle">長さ</text>
+  <text x="81" y="88" text-anchor="middle">長さ</text>
+  <text x="104" y="51" text-anchor="middle">容量</text>
+  <text x="131" y="109" text-anchor="middle">容量</text>
+  <text x="170" y="62" text-anchor="end">広げる</text>
+</g>
+</svg>

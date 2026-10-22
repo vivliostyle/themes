@@ -1,0 +1,12 @@
+/*
+ * この example はカタログの第3章 (半導体) の抜粋。
+ * 章番号と、節番号を 3.0 から始めるための起点だけをここで与える。
+ */
+
+:root {
+  /* 第3章の抜粋なので、章カウンタを 3 から数え始める */
+  --vs-document-first-page-counter-reset: vs-counter-chapter 2;
+
+  /* 章の総則を 3.0 とするため、節カウンタを -1 から数え始める */
+  --vs-section--root-counter-sec-h2: -1;
+}

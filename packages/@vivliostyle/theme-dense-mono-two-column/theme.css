@@ -1,0 +1,239 @@
+/*
+ * EDINET 形式・有価証券報告書 (dense-mono-two-column)
+ * EDINET 提出書類の本文ページを模した A4 縦・2 段組の高密度モノクロ紙面。
+ * Noto Serif JP の明朝 8pt / 行送り 1.3 で法定開示らしい硬い体裁とし、
+ * 天の柱 (書類名) + 版面幅の細罫、段間の縦罫、全セル罫の指標表、
+ * 下部中央の「－ n －」形式のノンブルで構成する。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+/* 節見出しの ①②③ は Vivliostyle 組込みの counter-style に無いため自前で定義する */
+@counter-style vs-theme-circled-decimal {
+  system: fixed;
+  symbols: '①' '②' '③' '④' '⑤' '⑥' '⑦' '⑧' '⑨' '⑩' '⑪' '⑫' '⑬' '⑭' '⑮' '⑯' '⑰'
+    '⑱' '⑲' '⑳';
+  suffix: '';
+}
+
+:root {
+  /* 段間・表の罫は本文墨より僅かに淡い墨で引く */
+  --vs-theme-dense-mono-two-column--color-rule: #333333;
+
+  /* 指標表: 科目名列の幅 (表ごとに上書きして使う) */
+  --vs-theme-dense-mono-two-column--table-label-size-inline: 26%;
+
+  /* (注) 書きの見出しラベルと連番 */
+  --vs-theme-dense-mono-two-column--note-label-content: '(注)';
+  --vs-theme-dense-mono-two-column--note-label-size-inline: 2.4em;
+  --vs-theme-dense-mono-two-column--note-marker-content: counter(
+      vs-counter-note
+    )
+    '.';
+  --vs-theme-dense-mono-two-column--note-marker-size-inline: 1.4em;
+
+  --vs-page--size: A4;
+  --vs-page--margin-top: 20mm;
+  --vs-page--margin-bottom: 15mm;
+  --vs-page--margin-left: 15mm;
+  --vs-page--margin-right: 15mm;
+  --vs-color-background: #f7f6f2;
+  --vs-page--background-color: #f7f6f2;
+
+  /* 天の柱は提出書類名 (各 md の frontmatter title)、地はノンブル */
+  --vs-page--mbox-top-center-content: env(doc-title);
+  --vs-page--mbox-bottom-center-content: '－ ' counter(page) ' －';
+  --vs-page--mbox-text-color: var(--vs-color-foreground);
+  --vs-page--mbox-font-family: var(--vs-font-family);
+  --vs-page--mbox-top-font-size: 10.5pt;
+  --vs-page--mbox-top-letter-spacing: 0.14em;
+  --vs-page--border-color-top: var(--vs-color-foreground);
+  --vs-page--border-width-top: 0.6pt;
+  --vs-page--mbox-bottom-font-size: 8.5pt;
+  --vs-page--mbox-bottom-letter-spacing: 0.06em;
+
+  /* 本文: 明朝 8pt / 1.3・段落間ゼロ・1 字下げの官庁書類組み */
+  --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'YuMincho', serif;
+  --vs-font-size: 8pt;
+  --vs-line-height: 1.3;
+  --vs-color-foreground: #1a1a1a;
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 1em;
+  --vs--p-text-align: justify;
+
+  /* 見出しも本文と同じ明朝スタックなので heading-font-family 1 本で足りる */
+  --vs--heading-font-family:
+    'Noto Serif JP', 'Hiragino Mincho ProN', 'YuMincho', serif;
+  --vs--heading-line-height: 1.3;
+  --vs--heading-text-align: start;
+  --vs--heading-break-after: avoid;
+
+  --vs--h1-font-size: 11.5pt;
+  --vs--h1-font-weight: 600;
+  --vs--h1-letter-spacing: 0.02em;
+  --vs--h1-margin-block: 0 2.2mm;
+
+  --vs--h2-font-size: 9.8pt;
+  --vs--h2-font-weight: 600;
+  --vs--h2-margin-block: 3.2mm 1.8mm;
+
+  --vs--h3-font-size: 8.8pt;
+  --vs--h3-font-weight: 600;
+  --vs--h3-margin-block: 2.6mm 1.2mm;
+
+  --vs--h4-font-size: 8pt;
+  --vs--h4-font-weight: 500;
+  --vs--h4-margin-block: 2.4mm 0.9mm;
+
+  --vs--h5-font-size: 8pt;
+  --vs--h5-font-weight: 400;
+  --vs--h5-margin-block: 1.8mm 0.6mm;
+  --vs--h5-text-indent: 1em;
+
+  /* 見出し番号は「第2」「2」「(1)」「①」「(a)」の 5 階層 */
+  --vs-section--marker-display: inline;
+  --vs-section--h1-marker-content: '第' counter(vs-counter-sec-h1) '　';
+  --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '　';
+  --vs-section--h3-marker-content: '(' counter(vs-counter-sec-h3) ')　';
+  --vs-section--h4-marker-content: counter(
+      vs-counter-sec-h4,
+      vs-theme-circled-decimal
+    )
+    '　';
+  --vs-section--h5-marker-content: '(' counter(vs-counter-sec-h5, lower-alpha)
+    ')　';
+  --vs-section--marker-margin-inline-end: 0;
+  --vs-section--call-content: '「' target-text(attr(href), before)
+    target-text(attr(href)) '」';
+
+  /* 連結経営指標表: 外枠 0.7pt・全セル 0.4pt の総罫 */
+  --vs--table-border-color: #333333;
+  --vs--table-border-width: 0;
+  --vs--table-border-width-outer: 0.7pt;
+  --vs--table-border-width-cell: 0.4pt;
+  --vs--table-cell-line-height: 1.25;
+  --vs--table-cell-vertical-align: middle;
+  --vs--table-font-size: 7pt;
+  --vs--table-margin-block: 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-cell-padding-block: 1.4mm;
+  --vs--table-cell-padding-inline: 1mm;
+  --vs--th-font-weight: 500;
+  --vs--td-text-align: end;
+
+  /* 図表は図題 → 図版の順に書くので素の block でよい */
+  --vs--figure-display: block;
+  --vs--figure-break-inside: avoid;
+  --vs--figure-margin-block: 3.6mm 2.6mm;
+  --vs--figure-margin-inline: 0;
+  --vs--figure-item-size-inline: 100%;
+
+  --vs--figcaption-font-size: 8.6pt;
+  --vs--figcaption-font-weight: 600;
+  --vs--figcaption-text-align: start;
+  --vs--figcaption-text-indent: 0;
+  --vs--figcaption-margin-block: 0 1.2mm;
+}
+
+/* 図表番号は和文組版の「図1　」「表1　」形式 */
+:root:lang(ja) {
+  --vs-figure--marker-content: '図'
+    counter(vs-counter-fig, var(--vs-counter-style)) '　';
+  --vs-table--marker-content: '表'
+    counter(vs-counter-tbl, var(--vs-counter-style)) '　';
+}
+
+/* 参照は本文と地続きに読ませる */
+a:is([data-ref='fig'], [data-ref='tbl'], [data-ref='sec']) {
+  --vs--anchor-text-color: inherit;
+}
+
+/* 本文は全体を通して 2 段組にし、段間に縦罫を引く */
+body {
+  columns: 2;
+  column-gap: 8mm;
+  column-fill: auto;
+  column-rule-width: 0.4pt;
+  column-rule-style: solid;
+  column-rule-color: var(--vs-theme-dense-mono-two-column--color-rule);
+}
+
+/* h1 は書類の部見出しなので段抜きにする */
+body > section > h1:first-child {
+  column-span: all;
+}
+
+/* --- 指標表 --- */
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+thead th:first-child {
+  width: var(--vs-theme-dense-mono-two-column--table-label-size-inline);
+}
+
+/* Markdown の表は行見出しも td になるため 1 列目で出し分ける */
+tbody td:first-child {
+  font-size: 6.8pt;
+  font-weight: 400;
+  text-align: start;
+}
+
+tbody td:not(:first-child) {
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- (注) 書き --- */
+.note {
+  position: relative;
+  margin: 2.2mm 0 0;
+  padding-inline-start: var(
+    --vs-theme-dense-mono-two-column--note-label-size-inline
+  );
+  font-size: 7.5pt;
+  line-height: 1.4;
+  break-inside: avoid;
+}
+
+.note::before {
+  content: var(--vs-theme-dense-mono-two-column--note-label-content);
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+}
+
+.note > ol {
+  list-style: none;
+  counter-reset: vs-counter-note;
+  margin: 0;
+  padding: 0;
+}
+
+.note li {
+  counter-increment: vs-counter-note;
+  padding-inline-start: var(
+    --vs-theme-dense-mono-two-column--note-marker-size-inline
+  );
+  text-indent: calc(
+    -1 * var(--vs-theme-dense-mono-two-column--note-marker-size-inline)
+  );
+  margin-block: 0.2mm;
+  text-align: justify;
+}
+
+.note li::before {
+  content: var(--vs-theme-dense-mono-two-column--note-marker-content);
+  display: inline-block;
+  inline-size: var(--vs-theme-dense-mono-two-column--note-marker-size-inline);
+  text-indent: 0;
+}

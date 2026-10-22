@@ -1,0 +1,63 @@
+<svg viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="高窓から光の差す町工場と旋盤に向かう工員、昭和期のモノクロ写真">
+  <rect x="0" y="0" width="380" height="300" fill="#cbc6be" />
+  <rect x="0" y="0" width="380" height="96" fill="#bfbab2" />
+  <rect x="0" y="92" width="380" height="10" fill="#8e8981" />
+
+  <polygon points="0,0 380,0 380,18 0,30" fill="#a5a097" />
+  <path d="M0 34 L380 22" stroke="#8e8981" stroke-width="5" fill="none" />
+  <path d="M0 56 L380 46" stroke="#8e8981" stroke-width="4" fill="none" />
+  <rect x="62" y="26" width="8" height="32" fill="#8e8981" />
+  <rect x="196" y="22" width="8" height="30" fill="#8e8981" />
+  <rect x="312" y="20" width="8" height="28" fill="#8e8981" />
+
+  <rect x="30" y="36" width="76" height="50" fill="#eae6de" />
+  <rect x="30" y="36" width="76" height="50" fill="none" stroke="#6f6a62" stroke-width="3" />
+  <path d="M68 36 L68 86 M30 61 L106 61" stroke="#6f6a62" stroke-width="2.4" />
+  <rect x="152" y="34" width="76" height="50" fill="#eae6de" />
+  <rect x="152" y="34" width="76" height="50" fill="none" stroke="#6f6a62" stroke-width="3" />
+  <path d="M190 34 L190 84 M152 59 L228 59" stroke="#6f6a62" stroke-width="2.4" />
+  <rect x="274" y="32" width="76" height="50" fill="#eae6de" />
+  <rect x="274" y="32" width="76" height="50" fill="none" stroke="#6f6a62" stroke-width="3" />
+  <path d="M312 32 L312 82 M274 57 L350 57" stroke="#6f6a62" stroke-width="2.4" />
+
+  <polygon points="34,86 118,86 96,166 56,166" fill="#dcd8d0" opacity="0.55" />
+  <polygon points="156,84 240,84 218,166 178,166" fill="#dcd8d0" opacity="0.4" />
+
+  <rect x="0" y="192" width="380" height="108" fill="#b4afa6" />
+  <rect x="0" y="188" width="380" height="8" fill="#9d988f" />
+
+  <rect x="286" y="106" width="86" height="84" fill="#9a948a" />
+  <rect x="286" y="106" width="86" height="9" fill="#7d776e" />
+  <rect x="292" y="122" width="74" height="8" fill="#7d776e" />
+  <rect x="292" y="140" width="74" height="8" fill="#7d776e" />
+  <rect x="292" y="158" width="74" height="8" fill="#7d776e" />
+  <rect x="292" y="176" width="74" height="8" fill="#7d776e" />
+
+  <rect x="52" y="164" width="188" height="20" fill="#5c574f" />
+  <rect x="52" y="184" width="188" height="42" fill="#6b665e" />
+  <rect x="64" y="226" width="26" height="30" fill="#4f4a43" />
+  <rect x="204" y="226" width="26" height="30" fill="#4f4a43" />
+  <rect x="60" y="140" width="34" height="26" fill="#514c45" />
+  <circle cx="77" cy="153" r="9" fill="#7f7a71" />
+  <rect x="96" y="150" width="96" height="16" fill="#484440" />
+  <rect x="186" y="142" width="22" height="24" fill="#514c45" />
+  <rect x="130" y="132" width="10" height="20" fill="#6b665e" />
+  <circle cx="222" cy="158" r="17" fill="none" stroke="#4a463f" stroke-width="5" />
+  <path d="M222 141 L222 175 M205 158 L239 158" stroke="#4a463f" stroke-width="4" />
+
+  <circle cx="150" cy="106" r="11" fill="#3a362f" />
+  <rect x="136" y="118" width="30" height="42" fill="#565149" />
+  <path d="M166 124 L192 146" stroke="#565149" stroke-width="9" />
+  <path d="M136 126 L114 148" stroke="#565149" stroke-width="9" />
+  <rect x="139" y="102" width="24" height="6" fill="#2f2c27" />
+
+  <circle cx="322" cy="200" r="10" fill="#3a362f" />
+  <rect x="309" y="211" width="27" height="38" fill="#4d4941" />
+  <rect x="311" y="249" width="9" height="22" fill="#39352f" />
+  <rect x="326" y="249" width="9" height="22" fill="#39352f" />
+  <path d="M309 218 L288 236" stroke="#4d4941" stroke-width="8" />
+
+  <ellipse cx="150" cy="262" rx="46" ry="6" fill="#a29d94" />
+  <ellipse cx="322" cy="276" rx="34" ry="5" fill="#a29d94" />
+  <rect x="0" y="284" width="380" height="16" fill="#a8a39a" />
+</svg>

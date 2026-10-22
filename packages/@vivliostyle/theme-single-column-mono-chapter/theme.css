@@ -1,0 +1,280 @@
+/*
+ * 英国ケンブリッジ式論文 (single-column-mono-chapter)
+ * A4縦1段組・墨1色の博士論文。EB Garamond のみで組み、版面上部にイタリックの柱と
+ * ヘアライン、下部中央にノンブル、版面下部に短い罫の注欄を置く。製本を考えた
+ * 非対称余白 (ノド30mm・小口20mm、片面印刷前提で丁数パリティによらず固定)。
+ * 前付は小ローマ数字、本文は算用数字で章ごとに 1 ファイル。章番号は base の
+ * ドキュメントカウンタ (vs-counter-chapter) から採るので、各章の frontmatter に
+ * body.class: chapter が要る。
+ */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/footnote';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/toc';
+@import '@vivliostyle/theme-base/math';
+
+:root {
+  --vs-page--size: A4;
+  --vs-page--margin-top: 20mm;
+  --vs-page--margin-bottom: 20mm;
+  /* 片面印刷前提。物理指定にして見開きでの内外反転を止める */
+  --vs-page--margin-left: 30mm;
+  --vs-page--margin-right: 20mm;
+
+  /* 柱の文字スタイル: 上左はイタリック、下中央はノンブル。書体・色・字間は共通なので
+     --vs-page--mbox-* に寄せ、字形が異なる部分だけ box ごとに与える */
+  --vs-page--mbox-top-left-content: env(pub-title);
+  --vs-page--mbox-top-left-font-style: italic;
+  --vs-page--mbox-top-left-font-size: 10pt;
+  --vs-page--mbox-top-left-font-weight: 400;
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-bottom-center-font-style: normal;
+  --vs-page--mbox-bottom-center-font-size: 11pt;
+  --vs-page--mbox-font-family:
+    'EB Garamond', Garamond, 'Times New Roman', serif;
+  --vs-page--mbox-text-color: #1a1a1a;
+  --vs-page--mbox-letter-spacing: 0;
+  /* 柱の下のヘアラインは版面の上罫 */
+  --vs-page--border-width-top: 0.5pt;
+  --vs-page--border-color-top: #1a1a1a;
+  --vs-page--mbox-top-vertical-align: bottom;
+  --vs-page--mbox-top-padding-bottom: 6.6mm;
+  --vs-page--mbox-bottom-vertical-align: top;
+  --vs-page--mbox-bottom-padding-top: 3.5mm;
+
+  --vs-font-family:
+    'EB Garamond', Garamond, 'Adobe Garamond Pro', 'Times New Roman', serif;
+  --vs-font-size: 11pt;
+  --vs-line-height: 1.5;
+  --vs-columns: 1;
+  --vs-widows-orphans: 2;
+
+  --vs-color-background: #ffffff;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-border: #1a1a1a;
+
+  /* 本文と同一の書体で組む論文なので、見出し・太字も同じスタックを明示する */
+  --vs--heading-font-family:
+    'EB Garamond', Garamond, 'Adobe Garamond Pro', 'Times New Roman', serif;
+  --vs--heading-font-weight: 600;
+  --vs--bold-font-weight: 600;
+
+  --vs--h2-font-size: 13.5pt;
+  --vs--h2-line-height: 1.2;
+  --vs--h2-margin-block: 6mm 3mm;
+
+  --vs--p-margin-block: 0 3.2mm;
+  --vs--p-hyphens: none;
+
+  --vs--sup-font-size: 0.68em;
+  --vs--sup-vertical-align: super;
+
+  --vs--figure-margin-block: 3.2mm;
+  --vs--figure-item-size-inline: 100%;
+
+  --vs--figcaption-font-size: 10pt;
+  --vs--figcaption-text-align: center;
+  --vs--figcaption-margin-block: 6mm 0;
+  --vs--figcaption-line-height: 1.35;
+
+  /* 表は罫を天地とヘッダ下だけに絞った学術書の体裁 */
+  --vs--table-border-width-outer: 0;
+  --vs--table-border-width-row: 0;
+  --vs--table-border-width-column: 0;
+  --vs--table-border-width-block-start: 0.9pt;
+  --vs--table-border-width-block-end: 0.9pt;
+  --vs--table-border-width-thead-inner: 0.5pt;
+  --vs--table-cell-padding-block: 1.1mm;
+  --vs--table-cell-padding-inline: 0 6mm;
+  --vs--table-cell-vertical-align: baseline;
+  --vs--table-font-size: 10pt;
+  --vs--table-size-inline: 100%;
+  --vs--th-background-color: transparent;
+
+  --vs--anchor-text-decoration: none;
+
+  /* 章・節番号と、本文からの参照。章番号はドキュメントカウンタから採る */
+  --vs-section--marker-display: inline;
+  --vs-section--marker-margin-inline-end: 2ch;
+  --vs-section--h1-marker-content: counter(vs-counter-chapter);
+  --vs-section--h2-marker-content: counter(vs-counter-chapter) '.'
+    counter(vs-counter-sec-h2);
+  --vs-section--h3-marker-content: counter(vs-counter-chapter) '.'
+    counter(vs-counter-sec-h2) '.' counter(vs-counter-sec-h3);
+  --vs-section--call-content: 'Section '
+    target-counter(attr(href), vs-counter-chapter) '.'
+    target-counter(attr(href), vs-counter-sec-h2);
+  --vs-theme-single-column-mono-chapter--chapter-call-content: 'Chapter '
+    target-counter(attr(href), vs-counter-chapter);
+
+  /* 図表番号は「章番号.通し番号」。図表は章 (= 1ファイル) ごとに振り直される */
+  --vs-figure--marker-content: 'Figure ' counter(vs-counter-chapter) '.'
+    counter(vs-counter-fig) ': ';
+  --vs-table--marker-content: 'Table ' counter(vs-counter-chapter) '.'
+    counter(vs-counter-tbl) ': ';
+  --vs-figure--call-content: 'Figure '
+    target-counter(attr(href), vs-counter-chapter) '.'
+    target-counter(attr(href), vs-counter-fig);
+  --vs-table--call-content: 'Table '
+    target-counter(attr(href), vs-counter-chapter) '.'
+    target-counter(attr(href), vs-counter-tbl);
+
+  /* 注は版面下部に短い罫を引いた古典的な注欄に落とす */
+  --vs-footnote--font-size: 9pt;
+  --vs-footnote--line-height: 1.32;
+  --vs-footnote--text-align: justify;
+  /* 注記号のぶら下げ */
+  --vs-footnote--padding-inline-start: 3.6mm;
+  --vs-footnote--text-indent: -3.6mm;
+  --vs-footnote--call-content: counter(vs-counter-footnote);
+  --vs-footnote--call-font-size: 0.68em;
+  --vs-footnote--call-vertical-align: super;
+  --vs-footnote--marker-content: counter(vs-counter-footnote);
+  --vs-footnote--marker-font-size: 0.66em;
+  --vs-footnote--marker-margin-inline: 0 0.9mm;
+  --vs-footnote--marker-vertical-align: super;
+  --vs-footnote--item-margin-block: 0.6mm 0;
+  --vs-footnote--area-margin-block: 6mm 0;
+  --vs-footnote--area-before-size-inline: 62%;
+  --vs-footnote--area-before-border-width-block-start: 0.5pt;
+  --vs-footnote--area-before-margin-block: 0 2.2mm;
+
+  /* 目次: 見出し名の右にリーダーとノンブル */
+  --vs-toc--ol-indent-size: 9mm;
+  --vs-toc--page-leader-content: leader('.') ' ';
+}
+
+/* 前付は小ローマ数字、本文の最初の章でノンブルを1へ戻す */
+body.frontmatter {
+  page: frontmatter;
+}
+
+@page frontmatter {
+  --vs-page--mbox-bottom-center-content: counter(page, lower-roman);
+}
+
+body.bodymatter-start {
+  page: bodymatter-start;
+}
+
+@page bodymatter-start {
+  --vs-page--doc-counter-increment: vs-counter-doc vs-counter-chapter;
+  --vs-document-first-page-counter-reset: page 0;
+}
+
+/* 外部 SVG は <img> なので幅で縮める (親文書の CSS も Web フォントも中には効かない) */
+figure img {
+  display: block;
+}
+
+figure figcaption::before {
+  font-weight: var(--vs--bold-font-weight);
+}
+
+/* 注は呼出しと同じページの下部に置く */
+
+/* 本文からの章参照 (base が扱うのは fig/tbl/cite/sec) */
+a[data-ref='chapter']::before {
+  content: var(--vs-theme-single-column-mono-chapter--chapter-call-content);
+}
+
+/* 表紙 */
+.cover {
+  padding-block-start: 26mm;
+}
+
+.cover p {
+  margin-block: 0;
+  text-align: center;
+}
+
+.cover .cover-institution {
+  font-variant: small-caps;
+  letter-spacing: 0.09em;
+}
+
+.cover .cover-title {
+  font-size: 19pt;
+  font-weight: 600;
+  line-height: 1.25;
+  margin-block-start: 44mm;
+}
+
+.cover .cover-subtitle {
+  font-size: 12.5pt;
+  font-style: italic;
+  margin-block-start: 5mm;
+}
+
+.cover .cover-author {
+  font-size: 13pt;
+  margin-block-start: 36mm;
+}
+
+.cover .cover-submission {
+  margin-block-start: 34mm;
+}
+
+.cover .cover-date {
+  margin-block-start: 14mm;
+}
+
+/* 目次 */
+:is(#toc, [role='doc-toc']) ol {
+  list-style: none;
+  margin-block: 0;
+  padding-inline-start: 0;
+}
+
+:is(#toc, [role='doc-toc']) ol ol {
+  padding-inline-start: var(--vs-toc--ol-indent-size);
+}
+
+:is(#toc, [role='doc-toc']) li > a {
+  display: flex;
+}
+
+/* 前付の項目は小ローマ数字のノンブルを引く */
+:is(#toc, [role='doc-toc']) .toc-front {
+  --vs-toc--page-counter-style: lower-roman;
+}
+
+:is(#toc, [role='doc-toc']) .toc-body > ol > li {
+  margin-block-start: 2.6mm;
+}
+
+/* 章・節番号は見出し側のカウンタから引く */
+:is(#toc, [role='doc-toc']) .toc-body a::before {
+  flex: 0 0 var(--vs-toc--ol-indent-size);
+  content: target-counter(attr(href), vs-counter-chapter);
+}
+
+:is(#toc, [role='doc-toc']) .toc-body ol ol a::before {
+  content: target-counter(attr(href), vs-counter-chapter) '.'
+    target-counter(attr(href), vs-counter-sec-h2);
+}
+
+/* 表 */
+:is(th, td) {
+  text-align: start;
+}
+
+:is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+/* 参考文献はぶら下げインデント */
+.reference-list p {
+  padding-inline-start: 8mm;
+  text-align: start;
+  text-indent: -8mm;
+}

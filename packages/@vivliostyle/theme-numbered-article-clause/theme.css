@@ -1,0 +1,331 @@
+/*
+ * 定款・規程（一般社団法人型） (numbered-article-clause)
+ * A4判・横書き単一段の法務文書。Noto Serif JP の明朝本文 10.5pt / 行送り 1.5 に、
+ * 章「第N章」を中央寄せの明朝見出し、条「第N条（…）」を左寄せ見出しで組み、
+ * 項(2,3…／第1項は無番号)と号(一,二,三…)を字下げの階層で示す。柱(現在章名)と
+ * ヘッダー下罫、下中央ノンブルを Noto Sans JP の濃灰で添える。装飾色は用いず黒・濃灰・白のみ。
+ *
+ * 章・条・項・号の番号と条文参照はすべてカウンタで生成する。原稿の見出しには番号を書かず、
+ * 参照は `<a href="#id" data-ref="chap|art|kou|gou"></a>` で書く。
+ *
+ * DOM は VFM 出力: body > section.level1 (文書) > section.level2 (章) > section.level3 (条)。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  --vs-theme-numbered-article-clause--font-sans:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --vs-theme-numbered-article-clause--color-muted: #4a4a4a;
+
+  /* Page */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 18.4mm;
+  --vs-page--margin-bottom: 20mm;
+  --vs-page--margin-left: 20mm;
+  --vs-page--margin-right: 20mm;
+  --vs-page--border-width-top: 0.5pt;
+  --vs-page--border-color-top: #707070;
+  /* 柱の下罫と本文のアキ。罫の太さぶんを引いて本文位置を保つ */
+  --vs-page--padding-top: calc(1.6mm - var(--vs-page--border-width-top));
+  --vs-page--mbox-font-family:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --vs-page--mbox-font-size: 8.5pt;
+  --vs-page--mbox-font-weight: 400;
+  --vs-page--mbox-text-color: #4a4a4a;
+  --vs-page--mbox-letter-spacing: 0.08em;
+  --vs-page--mbox-top-left-content: string(chaptitle);
+  --vs-page--mbox-bottom-center-content: counter(page);
+
+  /* Type */
+  --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --vs-font-size: 10.5pt;
+  --vs-line-height: 1.5;
+  --vs-color-foreground: #171717;
+  --vs-color-background: #ffffff;
+  --vs-columns: 1;
+  --vs-widows-orphans: 2;
+
+  /* Paragraphs */
+  --vs--p-margin-block: 0.5em;
+  --vs--p-text-indent: 0;
+  --vs--p-text-align: justify;
+
+  /* Headings: mincho, near-black, weight kept moderate */
+  --vs--heading-font-family:
+    'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --vs--heading-font-weight: 600;
+  --vs--heading-text-align: start;
+
+  /* Title block (first page) */
+  --vs--h1-font-size: 1.9em;
+  --vs--h1-line-height: 1.2;
+  --vs--h1-text-align: center;
+  --vs--h1-letter-spacing: 0.5em;
+  --vs--h1-text-indent: 0.5em;
+  /* balance the trailing letter-spacing */
+  --vs--h1-margin-block: 0.6rem 0.8rem;
+
+  /* Chapter heading 「第N章 …」 */
+  --vs--h2-font-size: 1.42em;
+  --vs--h2-line-height: 1.35;
+  --vs--h2-text-align: center;
+  --vs--h2-letter-spacing: 0.12em;
+  --vs--h2-margin-block: 2rem 1.1rem;
+  --vs--h2-string-set: chaptitle '第' counter(vs-counter-sec-h2) '章　'
+    content();
+
+  /* Article heading 「第N条（…）」 */
+  --vs--h3-font-size: 1.08em;
+  --vs--h3-line-height: 1.4;
+  --vs--h3-margin-block: 1.2rem 0.35rem;
+
+  /* 項/号 のリストは独自カウンタで組むため theme の既定インデントを外す */
+  --vs--lists-margin-block: 0;
+  --vs--lists-margin-inline: 0;
+  --vs--ol-padding-inline-start: 0pt;
+
+  /* 社員名簿の規程表 (thin-ruled, narrow label column) */
+  --vs--table-border-width: 0.4pt;
+  --vs--table-border-color: #707070;
+  --vs--table-font-size: 10pt;
+  --vs--table-margin-block: 0.9em;
+  --vs--table-cell-padding-block: 0.5em;
+  --vs--table-cell-padding-inline: 0.85em;
+  --vs--th-font-weight: 600;
+
+  /* ---- 章・条の見出し番号 ---- */
+  --vs-section--marker-display: inline;
+  --vs-section--h1-marker-display: none;
+  --vs-section--h2-marker-content: '第' counter(vs-counter-sec-h2) '章';
+  --vs-section--h2-marker-margin-inline-end: 1em;
+  --vs-section--h3-marker-content: var(
+    --vs-theme-numbered-article-clause--article-marker-content
+  );
+  --vs-section--h3-marker-margin-inline-end: 0;
+
+  /* ---- 条・項・号のカウンタと参照 ---- */
+  --vs-theme-numbered-article-clause--article-counter-style: decimal;
+  --vs-theme-numbered-article-clause--kou-counter-style: decimal;
+  --vs-theme-numbered-article-clause--gou-counter-style: cjk-ideographic;
+  --vs-theme-numbered-article-clause--article-marker-content: '第'
+    counter(
+      vs-counter-article,
+      var(--vs-theme-numbered-article-clause--article-counter-style)
+    )
+    '条';
+  --vs-theme-numbered-article-clause--kou-marker-content: counter(
+    vs-counter-kou,
+    var(--vs-theme-numbered-article-clause--kou-counter-style)
+  );
+  --vs-theme-numbered-article-clause--gou-marker-content: counter(
+    vs-counter-gou,
+    var(--vs-theme-numbered-article-clause--gou-counter-style)
+  );
+  --vs-theme-numbered-article-clause--chapter-call-content: '第'
+    target-counter(
+      attr(href),
+      vs-counter-sec-h2,
+      var(--vs-section--counter-style)
+    )
+    '章';
+  --vs-theme-numbered-article-clause--article-call-content: '第'
+    target-counter(
+      attr(href),
+      vs-counter-article,
+      var(--vs-theme-numbered-article-clause--article-counter-style)
+    )
+    '条';
+  --vs-theme-numbered-article-clause--kou-call-content: '第'
+    target-counter(
+      attr(href),
+      vs-counter-kou,
+      var(--vs-theme-numbered-article-clause--kou-counter-style)
+    )
+    '項';
+  --vs-theme-numbered-article-clause--gou-call-content: '第'
+    target-counter(
+      attr(href),
+      vs-counter-gou,
+      var(--vs-theme-numbered-article-clause--gou-counter-style)
+    )
+    '号';
+
+  counter-reset: vs-counter-article vs-counter-kou vs-counter-gou;
+}
+
+/* Chapter running head appears from page 2 onward; title page stays clean */
+@page :first {
+  --vs-page--mbox-top-left-content: none;
+  --vs-page--border-width-top: 0;
+}
+
+/* 表題直下の発行主体と制定・改定履歴 */
+.issuer,
+.revision-record {
+  text-align: center;
+  margin-block: 0.2rem;
+}
+
+.issuer {
+  font-size: 1.15em;
+  letter-spacing: 0.08em;
+}
+
+.revision-record {
+  font-family: var(--vs-theme-numbered-article-clause--font-sans);
+  font-size: 8.5pt;
+  color: var(--vs-theme-numbered-article-clause--color-muted);
+  letter-spacing: 0.06em;
+  margin-block: 0.4rem 2.2rem;
+}
+
+section.level2,
+section.level3 {
+  break-inside: auto;
+}
+
+/* 条番号は章をまたいで通し。base の h3 リセットに依らない独自カウンタで数える */
+section:has(> h3:first-child) {
+  counter-increment: vs-counter-sections vs-counter-sec-h3 vs-counter-article;
+}
+
+/* 附則・別表など番号を持たない章。閉じ # で書くと section に包まれないので、
+   章見出しでありながら section の先頭に来ない h2 がそれにあたる */
+section > h2:not(:first-child) {
+  font-size: 1.2em;
+  letter-spacing: 0.24em;
+  string-set: chaptitle content();
+}
+
+/* ==== 項 (paragraphs): first is unnumbered, the rest carry 2,3,… ==== */
+section > ol {
+  list-style: none;
+  counter-reset: vs-counter-kou;
+}
+
+section > ol > li {
+  counter-increment: vs-counter-kou;
+  position: relative;
+  padding-inline-start: 2.4em;
+  text-indent: 0;
+  text-align: justify;
+  margin-block: 0.45em 0;
+}
+
+section > ol > li::before {
+  content: var(--vs-theme-numbered-article-clause--kou-marker-content);
+  position: absolute;
+  inset-inline-start: 1em;
+  inline-size: 1.4em;
+  text-align: start;
+}
+
+/* 第1項: no number, ordinary one-character first-line indent */
+section > ol > li:first-child {
+  padding-inline-start: 0;
+  text-indent: 1em;
+}
+
+section > ol > li:first-child::before {
+  content: none;
+}
+
+/* 表を抱える項は loose list になり <p> が挟まるが、行取りは項本文と同じに保つ */
+section > ol li > p {
+  margin-block: 0;
+  text-align: justify;
+  text-indent: inherit;
+  /* theme の p{text-indent:0} が li の字下げ継承を上書きするため */
+}
+
+/* ==== 号 (items): 一, 二, 三 … , indented one level deeper ==== */
+section > ol ol {
+  list-style: none;
+  counter-reset: vs-counter-gou;
+  margin-block: 0.35em 0;
+  margin-inline: 0;
+  padding-inline-start: 1.4em;
+}
+
+section > ol ol > li {
+  counter-increment: vs-counter-gou;
+  position: relative;
+  padding-inline-start: 2.4em;
+  text-indent: 0;
+  text-align: justify;
+  margin-block: 0.2em 0;
+}
+
+section > ol ol > li::before {
+  content: var(--vs-theme-numbered-article-clause--gou-marker-content);
+  position: absolute;
+  inset-inline-start: 1em;
+  inline-size: 1.4em;
+  text-align: start;
+}
+
+/* A numbered 項 that introduces a 号 list keeps its intro flush with siblings */
+section > ol > li > ol {
+  text-indent: 0;
+}
+
+/* ==== 条文参照 ==== */
+a:is([data-ref='chap'], [data-ref='art'], [data-ref='kou'], [data-ref='gou']) {
+  color: inherit;
+  text-decoration: none;
+}
+
+a[data-ref='chap']::before {
+  content: var(--vs-theme-numbered-article-clause--chapter-call-content);
+}
+
+a[data-ref='art']::before {
+  content: var(--vs-theme-numbered-article-clause--article-call-content);
+}
+
+a[data-ref='kou']::before {
+  content: var(--vs-theme-numbered-article-clause--kou-call-content);
+}
+
+a[data-ref='gou']::before {
+  content: var(--vs-theme-numbered-article-clause--gou-call-content);
+}
+
+/* ==== 社員名簿の規程表 ==== */
+table {
+  width: 100%;
+}
+
+caption {
+  caption-side: top;
+  text-align: start;
+  font-weight: 600;
+  margin-block: 0 0.4rem;
+}
+
+th,
+td {
+  vertical-align: top;
+  text-indent: 0;
+}
+
+td {
+  text-align: justify;
+}
+
+th:first-child,
+td:first-child {
+  width: 8em;
+  text-align: center;
+  font-weight: 400;
+}

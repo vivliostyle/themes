@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 196" role="img" aria-label="Figure 3: ninety-minute session timeline with brief, calibration, a measured block of twenty-five trials, a role swap, a second measured block, and a debrief">
+<text x="75" y="42" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="10" fill="#20252b">Brief</text>
+<text x="166" y="42" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="10" fill="#20252b">Calibration</text>
+<text x="326" y="42" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="10" fill="#0066cc">Block A</text>
+<text x="463" y="42" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="10" fill="#20252b">Swap</text>
+<text x="600" y="42" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="10" fill="#0066cc">Block B</text>
+<text x="782" y="42" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="10" fill="#20252b">Debrief</text>
+
+<rect x="30" y="52" width="91" height="36" fill="#f4f7fb" stroke="#e7ebef" />
+<rect x="121" y="52" width="91" height="36" fill="#f4f7fb" stroke="#e7ebef" />
+<rect x="212" y="52" width="228" height="36" fill="#dceeff" stroke="#0066cc" />
+<rect x="440" y="52" width="46" height="36" fill="#fde7d4" stroke="#f29e4c" />
+<rect x="486" y="52" width="228" height="36" fill="#dceeff" stroke="#0066cc" />
+<rect x="714" y="52" width="136" height="36" fill="#f4f7fb" stroke="#e7ebef" />
+
+<text x="75" y="75" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="9" fill="#66717d">10 min</text>
+<text x="166" y="75" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="9" fill="#66717d">10 min</text>
+<text x="326" y="75" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="9" fill="#20252b">25 min · 25 trials</text>
+<text x="463" y="75" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="9" fill="#66717d">5</text>
+<text x="600" y="75" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="9" fill="#20252b">25 min · 25 trials</text>
+<text x="782" y="75" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="9" fill="#66717d">15 min</text>
+
+<text x="326" y="104" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">5 conditions × 5 materials, one maker sending</text>
+<text x="600" y="104" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">the same grid, roles reversed</text>
+<text x="463" y="104" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#f29e4c">roles</text>
+
+<line x1="30" y1="128" x2="850" y2="128" stroke="#66717d" stroke-width="1" />
+<line x1="30" y1="128" x2="30" y2="134" stroke="#66717d" stroke-width="1" />
+<line x1="167" y1="128" x2="167" y2="134" stroke="#66717d" stroke-width="1" />
+<line x1="303" y1="128" x2="303" y2="134" stroke="#66717d" stroke-width="1" />
+<line x1="440" y1="128" x2="440" y2="134" stroke="#66717d" stroke-width="1" />
+<line x1="577" y1="128" x2="577" y2="134" stroke="#66717d" stroke-width="1" />
+<line x1="713" y1="128" x2="713" y2="134" stroke="#66717d" stroke-width="1" />
+<line x1="850" y1="128" x2="850" y2="134" stroke="#66717d" stroke-width="1" />
+<text x="30" y="146" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">0</text>
+<text x="167" y="146" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">15</text>
+<text x="303" y="146" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">30</text>
+<text x="440" y="146" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">45</text>
+<text x="577" y="146" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">60</text>
+<text x="713" y="146" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">75</text>
+<text x="850" y="146" text-anchor="middle" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="7.5" fill="#66717d">90 min</text>
+
+<rect x="300" y="170" width="10" height="10" fill="#dceeff" stroke="#0066cc" />
+<text x="316" y="179" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="8" fill="#66717d">measured block</text>
+<rect x="412" y="170" width="10" height="10" fill="#fde7d4" stroke="#f29e4c" />
+<text x="428" y="179" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="8" fill="#66717d">role swap</text>
+<rect x="500" y="170" width="10" height="10" fill="#f4f7fb" stroke="#e7ebef" />
+<text x="516" y="179" font-family="'IBM Plex Sans', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif" font-size="8" fill="#66717d">setup and debrief</text>
+</svg>

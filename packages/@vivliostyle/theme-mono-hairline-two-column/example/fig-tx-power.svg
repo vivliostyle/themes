@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 180" role="img" aria-label="Line graph of transmitter output power versus frequency at maximum gain, VDD_A equals 3.3 volts and 25 degrees Celsius. Output power holds at 20.5 dBm from 0.3 GHz to 2 GHz, then falls gradually to 16 dBm at 6 GHz." fill="none" stroke="#171717">
+<style>
+text { font-family: "Roboto Mono", "IBM Plex Mono", ui-monospace, monospace; stroke: none; }
+</style>
+<text x="4" y="12" font-size="7.3" font-weight="500" fill="#171717" stroke="none">TRANSMITTER OUTPUT POWER vs FREQUENCY  (VDD_A = 3.3 V, TA = 25 &#176;C)</text>
+<g stroke="#d6d6d6" stroke-width="0.5">
+<line x1="42" y1="48.3" x2="350" y2="48.3" />
+<line x1="42" y1="68.7" x2="350" y2="68.7" />
+<line x1="42" y1="89" x2="350" y2="89" />
+<line x1="42" y1="109.3" x2="350" y2="109.3" />
+<line x1="42" y1="129.7" x2="350" y2="129.7" />
+<line x1="79.8" y1="28" x2="79.8" y2="150" />
+<line x1="133.9" y1="28" x2="133.9" y2="150" />
+<line x1="187.9" y1="28" x2="187.9" y2="150" />
+<line x1="241.9" y1="28" x2="241.9" y2="150" />
+<line x1="296" y1="28" x2="296" y2="150" />
+</g>
+<rect x="42" y="28" width="308" height="122" stroke="#171717" stroke-width="0.8" />
+<polyline points="42,46.7 79.8,46.3 133.9,46.3 187.9,47.1 241.9,49.1 296,55.2 350,64.6" stroke="#171717" stroke-width="1.2" />
+<g font-size="6" fill="#555555" stroke="none" text-anchor="end">
+<text x="38" y="30.2">25</text>
+<text x="38" y="50.5">20</text>
+<text x="38" y="70.9">15</text>
+<text x="38" y="91.2">10</text>
+<text x="38" y="111.5">5</text>
+<text x="38" y="131.9">0</text>
+<text x="38" y="152.2">-5</text>
+</g>
+<g font-size="6" fill="#555555" stroke="none" text-anchor="middle">
+<text x="42" y="160">0.3</text>
+<text x="79.8" y="160">1</text>
+<text x="133.9" y="160">2</text>
+<text x="187.9" y="160">3</text>
+<text x="241.9" y="160">4</text>
+<text x="296" y="160">5</text>
+<text x="350" y="160">6</text>
+</g>
+<text x="196" y="174" font-size="6.5" fill="#555555" stroke="none" text-anchor="middle">Frequency (GHz)</text>
+<text x="12" y="89" font-size="6.5" fill="#555555" stroke="none" text-anchor="middle" transform="rotate(-90 12 89)">Output (dBm)</text>
+</svg>

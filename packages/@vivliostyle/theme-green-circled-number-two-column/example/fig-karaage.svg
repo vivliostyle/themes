@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" role="img" aria-label="皿に盛った青のり唐揚げとレモン">
+<rect width="400" height="320" fill="#f4f2ec" />
+<circle cx="200" cy="160" r="124" fill="#fbfaf6" stroke="#e5e2d8" stroke-width="2" />
+<circle cx="200" cy="160" r="104" fill="#f5f2ea" />
+<ellipse cx="200" cy="232" rx="94" ry="12" fill="#e9e4d5" />
+<circle cx="145" cy="107" r="26" fill="#cd9243" />
+<circle cx="158" cy="97" r="16" fill="#cd9243" />
+<circle cx="132" cy="114" r="15" fill="#cd9243" />
+<circle cx="139" cy="99" r="10" fill="#dfae63" />
+<circle cx="141" cy="110" r="2.4" fill="#a5691f" />
+<circle cx="153" cy="114" r="2" fill="#a5691f" />
+<circle cx="149" cy="101" r="2" fill="#6f9d33" />
+<circle cx="134" cy="118" r="1.8" fill="#6f9d33" />
+<circle cx="209" cy="94" r="27" fill="#c98d3f" />
+<circle cx="223" cy="102" r="15" fill="#c98d3f" />
+<circle cx="196" cy="85" r="14" fill="#c98d3f" />
+<circle cx="203" cy="88" r="9" fill="#dfae63" />
+<circle cx="205" cy="100" r="2.4" fill="#a5691f" />
+<circle cx="218" cy="92" r="2" fill="#a5691f" />
+<circle cx="212" cy="106" r="2" fill="#6f9d33" />
+<circle cx="196" cy="98" r="1.8" fill="#6f9d33" />
+<circle cx="263" cy="125" r="25" fill="#cd9243" />
+<circle cx="275" cy="134" r="13" fill="#cd9243" />
+<circle cx="252" cy="113" r="13" fill="#cd9243" />
+<circle cx="257" cy="118" r="8" fill="#dfae63" />
+<circle cx="262" cy="130" r="2.4" fill="#a5691f" />
+<circle cx="270" cy="120" r="2" fill="#6f9d33" />
+<circle cx="253" cy="128" r="1.8" fill="#6f9d33" />
+<circle cx="130" cy="165" r="26" fill="#c98d3f" />
+<circle cx="118" cy="175" r="14" fill="#c98d3f" />
+<circle cx="144" cy="174" r="14" fill="#c98d3f" />
+<circle cx="124" cy="158" r="9" fill="#dfae63" />
+<circle cx="133" cy="170" r="2.4" fill="#a5691f" />
+<circle cx="140" cy="160" r="2" fill="#6f9d33" />
+<circle cx="121" cy="168" r="1.8" fill="#6f9d33" />
+<circle cx="193" cy="157" r="30" fill="#cd9243" />
+<circle cx="209" cy="168" r="16" fill="#cd9243" />
+<circle cx="178" cy="146" r="14" fill="#cd9243" />
+<circle cx="185" cy="149" r="10" fill="#dfae63" />
+<circle cx="192" cy="164" r="2.6" fill="#a5691f" />
+<circle cx="204" cy="152" r="2" fill="#a5691f" />
+<circle cx="199" cy="172" r="2" fill="#6f9d33" />
+<circle cx="181" cy="160" r="1.8" fill="#6f9d33" />
+<circle cx="252" cy="182" r="25" fill="#c98d3f" />
+<circle cx="264" cy="172" r="13" fill="#c98d3f" />
+<circle cx="240" cy="192" r="13" fill="#c98d3f" />
+<circle cx="247" cy="175" r="8" fill="#dfae63" />
+<circle cx="254" cy="188" r="2.4" fill="#a5691f" />
+<circle cx="260" cy="178" r="2" fill="#6f9d33" />
+<circle cx="242" cy="184" r="1.8" fill="#6f9d33" />
+<circle cx="162" cy="214" r="26" fill="#cd9243" />
+<circle cx="176" cy="222" r="14" fill="#cd9243" />
+<circle cx="149" cy="222" r="13" fill="#cd9243" />
+<circle cx="156" cy="207" r="9" fill="#dfae63" />
+<circle cx="165" cy="220" r="2.4" fill="#a5691f" />
+<circle cx="172" cy="210" r="2" fill="#6f9d33" />
+<circle cx="151" cy="215" r="1.8" fill="#6f9d33" />
+<path d="M262 216 L298 184 A48 48 0 0 1 308 231 Z" fill="#f9e58c" stroke="#eec33c" stroke-width="3" />
+<path d="M298 184 A48 48 0 0 1 308 231" fill="none" stroke="#f2cd3f" stroke-width="7" />
+<path d="M262 216 L292 194 M262 216 L301 214" fill="none" stroke="#f0d565" stroke-width="2.5" />
+</svg>

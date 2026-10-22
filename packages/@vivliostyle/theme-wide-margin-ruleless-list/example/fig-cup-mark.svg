@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" role="img" aria-label="Abstract line drawing of a coffee cup">
+<g fill="none" stroke="#d4a574" stroke-width="1">
+<circle cx="30" cy="30" r="22" />
+<line x1="9" y1="31" x2="51" y2="31" />
+<path d="M17 31 Q30 44 43 31" />
+</g>
+</svg>

@@ -1,0 +1,59 @@
+{
+  "name": "@vivliostyle/theme-brown-double-frame-cream",
+  "version": "0.0.0",
+  "description": "A5判・1段組の同窓会報テーマ。焦茶の二重飾り罫でクリーム地の版面を囲み、上下罫見出しと小口余白の縦組み傍注で静かな品位を組む",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-brown-double-frame-cream"
+  },
+  "files": [
+    "*.css",
+    "example",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Brown Double Frame Cream",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "magazine",
+      "topics": [
+        "newsletter-community",
+        "alumni",
+        "a5",
+        "single-column",
+        "elegant",
+        "minimal"
+      ]
+    }
+  }
+}

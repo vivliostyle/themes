@@ -1,0 +1,230 @@
+/*
+ * 物理速報誌 (PRL 風) のレター判・墨一色テーマ。
+ * STIX Two Text の高密度セリフ2段組に、中央揃えの標題ブロック、ローマ数字の
+ * センター見出し、段の右端に式番号を置くディスプレイ数式、モノクロ図版を配置する。
+ * 節番号・式番号・図番号・引用番号はすべてカウンタが付ける。
+ * 論題の h1 は閉じ `#` (`# 論題 #`) で書いて標題ブロックに置きセクション化を止めるので、
+ * 節番号は body 直下の section.level2 から始まる。番号を付けない見出しも閉じ `#` で書く。
+ */
+@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/math';
+
+:root {
+  --vs-font-family: 'STIX Two Text', 'Times New Roman', serif;
+  --vs-font-size: 8.3pt;
+  --vs-line-height: 1.27;
+  --vs-spacing-rlh: 1.27rem;
+  --vs-color-foreground: #111111;
+  --vs-color-background: #ffffff;
+
+  /* 段組は body に掛けるので html は単段のまま */
+  --vs-columns: 1;
+  --vs-column-gap: 6mm;
+
+  --vs-page--size: letter;
+  --vs-page--margin-top: 15mm;
+  --vs-page--margin-bottom: 15mm;
+  --vs-page--margin-left: 12mm;
+  --vs-page--margin-right: 12mm;
+  --vs-page--background-color: #ffffff;
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-font-family: var(--vs-font-family);
+  --vs-page--mbox-font-size: 9pt;
+  --vs-page--mbox-text-color: var(--vs-color-foreground);
+
+  --vs--heading-font-family: 'STIX Two Text', 'Times New Roman', serif;
+
+  /* 論文タイトル */
+  --vs--h1-font-size: 11.8pt;
+  --vs--h1-font-weight: 700;
+  --vs--h1-line-height: 1.25;
+  --vs--h1-text-align: center;
+  --vs--h1-margin-block: 0 2.8mm;
+
+  /* ローマ数字のセンター節見出し */
+  --vs--h2-font-size: 8pt;
+  --vs--h2-font-weight: 700;
+  --vs--h2-text-align: center;
+  --vs--h2-text-transform: uppercase;
+  --vs--h2-margin-block: 3.2mm 1.6mm;
+
+  /* 節番号は「I.」「II.」。本文からの参照は「Sec. IV」 */
+  --vs-section--counter-style: upper-roman;
+  --vs-section--marker-display: inline;
+  --vs-section--marker-margin-inline-end: 0.4em;
+  --vs-section--h2-marker-content: counters(
+      vs-counter-sections,
+      var(--vs-section--counter-delimiter),
+      var(--vs-section--counter-style)
+    )
+    '.';
+  --vs-section--call-content: 'Sec.\2009'
+    target-counters(
+      attr(href),
+      vs-counter-sections,
+      var(--vs-section--counter-delimiter),
+      var(--vs-section--counter-style)
+    );
+
+  /* 式番号は文書を通した連番。参照の「Eq. (4)」のアキは thin space */
+  --vs-equation--call-content: 'Eq.\2009('
+    target-counter(attr(href), vs-counter-eq) ')';
+  --vs-equation--margin-block: 1.6mm;
+  --vs-equation--item-text-align: inherit;
+  --vs-citation--marker-inset-inline-start: -5mm;
+
+  /* 図番号は「FIG. 1.」、参照は「Fig. 1」 */
+  --vs-figure--marker-content: 'FIG.\2009'
+    counter(vs-counter-fig, var(--vs-counter-style)) '. ';
+  --vs-figure--call-content: 'Fig.\2009'
+    target-counter(attr(href), vs-counter-fig, var(--vs-counter-style));
+
+  /* 引用番号だけを出す参照 (「[6,7]」「[1–4]」のように連ねて書くため) */
+  --vs-theme-dense-serif-roman-numeral--cite-number-call-content: target-counter(
+    attr(href),
+    vs-counter-cite
+  );
+
+  /* 段落間はアキ無しで字下げのみ (誌面密度を上げる伝統的な組み) */
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 3.5mm;
+  --vs--p-text-align: justify;
+
+  --vs--sub-font-size: 68%;
+  --vs--sup-font-size: 68%;
+
+  /* theme-base の figure は flex column。中央揃えの block 図版に戻す */
+  --vs--figure-display: block;
+  --vs--figure-margin-block: 2.5mm 1.5mm;
+  --vs--figure-text-align: center;
+  --vs--figure-item-size-inline: 84%;
+  --vs--figure-break-inside: avoid;
+
+  --vs--figcaption-font-size: 7.5pt;
+  --vs--figcaption-text-align: justify;
+  --vs--figcaption-line-height: 1.28;
+  --vs--figcaption-margin-block: 1.5mm 0;
+  --vs--figcaption-margin-inline: 1mm;
+}
+
+/* 標題は段抜き、本文は 2 段。段は文章量に応じてページを送る */
+body {
+  columns: 2;
+  column-gap: var(--vs-column-gap);
+  column-fill: auto;
+}
+
+body > .titleblock {
+  column-span: all;
+  margin-block-end: 3.2mm;
+}
+
+/* 見出し・図版のキャプションが段末に取り残されないように */
+h2,
+figcaption {
+  break-after: avoid;
+}
+
+/* ---- 標題ブロック ---- */
+.titleblock :is(p, .masthead, .byline, .affil, .received) {
+  hyphens: manual;
+  text-align: center;
+  text-indent: 0;
+}
+
+.masthead {
+  font-size: 8.5pt;
+  margin-block: 0 3.5mm;
+}
+
+.byline {
+  font-size: 9pt;
+  margin-block: 0 0.8mm;
+}
+
+.affil {
+  font-size: 8.5pt;
+  font-style: italic;
+  margin-block: 0 0.8mm;
+}
+
+.received {
+  font-size: 8.5pt;
+}
+
+.abstract {
+  line-height: 1.3;
+  margin-block: 2.2mm 0;
+  margin-inline: 12mm;
+}
+
+.abstract p {
+  text-align: justify;
+  text-indent: 0;
+}
+
+/* 節見出しとディスプレイ数式に続く受け文は字下げしない */
+h2 + p,
+.equation + p,
+figure + p {
+  text-indent: 0;
+}
+
+a[data-ref='citenum']::before {
+  content: var(--vs-theme-dense-serif-roman-numeral--cite-number-call-content);
+}
+
+/* 墨一色の紙面なので参照も地の文と同じ見た目にする。base が既定を打ち消して
+   いるのは fig/tbl/cite/sec だけなので、テーマ独自の参照を補う */
+a:is([data-ref='eq'], [data-ref='citenum']) {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---- 図版 ---- */
+figure > img {
+  display: block;
+  block-size: auto;
+  margin-inline: auto;
+}
+
+/* 図題は数式を VFM に処理させるため段落として書く。中の p が本文の字下げを
+   拾わないよう figcaption 側で打ち消す */
+figcaption {
+  --vs--p-first-text-indent: 0;
+  --vs--p-text-indent: 0;
+}
+
+figcaption > p {
+  margin-block: 0;
+}
+
+/* ---- 参考文献: 番号をぶら下げた小さな組み ---- */
+:root {
+  --vs-citation--items-border-color-block-start: currentColor;
+  --vs-citation--items-border-style-block-start: solid;
+  --vs-citation--items-border-width-block-start: 0.4pt;
+  --vs-citation--items-font-size: 7.2pt;
+  --vs-citation--items-hyphens: auto;
+  --vs-citation--items-line-height: 1.26;
+  --vs-citation--items-margin-block: 3mm var(--vs-spacing-rlh);
+  --vs-citation--items-padding-block: 1.8mm 0;
+  --vs-citation--items-padding-inline-start: 5mm;
+  --vs-citation--item-margin-block: 0 0.6mm;
+  --vs-citation--item-text-align: start;
+}
+
+ol.cite-items > li > p {
+  margin-block: 0;
+  text-indent: 0;
+}

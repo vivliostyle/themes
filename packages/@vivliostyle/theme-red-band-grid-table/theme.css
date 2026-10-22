@@ -1,0 +1,351 @@
+/*
+ * クレジットカード ご利用明細書 (red-band-grid-table)
+ * A4縦・横組みの実務帳票。Noto Sans JP のゴシックのみで構成し、赤 (#cc0000) を
+ * タイトル帯・header-rule・請求概要の太枠・区分見出しの帯に限定して使う。
+ * 上部は 赤ベタ帯タイトル+柱風の赤細罫 / 左に会員情報・右に赤太枠の請求概要ボックス。
+ * 本文は3段の段組で、各段に赤帯の区分見出し+利用日/ご利用先/金額の格子表を置き、
+ * 太罫の小計行で締める。明細が版面に収まらないときは表頭を繰り返して段・ページへ
+ * 流れ続ける。末尾にグレー枠の囲み注記、下部中央にノンブル - 1 -。
+ * 金額は tabular-nums の右揃えで桁を揃える。
+ * DOM は VFM 出力に合わせ、明細表は Markdown の table、小計は tbody の最終行で表現する。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  --vs-theme-red-band-grid-table--color-accent: #cc0000;
+  --vs-theme-red-band-grid-table--color-on-accent: #ffffff;
+  --vs-theme-red-band-grid-table--color-rule: #999999;
+  --vs-theme-red-band-grid-table--color-rule-strong: #444444;
+  --vs-theme-red-band-grid-table--color-bg-panel: #ffffff;
+  --vs-theme-red-band-grid-table--color-bg-thead: #e4e4e4;
+  --vs-theme-red-band-grid-table--color-bg-thead-subtle: #efefef;
+  --vs-theme-red-band-grid-table--ledger-columns: 3;
+  --vs-theme-red-band-grid-table--ledger-column-gap: 4mm;
+  --vs-theme-red-band-grid-table--ledger-date-width: 10mm;
+  --vs-theme-red-band-grid-table--ledger-amount-width: 15mm;
+  --vs-theme-red-band-grid-table--ledger-description-font-size: 5.7pt;
+  --vs-theme-red-band-grid-table--note-inline-size: 106mm;
+
+  --vs-page--size: A4;
+  --vs-page--margin-top: 12mm;
+  --vs-page--margin-bottom: 12mm;
+  --vs-page--margin-left: 15mm;
+  --vs-page--margin-right: 15mm;
+
+  --vs-font-family:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --vs-font-size: 9pt;
+  --vs-line-height: 1.5;
+  --vs-color-foreground: #1a1a1a;
+  --vs-columns: 1;
+
+  --vs--heading-font-family:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --vs--heading-margin-block: 0;
+  --vs--heading-margin-inline: 0;
+
+  --vs--h1-font-size: 16pt;
+  --vs--h1-font-weight: 900;
+  --vs--h1-letter-spacing: 0.06em;
+  --vs--h1-line-height: 1.2;
+
+  --vs--h2-font-size: 8.5pt;
+  --vs--h2-font-weight: 700;
+  --vs--h2-letter-spacing: 0.05em;
+  --vs--h2-line-height: 1.3;
+
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 0;
+  --vs--p-text-align: start;
+
+  --vs--lists-margin-block: 0;
+  --vs--lists-margin-inline: 0;
+  --vs--dd-margin-inline-start: 0;
+
+  --vs--table-margin-block: 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-border-width: 0;
+
+  /* 区分見出しは「1.」からの通し番号 */
+  --vs-section--h2-marker-display: inline;
+  --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '. ';
+  --vs-section--h2-marker-margin-inline-end: 0;
+
+  --vs-page--mbox-bottom-center-content: '- ' counter(page) ' -';
+  --vs-page--mbox-bottom-font-size: 9pt;
+  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
+}
+
+/* ---- 赤ベタのタイトル帯 ---- */
+h1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 6mm;
+  background-color: var(--vs-theme-red-band-grid-table--color-accent);
+  color: var(--vs-theme-red-band-grid-table--color-on-accent);
+  padding: 3.4mm 5mm 3.6mm;
+}
+
+h1 .meta {
+  font-size: 11.5pt;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* ---- 柱風の赤細罫 + センター小タイトル (header-rule) ---- */
+.subhead {
+  display: flex;
+  align-items: center;
+  gap: 3.5mm;
+  margin-block-start: 3.2mm;
+  color: var(--vs-theme-red-band-grid-table--color-accent);
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.subhead::before,
+.subhead::after {
+  content: '';
+  flex: 1 1 0;
+  border-block-start-width: 0.5mm;
+  border-block-start-style: solid;
+  border-block-start-color: var(--vs-theme-red-band-grid-table--color-accent);
+}
+
+/* ---- 会員情報 (左) + 請求概要ボックス (右) ---- */
+.frontmatter {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8mm;
+  margin-block-start: 5mm;
+}
+
+address {
+  font-style: normal;
+}
+
+address .headline {
+  font-size: 15pt;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+}
+
+address p:nth-child(2) {
+  font-size: 10.5pt;
+  font-weight: 500;
+  margin-block-start: 3.4mm;
+}
+
+address .meta {
+  font-size: 10pt;
+  letter-spacing: 0.08em;
+  margin-block-start: 3mm;
+}
+
+.stat-block {
+  flex: 0 0 82mm;
+  border-width: 0.9mm;
+  border-style: solid;
+  border-color: var(--vs-theme-red-band-grid-table--color-accent);
+  border-radius: 1.6mm;
+  padding: 1mm 4.5mm;
+  background-color: var(--vs-theme-red-band-grid-table--color-bg-panel);
+}
+
+.stat-block > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4mm;
+  padding: 2.2mm 0;
+}
+
+.stat-block > div:first-child {
+  border-block-end-width: 0.3mm;
+  border-block-end-style: solid;
+  border-block-end-color: var(--vs-theme-red-band-grid-table--color-accent);
+}
+
+.stat-block dt {
+  font-size: 9.5pt;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.stat-block dd {
+  font-weight: 700;
+  font-size: 12pt;
+}
+
+.stat-block > div:first-child dd {
+  font-size: 19pt;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+}
+
+/* ---- 明細の段組 ---- */
+.cols {
+  columns: var(--vs-theme-red-band-grid-table--ledger-columns);
+  column-gap: var(--vs-theme-red-band-grid-table--ledger-column-gap);
+  margin-block-start: 5.5mm;
+}
+
+/* 区分ごとに段を改める。段に収まらない明細はそのまま次の段・次ページへ流れる */
+.col + .col {
+  break-before: column;
+}
+
+/* 段見出し: 赤ベタ帯 (block-bg) */
+.col h2 {
+  background-color: var(--vs-theme-red-band-grid-table--color-accent);
+  color: var(--vs-theme-red-band-grid-table--color-on-accent);
+  padding: 1.6mm 2.6mm;
+}
+
+/* ---- 明細表 ---- */
+.col table {
+  --vs--table-border-color: #c9c9c9;
+  --vs--table-border-color-outer: var(
+    --vs-theme-red-band-grid-table--color-rule
+  );
+  --vs--table-border-width-outer: 0.35mm;
+  --vs--table-border-width-cell: 0.15mm;
+  --vs--table-cell-padding-block: 0.9mm;
+  --vs--table-cell-padding-inline: 1.5mm;
+  --vs--table-font-size: 6.5pt;
+  --vs--th-font-size: 6.8pt;
+  --vs--table-break-inside: auto;
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* 段・ページをまたいだ先でも表頭を繰り返す */
+.col thead {
+  display: table-header-group;
+}
+
+.col tbody tr {
+  break-inside: avoid;
+}
+
+.col th,
+.col td {
+  line-height: 1.35;
+}
+
+.col thead th {
+  background-color: var(--vs-theme-red-band-grid-table--color-bg-thead);
+  border-block-end-width: 0.15mm;
+  border-block-end-color: var(--vs-theme-red-band-grid-table--color-rule);
+  white-space: nowrap;
+}
+
+.col th:first-child,
+.col td:first-child {
+  width: var(--vs-theme-red-band-grid-table--ledger-date-width);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.col th:nth-child(3),
+.col td:nth-child(3) {
+  width: var(--vs-theme-red-band-grid-table--ledger-amount-width);
+  white-space: nowrap;
+}
+
+/* 段が狭いため、摘要列だけ字面を詰めて折り返しを減らす */
+.col td:nth-child(2) {
+  font-size: var(--vs-theme-red-band-grid-table--ledger-description-font-size);
+  letter-spacing: -0.02em;
+  padding-inline: 0.8mm;
+}
+
+/* 金額列: tabular-nums の右揃えで桁を揃える */
+.price,
+.col td:nth-child(3) {
+  font-variant-numeric: tabular-nums;
+}
+
+.col td:nth-child(3) {
+  text-align: right;
+}
+
+/* 小計行 (Markdown 表の最終行): 太字・太罫で締め、日付欄との縦罫を消して2列分に見せる */
+.col tbody tr:last-child td {
+  border-block-start-width: 0.45mm;
+  border-block-start-color: var(
+    --vs-theme-red-band-grid-table--color-rule-strong
+  );
+  font-size: 7.6pt;
+  font-weight: 700;
+  padding-block: 1.4mm;
+  padding-inline: 1.5mm;
+}
+
+.col tbody tr:last-child td:first-child {
+  border-inline-end-style: hidden;
+}
+
+.col tbody tr:last-child td:nth-child(2) {
+  font-size: 7.6pt;
+  letter-spacing: 0.3em;
+  text-align: center;
+  text-indent: 0.3em;
+}
+
+/* ---- 囲み注記 (boxed-note) ---- */
+.note {
+  inline-size: var(--vs-theme-red-band-grid-table--note-inline-size);
+  margin-inline-start: auto;
+  margin-block-start: 5.5mm;
+  border-width: 0.35mm;
+  border-style: solid;
+  border-color: var(--vs-theme-red-band-grid-table--color-rule);
+  padding: 2.4mm 3mm 3mm;
+  background-color: var(--vs-theme-red-band-grid-table--color-bg-panel);
+  break-inside: avoid;
+}
+
+.note table {
+  --vs--table-border-color: #999999;
+  --vs--table-border-width-outer: 0.15mm;
+  --vs--table-border-width-cell: 0.15mm;
+  --vs--table-cell-padding-block: 1.4mm;
+  --vs--table-cell-padding-inline: 2mm;
+  --vs--table-text-align: center;
+  --vs--table-font-size: 9.5pt;
+  --vs--th-font-size: 7.2pt;
+  width: 100%;
+}
+
+.note .caption {
+  text-align: center;
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-block-end: 2mm;
+}
+
+.note th {
+  background-color: var(--vs-theme-red-band-grid-table--color-bg-thead-subtle);
+}
+
+.note td {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}

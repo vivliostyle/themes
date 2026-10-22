@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 54 200 126" role="img" aria-label="枝に止まる横向きのカワセミの線画">
+<style>
+.ink { fill: none; stroke: #1c1c1c; stroke-linecap: round; }
+.hatch { fill: none; stroke: #5a5a5a; stroke-linecap: round; stroke-width: 1; }
+.light { fill: none; stroke: #f6f4ee; stroke-linecap: round; stroke-width: 1.1; }
+</style>
+
+<path class="ink" d="M6,172 C60,150 132,150 196,160" stroke-width="7"/>
+<path class="ink" d="M150,156 L176,144" stroke-width="4.5"/>
+<path class="hatch" d="M30,166 L38,163 M52,161 L60,159 M76,157 L84,156 M104,155 L112,155 M130,155 L138,156"/>
+
+<path class="ink" d="M100,150 L98,164 M114,148 L116,163" stroke-width="2.2"/>
+<path class="ink" d="M96,164 L92,167 M99,164 L100,168 M114,163 L110,167 M117,163 L118,167" stroke-width="1.6"/>
+
+<path d="M20,86 L74,74
+         C88,58 112,60 122,76
+         C140,96 143,120 138,138
+         L170,150 L159,159 L132,150
+         C118,168 96,166 88,150
+         C80,138 78,120 80,104
+         L74,96 L20,92 Z"
+      fill="#1c1c1c" stroke="#1c1c1c" stroke-width="1" stroke-linejoin="round"/>
+
+<path d="M80,110 C84,122 92,132 100,136 C90,146 82,140 80,128 Z" fill="#f6f4ee"/>
+<ellipse cx="92" cy="96" rx="6" ry="4.5" fill="#f6f4ee" transform="rotate(-18 92 96)"/>
+<circle cx="82" cy="82" r="4" fill="#f6f4ee"/>
+<circle cx="83" cy="82" r="2" fill="#1c1c1c"/>
+
+<path class="light" d="M96,66 L100,72 M106,64 L110,71 M116,66 L119,73 M100,76 L104,81 M110,74 L114,79 M120,80 L123,85"/>
+<path class="light" d="M30,88 L54,86 M40,90 L62,88" stroke-width="0.9"/>
+
+<path class="hatch" d="M108,104 C124,110 134,124 134,138" stroke-width="1.1"/>
+<path class="hatch" d="M112,116 L128,124 M110,126 L126,134 M112,136 L128,142 M114,146 L130,148"/>
+<path class="hatch" d="M124,92 C132,100 137,110 138,120" stroke-width="0.9"/>
+<path class="hatch" d="M92,112 L98,118 M90,122 L96,128 M92,132 L99,137" stroke-width="0.8"/>
+</svg>

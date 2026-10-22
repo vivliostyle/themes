@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" role="img" aria-label="みそマヨだれを塗って焼いた鮭2切れ">
+<rect width="400" height="320" fill="#f4f2ec" />
+<circle cx="200" cy="160" r="124" fill="#fbfaf6" stroke="#e5e2d8" stroke-width="2" />
+<circle cx="200" cy="160" r="104" fill="#f5f2ea" />
+<ellipse cx="200" cy="232" rx="94" ry="12" fill="#e9e4d5" />
+<g transform="rotate(-8 200 160)">
+<rect x="112" y="88" width="140" height="56" rx="16" fill="#ea8055" stroke="#cf6238" stroke-width="3" />
+<path d="M126 128h112M126 137h112" stroke="#f8d0bb" stroke-width="5" stroke-linecap="round" />
+<path d="M112 110L112 104A16 16 0 0 1 128 88L236 88A16 16 0 0 1 252 104L252 112C242 122 232 108 218 116C204 124 192 108 178 116C164 124 152 108 138 116C130 121 120 116 112 110Z" fill="#f2d79d" stroke="#deba72" stroke-width="2.5" />
+<circle cx="150" cy="100" r="6" fill="#d9a85e" />
+<circle cx="192" cy="106" r="5" fill="#d9a85e" />
+<circle cx="224" cy="98" r="4.5" fill="#d9a85e" />
+<ellipse cx="170" cy="108" rx="3" ry="2.2" fill="#fdfbf3" />
+<ellipse cx="208" cy="96" rx="3" ry="2.2" fill="#fdfbf3" />
+<ellipse cx="236" cy="110" rx="3" ry="2.2" fill="#fdfbf3" />
+</g>
+<g transform="rotate(6 200 160)">
+<rect x="148" y="168" width="140" height="56" rx="16" fill="#e6764c" stroke="#cf6238" stroke-width="3" />
+<path d="M162 208h112M162 217h112" stroke="#f8d0bb" stroke-width="5" stroke-linecap="round" />
+<path d="M148 190L148 184A16 16 0 0 1 164 168L272 168A16 16 0 0 1 288 184L288 192C278 202 268 188 254 196C240 204 228 188 214 196C200 204 188 188 174 196C166 201 156 196 148 190Z" fill="#f0d296" stroke="#deba72" stroke-width="2.5" />
+<circle cx="186" cy="180" r="6" fill="#d9a85e" />
+<circle cx="228" cy="186" r="5" fill="#d9a85e" />
+<circle cx="260" cy="178" r="4.5" fill="#d9a85e" />
+<ellipse cx="206" cy="188" rx="3" ry="2.2" fill="#fdfbf3" />
+<ellipse cx="244" cy="176" rx="3" ry="2.2" fill="#fdfbf3" />
+<ellipse cx="272" cy="190" rx="3" ry="2.2" fill="#fdfbf3" />
+</g>
+</svg>

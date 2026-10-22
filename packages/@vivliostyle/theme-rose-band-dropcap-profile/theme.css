@@ -1,0 +1,155 @@
+/**
+ * エッセイアンソロジー (theme-rose-band-dropcap-profile)
+ * A4縦・横書き明朝1段組。墨とアクセント色 (ローズレッド) の二色刷り。
+ * ページ全周のアクセント色枠罫、色ベタ帯に白抜きの大題、著者名右寄せ、
+ * 冒頭一字の3行取りドロップキャップ、小口側にアクセント色縦罫の著者プロフィール欄。
+ * 柱は篇の大題と著者名 (string-set)、ノンブルは地の中央。
+ * VFM 出力に対応: body > section.level1 > (h1, p(著者名), 本文, aside.sidebar)。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  --vs-theme-rose-band-dropcap-profile--color-accent: #c44569;
+
+  /* 枠罫の太さ (page の枠罫と傍注の縦罫で共有) */
+  --vs-theme-rose-band-dropcap-profile--frame-border-width: 0.45mm;
+
+  /* 柱の左に出す叢書名。既定は刊行物名 */
+  --vs-theme-rose-band-dropcap-profile--running-publication: env(
+    pub-title
+  );
+
+  /* 著者プロフィール欄の幅 */
+  --vs-theme-rose-band-dropcap-profile--profile-size-inline: 40mm;
+
+  /* 枠罫の外側に柱とノンブルを置くため、天地の余白は左右より広く取る */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 12mm;
+  --vs-page--margin-bottom: 12mm;
+  --vs-page--margin-left: 12mm;
+  --vs-page--margin-right: 12mm;
+  /* ページ全周の枠罫。版面はその内側 */
+  --vs-page--border-width: var(
+    --vs-theme-rose-band-dropcap-profile--frame-border-width
+  );
+  --vs-page--border-color: var(
+    --vs-theme-rose-band-dropcap-profile--color-accent
+  );
+  /* 枠罫から版面までのアキ */
+  --vs-page--padding-top: 7mm;
+  --vs-page--padding-right: 11mm;
+  --vs-page--padding-bottom: 5mm;
+  --vs-page--padding-left: 11mm;
+
+  --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --vs-font-size: 10.5pt;
+  --vs-line-height: 1.9;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-background: #faf8f5;
+  --vs-columns: 1;
+
+  --vs--heading-font-family:
+    'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+
+  --vs--p-margin-block: 0 4.5mm;
+  --vs--p-line-height: 1.95;
+  --vs--p-text-indent: 0;
+  --vs--p-text-align: justify;
+
+  /* 色ベタ帯の大題 */
+  --vs--h1-font-size: 29pt;
+  --vs--h1-font-weight: 700;
+  --vs--h1-line-height: 1.25;
+  --vs--h1-letter-spacing: 0.1em;
+  --vs--h1-text-align: center;
+  --vs--h1-margin-block: 0;
+  --vs--h1-margin-inline: 0;
+  --vs--h1-background-color: var(
+    --vs-theme-rose-band-dropcap-profile--color-accent
+  );
+  --vs--h1-text-color: #fff;
+  --vs--h1-padding-block: 5.5mm 6mm;
+  --vs--h1-padding-inline: 4mm;
+  --vs--h1-string-set: essay-title content();
+
+  /* 柱とノンブル */
+  --vs-page--mbox-top-center-content: string(essay-title) '　　'
+    string(essay-author);
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-font-size: 9pt;
+  --vs-page--mbox-letter-spacing: 0.14em;
+  --vs-page--mbox-text-color: var(--vs-color-foreground);
+}
+
+/* 篇の頭のページだけは柱に叢書名を出す (大題は誌面にあるため) */
+@page :nth(1) {
+  --vs-page--mbox-top-center-content: var(
+    --vs-theme-rose-band-dropcap-profile--running-publication
+  );
+}
+
+/* 部扉 (frontmatter `class: part`) の大題には base のドキュメントカウンタで部番号を冠する */
+:is(html, body).part {
+  --vs-section--h1-marker-display: inline;
+  --vs-section--h1-marker-content: '第'
+    counter(vs-counter-part, cjk-ideographic) '部　';
+  --vs-section--h1-marker-margin-inline-end: 0;
+}
+
+/* 大題直後の段落 = 著者名。柱にも流す */
+section > h1:first-child + p {
+  string-set: essay-author content();
+  font-size: 12.5pt;
+  line-height: 1.9;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-align: right;
+  margin: 5.5mm 1mm 8mm 0;
+}
+
+.dropcap {
+  float: inline-start;
+  font-size: 45pt;
+  font-weight: 500;
+  line-height: 1;
+  color: var(
+    --vs-theme-rose-band-dropcap-profile--color-accent
+  );
+  margin: 1.5mm 3.5mm 0 0;
+}
+
+/* 著者プロフィール。小口側に縦罫つきで置き、本文を回り込ませる */
+aside.sidebar {
+  float: inline-end;
+  inline-size: var(
+    --vs-theme-rose-band-dropcap-profile--profile-size-inline
+  );
+  margin-inline-start: 8mm;
+  border-inline-start: var(
+      --vs-theme-rose-band-dropcap-profile--frame-border-width
+    )
+    solid;
+  border-inline-start-color: var(
+    --vs-theme-rose-band-dropcap-profile--color-accent
+  );
+  padding-inline-start: 4mm;
+}
+
+aside.sidebar p {
+  font-size: 7.5pt;
+  text-align: start;
+  margin: 0 0 2.5mm;
+}
+
+aside.sidebar p:first-child {
+  font-size: 8pt;
+}
+
+aside.sidebar p:first-child strong {
+  font-size: 9.5pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}

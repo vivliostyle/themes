@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" role="img" aria-label="Two rising curves: the watershed function w and a driving function f that stays below it.">
+<style>
+.hand { font-family: "Caveat", "Comic Sans MS", cursive; font-size: 15px; fill: #1a1a1a; }
+</style>
+<g fill="none" stroke="#1a1a1a" stroke-width="1.2">
+<path d="M12 88 H104" />
+<path d="M12 88 V10" />
+<path d="M14 86 Q58 68 96 20" />
+<path d="M14 86 Q70 82 96 54" />
+</g>
+<text class="hand" x="99" y="24">w</text>
+<text class="hand" x="99" y="58">f</text>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 150" role="img" aria-label="ミズナラの葉の模式図。葉柄がごく短い倒卵形の葉に大きな鋸歯が並び、殻斗つきの堅果を伴う。">
+<style>
+.leaf-blade { fill: #557a55; fill-opacity: 0.46; stroke: #2c352c; stroke-width: 1.3; stroke-linejoin: round; }
+.leaf-vein { fill: none; stroke: #2c352c; stroke-width: 0.7; opacity: 0.65; }
+.leaf-stem { fill: none; stroke: #6f6142; stroke-width: 2.2; stroke-linecap: round; }
+.fig-acc { fill: #557a55; fill-opacity: 0.4; stroke: #2c352c; stroke-width: 1; stroke-linejoin: round; }
+.fig-berry { fill: #a9483d; fill-opacity: 0.85; stroke: #6f2a24; stroke-width: 0.7; }
+.fig-flower { fill: #ddb9be; fill-opacity: 0.8; stroke: #b98b35; stroke-width: 0.7; }
+.fig-scale { stroke: #252a26; stroke-width: 1; }
+.fig-scale-t { fill: #252a26; font: 500 7px "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; letter-spacing: 0.03em; }
+.fig-lbl { fill: #3a463a; font: 6.5px "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+.fig-lead { fill: none; stroke: #9aa89a; stroke-width: 0.5; }
+</style>
+<path class="leaf-blade" d="M56,130 L46,124 L38,120 L44,114 L34,108 L42,102 L32,94 L41,88 L32,80 L42,74 L36,64 L46,60 L44,48 L56,44 L68,48 L66,60 L76,64 L70,74 L80,80 L71,88 L80,94 L70,102 L78,108 L68,114 L74,120 L66,124 Z" />
+<path class="leaf-vein" d="M56,128 L56,46 M56,118 L40,120 M56,118 L72,120 M56,104 L36,108 M56,104 L76,108 M56,90 L33,88 M56,90 L79,88 M56,76 L38,74 M56,76 L74,74 M56,62 L45,60 M56,62 L67,60" />
+<path class="leaf-stem" d="M56,130 L56,138" />
+<path class="leaf-stem" d="M122,104 L122,96" />
+<ellipse class="fig-acc" cx="122" cy="116" rx="7.5" ry="10" />
+<path class="fig-acc" d="M113,108 a9,5 0 0 1 18,0 q-9,3.5 -18,0 Z" />
+<path class="fig-lead" d="M62,127 L80,132" />
+<text class="fig-lbl" x="81" y="134">葉脚</text>
+<line class="fig-scale" x1="14" y1="140" x2="44" y2="140" />
+<line class="fig-scale" x1="14" y1="137" x2="14" y2="143" />
+<line class="fig-scale" x1="44" y1="137" x2="44" y2="143" />
+<text class="fig-scale-t" x="29" y="135" text-anchor="middle">2 cm</text>
+</svg>

@@ -1,0 +1,7 @@
+/*
+ * この example は 1 冊まるごとではなく 1 章分の抜粋なので、章番号が
+ * 本文の記述 (Chapter 3 / Chapter 5 への参照) と合うよう 4 から始める。
+ */
+:root {
+  --vs-document-first-page-counter-reset: vs-counter-chapter 3;
+}

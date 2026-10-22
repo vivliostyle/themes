@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-labelledby="fig-title fig-desc">
+<title id="fig-title">四半期別 売上高（連結）</title>
+<desc id="fig-desc">四半期別の連結売上高を2026年3月期と2025年3月期で比較した棒グラフ。単位は億円。2026年3月期は1Qが実績428、2Q以降は予想で2Qが440、3Qが448、4Qが464。2025年3月期は実績で1Qが380、2Qが412、3Qが431、4Qが455。</desc>
+<style>
+text {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+}
+.num {
+  font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+.unit,
+.scale {
+  font-size: 9px;
+  fill: #57606a;
+}
+.value {
+  /* 画像として読み込まれる SVG ではローカルフォントの中太が weight 500 で
+     拾われないため、ファミリ名でも Medium を指定する */
+  font-family: "Roboto Medium", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  font-size: 8.5px;
+  font-weight: 500;
+  text-anchor: middle;
+}
+.value.prev {
+  fill: #57606a;
+}
+.value.now {
+  fill: #174ea6;
+}
+.value.est {
+  fill: #1a73e8;
+}
+.period {
+  font-size: 9.5px;
+  fill: #1f2328;
+  text-anchor: middle;
+}
+</style>
+<g stroke="#d0d7de" stroke-width="0.8">
+<line x1="40" y1="25" x2="310" y2="25" />
+<line x1="40" y1="49.17" x2="310" y2="49.17" />
+<line x1="40" y1="73.33" x2="310" y2="73.33" />
+<line x1="40" y1="97.5" x2="310" y2="97.5" />
+<line x1="40" y1="121.67" x2="310" y2="121.67" />
+<line x1="40" y1="145.83" x2="310" y2="145.83" />
+</g>
+<line x1="40" y1="170" x2="310" y2="170" stroke="#8b949e" stroke-width="1.1" />
+<text class="unit" x="8" y="13">（億円）</text>
+<g class="num scale" text-anchor="end">
+<text x="35" y="173">0</text>
+<text x="35" y="148.83">100</text>
+<text x="35" y="124.67">200</text>
+<text x="35" y="100.5">300</text>
+<text x="35" y="76.33">400</text>
+<text x="35" y="52.17">500</text>
+<text x="35" y="28">600</text>
+</g>
+<g>
+<rect x="57.5" y="66.57" width="18" height="103.43" fill="#1a73e8" />
+<rect x="79.5" y="78.17" width="18" height="91.83" fill="#174ea6" />
+<rect x="122.5" y="63.67" width="18" height="106.33" fill="#8ab4f8" />
+<rect x="144.5" y="70.43" width="18" height="99.57" fill="#174ea6" />
+<rect x="187.5" y="61.73" width="18" height="108.27" fill="#8ab4f8" />
+<rect x="209.5" y="65.84" width="18" height="104.16" fill="#174ea6" />
+<rect x="252.5" y="57.87" width="18" height="112.13" fill="#8ab4f8" />
+<rect x="274.5" y="60.04" width="18" height="109.96" fill="#174ea6" />
+</g>
+<g class="num">
+<text class="value now" x="66.5" y="61.97">428</text>
+<text class="value prev" x="88.5" y="73.57">380</text>
+<text class="value est" x="131.5" y="59.07">440</text>
+<text class="value prev" x="153.5" y="65.83">412</text>
+<text class="value est" x="196.5" y="57.13">448</text>
+<text class="value prev" x="218.5" y="61.24">431</text>
+<text class="value est" x="261.5" y="53.27">464</text>
+<text class="value prev" x="283.5" y="55.44">455</text>
+</g>
+<g class="period">
+<text x="77.5" y="184">1Q</text>
+<text x="142.5" y="184">2Q</text>
+<text x="207.5" y="184">3Q</text>
+<text x="272.5" y="184">4Q</text>
+</g>
+</svg>

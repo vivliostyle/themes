@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 98" role="img" aria-label="ガスバーナーの各部の名称を示した図">
+<style>
+.lbl { font-family: "Noto Sans JP", "Hiragino Sans", sans-serif; font-size: 5.4px; fill: #1a1a1a; }
+</style>
+<path d="M12 92 h48 q3 0 3 -3 q0 -6.5 -12 -7.5 h-30 q-12 1 -12 7.5 q0 3 3 3 z" fill="#eef4fb" stroke="#48607a" stroke-width="1.4" />
+<rect x="28" y="30" width="16" height="52" fill="#eef4fb" stroke="#48607a" stroke-width="1.4" />
+<circle cx="49" cy="44" r="5.6" fill="#eaf2fa" stroke="#48607a" stroke-width="1.2" />
+<path d="M45.6 44 h6.8" stroke="#48607a" stroke-width="1.1" fill="none" />
+<circle cx="49" cy="62" r="5.6" fill="#eaf2fa" stroke="#48607a" stroke-width="1.2" />
+<path d="M45.6 62 h6.8" stroke="#48607a" stroke-width="1.1" fill="none" />
+<path d="M36 29 q9.5 -10 0 -25 q-9.5 15 0 25" fill="#dbe9f6" stroke="#48607a" stroke-width="1.2" />
+<path d="M36 27 q4.6 -6 0 -14 q-4.6 8 0 14" fill="#7fb3e0" />
+<path d="M43 10 h29" stroke="#666666" stroke-width="0.6" fill="none" />
+<text x="75" y="12" class="lbl">炎（青色に調節する）</text>
+<path d="M55 44 h17" stroke="#666666" stroke-width="0.6" fill="none" />
+<text x="75" y="46" class="lbl">空気調節ねじ</text>
+<path d="M55 62 h17" stroke="#666666" stroke-width="0.6" fill="none" />
+<text x="75" y="64" class="lbl">ガス調節ねじ</text>
+<path d="M62 87 h10" stroke="#666666" stroke-width="0.6" fill="none" />
+<text x="75" y="89" class="lbl">台（動かさない）</text>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Swap route from a flagged component through a station reset to a re-marked replacement">
+<rect width="400" height="300" fill="#e6e7e8" />
+<rect x="40" y="34" width="320" height="56" fill="#fff0f0" stroke="#ff0000" stroke-width="3" />
+<text x="200" y="69" text-anchor="middle" font-family="Noto Sans, Helvetica Neue, Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="1.5" fill="#ff0000">FLAGGED COMPONENT</text>
+<rect x="40" y="122" width="320" height="56" fill="#d5d7d8" stroke="#8a9095" stroke-width="2" />
+<text x="200" y="157" text-anchor="middle" font-family="Noto Sans, Helvetica Neue, Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="1.5" fill="#5c6266">STATION RESET — A2</text>
+<rect x="40" y="210" width="320" height="56" fill="#ffffff" stroke="#161616" stroke-width="2" />
+<text x="200" y="245" text-anchor="middle" font-family="Noto Sans, Helvetica Neue, Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="1.5" fill="#161616">RE-MARKED SWAP — A1</text>
+<path d="M200 90V112" stroke="#8a9095" stroke-width="2" />
+<path d="M193 111 200 122 207 111" fill="none" stroke="#8a9095" stroke-width="2" />
+<path d="M200 178V200" stroke="#8a9095" stroke-width="2" />
+<path d="M193 199 200 210 207 199" fill="none" stroke="#8a9095" stroke-width="2" />
+</svg>

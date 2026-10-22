@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 112" role="img" aria-label="ホールピペットを手で持ち三角フラスコに量り取る線画">
+<ellipse cx="30" cy="11" rx="8" ry="9.5" fill="#ffb0b0" stroke="#d34040" stroke-width="1.4" />
+<rect x="28.4" y="20.5" width="3.2" height="13" fill="#eaf2fa" stroke="#48607a" stroke-width="1.1" />
+<path d="M22 34.5 q-7 0.5 -7 6 v7.5 q0 4.5 5.5 4.5 h7.5 v-18 z" fill="#ffffff" stroke="#48607a" stroke-width="1.2" />
+<path d="M16 40.5 h10 M16 44.5 h10 M16 48.5 h10" stroke="#48607a" stroke-width="0.8" fill="none" />
+<rect x="28.4" y="34" width="3.2" height="18" fill="#eaf2fa" stroke="#48607a" stroke-width="1.1" />
+<path d="M25 52.5 h10" stroke="#3a76c4" stroke-width="1" fill="none" />
+<ellipse cx="30" cy="61" rx="5" ry="9" fill="#eaf2fa" stroke="#48607a" stroke-width="1.2" />
+<path d="M28.8 70 h2.4 l-0.6 11 h-1.2 z" fill="#eaf2fa" stroke="#48607a" stroke-width="1" />
+<path d="M26 84 v6 L16.5 104 q-1.5 3 2 3 h23 q3.5 0 2 -3 L34 90 v-6 z" fill="#eef4fb" stroke="#48607a" stroke-width="1.4" />
+<path d="M20 100 h20" stroke="#9dbede" stroke-width="1" fill="none" />
+</svg>

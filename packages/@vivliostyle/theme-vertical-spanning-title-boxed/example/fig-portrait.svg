@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 108" role="img" aria-label="篠原朔太郎の近影（モノクロ）">
+<rect x="0" y="0" width="100" height="108" fill="#c6c2b6" />
+<path d="M10 108 C14 86 30 80 50 80 C70 80 86 86 90 108 Z" fill="#4a4a4a" />
+<path d="M40 82 L50 98 L60 82 L54 84 L50 90 L46 84 Z" fill="#e9e9e7" />
+<path d="M48 86 L52 86 L53.5 100 L50 105 L46.5 100 Z" fill="#6a6a6a" />
+<rect x="43" y="62" width="14" height="14" fill="#a09a8c" />
+<ellipse cx="30" cy="47" rx="3.4" ry="5" fill="#a29c8e" />
+<ellipse cx="70" cy="47" rx="3.4" ry="5" fill="#a29c8e" />
+<ellipse cx="50" cy="44" rx="19" ry="23" fill="#aca699" />
+<path d="M31 39 C30 21 40 15 50 15 C60 15 70 21 69 39 C66 29 60 25 50 25 C40 25 34 29 31 39 Z" fill="#e3e1da" />
+<path d="M31 38 C30 46 30.5 52 33 57 C31 49 31.5 42 33 38 Z" fill="#dcdad2" />
+<rect x="37.5" y="37.2" width="9" height="1.8" fill="#7c7668" />
+<rect x="53.5" y="37.2" width="9" height="1.8" fill="#7c7668" />
+<circle cx="42.5" cy="45" r="7" fill="none" stroke="#2e2e2e" stroke-width="1.6" />
+<circle cx="57.5" cy="45" r="7" fill="none" stroke="#2e2e2e" stroke-width="1.6" />
+<line x1="47.8" y1="43" x2="52.2" y2="43" stroke="#2e2e2e" stroke-width="1.5" />
+<line x1="35.5" y1="44" x2="31" y2="42.5" stroke="#2e2e2e" stroke-width="1.3" />
+<line x1="64.5" y1="44" x2="69" y2="42.5" stroke="#2e2e2e" stroke-width="1.3" />
+<ellipse cx="42.5" cy="45.5" rx="2.3" ry="1.4" fill="#3a3a3a" />
+<ellipse cx="57.5" cy="45.5" rx="2.3" ry="1.4" fill="#3a3a3a" />
+<path d="M50 47 L48.8 55 L52 55" fill="none" stroke="#8a8476" stroke-width="1.1" />
+<path d="M44 61 Q50 63.2 56 61" fill="none" stroke="#7c7668" stroke-width="1.2" />
+<path d="M41 32.5 Q50 30.5 59 32.5" fill="none" stroke="#948e80" stroke-width="0.7" />
+</svg>

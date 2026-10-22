@@ -1,0 +1,6 @@
+/*
+ * theme.css は誌名を持たないので、この誌面見本の誌名だけをここで与える。
+ */
+:root {
+  --vs-theme-dense-reversed-band-notes--running-publication: '批評座標';
+}

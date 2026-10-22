@@ -1,0 +1,61 @@
+{
+  "name": "@vivliostyle/theme-three-column-warning-grid",
+  "version": "0.0.0",
+  "description": "アレルギー対応レシピ向けの安全重視型テーマ。材料チェック・工程・警告枠の3段グリッドと栄養成分表で、料理の魅力より誤読なき安全確認を優先する",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-three-column-warning-grid"
+  },
+  "files": [
+    "*.css",
+    "example",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Three Column Warning Grid",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "misc",
+      "topics": [
+        "cookbook",
+        "a4",
+        "three-column",
+        "health",
+        "allergen-free",
+        "safety-critical",
+        "medical",
+        "sans"
+      ]
+    }
+  }
+}

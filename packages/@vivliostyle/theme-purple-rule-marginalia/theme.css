@@ -1,0 +1,198 @@
+/*
+ * 紀行エッセイの新書 (purple-rule-marginalia)
+ * 新書判 105×173mm・横組1段。Shippori Mincho 9pt/1.75 の随筆本文に、
+ * Zen Old Mincho の章題 + 濃紫 (#330066) の細罫・太罫、小口側の傍注、
+ * 線描の挿画、版面下部の脚注を重ねる。
+ * 紫は章番号・罫・注記号・相互参照だけに限る。
+ *
+ * 原稿 (VFM) の書き方:
+ *   1 章 = 1 ファイル。frontmatter に `class: chapter` を書くと「第N章」が自動で付く。
+ *   # 章題 {#id}                      柱にもこの章題が流れる
+ *   # あとがき #                      番号を付けない章 (frontmatter の class も外す)
+ *   <aside class="sidebar">…</aside>  小口マージンへ流す傍注
+ *   <span class="footnote">…</span>   版面下部へ送る脚注
+ *   <a href="ch.html#id" data-ref="chap"></a>  「→第N章」の相互参照
+ */
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=Zen+Old+Mincho:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/footnote';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  --vs-theme-purple-rule-marginalia--color-accent: #330066;
+  --vs-theme-purple-rule-marginalia--color-rule: #b9aecb;
+  --vs-theme-purple-rule-marginalia--font-display:
+    'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --vs-theme-purple-rule-marginalia--font-gothic:
+    'Zen Kaku Gothic New', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+
+  /* 「→第N章」の章参照 */
+  --vs-theme-purple-rule-marginalia--chapref-call-content: '→第'
+    target-counter(attr(href), vs-counter-chapter, cjk-ideographic) '章';
+
+  --vs-page--size: 105mm 173mm;
+  --vs-page--margin-top: 12.6mm;
+  --vs-page--margin-bottom: 15mm;
+  --vs-page--margin-left: 14mm;
+  --vs-page--margin-right: 24mm;
+
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-font-family: 'Shippori Mincho', serif;
+  --vs-page--mbox-font-size: 8pt;
+  --vs-page--mbox-text-color: #1f1b24;
+
+  /* 柱: 章題を右寄せで流し、下に濃紫の細罫 (版面の上罫) を引く */
+  --vs-page--border-width-top: 0.4pt;
+  --vs-page--border-color-top: var(
+    --vs-theme-purple-rule-marginalia--color-accent
+  );
+  /* 罫と本文のアキ。罫の太さぶんを引いて本文位置を保つ */
+  --vs-page--padding-top: calc(2.4mm - var(--vs-page--border-width-top));
+  --vs-page--mbox-top-right-content: string(chapter-title);
+  --vs-page--mbox-top-font-family: var(
+    --vs-theme-purple-rule-marginalia--font-gothic
+  );
+  --vs-page--mbox-top-font-size: 7.5pt;
+  --vs-page--mbox-top-letter-spacing: 0.08em;
+  --vs-page--mbox-top-line-height: 1.3;
+  --vs-page--mbox-top-size-inline: 100%;
+  --vs-page--mbox-top-vertical-align: bottom;
+  --vs-page--mbox-top-padding-bottom: 1.4mm;
+
+  --vs-font-family:
+    'Shippori Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --vs-font-size: 9pt;
+  --vs-line-height: 1.75;
+  --vs-color-foreground: #1f1b24;
+  --vs-color-background: #faf7f0;
+  --vs-page--background-color: #faf7f0;
+
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 1em;
+
+  --vs--anchor-text-color: #330066;
+  --vs--anchor-text-decoration: none;
+
+  --vs--rt-font-size: 0.42em;
+
+  /* 章題のみ Zen Old Mincho (見出し共通の --vs--heading-font-family は
+     b/strong/th へは波及しないので、これ1本で足りる) */
+  --vs--heading-font-family:
+    'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --vs--h1-font-size: 12.5pt;
+  --vs--h1-font-weight: 600;
+  --vs--h1-line-height: 1.25;
+  --vs--h1-letter-spacing: 0.01em;
+  --vs--h1-margin-block: 0 3.4mm;
+  --vs--h1-string-set: chapter-title content();
+
+  /* 章番号「第N章」は h1 の上に小さく置く */
+  --vs-section--h1-marker-display: block;
+  --vs-section--h1-marker-content: '第'
+    counter(vs-counter-chapter, cjk-ideographic) '章';
+  --vs-section--h1-marker-margin-inline-end: 0;
+
+  --vs--figure-display: block;
+  --vs--figure-margin-block: 2.6mm;
+  --vs--figure-margin-inline: 0;
+
+  --vs--figcaption-font-family: var(
+    --vs-theme-purple-rule-marginalia--font-gothic
+  );
+  --vs--figcaption-font-size: 6.5pt;
+  --vs--figcaption-line-height: 1.4;
+  --vs--figcaption-text-align: center;
+  --vs--figcaption-margin-block: 1.1mm 0;
+
+  /* 脚注: 注記号・注番号ともに紫のアスタリスク。区切り罫は短い紫罫 */
+  --vs-footnote--call-content: '*';
+  --vs-footnote--call-text-color: var(
+    --vs-theme-purple-rule-marginalia--color-accent
+  );
+  --vs-footnote--call-font-size: 100%;
+  --vs-footnote--marker-content: '*';
+  --vs-footnote--marker-text-color: var(
+    --vs-theme-purple-rule-marginalia--color-accent
+  );
+  --vs-footnote--marker-margin-inline: 0 0.4em;
+  --vs-footnote--font-family: var(
+    --vs-theme-purple-rule-marginalia--font-gothic
+  );
+  --vs-footnote--font-size: 6.5pt;
+  --vs-footnote--line-height: 1.5;
+  --vs-footnote--text-align: start;
+  --vs-footnote--area-before-border-color-block-start: var(
+    --vs-theme-purple-rule-marginalia--color-accent
+  );
+  /* 脚注は書かれた場所の字下げを引き継ぐので、注記号のぶら下げに組み直す */
+  --vs-footnote--text-indent: -1.1em;
+  --vs-footnote--padding-inline-start: 1.1em;
+  --vs-footnote--area-before-border-width-block-start: 0.5pt;
+  --vs-footnote--area-before-size-inline: 22mm;
+  --vs-footnote--area-before-margin-block: 0 1.5mm;
+  --vs-footnote--area-margin-block: 3.5mm 0;
+}
+
+/* 章題は太罫で本文と切り、その上に小さく章番号を置く */
+h1 {
+  border-bottom-width: 0.9pt;
+  border-bottom-style: solid;
+  border-bottom-color: var(--vs-theme-purple-rule-marginalia--color-accent);
+  padding-bottom: 1.8mm;
+}
+
+section > h1:first-child::before {
+  font-family: var(--vs-theme-purple-rule-marginalia--font-display);
+  font-size: 8.5pt;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  color: var(--vs-theme-purple-rule-marginalia--color-accent);
+  margin-bottom: 0.8mm;
+}
+
+/* 傍注: 小口マージンへ流し込む。■は紫、ぶら下げ組み */
+.sidebar {
+  float: right;
+  clear: right;
+  width: 18mm;
+  margin-inline-end: -21mm;
+  margin-block: 0.4mm 2mm;
+}
+
+.sidebar p {
+  font-family: var(--vs-theme-purple-rule-marginalia--font-gothic);
+  font-size: 6pt;
+  line-height: 1.55;
+  text-align: start;
+  text-indent: -2.6mm;
+  padding-left: 2.6mm;
+}
+
+.sidebar p::before {
+  content: '■';
+  color: var(--vs-theme-purple-rule-marginalia--color-accent);
+  font-size: 0.8em;
+  margin-right: 0.7mm;
+}
+
+/* 挿画: 薄紫の細枠で囲む */
+figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-width: 0.4pt;
+  border-style: solid;
+  border-color: var(--vs-theme-purple-rule-marginalia--color-rule);
+}
+
+/* 章参照 */
+a[data-ref='chap'] {
+  color: inherit;
+  text-decoration: none;
+}
+
+a[data-ref='chap']::before {
+  content: var(--vs-theme-purple-rule-marginalia--chapref-call-content);
+}

@@ -1,0 +1,304 @@
+/*
+ * 航海日誌 (navy-ruled-ledger-two-column)
+ * letter 判縦、1 記録 = 1 頁のレジャー式航海日誌。番号付きの罫囲み見出しと
+ * ネイビーのヘッダールール、スラブセリフの本文、等幅数字の細密なテーブルで、
+ * ワッチ単位の気象・航海データを刻む。記録の中身は 2 段に流れ、量が増えれば
+ * 次頁へ続く。日誌名は env(pub-title)、航海名は原稿の .voyage から柱に流す。
+ */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Roboto+Slab:wght@500;700&family=Zilla+Slab:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  --vs-theme-navy-ruled-ledger-two-column--color-accent: #1e5a96;
+  --vs-theme-navy-ruled-ledger-two-column--color-tint: #e8eff6;
+  --vs-theme-navy-ruled-ledger-two-column--record-columns: 2;
+  --vs-theme-navy-ruled-ledger-two-column--record-column-gap: 6mm;
+
+  /* Page: US letter portrait, ledger margins (inner wider for the binding) */
+  --vs-page--size: letter;
+  --vs-page--margin-top: 16mm;
+  --vs-page--margin-bottom: 16mm;
+  --vs-page--margin-left: 14.5mm;
+  --vs-page--margin-right: 14.5mm;
+  --vs-page--mbox-bottom-padding-top: 1mm;
+  --vs-page--mbox-bottom-vertical-align: top;
+  --vs-page--mbox-top-padding-bottom: 1.2mm;
+  --vs-page--mbox-top-vertical-align: bottom;
+
+  /* Running head: 日誌名 (刊行物題) と航海名、その下にネイビーの通し罫 */
+  --vs-page--mbox-top-left-content: env(pub-title);
+  --vs-page--mbox-top-right-content: string(voyage);
+  --vs-page--mbox-top-left-text-transform: uppercase;
+  --vs-page--mbox-top-right-text-transform: uppercase;
+  --vs-page--mbox-bottom-right-content: counter(page);
+  --vs-page--mbox-top-font-family: var(--vs--heading-font-family);
+  --vs-page--mbox-top-font-weight: 700;
+  --vs-page--mbox-top-font-size: 9pt;
+  --vs-page--mbox-top-letter-spacing: 0.03em;
+  --vs-page--mbox-top-text-color: var(
+    --vs-theme-navy-ruled-ledger-two-column--color-accent
+  );
+  --vs-page--border-color-top: var(
+    --vs-theme-navy-ruled-ledger-two-column--color-accent
+  );
+  --vs-page--border-width-top: 1.6pt;
+  --vs-page--mbox-bottom-font-family: var(--vs--heading-font-family);
+  --vs-page--mbox-bottom-font-weight: 700;
+  --vs-page--mbox-bottom-font-size: 11pt;
+  --vs-page--mbox-bottom-text-color: var(
+    --vs-theme-navy-ruled-ledger-two-column--color-accent
+  );
+
+  /* Type: slab-serif body 8.5pt / 1.4, navy-on-cream ledger palette */
+  --vs-font-family: 'Zilla Slab', 'Roboto Slab', serif;
+  --vs-font-size: 8.5pt;
+  --vs-line-height: 1.4;
+  --vs-color-foreground: #1c1c1c;
+  --vs-color-background: #faf7f0;
+  --vs--monospace-font-family: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --vs--p-margin-block: 0 0.5rem;
+  --vs--p-text-align: justify;
+  --vs--p-hyphens: none;
+
+  /* Numbered heading boxes: navy field, white slab */
+  --vs--heading-font-family: 'Roboto Slab', 'Rockwell', serif;
+  --vs--heading-font-weight: 700;
+  --vs--heading-text-align: start;
+  --vs--h2-font-size: 12.5pt;
+  --vs--h2-letter-spacing: 0.01em;
+  --vs--h2-line-height: 1.15;
+  --vs--h2-margin-block: 0 2.4mm;
+  --vs--h2-margin-inline: 0;
+  --vs--h2-background-color: var(
+    --vs-theme-navy-ruled-ledger-two-column--color-accent
+  );
+  --vs--h2-text-color: var(--vs-color-background);
+  --vs--h2-padding-block: 1.6mm 1.4mm;
+  --vs--h2-padding-inline: 3mm;
+  --vs--h3-font-size: 9.5pt;
+  --vs--h3-line-height: 1.15;
+  --vs--h3-margin-block: 4mm 2mm;
+  --vs--h3-margin-inline: 0;
+  --vs--h3-background-color: var(
+    --vs-theme-navy-ruled-ledger-two-column--color-accent
+  );
+  --vs--h3-text-color: var(--vs-color-background);
+  --vs--h3-padding-block: 1mm 0.9mm;
+  --vs--h3-padding-inline: 2.4mm;
+
+  /* 記録の連番と、記録内の小節 (船長所見など) の枝番 */
+  --vs-section--marker-display: inline;
+  --vs-section--marker-margin-inline-end: 0.6ch;
+  --vs-section--call-content: target-counters(
+    attr(href),
+    vs-counter-sections,
+    var(--vs-section--counter-delimiter),
+    var(--vs-section--counter-style)
+  );
+  /* 日誌は 1 記録 = 1 頁から起こす */
+  --vs-section--h2-break-before: page;
+
+  /* Ledger tables: navy frame + navy rule under the head, pale-blue hairline grid */
+  --vs--table-table-layout: auto;
+  --vs--table-size-inline: 100%;
+  --vs--table-font-size: 8pt;
+  --vs--table-margin-block: 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-border-width: 0;
+  --vs--table-border-color: #b7cbe0;
+  --vs--table-border-color-outer: var(
+    --vs-theme-navy-ruled-ledger-two-column--color-accent
+  );
+  --vs--table-border-color-thead-inner: var(
+    --vs-theme-navy-ruled-ledger-two-column--color-accent
+  );
+  --vs--table-border-width-outer: 1.2pt;
+  --vs--table-border-width-cell: 1px;
+  --vs--table-border-width-thead-inner: 1pt;
+  --vs--table-cell-padding-block: 2.6mm;
+  --vs--table-cell-padding-inline: 2mm;
+  --vs--th-font-size: 7.2pt;
+  --vs--td-text-align: center;
+
+  /* Table wrapper: 表題を上に置くので figure は通常のブロックとして積む */
+  --vs--figure-display: block;
+  --vs--figure-margin-block: 0 5mm;
+  --vs--figure-margin-inline: 0;
+  --vs--figcaption-margin-block: 0 1mm;
+  --vs--figcaption-font-family: var(--vs--heading-font-family);
+  --vs--figcaption-font-size: 8pt;
+  --vs--figcaption-text-color: var(
+    --vs-theme-navy-ruled-ledger-two-column--color-accent
+  );
+  --vs--figcaption-text-align: start;
+
+  /* 表番号は帳票の欄記号として英大文字で振る */
+  --vs-counter-style: upper-alpha;
+}
+
+/* base は :root:lang(ja) 側にも既定値を持つので両方を上書きする */
+:root,
+:root:lang(ja) {
+  --vs-table--marker-content: counter(vs-counter-tbl, var(--vs-counter-style))
+    ' · ';
+  --vs-table--call-content: 'table '
+    target-counter(attr(href), vs-counter-tbl, var(--vs-counter-style));
+}
+
+/* 表の欄記号は記録ごとに振り直す。base の counter-reset を潰さないよう
+   セクションではなく見出し要素側に置く (スコープは後続の兄弟に及ぶ) */
+section > h2:first-child {
+  counter-reset: vs-counter-tbl;
+}
+
+/* 参照は本文と同じ字面で、下線も色替えもしない */
+a:is([data-ref='sec'], [data-ref='tbl']) {
+  color: inherit;
+}
+
+/* 日誌名と航海名は柱が受け持つので版面には出さない (柱へ流す供給元) */
+h1,
+.voyage {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.voyage {
+  string-set: voyage content();
+}
+
+/* ---- Two-column ledger body ---- */
+section.level2 {
+  columns: var(--vs-theme-navy-ruled-ledger-two-column--record-columns);
+  column-gap: var(--vs-theme-navy-ruled-ledger-two-column--record-column-gap);
+}
+
+/* 最初の記録の前で改頁すると白紙が 1 頁できる */
+body > section.level2:first-of-type {
+  break-before: auto;
+}
+
+/* 記録の見出しと諸元行は版面いっぱいに渡す */
+section.level2 > h2:first-child,
+.meta {
+  column-span: all;
+}
+
+/* 欄の広い表は段を抜いて全幅に置く */
+figure.wide {
+  column-span: all;
+}
+
+/* 所見の見出しは題名の幅に詰める */
+h3 {
+  display: table;
+}
+
+/* Meta line: 日付・船位・船長を記録の頭に置く */
+.meta {
+  font-family: var(--vs--heading-font-family);
+  font-weight: 700;
+  font-size: 10pt;
+  letter-spacing: 0.01em;
+  margin-block: 0 4mm;
+}
+
+/* 記入欄は折り返さない。table-layout: auto に幅を計らせ、余りは摘要欄に回す */
+th,
+td {
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* Column headers: slab, uppercase, tinted, navy underline */
+thead th {
+  background-color: var(--vs-theme-navy-ruled-ledger-two-column--color-tint);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  padding-block: 2mm;
+}
+
+thead th small {
+  display: block;
+  font-weight: 500;
+  font-size: 0.86em;
+}
+
+/* Data cells: tabular monospace figures */
+td {
+  font-family: var(--vs--monospace-font-family);
+  font-variant-numeric: tabular-nums;
+}
+
+/* 記入欄の見出し (最初の列): 数値ではないのでスラブのまま左寄せ */
+tbody td:first-child {
+  font-family: inherit;
+  font-weight: 600;
+  text-align: left;
+}
+
+/* 摘要欄: 原稿が左寄せ (:---) を指定した欄には文章が入るので地の文で組む */
+tbody td[align='left'] {
+  font-family: inherit;
+  font-weight: 400;
+  text-align: left;
+  line-height: 1.28;
+  white-space: normal;
+  hyphens: none;
+}
+
+/* 合計・平均行は見出し語を太字で立てて区切る (原稿側の記法) */
+tbody tr:has(> td:first-child strong) > * {
+  border-block-start-width: 1pt;
+  border-block-start-color: var(
+    --vs-theme-navy-ruled-ledger-two-column--color-accent
+  );
+}
+
+/* ---- Master's remarks + signature ---- */
+section.level3 {
+  --vs--lists-margin-block: 0 0.5rem;
+  --vs--lists-margin-inline: 0;
+  --vs--ul-list-style-type: square;
+  --vs--ul-padding-inline-start: 4mm;
+  --vs--li-margin-block: 0 0.8mm;
+  --vs--lists-marker-text-color: var(
+    --vs-theme-navy-ruled-ledger-two-column--color-accent
+  );
+}
+
+/* li には --vs--p-hyphens に相当する変数がないため、p と揃えて直書きする */
+section.level3 li {
+  hyphens: none;
+  text-align: justify;
+}
+
+/* Signature line */
+.sign {
+  margin-block: 6mm 0;
+  padding-block-start: 1.4mm;
+  border-block-start-width: 0.8pt;
+  border-block-start-style: solid;
+  border-block-start-color: var(--vs-color-foreground);
+  font-family: var(--vs--monospace-font-family);
+  font-size: 8pt;
+  letter-spacing: 0.12em;
+}

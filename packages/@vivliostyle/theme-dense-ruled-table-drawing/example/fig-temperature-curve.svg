@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 165" width="450" height="165" role="img" aria-label="Discharge characteristic curves at 0.2 milliamps for three ambient temperatures. The horizontal axis is duration in hours from 0 to 2000 on a linear scale. The vertical axis is voltage from 1.0 to 3.5 volts. At plus 23 degrees Celsius the plateau sits near 3.0 volts and falls through 2.0 volts at about 1700 hours. At 0 degrees Celsius the plateau sits near 2.88 volts and falls through 2.0 volts at about 1450 hours. At minus 20 degrees Celsius the plateau sits near 2.72 volts and falls through 2.0 volts at about 950 hours." fill="none" stroke="#111111">
+<style>
+text { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.02em; }
+</style>
+<g stroke="#111111" stroke-width="0.3" stroke-dasharray="1 2.5" opacity="0.45">
+<line x1="73.75" y1="15" x2="73.75" y2="135"/><line x1="92.5" y1="15" x2="92.5" y2="135"/><line x1="111.25" y1="15" x2="111.25" y2="135"/><line x1="130" y1="15" x2="130" y2="135"/><line x1="167.5" y1="15" x2="167.5" y2="135"/><line x1="186.25" y1="15" x2="186.25" y2="135"/><line x1="205" y1="15" x2="205" y2="135"/><line x1="223.75" y1="15" x2="223.75" y2="135"/><line x1="261.25" y1="15" x2="261.25" y2="135"/><line x1="280" y1="15" x2="280" y2="135"/><line x1="298.75" y1="15" x2="298.75" y2="135"/><line x1="317.5" y1="15" x2="317.5" y2="135"/><line x1="355" y1="15" x2="355" y2="135"/><line x1="373.75" y1="15" x2="373.75" y2="135"/><line x1="392.5" y1="15" x2="392.5" y2="135"/><line x1="411.25" y1="15" x2="411.25" y2="135"/>
+</g>
+<g stroke="#111111" stroke-width="0.45" stroke-dasharray="1 2" opacity="0.7">
+<line x1="148.75" y1="15" x2="148.75" y2="135"/>
+<line x1="242.5" y1="15" x2="242.5" y2="135"/>
+<line x1="336.25" y1="15" x2="336.25" y2="135"/>
+<line x1="55" y1="39" x2="430" y2="39"/>
+<line x1="55" y1="63" x2="430" y2="63"/>
+<line x1="55" y1="87" x2="430" y2="87"/>
+<line x1="55" y1="111" x2="430" y2="111"/>
+</g>
+<rect x="55" y="15" width="375" height="120" stroke="#111111" stroke-width="0.9" />
+<path d="M55,52.4 L148.75,54.5 L186.25,56.5 C205,58 215,60 222,65 C226,68 229.5,76 233.1,87 C236,96 239,112 242,128" stroke="#111111" stroke-width="1.6" />
+<path d="M55,44.8 L148.75,46 L242.5,47.8 C280,48.8 300,50.5 315,55 C320,56.7 324,70 326.9,87 C329,102 331,116 333,128" stroke="#111111" stroke-width="1.6" />
+<path d="M55,39 L242.5,40.4 L336.25,42.3 C350,43.6 360,46 366,53 C369.5,57 371.5,70 373.75,87 C375.5,105 377.5,118 379.5,128" stroke="#111111" stroke-width="1.6" />
+<g fill="#ffffff" stroke="none">
+<rect x="197" y="99" width="33.5" height="9.5"/>
+<rect x="300" y="99" width="23.5" height="9.5"/>
+<rect x="338" y="99" width="33.5" height="9.5"/>
+</g>
+<g font-size="8.5" fill="#111111" stroke="none" text-anchor="end">
+<text x="229" y="106">&#8722;20&#176;C</text>
+<text x="322" y="106">0&#176;C</text>
+<text x="370" y="106">+23&#176;C</text>
+</g>
+<g font-size="8.5" fill="#111111" stroke="none" text-anchor="end">
+<text x="49" y="18">3.5</text>
+<text x="49" y="42">3.0</text>
+<text x="49" y="66">2.5</text>
+<text x="49" y="90">2.0</text>
+<text x="49" y="114">1.5</text>
+<text x="49" y="138">1.0</text>
+</g>
+<g font-size="8.5" fill="#111111" stroke="none" text-anchor="middle">
+<text x="55" y="150">0</text>
+<text x="148.75" y="150">500</text>
+<text x="242.5" y="150">1000</text>
+<text x="336.25" y="150">1500</text>
+<text x="430" y="150">2000</text>
+</g>
+<text x="242.5" y="162" font-size="9" fill="#111111" stroke="none" text-anchor="middle">Duration (h)</text>
+<text x="14" y="75" font-size="9" fill="#111111" stroke="none" text-anchor="middle" transform="rotate(-90 14 75)">Voltage (V)</text>
+</svg>

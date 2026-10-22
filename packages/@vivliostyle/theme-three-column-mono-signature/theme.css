@@ -1,0 +1,275 @@
+/*
+ * 美しいAPIリファレンス (three-column-mono-signature)
+ * AB判 210×257mm・3段組の API 辞書ページ。青の等幅シグネチャ + 2列引数表 +
+ * 淡青地コード例を1エントリとし、ルート段組へ流し込む。
+ * 天に柱とノンブル、小口に青帯の縦書き章柱を置く。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+/* 章柱は紙の小口端に密着させる。左右ページで柱が内側に来ないよう、
+   ノド/小口ではなく物理左右で余白を決める。 */
+:root {
+  /* ---- theme-base メタ変数 ---- */
+  --vs-font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  --vs-font-size: 7.5pt;
+  --vs-line-height: 1.4;
+  --vs-color-foreground: #1f1f1f;
+  --vs-color-background: #ffffff;
+
+  --vs-page--size: 210mm 257mm;
+  --vs-page--margin-top: 16mm;
+  --vs-page--margin-bottom: 10mm;
+  --vs-page--margin-left: 12mm;
+  --vs-page--margin-right: 15mm;
+  --vs-page--border-width-top: 1.1pt;
+  --vs-page--border-color-top: var(
+    --vs-theme-three-column-mono-signature--accent-color
+  );
+
+  /* 3段組。エントリは段から段へ流れる */
+  --vs-columns: 3;
+  --vs-column-gap: 2.5mm;
+  --vs-column-rule-width: 0.4pt;
+  --vs-column-rule-style: solid;
+  --vs-column-rule-color: var(
+    --vs-theme-three-column-mono-signature--color-rule-soft
+  );
+
+  /* 柱 (書名 ─ 章題) とノンブル */
+  --vs-page--mbox-top-left-content: env(doc-title);
+  --vs-page--mbox-top-right-content: counter(page);
+  --vs-page--mbox-top-font-size: 8.5pt;
+  --vs-page--mbox-top-letter-spacing: 0.02em;
+  --vs-page--mbox-top-text-color: var(
+    --vs-theme-three-column-mono-signature--color-running-head
+  );
+  /* ノンブルは柱より大きく置く */
+  --vs-page--mbox-top-right-font-size: 10pt;
+  --vs-page--mbox-top-right-font-weight: 500;
+  --vs-page--mbox-top-right-text-color: var(--vs-color-foreground);
+
+  /* 小口の縦書き章柱。章題は原稿の .chapter-tab から取る */
+  --vs-theme-three-column-mono-signature--chapter-tab-content: '第'
+    counter(vs-counter-chapter) '章　' string(chapter-name);
+  --vs-page--mbox-right-top-content: var(
+    --vs-theme-three-column-mono-signature--chapter-tab-content
+  );
+  --vs-page--mbox-right-background-color: var(
+    --vs-theme-three-column-mono-signature--accent-color
+  );
+  --vs-page--mbox-right-font-size: 10pt;
+  --vs-page--mbox-right-font-weight: 700;
+  --vs-page--mbox-right-letter-spacing: 0.16em;
+  /* 縦書きなので inline 方向 = 天地。帯の丈を決める */
+  --vs-page--mbox-right-size-inline: 82mm;
+  --vs-page--mbox-right-text-color: #ffffff;
+  --vs-page--mbox-right-writing-mode: vertical-rl;
+  --vs-page--mbox-top-inner-padding-top: 14mm;
+
+  /* ---- theme-base 要素変数 ---- */
+  --vs--monospace-font-family:
+    'Roboto Mono', 'Noto Sans JP', ui-monospace, monospace;
+
+  --vs--heading-font-family:
+    'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  --vs--heading-text-align: start;
+
+  --vs--h1-font-size: 8.5pt;
+  --vs--h1-font-weight: 400;
+  --vs--h1-letter-spacing: 0.02em;
+  --vs--h1-margin-block: 0;
+
+  --vs--h2-font-family: 'Roboto Mono', 'Noto Sans JP', ui-monospace, monospace;
+  --vs--h2-font-size: 7.6pt;
+  --vs--h2-font-weight: 500;
+  --vs--h2-line-height: 1.25;
+  --vs--h2-letter-spacing: -0.02em;
+  --vs--h2-margin-block: 0 1.3mm;
+
+  --vs--p-margin-block: 0 1.1mm;
+  --vs--p-text-indent: 0;
+  /* 段幅が狭いため justify だと字間が大きく間延びする */
+  --vs--p-text-align: start;
+
+  --vs--anchor-text-color: #0066cc;
+  --vs--anchor-text-decoration: none;
+
+  --vs--table-font-size: 6.4pt;
+  --vs--table-margin-block: 0 1.8mm;
+  --vs--table-margin-inline: 0;
+  --vs--table-text-align: start;
+  --vs--table-border-color: #c8ccd2;
+  --vs--table-border-width: 0;
+  --vs--table-border-width-block-start: 0.6pt;
+  --vs--table-border-width-block-end: 0.6pt;
+  --vs--table-border-width-cell: 0.4pt;
+  --vs--table-cell-padding-block: 0.6mm;
+  --vs--table-cell-padding-inline: 1.2mm;
+  --vs--th-font-weight: 400;
+
+  --vs--pre-font-size: 5.8pt;
+  --vs--pre-margin-block: 0.4mm 0;
+  --vs--pre-padding-block: 1.6mm;
+  --vs--pre-padding-inline: 1.6mm;
+  --vs--pre-word-break: normal;
+
+  --vs--figure-display: block;
+  --vs--figure-margin-block: 1.8mm;
+  /* 既定の figure-item-padding-inline (0) では画像が意図より大きくなるため、
+     width: 100% の基準として想定していた旧既定値 (min(2ch, 5vw)) を明示する */
+  --vs--figure-item-padding-inline: min(2ch, 5vw);
+
+  --vs--figcaption-font-size: 7pt;
+  --vs--figcaption-margin-block: 1.2mm 0;
+  --vs--figcaption-text-align: center;
+
+  /* 図番号は「図<章>-<連番>」 */
+  --vs-figure--marker-content: 'Fig. ' counter(vs-counter-chapter) '-'
+    counter(vs-counter-fig) '  ';
+  --vs-figure--call-content: 'Fig. '
+    target-counter(attr(href), vs-counter-chapter) '-'
+    target-counter(attr(href), vs-counter-fig);
+
+  /* エントリ参照に添えるページ番号 */
+  --vs-theme-three-column-mono-signature--api-page-call-content: '（p.'
+    target-counter(attr(href), page) '）';
+
+  /* ---- テーマ固有 ---- */
+  --vs-theme-three-column-mono-signature--accent-color: #0066cc;
+  --vs-theme-three-column-mono-signature--color-running-head: #3a3a3a;
+  --vs-color-foreground-alt: #4a4a4a;
+  --vs-theme-three-column-mono-signature--color-rule: #c8ccd2;
+  --vs-theme-three-column-mono-signature--color-rule-soft: #d9dee6;
+  --vs-theme-three-column-mono-signature--color-rule-strong: #9aa2ad;
+  --vs-theme-three-column-mono-signature--color-code-bg: #eef4fb;
+}
+
+/* base は和文の図表マーカーを :root:lang(ja) で定義しているため同じ詳細度で上書きする */
+:root:lang(ja) {
+  --vs-figure--marker-content: '図' counter(vs-counter-chapter) '-'
+    counter(vs-counter-fig) '　';
+  --vs-figure--call-content: '図' target-counter(attr(href), vs-counter-chapter)
+    '-' target-counter(attr(href), vs-counter-fig);
+}
+
+/* ── 版面 ─────────────────────────────────────────────── */
+
+/* :root で --vs-hanging-punctuation を設定すると theme-base の
+   p の hanging-punctuation 継承経由で段落にも掛かり行組版が変わるため、
+   body 直書きで見出し・表だけに効かせる */
+body {
+  hanging-punctuation: allow-end;
+}
+
+/* 章柱の文字列を取り出すためだけの要素。本文には流さない */
+.chapter-tab {
+  position: running(chapter-tab);
+  string-set: chapter-name content();
+}
+
+/* ── APIエントリ (section.level2) ─────────────────────── */
+
+/* シグネチャ・引数表・最初の説明までは同じ段に置く */
+section.level2 > table {
+  break-after: avoid;
+}
+
+section.level2 + section.level2 {
+  margin-top: 2.1mm;
+  padding-top: 2.1mm;
+  border-top-width: 0.4pt;
+  border-top-style: solid;
+  border-top-color: var(--vs-theme-three-column-mono-signature--color-rule);
+}
+
+h2 {
+  color: var(--vs-theme-three-column-mono-signature--accent-color);
+}
+
+/* 参照リンクはシグネチャと同じ等幅で、行中で折らない */
+a {
+  font-family: var(--vs--monospace-font-family);
+  font-size: 6.6pt;
+  white-space: nowrap;
+}
+
+a[data-ref='api']::after {
+  content: var(--vs-theme-three-column-mono-signature--api-page-call-content);
+}
+
+/* 本文に埋め込むページ参照は地の文の書体を保つ */
+a[data-ref='api-page'] {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+a[data-ref='api-page']::before {
+  content: var(--vs-theme-three-column-mono-signature--api-page-call-content);
+}
+
+a[data-ref='fig'] {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* ── 引数表 ───────────────────────────────────────────── */
+
+table {
+  width: 100%;
+  line-height: 1.3;
+  table-layout: fixed;
+  border-top-color: var(
+    --vs-theme-three-column-mono-signature--color-rule-strong
+  );
+  border-bottom-color: var(
+    --vs-theme-three-column-mono-signature--color-rule-strong
+  );
+}
+
+th,
+td {
+  vertical-align: top;
+}
+
+th {
+  color: var(--vs-color-foreground-alt);
+}
+
+th:first-child,
+td:first-child {
+  width: 24%;
+}
+
+/* ── コード例 ─────────────────────────────────────────── */
+
+pre {
+  background-color: var(--vs-theme-three-column-mono-signature--color-code-bg);
+  border-radius: 1.4mm;
+  break-inside: avoid;
+}
+
+/* ── 図版 (Markdown 画像 → figure > img + figcaption) ────
+   SVG 内のラベル書体は fig-orikaeshi.svg 側に持たせている
+   (外部 SVG は <img> で読み込まれ親文書の CSS が効かない)。 */
+
+figure > img {
+  display: block;
+  width: 100%;
+}
+
+figcaption {
+  font-weight: 700;
+  color: var(--vs-theme-three-column-mono-signature--accent-color);
+}

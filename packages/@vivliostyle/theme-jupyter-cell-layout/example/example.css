@@ -1,0 +1,21 @@
+/*
+ * example 専用の上書き。theme.css には手を入れない。
+ */
+
+/* この抜粋は第4章・79ページから始まる */
+:root {
+  --vs-document-first-page-counter-reset: page 78 vs-counter-chapter 3;
+}
+
+/* VFM の MathJax レンダラは span.math を出力するため theme.css の .math (中央寄せ flex)
+   と衝突する。ディスプレイ数式は中央寄せのままでよいが、インライン数式は行内に戻す。
+   セル内の上下のアキは MathJax 自前の 1em マージンに任せる */
+span.math.inline {
+  display: inline;
+  font-size: inherit;
+  gap: normal;
+}
+
+.math-cell .math.display {
+  margin-block: 0;
+}

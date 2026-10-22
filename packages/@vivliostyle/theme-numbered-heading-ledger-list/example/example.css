@@ -1,0 +1,19 @@
+/*
+ * この example は第3章 (第35〜40回生) と巻末資料の抜粋。
+ * 章をまたいで続く節番号の起点だけをここで与える。
+ */
+
+/* 章番号は 3、節番号は前章から続く 12 から。節の起点は base の counter-reset を
+   潰さないよう section ではなく見出し要素にスコープを作る */
+:root {
+  --vs-section--root-counter-sec-h1: 2;
+}
+
+body > section.level1:first-of-type > h1 {
+  counter-reset: vs-counter-sec-h2 11;
+}
+
+/* 名簿表だけの紙面を前提に段落余白が 0 のため、凡例・会則などの地の文に段落間を戻す */
+:root {
+  --vs--p-margin-block: 0 1.4mm;
+}

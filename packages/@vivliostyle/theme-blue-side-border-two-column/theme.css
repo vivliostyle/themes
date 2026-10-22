@@ -1,0 +1,230 @@
+/*
+ * 勘定科目一覧表（青色申告用）(blue-side-border-two-column)
+ * 記帳実務ガイドの参照ページ。A4縦・横組み2段組で、Noto Serif JP 8.5pt の本文/勘定科目名に、
+ * Noto Sans JP のヘッダー・柱・ノンブル、Roboto Mono のタブラーなコード番号を重ねる。
+ * 節は青い side-border 付きの番号見出しでページを起こし、その中の部を一段小さい side-border
+ * 見出しでブロック化して「コード／勘定科目／説明」の3列罫線表を敷く。表頭は淡青地 + 青の
+ * header-rule。版面上端に青のヘッダールール付きの柱（章番号と章題）、小口下部にノンブル。
+ * VFM 出力に合わせ、段組は body > section.level1、部は section.level2、
+ * 表は Markdown の table (colgroup 無し → nth-child で列幅指定) を対象にする。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  /* Theme-specific palette (no --vs-* counterpart) */
+  --vs-theme-blue-side-border-two-column--color-accent: #2b6cb0; /* 見出し左罫・表頭下罫・ヘッダールール */
+  --vs-theme-blue-side-border-two-column--color-accent-deep: #1a4f8a; /* 濃い青（コード番号） */
+  --vs-theme-blue-side-border-two-column--color-accent-tint: #eaf4fb; /* 表頭の淡青帯 */
+  --vs-theme-blue-side-border-two-column--color-rule: #c4d4e2; /* 表のグリッド罫（淡い青灰） */
+  --vs-theme-blue-side-border-two-column--color-rule-soft: #e2ebf3; /* 記入行罫 */
+  --vs-theme-blue-side-border-two-column--color-muted: #52606d; /* 導入文・説明欄 */
+  --vs-theme-blue-side-border-two-column--table-code-width: 15%;
+  --vs-theme-blue-side-border-two-column--table-name-width: 29%;
+  --vs-theme-blue-side-border-two-column--table-note-width: 56%;
+
+  /* 柱: 章番号は base のドキュメントカウンタ、章題は原稿の frontmatter から */
+  --vs-theme-blue-side-border-two-column--running-head-content: '第'
+    counter(vs-counter-chapter) '章　' env(doc-title);
+
+  /* Page geometry: A4 portrait, asymmetric ledger margins */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 13mm;
+  --vs-page--margin-bottom: 13mm;
+  --vs-page--margin-left: 13.5mm;
+  --vs-page--margin-right: 13.5mm;
+  --vs-color-background: #ffffff;
+
+  /* Type: Japanese serif body, 8.5pt / 1.5 */
+  --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+  --vs-font-size: 8.5pt;
+  --vs-line-height: 1.5;
+  --vs-color-foreground: #1f2933;
+  --vs-columns: 1;
+
+  --vs--monospace-font-family: 'Roboto Mono', ui-monospace, monospace;
+
+  --vs--heading-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+  --vs--heading-font-weight: 700;
+  --vs--p-margin-block: 0;
+
+  /* Section title (節): 章番号付きの通し番号でページを起こす */
+  --vs--h1-font-size: 22pt;
+  --vs--h1-line-height: 1.1;
+  --vs--h1-letter-spacing: 0.02em;
+  --vs--h1-margin-block: 0 3.5mm;
+  --vs-section--h1-break-before: page;
+  --vs-section--h1-marker-display: inline;
+  --vs-section--h1-marker-content: counter(vs-counter-chapter) '.'
+    counter(vs-counter-sec-h1);
+  --vs-section--h1-marker-margin-inline-end: 0.5em;
+
+  /* Part headings (部) */
+  --vs--h2-font-size: 11pt;
+  --vs--h2-line-height: 1.2;
+  --vs--h2-margin-block: 0 1.8mm;
+  --vs-section--h2-marker-display: inline;
+  --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '.';
+  --vs-section--h2-marker-margin-inline-end: 0.4em;
+
+  /* Ledger tables */
+  --vs--table-border-width: 0;
+  --vs--table-break-inside: auto;
+  --vs--table-font-size: 8pt;
+  --vs--table-margin-block: 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-cell-padding-block: 0.55mm;
+  --vs--table-cell-padding-inline: 1.6mm;
+  --vs--td-text-align: start;
+  --vs--th-font-family:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+  --vs--th-font-size: 7.5pt;
+  --vs--th-font-weight: 500;
+
+  /* Running head + folio */
+  --vs-page--mbox-top-right-content: var(
+    --vs-theme-blue-side-border-two-column--running-head-content
+  );
+  --vs-page--mbox-bottom-right-content: counter(page);
+  --vs-page--mbox-font-family:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+  --vs-page--mbox-text-color: var(--vs-color-foreground);
+  --vs-page--mbox-top-font-size: 8pt;
+  --vs-page--mbox-top-font-weight: 500;
+  --vs-page--mbox-top-letter-spacing: 0.02em;
+  --vs-page--mbox-bottom-font-size: 9.5pt;
+  --vs-page--mbox-bottom-letter-spacing: 0.04em;
+}
+
+/* --- Two-column body; title/lead span both columns, thin blue column rule ---
+   VFM 出力は body > section.level1 > (h1, p.lead 相当, section.level2 …)。
+   段組は本文を包む section.level1 に掛ける。 */
+body > section.level1 {
+  columns: 2;
+  column-gap: 8mm;
+  column-rule-width: 0.5pt;
+  column-rule-style: solid;
+  column-rule-color: var(--vs-theme-blue-side-border-two-column--color-rule);
+  border-top-width: 1.3pt; /* header-rule under the running head */
+  border-top-style: solid;
+  border-top-color: var(--vs-theme-blue-side-border-two-column--color-accent);
+  padding-top: 4mm;
+}
+
+body > section.level1 > h1,
+body > section.level1 > p {
+  column-span: all;
+}
+
+/* --- Section title: heavy blue side-border --- */
+h1 {
+  border-inline-start-width: 6pt;
+  border-inline-start-style: solid;
+  border-inline-start-color: var(
+    --vs-theme-blue-side-border-two-column--color-accent
+  );
+  padding-inline-start: 4mm;
+}
+
+/* 導入文（両段抜き） */
+body > section.level1 > p {
+  margin-block: 0 4.5mm;
+  font-size: 7.8pt;
+  line-height: 1.55;
+  color: var(--vs-theme-blue-side-border-two-column--color-muted);
+}
+
+/* --- Part sections --- */
+section.level2 {
+  margin-block-end: 5mm;
+}
+
+/* Part heading: smaller blue side-border */
+h2 {
+  border-inline-start-width: 4pt;
+  border-inline-start-style: solid;
+  border-inline-start-color: var(
+    --vs-theme-blue-side-border-two-column--color-accent
+  );
+  padding-inline-start: 2.4mm;
+  break-after: avoid;
+}
+
+/* --- Ledger tables (Markdown table: colgroup が無いので nth-child で列幅を決める) --- */
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+thead th:first-child {
+  width: var(--vs-theme-blue-side-border-two-column--table-code-width);
+}
+thead th:nth-child(2) {
+  width: var(--vs-theme-blue-side-border-two-column--table-name-width);
+}
+thead th:nth-child(3) {
+  width: var(--vs-theme-blue-side-border-two-column--table-note-width);
+}
+
+/* 段・ページをまたいだ先でも表頭を繰り返す */
+thead {
+  display: table-header-group;
+  break-inside: avoid;
+}
+
+tbody tr {
+  break-inside: avoid;
+}
+
+/* Header band: light-blue fill, sans labels, blue rule beneath */
+thead th {
+  letter-spacing: 0.04em;
+  background-color: var(
+    --vs-theme-blue-side-border-two-column--color-accent-tint
+  );
+  padding-block: 1mm;
+  padding-inline: 1.5mm;
+  border-width: 0.5pt;
+  border-style: solid;
+  border-color: var(--vs-theme-blue-side-border-two-column--color-rule);
+  border-block-end-width: 1.2pt;
+  border-block-end-color: var(
+    --vs-theme-blue-side-border-two-column--color-accent
+  );
+}
+
+/* Body cells: thin grid (cell padding/size は --vs--table-* 側で指定) */
+tbody td {
+  border-width: 0.4pt;
+  border-style: solid;
+  border-color: var(--vs-theme-blue-side-border-two-column--color-rule-soft);
+  border-inline-color: var(--vs-theme-blue-side-border-two-column--color-rule);
+  vertical-align: middle;
+  line-height: 1.28;
+}
+
+/* コード: monospace tabular, centered, deep blue */
+tbody td:first-child {
+  font-family: var(--vs--monospace-font-family);
+  font-variant-numeric: tabular-nums;
+  font-size: 7.6pt;
+  text-align: center;
+  color: var(--vs-theme-blue-side-border-two-column--color-accent-deep);
+  letter-spacing: 0.02em;
+}
+
+/* 説明: 記帳例。狭い列なので一段小さく、灰寄りの本文色で */
+tbody td:nth-child(3) {
+  font-size: 7.3pt;
+  color: var(--vs-theme-blue-side-border-two-column--color-muted);
+  padding-inline-start: 2.4mm;
+}

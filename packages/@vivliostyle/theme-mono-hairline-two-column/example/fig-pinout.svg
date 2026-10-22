@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="52 51 196 204" role="img" aria-label="Pin configuration of the 48-lead QFN package, top view. Pins 1 to 12 run down the left side from RFGND1 to AGND2, pins 13 to 24 run along the bottom from XTAL_IN to GPIO3, pins 25 to 36 run up the right side from DGND1 to DD9, and pins 37 to 48 run along the top from DD10 to VDD_A2. An exposed thermal pad is on the package underside." fill="none" stroke="#171717">
+<style>
+text { font-family: "Roboto Mono", "IBM Plex Mono", ui-monospace, monospace; stroke: none; }
+</style>
+<rect x="90" y="90" width="120" height="120" stroke-width="1" />
+<rect x="82" y="92.8" width="8" height="4.5" stroke-width="0.6" />
+<rect x="92.8" y="210" width="4.5" height="8" stroke-width="0.6" />
+<rect x="210" y="202.8" width="8" height="4.5" stroke-width="0.6" />
+<rect x="202.8" y="82" width="4.5" height="8" stroke-width="0.6" />
+<rect x="82" y="102.8" width="8" height="4.5" stroke-width="0.6" />
+<rect x="102.8" y="210" width="4.5" height="8" stroke-width="0.6" />
+<rect x="210" y="192.8" width="8" height="4.5" stroke-width="0.6" />
+<rect x="192.8" y="82" width="4.5" height="8" stroke-width="0.6" />
+<rect x="82" y="112.8" width="8" height="4.5" stroke-width="0.6" />
+<rect x="112.8" y="210" width="4.5" height="8" stroke-width="0.6" />
+<rect x="210" y="182.8" width="8" height="4.5" stroke-width="0.6" />
+<rect x="182.8" y="82" width="4.5" height="8" stroke-width="0.6" />
+<rect x="82" y="122.8" width="8" height="4.5" stroke-width="0.6" />
+<rect x="122.8" y="210" width="4.5" height="8" stroke-width="0.6" />
+<rect x="210" y="172.8" width="8" height="4.5" stroke-width="0.6" />
+<rect x="172.8" y="82" width="4.5" height="8" stroke-width="0.6" />
+<rect x="82" y="132.8" width="8" height="4.5" stroke-width="0.6" />
+<rect x="132.8" y="210" width="4.5" height="8" stroke-width="0.6" />
+<rect x="210" y="162.8" width="8" height="4.5" stroke-width="0.6" />
+<rect x="162.8" y="82" width="4.5" height="8" stroke-width="0.6" />
+<rect x="82" y="142.8" width="8" height="4.5" stroke-width="0.6" />
+<rect x="142.8" y="210" width="4.5" height="8" stroke-width="0.6" />
+<rect x="210" y="152.8" width="8" height="4.5" stroke-width="0.6" />
+<rect x="152.8" y="82" width="4.5" height="8" stroke-width="0.6" />
+<rect x="82" y="152.8" width="8" height="4.5" stroke-width="0.6" />
+<rect x="152.8" y="210" width="4.5" height="8" stroke-width="0.6" />
+<rect x="210" y="142.8" width="8" height="4.5" stroke-width="0.6" />
+<rect x="142.8" y="82" width="4.5" height="8" stroke-width="0.6" />
+<rect x="82" y="162.8" width="8" height="4.5" stroke-width="0.6" />
+<rect x="162.8" y="210" width="4.5" height="8" stroke-width="0.6" />
+<rect x="210" y="132.8" width="8" height="4.5" stroke-width="0.6" />
+<rect x="132.8" y="82" width="4.5" height="8" stroke-width="0.6" />
+<rect x="82" y="172.8" width="8" height="4.5" stroke-width="0.6" />
+<rect x="172.8" y="210" width="4.5" height="8" stroke-width="0.6" />
+<rect x="210" y="122.8" width="8" height="4.5" stroke-width="0.6" />
+<rect x="122.8" y="82" width="4.5" height="8" stroke-width="0.6" />
+<rect x="82" y="182.8" width="8" height="4.5" stroke-width="0.6" />
+<rect x="182.8" y="210" width="4.5" height="8" stroke-width="0.6" />
+<rect x="210" y="112.8" width="8" height="4.5" stroke-width="0.6" />
+<rect x="112.8" y="82" width="4.5" height="8" stroke-width="0.6" />
+<rect x="82" y="192.8" width="8" height="4.5" stroke-width="0.6" />
+<rect x="192.8" y="210" width="4.5" height="8" stroke-width="0.6" />
+<rect x="210" y="102.8" width="8" height="4.5" stroke-width="0.6" />
+<rect x="102.8" y="82" width="4.5" height="8" stroke-width="0.6" />
+<rect x="82" y="202.8" width="8" height="4.5" stroke-width="0.6" />
+<rect x="202.8" y="210" width="4.5" height="8" stroke-width="0.6" />
+<rect x="210" y="92.8" width="8" height="4.5" stroke-width="0.6" />
+<rect x="92.8" y="82" width="4.5" height="8" stroke-width="0.6" />
+<circle cx="99" cy="99" r="2.8" fill="#171717" stroke="none" />
+<g fill="#555555" stroke="none" font-size="4.4">
+<text x="80" y="96.6" text-anchor="end">1</text>
+<text x="96.6" y="220" text-anchor="end" transform="rotate(-90 96.6 220)">13</text>
+<text x="220" y="206.6" text-anchor="start">25</text>
+<text x="206.6" y="80" text-anchor="start" transform="rotate(-90 206.6 80)">37</text>
+<text x="80" y="106.6" text-anchor="end">2</text>
+<text x="106.6" y="220" text-anchor="end" transform="rotate(-90 106.6 220)">14</text>
+<text x="220" y="196.6" text-anchor="start">26</text>
+<text x="196.6" y="80" text-anchor="start" transform="rotate(-90 196.6 80)">38</text>
+<text x="80" y="116.6" text-anchor="end">3</text>
+<text x="116.6" y="220" text-anchor="end" transform="rotate(-90 116.6 220)">15</text>
+<text x="220" y="186.6" text-anchor="start">27</text>
+<text x="186.6" y="80" text-anchor="start" transform="rotate(-90 186.6 80)">39</text>
+<text x="80" y="126.6" text-anchor="end">4</text>
+<text x="126.6" y="220" text-anchor="end" transform="rotate(-90 126.6 220)">16</text>
+<text x="220" y="176.6" text-anchor="start">28</text>
+<text x="176.6" y="80" text-anchor="start" transform="rotate(-90 176.6 80)">40</text>
+<text x="80" y="136.6" text-anchor="end">5</text>
+<text x="136.6" y="220" text-anchor="end" transform="rotate(-90 136.6 220)">17</text>
+<text x="220" y="166.6" text-anchor="start">29</text>
+<text x="166.6" y="80" text-anchor="start" transform="rotate(-90 166.6 80)">41</text>
+<text x="80" y="146.6" text-anchor="end">6</text>
+<text x="146.6" y="220" text-anchor="end" transform="rotate(-90 146.6 220)">18</text>
+<text x="220" y="156.6" text-anchor="start">30</text>
+<text x="156.6" y="80" text-anchor="start" transform="rotate(-90 156.6 80)">42</text>
+<text x="80" y="156.6" text-anchor="end">7</text>
+<text x="156.6" y="220" text-anchor="end" transform="rotate(-90 156.6 220)">19</text>
+<text x="220" y="146.6" text-anchor="start">31</text>
+<text x="146.6" y="80" text-anchor="start" transform="rotate(-90 146.6 80)">43</text>
+<text x="80" y="166.6" text-anchor="end">8</text>
+<text x="166.6" y="220" text-anchor="end" transform="rotate(-90 166.6 220)">20</text>
+<text x="220" y="136.6" text-anchor="start">32</text>
+<text x="136.6" y="80" text-anchor="start" transform="rotate(-90 136.6 80)">44</text>
+<text x="80" y="176.6" text-anchor="end">9</text>
+<text x="176.6" y="220" text-anchor="end" transform="rotate(-90 176.6 220)">21</text>
+<text x="220" y="126.6" text-anchor="start">33</text>
+<text x="126.6" y="80" text-anchor="start" transform="rotate(-90 126.6 80)">45</text>
+<text x="80" y="186.6" text-anchor="end">10</text>
+<text x="186.6" y="220" text-anchor="end" transform="rotate(-90 186.6 220)">22</text>
+<text x="220" y="116.6" text-anchor="start">34</text>
+<text x="116.6" y="80" text-anchor="start" transform="rotate(-90 116.6 80)">46</text>
+<text x="80" y="196.6" text-anchor="end">11</text>
+<text x="196.6" y="220" text-anchor="end" transform="rotate(-90 196.6 220)">23</text>
+<text x="220" y="106.6" text-anchor="start">35</text>
+<text x="106.6" y="80" text-anchor="start" transform="rotate(-90 106.6 80)">47</text>
+<text x="80" y="206.6" text-anchor="end">12</text>
+<text x="206.6" y="220" text-anchor="end" transform="rotate(-90 206.6 220)">24</text>
+<text x="220" y="96.6" text-anchor="start">36</text>
+<text x="96.6" y="80" text-anchor="start" transform="rotate(-90 96.6 80)">48</text>
+</g>
+<g fill="#171717" stroke="none" font-size="5">
+<text x="73" y="96.6" text-anchor="end">RFGND1</text>
+<text x="96.8" y="227" text-anchor="end" transform="rotate(-90 96.8 227)">XTAL_IN</text>
+<text x="227" y="206.6" text-anchor="start">DGND1</text>
+<text x="206.8" y="73" text-anchor="start" transform="rotate(-90 206.8 73)">DD10</text>
+<text x="73" y="106.6" text-anchor="end">RFIN1</text>
+<text x="106.8" y="227" text-anchor="end" transform="rotate(-90 106.8 227)">XTAL_OUT</text>
+<text x="227" y="196.6" text-anchor="start">DD0</text>
+<text x="196.8" y="73" text-anchor="start" transform="rotate(-90 196.8 73)">DD11</text>
+<text x="73" y="116.6" text-anchor="end">RFIN2</text>
+<text x="116.8" y="227" text-anchor="end" transform="rotate(-90 116.8 227)">REF_IN</text>
+<text x="227" y="186.6" text-anchor="start">DD1</text>
+<text x="186.8" y="73" text-anchor="start" transform="rotate(-90 186.8 73)">DCLK</text>
+<text x="73" y="126.6" text-anchor="end">RFGND2</text>
+<text x="126.8" y="227" text-anchor="end" transform="rotate(-90 126.8 227)">VDD_SYN</text>
+<text x="227" y="176.6" text-anchor="start">DD2</text>
+<text x="176.8" y="73" text-anchor="start" transform="rotate(-90 176.8 73)">DFRAME</text>
+<text x="73" y="136.6" text-anchor="end">VDD_A1</text>
+<text x="136.8" y="227" text-anchor="end" transform="rotate(-90 136.8 227)">VREG_CAP</text>
+<text x="227" y="166.6" text-anchor="start">DD3</text>
+<text x="166.8" y="73" text-anchor="start" transform="rotate(-90 166.8 73)">DGND2</text>
+<text x="73" y="146.6" text-anchor="end">VBIAS</text>
+<text x="146.8" y="227" text-anchor="end" transform="rotate(-90 146.8 227)">RSTB</text>
+<text x="227" y="156.6" text-anchor="start">DD4</text>
+<text x="156.8" y="73" text-anchor="start" transform="rotate(-90 156.8 73)">VDD_D2</text>
+<text x="73" y="156.6" text-anchor="end">VCM</text>
+<text x="156.8" y="227" text-anchor="end" transform="rotate(-90 156.8 227)">ENABLE</text>
+<text x="227" y="146.6" text-anchor="start">DD5</text>
+<text x="146.8" y="73" text-anchor="start" transform="rotate(-90 146.8 73)">SCLK</text>
+<text x="73" y="166.6" text-anchor="end">AGND1</text>
+<text x="166.8" y="227" text-anchor="end" transform="rotate(-90 166.8 227)">TXNRX</text>
+<text x="227" y="136.6" text-anchor="start">VDD_D1</text>
+<text x="136.8" y="73" text-anchor="start" transform="rotate(-90 136.8 73)">SDI</text>
+<text x="73" y="176.6" text-anchor="end">RFOUT1</text>
+<text x="176.8" y="227" text-anchor="end" transform="rotate(-90 176.8 227)">GPIO0</text>
+<text x="227" y="126.6" text-anchor="start">DD6</text>
+<text x="126.8" y="73" text-anchor="start" transform="rotate(-90 126.8 73)">SDO</text>
+<text x="73" y="186.6" text-anchor="end">RFOUT2</text>
+<text x="186.8" y="227" text-anchor="end" transform="rotate(-90 186.8 227)">GPIO1</text>
+<text x="227" y="116.6" text-anchor="start">DD7</text>
+<text x="116.8" y="73" text-anchor="start" transform="rotate(-90 116.8 73)">CSB</text>
+<text x="73" y="196.6" text-anchor="end">VDD_PA</text>
+<text x="196.8" y="227" text-anchor="end" transform="rotate(-90 196.8 227)">GPIO2</text>
+<text x="227" y="106.6" text-anchor="start">DD8</text>
+<text x="106.8" y="73" text-anchor="start" transform="rotate(-90 106.8 73)">INTB</text>
+<text x="73" y="206.6" text-anchor="end">AGND2</text>
+<text x="206.8" y="227" text-anchor="end" transform="rotate(-90 206.8 227)">GPIO3</text>
+<text x="227" y="96.6" text-anchor="start">DD9</text>
+<text x="96.8" y="73" text-anchor="start" transform="rotate(-90 96.8 73)">VDD_A2</text>
+</g>
+<g fill="#171717" stroke="none" text-anchor="middle">
+<text x="150" y="139" font-size="8" font-weight="500">NSR7420</text>
+<text x="150" y="150" font-size="6" fill="#555555">48-LEAD QFN</text>
+<text x="150" y="160" font-size="6" fill="#555555">TOP VIEW</text>
+<text x="150" y="170" font-size="5.4" fill="#555555">(not to scale)</text>
+</g>
+</svg>

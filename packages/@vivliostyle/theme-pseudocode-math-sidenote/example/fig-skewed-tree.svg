@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 116" role="img" aria-label="An unbalanced recursion tree: the left branch of size n over 3 stops early, the right branch of size 2n over 3 keeps splitting.">
+<style>
+.hand { font-family: "Caveat", "Comic Sans MS", cursive; font-size: 15px; fill: #1a1a1a; }
+</style>
+<g fill="none" stroke="#1a1a1a" stroke-width="1.2">
+<line x1="40" y1="18" x2="20" y2="44" />
+<line x1="40" y1="18" x2="60" y2="44" />
+<line x1="60" y1="56" x2="44" y2="82" />
+<line x1="60" y1="56" x2="80" y2="82" />
+<line x1="80" y1="94" x2="70" y2="110" />
+<line x1="80" y1="94" x2="92" y2="110" />
+</g>
+<g fill="#fafaf7" stroke="#1a1a1a" stroke-width="1.2">
+<circle cx="40" cy="12" r="6" />
+<circle cx="20" cy="50" r="6" />
+<circle cx="60" cy="50" r="6" />
+<circle cx="44" cy="88" r="6" />
+<circle cx="80" cy="88" r="6" />
+<circle cx="68" cy="114" r="4" />
+<circle cx="94" cy="114" r="4" />
+</g>
+<text class="hand" x="0" y="40">n/3</text>
+<text class="hand" x="70" y="42">2n/3</text>
+</svg>

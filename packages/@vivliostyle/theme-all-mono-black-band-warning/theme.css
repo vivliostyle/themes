@@ -1,0 +1,302 @@
+/*
+ * A5判コード中心モノスペース仕様書 (all-mono-black-band-warning)
+ * A5判横組みの技術同人誌 API 仕様書。全編 JetBrains Mono の高密度組みで、
+ * 番号付き左寄せ見出し・細罫グリッドのパラメータ表・薄グレー地のコードブロック・
+ * 黒帯付き警告ボックス・ステータスコード表を積む。墨1色、ノンブルは下部中央、柱なし。
+ * 1 章 = 1 ファイル (frontmatter に class: chapter) とし、章番号は base の
+ * ドキュメントカウンタ vs-counter-chapter、節番号は vs-counter-sec-h2/h3 から起こす。
+ */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/toc';
+
+/* 付録の見出しは Appendix A / B / C */
+@counter-style vs-theme-appendix {
+  system: alphabetic;
+  symbols: 'A' 'B' 'C' 'D' 'E' 'F' 'G' 'H' 'I' 'J' 'K' 'L' 'M' 'N' 'O' 'P' 'Q'
+    'R' 'S' 'T' 'U' 'V' 'W' 'X' 'Y' 'Z';
+}
+
+:root {
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-font-family: 'JetBrains Mono', monospace;
+  --vs-page--mbox-font-size: 8pt;
+  --vs-page--mbox-text-color: #1a1a1a;
+
+  /* テーマ固有 (--vs-* に対応物が無い色) */
+  --vs-theme-all-mono-black-band-warning--color-code-bg: #f0f0f0;
+  --vs-theme-all-mono-black-band-warning--color-code-border: #777777;
+  --vs-theme-all-mono-black-band-warning--color-inverse-bg: #000000;
+  --vs-theme-all-mono-black-band-warning--color-inverse-body: #ffffff;
+
+  --vs-page--size: A5;
+  --vs-page--margin-top: 10mm;
+  --vs-page--margin-bottom: 10mm;
+  --vs-page--margin-left: 9mm;
+  --vs-page--margin-right: 9mm;
+  --vs-page--background-color: #ffffff;
+
+  --vs-font-family: 'JetBrains Mono', 'Menlo', 'Consolas', monospace;
+  --vs-font-size: 6.8pt;
+  --vs-line-height: 1.25;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-background: #ffffff;
+
+  --vs--monospace-font-family: 'JetBrains Mono', 'Menlo', 'Consolas', monospace;
+
+  /* ---- 見出し ---- */
+  --vs--heading-font-family: 'JetBrains Mono', 'Menlo', 'Consolas', monospace;
+  --vs--heading-font-weight: 700;
+  --vs--heading-text-align: start;
+
+  /* 章番号はドキュメントカウンタ、節・小節は base の見出しカウンタから */
+  --vs-section--h1-marker-content: counter(vs-counter-chapter);
+  --vs-section--h2-marker-content: counter(vs-counter-chapter) '.'
+    counter(vs-counter-sec-h2);
+  --vs-section--h3-marker-content: counter(vs-counter-chapter) '.'
+    counter(vs-counter-sec-h2) '.' counter(vs-counter-sec-h3);
+  /* 参照は「section 3.4」の数字部分だけを出し、語は原稿側に置く */
+  --vs-section--call-content: target-counter(attr(href), vs-counter-chapter) '.'
+    target-counter(attr(href), vs-counter-sec-h2);
+  --vs-theme-all-mono-black-band-warning--chapter-call-content: target-counter(
+      attr(href),
+      vs-counter-chapter
+    )
+    ' ' target-text(attr(href));
+  --vs-theme-all-mono-black-band-warning--section-call-content: target-counter(
+      attr(href),
+      vs-counter-chapter
+    )
+    '.' target-counter(attr(href), vs-counter-sec-h2) ' '
+    target-text(attr(href));
+
+  /* 付録 */
+  --vs-theme-all-mono-black-band-warning--appendix-counter-style: vs-theme-appendix;
+  --vs-theme-all-mono-black-band-warning--appendix-marker-content: 'Appendix '
+    counter(
+      vs-counter-appendix,
+      var(--vs-theme-all-mono-black-band-warning--appendix-counter-style)
+    );
+  --vs-theme-all-mono-black-band-warning--appendix-call-content: 'Appendix '
+    target-counter(
+      attr(href),
+      vs-counter-appendix,
+      var(--vs-theme-all-mono-black-band-warning--appendix-counter-style)
+    );
+  --vs-theme-all-mono-black-band-warning--appendix-title-call-content: 'Appendix '
+    target-counter(
+      attr(href),
+      vs-counter-appendix,
+      var(--vs-theme-all-mono-black-band-warning--appendix-counter-style)
+    )
+    ' ' target-text(attr(href));
+
+  --vs--h1-font-size: 13pt;
+  --vs--h1-line-height: 1.15;
+  --vs--h1-letter-spacing: 0.02em;
+  --vs--h1-margin-block: 0 3.6mm;
+  --vs--h1-margin-inline: 0;
+  --vs--h1-padding-block: 0 1.4mm;
+  --vs--h1-border-width-block-end: 0.5mm;
+  --vs--h1-border-style-block-end: solid;
+  --vs--h1-border-color-block-end: var(--vs-color-foreground);
+  --vs--h1-break-after: avoid;
+
+  --vs--h2-font-size: 9.5pt;
+  --vs--h2-break-after: avoid;
+  --vs--h2-line-height: 1.2;
+  --vs--h2-letter-spacing: 0.02em;
+  --vs--h2-margin-block: 0 1.2mm;
+  --vs--h2-margin-inline: 0;
+
+  --vs--h3-font-size: 7.4pt;
+  --vs--h3-line-height: 1.2;
+  --vs--h3-margin-block: 1.1mm 0.8mm;
+  --vs--h3-margin-inline: 2mm 0;
+  --vs--h3-break-after: avoid;
+
+  /* ---- 本文 ---- */
+  --vs--p-text-align: start;
+  --vs--p-margin-block: 0 1.2mm;
+  --vs--p-margin-inline: 2mm 0;
+
+  --vs--lists-margin-block: 0 1.2mm;
+  --vs--lists-margin-inline: 2mm 0;
+  --vs--lists-padding-inline-start: 5mm;
+
+  /* ---- 表: 外枠と列罫は全表共通、行罫は表ごとに切り替える ---- */
+  --vs--table-size-inline: calc(100% - 2mm);
+  --vs--table-line-height: 1.2;
+  --vs--table-font-size: 6pt;
+  --vs--table-margin-block: 0 1.5mm;
+  --vs--table-margin-inline: 2mm 0;
+  --vs--table-text-align: start;
+  --vs--table-cell-vertical-align: top;
+  --vs--table-border-color: #1a1a1a;
+  --vs--table-border-width-outer: 0.35mm;
+  --vs--table-border-width-cell: 0;
+  --vs--table-border-width-column: 0.15mm;
+  --vs--table-border-width-thead-inner: 0.35mm;
+  --vs--table-cell-padding-block: 0.5mm;
+  --vs--table-cell-padding-inline: 1.8mm;
+  --vs--table-border-width: 0;
+
+  /* ---- コードブロック ---- */
+  --vs--pre-background-color: var(
+    --vs-theme-all-mono-black-band-warning--color-code-bg
+  );
+  --vs--pre-border-width-block-start: 0.15mm;
+  --vs--pre-border-width-block-end: 0.15mm;
+  --vs--pre-border-width-inline-start: 0.15mm;
+  --vs--pre-border-width-inline-end: 0.15mm;
+  --vs--pre-border-style-block-start: solid;
+  --vs--pre-border-style-block-end: solid;
+  --vs--pre-border-style-inline-start: solid;
+  --vs--pre-border-style-inline-end: solid;
+  --vs--pre-border-color-block-start: var(
+    --vs-theme-all-mono-black-band-warning--color-code-border
+  );
+  --vs--pre-border-color-block-end: var(
+    --vs-theme-all-mono-black-band-warning--color-code-border
+  );
+  --vs--pre-border-color-inline-start: var(
+    --vs-theme-all-mono-black-band-warning--color-code-border
+  );
+  --vs--pre-border-color-inline-end: var(
+    --vs-theme-all-mono-black-band-warning--color-code-border
+  );
+  --vs--pre-line-height: 1.14;
+  --vs--pre-font-size: 5.6pt;
+  --vs--pre-margin-block: 0 1.4mm;
+  --vs--pre-margin-inline: 0;
+  --vs--pre-padding-block: 1.2mm;
+  --vs--pre-padding-inline: 2mm;
+  --vs--pre-white-space: pre-wrap;
+  /* 折り返し済みなので、スクロール領域を作って版面外を隠す必要はない */
+  --vs--pre-overflow-x: visible;
+}
+
+/* ---- 見出し番号 ---- */
+
+/* 章ドキュメントでだけ採番する (扉・もくじ・付録・奥付は無番号) */
+body.chapter {
+  --vs-section--marker-display: inline;
+}
+
+/* 付録は章とは別立ての英字番号。base の章カウンタ増分を打ち消す */
+:root {
+  counter-reset: vs-counter-appendix;
+}
+
+section:has(> h1.appendix:first-child) {
+  counter-increment: vs-counter-appendix;
+}
+
+section > h1.appendix:first-child::before {
+  content: var(--vs-theme-all-mono-black-band-warning--appendix-marker-content);
+  display: inline;
+  margin-inline-end: var(--vs-section--marker-margin-inline-end);
+}
+
+/* ---- 相互参照 ---- */
+
+a[data-ref='chap']::before {
+  content: var(--vs-theme-all-mono-black-band-warning--chapter-call-content);
+}
+
+a[data-ref='sec-title']::before {
+  content: var(--vs-theme-all-mono-black-band-warning--section-call-content);
+}
+
+a[data-ref='apx']::before {
+  content: var(--vs-theme-all-mono-black-band-warning--appendix-call-content);
+}
+
+a[data-ref='apx-title']::before {
+  content: var(
+    --vs-theme-all-mono-black-band-warning--appendix-title-call-content
+  );
+}
+
+a:is(
+  [data-ref='chap'],
+  [data-ref='sec'],
+  [data-ref='sec-title'],
+  [data-ref='apx'],
+  [data-ref='apx-title']
+) {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---- 章・節の配置 ---- */
+
+section.level1 + section.level1 {
+  break-before: page;
+}
+
+/* ブロック組みでは節の先頭要素のマージンが相殺されるので、節間のアキを作り直す */
+section.level2 + section.level2 {
+  margin-block-start: 3mm;
+}
+
+section.level3 + section.level3 {
+  margin-block-start: 1.6mm;
+}
+
+/* 小さい表が段末で割れると読みづらいので、通しで組む表だけ分割を許す */
+table {
+  break-inside: avoid;
+}
+
+.long table {
+  break-inside: auto;
+}
+
+/* パラメータ表: 行間にも細罫 */
+.params {
+  --vs--table-border-width-row: 0.15mm;
+}
+/* ステータスコード表: 行間罫なしで詰める */
+.status {
+  --vs--table-margin-block: 0;
+}
+.status td {
+  --vs--table-cell-padding-block: 0.25mm;
+}
+.status tbody tr:first-child td {
+  padding-block-start: 0.8mm;
+}
+.status tbody tr:last-child td {
+  padding-block-end: 0.8mm;
+}
+
+/* ---- 警告ボックス: 黒ベタ白抜きヘッダ + 黒枠 ---- */
+.warning {
+  border-width: 0.4mm;
+  border-color: var(--vs-theme-all-mono-black-band-warning--color-inverse-bg);
+  margin-block: 0.4mm 0.6mm;
+  break-inside: avoid;
+}
+.warning h4 {
+  background-color: var(
+    --vs-theme-all-mono-black-band-warning--color-inverse-bg
+  );
+  color: var(--vs-theme-all-mono-black-band-warning--color-inverse-body);
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 0.08em;
+  margin-block: 0;
+  margin-inline: 0;
+  padding-block: 1mm;
+}
+.warning p {
+  font-size: 6.4pt;
+  line-height: 1.28;
+  margin-block: 0;
+  margin-inline: 0;
+  padding-block: 1mm 1.1mm;
+  padding-inline: 2mm;
+}

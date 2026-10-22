@@ -1,0 +1,260 @@
+/*
+ * 判例集（民事型） (centered-heading-bracket-subhead)
+ * B5判・横書き単段の民事判例解説。Noto Serif JP の明朝本文 9.5pt / 行送り 1.6 に、
+ * 中央寄せの番号付き事件名見出し(Shippori Mincho B1)と、その下に裁判所名・事件番号を
+ * 階層表示。【事実の概要】【判旨】の隅付き見出し、本文中の上付き参照マーク、
+ * 争点整理の3列罫線表、末尾に細い上罫で区切った「注」ブロックを組む。柱は中央上に
+ * 細罫を敷いて章題を出し、ノンブルは下中央。装飾色は用いず墨・濃灰・生成りのみ。
+ *
+ * 事件番号は h1 のセクションカウンタ、解説の項番号 (一・二…) は h3 のセクションカウンタ、
+ * 注番号は vs-counter-endnote で生成する。原稿の見出しには番号を書かない。
+ * 柱の章題は frontmatter の title (env(doc-title)) と base のドキュメントカウンタから組む
+ * (md の frontmatter に `class: chapter` を書くと章番号が入る)。
+ *
+ * DOM は VFM 出力: body > section.level1 (h1 + .subhead/.meta + section.level2 …)
+ * + body > section[role='doc-endnotes'] (注)。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@500;600;700;800&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/endnote';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  /* テーマ固有 (--vs-* に対応物が無い値) */
+  --vs-theme-centered-heading-bracket-subhead--font-display:
+    'Shippori Mincho B1', 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+  --vs-theme-centered-heading-bracket-subhead--font-sans:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --vs-theme-centered-heading-bracket-subhead--color-thead-bg: #ececea;
+  --vs-theme-centered-heading-bracket-subhead--color-rule: #555555;
+
+  /* Page: B5縦・四辺18mm均等 */
+  --vs-page--size: JIS-B5;
+  --vs-page--margin-top: 18mm;
+  --vs-page--margin-bottom: 18mm;
+  --vs-page--margin-left: 18mm;
+  --vs-page--margin-right: 18mm;
+  --vs-page--background-color: #fdfcf8;
+  --vs-page--border-width-top: 0.5pt;
+  --vs-page--border-color-top: var(
+    --vs-theme-centered-heading-bracket-subhead--color-rule
+  );
+
+  /* 柱(章題)と下罫・ノンブル */
+  --vs-page--mbox-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+  --vs-page--mbox-font-size: 9pt;
+  --vs-page--mbox-text-color: #1a1a1a;
+  --vs-page--mbox-top-center-content: '第' counter(vs-counter-chapter) '章　'
+    env(doc-title);
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-top-font-weight: 500;
+  --vs-page--mbox-top-letter-spacing: 0.05em;
+  --vs-page--mbox-top-padding-bottom: 1.8mm;
+  --vs-page--mbox-top-vertical-align: bottom;
+
+  /* Type */
+  --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --vs-font-size: 9.5pt;
+  --vs-line-height: 1.6;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-background: #fdfcf8;
+  --vs-columns: 1;
+  --vs-widows-orphans: 2;
+
+  /* Paragraphs: 1字下げ・段落間なし・両端揃え */
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 1em;
+  --vs--p-text-align: justify;
+
+  /* Headings: 本文と同じ明朝を既定に、事件名見出し(h1)だけ Shippori Mincho B1 */
+  --vs--heading-font-family:
+    'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --vs--heading-text-align: start;
+
+  /* 事件名見出し(中央3段の1段目) */
+  --vs--h1-font-family:
+    'Shippori Mincho B1', 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+  --vs--h1-font-size: 19pt;
+  --vs--h1-font-weight: 700;
+  --vs--h1-letter-spacing: 0.04em;
+  --vs--h1-line-height: 1.3;
+  --vs--h1-margin-block: 1mm 2.4mm;
+  --vs--h1-text-align: center;
+
+  /* 【事実の概要】【判旨】隅付き小見出し */
+  --vs--h2-font-size: 10.5pt;
+  --vs--h2-letter-spacing: 0.02em;
+  --vs--h2-line-height: 1.4;
+  --vs--h2-margin-block: 3.4mm 1.4mm;
+
+  /* 解説の項見出し。theme-base 既定の 1.17em では h2 より大きくなってしまう */
+  --vs--h3-font-size: 9.5pt;
+  --vs--h3-font-weight: 700;
+  --vs--h3-letter-spacing: 0.02em;
+  --vs--h3-line-height: 1.5;
+  --vs--h3-margin-block: 2.6mm 0.8mm;
+
+  /* 事件番号(h1)と解説の項番号(h3)。h2 の隅付き見出しには番号を付けない */
+  --vs-section--h1-break-before: page;
+  --vs-section--h1-marker-content: counter(vs-counter-sec-h1);
+  --vs-section--h1-marker-display: inline;
+  --vs-section--h1-marker-margin-inline-end: 0.9em;
+  --vs-section--h3-marker-content: counter(vs-counter-sec-h3, cjk-ideographic);
+  --vs-section--h3-marker-display: inline;
+  --vs-section--h3-marker-margin-inline-end: 1em;
+
+  /* 本文中の上付き参照マーク (1)(2) */
+  --vs--sup-font-size: 0.66em;
+
+  /* 判旨: 引用要旨は字下げのみ、左揃え帯なし */
+  --vs--blockquote-margin-block: 0;
+  --vs--blockquote-margin-inline: 0;
+
+  /* 注ブロックを区切る細い上罫 */
+  --vs--hr-border-color: var(
+    --vs-theme-centered-heading-bracket-subhead--color-rule
+  );
+  --vs--hr-border-width-block-start: 0.5pt;
+  --vs--hr-margin-block: 0 1.8mm;
+
+  /* 注(後注): 番号は (1)(2)…、本文中の参照は「注(12)」 */
+  --vs-theme-centered-heading-bracket-subhead--note-call-content: '注('
+    target-counter(attr(href), vs-counter-endnote) ')';
+  --vs-endnote--backlink-display: none;
+  --vs-endnote--item-font-size: 8.6pt;
+  --vs-endnote--item-line-height: 1.5;
+  --vs-endnote--item-margin-block: 0 0.8mm;
+  --vs-endnote--item-padding-inline-start: 2.6em;
+  --vs-endnote--item-text-align: justify;
+  --vs-endnote--item-text-indent: -2.6em;
+  --vs-endnote--marker-content: '(' counter(vs-counter-endnote) ')';
+  --vs-endnote--marker-display: inline-block;
+  --vs-endnote--marker-font-family: var(
+    --vs-theme-centered-heading-bracket-subhead--font-sans
+  );
+  --vs-endnote--marker-margin-inline: 0 0.6em;
+  --vs-endnote--marker-size-inline: 2em;
+  --vs-endnote--marker-text-indent: 0;
+  --vs-endnote--section-font-size: 8.6pt;
+  --vs-endnote--section-heading-content: '注';
+  --vs-endnote--section-heading-font-family: var(
+    --vs-theme-centered-heading-bracket-subhead--font-sans
+  );
+  --vs-endnote--section-heading-font-size: 8.6pt;
+  --vs-endnote--section-heading-font-weight: 700;
+  --vs-endnote--section-heading-letter-spacing: 0.1em;
+  --vs-endnote--section-heading-margin-block: 6mm 1.2mm;
+  --vs-endnote--section-hr-size-inline: 62%;
+  --vs-endnote--section-margin-block: 0;
+  --vs-endnote--section-ol-list-style-type: none;
+  --vs-endnote--section-ol-margin-block: 0;
+  --vs-endnote--section-ol-padding-inline-start: 0;
+
+  /* 争点整理表: 3列・全罫線・ヘッダは淡グレー地のゴシック */
+  --vs--table-font-size: 8.2pt;
+  --vs--table-margin-block: 3mm;
+  --vs--table-border-color: var(
+    --vs-theme-centered-heading-bracket-subhead--color-rule
+  );
+  --vs--table-border-width: 0.5pt;
+  --vs--table-cell-padding-block: 1.3mm;
+  --vs--table-cell-padding-inline: 2.2mm;
+  --vs--table-text-align: justify;
+  --vs--th-font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --vs--th-font-size: 8.4pt;
+  --vs--th-text-align: center;
+}
+
+/* ==== 事件名見出しブロック(中央3段) ==== */
+.subhead {
+  font-family: var(--vs-theme-centered-heading-bracket-subhead--font-display);
+  font-weight: 600;
+  font-size: 13pt;
+  text-align: center;
+  text-indent: 0;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  margin-block: 0 1.4mm;
+}
+
+.meta {
+  font-weight: 400;
+  font-size: 11pt;
+  text-align: center;
+  text-indent: 0;
+  letter-spacing: 0.02em;
+  margin-block: 0 4mm;
+}
+
+/* 先頭の小見出しだけ標題ブロックに寄せる */
+section.level2:first-of-type > h2 {
+  margin-block-start: 1mm;
+}
+
+/* 本文中の上付き参照マーク (1)(2) */
+sup {
+  font-family: var(--vs-theme-centered-heading-bracket-subhead--font-sans);
+  font-weight: 500;
+  vertical-align: super;
+  letter-spacing: 0;
+}
+
+.footnote-ref sup::before {
+  content: '(';
+}
+
+.footnote-ref sup::after {
+  content: ')';
+}
+
+/* ==== 争点整理表(3列・罫線あり・ヘッダ淡グレー) ==== */
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+th,
+td {
+  line-height: 1.5;
+  vertical-align: top;
+}
+
+thead th {
+  background-color: var(
+    --vs-theme-centered-heading-bracket-subhead--color-thead-bg
+  );
+}
+
+/* 1列目(争点)は明朝・左寄せの見出し列 */
+thead th:first-child {
+  width: 32mm;
+}
+
+tbody td:first-child {
+  font-weight: 500;
+  text-align: start;
+}
+
+/* ==== 注(後注) ==== */
+/* 注は分量が嵩むため章末の独立ページに送る。 */
+[role='doc-endnotes'] {
+  break-before: page;
+}
+
+/* 注の中から他の注を指す参照 (「前掲注(12)」) */
+a[data-ref='note'] {
+  color: inherit;
+  text-decoration: none;
+}
+
+a[data-ref='note']::before {
+  content: var(--vs-theme-centered-heading-bracket-subhead--note-call-content);
+}

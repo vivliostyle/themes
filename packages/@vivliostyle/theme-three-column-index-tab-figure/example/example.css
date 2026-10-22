@@ -1,0 +1,19 @@
+/*
+ * この example は図譜の第四章だけを抜き出したもの。
+ * 章番号と、章のなかでの改ページの取り方をここで与える。
+ */
+
+:root {
+  /* 第四章の抜粋なので、章カウンタを 4 から数え始める */
+  --vs-document-first-page-counter-reset: vs-counter-chapter 3;
+}
+
+/* 図譜の柱は h1 が担う。章の区切りごとに改ページして各ページに柱を立てる */
+body > section.level1 + section.level1 {
+  break-before: page;
+}
+
+/* 見出し語の頁と違い、索引の頁は段の高さがそろわないので段を均す */
+.entries.balanced {
+  column-fill: balance;
+}

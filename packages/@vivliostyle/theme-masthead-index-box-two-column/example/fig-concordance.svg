@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-label="Three proxy series from the Ostrand varves, the Aunlade Cave speleothem and the Sarnholt ice core plotted on a common time axis, with a shaded band marking the interval on which all three agree and an offset marked between the varve and speleothem chronologies">
+<style>
+text { font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif; }
+.lbl { font-size: 14px; fill: #1a1a1a; font-weight: 600; }
+.sub { font-size: 12.5px; fill: #62615d; }
+.tick { font-size: 13px; fill: #62615d; }
+</style>
+
+<rect x="392" y="26" width="96" height="266" fill="#e6e2d6"/>
+<line x1="392" y1="26" x2="392" y2="292" stroke="#b0ada2" stroke-width="1"/>
+<line x1="488" y1="26" x2="488" y2="292" stroke="#b0ada2" stroke-width="1"/>
+<text class="sub" x="440" y="20" text-anchor="middle">interval of agreement</text>
+
+<line x1="150" y1="100" x2="770" y2="100" stroke="#62615d" stroke-width="1"/>
+<polyline fill="none" stroke="#1a1a1a" stroke-width="2.2"
+ points="150,84 190,96 230,78 270,104 310,90 350,112 392,70 430,58 470,66 488,88 530,104 570,92 610,110 650,86 690,100 730,80 770,94"/>
+<text class="lbl" x="20" y="76">Ostrand varves</text>
+<text class="sub" x="20" y="93">couplet thickness</text>
+<text class="sub" x="20" y="108">core OB-7</text>
+
+<line x1="150" y1="190" x2="770" y2="190" stroke="#62615d" stroke-width="1"/>
+<polyline fill="none" stroke="#1a1a1a" stroke-width="2.2"
+ points="150,176 190,186 230,170 270,196 310,182 350,200 392,162 430,150 470,158 488,180 530,196 570,184 610,202 650,178 690,192 730,172 770,186"/>
+<text class="lbl" x="20" y="166">Aunlade Cave</text>
+<text class="sub" x="20" y="183">stable isotope ratio</text>
+<text class="sub" x="20" y="198">stalagmite AU-2</text>
+
+<line x1="150" y1="278" x2="770" y2="278" stroke="#62615d" stroke-width="1"/>
+<polyline fill="none" stroke="#62615d" stroke-width="2.2" stroke-dasharray="7 5"
+ points="150,266 190,274 230,258 270,282 310,268 350,286 392,252 430,240 470,248 488,268 530,284 570,272 610,288 650,266 690,278 730,260 770,274"/>
+<text class="lbl" x="20" y="254">Sarnholt ice</text>
+<text class="sub" x="20" y="271">annual accumulation</text>
+<text class="sub" x="20" y="286">core SG-3</text>
+
+<line x1="150" y1="308" x2="770" y2="308" stroke="#62615d" stroke-width="1.2"/>
+<g stroke="#62615d" stroke-width="1">
+<line x1="150" y1="308" x2="150" y2="314"/><line x1="274" y1="308" x2="274" y2="314"/>
+<line x1="398" y1="308" x2="398" y2="314"/><line x1="522" y1="308" x2="522" y2="314"/>
+<line x1="646" y1="308" x2="646" y2="314"/><line x1="770" y1="308" x2="770" y2="314"/>
+</g>
+<text class="tick" x="150" y="330" text-anchor="middle">1000</text>
+<text class="tick" x="274" y="330" text-anchor="middle">1100</text>
+<text class="tick" x="398" y="330" text-anchor="middle">1200</text>
+<text class="tick" x="522" y="330" text-anchor="middle">1300</text>
+<text class="tick" x="646" y="330" text-anchor="middle">1400</text>
+<text class="tick" x="770" y="330" text-anchor="middle">1500</text>
+<text class="sub" x="460" y="352" text-anchor="middle">Year of the varve chronology (before alignment)</text>
+
+<g stroke="#1a1a1a" stroke-width="1">
+<line x1="430" y1="58" x2="430" y2="140"/>
+<line x1="466" y1="150" x2="466" y2="140"/>
+<line x1="430" y1="140" x2="466" y2="140"/>
+<line x1="430" y1="140" x2="436" y2="136"/><line x1="430" y1="140" x2="436" y2="144"/>
+<line x1="466" y1="140" x2="460" y2="136"/><line x1="466" y1="140" x2="460" y2="144"/>
+</g>
+<text class="sub" x="474" y="136">62 yr offset</text>
+</svg>

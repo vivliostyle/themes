@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="青葉デザイン工房之印">
+  <rect x="5.5" y="5.5" width="89" height="89" fill="none" stroke="#cc3322" stroke-width="5" />
+  <text x="76" y="41" text-anchor="middle" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-weight="700" font-size="30" fill="#cc3322">青</text>
+  <text x="76" y="81" text-anchor="middle" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-weight="700" font-size="30" fill="#cc3322">葉</text>
+  <text x="50" y="27" text-anchor="middle" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-weight="700" font-size="19" fill="#cc3322">デ</text>
+  <text x="50" y="47" text-anchor="middle" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-weight="700" font-size="19" fill="#cc3322">ザ</text>
+  <text x="50" y="67" text-anchor="middle" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-weight="700" font-size="19" fill="#cc3322">イ</text>
+  <text x="50" y="87" text-anchor="middle" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-weight="700" font-size="19" fill="#cc3322">ン</text>
+  <text x="24" y="27" text-anchor="middle" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-weight="700" font-size="19" fill="#cc3322">工</text>
+  <text x="24" y="47" text-anchor="middle" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-weight="700" font-size="19" fill="#cc3322">房</text>
+  <text x="24" y="67" text-anchor="middle" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-weight="700" font-size="19" fill="#cc3322">之</text>
+  <text x="24" y="87" text-anchor="middle" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-weight="700" font-size="19" fill="#cc3322">印</text>
+</svg>

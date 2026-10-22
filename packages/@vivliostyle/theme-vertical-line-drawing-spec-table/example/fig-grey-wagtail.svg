@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 126" role="img" aria-label="河原の石の上で尾を振る横向きのキセキレイの線画">
+<style>
+.ink { fill: none; stroke: #1c1c1c; stroke-linecap: round; }
+.hatch { fill: none; stroke: #5a5a5a; stroke-linecap: round; stroke-width: 1; }
+.light { fill: none; stroke: #f6f4ee; stroke-linecap: round; stroke-width: 1.1; }
+</style>
+
+<path class="ink" d="M22,124 C32,114 48,108 68,108 C90,108 108,114 118,124" stroke-width="2.4" stroke-linejoin="round"/>
+<path class="ink" d="M126,124 C132,118 142,114 154,114 C166,114 176,118 182,124" stroke-width="2.2" stroke-linejoin="round"/>
+<path class="hatch" d="M38,118 L50,113 M44,123 L58,116 M92,114 L104,119 M148,120 L160,118"/>
+<path class="hatch" d="M0,120 L14,120 M0,126 L10,126 M188,120 L200,120" stroke-width="1.2"/>
+
+<path class="ink" d="M78,90 L76,108 M90,89 L92,108" stroke-width="2"/>
+<path class="ink" d="M74,108 L70,111 M77,108 L78,112 M90,108 L86,111 M93,108 L94,112" stroke-width="1.5"/>
+
+<path d="M30,41 L52,36
+         C56,20 78,20 86,35
+         C98,47 106,60 105,71
+         L178,101 L182,112 L100,83
+         C92,95 74,93 68,79
+         C62,67 62,51 68,41
+         L54,44 L30,44 Z"
+      fill="#1c1c1c" stroke="#1c1c1c" stroke-width="1" stroke-linejoin="round"/>
+
+<path class="light" d="M112,86 L176,110" stroke-width="2.4"/>
+<path class="light" d="M56,27 L78,26" stroke-width="2"/>
+<path d="M64,45 C67,60 76,72 88,78 C77,88 66,77 63,60 Z" fill="#f6f4ee"/>
+<circle cx="65" cy="34" r="2.8" fill="#f6f4ee"/>
+<circle cx="66" cy="34" r="1.4" fill="#1c1c1c"/>
+<path class="light" d="M84,52 L100,58" stroke-width="1.8"/>
+
+<path class="hatch" d="M86,42 C98,52 105,62 104,74" stroke-width="1"/>
+<path class="hatch" d="M82,58 L98,64 M80,68 L96,74 M82,77 L96,82"/>
+<path class="hatch" d="M116,90 L172,112" stroke-width="0.9"/>
+</svg>

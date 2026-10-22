@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 62" role="img" aria-label="発生した気体を石灰水に通して白くにごらせる線画">
+<path d="M18 5 h18 v42 q0 9 -9 9 q-9 0 -9 -9 z" fill="#eef4fb" stroke="#48607a" stroke-width="1.4" />
+<path d="M18.7 26 h16.6 v21 q0 8.3 -8.3 8.3 q-8.3 0 -8.3 -8.3 z" fill="#dfe6ec" />
+<path d="M18.7 26 q8.3 2.6 16.6 0" fill="none" stroke="#9dbede" stroke-width="0.9" />
+<path d="M4 8 h23 v28" fill="none" stroke="#48607a" stroke-width="1.4" />
+<circle cx="27" cy="40" r="1.5" fill="#ffffff" stroke="#9dbede" stroke-width="0.6" />
+<circle cx="23" cy="45" r="1.2" fill="#ffffff" stroke="#9dbede" stroke-width="0.6" />
+<circle cx="31" cy="47" r="1.3" fill="#ffffff" stroke="#9dbede" stroke-width="0.6" />
+<circle cx="25" cy="51" r="1" fill="#ffffff" stroke="#9dbede" stroke-width="0.6" />
+</svg>

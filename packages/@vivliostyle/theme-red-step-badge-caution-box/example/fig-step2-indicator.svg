@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 62" role="img" aria-label="三角フラスコに指示薬を滴下する線画">
+<ellipse cx="40" cy="6.5" rx="4" ry="5" fill="#eaf2fa" stroke="#48607a" stroke-width="1.2" />
+<path d="M38.8 11.5 h2.4 l-0.5 8 h-1.4 z" fill="#eaf2fa" stroke="#48607a" stroke-width="1" />
+<path d="M40 22 q2.6 3.6 0 5.4 q-2.6 -1.8 0 -5.4" fill="#7fb3e0" />
+<path d="M35 30 v7 L23 54 q-1.6 3 1.8 3 h30.4 q3.4 0 1.8 -3 L45 37 v-7 z" fill="#eef4fb" stroke="#48607a" stroke-width="1.4" />
+<path d="M27 50 h26" stroke="#9dbede" stroke-width="1" fill="none" />
+</svg>

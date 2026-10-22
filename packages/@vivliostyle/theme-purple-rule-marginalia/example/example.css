@@ -1,0 +1,10 @@
+/*
+ * example 専用の上書き。theme.css には手を入れない。
+ */
+
+/* あとがきの署名 */
+.signature {
+  text-indent: 0;
+  text-align: end;
+  margin-block-start: 1.5mm;
+}

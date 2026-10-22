@@ -1,0 +1,21 @@
+/*
+ * データシート 1 点を通しで組むのに必要な差分だけをこのファイルに置く。
+ */
+
+/* ピン配置図・応用回路図・タイミング図は記号が細かく、theme.css の図版幅では
+   注記が読めない大きさになるため段幅近くまで広げる */
+figure.pinout,
+figure.circuit,
+figure.timing {
+  --vs--figure-item-size-inline: 94%;
+}
+
+/* 表題が表から切り離されて次段に送られるのを防ぐ */
+figure.tbl > figcaption {
+  break-before: avoid;
+}
+
+/* 巻末の注記が段をまたいで割れないようにする */
+.note {
+  break-inside: avoid;
+}

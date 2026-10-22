@@ -1,0 +1,258 @@
+/**
+ * 国際学術論文集 本文頁 (theme-two-column-three-line-table)
+ * B5縦・横組み2段組。Noto Sans のサンセリフ本文 (9pt/1.5)、番号付きの紺見出し、
+ * STIX Two Text のディスプレイ数式 + 右端式番号、三線データ表、段下の区切り罫付き脚注。
+ * 天の両端に誌名と論文名のランニングヘッド+紺細罫、地の中央にノンブル。
+ * VFM 出力: body > div.paper-head (全幅) + section.level2 (> section.level3)。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/footnote';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/math';
+
+:root {
+  /* テーマ固有トークン */
+  --vs-theme-two-column-three-line-table--color-accent: #2c3e50;
+  --vs-theme-two-column-three-line-table--color-rule: #8a9199;
+  --vs-theme-two-column-three-line-table--color-rule-soft: #d5d9dd;
+  --vs-theme-two-column-three-line-table--font-math:
+    'STIX Two Math', 'Cambria Math', 'Latin Modern Math', math;
+
+  /* 天の柱の左に出す誌名・巻号。既定は刊行物名 */
+  --vs-theme-two-column-three-line-table--running-publication: env(pub-title);
+
+  /* ディスプレイ数式の参照 <a href="#eq-N" data-ref="eq"></a> はラベルなしの '(N)' */
+  --vs-equation--call-content: '(' target-counter(attr(href), vs-counter-eq) ')';
+  --vs-equation--margin-block: 1.8mm;
+  --vs-equation--marker-font-size: 8.5pt;
+
+  /* Page: B5縦 */
+  --vs-page--size: JIS-B5;
+  --vs-page--margin-top: 15mm;
+  --vs-page--margin-bottom: 15mm;
+  --vs-page--margin-left: 12.5mm;
+  --vs-page--margin-right: 12.5mm;
+  --vs-page--mbox-top-padding-bottom: 1.6mm;
+  --vs-page--mbox-top-vertical-align: bottom;
+
+  /* Type */
+  --vs-font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+  --vs-font-size: 9pt;
+  --vs-line-height: 1.5;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-background: #ffffff;
+  --vs-widows-orphans: 2;
+
+  /* Paragraphs: 字下げなし・段落後に微小アキ・両端揃え */
+  --vs--p-margin-block: 0 calc(var(--vs-spacing-rlh) / 3);
+  --vs--p-text-indent: 0;
+  --vs--p-text-align: justify;
+  --vs--p-hyphens: auto;
+
+  /* Headings: 節は「1.」、小節は「2.1」 */
+  --vs--heading-font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+  --vs--heading-font-weight: 700;
+  --vs--heading-text-align: start;
+  --vs--h2-font-size: 13pt;
+  --vs--h2-line-height: 1.2;
+  --vs--h2-letter-spacing: 0.01em;
+  --vs--h2-margin-block: 0 1.4mm;
+  --vs--h2-text-color: var(
+    --vs-theme-two-column-three-line-table--color-accent
+  );
+  --vs--h3-font-size: 9.5pt;
+  --vs--h3-line-height: 1.25;
+  --vs--h3-margin-block: 3mm 1mm;
+  --vs--h3-text-color: var(
+    --vs-theme-two-column-three-line-table--color-accent
+  );
+  --vs-section--h2-marker-content: counters(vs-counter-sections, '.') '.';
+  --vs-section--h2-marker-display: inline;
+  --vs-section--h2-marker-margin-inline-end: 0.35em;
+  --vs-section--h3-marker-content: counters(vs-counter-sections, '.');
+  --vs-section--h3-marker-display: inline;
+  --vs-section--h3-marker-margin-inline-end: 0.45em;
+  --vs-section--call-content: 'Section '
+    target-counters(attr(href), vs-counter-sections, '.');
+
+  /* 図表は本文と同じ幅の塊として置く (flex だとページ分割できない) */
+  --vs--figure-display: block;
+  --vs--figure-margin-block: 0 2mm;
+  --vs--figure-margin-inline: 0;
+
+  /* 表の見出し「TABLE 2.」と、その参照 <a href="#tbl-id" data-ref="tbl"></a> */
+  --vs-table--marker-content: 'TABLE ' counter(vs-counter-tbl) '.';
+  --vs-table--marker-margin-inline: 0 0.35em;
+  --vs-table--call-content: 'TABLE ' target-counter(attr(href), vs-counter-tbl);
+
+  /* 三線データ表: 天地の太罫・ヘッダ下の中罫・行間の細罫のみ */
+  --vs--table-border-width: 0;
+  --vs--table-border-width-block-start: 1.3pt;
+  --vs--table-border-width-block-end: 1.3pt;
+  --vs--table-border-color-block-start: var(
+    --vs-theme-two-column-three-line-table--color-accent
+  );
+  --vs--table-border-color-block-end: var(
+    --vs-theme-two-column-three-line-table--color-accent
+  );
+  --vs--table-border-width-thead-inner: 0.6pt;
+  --vs--table-border-color-thead-inner: var(
+    --vs-theme-two-column-three-line-table--color-rule
+  );
+  --vs--table-border-width-row: 0.4pt;
+  --vs--table-border-color-row: var(
+    --vs-theme-two-column-three-line-table--color-rule-soft
+  );
+  --vs--table-size-inline: 100%;
+  --vs--table-font-size: 5.6pt;
+  --vs--table-margin-block: 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-text-align: start;
+  --vs--table-cell-padding-block: 2.1mm;
+  --vs--table-cell-padding-inline: 0 0.9mm;
+  --vs--table-cell-white-space: nowrap;
+  --vs--th-font-size: 5.6pt;
+  --vs--th-font-weight: 600;
+  --vs--th-padding-block: 0 1.8mm;
+
+  /* 参考文献: [n] をぶら下げた小さな組み */
+  --vs-citation--marker-margin-inline: 0 0.4em;
+
+  /* Footnotes: 段下・番号(装飾なし)・上に短い区切り罫 */
+  --vs-footnote--font-size: 8pt;
+  --vs-footnote--line-height: 1.4;
+  --vs-footnote--call-content: counter(vs-counter-footnote, decimal);
+  --vs-footnote--marker-content: counter(vs-counter-footnote, decimal) '\2002';
+  --vs-footnote--area-before-border-color-block-start: var(
+    --vs-theme-two-column-three-line-table--color-rule
+  );
+  --vs-footnote--area-before-border-width-block-start: 0.5pt;
+  --vs-footnote--text-indent: 0;
+  --vs-footnote--area-before-margin-inline: 0 66%;
+  --vs-footnote--area-before-margin-block: 0.5rem 0.4rem;
+
+  /* 柱(両端ランニングヘッド)+紺細罫、地の中央にノンブル */
+  --vs-page--mbox-top-left-content: var(
+    --vs-theme-two-column-three-line-table--running-publication
+  );
+  --vs-page--mbox-top-right-content: env(doc-title);
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-font-family: 'Noto Sans', sans-serif;
+  --vs-page--mbox-text-color: var(--vs-color-foreground);
+  --vs-page--mbox-top-font-size: 6.5pt;
+  --vs-page--mbox-top-font-weight: 400;
+  --vs-page--mbox-bottom-font-size: 9pt;
+  --vs-page--border-color-top: var(
+    --vs-theme-two-column-three-line-table--color-accent
+  );
+  --vs-page--border-width-top: 0.5pt;
+}
+
+/* 2段組は body に掛ける。標題ブロックだけが段を横断する */
+body {
+  columns: 2;
+  column-gap: 6mm;
+  column-fill: auto;
+}
+
+/* ---- 標題ブロック: 段を横断する全幅 ---- */
+.paper-head {
+  column-span: all;
+  border-block-end: 0.5pt solid
+    var(--vs-theme-two-column-three-line-table--color-rule-soft);
+  margin-block-end: 4mm;
+  padding-block-end: 3.5mm;
+}
+.paper-head h1 {
+  color: var(--vs-theme-two-column-three-line-table--color-accent);
+  font-size: 15pt;
+  font-weight: 700;
+  letter-spacing: 0.005em;
+  line-height: 1.24;
+  margin-block: 0 2.6mm;
+  text-align: center;
+}
+.paper-head .byline {
+  font-size: 9.5pt;
+  margin-block: 0 0.9mm;
+  text-align: center;
+}
+.paper-head .affil {
+  font-size: 7.5pt;
+  margin-block: 0 3.2mm;
+  text-align: center;
+}
+.paper-head .abstract,
+.paper-head .terms {
+  font-size: 8.2pt;
+  line-height: 1.45;
+  margin-block: 0 1.4mm;
+  padding-inline: 9mm;
+  text-align: justify;
+}
+.paper-head strong {
+  color: var(--vs-theme-two-column-three-line-table--color-accent);
+  letter-spacing: 0.02em;
+}
+
+/* ---- MathML ---- */
+:root {
+  --vs-math--font-family: var(
+    --vs-theme-two-column-three-line-table--font-math
+  );
+  --vs-math--display-margin-block: 0;
+}
+
+math:not([display='block']) {
+  font-size: 0.98em;
+}
+
+/* base の a 既定 (アクセント色) は参照番号には要らない */
+a[data-ref='eq'] {
+  --vs--anchor-text-color: inherit;
+}
+
+/* ---- 三線データ表 ---- */
+figcaption {
+  text-align: start;
+  font-size: 8.5pt;
+  line-height: 1.3;
+  margin-block: 0 1.6mm;
+  break-after: avoid;
+}
+
+figcaption::before {
+  color: var(--vs-theme-two-column-three-line-table--color-accent);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+thead th {
+  letter-spacing: 0.01em;
+}
+tbody td:first-child {
+  font-weight: 600;
+}
+
+/* ---- 参考文献 ---- */
+:root {
+  --vs-citation--items-margin-block: 0;
+  --vs-citation--items-padding-inline-start: 0;
+  --vs-citation--item-font-size: 7.4pt;
+  --vs-citation--item-hyphens: auto;
+  --vs-citation--item-line-height: 1.34;
+  --vs-citation--item-margin-block: 0 0.9mm;
+  --vs-citation--item-padding-inline-start: 4.6mm;
+  --vs-citation--item-text-align: start;
+  --vs-citation--item-text-indent: -4.6mm;
+  --vs-citation--marker-position: static;
+}

@@ -1,0 +1,340 @@
+/*
+ * 植物ビジュアル用語集 (three-column-index-tab-figure)
+ * A4縦・三段組の植物図譜。Noto Serif JP の明朝で見出し語と本文を組み、
+ * 学名は Source Serif 4 のイタリック、分類記号・柱・ノンブルは Noto Sans JP。
+ * 在来種は緑ベタ円、外来種は緑枠白抜き円で識別し、段間の極細縦罫と天の柱罫で
+ * 階層を示す。図版は模式図の SVG を見出し語ごとに添える。
+ *
+ * 見出し語 1 件 = 1 section (`.entries > section`)。図版をもつ項目には図番号、
+ * もたない項目には章内の通し番号を、見出し語行のバッジに続けて生成する。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Source+Serif+4:ital,wght@0,400;1,400&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  /* テーマ固有 */
+  --vs-theme-three-column-index-tab-figure--font-sans:
+    'Noto Sans JP', sans-serif;
+  --vs-theme-three-column-index-tab-figure--font-latin:
+    'Source Serif 4', 'Times New Roman', serif;
+  --vs-theme-three-column-index-tab-figure--color-accent: #27ae60;
+  --vs-theme-three-column-index-tab-figure--color-accent-dark: #176b3a;
+  --vs-theme-three-column-index-tab-figure--color-alt: #b98b35;
+  --vs-theme-three-column-index-tab-figure--color-muted: #5a635a;
+  --vs-theme-three-column-index-tab-figure--color-on-accent: #ffffff;
+  --vs-theme-three-column-index-tab-figure--color-tab-bg: #f0efe4;
+  --vs-theme-three-column-index-tab-figure--fig-marker-content: 'Fig. '
+    counter(vs-counter-fig);
+  --vs-theme-three-column-index-tab-figure--entry-marker-content: counter(
+    vs-counter-entry
+  );
+
+  /* Page: A4 portrait。索引タブを小口に固定するため左右の入れ替えはしない */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 18mm;
+  --vs-page--margin-bottom: 16mm;
+  --vs-page--margin-left: 14mm;
+  --vs-page--margin-right: 16mm;
+  --vs-page--mbox-font-family: 'Noto Sans JP', sans-serif;
+  --vs-page--mbox-font-size: 7.5pt;
+  --vs-page--mbox-font-weight: 500;
+  --vs-page--mbox-text-color: #5a635a;
+  --vs-page--mbox-letter-spacing: 0.08em;
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-right-top-content: element(index-tabs);
+
+  /* Type */
+  --vs-font-family: 'Noto Serif JP', serif;
+  --vs-font-size: 8pt;
+  --vs-line-height: 1.55;
+  --vs-color-foreground: #252a26;
+  --vs-color-background: #f8f6ee;
+  --vs-columns: 1;
+
+  /* 罫線の既定はヘアラインの淡緑 (天の柱罫だけ本文色を明示指定する) */
+  --vs-color-border: #b8c5ba;
+
+  /* Paragraphs: flush, justified */
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 0;
+  --vs--p-text-align: justify;
+
+  /* Headings: plain mincho, wide tracking */
+  --vs--heading-font-family: 'Noto Serif JP', serif;
+  --vs--heading-font-weight: 600;
+  --vs--heading-text-align: start;
+  --vs--heading-margin-block: 0 0;
+
+  /* 柱 (誌名 + 章名) */
+  --vs--h1-font-size: 10.5pt;
+  --vs--h1-margin-block: 0 3mm;
+  --vs--h1-border-width-block-end: 0.9pt;
+  --vs--h1-border-style-block-end: solid;
+  --vs--h1-border-color-block-end: var(--vs-color-foreground);
+  --vs--h1-padding-block: 0 1.6mm;
+
+  /* 見出し語 */
+  --vs--h2-font-size: 1.55em;
+  --vs--h2-line-height: 1.2;
+  --vs--h2-letter-spacing: 0.05em;
+
+  /* 見出し語行の右クラスタ (分類バッジ + 図番) */
+  --vs--small-font-size: 0.5em;
+
+  /* Figures: flush-left plates, no theme gutter */
+  --vs--figure-align-items: flex-start;
+  --vs--figure-margin-block: 1.6mm 1.4mm;
+  --vs--figure-item-size-inline: 100%;
+  /* Markdown 画像が自動生成する空の figcaption はこの用語集では使わない */
+  --vs--figcaption-display: none;
+
+  /* 相互参照リンク */
+  --vs--anchor-text-color: #27ae60;
+  --vs--anchor-text-decoration: none;
+
+  /* 索引タブの ol は装飾を自前で持つのでリストの既定を全て落とす */
+  --vs--lists-margin-block: 0;
+  --vs--lists-margin-inline: 0;
+  --vs--ol-list-style-type: none;
+  --vs--ol-padding-inline-start: 0px;
+
+  counter-reset: vs-counter-entry;
+}
+
+/* 章立ての原稿 (frontmatter の class: chapter) では図番号に章番号を冠する */
+html.chapter {
+  --vs-theme-three-column-index-tab-figure--fig-marker-content: 'Fig. '
+    counter(vs-counter-chapter) '-' counter(vs-counter-fig);
+}
+
+/* 図番号は base の既定 (図N:) ではなく見出し語行と同じ書式で参照する */
+:root,
+:root:lang(ja) {
+  --vs-figure--call-content: 'Fig. ' target-counter(attr(href), vs-counter-fig);
+}
+
+html.chapter,
+html.chapter:lang(ja) {
+  --vs-figure--call-content: 'Fig. '
+    target-counter(attr(href), vs-counter-chapter) '-'
+    target-counter(attr(href), vs-counter-fig);
+}
+
+/* Header band: publication name + chapter, thin rule below */
+body > section.level1 > h1 {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+/* 項目番号は章 (h1 の節) ごとに振り直す。base は section 側に
+   counter-reset を持つので、見出し要素にスコープを作って衝突を避ける */
+section > h1:first-child {
+  counter-reset: vs-counter-entry;
+}
+
+body > section.level1 > h1 > .pub {
+  letter-spacing: 0.14em;
+}
+
+body > section.level1 > h1 > .chap {
+  letter-spacing: 0.12em;
+}
+
+/* Three-column body with hairline column rules */
+.entries {
+  columns: 3;
+  column-gap: 7mm;
+  column-rule-width: 0.4pt;
+  column-rule-style: solid;
+  column-rule-color: var(--vs-color-border);
+  column-fill: auto;
+}
+
+/* One dictionary entry */
+.entries > section {
+  break-inside: avoid;
+  margin-block-end: 4.5mm;
+  padding-block-end: 3.5mm;
+  border-block-end-width: 0.4pt;
+  border-block-end-style: solid;
+}
+
+.entries > section:last-child {
+  border-block-end-style: none;
+}
+
+/* Headword line: marker + name (left), origin badge + fig no. (right) */
+.entries > section > h2 {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.4em;
+}
+
+/* 図番号は図版より前の見出し語行に出るため、図ではなく項目の見出しで数える */
+.entries > section > figure {
+  counter-increment: none;
+}
+
+.entries > section:has(> figure) > h2:first-child {
+  counter-increment: vs-counter-fig;
+}
+
+.entries > section:has(> h2 small b):not(:has(> figure)) > h2:first-child {
+  counter-increment: vs-counter-entry;
+}
+
+.entries > section > h2 small:has(b)::after {
+  content: var(--vs-theme-three-column-index-tab-figure--entry-marker-content);
+}
+
+.entries > section:has(> figure) > h2 small:has(b)::after {
+  content: var(--vs-theme-three-column-index-tab-figure--fig-marker-content);
+}
+
+.entries .hw::before {
+  content: '';
+  display: inline-block;
+  width: 0.62em;
+  height: 0.62em;
+  margin-inline-end: 0.42em;
+  border-radius: 50%;
+  border-style: solid;
+  vertical-align: 0.02em;
+}
+
+.entries .hw.native::before {
+  background-color: var(--vs-theme-three-column-index-tab-figure--color-accent);
+  border-width: 1px;
+  border-color: var(
+    --vs-theme-three-column-index-tab-figure--color-accent-dark
+  );
+}
+
+.entries .hw.foreign::before {
+  background-color: var(--vs-color-background);
+  border-width: 1.4px;
+  border-color: var(--vs-theme-three-column-index-tab-figure--color-accent);
+}
+
+/* right cluster: [在来/外来] badge + Fig no. */
+.entries > section > h2 small {
+  flex: none;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--vs-theme-three-column-index-tab-figure--color-muted);
+  white-space: nowrap;
+}
+
+.entries > section > h2 small b {
+  font-family: var(--vs-theme-three-column-index-tab-figure--font-sans);
+  font-weight: 500;
+  color: var(--vs-theme-three-column-index-tab-figure--color-accent-dark);
+  border-width: 0.5pt;
+  border-style: solid;
+  border-color: var(--vs-theme-three-column-index-tab-figure--color-accent);
+  border-radius: 1px;
+  padding: 0.05em 0.35em;
+  margin-inline-end: 0.5em;
+}
+
+/* 索引の図版参照は本文と同じ墨色で組む (項目末の案内リンクだけを緑にする) */
+.entries a[data-ref='fig'] {
+  color: var(--vs-color-foreground);
+}
+
+/* Scientific name (Latin italic) directly under headword */
+.entries > section > h2 + p {
+  font-family: var(--vs-theme-three-column-index-tab-figure--font-latin);
+  font-style: italic;
+  font-size: 7.5pt;
+  color: var(--vs-theme-three-column-index-tab-figure--color-accent-dark);
+  letter-spacing: 0.01em;
+  margin-block: 0.6mm 0;
+}
+
+/* Botanical figure placeholder */
+.entries > section > figure img {
+  display: block;
+  max-width: 42mm;
+  height: auto;
+}
+
+/* Status + cross-reference footer line */
+.entries > section > p:has(> .st) {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6em;
+  font-family: var(--vs-theme-three-column-index-tab-figure--font-sans);
+  font-size: 6.8pt;
+  font-weight: 500;
+  color: var(--vs-theme-three-column-index-tab-figure--color-muted);
+  letter-spacing: 0.02em;
+  margin-block: 1.6mm 0;
+  text-align: start;
+}
+
+.entries > section > p:has(> .st) .st {
+  flex: 1 1 auto;
+}
+
+.entries > section > p:has(> .st) strong {
+  font-weight: 700;
+  color: var(--vs-theme-three-column-index-tab-figure--color-accent-dark);
+}
+
+.entries > section > p:has(> .st) b.alt {
+  font-weight: 700;
+  color: var(--vs-theme-three-column-index-tab-figure--color-alt);
+}
+
+.entries > section > p:has(> .st) a {
+  flex: none;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Alphabetic index tabs in the outer margin。
+   running element にすることで、節が何ページに渡っても小口にタブが立つ */
+nav.sidebar {
+  position: running(index-tabs);
+  width: 9mm;
+}
+
+nav.sidebar li {
+  font-family: var(--vs-theme-three-column-index-tab-figure--font-sans);
+  font-size: 8pt;
+  font-weight: 500;
+  text-align: center;
+  color: var(--vs-theme-three-column-index-tab-figure--color-muted);
+  padding-block: 1.6mm;
+  border-width: 0.5pt;
+  border-style: solid;
+  border-inline-end-width: 0;
+  border-block-end-width: 0;
+  background-color: var(--vs-theme-three-column-index-tab-figure--color-tab-bg);
+}
+
+nav.sidebar li:last-child {
+  border-block-end-width: 0.5pt;
+}
+
+nav.sidebar li[aria-current] {
+  background-color: var(--vs-theme-three-column-index-tab-figure--color-accent);
+  color: var(--vs-theme-three-column-index-tab-figure--color-on-accent);
+  border-color: var(
+    --vs-theme-three-column-index-tab-figure--color-accent-dark
+  );
+  font-weight: 700;
+}

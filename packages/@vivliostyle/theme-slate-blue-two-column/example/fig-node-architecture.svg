@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 224" role="img" aria-label="Compute topology: inspection head, acquisition node, fusion node and supervisory node with the data rate on each link">
+<defs>
+<marker id="arwn" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0,1 L 9,5 L 0,9 z" fill="#2c3e50" />
+</marker>
+</defs>
+<g font-family="Inter, 'Helvetica Neue', Arial, sans-serif" fill="#2c3e50" text-anchor="middle">
+<g font-size="12" font-weight="600">
+<text x="71" y="36">Inspection head</text>
+<text x="255" y="36">Acquisition node</text>
+<text x="444" y="36">Fusion node</text>
+</g>
+<g fill="none" stroke="#2c3e50" stroke-width="1.4">
+<rect x="8" y="44" width="126" height="80" rx="8" />
+<rect x="188" y="44" width="134" height="80" rx="8" />
+<rect x="376" y="44" width="136" height="80" rx="8" />
+</g>
+<g font-size="11">
+<text x="71" y="70">4 × optical</text>
+<text x="71" y="90">3 × acoustic</text>
+<text x="71" y="110">1 × inertial</text>
+</g>
+<g font-size="10">
+<text x="255" y="72">FPGA front end</text>
+<text x="255" y="90">hardware timestamps</text>
+<text x="255" y="108">time alignment</text>
+<text x="444" y="72">state estimator</text>
+<text x="444" y="90">adaptive weights</text>
+<text x="444" y="108">pose at 200 Hz</text>
+</g>
+<g stroke="#2c3e50" stroke-width="1.4">
+<line x1="134" y1="84" x2="184" y2="84" marker-end="url(#arwn)" />
+<line x1="322" y1="84" x2="372" y2="84" marker-end="url(#arwn)" />
+</g>
+<g font-size="9.5">
+<text x="159" y="76">100 MiB/s</text>
+<text x="347" y="76">0.59 MiB/s</text>
+</g>
+<g stroke="#2c3e50" stroke-width="1.2" fill="none" stroke-dasharray="5 4">
+<line x1="255" y1="124" x2="255" y2="164" marker-start="url(#arwn)" marker-end="url(#arwn)" />
+<line x1="444" y1="124" x2="444" y2="164" marker-start="url(#arwn)" marker-end="url(#arwn)" />
+</g>
+<rect x="134" y="168" width="378" height="46" rx="6" fill="#eef2f6" stroke="#2c3e50" stroke-width="1.2" />
+<text x="323" y="188" font-size="11" font-weight="600">Supervisory node</text>
+<text x="323" y="204" font-size="9.5">health monitor · fault arbiter · degraded-mode selection</text>
+</g>
+</svg>

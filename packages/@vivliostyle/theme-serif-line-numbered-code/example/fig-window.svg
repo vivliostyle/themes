@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 310" role="img" aria-label="Figure 3: Curve of p99 latency against the length of the observation window, with a minimum at the ten-second default">
+<style>
+text {
+  font-family: "STIX Two Text", "Times New Roman", Times, serif;
+}
+</style>
+<line x1="90" y1="61" x2="770" y2="61" stroke="#e6e6f0" stroke-width="1" />
+<line x1="90" y1="124" x2="770" y2="124" stroke="#e6e6f0" stroke-width="1" />
+<line x1="90" y1="187" x2="770" y2="187" stroke="#e6e6f0" stroke-width="1" />
+<line x1="90" y1="30" x2="90" y2="250" stroke="#555563" stroke-width="1.5" />
+<line x1="90" y1="250" x2="770" y2="250" stroke="#555563" stroke-width="1.5" />
+<polyline points="90,52 205,146 357,203 473,224 588,195 655,158 770,96" fill="none" stroke="#14148c" stroke-width="3.5" />
+<circle cx="90" cy="52" r="4.5" fill="#14148c" />
+<circle cx="205" cy="146" r="4.5" fill="#14148c" />
+<circle cx="357" cy="203" r="4.5" fill="#14148c" />
+<circle cx="473" cy="224" r="7.5" fill="#14148c" />
+<circle cx="588" cy="195" r="4.5" fill="#14148c" />
+<circle cx="655" cy="158" r="4.5" fill="#14148c" />
+<circle cx="770" cy="96" r="4.5" fill="#14148c" />
+<line x1="484" y1="228" x2="510" y2="240" stroke="#8f8fbe" stroke-width="1.5" />
+<text x="516" y="245" font-size="15" fill="#555563">default window, 341 ms</text>
+<text x="82" y="66" text-anchor="end" font-size="16" fill="#555563">600</text>
+<text x="82" y="129" text-anchor="end" font-size="16" fill="#555563">500</text>
+<text x="82" y="192" text-anchor="end" font-size="16" fill="#555563">400</text>
+<text x="90" y="276" text-anchor="middle" font-size="16" fill="#555563">1</text>
+<text x="205" y="276" text-anchor="middle" font-size="16" fill="#555563">2</text>
+<text x="357" y="276" text-anchor="middle" font-size="16" fill="#555563">5</text>
+<text x="473" y="276" text-anchor="middle" font-size="16" fill="#555563">10</text>
+<text x="588" y="276" text-anchor="middle" font-size="16" fill="#555563">20</text>
+<text x="655" y="276" text-anchor="middle" font-size="16" fill="#555563">30</text>
+<text x="770" y="276" text-anchor="middle" font-size="16" fill="#555563">60</text>
+<text x="20" y="18" font-size="16" fill="#555563">p99 latency (ms)</text>
+<text x="430" y="302" text-anchor="middle" font-size="16" fill="#555563">Observation window (s, log scale)</text>
+</svg>

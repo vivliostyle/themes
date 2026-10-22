@@ -1,0 +1,61 @@
+{
+  "name": "@vivliostyle/theme-two-column-blue-sidenote",
+  "version": "0.0.0",
+  "description": "A4縦2段組の学会拡張アブストラクト向けテーマ。Inter の番号見出しと青のアクセント、サイドノート、段抜きの図表・疑似コードに対応",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-two-column-blue-sidenote"
+  },
+  "files": [
+    "*.css",
+    "example",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Two Column Blue Sidenote",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "journal",
+      "topics": [
+        "academic-conference",
+        "international-conference",
+        "a4",
+        "two-column",
+        "extended-abstract",
+        "hci",
+        "sidenotes",
+        "figures"
+      ]
+    }
+  }
+}

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 240" role="img" aria-label="南立面図">
+  <style>
+    .fignum { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 14px; font-weight: 700; fill: #202020; }
+    .axis { font-family: "Roboto Mono", ui-monospace, monospace; font-size: 10px; fill: #202020; }
+    .lev { font-family: "Roboto Mono", ui-monospace, monospace; font-size: 9px; fill: #202020; }
+    .note { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 9px; fill: #404040; letter-spacing: 0.06em; }
+  </style>
+
+  <rect x="8" y="8" width="60" height="24" fill="none" stroke="#202020" stroke-width="1.4" />
+  <text x="38" y="26" text-anchor="middle" class="fignum">図 02</text>
+
+  <polygon points="175,200 175,102 305,61 435,102 435,200" fill="#FAFAF8" stroke="#202020" stroke-width="2" />
+  <g stroke="#555555" stroke-width="0.6">
+    <line x1="175" y1="116" x2="435" y2="116" /><line x1="175" y1="130" x2="435" y2="130" />
+    <line x1="175" y1="144" x2="435" y2="144" /><line x1="175" y1="158" x2="435" y2="158" />
+    <line x1="175" y1="172" x2="435" y2="172" /><line x1="175" y1="186" x2="435" y2="186" />
+  </g>
+  <rect x="205" y="176" width="94" height="24" fill="#FFFFFF" stroke="#202020" stroke-width="1.2" />
+  <rect x="352" y="112" width="14" height="52" fill="#FFFFFF" stroke="#202020" stroke-width="1.2" />
+
+  <polygon points="142,104 305,53 468,104 468,112 305,61 142,112" fill="#F1F1EE" stroke="#202020" stroke-width="1.6" />
+
+  <line x1="40" y1="200" x2="600" y2="200" stroke="#202020" stroke-width="3" />
+
+  <g stroke="#555555" stroke-width="0.6" fill="none">
+    <line x1="128" y1="46" x2="170" y2="95" />
+    <line x1="136" y1="158" x2="176" y2="150" />
+  </g>
+  <g class="note">
+    <text x="70" y="42">立平葺き 鋼板 3寸勾配</text>
+    <text x="62" y="166">杉板竪張り t=18</text>
+  </g>
+
+  <g stroke="#555555" stroke-width="0.6" fill="none">
+    <line x1="311" y1="53" x2="600" y2="53" stroke-dasharray="4 2" />
+    <line x1="441" y1="102" x2="600" y2="102" stroke-dasharray="4 2" />
+    <line x1="441" y1="200" x2="612" y2="200" stroke-dasharray="4 2" />
+  </g>
+  <polygon points="596,49 604,49 600,55" fill="#202020" />
+  <polygon points="596,98 604,98 600,104" fill="#202020" />
+  <polygon points="596,196 604,196 600,202" fill="#202020" />
+  <g class="lev">
+    <text x="556" y="47">&#9661;+4120</text>
+    <text x="556" y="96">&#9661;+2730</text>
+    <text x="556" y="194">&#9661;&#177;0</text>
+  </g>
+
+  <g class="axis" text-anchor="middle">
+    <text x="175" y="222">A</text><text x="240" y="222">B</text>
+    <text x="337" y="222">C</text><text x="435" y="222">D</text>
+  </g>
+</svg>

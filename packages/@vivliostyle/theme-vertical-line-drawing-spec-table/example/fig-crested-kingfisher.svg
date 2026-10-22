@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 126" role="img" aria-label="渓流の枝に止まる横向きのヤマセミの線画">
+<style>
+.ink { fill: none; stroke: #1c1c1c; stroke-linecap: round; }
+.hatch { fill: none; stroke: #5a5a5a; stroke-linecap: round; stroke-width: 1; }
+.light { fill: none; stroke: #f6f4ee; stroke-linecap: round; stroke-width: 1.1; }
+</style>
+
+<path class="ink" d="M4,118 C58,100 132,100 196,110" stroke-width="7"/>
+<path class="ink" d="M150,106 L178,94" stroke-width="4.5"/>
+<path class="hatch" d="M28,111 L36,108 M54,105 L62,103 M82,101 L90,100 M112,100 L120,101 M142,103 L150,105"/>
+
+<path class="ink" d="M100,96 L98,110 M116,94 L118,109" stroke-width="2.2"/>
+<path class="ink" d="M96,110 L92,113 M99,110 L100,114 M116,109 L112,113 M119,109 L120,113" stroke-width="1.6"/>
+
+<path d="M8,44 L70,29
+         C74,21 80,15 88,15
+         L83,1 L96,13 L99,0 L109,15 L119,5 L119,22
+         C136,34 148,58 146,84
+         L184,100 L173,112 L138,98
+         C124,116 100,114 92,96
+         C84,82 82,62 84,48
+         L76,41 L8,47 Z"
+      fill="#1c1c1c" stroke="#1c1c1c" stroke-width="1" stroke-linejoin="round"/>
+
+<path d="M84,58 C88,72 96,84 105,89 C94,99 86,92 84,79 Z" fill="#f6f4ee"/>
+<path class="light" d="M85,50 L100,55" stroke-width="2.4"/>
+<ellipse cx="92" cy="38" rx="5.5" ry="4" fill="#f6f4ee" transform="rotate(-16 92 38)"/>
+<circle cx="79" cy="31" r="4" fill="#f6f4ee"/>
+<circle cx="80" cy="31" r="2" fill="#1c1c1c"/>
+
+<path class="light" d="M99,29 L104,33 M110,27 L115,31 M104,40 L109,44 M116,38 L121,42 M128,44 L133,48 M110,51 L115,55 M122,49 L127,53 M134,55 L139,59 M116,62 L121,66 M128,60 L133,64 M138,68 L143,72 M122,73 L127,77 M134,72 L139,76" stroke-width="1.5"/>
+<path class="light" d="M89,20 L93,23 M101,22 L105,25" stroke-width="1.2"/>
+
+<path class="hatch" d="M124,44 C138,56 145,72 144,88" stroke-width="1"/>
+<path class="hatch" d="M128,84 L146,90 M126,92 L144,98 M124,100 L140,104"/>
+<path class="hatch" d="M96,64 L102,70 M94,76 L100,82 M96,86 L103,91" stroke-width="0.8"/>
+</svg>

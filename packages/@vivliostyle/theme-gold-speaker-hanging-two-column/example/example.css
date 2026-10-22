@@ -1,0 +1,51 @@
+/*
+ * example 専用の上書き。theme.css には手を入れない。
+ */
+
+/* この本は第42回だけを収めた抜粋なので、回数の起点をずらす */
+html.chapter {
+  --vs-document-first-page-counter-reset: vs-counter-chapter 41;
+}
+
+/* お便り: 金茶の縦罫で本編の掛け合いと切り分ける */
+.letter {
+  margin-block: 1.2mm 3.6mm;
+  padding-inline-start: 3.6mm;
+  border-inline-start-width: 1.2pt;
+  border-inline-start-style: solid;
+  border-inline-start-color: var(
+    --vs-theme-gold-speaker-hanging-two-column--color-accent
+  );
+  break-inside: avoid;
+}
+.letter > p {
+  margin-block: 0 1.2mm;
+  font-size: 9.1pt;
+  line-height: 1.62;
+}
+.letter > p.from {
+  margin-block-end: 1.6mm;
+  color: var(--vs-theme-gold-speaker-hanging-two-column--color-accent);
+  font-size: 8.4pt;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* 用語解説 */
+dl.glossary {
+  margin-block: 0;
+}
+dl.glossary dt {
+  margin-block: 3mm 0.8mm;
+  font-weight: 700;
+  font-size: 9.2pt;
+  line-height: 1.4;
+}
+dl.glossary dt:first-of-type {
+  margin-block-start: 0;
+}
+dl.glossary dd {
+  margin-inline-start: 0;
+  font-size: 8.5pt;
+  line-height: 1.6;
+}

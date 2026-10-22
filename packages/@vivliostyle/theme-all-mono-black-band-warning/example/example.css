@@ -1,0 +1,103 @@
+/*
+ * example 専用の上書き。theme.css には手を入れない。
+ */
+
+/* ---- 扉 ---- */
+body.cover {
+  page: cover;
+}
+@page cover {
+  --vs-page--mbox-bottom-center-content: none;
+}
+.cover h1 {
+  --vs--h1-font-size: 21pt;
+  --vs--h1-margin-block: 26mm 2.4mm;
+  --vs--h1-letter-spacing: 0.04em;
+  --vs--h1-padding-block: 0;
+  --vs--h1-border-width-block-end: 0;
+}
+.cover-sub {
+  font-size: 10pt;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  margin-block: 0 1.6mm;
+  margin-inline: 0;
+}
+.cover-edition {
+  font-size: 7pt;
+  letter-spacing: 0.06em;
+  margin-block: 0 22mm;
+  margin-inline: 0;
+}
+.cover-box {
+  border-width: 0.4mm;
+  border-color: var(--vs-theme-all-mono-black-band-warning--color-inverse-bg);
+  margin-block: 0 24mm;
+}
+.cover-box h4 {
+  background-color: var(
+    --vs-theme-all-mono-black-band-warning--color-inverse-bg
+  );
+  color: var(--vs-theme-all-mono-black-band-warning--color-inverse-body);
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 0.08em;
+  margin-block: 0;
+  margin-inline: 0;
+  padding-block: 1mm;
+}
+.cover-box p {
+  font-size: 6.4pt;
+  line-height: 1.28;
+  margin-block: 0;
+  margin-inline: 0;
+  padding-block: 1mm 1.1mm;
+  padding-inline: 2mm;
+}
+.cover-imprint {
+  font-size: 7.6pt;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  margin-inline: 0;
+  text-align: end;
+}
+
+/* ---- もくじ ---- */
+[role='doc-toc'] {
+  font-size: 6pt;
+  margin-inline-start: 2mm;
+}
+[role='doc-toc'] ol {
+  list-style: none;
+  margin-block: 0;
+  padding-inline-start: 0;
+}
+[role='doc-toc'] li {
+  break-inside: avoid;
+  line-height: 1.45;
+}
+/* base toc.css のページ番号 (leader + target-counter) を行いっぱいに伸ばす */
+[role='doc-toc'] li > a {
+  display: flex;
+}
+[role='doc-toc'] li.toc-chapter {
+  font-weight: 700;
+  margin-block-start: 2.2mm;
+}
+[role='doc-toc'] li.toc-chapter:first-child {
+  margin-block-start: 0;
+}
+[role='doc-toc'] li.toc-entry {
+  margin-inline-start: 5mm;
+}
+
+/* ---- 奥付 ---- */
+.colophon-meta {
+  --vs--table-border-width-column: 0;
+  --vs--table-border-width-row: 0.15mm;
+}
+.colophon-note {
+  font-size: 6.2pt;
+  margin-block-start: 3mm;
+}

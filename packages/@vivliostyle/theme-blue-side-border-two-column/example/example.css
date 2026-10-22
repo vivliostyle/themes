@@ -1,0 +1,7 @@
+/*
+ * この見本は記帳実務ガイドの第3章・41ページからの抜粋。章番号とノンブルの
+ * 開始値は原稿側の事情なので、theme.css ではなくここで与える。
+ */
+:root {
+  --vs-document-first-page-counter-reset: page 40 vs-counter-chapter 2;
+}

@@ -1,0 +1,60 @@
+{
+  "name": "@vivliostyle/theme-hanging-heading-dropcap-marginalia",
+  "version": "0.0.0",
+  "description": "四六判・単行本風のコンサルティングガイド。ハンギング見出しと3行取りドロップキャップ、ブラウン罫の傍注を配した非対称グリッドのレポートテーマ",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-hanging-heading-dropcap-marginalia"
+  },
+  "files": [
+    "*.css",
+    "example",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Hanging Heading Dropcap Marginalia",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "report",
+      "topics": [
+        "business-report",
+        "book-style",
+        "shiroku",
+        "mincho",
+        "serif",
+        "elegant",
+        "vertical-margin"
+      ]
+    }
+  }
+}

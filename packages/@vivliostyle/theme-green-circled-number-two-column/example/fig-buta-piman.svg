@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" role="img" aria-label="皿に盛った豚こまとピーマンのしょうが炒め">
+<rect width="400" height="320" fill="#f4f2ec" />
+<circle cx="200" cy="160" r="124" fill="#fbfaf6" stroke="#e5e2d8" stroke-width="2" />
+<circle cx="200" cy="160" r="104" fill="#f5f2ea" />
+<ellipse cx="200" cy="232" rx="94" ry="12" fill="#e9e4d5" />
+<rect x="138" y="196" width="66" height="18" rx="9" fill="#6fa93c" transform="rotate(-16 171 205)" />
+<rect x="186" y="200" width="72" height="20" rx="10" fill="#ab6b39" transform="rotate(10 222 210)" />
+<rect x="236" y="190" width="60" height="18" rx="9" fill="#79b544" transform="rotate(26 266 199)" />
+<rect x="118" y="178" width="60" height="18" rx="9" fill="#8bc75a" transform="rotate(8 148 187)" />
+<rect x="176" y="186" width="64" height="18" rx="9" fill="#b8763f" transform="rotate(-24 208 195)" />
+<rect x="122" y="158" width="74" height="20" rx="10" fill="#c07f46" transform="rotate(-8 159 168)" />
+<path d="M138 166h42" stroke="#e8c9a4" stroke-width="6" stroke-linecap="round" transform="rotate(-8 159 168)" />
+<rect x="176" y="168" width="70" height="18" rx="9" fill="#6fa93c" transform="rotate(14 211 177)" />
+<rect x="226" y="160" width="68" height="20" rx="10" fill="#a96a37" transform="rotate(-4 260 170)" />
+<path d="M240 168h40" stroke="#e8c9a4" stroke-width="5" stroke-linecap="round" transform="rotate(-4 260 170)" />
+<rect x="152" y="142" width="64" height="18" rx="9" fill="#79b544" transform="rotate(22 184 151)" />
+<rect x="246" y="176" width="54" height="18" rx="9" fill="#b8763f" transform="rotate(30 273 185)" />
+<rect x="158" y="116" width="72" height="20" rx="10" fill="#bd7a42" transform="rotate(-14 194 126)" />
+<path d="M174 124h40" stroke="#e8c9a4" stroke-width="6" stroke-linecap="round" transform="rotate(-14 194 126)" />
+<rect x="210" y="124" width="66" height="18" rx="9" fill="#8bc75a" transform="rotate(6 243 133)" />
+<rect x="198" y="140" width="70" height="20" rx="10" fill="#ab6b39" transform="rotate(18 233 150)" />
+<path d="M212 148h42" stroke="#e8c9a4" stroke-width="5" stroke-linecap="round" transform="rotate(18 233 150)" />
+<rect x="122" y="126" width="58" height="18" rx="9" fill="#6fa93c" transform="rotate(-6 151 135)" />
+<rect x="240" y="132" width="62" height="18" rx="9" fill="#c07f46" transform="rotate(-24 271 141)" />
+<path d="M150 190h26M212 160h24M256 208h20" stroke="#f0d9a0" stroke-width="4" stroke-linecap="round" />
+<path d="M170 108h24" stroke="#f0d9a0" stroke-width="4" stroke-linecap="round" transform="rotate(-18 182 108)" />
+<path d="M224 186h22" stroke="#f0d9a0" stroke-width="4" stroke-linecap="round" transform="rotate(24 235 186)" />
+</svg>

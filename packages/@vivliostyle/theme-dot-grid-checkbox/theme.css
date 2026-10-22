@@ -1,0 +1,230 @@
+/*
+ * バレットジャーナル (dot-grid-checkbox)
+ * A5 のバレットジャーナル。5mm 間隔のドット方眼を版面全面に敷き、簡潔な
+ * ラベル/日付とタスク・メモを、枠線を使わず短いスレートブルーの罫だけで
+ * 緩やかに整列させる。タスクは角チェックボックス付きリスト、メモは小さな
+ * 丸印の箇条書き、スケッチは製図調の図版で表す。端正なミニマル組版。
+ * 1 ページ = 1 コレクション (キー/月間ログ/デイリーログ/リスト) を単位とし、
+ * ノンブルと、ページ番号を自動で拾うインデックス (nav[role=doc-toc]) を持つ。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans:wght@400;500&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/toc';
+
+/* Vivliostyle は @page の background-position で var() を解決しないため、
+   ドット方眼の原点だけは --vs-page--background-position を使わず直書きする */
+@page {
+  background-position: 4mm 4mm;
+}
+
+:root {
+  --vs-page--size: A5;
+  --vs-page--margin-top: 10mm;
+  --vs-page--margin-bottom: 10mm;
+  --vs-page--margin-left: 11mm;
+  --vs-page--margin-right: 11mm;
+  /* 5mm 間隔のドット方眼を版面全面に敷く */
+  --vs-page--background-color: #fcfbf7;
+  --vs-page--background-image: radial-gradient(
+    circle,
+    #c9d0d4 0 0.32mm,
+    transparent 0.36mm
+  );
+  --vs-page--background-size: 5mm 5mm;
+  /* ノンブルは小口下 (右ページは右下、左ページは左下) */
+  --vs-page--mbox-bottom-outside-content: counter(page);
+  --vs-page--mbox-bottom-font-family: var(
+    --vs-theme-dot-grid-checkbox--font-display
+  );
+  --vs-page--mbox-bottom-font-size: 7pt;
+  --vs-page--mbox-bottom-text-color: var(
+    --vs-theme-dot-grid-checkbox--color-muted
+  );
+
+  --vs-font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+  --vs-font-size: 9pt;
+  --vs-line-height: 1.5;
+  --vs-columns: 1;
+  --vs-color-foreground: #27313a;
+  --vs-color-background: #fcfbf7;
+
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 0;
+  --vs--p-text-align: start;
+
+  --vs--heading-font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --vs--heading-font-weight: 500;
+  --vs--heading-text-align: start;
+  --vs--heading-margin-block: 0;
+
+  /* Masthead: 媒体名 */
+  --vs--h1-font-size: 14pt;
+  --vs--h1-font-weight: 600;
+  --vs--h1-letter-spacing: 0.13em;
+  --vs--h1-line-height: 1.1;
+  --vs--h1-margin-block: 0 6mm;
+
+  /* Section labels: 英大文字・広トラッキング */
+  --vs--h2-font-size: 8.5pt;
+  --vs--h2-letter-spacing: 0.3em;
+  --vs--h2-margin-block: 0 3.5mm;
+
+  /* Lists: マーカーは自前で描くので既定のマーカー・字下げを解除する */
+  --vs--lists-margin-block: 0;
+  --vs--lists-margin-inline: 0;
+  --vs--ul-list-style-type: none;
+  --vs--ul-padding-inline-start: 0mm;
+
+  /* Sketch: 製図調の図版を外側寄せに置く */
+  --vs--figure-display: block;
+  --vs--figure-margin-block: 3mm 0;
+  --vs--figcaption-font-size: 7pt;
+  --vs--figcaption-margin-block: 2mm 0;
+  --vs--figcaption-text-align: end;
+
+  /* Index: 項目の字下げをせず、他のリストと同じ左端に揃える */
+  --vs-toc--ol-indent-size: 0;
+
+  --vs-theme-dot-grid-checkbox--font-display:
+    'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --vs-theme-dot-grid-checkbox--color-accent: #34495e;
+  --vs-theme-dot-grid-checkbox--color-muted: #87929a;
+  --vs-theme-dot-grid-checkbox--sketch-size-inline: 70mm;
+  --vs-theme-dot-grid-checkbox--sketch-marker-content: 'fig. — ';
+}
+
+/* 手帳のスケッチは通し番号ではなく "fig." の標識だけを持つ。
+   :lang(ja) 側の既定値に詳細度で負けないよう両方に書く */
+:root,
+:root:lang(ja) {
+  --vs-figure--marker-content: var(
+    --vs-theme-dot-grid-checkbox--sketch-marker-content
+  );
+}
+
+/* Masthead: 媒体名を左、日付を右上に離す。日付は見出しの前に置いて回り込ませる
+   (絶対配置だとページ分割時に位置が定まらない) */
+.meta {
+  float: inline-end;
+  margin-block-start: 1.2mm;
+}
+
+h1 {
+  color: var(--vs-theme-dot-grid-checkbox--color-accent);
+}
+
+/* 見出し下の短いアクセント罫 */
+h1::after {
+  content: '';
+  display: block;
+  width: 30mm;
+  height: 1.1pt;
+  background-color: var(--vs-theme-dot-grid-checkbox--color-accent);
+  margin-top: 3.4mm;
+}
+
+.meta time {
+  font-family: var(--vs-theme-dot-grid-checkbox--font-display);
+  font-weight: 500;
+  font-size: 10pt;
+  letter-spacing: 0.24em;
+  color: var(--vs-theme-dot-grid-checkbox--color-accent);
+}
+
+section.level2 {
+  margin-block: 6mm 0;
+}
+
+h2 {
+  text-transform: uppercase;
+  color: var(--vs-theme-dot-grid-checkbox--color-accent);
+}
+
+/* Tasks: 角チェックボックス付きリスト (Markdown のタスクリスト) */
+li.task-list-item {
+  margin-block: 1.4mm;
+  line-height: 1.4;
+}
+
+li.task-list-item input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none;
+  inline-size: 3mm;
+  block-size: 3mm;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--vs-theme-dot-grid-checkbox--color-accent);
+  margin: 0 2mm 0 0;
+  padding: 0;
+  vertical-align: -0.4mm;
+  background-color: transparent;
+}
+
+/* 完了タスク: チェックボックスに X。
+   linear-gradient を 2 層重ねると Vivliostyle が 2 層目の色を落として黒く
+   塗るため、X は 1 枚の SVG で描く */
+li.task-list-item input[type='checkbox']:checked {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M-20 -20L120 120M120 -20L-20 120' stroke='%2334495e' stroke-width='19.8'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+}
+
+li.task-list-item del {
+  color: var(--vs-theme-dot-grid-checkbox--color-muted);
+  text-decoration-color: var(--vs-theme-dot-grid-checkbox--color-accent);
+}
+
+/* Notes: 小さな丸印の箇条書き */
+section.level2 ul:not(.contains-task-list) li {
+  position: relative;
+  padding-inline-start: 5mm;
+  margin-block: 1.9mm;
+  line-height: 1.4;
+}
+
+section.level2 ul:not(.contains-task-list) li::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.62em;
+  inline-size: 1.1mm;
+  block-size: 1.1mm;
+  border-radius: 50%;
+  background-color: var(--vs-color-foreground);
+}
+
+/* Index: 見出しとノンブルを点リーダでつなぐ。ページ番号は target-counter 任せ */
+[role='doc-toc'] li {
+  margin-block: 1.9mm;
+  line-height: 1.4;
+}
+
+[role='doc-toc'] li > a {
+  color: inherit;
+}
+
+[role='doc-toc'] li > a::after {
+  font-family: var(--vs-theme-dot-grid-checkbox--font-display);
+  color: var(--vs-theme-dot-grid-checkbox--color-accent);
+}
+
+figure img {
+  display: block;
+  inline-size: min(100%, var(--vs-theme-dot-grid-checkbox--sketch-size-inline));
+  height: auto;
+  margin-inline-start: auto;
+}
+
+figcaption {
+  font-family: var(--vs-theme-dot-grid-checkbox--font-display);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--vs-theme-dot-grid-checkbox--color-muted);
+}

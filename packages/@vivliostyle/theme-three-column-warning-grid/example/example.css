@@ -1,0 +1,15 @@
+/*
+ * example 専用の上書き。theme.css には手を入れない。
+ */
+
+:root {
+  /* この原稿のシート参照はすべて付録 (A 系列) を指す */
+  --vs-theme-three-column-warning-grid--sheet-call-content: 'sheet A'
+    target-counter(attr(href), vs-counter-sec-h1);
+}
+
+/* 付録の管理シートはレシピと別系列 (A1, A2 …) で番号を振る */
+html.reference {
+  --vs-theme-three-column-warning-grid--sheet-marker-content: 'A'
+    counter(vs-counter-sec-h1);
+}

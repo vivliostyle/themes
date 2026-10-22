@@ -1,0 +1,22 @@
+/*
+ * この example は第3部のセッション扉と概要 4 件を収めた抜粋。
+ * 扉は概要と体裁が違うので、その差分だけをここに置く。
+ */
+
+/* 扉は概要と違って本文が短いため、段を積み残さず均等に割る */
+body > section.level1:first-of-type {
+  column-fill: balance;
+}
+
+/* 収録一覧は発表番号と頁を折り返さず、題目が 1 行に収まる大きさに落とす */
+body > section.level1:first-of-type table {
+  font-size: 6pt;
+}
+
+body > section.level1:first-of-type :is(th, td) {
+  padding-inline: 0.2rem;
+}
+
+body > section.level1:first-of-type :is(th, td):is(:first-child, :last-child) {
+  white-space: nowrap;
+}

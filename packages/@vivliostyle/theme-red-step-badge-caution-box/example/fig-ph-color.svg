@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 48" role="img" aria-label="pH試験紙の色を標準変色表と見比べる線画">
+<style>
+.lbl { font-family: "Noto Sans JP", "Hiragino Sans", sans-serif; font-size: 4.6px; fill: #1a1a1a; text-anchor: middle; }
+</style>
+<rect x="22" y="3" width="18" height="10" rx="1.2" fill="#ffffff" stroke="#48607a" stroke-width="1.1" />
+<rect x="26" y="4.6" width="8" height="6.8" fill="#f0a8a8" />
+<path d="M31 15 v6 m-3 -3 l3 3 l3 -3" fill="none" stroke="#48607a" stroke-width="1.1" />
+<rect x="4" y="24" width="76" height="13" rx="1.4" fill="#ffffff" stroke="#48607a" stroke-width="1.2" />
+<rect x="6" y="26" width="12" height="9" fill="#ef9a9a" />
+<rect x="18" y="26" width="12" height="9" fill="#f2c3a6" />
+<rect x="30" y="26" width="12" height="9" fill="#ecdca6" />
+<rect x="42" y="26" width="12" height="9" fill="#bcd8b6" />
+<rect x="54" y="26" width="12" height="9" fill="#a6c6dd" />
+<rect x="66" y="26" width="12" height="9" fill="#93a7d2" />
+<text x="12" y="44" class="lbl">2</text>
+<text x="24" y="44" class="lbl">4</text>
+<text x="36" y="44" class="lbl">6</text>
+<text x="48" y="44" class="lbl">8</text>
+<text x="60" y="44" class="lbl">10</text>
+<text x="72" y="44" class="lbl">12</text>
+</svg>

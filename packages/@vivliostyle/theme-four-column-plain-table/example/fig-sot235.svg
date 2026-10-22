@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 158" role="img" aria-label="SOT-23-5 パッケージのピン配置図 (上面図・単回路オペアンプ)">
+  <style>
+    text { font-family: "JetBrains Mono", "Menlo", "Consolas", monospace; fill: #1a1a1a; font-size: 11px; }
+    .outline { fill: none; stroke: #1a1a1a; stroke-width: 1.6; }
+    .lead { fill: none; stroke: #1a1a1a; stroke-width: 1.2; }
+  </style>
+  <rect class="outline" x="66" y="46" width="108" height="58"/>
+  <rect class="lead" x="94" y="26" width="16" height="20"/>
+  <rect class="lead" x="130" y="26" width="16" height="20"/>
+  <rect class="lead" x="76" y="104" width="16" height="20"/>
+  <rect class="lead" x="112" y="104" width="16" height="20"/>
+  <rect class="lead" x="148" y="104" width="16" height="20"/>
+  <text x="102" y="20" text-anchor="middle">5</text>
+  <text x="102" y="9" text-anchor="middle">V+</text>
+  <text x="138" y="20" text-anchor="middle">4</text>
+  <text x="138" y="9" text-anchor="middle">-IN</text>
+  <text x="84" y="139" text-anchor="middle">1</text>
+  <text x="84" y="152" text-anchor="middle">OUT</text>
+  <text x="120" y="139" text-anchor="middle">2</text>
+  <text x="120" y="152" text-anchor="middle">V-</text>
+  <text x="156" y="139" text-anchor="middle">3</text>
+  <text x="156" y="152" text-anchor="middle">+IN</text>
+</svg>

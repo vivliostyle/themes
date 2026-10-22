@@ -1,0 +1,312 @@
+/**
+ * プログラミング言語系の学術誌 (ACM TOPLAS 風) のテーマ。
+ * A4判1段組。STIX Two Text のセリフ本文に、Source Sans 3 の簡潔な左揃え見出し、
+ * IBM Plex Mono の行番号付きコードブロック、水平罫のみの表、脚注を
+ * 一続きの論証として配置する。濃紺は節番号・罫線・参照記号・コード左罫に限定する。
+ * 柱は原稿から取る (左が誌名 = .journal、右が論題 = h1)。
+ * VFM 出力の DOM は body > (p.masthead, h1, div.abstract, section.level2 …)。
+ * 論題の h1 は閉じ `#` (`# 論題 #`) で書いてセクション化を止めるので、節番号は
+ * body 直下の section.level2 から始まる。番号を付けない見出しも閉じ `#` で書く。
+ */
+@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700&family=IBM+Plex+Mono:wght@400;600&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/footnote';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/math';
+
+:root {
+  /* 役割トークン */
+  --vs-font-family-alt: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  --vs-theme-serif-line-numbered-code--accent-color: #14148c;
+  --vs-color-foreground-alt: #555563;
+  --vs-color-background-alt: #f4f5fa;
+  --vs--figcaption-text-color: var(--vs-color-foreground-alt);
+  --vs--table-font-family: var(--vs-font-family-alt);
+  --vs--th-background-color: var(--vs-color-background-alt);
+
+  /* 式参照はラベルなしの '(N)' */
+  --vs-equation--call-content: '(' target-counter(attr(href), vs-counter-eq) ')';
+  --vs-equation--margin-block: 0.7rem;
+  --vs-equation--item-text-align: inherit;
+
+  /* Page */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 20mm;
+  --vs-page--margin-bottom: 20mm;
+  --vs-page--margin-left: 20mm;
+  --vs-page--margin-right: 20mm;
+
+  /* 柱は左が誌名、右が論題。どちらも原稿の string-set から取る */
+  --vs-page--mbox-top-left-content: string(journal-title);
+  --vs-page--mbox-top-right-content: string(article-title);
+  --vs-page--mbox-top-left-text-transform: uppercase;
+  --vs-page--mbox-top-right-text-transform: uppercase;
+  --vs-page--mbox-top-font-family: var(--vs-font-family-alt);
+  --vs-page--mbox-top-font-size: 8pt;
+  --vs-page--mbox-top-font-weight: 500;
+  --vs-page--mbox-top-letter-spacing: 0.04em;
+  --vs-page--mbox-top-padding-bottom: 2mm;
+  --vs-page--mbox-top-text-color: var(--vs-color-foreground-alt);
+  --vs-page--mbox-top-vertical-align: bottom;
+  /* ノンブルは小口側の地 (右ページは右下、左ページは左下) */
+  --vs-page--mbox-bottom-outside-content: counter(page);
+  --vs-page--mbox-bottom-font-family: var(--vs-font-family-alt);
+  --vs-page--mbox-bottom-font-size: 8pt;
+  --vs-page--mbox-bottom-font-weight: 500;
+  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground-alt);
+
+  /* Type */
+  --vs-font-family: 'STIX Two Text', 'Times New Roman', serif;
+  --vs-font-size: 10pt;
+  --vs-line-height: 1.5;
+  --vs-color-foreground: #17171b;
+  --vs-columns: 1;
+  --vs-widows-orphans: 2;
+
+  /* Paragraphs: indented continuation, no inter-paragraph space */
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 1.3em;
+  --vs--p-text-align: justify;
+
+  /* Headings: sans-serif, left aligned. h2/h3 は濃紺 */
+  --vs--heading-font-family: var(--vs-font-family-alt);
+  --vs--heading-font-weight: 600;
+  --vs--heading-text-align: start;
+  --vs--heading-margin-block: 1.4rem 0.5rem;
+  --vs--h1-font-size: 1.7em;
+  --vs--h1-line-height: 1.15;
+  --vs--h1-margin-block: 0 0.4rem;
+  --vs--h2-font-size: 1.28em;
+  --vs--h2-line-height: 1.2;
+  --vs--h2-text-color: var(--vs-theme-serif-line-numbered-code--accent-color);
+  --vs--h3-font-size: 1.08em;
+  --vs--h3-line-height: 1.2;
+  --vs--h3-text-color: var(--vs-theme-serif-line-numbered-code--accent-color);
+
+  /* 論題を柱に流す */
+  --vs--h1-string-set: article-title content();
+
+  /* リンク (本文中の参照記号のみ) は控えめに */
+  --vs--anchor-text-color: var(
+    --vs-theme-serif-line-numbered-code--accent-color
+  );
+  --vs--anchor-text-decoration: none;
+
+  /* 節番号: h2 が「1.」、h3 が「1.1」。論題の h1 には番号を付けない */
+  --vs-section--marker-display: inline;
+  --vs-section--h1-marker-display: none;
+  --vs-section--h2-marker-content: counters(
+      vs-counter-sections,
+      var(--vs-section--counter-delimiter),
+      var(--vs-section--counter-style)
+    )
+    '.';
+  --vs-section--call-content: 'Section '
+    target-counters(
+      attr(href),
+      vs-counter-sections,
+      var(--vs-section--counter-delimiter),
+      var(--vs-section--counter-style)
+    );
+
+  /* Monospace / code block: 低彩度の地に濃紺の左罫 */
+  --vs--monospace-font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  --vs--monospace-line-height: 1.42;
+  --vs--pre-font-size: 8.4pt;
+  --vs--pre-margin-block: 0.9rem;
+  --vs--pre-padding-block: 0.6rem;
+  --vs--pre-padding-inline: 0.9rem;
+  --vs--pre-background-color: var(--vs-color-background-alt);
+  --vs--pre-text-color: var(--vs-color-foreground-alt);
+  --vs--pre-border-width-inline-start: 3px;
+  --vs--pre-border-style-inline-start: solid;
+  --vs--pre-border-color-inline-start: var(
+    --vs-theme-serif-line-numbered-code--accent-color
+  );
+  --vs--pre-break-inside: avoid;
+
+  /* Tables: horizontal rules only, navy top/bottom */
+  --vs--table-font-size: 8.8pt;
+  --vs--table-margin-block: 0 0.9rem;
+  --vs--table-size-inline: 100%;
+  --vs--table-border-color: var(
+    --vs-theme-serif-line-numbered-code--accent-color
+  );
+  --vs--table-border-width: 0;
+  --vs--table-border-width-block-start: 1.5px;
+  --vs--table-border-width-block-end: 1.5px;
+  --vs--table-border-width-thead-inner: 0.75px;
+  --vs--th-font-family: var(--vs-font-family-alt);
+  --vs--th-text-align: start;
+  --vs--th-font-weight: 600;
+  --vs--table-cell-padding-block: 0.3rem;
+  --vs--table-cell-padding-inline: 0.6rem 1.1rem;
+
+  /* Figures */
+  --vs--figure-display: block;
+  --vs--figure-margin-block: 0.9rem;
+  --vs--figure-break-inside: avoid;
+  --vs--figure-item-size-inline: 82%;
+  --vs--figcaption-font-size: 8.8pt;
+  --vs--figcaption-text-align: start;
+  --vs--figcaption-margin-block: 0.5rem 0;
+  --vs--figcaption-line-height: 1.35;
+
+  /* 図表・リスティングの番号は表示書体で組む */
+  --vs--figcaption-font-family: var(--vs-font-family-alt);
+
+  /* 参考文献リスト */
+  --vs--ol-padding-inline-start: 1.6em;
+  --vs--lists-margin-block: 0;
+  --vs--li-font-size: 8.6pt;
+  --vs--li-line-height: 1.4;
+  --vs--li-margin-block: 0.15rem;
+
+  /* Footnotes at page bottom */
+  --vs-footnote--font-size: 8pt;
+  --vs-footnote--text-color: var(--vs-color-foreground-alt);
+  --vs-footnote--line-height: 1.35;
+  --vs-footnote--text-indent: 0;
+  --vs-footnote--call-content: counter(vs-counter-footnote, decimal);
+  --vs-footnote--marker-content: counter(vs-counter-footnote, decimal) '  ';
+  --vs-footnote--area-before-margin-inline: 0 68%;
+  --vs-footnote--area-before-border-color-block-start: #d9d9ea;
+}
+
+/* ---- 標題まわり (VFM: body 直下) ---- */
+.masthead {
+  color: var(--vs-color-foreground-alt);
+  font-family: var(--vs-font-family-alt);
+  font-size: 8.5pt;
+  letter-spacing: 0.02em;
+  margin-block: 0 1.2rem;
+  text-align: start;
+  text-indent: 0;
+}
+
+/* 誌名を柱に流す */
+.journal {
+  string-set: journal-title content();
+}
+
+.byline {
+  font-family: var(--vs-font-family-alt);
+  font-size: 10.5pt;
+  text-align: center;
+  margin-block: 0.6rem 0.2rem;
+}
+
+.meta {
+  font-family: var(--vs-font-family-alt);
+  font-size: 8.5pt;
+  color: var(--vs-color-foreground-alt);
+  text-align: center;
+  margin-block: 0.2rem;
+}
+
+.refformat {
+  border-block-start: 0.5px solid #d9d9ea;
+  padding-block-start: 0.5rem;
+}
+
+/* 見出し直後の1行目と編集要素は字下げしない (図表・コード直後は字下げを保つ) */
+:is(h1, h2, h3, h4, h5, h6) + p,
+.byline,
+.meta,
+li > p:first-child {
+  text-indent: 0;
+}
+
+/* ---- Abstract ---- */
+.abstract > h2 {
+  font-size: 1.02em;
+  text-align: center;
+  color: inherit;
+  margin-block: 1rem 0.3rem;
+}
+
+.abstract > p {
+  font-size: 9.4pt;
+  line-height: 1.45;
+  margin-block: 0.8rem;
+  padding-inline: 1.4em;
+  text-align: justify;
+  text-indent: 0;
+}
+
+/* ---- 番号を持たない後付けの節見出し (謝辞・参考文献) ----
+   閉じ `#` で書くと section に包まれず body 直下に置かれる */
+body > h2 {
+  color: inherit;
+  font-size: 1.08em;
+}
+
+/* ---- 別行立ての数式 ---- */
+/* MathJax のディスプレイ数式が持つ 1em の上下マージンに合わせる */
+.equation > math {
+  margin-block: 1em;
+}
+
+.equation .math.display {
+  margin-block: 0;
+}
+
+.equation + p {
+  text-indent: 0;
+}
+
+/* MathML を直書きした原稿のための別行立て */
+:root {
+  --vs-math--display-margin-block: 0.6rem;
+  --vs-math--display-text-align: center;
+}
+
+math[display='block'] {
+  display: block;
+  font-size: 1.05em;
+}
+
+/* VFM の MathJax 出力は span.math.inline / span.math.display。font-size は、
+   MathJax が x ハイトを合わせるために掛ける 116.7% の掛け戻し */
+.math.inline {
+  display: inline;
+  font-size: 0.9em;
+}
+
+.math.display {
+  font-size: 0.9em;
+}
+
+/* ---- 図版・表・リスティング ---- */
+figure img {
+  height: auto;
+  display: block;
+  margin-inline: auto;
+}
+
+/* 長い表はページをまたいで流す。見出しだけが取り残されないよう
+   figcaption の直後では改ページしない */
+figure:is(.tbl, :has(table)) {
+  break-inside: auto;
+}
+
+figcaption {
+  break-after: avoid;
+}
+
+/* ---- 参考文献 ---- */
+:root {
+  /* 番号は base が li の 2rem 外側へ絶対配置する */
+  --vs-citation--items-padding-inline-start: 2rem;
+  --vs-citation--marker-text-color: var(
+    --vs-theme-serif-line-numbered-code--accent-color
+  );
+}

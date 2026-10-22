@@ -1,0 +1,297 @@
+/*
+ * 四六判コンサルティングガイド（単行本風） hanging-heading-dropcap-marginalia
+ * 四六判 (127×188mm)・明朝・横組み1段。左約1/4 を傍注マージンとする非対称グリッドに
+ * ハンギング見出し・3行取りドロップキャップ・ブラウン罫付き傍注・角丸フロー図を配置。
+ * クリーム紙 + ダークブラウンアクセントの落ち着いた親書調。
+ * 章番号は原稿の frontmatter `class: chapter` から base のドキュメントカウンタで数える。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/sidenote';
+
+:root {
+  --vs-theme-hanging-heading-dropcap-marginalia--color-accent: #5a4a42;
+  --vs-theme-hanging-heading-dropcap-marginalia--color-muted: #8a7a70;
+  --vs-theme-hanging-heading-dropcap-marginalia--color-rule: #b3a396;
+
+  /* 傍注帯の幅と本文との間隔。両者の和だけ本文を版面の内側へ寄せる */
+  --vs-theme-hanging-heading-dropcap-marginalia--sidenote-size-inline: 24mm;
+  --vs-theme-hanging-heading-dropcap-marginalia--sidenote-gap: 4mm;
+  --vs-theme-hanging-heading-dropcap-marginalia--sidenote-gutter: calc(
+    var(
+        --vs-theme-hanging-heading-dropcap-marginalia--sidenote-size-inline
+      ) +
+      var(
+        --vs-theme-hanging-heading-dropcap-marginalia--sidenote-gap
+      )
+  );
+  /* 見出しが傍注帯へ食い込む量 */
+  --vs-theme-hanging-heading-dropcap-marginalia--heading-hang-size-inline: 10mm;
+
+  /* 柱は「第N章　章題」。章題は h1 から、章番号はドキュメントカウンタから取る */
+  --vs-theme-hanging-heading-dropcap-marginalia--running-head-content: '第'
+    counter(vs-counter-chapter) '章　' string(chapter-title);
+
+  --vs-page--size: 127mm 188mm;
+  --vs-page--margin-top: 12mm;
+  --vs-page--margin-bottom: 12mm;
+  --vs-page--margin-left: 8.5mm;
+  --vs-page--margin-right: 8.5mm;
+  --vs-page--background-color: #faf7f2;
+
+  /* 柱はノド側の天、ノンブルは小口側の地 (左右のページで自動的に入れ替わる) */
+  --vs-page--mbox-top-inside-content: var(
+    --vs-theme-hanging-heading-dropcap-marginalia--running-head-content
+  );
+  --vs-page--mbox-bottom-outside-content: counter(page);
+  --vs-page--mbox-top-font-size: 7pt;
+  --vs-page--mbox-top-letter-spacing: 0.14em;
+  --vs-page--mbox-top-text-color: var(
+    --vs-theme-hanging-heading-dropcap-marginalia--color-muted
+  );
+  /* 柱の下の細罫は版面の上罫として引く */
+  --vs-page--border-color-top: var(
+    --vs-theme-hanging-heading-dropcap-marginalia--color-rule
+  );
+  --vs-page--border-width-top: 0.4pt;
+  --vs-page--mbox-bottom-font-size: 8.5pt;
+  --vs-page--mbox-bottom-text-color: #6b5d54;
+  --vs-page--mbox-font-family: var(--vs-font-family);
+
+  --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+  --vs-font-size: 8.4pt;
+  --vs-line-height: 1.45;
+  --vs-letter-spacing: 0.02em;
+  --vs-color-foreground: #2b2520;
+  --vs-color-background: #faf7f2;
+  --vs-columns: 1;
+
+  /* 字下げ1字・段落間ベタ (単行本流) */
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 1em;
+  --vs--p-text-align: justify;
+
+  --vs--heading-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+  --vs--heading-text-color: var(
+    --vs-theme-hanging-heading-dropcap-marginalia--color-accent
+  );
+  --vs--heading-break-after: avoid;
+
+  --vs--h1-font-size: 13pt;
+  --vs--h1-font-weight: 500;
+  --vs--h1-line-height: 1.3;
+  --vs--h1-letter-spacing: 0.06em;
+  --vs--h1-margin-block: 1.5mm;
+  /* 章題は柱へ流す */
+  --vs--h1-string-set: chapter-title content();
+
+  --vs--h2-font-size: 10.5pt;
+  --vs--h2-font-weight: 500;
+  --vs--h2-line-height: 1.4;
+  --vs--h2-letter-spacing: 0.05em;
+  --vs--h2-margin-block: 7mm 3.5mm;
+
+  /* 見出し番号は「第2章」「2.1」 */
+  --vs-section--marker-display: inline;
+  --vs-section--h1-marker-content: '第' counter(vs-counter-chapter) '章　';
+  --vs-section--h2-marker-content: counter(vs-counter-chapter) '.'
+    counter(vs-counter-sec-h2) '　';
+  --vs-section--marker-margin-inline-end: 0;
+
+  --vs--sup-font-size: 0.55em;
+  --vs--sup-text-color: var(
+    --vs-theme-hanging-heading-dropcap-marginalia--color-accent
+  );
+
+  /* クロスリファレンス（→第3章参照） */
+  --vs--anchor-text-color: #5a4a42;
+  --vs--anchor-text-decoration: none;
+
+  --vs--figure-margin-block: 2mm 1mm;
+  --vs--figure-item-size-inline: 80%;
+
+  --vs--figcaption-font-size: 7pt;
+  --vs--figcaption-text-align: center;
+  --vs--figcaption-margin-block: 1.2mm 0;
+  --vs--figcaption-letter-spacing: 0.08em;
+  --vs--figcaption-text-color: var(
+    --vs-theme-hanging-heading-dropcap-marginalia--color-accent
+  );
+
+  /* 表: 本文と同じ明朝で、天地と項目名の下だけに罫を引く */
+  --vs--table-font-family: var(--vs-font-family);
+  --vs--table-font-size: 7pt;
+  --vs--table-font-variant-numeric: tabular-nums;
+  --vs--table-line-height: 1.4;
+  --vs--table-letter-spacing: 0.01em;
+  --vs--table-size-inline: 100%;
+  --vs--table-margin-block: 0 3mm;
+  --vs--table-border-color: var(
+    --vs-theme-hanging-heading-dropcap-marginalia--color-accent
+  );
+  --vs--table-border-style: solid;
+  --vs--table-border-width: 0;
+  --vs--table-border-width-block-start: 0.6pt;
+  --vs--table-border-width-block-end: 0.6pt;
+  --vs--table-border-width-thead-inner: 0.3pt;
+  --vs--table-cell-padding-block: 0.9mm;
+  --vs--table-cell-padding-inline: 1.2mm;
+  --vs--table-cell-vertical-align: top;
+  --vs--th-font-weight: 500;
+  --vs--th-text-color: var(
+    --vs-theme-hanging-heading-dropcap-marginalia--color-accent
+  );
+
+  --vs--lists-margin-block: 3mm;
+  --vs--lists-text-align: justify;
+  --vs--li-margin-block: 0 0.8mm;
+
+  /* 傍注: 左の傍注帯へ引き出して参照箇所の脇に浮かせる。合印は原稿の <sup>※</sup> */
+  --vs-sidenote--float: inline-start;
+  --vs-sidenote--clear: inline-start;
+  --vs-sidenote--size-inline: var(
+    --vs-theme-hanging-heading-dropcap-marginalia--sidenote-size-inline
+  );
+  --vs-sidenote--margin-inline: calc(
+      -1 *
+        var(
+          --vs-theme-hanging-heading-dropcap-marginalia--sidenote-gutter
+        )
+    )
+    0;
+  --vs-sidenote--margin-block: 0 6mm;
+  --vs-sidenote--font-size: 7pt;
+  --vs-sidenote--line-height: 1.62;
+  --vs-sidenote--text-color: var(
+    --vs-theme-hanging-heading-dropcap-marginalia--color-muted
+  );
+}
+
+/* 図表番号は和文組版の「図2-1　」「表2-1　」形式 */
+:root:lang(ja) {
+  --vs-figure--marker-content: '図' counter(vs-counter-chapter) '-'
+    counter(vs-counter-fig) '　';
+  --vs-table--marker-content: '表' counter(vs-counter-chapter) '-'
+    counter(vs-counter-tbl) '　';
+  --vs-figure--call-content: '図' target-counter(attr(href), vs-counter-chapter)
+    '-' target-counter(attr(href), vs-counter-fig);
+  --vs-table--call-content: '表' target-counter(attr(href), vs-counter-chapter)
+    '-' target-counter(attr(href), vs-counter-tbl);
+}
+
+/* 版面の左 1/4 を傍注帯として空け、本文をその分だけ内側へ寄せる */
+body {
+  padding-inline-start: var(
+    --vs-theme-hanging-heading-dropcap-marginalia--sidenote-gutter
+  );
+}
+
+/* ハンギング見出しは傍注帯へ食い込ませ、傍注と縦に重ねない */
+:is(h1, h2) {
+  margin-inline-start: calc(
+    -1 *
+      var(
+        --vs-theme-hanging-heading-dropcap-marginalia--heading-hang-size-inline
+      )
+  );
+  clear: inline-start;
+}
+
+/* 傍注の頭には番号でなく短いブラウン罫を冠する */
+.sidenote::before {
+  content: '';
+  display: block;
+  inline-size: 5.5mm;
+  border-block-start-width: 0.5mm;
+  border-block-start-style: solid;
+  border-block-start-color: var(
+    --vs-theme-hanging-heading-dropcap-marginalia--color-accent
+  );
+  margin-block-end: 1.6mm;
+}
+
+.sidenote p {
+  text-indent: 0;
+  text-align: start;
+}
+
+/* 冒頭の「用語解説：」「参考資料：」ラベル */
+.sidenote > p:first-of-type {
+  margin-block-end: 0.6mm;
+}
+
+.sidenote dl,
+.sidenote dd {
+  margin: 0;
+}
+
+.sidenote dt {
+  margin-block-end: 0.4mm;
+  font-weight: 400;
+}
+
+.sidenote cite {
+  font-style: normal;
+}
+
+/* 章冒頭の3行取りドロップキャップ */
+section > h1:first-child + p {
+  text-indent: 0;
+}
+
+section > h1:first-child + p::first-letter {
+  float: inline-start;
+  font-size: 38pt;
+  line-height: 1;
+  font-weight: 500;
+  color: var(
+    --vs-theme-hanging-heading-dropcap-marginalia--color-accent
+  );
+  margin: 1mm 2.2mm 0 0;
+}
+
+/* 表題は図版キャプションと同じ調子で、表の直前に置く */
+figure.tbl {
+  --vs--figcaption-text-align: start;
+  --vs--figcaption-margin-block: 3mm 1.2mm;
+
+  display: block;
+}
+
+/* 項目名の列は 82mm の版面では折り返しやすい。列見出しの語は割らない */
+th:first-child,
+td:first-child {
+  white-space: nowrap;
+}
+
+/* チェックリストは合印を全角の白四角で揃える */
+.checklist {
+  list-style: none;
+  padding-inline-start: 1.2em;
+}
+
+.checklist li {
+  text-indent: -1.2em;
+}
+
+.checklist li::before {
+  content: '☐';
+  margin-inline-end: 0.2em;
+  color: var(
+    --vs-theme-hanging-heading-dropcap-marginalia--color-accent
+  );
+}
+
+/* 参照は本文と地続きに読ませる */
+a:is([data-ref='fig'], [data-ref='tbl'], [data-ref='sec']) {
+  --vs--anchor-text-color: inherit;
+}

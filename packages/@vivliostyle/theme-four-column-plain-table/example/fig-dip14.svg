@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 196" role="img" aria-label="DIP-14 パッケージのピン配置図 (上面図・2入力NAND4回路)">
+  <style>
+    text { font-family: "JetBrains Mono", "Menlo", "Consolas", monospace; fill: #1a1a1a; }
+    .pin { font-size: 9px; }
+    .lbl { font-size: 9px; }
+    .outline { fill: none; stroke: #1a1a1a; stroke-width: 1.6; }
+    .lead { fill: none; stroke: #1a1a1a; stroke-width: 1.2; }
+    .thin { fill: none; stroke: #1a1a1a; stroke-width: 1; }
+  </style>
+  <rect class="outline" x="88" y="16" width="64" height="164"/>
+  <path class="outline" d="M 112 16 A 8 8 0 0 0 128 16"/>
+  <rect class="lead" x="73" y="26" width="15" height="8"/>
+  <rect class="lead" x="73" y="48" width="15" height="8"/>
+  <rect class="lead" x="73" y="70" width="15" height="8"/>
+  <rect class="lead" x="73" y="92" width="15" height="8"/>
+  <rect class="lead" x="73" y="114" width="15" height="8"/>
+  <rect class="lead" x="73" y="136" width="15" height="8"/>
+  <rect class="lead" x="73" y="158" width="15" height="8"/>
+  <rect class="lead" x="152" y="26" width="15" height="8"/>
+  <rect class="lead" x="152" y="48" width="15" height="8"/>
+  <rect class="lead" x="152" y="70" width="15" height="8"/>
+  <rect class="lead" x="152" y="92" width="15" height="8"/>
+  <rect class="lead" x="152" y="114" width="15" height="8"/>
+  <rect class="lead" x="152" y="136" width="15" height="8"/>
+  <rect class="lead" x="152" y="158" width="15" height="8"/>
+  <text class="pin" x="94" y="33">1</text>
+  <text class="pin" x="94" y="55">2</text>
+  <text class="pin" x="94" y="77">3</text>
+  <text class="pin" x="94" y="99">4</text>
+  <text class="pin" x="94" y="121">5</text>
+  <text class="pin" x="94" y="143">6</text>
+  <text class="pin" x="94" y="165">7</text>
+  <text class="pin" x="146" y="33" text-anchor="end">14</text>
+  <text class="pin" x="146" y="55" text-anchor="end">13</text>
+  <text class="pin" x="146" y="77" text-anchor="end">12</text>
+  <text class="pin" x="146" y="99" text-anchor="end">11</text>
+  <text class="pin" x="146" y="121" text-anchor="end">10</text>
+  <text class="pin" x="146" y="143" text-anchor="end">9</text>
+  <text class="pin" x="146" y="165" text-anchor="end">8</text>
+  <text class="lbl" x="68" y="33" text-anchor="end">1A</text>
+  <text class="lbl" x="68" y="55" text-anchor="end">1B</text>
+  <text class="lbl" x="68" y="77" text-anchor="end">1Y</text>
+  <text class="lbl" x="68" y="99" text-anchor="end">2A</text>
+  <text class="lbl" x="68" y="121" text-anchor="end">2B</text>
+  <text class="lbl" x="68" y="143" text-anchor="end">2Y</text>
+  <text class="lbl" x="68" y="165" text-anchor="end">GND</text>
+  <text class="lbl" x="172" y="33">VCC</text>
+  <text class="lbl" x="172" y="55">4B</text>
+  <text class="lbl" x="172" y="77">4A</text>
+  <text class="lbl" x="172" y="99">4Y</text>
+  <text class="lbl" x="172" y="121">3B</text>
+  <text class="lbl" x="172" y="143">3A</text>
+  <text class="lbl" x="172" y="165">3Y</text>
+  <polyline class="thin" points="100,190 78,190 78,8 106,10"/>
+  <text class="lbl" x="105" y="193">NOTCH MARK</text>
+</svg>

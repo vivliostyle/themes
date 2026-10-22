@@ -1,0 +1,504 @@
+/*
+ * 高等数学ジャーナル (Elsevier / Advances in Mathematics 風、A4縦・1段組)。
+ * STIX Two Text のセリフ本文に、番号付き見出しの左へ太い群青バーを添えた節見出し、
+ * スモールキャップラベル+斜体本文の定理環境、中央揃えの別行立て数式+右端の式番号、
+ * 外(左)余白のサイドノート、地に区切り罫付きの脚注を配置する。
+ * 節番号・定理番号・式番号・サイドノートの符号はすべてカウンタが付ける。
+ * 論題の h1 は閉じ `#` (`# 論題 #`) で書いてセクション化を止めるので、節番号は
+ * body 直下の section.level2 から始まる。番号を付けない見出しも閉じ `#` で書く。
+ */
+@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/footnote';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/math';
+@import '@vivliostyle/theme-base/sidenote';
+
+:root {
+  /* Page: A4縦。左(外)余白を広く取りサイドノート列にする */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 20mm;
+  --vs-page--margin-bottom: 17mm;
+  --vs-page--margin-left: 42mm;
+  --vs-page--margin-right: 20mm;
+  --vs-page--background-color: #fdfdfb;
+
+  /* 柱は原稿の論題、ノンブルはサイドノート列と同じ側の地に置く */
+  --vs-page--mbox-top-center-content: string(article-title);
+  --vs-page--mbox-bottom-left-content: counter(page);
+  --vs-page--mbox-top-center-text-transform: uppercase;
+  --vs-page--mbox-top-center-padding-left: 18mm;
+  --vs-page--mbox-top-center-padding-right: 18mm;
+  --vs-page--mbox-top-font-family: var(--vs--heading-font-family);
+  --vs-page--mbox-top-font-size: 8.5pt;
+  --vs-page--mbox-top-font-weight: 400;
+  --vs-page--mbox-top-letter-spacing: 0.08em;
+  --vs-page--mbox-top-padding-bottom: 2.2mm;
+  --vs-page--mbox-top-text-color: var(--vs-color-foreground);
+  --vs-page--border-width-top: var(--vs--hr-border-width-block-start);
+  --vs-page--border-color-top: var(--vs--hr-border-color);
+  --vs-page--mbox-bottom-font-family: var(--vs--heading-font-family);
+  --vs-page--mbox-bottom-font-size: 9.5pt;
+  --vs-page--mbox-bottom-letter-spacing: 0.02em;
+  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
+
+  /* Type */
+  --vs-font-family: 'STIX Two Text', 'Times New Roman', serif;
+  --vs-font-size: 10.5pt;
+  --vs-line-height: 1.6;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-background: #fdfdfb;
+  --vs-columns: 1;
+  --vs-widows-orphans: 2;
+
+  --vs-theme-side-border-heading-math--accent-color: #1e40af;
+  --vs-color-foreground-alt: #555555;
+
+  /* 罫の色・太さ。脚注の区切り罫と版面の上罫はこの hr 変数にフォールバックする */
+  --vs--hr-border-color: #999999;
+  --vs--hr-border-width-block-start: 0.5pt;
+
+  /* Paragraphs: 継続段落は字下げ・段落間余白なし (書籍組)。先頭段落は字下げ解除 */
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 1.3em;
+  --vs--p-first-text-indent: 0;
+  --vs--p-text-align: justify;
+
+  /* Headings */
+  --vs--heading-font-family: 'Source Serif 4', 'STIX Two Text', serif;
+  --vs--heading-font-weight: 700;
+  --vs--heading-text-align: start;
+
+  /* 論題を柱に流す */
+  --vs--h1-string-set: article-title content();
+
+  /* 節見出し。前後の空きは組版のチューニング値なので rlh 倍数にしない */
+  --vs--h2-font-size: 1.32em;
+  --vs--h2-line-height: 1.2;
+  --vs--h2-letter-spacing: 0.005em;
+  --vs--h2-margin-block: 1.5rem 0.6rem;
+  --vs--h2-margin-inline: 0;
+  --vs--h2-padding-inline: 4mm 0;
+  --vs--h2-border-width-inline-start: 4pt;
+  --vs--h2-border-color-inline-start: var(
+    --vs-theme-side-border-heading-math--accent-color
+  );
+
+  /* 小見出しは節見出しの群青バーを付けず、書体だけ揃える */
+  --vs--h3-font-size: 1.06em;
+  --vs--h3-font-weight: 600;
+  --vs--h3-letter-spacing: 0.005em;
+  --vs--h3-line-height: 1.25;
+  --vs--h3-margin-block: 1.15rem 0.35rem;
+
+  /* 節番号は常用数字。h2 が「1」、h3 が「1.1」 */
+  --vs-section--marker-display: inline;
+  --vs-section--h1-marker-display: none;
+  --vs-section--marker-margin-inline-end: 0.55em;
+
+  /* 定理環境: ラベルは種別ごとの変数で差し替える */
+  --vs-theme-side-border-heading-math--theorem-label-theorem: 'Theorem';
+  --vs-theme-side-border-heading-math--theorem-label-lemma: 'Lemma';
+  --vs-theme-side-border-heading-math--theorem-label-proposition: 'Proposition';
+  --vs-theme-side-border-heading-math--theorem-label-corollary: 'Corollary';
+  --vs-theme-side-border-heading-math--theorem-label-definition: 'Definition';
+  --vs-theme-side-border-heading-math--theorem-label-example: 'Example';
+  --vs-theme-side-border-heading-math--theorem-label-remark: 'Remark';
+  --vs-theme-side-border-heading-math--theorem-label-question: 'Question';
+  --vs-theme-side-border-heading-math--theorem-label-proof: 'Proof';
+  --vs-theme-side-border-heading-math--theorem-number-content: counter(
+      vs-counter-sec-h2
+    )
+    '.' counter(vs-counter-thm);
+  --vs-theme-side-border-heading-math--theorem-call-content: target-counter(
+      attr(href),
+      vs-counter-sec-h2
+    )
+    '.' target-counter(attr(href), vs-counter-thm);
+  --vs-theme-side-border-heading-math--proof-marker-content: var(
+      --vs-theme-side-border-heading-math--theorem-label-proof
+    )
+    '.';
+  --vs-theme-side-border-heading-math--proof-marker-content-of: var(
+      --vs-theme-side-border-heading-math--theorem-label-proof
+    )
+    ' of ';
+  --vs-theme-side-border-heading-math--proof-qed-content: '\2003\25A1';
+
+  /* 別行立て数式: 番号は「節.通番」、参照はラベルなしの '(N.M)' */
+  --vs-crossref-marker-counter-prefix: counter(vs-counter-sec-h2) '.';
+  --vs-crossref-call-counter-prefix: target-counter(
+      attr(href),
+      vs-counter-sec-h2
+    )
+    '.';
+  --vs-equation--call-content: '(' var(--vs-crossref-call-counter-prefix)
+    target-counter(attr(href), vs-counter-eq) ')';
+  --vs-equation--margin-block: 1.15rem;
+  --vs-equation--marker-font-size: 0.95em;
+  --vs-citation--marker-inset-inline-start: -6.5mm;
+
+  /* サイドノート: 左(外)余白へ引き出す */
+  --vs-sidenote--float: left;
+  --vs-sidenote--clear: left;
+  --vs-sidenote--break-inside: auto;
+  --vs-sidenote--size-inline: 30mm;
+  --vs-sidenote--margin-inline: -38mm 0;
+  --vs-sidenote--margin-block: 0.6mm 3mm;
+  --vs-sidenote--font-size: 8.3pt;
+  --vs-sidenote--line-height: 1.42;
+  --vs-sidenote--text-color: var(--vs-color-foreground-alt);
+  /* base の符号は段落の上に1行で立つため使わず、最初の段落の頭へ流し込む。
+     符号は文書を通した小文字アルファベット */
+  --vs-sidenote--marker-content: none;
+  --vs-theme-side-border-heading-math--sidenote-marker-content: '('
+    counter(vs-counter-sidenote, lower-alpha) ')';
+
+  /* 引用番号だけを出す参照 (「[1, ch. 4]」のように所在を添える書き方のため) */
+  --vs-theme-side-border-heading-math--cite-number-call-content: target-counter(
+    attr(href),
+    vs-counter-cite
+  );
+
+  /* Footnotes: 上付き番号(アスタリスクなし) */
+  --vs-footnote--font-size: 8.5pt;
+  --vs-footnote--text-color: var(--vs-color-foreground-alt);
+  --vs-footnote--line-height: 1.4;
+  --vs-footnote--call-content: counter(
+    vs-counter-footnote,
+    var(--vs-footnote--counter-style)
+  );
+  --vs-footnote--marker-content: counter(
+      vs-counter-footnote,
+      var(--vs-footnote--counter-style)
+    )
+    '\2002';
+  --vs-footnote--text-indent: 0;
+  --vs-footnote--area-before-margin-inline: 0 66%;
+  --vs-footnote--area-before-margin-block: 0.4rem 0.35rem;
+
+  --vs-math--display-margin-block: 0;
+}
+
+/* base の --vs-document-root-counter-reset は原稿側のフックなので、
+   テーマ独自カウンタの初期化は base が使わない :root で行う */
+:root {
+  counter-reset: vs-counter-thm;
+}
+
+/* 定理・数式の番号は節ごとに振り直す。base が section 要素に持つ counter-reset を
+   潰さないよう、リセットは見出し要素側に置く (カウンタは h2 と後続の兄弟に及ぶ) */
+section > h2:first-child {
+  counter-reset: vs-counter-thm vs-counter-eq;
+}
+
+/* 継続段落は字下げ。theme-base の --vs--p-first-text-indent は見出し・図表・
+   引用の直後を自動でカバーするが、定理・数式の直後は対象外のため個別に指定する */
+:is(.equation, .theorem, .proof) + p {
+  text-indent: var(--vs--p-first-text-indent);
+}
+
+/* ---- 標題ブロック ---- */
+.paper-head {
+  border-block-end-color: var(--vs--hr-border-color);
+  border-block-end-style: solid;
+  border-block-end-width: var(--vs--hr-border-width-block-start);
+  margin-block-end: 1.4rem;
+  padding-block-end: 1rem;
+}
+
+.paper-head h1 {
+  font-size: 1.62em;
+  font-weight: 700;
+  letter-spacing: 0.002em;
+  line-height: 1.22;
+  margin-block: 0 0.9rem;
+}
+
+.paper-head .byline {
+  font-size: 1.02em;
+  margin-block: 0 0.25rem;
+  text-indent: 0;
+}
+
+.paper-head .affil {
+  color: var(--vs-color-foreground-alt);
+  font-size: 0.82em;
+  font-style: italic;
+  line-height: 1.4;
+  margin-block: 0 0.9rem;
+  text-indent: 0;
+}
+
+.paper-head .abstract {
+  border-block-start-color: var(--vs--hr-border-color);
+  border-block-start-style: solid;
+  border-block-start-width: var(--vs--hr-border-width-block-start);
+  font-size: 0.92em;
+  line-height: 1.45;
+  padding-block-start: 0.7rem;
+}
+
+.paper-head .abstract p {
+  text-indent: 0;
+}
+
+.paper-head .kw,
+.paper-head .msc {
+  font-size: 0.82em;
+  line-height: 1.4;
+  margin-block: 0.55rem 0;
+  text-indent: 0;
+}
+
+.paper-head .abstract strong,
+.paper-head .kw strong,
+.paper-head .msc strong {
+  color: var(--vs-theme-side-border-heading-math--accent-color);
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+}
+
+/* ---- 番号を持たない後付けの見出し (謝辞・参考文献) ----
+   閉じ `#` で書くと section に包まれず body 直下に置かれる。
+   節見出しの群青バーの左に入る番号分の余白だけを詰める */
+body > h2 {
+  margin-block-start: 1.9rem;
+}
+
+/* ---- 定理環境 ----
+   ラベルを含む content は種別クラスが決まる .theorem 上で組み立てる。
+   :root で組み立てると、そこで未定義の --vs-theme-side-border-heading-math--theorem-label が
+   置換され content 全体が無効になる */
+.theorem {
+  counter-increment: vs-counter-thm;
+  margin-block: 1.05rem;
+  --vs-theme-side-border-heading-math--theorem-label: var(
+    --vs-theme-side-border-heading-math--theorem-label-theorem
+  );
+  --vs-theme-side-border-heading-math--theorem-marker-content: var(
+      --vs-theme-side-border-heading-math--theorem-label
+    )
+    ' ' var(--vs-theme-side-border-heading-math--theorem-number-content) '.';
+  --vs-theme-side-border-heading-math--theorem-marker-content-named: var(
+      --vs-theme-side-border-heading-math--theorem-label
+    )
+    ' ' var(--vs-theme-side-border-heading-math--theorem-number-content);
+}
+
+.theorem.lemma {
+  --vs-theme-side-border-heading-math--theorem-label: var(
+    --vs-theme-side-border-heading-math--theorem-label-lemma
+  );
+}
+
+.theorem.proposition {
+  --vs-theme-side-border-heading-math--theorem-label: var(
+    --vs-theme-side-border-heading-math--theorem-label-proposition
+  );
+}
+
+.theorem.corollary {
+  --vs-theme-side-border-heading-math--theorem-label: var(
+    --vs-theme-side-border-heading-math--theorem-label-corollary
+  );
+}
+
+.theorem.definition {
+  --vs-theme-side-border-heading-math--theorem-label: var(
+    --vs-theme-side-border-heading-math--theorem-label-definition
+  );
+}
+
+.theorem.example {
+  --vs-theme-side-border-heading-math--theorem-label: var(
+    --vs-theme-side-border-heading-math--theorem-label-example
+  );
+}
+
+.theorem.remark {
+  --vs-theme-side-border-heading-math--theorem-label: var(
+    --vs-theme-side-border-heading-math--theorem-label-remark
+  );
+}
+
+.theorem.question {
+  --vs-theme-side-border-heading-math--theorem-label: var(
+    --vs-theme-side-border-heading-math--theorem-label-question
+  );
+}
+
+/* 主張は斜体、定義・例・注意・問題は立体で組む */
+.theorem > p {
+  font-style: italic;
+  text-indent: 0;
+}
+
+.theorem:is(.definition, .example, .remark, .question) > p {
+  font-style: normal;
+}
+
+.theorem > p:first-child::before {
+  content: var(--vs-theme-side-border-heading-math--theorem-marker-content);
+}
+
+/* 名前付きの環境は番号の後ろに名前が入るので、区切りの句点は名前の後ろへ回す */
+.theorem > p:first-child:has(> .thmname:first-child)::before {
+  content: var(
+    --vs-theme-side-border-heading-math--theorem-marker-content-named
+  );
+}
+
+.thmname::after {
+  content: '.';
+}
+
+/* ラベル・名前・仮定の見出しは共通のスモールキャップ */
+.theorem > p:first-child::before,
+.thmname,
+.hypotheses strong:first-child {
+  color: var(--vs-theme-side-border-heading-math--accent-color);
+  font-family: var(--vs--heading-font-family);
+  font-style: normal;
+  font-variant: small-caps;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.theorem > p:first-child::before {
+  margin-inline-end: 0.4em;
+}
+
+/* 数式は地の文の斜体を継がない */
+.theorem .math,
+.proof .math,
+.theorem math {
+  font-style: normal;
+}
+
+/* 番号を持たない仮定の並び */
+.hypotheses {
+  margin-block: 1.05rem;
+}
+
+.hypotheses p {
+  text-indent: 0;
+}
+
+/* ---- 証明 ---- */
+.proof {
+  margin-block: 1.05rem;
+}
+
+.proof > p {
+  text-indent: 0;
+}
+
+/* 段落間の空きを持たない組みなので、証明が段落を継ぐときは字下げで切れ目を出す */
+.proof > p + p {
+  text-indent: var(--vs--p-text-indent);
+}
+
+.proof > p:first-child::before {
+  content: var(--vs-theme-side-border-heading-math--proof-marker-content);
+  font-style: italic;
+  margin-inline-end: 0.4em;
+}
+
+/* 対象を明示する証明は「Proof of 〜.」。区切りの句点は対象の後ろへ回す */
+.proof > p:first-child:has(> .proofof:first-child)::before {
+  content: var(--vs-theme-side-border-heading-math--proof-marker-content-of);
+  margin-inline-end: 0;
+}
+
+.proofof {
+  font-style: italic;
+}
+
+.proofof::after {
+  content: '.';
+}
+
+/* 別行立ての数式を挟んで続く証明は冒頭のラベルを繰り返さない */
+.proof.continued > p:first-child::before {
+  content: none;
+}
+
+.proof.qed > p:last-child::after {
+  content: var(--vs-theme-side-border-heading-math--proof-qed-content);
+}
+
+a[data-ref='thm']::before {
+  content: var(--vs-theme-side-border-heading-math--theorem-call-content);
+}
+
+a[data-ref='citenum']::before {
+  content: var(--vs-theme-side-border-heading-math--cite-number-call-content);
+}
+
+/* 印刷面では参照も地の文と同じ色で組む。base の a の既定を打ち消す。
+   var() 経由の inherit は解決されないので直接指定する */
+a:is(
+  [data-ref='sec'],
+  [data-ref='cite'],
+  [data-ref='eq'],
+  [data-ref='thm'],
+  [data-ref='citenum']
+) {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* MathJax は x ハイトを合わせるため既定で 116.7% を掛ける。数式を本文とほぼ同じ
+   大きさで組む設計なので掛け戻す */
+.math.inline {
+  font-size: 0.92em;
+}
+
+.math.display {
+  font-size: 0.96em;
+}
+
+/* ---- サイドノート (base の sidenote 変数に無いぶんの装飾) ---- */
+.sidenote {
+  hyphens: none;
+}
+
+.sidenote p {
+  text-indent: 0;
+  text-align: start;
+}
+
+.sidenote > p:first-child::before {
+  content: var(--vs-theme-side-border-heading-math--sidenote-marker-content);
+  color: var(--vs-color-foreground);
+  font-style: italic;
+  margin-inline-end: 0.3em;
+}
+
+/* サイドノートは段落の途中に立つので、直後の段落の字下げは保つ */
+.sidenote + p {
+  text-indent: var(--vs--p-text-indent);
+}
+
+/* ---- 参考文献: 番号をぶら下げた小さな組み ---- */
+:root {
+  --vs-citation--items-font-size: 0.86em;
+  --vs-citation--items-hyphens: auto;
+  --vs-citation--items-line-height: 1.35;
+  --vs-citation--items-padding-inline-start: 6.5mm;
+  --vs-citation--item-margin-block: 0 0.28rem;
+  --vs-citation--item-text-align: start;
+}
+
+ol.cite-items > li > p {
+  margin-block: 0;
+  text-indent: 0;
+}

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 126" role="img" aria-label="水際の平らな石に立つ横向きのセグロセキレイの線画">
+<style>
+.ink { fill: none; stroke: #1c1c1c; stroke-linecap: round; }
+.hatch { fill: none; stroke: #5a5a5a; stroke-linecap: round; stroke-width: 1; }
+.light { fill: none; stroke: #f6f4ee; stroke-linecap: round; stroke-width: 1.1; }
+</style>
+
+<path class="ink" d="M14,124 L40,110 L138,108 L168,124" stroke-width="2.4" stroke-linejoin="round"/>
+<path class="hatch" d="M46,114 L62,113 M50,120 L72,118 M104,112 L124,114 M110,120 L134,122"/>
+<path class="hatch" d="M0,118 L10,118 M0,124 L8,124 M176,116 L200,116 M184,123 L200,123" stroke-width="1.2"/>
+
+<path class="ink" d="M80,92 L78,110 M92,91 L94,110" stroke-width="2"/>
+<path class="ink" d="M76,110 L72,113 M79,110 L80,114 M92,110 L88,113 M95,110 L96,114" stroke-width="1.5"/>
+
+<path d="M30,44 L52,39
+         C58,22 80,22 88,37
+         C100,49 108,62 107,74
+         L176,100 L180,111 L102,85
+         C94,97 76,95 70,81
+         C64,69 64,53 70,43
+         L54,47 L30,47 Z"
+      fill="#1c1c1c" stroke="#1c1c1c" stroke-width="1" stroke-linejoin="round"/>
+
+<path class="light" d="M58,30 L84,28" stroke-width="2.8"/>
+<circle cx="65" cy="36" r="2.8" fill="#f6f4ee"/>
+<circle cx="66" cy="36" r="1.4" fill="#1c1c1c"/>
+<path d="M72,68 C76,78 84,85 93,89 C82,96 73,88 71,76 Z" fill="#f6f4ee"/>
+<path class="light" d="M114,88 L176,110" stroke-width="2.4"/>
+<path class="light" d="M86,54 L102,60" stroke-width="1.8"/>
+
+<path class="hatch" d="M88,44 C100,54 107,64 106,76" stroke-width="1"/>
+<path class="hatch" d="M84,60 L100,66 M82,70 L98,76 M84,79 L98,84"/>
+<path class="hatch" d="M118,92 L172,112" stroke-width="0.9"/>
+</svg>

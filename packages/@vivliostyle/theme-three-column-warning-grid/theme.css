@@ -1,0 +1,410 @@
+/*
+ * three-column-warning-grid
+ * アレルギー対応レシピ向けの安全重視型テーマ。A4縦・1レシピ = 1シートで、
+ * 高密度サンセリフ組版に番号付き大見出し・3段トラック(概要/材料チェック/工程)・
+ * 等幅書体の栄養成分表を組み合わせ、料理の魅力より誤読なき安全確認を優先する。
+ * 赤は警告枠・シート番号・アレルゲン確認マーカー・重要罫線に限定して反復する。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&family=Roboto+Mono:wght@500;700&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  /* Page: A4 portrait. 参照用の単票なので左右余白は見開きで入れ替えない */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 16mm;
+  --vs-page--margin-bottom: 16mm;
+  --vs-page--margin-left: 13mm;
+  --vs-page--margin-right: 13mm;
+
+  /* 柱は原稿の <header> をそのまま running element として毎ページに出す */
+  --vs-page--mbox-top-center-content: element(sheet-header);
+  --vs-page--mbox-top-size-inline: 100%;
+
+  /* ノンブルと、その上に引く版面の下罫 */
+  --vs-page--border-width-bottom: 1.5px;
+  --vs-page--border-color-bottom: var(
+    --vs-theme-three-column-warning-grid--color-accent
+  );
+  --vs-page--mbox-bottom-right-content: counter(page);
+  --vs-page--mbox-bottom-font-family: var(--vs--monospace-font-family);
+  --vs-page--mbox-bottom-font-size: 9pt;
+  --vs-page--mbox-bottom-font-weight: 700;
+  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
+  --vs-page--mbox-bottom-size-inline: 16mm;
+
+  /* Type: dense sans, left aligned for legibility */
+  --vs-font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+  --vs-font-size: 8pt;
+  --vs-line-height: 1.35;
+  --vs-color-foreground: #161616;
+  --vs-columns: 1;
+  --vs--monospace-font-family: 'Roboto Mono', ui-monospace, monospace;
+
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 0;
+  --vs--p-text-align: start;
+
+  --vs--heading-font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+  --vs--heading-font-weight: 700;
+  --vs--heading-text-align: start;
+
+  --vs--h1-font-size: 25pt;
+  --vs--h1-font-weight: 900;
+  --vs--h1-line-height: 1;
+  --vs--h1-letter-spacing: 0.005em;
+  --vs--h1-margin-block: 1.8mm 2.2mm;
+  --vs--h1-text-transform: uppercase;
+
+  --vs--h2-font-size: 10pt;
+  --vs--h2-letter-spacing: 0.02em;
+  --vs--h2-margin-block: 0 1.5mm;
+  --vs--h2-text-transform: uppercase;
+  --vs--h2-border-width-block-end: 2px;
+  --vs--h2-border-color-block-end: var(--vs-color-foreground);
+  --vs--h2-padding-block: 0 0.7mm;
+
+  /* シート番号: 原稿の見出し順から振る。連番の体裁は example 側で差し替えられる */
+  --vs-theme-three-column-warning-grid--sheet-marker-content: counter(
+    vs-counter-sec-h1,
+    decimal-leading-zero
+  );
+  --vs-theme-three-column-warning-grid--sheet-call-content: 'sheet '
+    target-counter(attr(href), vs-counter-sec-h1, decimal-leading-zero);
+  --vs-section--h1-marker-display: inline;
+  --vs-section--h1-marker-content: var(
+    --vs-theme-three-column-warning-grid--sheet-marker-content
+  );
+  --vs-section--h1-marker-margin-inline-end: 0.14em;
+  /* 1 シート = 1 ページ。見出しの数だけページが増える */
+  --vs-section--h1-break-before: page;
+
+  /* 工程番号 */
+  --vs-theme-three-column-warning-grid--step-marker-content: counter(
+    vs-counter-step
+  );
+
+  --vs--figure-display: block;
+  --vs--figure-margin-block: 0 1.8mm;
+  --vs--figure-item-size-inline: 100%;
+  --vs--figcaption-font-size: 6.3pt;
+  --vs--figcaption-margin-block: 0.8mm 0;
+  --vs--figcaption-text-align: start;
+  --vs--figcaption-text-color: var(
+    --vs-theme-three-column-warning-grid--color-muted
+  );
+  --vs--figcaption-letter-spacing: 0.02em;
+  /* 参考写真は採番対象ではない。図番号が要る原稿は inline に戻す */
+  --vs-appendix--marker-display: none;
+  --vs-citation--marker-display: none;
+  --vs-equation--marker-display: none;
+  --vs-figure--marker-display: none;
+  --vs-listing--marker-display: none;
+  --vs-table--marker-display: none;
+  --vs-theorem--marker-display: none;
+
+  /* 全リストは自前のマーカー (::before) を使うので theme のマーカーを外す */
+  --vs--lists-margin-block: 0;
+  --vs--lists-padding-inline-start: 0;
+  --vs--ul-list-style-type: none;
+  --vs--ol-list-style-type: none;
+
+  --vs--table-size-inline: 100%;
+  --vs--table-margin-block: 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-cell-padding-block: 0.5mm;
+  --vs--table-cell-padding-inline: 1.5mm;
+  --vs--th-text-align: start;
+
+  /* Red is reserved for alerts, the sheet number and key rules */
+  --vs-theme-three-column-warning-grid--color-accent: #ff0000;
+  --vs-theme-three-column-warning-grid--color-muted: #5c6266;
+  --vs-theme-three-column-warning-grid--color-rule: #e3e4e4;
+  --vs-theme-three-column-warning-grid--color-alert-bg: #fff0f0;
+  --vs-theme-three-column-warning-grid--color-alert-rule: #f4c6c6;
+  --vs-theme-three-column-warning-grid--color-row-alt-bg: #f2f3f3;
+
+  --vs--table-border-width: 0;
+}
+
+/* Running header: media name left, section name right, thin black rule below */
+body > header {
+  position: running(sheet-header);
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom-width: 1px;
+  border-bottom-color: var(--vs-color-foreground);
+  padding-bottom: 1.3mm;
+  font-weight: 700;
+  font-size: 8.5pt;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/*
+ * 3 段トラック。1 シートに収まる分量を前提とした様式なので flex で組む
+ * (分割が必要な原稿では溢れが見えるようにしてあり、切り捨てはしない)
+ */
+body > section.level1 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  column-gap: 4mm;
+}
+body > section.level1 > .col,
+body > section.level1 > section.level2 {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Hero: red sheet number + black all-caps title spanning full width */
+body > section.level1 > h1 {
+  flex: 0 0 100%;
+}
+section > h1:first-child::before {
+  color: var(--vs-theme-three-column-warning-grid--color-accent);
+}
+
+/* シート参照: 本文の語と地続きに見せる */
+a[data-ref='sheet'] {
+  --vs--anchor-text-color: inherit;
+  --vs--anchor-text-decoration: none;
+}
+a[data-ref='sheet']::before {
+  content: var(--vs-theme-three-column-warning-grid--sheet-call-content);
+}
+
+/* Dish photo placeholder + caption */
+figure > img {
+  display: block;
+  height: auto;
+}
+
+/* Tables share one dense grid; each track overrides its own rules below */
+
+/* Sheet info table (first track): label -> mono value, framed */
+.col table {
+  --vs--table-border-width-block-start: 1.5px;
+  --vs--table-border-width-block-end: 1.5px;
+  --vs--table-border-color-block-start: var(--vs-color-foreground);
+  --vs--table-border-color-block-end: var(--vs-color-foreground);
+  --vs--table-border-width-outer: 1px;
+  --vs--table-border-width-column: 1px;
+  font-size: 7.3pt;
+  margin-block-end: 1.8mm;
+}
+.col table th {
+  font-size: 6.4pt;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--vs-theme-three-column-warning-grid--color-muted);
+  border-bottom-width: 1.5px;
+  border-bottom-color: var(--vs-color-foreground);
+  padding-block: 0.5mm 0.8mm;
+}
+.col table td {
+  border-bottom-width: 1px;
+  border-bottom-color: var(--vs-theme-three-column-warning-grid--color-rule);
+}
+.col table tbody tr:last-child td {
+  border-bottom-width: 0;
+}
+.col table :is(th, td):last-child {
+  text-align: right;
+}
+.col table td:last-child {
+  font-family: var(--vs--monospace-font-family);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Ingredient check: name row + red allergen marker (mark) */
+section.level2:has(> .hd-ingredient) table {
+  font-size: 7.6pt;
+  line-height: 1.1;
+}
+section.level2:has(> .hd-ingredient) th {
+  font-size: 6.4pt;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--vs-theme-three-column-warning-grid--color-muted);
+  border-bottom-width: 1.5px;
+  border-bottom-color: var(--vs-color-foreground);
+  padding-block: 0 0.8mm;
+  padding-inline: 0 1mm;
+}
+section.level2:has(> .hd-ingredient) td {
+  border-bottom-width: 1px;
+  border-bottom-color: var(--vs-theme-three-column-warning-grid--color-rule);
+  padding-block: 0.55mm;
+  padding-inline: 0 1mm;
+}
+section.level2:has(> .hd-ingredient) :is(th, td):last-child {
+  text-align: right;
+  padding-inline-end: 0;
+  white-space: nowrap;
+}
+mark {
+  background-color: transparent;
+  color: var(--vs-theme-three-column-warning-grid--color-accent);
+  border-width: 1px;
+  border-color: var(--vs-theme-three-column-warning-grid--color-accent);
+  font-weight: 700;
+  font-size: 5.9pt;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.2mm 1.2mm;
+  white-space: nowrap;
+}
+
+/* Method: big bold step numbers */
+section.level2:has(> .hd-method) ol {
+  counter-reset: vs-counter-step;
+}
+/* 番号は flex ではなく負の text-indent でぶら下げる (flex は本文中の
+   参照リンクなどのインライン要素を別アイテムに割ってしまう) */
+section.level2:has(> .hd-method) ol > li {
+  counter-increment: vs-counter-step;
+  margin-block-end: 1.3mm;
+  padding-inline-start: 7.2mm;
+  text-indent: -7.2mm;
+  font-size: 7.6pt;
+  line-height: 1.24;
+}
+section.level2:has(> .hd-method) ol > li::before {
+  content: var(--vs-theme-three-column-warning-grid--step-marker-content);
+  display: inline-block;
+  inline-size: 7.2mm;
+  text-indent: 0;
+  font-weight: 900;
+  font-size: 11pt;
+  line-height: 1;
+  color: var(--vs-color-foreground);
+}
+
+/* Warning boxes: red frame, pale red fill, uppercase red headline */
+.warning {
+  border-width: 1.5px;
+  border-color: var(--vs-theme-three-column-warning-grid--color-accent);
+  background-color: var(--vs-theme-three-column-warning-grid--color-alert-bg);
+  padding: 1.4mm 1.9mm 1.5mm;
+  margin-block-start: 2mm;
+  break-inside: avoid;
+}
+.warning .headline {
+  display: flex;
+  align-items: center;
+  gap: 1.4mm;
+  color: var(--vs-theme-three-column-warning-grid--color-accent);
+  font-weight: 700;
+  font-size: 8.8pt;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-block-end: 1mm;
+}
+.warning .headline img {
+  flex: none;
+  width: 4mm;
+  height: 4mm;
+}
+.warning li {
+  padding-block: 0.45mm;
+  padding-inline-start: 2.6mm;
+  text-indent: -2.6mm;
+  border-top-width: 1px;
+  border-top-color: var(--vs-theme-three-column-warning-grid--color-alert-rule);
+  font-size: 6.7pt;
+  line-height: 1.18;
+}
+.warning li:first-child {
+  border-top-width: 0;
+}
+.warning li::before {
+  content: '';
+  display: inline-block;
+  inline-size: 1.2mm;
+  block-size: 1.2mm;
+  margin-inline-end: 1.4mm;
+  text-indent: 0;
+  vertical-align: 0.35mm;
+  background-color: var(--vs-theme-three-column-warning-grid--color-accent);
+}
+.warning p {
+  font-size: 6.7pt;
+  line-height: 1.24;
+}
+/* Allergen glyph row inside the cross-contact box */
+.warning .glyphs {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2mm;
+  margin-block-end: 1mm;
+  padding-block-end: 1mm;
+  border-bottom-width: 1px;
+  border-bottom-color: var(
+    --vs-theme-three-column-warning-grid--color-alert-rule
+  );
+}
+.warning .glyphs img {
+  width: 5.6mm;
+  height: 5.6mm;
+}
+
+/* Nutrition table: full width, twin panels split by a red rule */
+body > section.level1 > section.level2:has(> .hd-nutrition) {
+  flex: 0 0 100%;
+  margin-block-start: 3mm;
+}
+section.level2:has(> .hd-nutrition) table {
+  --vs--table-border-width-block-start: 2px;
+  border-top-color: var(--vs-theme-three-column-warning-grid--color-accent);
+  font-size: 8pt;
+}
+section.level2:has(> .hd-nutrition) th {
+  font-size: 7pt;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border-bottom-width: 2px;
+  border-bottom-color: var(--vs-theme-three-column-warning-grid--color-accent);
+  padding-block: 1mm;
+  padding-inline: 2mm;
+}
+section.level2:has(> .hd-nutrition) td {
+  padding-block: 0.85mm;
+  padding-inline: 2mm;
+}
+section.level2:has(> .hd-nutrition) tbody tr:nth-child(even) td {
+  background-color: var(--vs-theme-three-column-warning-grid--color-row-alt-bg);
+}
+section.level2:has(> .hd-nutrition)
+  :is(th, td):is(:nth-child(2), :nth-child(3), :nth-child(5), :nth-child(6)) {
+  text-align: right;
+}
+section.level2:has(> .hd-nutrition)
+  td:is(:nth-child(2), :nth-child(3), :nth-child(5), :nth-child(6)) {
+  font-family: var(--vs--monospace-font-family);
+  font-weight: 500;
+}
+section.level2:has(> .hd-nutrition) :is(th, td):nth-child(4) {
+  border-left-width: 2px;
+  border-left-color: var(--vs-theme-three-column-warning-grid--color-accent);
+  padding-inline-start: 4mm;
+}
+section.level2:has(> .hd-nutrition) > p {
+  font-size: 7pt;
+  color: var(--vs-theme-three-column-warning-grid--color-muted);
+  letter-spacing: 0.02em;
+  margin-block-start: 1.3mm;
+}

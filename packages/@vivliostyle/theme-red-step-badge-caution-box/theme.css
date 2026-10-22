@@ -1,0 +1,437 @@
+/*
+ * 学校教科書の実験マニュアル (理科・化学) 向けテーマ
+ * A5縦・横組み2段。白地に赤を見出しバッジ・STEPバッジ・安全注意ボックスへ限定
+ * 反復する Noto Sans JP の実用紙面。柱は両側、ノンブルは地の中央。
+ * 実験・安全ページは h1 ごとに改ページし、番号はカウンタから振る。
+ * 器具は表、試薬・安全注意は箇条書き、操作は番号付きリストで書く。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/math';
+
+:root {
+  --vs-page--size: A5;
+  --vs-page--margin-top: 12mm;
+  --vs-page--margin-bottom: 13mm;
+  --vs-page--margin-left: 9mm;
+  --vs-page--margin-right: 9mm;
+
+  --vs-columns: 1;
+  --vs-font-family: 'Noto Sans JP', sans-serif;
+  --vs-font-size: 7pt;
+  --vs-line-height: 1.55;
+  --vs-color-foreground: #1a1a1a;
+
+  --vs--heading-font-family: 'Noto Sans JP', sans-serif;
+
+  --vs--p-margin-block: 0.8mm 0;
+  --vs--p-margin-inline: 0;
+  --vs--p-text-align: start;
+  --vs--p-text-indent: 0;
+
+  --vs--h1-font-size: 16.5pt;
+  --vs--h1-font-weight: 900;
+  --vs--h1-letter-spacing: 0.02em;
+  --vs--h1-line-height: 1.1;
+  --vs--h1-margin-block: 0;
+  --vs--h1-margin-inline: 0;
+
+  --vs--h2-font-size: 9pt;
+  --vs--h2-font-weight: 900;
+  --vs--h2-line-height: 1.2;
+  --vs--h2-margin-block: 0 1.5mm;
+  --vs--h2-margin-inline: 0;
+
+  --vs--h3-font-size: 7.5pt;
+  --vs--h3-font-weight: 700;
+  --vs--h3-line-height: 1.2;
+  --vs--h3-margin-block: 2.4mm 0.6mm;
+  --vs--h3-margin-inline: 0;
+
+  --vs--lists-margin-block: 0;
+  --vs--lists-margin-inline: 0;
+  --vs--ul-padding-inline-start: 3.6mm;
+  --vs--ol-padding-inline-start: 0mm;
+  --vs--lists-marker-text-color: var(
+    --vs-theme-red-step-badge-caution-box--color-accent
+  );
+  --vs--lists-marker-font-size: 0.75em;
+
+  --vs--table-size-inline: 100%;
+  --vs--table-font-size: 6.4pt;
+  --vs--table-margin-block: 0.6mm 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-text-align: start;
+  --vs--table-cell-padding-block: 0.55mm;
+  --vs--table-cell-padding-inline: 0.8mm;
+  --vs--table-cell-line-height: 1.35;
+  --vs--table-cell-vertical-align: top;
+  --vs--table-border-width: 0;
+  /* 行罫は淡グレー、見出し行下は本文色の太罫 (器具一覧表) */
+  --vs--table-border-width-row: 0.25pt;
+  --vs--table-border-color-row: var(
+    --vs-theme-red-step-badge-caution-box--color-rule-cell
+  );
+  --vs--table-border-width-block-end: 0.25pt;
+  --vs--table-border-color-block-end: var(
+    --vs-theme-red-step-badge-caution-box--color-rule-cell
+  );
+  --vs--table-border-width-thead-inner: 0.6pt;
+  --vs--table-border-color-thead-inner: var(--vs-color-foreground);
+  --vs--th-font-size: 6pt;
+  --vs--th-text-color: var(--vs-theme-red-step-badge-caution-box--color-muted);
+
+  --vs--figure-margin-block: 8mm 0;
+  --vs--figure-margin-inline: 0;
+  --vs--figcaption-font-size: 7pt;
+  --vs--figcaption-font-weight: 700;
+  --vs--figcaption-margin-block: 1mm 0;
+  --vs--figcaption-margin-inline: 0;
+  --vs--figcaption-text-align: center;
+
+  --vs-theme-red-step-badge-caution-box--color-accent: #ff3333;
+  --vs-theme-red-step-badge-caution-box--color-accent-bg: #fff0f0;
+  --vs-theme-red-step-badge-caution-box--color-on-accent: #ffffff;
+  --vs-theme-red-step-badge-caution-box--color-rule: #999999;
+  --vs-theme-red-step-badge-caution-box--color-rule-column: #aaaaaa;
+  --vs-theme-red-step-badge-caution-box--color-rule-cell: #cccccc;
+  --vs-theme-red-step-badge-caution-box--color-muted: #555555;
+
+  --vs-theme-red-step-badge-caution-box--section-columns: 2;
+  --vs-theme-red-step-badge-caution-box--section-column-gap: 8mm;
+  --vs-theme-red-step-badge-caution-box--step-figure-size-inline: 18mm;
+  /* 見出しバッジ: 実験・安全はそれぞれの通し番号、その他は data-badge の文字 */
+  --vs-theme-red-step-badge-caution-box--experiment-marker-content: '実験'
+    counter(
+      vs-counter-experiment,
+      var(--vs-theme-red-step-badge-caution-box--badge-counter-style)
+    );
+  --vs-theme-red-step-badge-caution-box--experiment-call-content: '実験'
+    target-counter(
+      attr(href),
+      vs-counter-experiment,
+      var(--vs-theme-red-step-badge-caution-box--badge-counter-style)
+    );
+  --vs-theme-red-step-badge-caution-box--safety-marker-content: '安全'
+    counter(
+      vs-counter-safety,
+      var(--vs-theme-red-step-badge-caution-box--badge-counter-style)
+    );
+  --vs-theme-red-step-badge-caution-box--badge-counter-style: decimal;
+  --vs-theme-red-step-badge-caution-box--step-marker-content: counter(
+    vs-counter-step
+  );
+
+  /* 実験・安全のページはそれぞれ1ページで完結させる */
+  --vs-section--h1-break-before: page;
+
+  /* 柱: 左は各ページの章名、右はそのページの題 */
+  --vs--h1-string-set: page-title content();
+  --vs-page--mbox-font-family: 'Noto Sans JP', sans-serif;
+  --vs-page--mbox-top-font-size: 6.5pt;
+  --vs-page--mbox-top-text-color: #333333;
+  --vs-page--mbox-bottom-font-size: 8.5pt;
+  --vs-page--mbox-bottom-text-color: #1a1a1a;
+  --vs-page--mbox-top-left-content: string(chapter-name);
+  --vs-page--mbox-top-right-content: string(page-title, start);
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-top-vertical-align: bottom;
+  --vs-page--mbox-top-padding-bottom: 1.2mm;
+  --vs-page--mbox-bottom-vertical-align: top;
+  --vs-page--mbox-bottom-padding-top: 1.5mm;
+}
+
+:root:lang(ja) {
+  /* 図番号はページ (実験) ごとに振り直す */
+  --vs-figure--marker-content: '図' counter(vs-counter-fig) '\3000';
+  --vs-figure--call-content: '図' target-counter(attr(href), vs-counter-fig);
+}
+
+/* ---- ページの版面: 上罫 + 2段組 (見出しと図は段抜き) ---- */
+section:has(> h1:first-child) {
+  columns: var(--vs-theme-red-step-badge-caution-box--section-columns);
+  column-gap: var(--vs-theme-red-step-badge-caution-box--section-column-gap);
+  column-rule-width: 0.3pt;
+  column-rule-style: solid;
+  column-rule-color: var(
+    --vs-theme-red-step-badge-caution-box--color-rule-column
+  );
+  border-block-start-width: 0.35pt;
+  border-block-start-style: solid;
+  border-block-start-color: var(
+    --vs-theme-red-step-badge-caution-box--color-rule
+  );
+  padding-block-start: 4mm;
+}
+
+/* 図番号はページごとに振り直す (カウンタのスコープは h1 の後続兄弟に及ぶ) */
+section > h1:first-child {
+  counter-reset: vs-counter-fig;
+}
+
+/* ---- 見出しブロック: 赤バッジ + 特大題 + リード文 ---- */
+h1 {
+  display: flex;
+  align-items: center;
+  gap: 3.5mm;
+  column-span: all;
+}
+
+section > h1:first-child::before {
+  display: inline-flex;
+  align-items: baseline;
+  background-color: var(--vs-theme-red-step-badge-caution-box--color-accent);
+  color: var(--vs-theme-red-step-badge-caution-box--color-on-accent);
+  font-size: 11pt;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  padding: 2mm 4.5mm 2.2mm;
+}
+
+section:has(> h1.experiment:first-child) {
+  counter-increment: vs-counter-experiment;
+}
+
+section:has(> h1.safety:first-child) {
+  counter-increment: vs-counter-safety;
+}
+
+section > h1.experiment:first-child::before {
+  content: var(
+    --vs-theme-red-step-badge-caution-box--experiment-marker-content
+  );
+}
+
+section > h1.safety:first-child::before {
+  content: var(--vs-theme-red-step-badge-caution-box--safety-marker-content);
+}
+
+/* 通し番号を持たないページ (もくじなど) は原稿にバッジの文字を書く */
+section > h1[data-badge]:first-child::before {
+  content: attr(data-badge);
+}
+
+.lead {
+  column-span: all;
+  margin-block: 2.8mm 0;
+  margin-inline: 0;
+  font-size: 7.5pt;
+  line-height: 1.6;
+}
+
+/* 柱へ流すための章名。紙面には出さない */
+.chapter-name {
+  string-set: chapter-name content(text);
+  height: 0;
+  margin-block: 0;
+  overflow: hidden;
+}
+
+/* 段組の開始位置をリード文から離す */
+.chapter-name + .lead,
+h1 + .lead {
+  margin-block-end: 4.5mm;
+}
+
+/* ---- 準備セクション: 赤■見出し + ●小見出し ---- */
+h2::before {
+  content: '■';
+  color: var(--vs-theme-red-step-badge-caution-box--color-accent);
+  margin-inline-end: 1.6mm;
+}
+
+h3::before {
+  content: '●';
+  margin-inline-end: 1.4mm;
+  font-size: 6pt;
+  vertical-align: 0.15em;
+}
+
+/* ---- 器具一覧 (表) ---- */
+thead th {
+  letter-spacing: 0.04em;
+}
+
+:is(th, td):last-child {
+  width: 21mm;
+  white-space: nowrap;
+}
+
+/* ---- 試薬 (箇条書き) ---- */
+section > ul {
+  margin-block: 0.8mm 0;
+}
+
+section > ul > li {
+  font-size: 6.8pt;
+  line-height: 1.5;
+}
+
+/* ---- もくじ ---- */
+.toc :is(th, td):last-child {
+  width: 9mm;
+  text-align: end;
+}
+
+.toc a {
+  --vs--anchor-text-color: inherit;
+  --vs--anchor-text-decoration: none;
+}
+
+.toc a[data-ref='exp']::before {
+  margin-inline-end: 1em;
+}
+
+a[data-ref='exp']::before {
+  content: var(--vs-theme-red-step-badge-caution-box--experiment-call-content);
+}
+
+a:is([data-ref='exp'], [data-ref='page']) {
+  --vs--anchor-text-color: inherit;
+}
+
+/* ---- 安全上の注意ボックス (赤ヘッダ+薄赤地角丸+ピクトグラム) ---- */
+.warning {
+  margin-block-start: 3.5mm;
+  border-radius: 2.5mm;
+  background-color: var(--vs-theme-red-step-badge-caution-box--color-accent-bg);
+  break-inside: avoid;
+  overflow: hidden;
+}
+
+.warning h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2mm;
+  background-color: var(--vs-theme-red-step-badge-caution-box--color-accent);
+  color: var(--vs-theme-red-step-badge-caution-box--color-on-accent);
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: center;
+  margin-block: 0;
+  margin-inline: 0;
+  padding-block: 1.8mm;
+  padding-inline: 0;
+}
+
+.warning h3::before {
+  content: none;
+}
+
+.warning h3 img {
+  width: 4.2mm;
+}
+
+.warning ul {
+  list-style-type: none;
+  padding-block: 2.6mm 3.2mm;
+  padding-inline: 3mm;
+  display: flex;
+  flex-direction: column;
+  gap: 2.6mm;
+}
+
+.warning li {
+  display: flex;
+  align-items: center;
+  gap: 2.8mm;
+  font-size: 6.8pt;
+  line-height: 1.55;
+}
+
+.warning li img {
+  flex: 0 0 10.5mm;
+  width: 10.5mm;
+}
+
+/* ---- 操作手順 (番号付きリスト → 赤角丸STEPバッジ) ----
+   li::before = バッジ本体と "STEP" の小文字、li::after = 通し番号。
+   どちらも absolute にして本文のフローから外す。 */
+.steps > ol {
+  list-style-type: none;
+  counter-reset: vs-counter-step;
+}
+
+.steps > ol > li {
+  counter-increment: vs-counter-step;
+  /* 線画の float を手順ごとに閉じる */
+  display: flow-root;
+  position: relative;
+  padding-inline-start: 10mm;
+  margin-block-start: 3.4mm;
+  min-height: 9.4mm;
+  break-inside: avoid;
+}
+
+.steps > ol > li::before {
+  content: 'STEP';
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  width: 7.5mm;
+  height: 8.6mm;
+  padding-top: 1mm;
+  background-color: var(--vs-theme-red-step-badge-caution-box--color-accent);
+  border-radius: 1.2mm;
+  color: var(--vs-theme-red-step-badge-caution-box--color-on-accent);
+  font-size: 4.5pt;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  text-align: center;
+}
+
+.steps > ol > li::after {
+  content: var(--vs-theme-red-step-badge-caution-box--step-marker-content);
+  position: absolute;
+  left: 0;
+  top: 2.9mm;
+  width: 7.5mm;
+  color: var(--vs-theme-red-step-badge-caution-box--color-on-accent);
+  font-size: 11pt;
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+}
+
+.steps li p {
+  font-size: 6.8pt;
+}
+
+.steps li strong {
+  display: block;
+  font-size: 8.5pt;
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--vs-theme-red-step-badge-caution-box--color-accent);
+}
+
+/* 線画は本文の右へ回り込ませる (li 先頭の画像だけの段落を浮かせる) */
+.steps > ol > li > p:first-child {
+  float: right;
+  margin-block: 0 1mm;
+  margin-inline: 2.4mm 0;
+}
+
+.steps li img {
+  display: block;
+  width: var(--vs-theme-red-step-badge-caution-box--step-figure-size-inline);
+}
+
+/* ---- 装置図 ---- */
+section > figure img {
+  display: block;
+  width: 100%;
+}

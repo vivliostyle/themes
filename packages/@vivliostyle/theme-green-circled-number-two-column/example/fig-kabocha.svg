@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" role="img" aria-label="皿に盛ったかぼちゃのレモン煮">
+<rect width="400" height="320" fill="#f4f2ec" />
+<circle cx="200" cy="160" r="124" fill="#fbfaf6" stroke="#e5e2d8" stroke-width="2" />
+<circle cx="200" cy="160" r="104" fill="#f5f2ea" />
+<ellipse cx="200" cy="232" rx="94" ry="12" fill="#e9e4d5" />
+<g transform="rotate(-10 144 155)">
+<rect x="104" y="124" width="80" height="62" rx="14" fill="#f2ab46" stroke="#dc8f2c" stroke-width="3" />
+<rect x="116" y="134" width="42" height="24" rx="10" fill="#f8c574" />
+<rect x="104" y="164" width="80" height="22" rx="11" fill="#4a8b3c" />
+<path d="M118 176h20M150 176h16" stroke="#6aa851" stroke-width="4" stroke-linecap="round" />
+</g>
+<g transform="rotate(8 208 123)">
+<rect x="168" y="92" width="80" height="62" rx="14" fill="#f4b152" stroke="#dc8f2c" stroke-width="3" />
+<rect x="180" y="102" width="42" height="24" rx="10" fill="#fad081" />
+<rect x="168" y="132" width="80" height="22" rx="11" fill="#4a8b3c" />
+<path d="M182 144h20M214 144h16" stroke="#6aa851" stroke-width="4" stroke-linecap="round" />
+</g>
+<g transform="rotate(-5 230 191)">
+<rect x="190" y="160" width="80" height="62" rx="14" fill="#f2ab46" stroke="#dc8f2c" stroke-width="3" />
+<rect x="202" y="170" width="42" height="24" rx="10" fill="#f8c574" />
+<rect x="190" y="200" width="80" height="22" rx="11" fill="#4a8b3c" />
+<path d="M204 212h20M236 212h16" stroke="#6aa851" stroke-width="4" stroke-linecap="round" />
+</g>
+<circle cx="278" cy="182" r="27" fill="#f9e58c" stroke="#eec33c" stroke-width="3" />
+<circle cx="278" cy="182" r="20" fill="#fdf3bd" />
+<path d="M278 162v40M258 182h40M264 168l28 28M292 168l-28 28" stroke="#f2cd3f" stroke-width="2.5" stroke-linecap="round" />
+</svg>

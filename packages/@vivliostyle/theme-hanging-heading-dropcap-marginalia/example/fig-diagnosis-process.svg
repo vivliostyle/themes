@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 84" role="img" aria-label="診断プロセスの全体像：現状把握から課題整理を経て施策立案へ至る流れ">
+<style>
+text { font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif; font-size: 24px; fill: #2b2520; }
+</style>
+<rect x="2" y="14" width="170" height="56" rx="28" ry="28" fill="none" stroke="#5a4a42" stroke-width="2.2" />
+<rect x="235" y="14" width="170" height="56" rx="28" ry="28" fill="none" stroke="#5a4a42" stroke-width="2.2" />
+<rect x="468" y="14" width="170" height="56" rx="28" ry="28" fill="none" stroke="#5a4a42" stroke-width="2.2" />
+<path d="M182 42 H216" fill="none" stroke="#5a4a42" stroke-width="2.4" />
+<path d="M214 34 L231 42 L214 50 Z" fill="#5a4a42" />
+<path d="M415 42 H449" fill="none" stroke="#5a4a42" stroke-width="2.4" />
+<path d="M447 34 L464 42 L447 50 Z" fill="#5a4a42" />
+<text x="87" y="51" text-anchor="middle">現状把握</text>
+<text x="320" y="51" text-anchor="middle">課題整理</text>
+<text x="553" y="51" text-anchor="middle">施策立案</text>
+</svg>

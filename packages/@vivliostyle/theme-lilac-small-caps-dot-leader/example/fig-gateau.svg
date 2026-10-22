@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="168" viewBox="0 0 160 168" role="img" aria-label="バニラの花を飾ったサントノーレのイラスト">
+  <style>
+    .medallion { font-family: Georgia, "Times New Roman", serif; font-style: italic; font-size: 6.2px; fill: #8b6f92; }
+  </style>
+  <ellipse cx="80" cy="153" rx="58" ry="9" fill="#ede2f0" />
+  <rect x="22" y="122" width="116" height="20" rx="10" fill="#ecd8ba" stroke="#cdb089" stroke-width="1" />
+  <rect x="30" y="106" width="100" height="18" rx="9" fill="#f3e5cd" stroke="#d8bf9c" stroke-width="1" />
+  <circle cx="40" cy="122" r="5" fill="#f8eedb" stroke="#dcc6a3" stroke-width="0.7" />
+  <circle cx="56" cy="124" r="5" fill="#f8eedb" stroke="#dcc6a3" stroke-width="0.7" />
+  <circle cx="72" cy="125" r="5" fill="#f8eedb" stroke="#dcc6a3" stroke-width="0.7" />
+  <circle cx="88" cy="125" r="5" fill="#f8eedb" stroke="#dcc6a3" stroke-width="0.7" />
+  <circle cx="104" cy="124" r="5" fill="#f8eedb" stroke="#dcc6a3" stroke-width="0.7" />
+  <circle cx="120" cy="122" r="5" fill="#f8eedb" stroke="#dcc6a3" stroke-width="0.7" />
+  <circle cx="49" cy="92" r="17" fill="#e9d0a9" stroke="#c9a877" stroke-width="1" />
+  <circle cx="80" cy="88" r="18" fill="#eed7b2" stroke="#c9a877" stroke-width="1" />
+  <circle cx="111" cy="92" r="17" fill="#e9d0a9" stroke="#c9a877" stroke-width="1" />
+  <circle cx="44" cy="87" r="1.1" fill="#c9a877" />
+  <circle cx="55" cy="96" r="1.1" fill="#c9a877" />
+  <circle cx="76" cy="82" r="1.1" fill="#c9a877" />
+  <circle cx="86" cy="93" r="1.1" fill="#c9a877" />
+  <circle cx="107" cy="87" r="1.1" fill="#c9a877" />
+  <circle cx="116" cy="96" r="1.1" fill="#c9a877" />
+  <ellipse cx="80" cy="66" rx="30" ry="11" fill="#f7edda" stroke="#d9c3a0" stroke-width="1" />
+  <ellipse cx="80" cy="54" rx="24" ry="10" fill="#f9f0e0" stroke="#d9c3a0" stroke-width="1" />
+  <ellipse cx="80" cy="43" rx="18" ry="8.5" fill="#f7edda" stroke="#d9c3a0" stroke-width="1" />
+  <ellipse cx="80" cy="33" rx="12" ry="7" fill="#f9f0e0" stroke="#d9c3a0" stroke-width="1" />
+  <circle cx="80" cy="23" r="6" fill="#f7edda" stroke="#d9c3a0" stroke-width="1" />
+  <path d="M92 18 Q104 34 110 62" fill="none" stroke="#6d4b3a" stroke-width="2.6" stroke-linecap="round" />
+  <path d="M97 14 Q112 30 121 56" fill="none" stroke="#7d5a46" stroke-width="2.2" stroke-linecap="round" />
+  <ellipse cx="118" cy="34" rx="8" ry="3.6" fill="#fdf8ee" stroke="#d9c9a6" stroke-width="0.8" transform="rotate(20 118 34)" />
+  <ellipse cx="126" cy="42" rx="8" ry="3.6" fill="#fdf8ee" stroke="#d9c9a6" stroke-width="0.8" transform="rotate(95 126 42)" />
+  <ellipse cx="120" cy="51" rx="8" ry="3.6" fill="#fdf8ee" stroke="#d9c9a6" stroke-width="0.8" transform="rotate(160 120 51)" />
+  <ellipse cx="110" cy="47" rx="8" ry="3.6" fill="#fdf8ee" stroke="#d9c9a6" stroke-width="0.8" transform="rotate(230 110 47)" />
+  <ellipse cx="109" cy="38" rx="8" ry="3.6" fill="#fdf8ee" stroke="#d9c9a6" stroke-width="0.8" transform="rotate(300 109 38)" />
+  <circle cx="116" cy="43" r="3.4" fill="#ecd6a2" stroke="#cdb27e" stroke-width="0.7" />
+  <circle cx="62" cy="82" r="8.5" fill="#f6eef7" stroke="#b98cc0" stroke-width="0.9" />
+  <text x="62" y="84.5" text-anchor="middle" class="medallion">Violine</text>
+</svg>

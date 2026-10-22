@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" role="img" aria-label="X-X 断面図">
+  <style>
+    .fignum { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 14px; font-weight: 700; fill: #202020; }
+    .axis { font-family: "Roboto Mono", ui-monospace, monospace; font-size: 10px; fill: #202020; }
+    .dim { font-family: "Roboto Mono", ui-monospace, monospace; font-size: 9px; fill: #555555; }
+    .lev { font-family: "Roboto Mono", ui-monospace, monospace; font-size: 9px; fill: #202020; }
+    .note { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 9px; fill: #404040; letter-spacing: 0.06em; }
+  </style>
+
+  <rect x="8" y="8" width="60" height="24" fill="none" stroke="#202020" stroke-width="1.4" />
+  <text x="38" y="26" text-anchor="middle" class="fignum">図 09</text>
+
+  <g stroke="#202020" stroke-width="2" fill="none">
+    <rect x="70" y="70" width="470" height="140" />
+    <line x1="70" y1="140" x2="270" y2="140" />
+    <line x1="360" y1="140" x2="540" y2="140" />
+    <line x1="270" y1="140" x2="270" y2="210" />
+    <line x1="360" y1="140" x2="360" y2="210" />
+  </g>
+  <line x1="60" y1="70" x2="550" y2="70" stroke="#202020" stroke-width="3" />
+
+  <g stroke="#555555" stroke-width="1" fill="none">
+    <line x1="160" y1="70" x2="160" y2="140" />
+    <line x1="160" y1="140" x2="160" y2="210" />
+    <line x1="450" y1="70" x2="450" y2="140" />
+  </g>
+
+  <rect x="270" y="140" width="90" height="70" fill="#F1F1EE" stroke="#555555" stroke-width="0.8" />
+  <g stroke="#555555" stroke-width="0.8" fill="none">
+    <circle cx="315" cy="120" r="20" /><circle cx="300" cy="112" r="11" /><circle cx="330" cy="112" r="11" />
+    <circle cx="304" cy="132" r="10" /><circle cx="326" cy="132" r="10" />
+    <line x1="315" y1="120" x2="315" y2="210" />
+  </g>
+
+  <g stroke="#555555" stroke-width="0.9" fill="none">
+    <polyline points="452,205 470,205 470,195 488,195 488,185 506,185 506,175 524,175 524,165 538,165" />
+    <line x1="452" y1="140" x2="538" y2="165" stroke-dasharray="3 2" />
+  </g>
+
+  <line x1="50" y1="210" x2="560" y2="210" stroke="#202020" stroke-width="3" />
+  <g fill="#202020">
+    <rect x="66" y="196" width="10" height="20" /><rect x="155" y="196" width="10" height="20" />
+    <rect x="265" y="196" width="10" height="20" /><rect x="355" y="196" width="10" height="20" />
+    <rect x="445" y="196" width="10" height="20" /><rect x="534" y="196" width="10" height="20" />
+  </g>
+
+  <g stroke="#555555" stroke-width="0.6" fill="none">
+    <line x1="150" y1="56" x2="150" y2="70" />
+    <line x1="400" y1="56" x2="400" y2="70" />
+  </g>
+  <g class="note" text-anchor="middle">
+    <text x="150" y="50">登り梁 120×240 @910</text>
+    <text x="400" y="50">屋根断熱 充填 200</text>
+  </g>
+
+  <g stroke="#555555" stroke-width="0.6" fill="none">
+    <line x1="546" y1="70" x2="600" y2="70" stroke-dasharray="4 2" />
+    <line x1="546" y1="140" x2="600" y2="140" stroke-dasharray="4 2" />
+    <line x1="546" y1="210" x2="612" y2="210" stroke-dasharray="4 2" />
+    <line x1="616" y1="70" x2="616" y2="140" />
+    <line x1="616" y1="140" x2="616" y2="210" />
+  </g>
+  <g class="lev">
+    <text x="558" y="64">&#9661;+5650</text>
+    <text x="558" y="134">&#9661;+2700</text>
+    <text x="558" y="204">&#9661;&#177;0</text>
+  </g>
+  <g class="dim" text-anchor="middle">
+    <text x="628" y="108" transform="rotate(-90 628 108)">2500</text>
+    <text x="628" y="178" transform="rotate(-90 628 178)">2700</text>
+  </g>
+
+  <g stroke="#555555" stroke-width="0.6" fill="none">
+    <line x1="70" y1="232" x2="540" y2="232" />
+    <g stroke-width="0.7">
+      <line x1="70" y1="228" x2="70" y2="236" /><line x1="160" y1="228" x2="160" y2="236" />
+      <line x1="270" y1="228" x2="270" y2="236" /><line x1="360" y1="228" x2="360" y2="236" />
+      <line x1="450" y1="228" x2="450" y2="236" /><line x1="540" y1="228" x2="540" y2="236" />
+    </g>
+  </g>
+  <g class="dim" text-anchor="middle">
+    <text x="115" y="245">1820</text><text x="215" y="245">3640</text><text x="315" y="245">1820</text>
+    <text x="405" y="245">2730</text><text x="495" y="245">2730</text>
+  </g>
+  <g class="axis" text-anchor="middle">
+    <text x="70" y="256">A</text><text x="160" y="256">B</text><text x="270" y="256">C</text>
+    <text x="360" y="256">D</text><text x="450" y="256">E</text><text x="540" y="256">F</text>
+  </g>
+</svg>

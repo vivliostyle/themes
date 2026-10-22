@@ -1,0 +1,171 @@
+/*
+ * wide-margin-ruleless-list
+ * A5縦のスペシャルティコーヒー店メニュー向けテーマ。温白の地に細身の英大文字見出しと
+ * 本文を疎に置き、罫線のない表形式で品名(左)と価格(右)を整列する。
+ * キャメルの極細罫は見出し下と区切りに限定し、装飾は抽象的なマーク1点のみ。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Noto+Sans:wght@300;400&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  --vs-theme-wide-margin-ruleless-list--font-display:
+    'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --vs-theme-wide-margin-ruleless-list--color-accent: #d4a574;
+  --vs-theme-wide-margin-ruleless-list--color-rule-faint: #ead6c1;
+  --vs-theme-wide-margin-ruleless-list--color-muted: #8c8983;
+
+  /* Page: A5 portrait, wide even margins, no folio / running head */
+  --vs-page--size: A5;
+  --vs-page--margin-top: 18mm;
+  --vs-page--margin-bottom: 18mm;
+  --vs-page--margin-left: 20mm;
+  --vs-page--margin-right: 20mm;
+
+  /* Type */
+  --vs-font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+  --vs-font-size: 9pt;
+  --vs-line-height: 1.42;
+  --vs-color-foreground: #242321;
+  --vs-color-background: #faf9f6;
+
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 0;
+  --vs--p-text-align: start;
+
+  /* Headings: Inter, uppercase, flush left, spacing handled per level */
+  --vs--heading-font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --vs--heading-font-weight: 500;
+  --vs--heading-text-align: start;
+  --vs--heading-margin-block: 0;
+  --vs--heading-text-transform: uppercase;
+
+  --vs--h1-font-size: 26pt;
+  --vs--h1-line-height: 1.02;
+  --vs--h1-letter-spacing: 0.01em;
+  --vs--h1-margin-block: 7mm 3mm;
+
+  --vs--h2-font-size: 8.1pt;
+  --vs--h2-letter-spacing: 0.2em;
+  --vs--h2-margin-block: 0 1.6mm;
+  --vs--h2-padding-block: 0 1.4mm;
+  --vs--h2-border-width-block-end: 0.75px;
+  --vs--h2-border-style-block-end: solid;
+  --vs--h2-border-color-block-end: var(
+    --vs-theme-wide-margin-ruleless-list--color-accent
+  );
+
+  /* Masthead mark: flush cup figure, floated beside the title */
+  --vs--figure-margin-block: 8mm 0;
+  --vs--figure-margin-inline: 6mm 0;
+  /* メニューの図版は採番対象ではない。図番号が要る原稿は inline に戻す */
+  --vs-appendix--marker-display: none;
+  --vs-citation--marker-display: none;
+  --vs-equation--marker-display: none;
+  --vs-figure--marker-display: none;
+  --vs-listing--marker-display: none;
+  --vs-table--marker-display: none;
+  --vs-theorem--marker-display: none;
+
+  /* Borderless price tables (faint camel divider drawn per-section below) */
+  --vs--table-size-inline: 100%;
+  --vs--table-table-layout: fixed;
+  --vs--table-margin-block: 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-cell-padding-block: 0;
+  --vs--table-cell-padding-inline: 0;
+  --vs--table-cell-line-height: 1.5;
+  --vs--table-cell-vertical-align: baseline;
+}
+
+/* --- Masthead ------------------------------------------------------------ */
+
+/* Abstract cup mark (Markdown 画像 → figure > img)。タイトル脇へ回り込ませる */
+body > figure {
+  float: right;
+  width: 17mm;
+}
+
+body > figure img {
+  display: block;
+  width: 100%;
+}
+
+body > figure figcaption {
+  display: none;
+}
+
+/* 店名などのバイライン */
+.byline {
+  font-family: var(--vs-theme-wide-margin-ruleless-list--font-display);
+  font-weight: 300;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  letter-spacing: 0.42em;
+}
+
+/* --- Menu sections --------------------------------------------------------- */
+
+/* 品目表は分量に関わらず1つの塊として扱い、ページをまたいで割らない */
+section.level2 {
+  margin-block-start: 3mm;
+  break-inside: avoid;
+}
+
+/* Borderless price table: item name left, price right-aligned.
+   GFM は見出し行必須なので空の thead を隠して罫線のない品目表にする */
+thead {
+  display: none;
+}
+
+td:first-child {
+  padding-inline-end: 6mm;
+}
+
+td:last-child {
+  width: 16mm;
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Faint camel divider between sections */
+section.level2:not(:last-of-type) table {
+  --vs--table-border-width-block-end: 0.75px;
+  --vs--table-border-style-block-end: solid;
+  --vs--table-border-color-block-end: var(
+    --vs-theme-wide-margin-ruleless-list--color-rule-faint
+  );
+}
+
+/* Extra breathing room below the rows, above the faint divider */
+section.level2:not(:last-of-type) tbody tr:last-child td {
+  padding-block-end: 1.6mm;
+}
+
+/* --- Footer note --------------------------------------------------------- */
+
+footer {
+  display: block;
+  margin-block-start: 4mm;
+}
+
+footer p {
+  font-weight: 300;
+  font-size: 0.78em;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--vs-theme-wide-margin-ruleless-list--color-muted);
+}
+
+:root {
+  --vs--table-border-width: 0;
+}

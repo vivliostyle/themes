@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 44 740 292" role="img" aria-label="緞帳と照明のある舞台で演技する部員3人のイラスト">
+  <rect width="740" height="400" fill="#0d2547" />
+  <rect x="0" y="56" width="740" height="244" fill="#123055" />
+  <path d="M0 44 h740 v44 q-62 34 -124 0 q-62 -34 -124 0 q-62 34 -124 0 q-62 -34 -124 0 q-62 34 -124 0 q-62 -34 -96 0 Z" fill="#071a38" />
+  <rect x="0" y="44" width="740" height="14" fill="#040f22" />
+  <path d="M0 58 h78 v242 q-19 22 -39 0 q-19 -22 -39 0 Z" fill="#071a38" />
+  <path d="M740 58 h-78 v242 q19 22 39 0 q19 -22 39 0 Z" fill="#071a38" />
+  <polygon points="182,58 242,58 318,300 112,300" fill="#ffffff" opacity="0.1" />
+  <polygon points="498,58 558,58 626,300 424,300" fill="#ffffff" opacity="0.1" />
+  <rect x="0" y="296" width="740" height="104" fill="#16375f" />
+  <rect x="0" y="296" width="740" height="7" fill="#3f77b8" />
+  <rect x="88" y="126" width="136" height="174" fill="#0b2244" />
+  <rect x="88" y="126" width="136" height="11" fill="#5f8fc6" />
+  <rect x="88" y="126" width="11" height="174" fill="#5f8fc6" />
+  <rect x="213" y="126" width="11" height="174" fill="#5f8fc6" />
+  <circle cx="198" cy="222" r="7" fill="#8fb2d8" />
+  <rect x="596" y="240" width="128" height="13" rx="6" fill="#0b2244" />
+  <rect x="606" y="253" width="11" height="47" fill="#0b2244" />
+  <rect x="703" y="253" width="11" height="47" fill="#0b2244" />
+  <circle cx="286" cy="152" r="26" fill="#dbe9f7" />
+  <path d="M244 336 V218 q0-42 42-42 q42 0 42 42 V336 Z" fill="#dbe9f7" />
+  <path d="M244 302 h84 v34 h-84 Z" fill="#a8c8e8" />
+  <path d="M256 216 l-44 -62" fill="none" stroke="#dbe9f7" stroke-width="19" stroke-linecap="round" />
+  <circle cx="208" cy="148" r="11" fill="#dbe9f7" />
+  <circle cx="412" cy="166" r="27" fill="#dbe9f7" />
+  <path d="M368 336 V234 q0-44 44-44 q44 0 44 44 V336 Z" fill="#dbe9f7" />
+  <path d="M368 300 h88 v36 h-88 Z" fill="#a8c8e8" />
+  <path d="M381 234 l-58 28" fill="none" stroke="#dbe9f7" stroke-width="19" stroke-linecap="round" />
+  <path d="M443 234 l58 28" fill="none" stroke="#dbe9f7" stroke-width="19" stroke-linecap="round" />
+  <circle cx="556" cy="160" r="25" fill="#dbe9f7" />
+  <path d="M516 336 V224 q0-40 40-40 q40 0 40 40 V336 Z" fill="#dbe9f7" />
+  <path d="M516 304 h80 v32 h-80 Z" fill="#a8c8e8" />
+  <path d="M590 226 l40 32" fill="none" stroke="#dbe9f7" stroke-width="18" stroke-linecap="round" />
+  <circle cx="638" cy="262" r="11" fill="#dbe9f7" />
+</svg>

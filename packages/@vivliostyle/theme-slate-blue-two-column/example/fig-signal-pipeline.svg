@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 250" role="img" aria-label="Signal processing pipeline: sensors, acquisition, preprocessing, feature extraction, sensor fusion, output, with an adaptation and feedback loop">
+<defs>
+<marker id="arw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0,1 L 9,5 L 0,9 z" fill="#2c3e50" />
+</marker>
+</defs>
+<text x="65" y="49" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#2c3e50">Sensors</text>
+<rect x="34" y="59" width="62" height="98" rx="10" fill="none" stroke="#2c3e50" stroke-width="1.5" />
+<rect x="53" y="72" width="24" height="18" rx="4" fill="none" stroke="#2c3e50" stroke-width="1.3" />
+<circle cx="65" cy="81" r="4.5" fill="none" stroke="#2c3e50" stroke-width="1.3" />
+<path d="M 57,104 a 9,9 0 0 1 16,0 M 60.5,108 a 5,5 0 0 1 9,0" fill="none" stroke="#2c3e50" stroke-width="1.3" />
+<circle cx="65" cy="112" r="1.4" fill="#2c3e50" />
+<circle cx="65" cy="132" r="8" fill="none" stroke="#2c3e50" stroke-width="1.3" />
+<circle cx="65" cy="132" r="3" fill="none" stroke="#2c3e50" stroke-width="1.3" />
+<circle cx="65" cy="148" r="1.3" fill="#2c3e50" />
+<circle cx="72" cy="148" r="1.3" fill="#2c3e50" />
+<circle cx="58" cy="148" r="1.3" fill="#2c3e50" />
+<g font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#2c3e50" text-anchor="middle">
+<rect x="140" y="76" width="104" height="64" rx="8" fill="none" stroke="#2c3e50" stroke-width="1.4" />
+<text x="192" y="105">Acquisition</text>
+<path d="M 172,124 q 5,-13 10,0 t 10,0 t 10,0" fill="none" stroke="#2c3e50" stroke-width="1.3" />
+<rect x="272" y="76" width="104" height="64" rx="8" fill="none" stroke="#2c3e50" stroke-width="1.4" />
+<text x="324" y="105">Preprocessing</text>
+<g stroke="#2c3e50" stroke-width="1" fill="none">
+<rect x="310" y="118" width="28" height="14" />
+<line x1="319.3" y1="118" x2="319.3" y2="132" />
+<line x1="328.6" y1="118" x2="328.6" y2="132" />
+<line x1="310" y1="122.6" x2="338" y2="122.6" />
+<line x1="310" y1="127.3" x2="338" y2="127.3" />
+</g>
+<rect x="404" y="76" width="104" height="64" rx="8" fill="none" stroke="#2c3e50" stroke-width="1.4" />
+<text x="456" y="100">Feature</text>
+<text x="456" y="114">Extraction</text>
+<g fill="#2c3e50">
+<rect x="440" y="126" width="5" height="6" />
+<rect x="448" y="122" width="5" height="10" />
+<rect x="456" y="118" width="5" height="14" />
+<rect x="464" y="124" width="5" height="8" />
+</g>
+<rect x="536" y="76" width="104" height="64" rx="8" fill="none" stroke="#2c3e50" stroke-width="1.4" />
+<text x="588" y="100">Sensor</text>
+<text x="588" y="114">Fusion</text>
+<path d="M 588,120 l 9,7 -9,7 -9,-7 z" fill="none" stroke="#2c3e50" stroke-width="1.2" />
+<circle cx="588" cy="127" r="1.5" fill="#2c3e50" />
+</g>
+<g stroke="#2c3e50" stroke-width="1.4">
+<line x1="96" y1="108" x2="136" y2="108" marker-end="url(#arw)" />
+<line x1="244" y1="108" x2="268" y2="108" marker-end="url(#arw)" />
+<line x1="376" y1="108" x2="400" y2="108" marker-end="url(#arw)" />
+<line x1="508" y1="108" x2="532" y2="108" marker-end="url(#arw)" />
+<line x1="640" y1="108" x2="724" y2="108" marker-end="url(#arw)" />
+</g>
+<text x="690" y="99" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#2c3e50">Output</text>
+<g stroke="#2c3e50" stroke-width="1.3" fill="none" stroke-dasharray="5 4">
+<path d="M 588,140 L 588,203 L 450,203" />
+<path d="M 300,203 L 65,203 L 65,159" marker-end="url(#arw)" />
+</g>
+<rect x="300" y="186" width="150" height="34" rx="6" fill="#eef2f6" stroke="#2c3e50" stroke-width="1.2" />
+<text x="375" y="201" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#2c3e50">Adaptation</text>
+<text x="375" y="214" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#2c3e50">&amp; Feedback</text>
+</svg>

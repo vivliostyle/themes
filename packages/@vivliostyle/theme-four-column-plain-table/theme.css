@@ -1,0 +1,191 @@
+/*
+ * 電子部品型番カタログ (four-column-plain-table)
+ * A4縦・4段組・墨1色のデータベース風リファレンスカタログ。
+ * JetBrains Mono で全編を統一し、型番/主要特性/パッケージの3列プレーン表を高密度に連続配置。
+ * 柱は誌名 (env(pub-title)) + 細下罫、下部中央にノンブル、
+ * ピン配置線画と NOTE 枠は段の下部に定着させる。
+ *
+ * 4 段は html のマルチカラム (--vs-columns) なので、型番表は段とページを
+ * またいで流れる。節番号は章番号 + 節の通し番号で生成する。
+ */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  --vs-page--size: A4;
+  --vs-page--margin-top: 9mm;
+  --vs-page--margin-bottom: 12mm;
+  --vs-page--margin-left: 10mm;
+  --vs-page--margin-right: 10mm;
+  --vs-page--background-color: #f7f6f2;
+  --vs-page--mbox-font-family: 'JetBrains Mono', monospace;
+  --vs-page--mbox-font-size: 7.5pt;
+  --vs-page--mbox-text-color: #1a1a1a;
+  --vs-page--mbox-top-left-content: env(pub-title);
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-bottom-margin-top: 2.5mm;
+  --vs-page--mbox-top-font-weight: 700;
+  --vs-page--mbox-top-letter-spacing: 0.04em;
+  /* 誌名を折り返さずに 1 行で通す */
+  --vs-page--mbox-top-size-inline: 100%;
+  --vs-page--border-width-top: 0.4pt;
+  --vs-page--border-color-top: #1a1a1a;
+  /* 版面の上罫と本文のアキ。罫の太さぶんを引いて本文位置を保つ */
+  --vs-page--padding-top: calc(3mm - var(--vs-page--border-width-top));
+
+  /* 4 段組。型番表は段とページをまたいで流す */
+  --vs-columns: 4;
+  --vs-column-fill: auto;
+  --vs-column-gap: 3mm;
+
+  /* 節番号 (章立ての原稿では章番号を冠する) */
+  --vs-theme-four-column-plain-table--section-prefix: '';
+  --vs-section--h2-marker-display: inline;
+  --vs-section--h2-marker-content: var(
+      --vs-theme-four-column-plain-table--section-prefix
+    )
+    counter(vs-counter-sec-h2);
+  --vs-section--h3-marker-display: inline;
+  --vs-section--h3-marker-content: var(
+      --vs-theme-four-column-plain-table--section-prefix
+    )
+    counter(vs-counter-sec-h2) '.' counter(vs-counter-sec-h3);
+  --vs-section--marker-margin-inline-end: 1ch;
+  --vs-section--call-content: var(
+      --vs-theme-four-column-plain-table--section-call-prefix
+    )
+    target-counter(attr(href), vs-counter-sec-h2);
+  --vs-theme-four-column-plain-table--section-call-prefix: '';
+
+  --vs-font-family: 'JetBrains Mono', 'Menlo', 'Consolas', monospace;
+  --vs-font-size: 7.5pt;
+  --vs-line-height: 1.3;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-background: #f7f6f2;
+  --vs-color-border: #1a1a1a;
+
+  --vs--heading-font-family: 'JetBrains Mono', 'Menlo', 'Consolas', monospace;
+  --vs--monospace-font-family: 'JetBrains Mono', 'Menlo', 'Consolas', monospace;
+
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 0;
+  --vs--p-text-align: start;
+
+  /* カテゴリ見出し (plain・太字のみ) */
+  --vs--h2-font-size: 7pt;
+  --vs--h2-letter-spacing: 0.03em;
+  --vs--h2-margin-block: 4mm 1.8mm;
+  --vs--h3-font-size: 7pt;
+  --vs--h3-letter-spacing: 0.03em;
+  --vs--h3-margin-block: 3mm 1.5mm;
+  --vs--h3-text-align: start;
+  --vs--h2-text-align: start;
+
+  /* 型番リスト: 罫線なし・背景交互なしのプレーン3列表。段をまたいで流す */
+  --vs--table-break-inside: auto;
+  --vs--table-border-width: 0;
+  --vs--table-border-width-thead-inner: 0.35pt;
+  --vs--table-font-size: 5pt;
+  --vs--table-margin-block: 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-size-inline: 100%;
+  --vs--table-table-layout: fixed;
+  --vs--table-text-align: start;
+  --vs--table-cell-padding-block: 0.15mm;
+  --vs--table-cell-padding-inline: 0;
+  --vs--table-cell-line-height: 1.25;
+  --vs--table-cell-white-space: nowrap;
+  --vs--table-cell-vertical-align: baseline;
+  --vs--th-padding-block: var(--vs--table-cell-padding-block) 0.5mm;
+
+  /* ピン配置線画: 段下部に定着 (page float) */
+  --vs--figure-margin-block: 3mm 0;
+  --vs--figure-item-size-inline: 100%;
+  --vs--figcaption-font-size: 5.8pt;
+  --vs--figcaption-font-weight: 700;
+  --vs--figcaption-letter-spacing: 0.04em;
+  --vs--figcaption-margin-block: 0 1mm;
+  --vs--figcaption-text-align: center;
+  --vs--figcaption-order: -1;
+
+  --vs--lists-margin-block: 0;
+  --vs--lists-text-align: start;
+  --vs--ol-padding-inline-start: 3.2mm;
+
+  --vs-theme-four-column-plain-table--rule-width: 0.4pt;
+}
+
+/* 章立ての原稿 (frontmatter の class: chapter) では節番号に章番号を冠する */
+html.chapter {
+  --vs-theme-four-column-plain-table--section-prefix: counter(
+      vs-counter-chapter
+    )
+    '.';
+  --vs-theme-four-column-plain-table--section-call-prefix: target-counter(
+      attr(href),
+      vs-counter-chapter
+    )
+    '.';
+}
+
+a[data-ref='sec'] {
+  --vs--anchor-text-color: inherit;
+  --vs--anchor-text-decoration: none;
+}
+
+/* colgroup が無いため列幅は先頭行のセルで決める (overflow は対応する変数が無い) */
+th:nth-child(1),
+td:nth-child(1) {
+  width: 23%;
+}
+th:nth-child(2),
+td:nth-child(2) {
+  width: 56%;
+}
+th:nth-child(3),
+td:nth-child(3) {
+  width: 21%;
+}
+th,
+td {
+  overflow: hidden;
+}
+td:first-child,
+th:first-child,
+td:nth-child(2),
+th:nth-child(2) {
+  padding-right: 0.8mm;
+}
+
+/* ピン配置線画は段の地に定着させる */
+figure {
+  float: bottom;
+  float-reference: column;
+  border-width: var(--vs-theme-four-column-plain-table--rule-width);
+  border-style: solid;
+  padding: 1.5mm 1.5mm 1mm;
+}
+
+figure img {
+  display: block;
+  height: auto;
+}
+
+/* NOTE 枠: code-block 風の等幅小字注記 */
+.note {
+  --vs--p-font-size: 5.2pt;
+  --vs--p-line-height: 1.35;
+  --vs--p-margin-block: 0 0.6mm;
+  --vs--li-font-size: 4.9pt;
+  --vs--li-line-height: 1.4;
+  --vs--li-margin-block: 0 0.5mm;
+  border-width: var(--vs-theme-four-column-plain-table--rule-width);
+  border-style: solid;
+  padding: 1.5mm 1.8mm;
+  break-inside: avoid;
+}
+.note p {
+  font-weight: 700;
+}

@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 540" preserveAspectRatio="xMidYMid slice" role="img" aria-label="The top of a stone lamp tower seen close to, its glass crown dark, the great lamp standing unlit inside it, and a small hunched figure at the gallery rail.">
+  <!-- sky -->
+  <rect x="0" y="0.0" width="840" height="18.6" fill="#ECE8DE" />
+  <rect x="0" y="18.0" width="840" height="18.6" fill="#EBE7DD" />
+  <rect x="0" y="36.0" width="840" height="18.6" fill="#EAE6DC" />
+  <rect x="0" y="54.0" width="840" height="18.6" fill="#E9E5DB" />
+  <rect x="0" y="72.0" width="840" height="18.6" fill="#E8E4DA" />
+  <rect x="0" y="90.0" width="840" height="18.6" fill="#E7E3D9" />
+  <rect x="0" y="108.0" width="840" height="18.6" fill="#E6E2D8" />
+  <rect x="0" y="126.0" width="840" height="18.6" fill="#E6E1D7" />
+  <rect x="0" y="144.0" width="840" height="18.6" fill="#E5E0D6" />
+  <rect x="0" y="162.0" width="840" height="18.6" fill="#E4DFD5" />
+  <rect x="0" y="180.0" width="840" height="18.6" fill="#E3DED4" />
+  <rect x="0" y="198.0" width="840" height="18.6" fill="#E2DED4" />
+  <rect x="0" y="216.0" width="840" height="18.6" fill="#E1DDD3" />
+  <rect x="0" y="234.0" width="840" height="18.6" fill="#E1DCD2" />
+  <rect x="0" y="252.0" width="840" height="18.6" fill="#E0DBD1" />
+  <rect x="0" y="270.0" width="840" height="18.6" fill="#DFDAD0" />
+  <rect x="0" y="288.0" width="840" height="18.6" fill="#DED9CF" />
+  <rect x="0" y="306.0" width="840" height="18.6" fill="#DDD8CE" />
+  <rect x="0" y="324.0" width="840" height="18.6" fill="#DCD7CD" />
+  <rect x="0" y="342.0" width="840" height="18.6" fill="#DBD6CC" />
+  <rect x="0" y="360.0" width="840" height="18.6" fill="#DAD5CB" />
+  <rect x="0" y="378.0" width="840" height="18.6" fill="#D8D3C9" />
+  <rect x="0" y="396.0" width="840" height="18.6" fill="#D7D2C8" />
+  <rect x="0" y="414.0" width="840" height="18.6" fill="#D6D1C7" />
+  <rect x="0" y="432.0" width="840" height="18.6" fill="#D5D0C6" />
+  <rect x="0" y="450.0" width="840" height="18.6" fill="#D4CFC5" />
+  <rect x="0" y="468.0" width="840" height="18.6" fill="#D3CEC4" />
+  <rect x="0" y="486.0" width="840" height="18.6" fill="#D2CDC3" />
+  <rect x="0" y="504.0" width="840" height="18.6" fill="#D1CCC2" />
+  <rect x="0" y="522.0" width="840" height="18.6" fill="#D0CBC1" />
+
+  <!-- soft mist bands -->
+  <ellipse cx="560" cy="164" rx="380" ry="62" fill="#EFEBE2" fill-opacity="0.55" />
+  <ellipse cx="620" cy="270" rx="340" ry="60" fill="#E7E3D9" fill-opacity="0.55" />
+  <ellipse cx="520" cy="244" rx="300" ry="146" fill="#F1EDE4" fill-opacity="0.34" />
+
+  <!-- the crag -->
+  <path d="M0,404 L60,372 L128,392 L206,368 L272,412 L322,540 L0,540 Z" fill="#4C4F51" />
+  <path d="M0,446 L54,424 L120,442 L188,424 L238,462 L268,540 L0,540 Z" fill="#3F4243" />
+
+  <!-- the tower, seen close to -->
+  <path d="M34,404 L52,262 L246,262 L266,404 Z" fill="#5E6163" />
+  <path d="M34,404 L52,262 L140,262 L140,404 Z" fill="#54585A" />
+  <g stroke="#43474A" stroke-width="1.4" stroke-opacity="0.8">
+    <line x1="44" y1="330" x2="256" y2="330" />
+    <line x1="40" y1="368" x2="260" y2="368" />
+  </g>
+  <rect x="126" y="300" width="26" height="40" fill="#2B2F30" />
+
+  <!-- the gallery deck and rail -->
+  <path d="M14,262 L256,262 L256,248 L14,248 Z" fill="#3F4243" />
+  <g stroke="#3F4243" stroke-width="3.2">
+    <line x1="32" y1="248" x2="32" y2="212" />
+    <line x1="78" y1="248" x2="78" y2="212" />
+    <line x1="124" y1="248" x2="124" y2="212" />
+    <line x1="170" y1="248" x2="170" y2="212" />
+    <line x1="216" y1="248" x2="216" y2="212" />
+    <line x1="14" y1="212" x2="256" y2="212" stroke-width="4" />
+  </g>
+
+  <!-- the glass crown, and the dark lamp inside it -->
+  <path d="M62,212 L74,96 L226,96 L238,212 Z" fill="#DCD7CD" fill-opacity="0.55" stroke="#54585A" stroke-width="2.4" />
+  <g stroke="#8C8981" stroke-width="1.2" stroke-opacity="0.85">
+    <line x1="98" y1="98" x2="92" y2="212" />
+    <line x1="132" y1="98" x2="130" y2="212" />
+    <line x1="166" y1="98" x2="168" y2="212" />
+    <line x1="200" y1="98" x2="206" y2="212" />
+  </g>
+  <path d="M68,96 L232,96 L214,58 L86,58 Z" fill="#33383A" />
+  <path d="M142,58 L158,58 L158,40 L142,40 Z" fill="#33383A" />
+  <g fill="#3F4243">
+    <path d="M112,208 L118,132 L182,132 L188,208 Z" />
+    <path d="M104,132 L196,132 L196,124 L104,124 Z" />
+    <path d="M132,124 L132,110 L168,110 L168,124 Z" />
+  </g>
+  <g stroke="#6B6F70" stroke-width="1.2" stroke-opacity="0.7">
+    <line x1="114" y1="156" x2="186" y2="156" />
+    <line x1="112" y1="180" x2="188" y2="180" />
+  </g>
+
+  <!-- the keeper at the rail -->
+  <g fill="#1F2223">
+    <path d="M226,262 q-6,-30 3,-42 q11,-13 20,-3 q7,8 2,20 l-4,25 q-12,5 -21,0 Z" />
+    <circle cx="239" cy="208" r="8" />
+  </g>
+
+  <!-- the fog below -->
+  <ellipse cx="620" cy="452" rx="420" ry="54" fill="#E4DFD5" fill-opacity="0.6" />
+  <ellipse cx="420" cy="492" rx="480" ry="50" fill="#EAE6DC" fill-opacity="0.66" />
+  <ellipse cx="640" cy="518" rx="460" ry="42" fill="#F1EDE4" fill-opacity="0.7" />
+  <path d="M540,452 L578,424 L608,452 L638,432 L676,474 L676,494 L530,494 Z" fill="#6B6F70" fill-opacity="0.62" />
+
+  <!-- birds -->
+  <g fill="none" stroke="#5A5E60" stroke-width="1.8" stroke-opacity="0.6">
+    <path d="M596,132 q10,-8 18,0 q8,-8 18,0" />
+    <path d="M656,104 q7,-6 13,0 q6,-6 13,0" />
+    <path d="M706,156 q6,-5 11,0 q5,-5 11,0" />
+  </g>
+
+  <!-- 下端を紙色へなじませるフェード -->
+  <rect x="0" y="330.00" width="840" height="210.00" fill="#F6F1E7" fill-opacity="0.0008" />
+  <rect x="0" y="333.50" width="840" height="206.50" fill="#F6F1E7" fill-opacity="0.0024" />
+  <rect x="0" y="337.00" width="840" height="203.00" fill="#F6F1E7" fill-opacity="0.0040" />
+  <rect x="0" y="340.50" width="840" height="199.50" fill="#F6F1E7" fill-opacity="0.0055" />
+  <rect x="0" y="344.00" width="840" height="196.00" fill="#F6F1E7" fill-opacity="0.0070" />
+  <rect x="0" y="347.50" width="840" height="192.50" fill="#F6F1E7" fill-opacity="0.0085" />
+  <rect x="0" y="351.00" width="840" height="189.00" fill="#F6F1E7" fill-opacity="0.0099" />
+  <rect x="0" y="354.50" width="840" height="185.50" fill="#F6F1E7" fill-opacity="0.0114" />
+  <rect x="0" y="358.00" width="840" height="182.00" fill="#F6F1E7" fill-opacity="0.0128" />
+  <rect x="0" y="361.50" width="840" height="178.50" fill="#F6F1E7" fill-opacity="0.0142" />
+  <rect x="0" y="365.00" width="840" height="175.00" fill="#F6F1E7" fill-opacity="0.0156" />
+  <rect x="0" y="368.50" width="840" height="171.50" fill="#F6F1E7" fill-opacity="0.0170" />
+  <rect x="0" y="372.00" width="840" height="168.00" fill="#F6F1E7" fill-opacity="0.0184" />
+  <rect x="0" y="375.50" width="840" height="164.50" fill="#F6F1E7" fill-opacity="0.0198" />
+  <rect x="0" y="379.00" width="840" height="161.00" fill="#F6F1E7" fill-opacity="0.0213" />
+  <rect x="0" y="382.50" width="840" height="157.50" fill="#F6F1E7" fill-opacity="0.0227" />
+  <rect x="0" y="386.00" width="840" height="154.00" fill="#F6F1E7" fill-opacity="0.0242" />
+  <rect x="0" y="389.50" width="840" height="150.50" fill="#F6F1E7" fill-opacity="0.0257" />
+  <rect x="0" y="393.00" width="840" height="147.00" fill="#F6F1E7" fill-opacity="0.0272" />
+  <rect x="0" y="396.50" width="840" height="143.50" fill="#F6F1E7" fill-opacity="0.0288" />
+  <rect x="0" y="400.00" width="840" height="140.00" fill="#F6F1E7" fill-opacity="0.0304" />
+  <rect x="0" y="403.50" width="840" height="136.50" fill="#F6F1E7" fill-opacity="0.0320" />
+  <rect x="0" y="407.00" width="840" height="133.00" fill="#F6F1E7" fill-opacity="0.0337" />
+  <rect x="0" y="410.50" width="840" height="129.50" fill="#F6F1E7" fill-opacity="0.0355" />
+  <rect x="0" y="414.00" width="840" height="126.00" fill="#F6F1E7" fill-opacity="0.0373" />
+  <rect x="0" y="417.50" width="840" height="122.50" fill="#F6F1E7" fill-opacity="0.0392" />
+  <rect x="0" y="421.00" width="840" height="119.00" fill="#F6F1E7" fill-opacity="0.0411" />
+  <rect x="0" y="424.50" width="840" height="115.50" fill="#F6F1E7" fill-opacity="0.0432" />
+  <rect x="0" y="428.00" width="840" height="112.00" fill="#F6F1E7" fill-opacity="0.0453" />
+  <rect x="0" y="431.50" width="840" height="108.50" fill="#F6F1E7" fill-opacity="0.0476" />
+  <rect x="0" y="435.00" width="840" height="105.00" fill="#F6F1E7" fill-opacity="0.0500" />
+  <rect x="0" y="438.50" width="840" height="101.50" fill="#F6F1E7" fill-opacity="0.0525" />
+  <rect x="0" y="442.00" width="840" height="98.00" fill="#F6F1E7" fill-opacity="0.0552" />
+  <rect x="0" y="445.50" width="840" height="94.50" fill="#F6F1E7" fill-opacity="0.0580" />
+  <rect x="0" y="449.00" width="840" height="91.00" fill="#F6F1E7" fill-opacity="0.0610" />
+  <rect x="0" y="452.50" width="840" height="87.50" fill="#F6F1E7" fill-opacity="0.0642" />
+  <rect x="0" y="456.00" width="840" height="84.00" fill="#F6F1E7" fill-opacity="0.0677" />
+  <rect x="0" y="459.50" width="840" height="80.50" fill="#F6F1E7" fill-opacity="0.0714" />
+  <rect x="0" y="463.00" width="840" height="77.00" fill="#F6F1E7" fill-opacity="0.0754" />
+  <rect x="0" y="466.50" width="840" height="73.50" fill="#F6F1E7" fill-opacity="0.0798" />
+  <rect x="0" y="470.00" width="840" height="70.00" fill="#F6F1E7" fill-opacity="0.0846" />
+  <rect x="0" y="473.50" width="840" height="66.50" fill="#F6F1E7" fill-opacity="0.0899" />
+  <rect x="0" y="477.00" width="840" height="63.00" fill="#F6F1E7" fill-opacity="0.0956" />
+  <rect x="0" y="480.50" width="840" height="59.50" fill="#F6F1E7" fill-opacity="0.1021" />
+  <rect x="0" y="484.00" width="840" height="56.00" fill="#F6F1E7" fill-opacity="0.1092" />
+  <rect x="0" y="487.50" width="840" height="52.50" fill="#F6F1E7" fill-opacity="0.1173" />
+  <rect x="0" y="491.00" width="840" height="49.00" fill="#F6F1E7" fill-opacity="0.1264" />
+  <rect x="0" y="494.50" width="840" height="45.50" fill="#F6F1E7" fill-opacity="0.1369" />
+  <rect x="0" y="498.00" width="840" height="42.00" fill="#F6F1E7" fill-opacity="0.1489" />
+  <rect x="0" y="501.50" width="840" height="38.50" fill="#F6F1E7" fill-opacity="0.1631" />
+  <rect x="0" y="505.00" width="840" height="35.00" fill="#F6F1E7" fill-opacity="0.1799" />
+  <rect x="0" y="508.50" width="840" height="31.50" fill="#F6F1E7" fill-opacity="0.2001" />
+  <rect x="0" y="512.00" width="840" height="28.00" fill="#F6F1E7" fill-opacity="0.2250" />
+  <rect x="0" y="515.50" width="840" height="24.50" fill="#F6F1E7" fill-opacity="0.2565" />
+  <rect x="0" y="519.00" width="840" height="21.00" fill="#F6F1E7" fill-opacity="0.2973" />
+  <rect x="0" y="522.50" width="840" height="17.50" fill="#F6F1E7" fill-opacity="0.3525" />
+  <rect x="0" y="526.00" width="840" height="14.00" fill="#F6F1E7" fill-opacity="0.4310" />
+  <rect x="0" y="529.50" width="840" height="10.50" fill="#F6F1E7" fill-opacity="0.5504" />
+  <rect x="0" y="533.00" width="840" height="7.00" fill="#F6F1E7" fill-opacity="0.7472" />
+  <rect x="0" y="536.50" width="840" height="3.50" fill="#F6F1E7" fill-opacity="1.0000" />
+</svg>

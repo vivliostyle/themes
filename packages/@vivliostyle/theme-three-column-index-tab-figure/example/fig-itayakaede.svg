@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 150" role="img" aria-label="イタヤカエデの葉の模式図。掌状に五裂した対生の葉と、翼を広げた翼果を伴う。">
+<style>
+.leaf-blade { fill: #557a55; fill-opacity: 0.46; stroke: #2c352c; stroke-width: 1.3; stroke-linejoin: round; }
+.leaf-vein { fill: none; stroke: #2c352c; stroke-width: 0.7; opacity: 0.65; }
+.leaf-stem { fill: none; stroke: #6f6142; stroke-width: 2.2; stroke-linecap: round; }
+.fig-acc { fill: #557a55; fill-opacity: 0.4; stroke: #2c352c; stroke-width: 1; stroke-linejoin: round; }
+.fig-berry { fill: #a9483d; fill-opacity: 0.85; stroke: #6f2a24; stroke-width: 0.7; }
+.fig-flower { fill: #ddb9be; fill-opacity: 0.8; stroke: #b98b35; stroke-width: 0.7; }
+.fig-scale { stroke: #252a26; stroke-width: 1; }
+.fig-scale-t { fill: #252a26; font: 500 7px "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; letter-spacing: 0.03em; }
+.fig-lbl { fill: #3a463a; font: 6.5px "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+.fig-lead { fill: none; stroke: #9aa89a; stroke-width: 0.5; }
+</style>
+<path class="leaf-blade" d="M56,130 L50,104 L30,102 L40,88 L22,76 L40,74 L34,54 L50,64 L48,40 L56,56 L64,40 L62,64 L78,54 L72,74 L90,76 L72,88 L82,102 L62,104 Z" />
+<path class="leaf-vein" d="M56,128 L56,60 M56,92 L36,80 M56,92 L76,80 M56,80 L44,54 M56,80 L68,54 M56,72 L56,50" />
+<path class="leaf-stem" d="M56,128 L56,144" />
+<g transform="rotate(18 120 112)">
+<ellipse class="fig-acc" cx="118" cy="114" rx="4.5" ry="6.5" />
+<path class="fig-acc" d="M121,110 q18,-7 27,5 q-15,4 -27,-5 Z" />
+</g>
+<path class="leaf-stem" d="M118,120 L118,142" />
+<path class="fig-lead" d="M72,82 L88,78" />
+<text class="fig-lbl" x="89" y="80">葉脈</text>
+<line class="fig-scale" x1="14" y1="138" x2="44" y2="138" />
+<line class="fig-scale" x1="14" y1="135" x2="14" y2="141" />
+<line class="fig-scale" x1="44" y1="135" x2="44" y2="141" />
+<text class="fig-scale-t" x="29" y="133" text-anchor="middle">2 cm</text>
+</svg>

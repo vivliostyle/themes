@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 150" role="img" aria-label="葉先の模式図。鋭尖形・円頭・凹頭の三通りの先端を葉身の上半分で示す。">
+<style>
+.leaf-blade { fill: #557a55; fill-opacity: 0.46; stroke: #2c352c; stroke-width: 1.3; stroke-linejoin: round; }
+.leaf-vein { fill: none; stroke: #2c352c; stroke-width: 0.7; opacity: 0.65; }
+.leaf-stem { fill: none; stroke: #6f6142; stroke-width: 2.2; stroke-linecap: round; }
+.fig-acc { fill: #557a55; fill-opacity: 0.4; stroke: #2c352c; stroke-width: 1; stroke-linejoin: round; }
+.fig-berry { fill: #a9483d; fill-opacity: 0.85; stroke: #6f2a24; stroke-width: 0.7; }
+.fig-flower { fill: #ddb9be; fill-opacity: 0.8; stroke: #b98b35; stroke-width: 0.7; }
+.fig-scale { stroke: #252a26; stroke-width: 1; }
+.fig-scale-t { fill: #252a26; font: 500 7px "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; letter-spacing: 0.03em; }
+.fig-lbl { fill: #3a463a; font: 6.5px "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+.fig-lead { fill: none; stroke: #9aa89a; stroke-width: 0.5; }
+</style>
+<path class="leaf-blade" d="M14,112 C14,84 18,58 28,34 C38,58 42,84 42,112 Z" />
+<path class="leaf-vein" d="M28,110 L28,40" />
+<text class="fig-lbl" x="28" y="126" text-anchor="middle">鋭尖形</text>
+<path class="leaf-blade" d="M66,112 C66,84 70,54 80,50 C90,54 94,84 94,112 Z" />
+<path class="leaf-vein" d="M80,110 L80,56" />
+<text class="fig-lbl" x="80" y="126" text-anchor="middle">円頭</text>
+<path class="leaf-blade" d="M118,112 C118,84 121,58 126,50 L132,62 L138,50 C143,58 146,84 146,112 Z" />
+<path class="leaf-vein" d="M132,110 L132,64" />
+<text class="fig-lbl" x="132" y="126" text-anchor="middle">凹頭</text>
+</svg>

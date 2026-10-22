@@ -1,0 +1,6 @@
+/*
+ * この example は 1 冊まるごとではなく第7章の抜粋なので、章番号を 7 から始める。
+ */
+:root {
+  --vs-document-first-page-counter-reset: vs-counter-chapter 6;
+}

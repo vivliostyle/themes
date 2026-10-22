@@ -1,0 +1,295 @@
+/*
+ * ビジネス新書戦略図表版 (vertical-matrix-diagram)
+ * ビジネス新書の本文ページ。新書判 105×173mm・縦組み1段。
+ * Noto Sans JP のサンセリフ本文 (9pt / 行送り1.6) を右から左へ密に流し、番号付きの太字
+ * 節見出しを右端に立てる。紙面下部には縦書き本文が回り込むように、横組み (horizontal-tb) の
+ * ポジショニング・マトリクスやデータ表を配置する。柱は天小口 (右上)、
+ * ノンブルは地中央。黒1色のモノクロ、網掛けは淡グレーのみ。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=IBM+Plex+Sans+JP:wght@400;500;700&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  /* Theme: 図表バンド専用の第2書体と網掛け色 */
+  --vs-theme-vertical-matrix-diagram--font-figure:
+    'IBM Plex Sans JP', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --vs-theme-vertical-matrix-diagram--color-tint: #d9d9d9;
+  /* 図表バンドが紙面 (縦組みの行方向) から食う量 */
+  --vs-theme-vertical-matrix-diagram--aside-size-inline: 46mm;
+
+  /* Page: 余白 */
+  --vs-page--size: 105mm 173mm;
+  --vs-page--margin-top: 14mm;
+  --vs-page--margin-bottom: 15mm;
+  --vs-page--margin-left: 14mm;
+  --vs-page--margin-right: 14mm;
+  --vs-page--mbox-text-color: #1a1a1a;
+  --vs-page--mbox-top-right-content: string(chapter-title);
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-top-font-family: 'Noto Sans JP', sans-serif;
+  --vs-page--mbox-top-font-size: 8pt;
+  --vs-page--mbox-top-letter-spacing: 0.04em;
+  --vs-page--mbox-bottom-font-family:
+    'IBM Plex Sans JP', 'Noto Sans JP', sans-serif;
+  --vs-page--mbox-bottom-font-size: 9pt;
+  --vs-page--mbox-bottom-letter-spacing: 0.06em;
+
+  /* Type: 縦組みサンセリフ 9pt / 行送り 1.6 */
+  --vs-writing-mode: vertical-rl;
+  --vs-font-family:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --vs-font-size: 9pt;
+  --vs-line-height: 1.6;
+  --vs-letter-spacing: 0.01em;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-background: #f7f5f0;
+  --vs-color-border: #1a1a1a;
+
+  /* 黒1色。参照リンクも本文と同じ色で組む */
+  --vs--anchor-text-color: inherit;
+
+  /* Paragraphs: 一字下げ・両端揃え・段間なしの高密度組み */
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 1em;
+  --vs--p-text-align: justify;
+
+  /* Headings: 章題と節見出しは太字。右端から立てる */
+  --vs--heading-font-family:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --vs--heading-font-weight: 700;
+  --vs--h1-font-size: 2.2em;
+  --vs--h1-line-height: 1.3;
+  --vs--h1-letter-spacing: 0.12em;
+  --vs--h1-margin-block: 0;
+  --vs--h1-margin-inline: 2mm 6mm;
+  --vs--h1-string-set: chapter-title content();
+  --vs--h2-font-size: 1.7em;
+  --vs--h2-line-height: 1.35;
+  --vs--h2-letter-spacing: 0.08em;
+  --vs--h2-margin-block: 0;
+  --vs--h2-margin-inline: 1mm 4mm;
+
+  /* 章番号「第1章」・節番号「1・2」。算用数字は正立させる */
+  --vs-section--h1-marker-display: block;
+  --vs-section--h1-marker-content: '第' counter(vs-counter-sec-h1) '章';
+  --vs-section--h1-marker-margin-inline-end: 0;
+  --vs-section--h2-marker-display: inline;
+  --vs-section--h2-marker-content: counter(vs-counter-sec-h1) '・'
+    counter(vs-counter-sec-h2);
+  --vs-section--h2-marker-margin-inline-end: 0.55em;
+
+  /* Figures: 図表は縦に積むだけなので flex を解除する */
+  --vs--figure-display: block;
+  --vs--figure-margin-block: 0 4mm;
+  --vs--figure-margin-inline: 0;
+  --vs--figcaption-font-size: 6.8pt;
+  --vs--figcaption-margin-block: 0 1.4mm;
+  --vs--figcaption-margin-inline: 0;
+  --vs--figcaption-text-align: start;
+  --vs--figcaption-text-color: inherit;
+
+  /* Tables: 図表バンドのデータ表 */
+  --vs--table-font-size: 5.4pt;
+  --vs--table-margin-block: 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-table-layout: fixed;
+  --vs--table-size-inline: var(
+    --vs-theme-vertical-matrix-diagram--aside-size-inline
+  );
+  --vs--table-line-height: 1.2;
+  --vs--table-border-width: 0.5pt;
+  --vs--table-cell-padding-block: 0.9mm;
+  --vs--table-cell-padding-inline: 0.4mm;
+  --vs--th-font-family:
+    'IBM Plex Sans JP', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --vs--th-font-weight: 700;
+  --vs--th-background-color: var(
+    --vs-theme-vertical-matrix-diagram--color-tint
+  );
+  --vs--th-vertical-align: middle;
+  --vs--td-vertical-align: middle;
+  --vs--td-text-align: center;
+
+  --vs--small-font-size: 0.86em;
+}
+
+:root:lang(ja) {
+  /* 図表番号は「図1-2」の章通し。キャプションは横組みなので縦中横は要らない */
+  --vs-figure--marker-content: '図' counter(vs-counter-sec-h1) '-'
+    counter(vs-counter-fig) '　';
+  --vs-table--marker-content: '表' counter(vs-counter-sec-h1) '-'
+    counter(vs-counter-tbl) '　';
+  --vs-figure--call-content: '図' target-counter(attr(href), vs-counter-sec-h1)
+    '-' target-counter(attr(href), vs-counter-fig);
+  --vs-table--call-content: '表' target-counter(attr(href), vs-counter-sec-h1)
+    '-' target-counter(attr(href), vs-counter-tbl);
+}
+
+/*
+ * 図表番号は章ごとに振り直す。base は section:has(> h1:first-child) 側で
+ * counter-reset を使っているため、見出し要素側に置いて衝突を避ける。
+ */
+section > h1:first-child {
+  counter-reset: vs-counter-fig vs-counter-tbl;
+}
+
+/* 縦組みの本文に現れる算用数字は正立させる */
+section > :is(h1, h2):first-child::before,
+a:is([data-ref='fig'], [data-ref='tbl'])::before {
+  text-orientation: upright;
+}
+
+/* 縦中横 (原稿中の算用数字を正立させる) */
+.tcy {
+  text-combine-upright: all;
+}
+
+/* ── 図表領域 ──
+   縦組み本文の中に、横組み (horizontal-tb) の図表をまとめて埋め込む。
+   縦組みでは float の left/right が行相対に解釈され、float: right = 紙面下端。
+   本文の途中に置くことで、以降の縦組み行が図表の上側へ回り込み、
+   図表が紙面の下半分・小口側に居座る新書の図版レイアウトになる。 */
+aside {
+  float: right;
+  clear: right;
+  writing-mode: horizontal-tb;
+  width: var(--vs-theme-vertical-matrix-diagram--aside-size-inline);
+  margin: 2.5mm 3mm 0 0;
+  font-family: var(--vs-theme-vertical-matrix-diagram--font-figure);
+}
+
+aside figure:last-child {
+  margin-block-end: 0;
+}
+
+figcaption {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+figcaption .unit {
+  display: block;
+  font-weight: 400;
+  font-size: 5.2pt;
+  letter-spacing: 0;
+}
+
+/* 市場ポジショニング・マトリクス (横組みの 2×2 図) */
+.matrix .plot {
+  width: var(--vs-theme-vertical-matrix-diagram--aside-size-inline);
+  font-size: 6.6pt;
+  line-height: 1.25;
+}
+
+.matrix .quadrants {
+  display: flex;
+  align-items: stretch;
+}
+
+/* 縦軸ラベルは縦組みで象限の脇に立てる */
+.matrix .axis-y {
+  flex: 0 0
+    var(--vs-theme-vertical-matrix-diagram--matrix-axis-size, 4mm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  letter-spacing: 0.12em;
+}
+
+.matrix .rows {
+  flex: 1 1 auto;
+}
+
+.matrix .row {
+  display: flex;
+  align-items: stretch;
+}
+
+.matrix .rowhead {
+  flex: 0 0
+    var(--vs-theme-vertical-matrix-diagram--matrix-rowhead-size, 10.5mm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 5.8pt;
+  line-height: 1.2;
+}
+
+.matrix .cell {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-width: 0.5pt;
+  padding: 0.7mm 0.4mm;
+  gap: 0.3em;
+  font-size: 6pt;
+  min-block-size: 12mm;
+}
+
+/* 金のなる木の象限を淡グレーで強調 */
+.matrix .cell.emph {
+  background-color: var(--vs-theme-vertical-matrix-diagram--color-tint);
+}
+
+.matrix .colheads {
+  display: flex;
+  padding-inline-start: calc(
+    var(--vs-theme-vertical-matrix-diagram--matrix-axis-size, 4mm) +
+      var(
+        --vs-theme-vertical-matrix-diagram--matrix-rowhead-size,
+        10.5mm
+      )
+  );
+  padding-top: 0.8mm;
+  font-size: 5.8pt;
+  line-height: 1.2;
+}
+
+.matrix .colheads > * {
+  flex: 1 1 0;
+  text-align: center;
+}
+
+.matrix .axis-x {
+  padding-inline-start: calc(
+    var(--vs-theme-vertical-matrix-diagram--matrix-axis-size, 4mm) +
+      var(
+        --vs-theme-vertical-matrix-diagram--matrix-rowhead-size,
+        10.5mm
+      )
+  );
+  padding-top: 0.6mm;
+  text-align: center;
+  letter-spacing: 0.12em;
+}
+
+/* 主要指標の比較表 (Markdown の表 → 横組みのデータ表) */
+aside thead th:first-child,
+aside tbody td:first-child {
+  width: 12mm;
+}
+
+/* 行頭の社名セルは見出し扱い (Markdown の表は td になる) */
+aside tbody td:first-child {
+  font-weight: 500;
+}
+
+aside small {
+  display: block;
+  font-weight: 400;
+}

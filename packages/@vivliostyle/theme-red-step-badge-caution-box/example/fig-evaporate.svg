@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66 60" role="img" aria-label="蒸発皿にとった水溶液を金網の上で加熱する線画">
+<path d="M14 16 q19 12 38 0 q-4 14 -19 14 q-15 0 -19 -14 z" fill="#eef4fb" stroke="#48607a" stroke-width="1.4" />
+<path d="M18 21 q15 8 30 0 q-3 7 -15 7 q-12 0 -15 -7" fill="#cfe3f5" />
+<path d="M20 10 q2 -5 -1 -8 M28 8 q2 -5 -1 -8 M36 10 q2 -5 -1 -8" fill="none" stroke="#9dbede" stroke-width="1.1" />
+<rect x="10" y="31" width="46" height="3" rx="1" fill="#eaf2fa" stroke="#48607a" stroke-width="1.1" />
+<path d="M14 34 L8 56 M52 34 L58 56 M33 34 v22" fill="none" stroke="#48607a" stroke-width="1.4" />
+<path d="M33 54 q6 -7 0 -15 q-6 9 0 15" fill="#dbe9f6" stroke="#48607a" stroke-width="1.1" />
+</svg>

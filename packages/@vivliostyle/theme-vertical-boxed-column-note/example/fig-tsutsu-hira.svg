@@ -1,0 +1,22 @@
+<svg viewBox="0 0 230 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="筒形と平形の茶碗の線画">
+<ellipse cx="58" cy="42" rx="40" ry="11" fill="none" stroke="#1a1a1a" stroke-width="1.7" />
+<ellipse cx="58" cy="42" rx="33" ry="8" fill="none" stroke="#1a1a1a" stroke-width="0.8" />
+<path d="M18,42 C17,80 20,124 27,152" fill="none" stroke="#1a1a1a" stroke-width="1.7" />
+<path d="M98,42 C99,80 96,124 89,152" fill="none" stroke="#1a1a1a" stroke-width="1.7" />
+<path d="M27,152 Q58,161 89,152" fill="none" stroke="#1a1a1a" stroke-width="1.7" />
+<path d="M40,158 L38,173 L78,173 L76,158" fill="none" stroke="#1a1a1a" stroke-width="1.4" />
+<path d="M38,173 Q58,178 78,173" fill="none" stroke="#1a1a1a" stroke-width="1" />
+<path d="M22,72 Q58,84 94,72" fill="none" stroke="#1a1a1a" stroke-width="0.6" />
+<path d="M24,104 Q58,115 92,104" fill="none" stroke="#1a1a1a" stroke-width="0.5" />
+<ellipse cx="170" cy="96" rx="50" ry="14" fill="none" stroke="#1a1a1a" stroke-width="1.7" />
+<ellipse cx="170" cy="96" rx="42" ry="10" fill="none" stroke="#1a1a1a" stroke-width="0.8" />
+<path d="M120,96 C122,122 140,146 170,152" fill="none" stroke="#1a1a1a" stroke-width="1.7" />
+<path d="M220,96 C218,122 200,146 170,152" fill="none" stroke="#1a1a1a" stroke-width="1.7" />
+<path d="M152,151 L150,171 L190,171 L188,151" fill="none" stroke="#1a1a1a" stroke-width="1.4" />
+<path d="M150,171 Q170,176 190,171" fill="none" stroke="#1a1a1a" stroke-width="1" />
+<path d="M128,120 Q170,134 212,120" fill="none" stroke="#1a1a1a" stroke-width="0.6" />
+<circle cx="46" cy="96" r="0.7" fill="#1a1a1a" />
+<circle cx="70" cy="126" r="0.6" fill="#1a1a1a" />
+<circle cx="158" cy="126" r="0.7" fill="#1a1a1a" />
+<circle cx="186" cy="114" r="0.6" fill="#1a1a1a" />
+</svg>

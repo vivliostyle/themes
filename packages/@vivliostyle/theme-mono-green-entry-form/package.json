@@ -1,0 +1,62 @@
+{
+  "name": "@vivliostyle/theme-mono-green-entry-form",
+  "version": "0.0.0",
+  "description": "スリム手帳判 (105×173mm) の釣果記録フォームテーマ。等幅組み・緑1色で記入欄・釣果テーブル・NOTES 罫を1見開きに収める",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-mono-green-entry-form"
+  },
+  "files": [
+    "*.css",
+    "example",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Mono Green Entry Form",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "misc",
+      "topics": [
+        "diary-planner",
+        "fishing",
+        "log-book",
+        "sport",
+        "compact",
+        "data-recording",
+        "mono-font",
+        "table-format",
+        "specialist"
+      ]
+    }
+  }
+}

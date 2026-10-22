@@ -1,0 +1,305 @@
+/*
+ * 学術誌論文ページ (spanning-title-two-column-mono)
+ * 和文学術論文誌の中間ページ。A4 縦・横書き二段組。段抜きの題字ブロック
+ * (Noto Sans JP のゴシック和文題 + STIX Two Text 斜体英題 + 明朝著者 + 字下げ要旨 +
+ * キーワード) を冒頭に置き、二段組本文を Noto Serif JP 9.5pt で組む。番号付き
+ * ゴシック見出し、折れ線グラフ・グレーヘッダの表・淡グレー地の擬似コード、
+ * 著者所属は脚注として下部へ。柱に誌名/巻号と論題 + 細罫、下中央にノンブル。
+ * 墨一色のモノクロ。
+ *
+ * DOM は VFM 出力: body > section.level1 > (h1, .frontmatter, section.level2 …)
+ * 節番号・図表番号・式番号・引用番号は base のカウンタが付けるので原稿には書かない。
+ * 柱の誌名は原稿の <p class="running-journal"> から、論題は frontmatter の title
+ * (env(doc-title)) から取る。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Code+Pro:wght@400;500&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/footnote';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/math';
+
+:root {
+  /* theme 固有: --vs-* に対応物がない値のみ */
+  --vs-theme-spanning-title-two-column-mono--font-latin:
+    'STIX Two Text', 'Times New Roman', serif;
+  --vs-color-background-alt: #efefef;
+  --vs-theme-spanning-title-two-column-mono--columns: 2;
+  --vs-theme-spanning-title-two-column-mono--column-gap: 8mm;
+  --vs-theme-spanning-title-two-column-mono--figure-size-inline: 100%;
+  /* 式は原稿にラッパーを書かず、ディスプレイ数式の段落へ直接通し番号を振る */
+  --vs-theme-spanning-title-two-column-mono--eq-marker-content: '('
+    counter(vs-counter-eq) ')';
+
+  /* Page: A4 縦・天地 20mm / ノド 25mm / 小口 15mm */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 20mm;
+  --vs-page--margin-bottom: 20mm;
+  --vs-page--margin-left: 20mm;
+  --vs-page--margin-right: 20mm;
+  --vs-page--background-color: #ffffff;
+  --vs-page--mbox-top-padding-bottom: 1.6mm;
+  --vs-page--mbox-top-vertical-align: bottom;
+
+  /* 柱: 左に誌名・巻号、右に論題。細罫を下に敷く */
+  --vs-page--mbox-top-left-content: element(vs-theme-journal);
+  --vs-page--mbox-top-right-content: env(doc-title);
+  --vs-page--mbox-top-font-family: var(--vs--heading-font-family);
+  --vs-page--mbox-top-font-size: 7.5pt;
+  --vs-page--mbox-top-text-color: var(--vs-color-foreground);
+  --vs-page--border-color-top: var(--vs-color-foreground);
+  --vs-page--border-width-top: 0.5pt;
+
+  /* ノンブル */
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-bottom-font-family: var(
+    --vs-theme-spanning-title-two-column-mono--font-latin
+  );
+  --vs-page--mbox-bottom-font-size: 10pt;
+  --vs-page--mbox-bottom-letter-spacing: 0.04em;
+  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
+
+  /* Type: 本文 9.5pt 明朝 / 行間 1.45 */
+  --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'YuMincho', serif;
+  --vs-font-size: 9.5pt;
+  --vs-line-height: 1.45;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-background: #ffffff;
+  --vs-widows-orphans: 2;
+  --vs-color-border: #1a1a1a;
+
+  --vs--monospace-font-family: 'Source Code Pro', ui-monospace, monospace;
+  --vs--monospace-line-height: 1.5;
+
+  /* 紙面ではリンクを本文と同じ体裁で見せる */
+  --vs--anchor-text-color: inherit;
+  --vs--anchor-text-decoration: none;
+
+  /* 段落: 1 字下げ・段落間余白なし・両端揃え */
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 1em;
+  --vs--p-text-align: justify;
+
+  /* 見出しはゴシック */
+  --vs--heading-font-family:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --vs--heading-font-weight: 700;
+  --vs--heading-text-align: start;
+  --vs--heading-break-after: avoid;
+
+  /* 段抜きの和文題字 */
+  --vs--h1-font-size: 17.5pt;
+  --vs--h1-font-weight: 900;
+  --vs--h1-letter-spacing: 0.01em;
+  --vs--h1-line-height: 1.3;
+  --vs--h1-margin-block: 0.5mm 0;
+  --vs--h1-text-align: center;
+
+  /* 番号付き節見出し */
+  --vs--h2-font-size: 11pt;
+  --vs--h2-line-height: 1.3;
+  --vs--h2-margin-block: 2.8mm 1.3mm;
+  --vs--h3-font-size: 9.8pt;
+  --vs--h3-line-height: 1.3;
+  --vs--h3-margin-block: 2.2mm 1mm;
+
+  /* 節番号: 章は「1.」、小節は「1.1」。論題 (h1) には番号を付けない */
+  --vs-section--marker-display: inline;
+  --vs-section--h1-marker-display: none;
+  --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '.';
+  --vs-section--h3-marker-content: counter(vs-counter-sec-h2) '.'
+    counter(vs-counter-sec-h3);
+  --vs-section--marker-margin-inline-end: 0.5em;
+  --vs-section--call-content: target-counter(attr(href), vs-counter-sec-h2) '章';
+
+  /* 図: 折れ線グラフ (外部 SVG) */
+  --vs--figure-margin-block: 2.5mm 2mm;
+  --vs--figcaption-font-family: var(--vs--heading-font-family);
+  --vs--figcaption-font-size: 8.5pt;
+  --vs--figcaption-font-weight: 500;
+  --vs--figcaption-margin-block: 1.2mm 0;
+  --vs--figcaption-text-align: center;
+
+  /* 表: 実験条件 (全罫グリッド・グレーヘッダ) */
+  --vs--table-border-width: 0.5pt;
+  --vs--table-font-size: 8.3pt;
+  --vs--table-margin-block: 0 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-text-align: center;
+  --vs--table-cell-padding-block: 0.7mm;
+  --vs--table-cell-padding-inline: 1.6mm;
+  --vs--th-font-family: var(--vs--heading-font-family);
+  --vs--th-background-color: var(--vs-color-background-alt);
+
+  /* 擬似コード: 行番号は本文に直書きなので折り返さない */
+  --vs--pre-font-size: 7.5pt;
+  --vs--pre-margin-block: 0.8mm 0;
+  --vs--pre-padding-block: 1.4mm;
+  --vs--pre-padding-inline: 1.8mm;
+  --vs--pre-white-space: pre;
+  --vs--pre-background-color: var(--vs-color-background-alt);
+  --vs--pre-break-inside: avoid;
+
+  /* 脚注 (著者所属): ※ + 番号、上に区切り罫 */
+  --vs-footnote--font-size: 8pt;
+  --vs-footnote--call-content: counter(vs-counter-footnote, decimal);
+  --vs-footnote--call-font-size: 0.7em;
+  --vs-footnote--marker-content: '\203B' counter(vs-counter-footnote, decimal)
+    '\2002';
+  --vs-footnote--area-before-border-color-block-start: #1a1a1a;
+  --vs-footnote--area-before-border-width-block-start: 0.5pt;
+  /* 脚注本体は字下げしない */
+  --vs-footnote--text-indent: 0;
+  --vs-footnote--area-before-margin-inline: 0 62%;
+  --vs-footnote--area-before-margin-block: 0.3rem 0.3rem;
+}
+
+/* 和文の図表番号は「図1　」「表1　」、本文からの参照は「図1」「表1」 */
+:root:lang(ja) {
+  --vs-figure--marker-content: '図'
+    counter(vs-counter-fig, var(--vs-counter-style)) '\3000';
+  --vs-table--marker-content: '表'
+    counter(vs-counter-tbl, var(--vs-counter-style)) '\3000';
+  --vs-citation--marker-content: counter(
+      vs-counter-cite,
+      var(--vs-counter-style)
+    )
+    '.';
+}
+
+/* 柱に流す誌名・巻号は原稿から取る */
+.running-journal {
+  position: running(vs-theme-journal);
+  white-space: nowrap;
+}
+
+/* 二段組は本文を包む section.level1 に掛ける。段抜き題字はその直接の子 */
+body > section.level1 {
+  columns: var(--vs-theme-spanning-title-two-column-mono--columns);
+  column-gap: var(--vs-theme-spanning-title-two-column-mono--column-gap);
+  column-fill: auto;
+}
+
+/* ---- 段抜き題字ブロック ---- */
+section.level1 > h1,
+section.level1 > .frontmatter {
+  column-span: all;
+}
+section.level1 > .frontmatter {
+  text-align: center;
+  margin: 0 0 3.2mm;
+  padding-bottom: 2mm;
+  border-bottom-width: 1.6pt;
+  border-bottom-style: solid;
+}
+.subhead {
+  font-family: var(--vs-theme-spanning-title-two-column-mono--font-latin);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 11.5pt;
+  line-height: 1.3;
+  margin: 1.2mm 0 0;
+  text-indent: 0;
+}
+.byline {
+  font-weight: 500;
+  font-size: 12pt;
+  margin: 2.2mm 0 0;
+  text-indent: 0;
+}
+.byline .footnote {
+  font-weight: 400;
+}
+.lead {
+  font-size: 8pt;
+  line-height: 1.5;
+  margin: 2.5mm auto 0;
+  padding: 0 6mm;
+  max-width: 158mm;
+}
+.meta {
+  font-size: 8pt;
+  line-height: 1.5;
+  text-indent: 0;
+  margin: 1.6mm auto 0;
+  padding: 0 6mm;
+  max-width: 158mm;
+}
+
+section.level1 > section.level2:first-of-type > h2 {
+  margin-block-start: 0;
+}
+
+/* 見出し直後・題字内の段落は字下げしない */
+:is(h1, h2, h3, h4, h5, h6) + p {
+  text-indent: 0;
+}
+
+/* 図: 段幅いっぱいに置く */
+figure img {
+  inline-size: var(
+    --vs-theme-spanning-title-two-column-mono--figure-size-inline
+  );
+  block-size: auto;
+}
+
+/* ---- 表 ---- */
+
+/* 表のキャプションは表の上に置く */
+figure:has(table) > figcaption {
+  margin-block: 0 1.2mm;
+  break-after: avoid;
+}
+
+table {
+  width: 100%;
+  line-height: 1.35;
+}
+
+/* 列の揃えは Markdown の桁揃え記法から。数値列は欧文書体で組む */
+:is(th, td)[align='left'] {
+  text-align: start;
+}
+:is(th, td)[align='center'] {
+  text-align: center;
+}
+:is(th, td)[align='right'] {
+  text-align: end;
+}
+td[align='right'] {
+  font-family: var(--vs-theme-spanning-title-two-column-mono--font-latin);
+}
+
+/* ---- 擬似コード: 淡グレー地 ---- */
+pre {
+  overflow: hidden;
+}
+
+/* ---- 別行立て数式: 右端に通し番号 ---- */
+p:has(> .math.display) {
+  position: relative;
+  counter-increment: vs-counter-eq;
+  text-indent: 0;
+  text-align: center;
+}
+
+p:has(> .math.display)::after {
+  content: var(--vs-theme-spanning-title-two-column-mono--eq-marker-content);
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-end: 50%;
+  transform: translateY(50%);
+  font-family: var(--vs-theme-spanning-title-two-column-mono--font-latin);
+}
+
+/* ---- 参考文献 ---- */
+:root {
+  --vs-citation--items-padding-inline-start: 2rem;
+}

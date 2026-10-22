@@ -1,0 +1,298 @@
+/*
+ * オーディオ機器評価ページ (mono-graph-comparison-table)
+ * オーディオ専門誌の機器評価記事。A4 縦・モノクロ・横組み。柱を左右横罫つきで中央上に、
+ * ノンブルを右下に置く。記事は 1 本 = 改ページで始まり、段抜きの記事名と型式スタンプ、
+ * 全幅の特性グラフ、2 段組の本文 (段中に小さなグラフ)、段抜きの仕様表と等幅の
+ * 「測定条件」箱で構成する。見出し Noto Sans JP Medium・本文 Light、
+ * 数値/軸/表 IBM Plex Mono。
+ *
+ * 原稿は `# 記事名` で 1 記事。図番号は base のカウンタが付けるので原稿には書かない。
+ * 全幅で置くグラフは画像に `.wide` を付ける。柱の誌名は原稿の
+ * <p class="running-title"> から取る。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/math';
+
+:root {
+  /* Page: A4 portrait, monochrome */
+  --vs-page--size: A4;
+  --vs-page--background-color: #ffffff;
+  --vs-page--margin-top: 16mm;
+  --vs-page--margin-bottom: 14mm;
+  --vs-page--margin-left: 15mm;
+  --vs-page--margin-right: 15mm;
+
+  /* 柱: 誌名の左右へ横罫を渡す。ノンブルは右下 */
+  --vs-page--mbox-top-left-content: '';
+  --vs-page--mbox-top-center-content: element(vs-theme-magazine);
+  --vs-page--mbox-top-right-content: '';
+  --vs-page--mbox-bottom-right-content: counter(page);
+  --vs-page--mbox-top-border-color-bottom: var(--vs-color-foreground);
+  --vs-page--mbox-top-border-width-bottom: 0.8pt;
+  /* 罫は誌名の左右へ渡すだけなので誌名の下には引かない */
+  --vs-page--mbox-top-center-border-width-bottom: 0;
+  --vs-page--mbox-top-left-padding-right: 1mm;
+  --vs-page--mbox-top-right-padding-left: 1mm;
+  --vs-page--mbox-top-margin-bottom: 2mm;
+  --vs-page--mbox-top-vertical-align: bottom;
+  --vs-page--mbox-bottom-font-family: var(--vs--monospace-font-family);
+  --vs-page--mbox-bottom-font-size: 9pt;
+  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
+  /* 本文が Light なのに対し、柱・ノンブルは Regular */
+  --vs-page--mbox-font-weight: 400;
+
+  /* Type: thin gothic body, 8.5pt / 1.4 */
+  --vs-font-family: 'Noto Sans JP', sans-serif;
+  --vs-font-size: 8.5pt;
+  --vs-font-weight: 300;
+  --vs-line-height: 1.4;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-background: #ffffff;
+  --vs-color-border: #1a1a1a;
+
+  --vs--p-margin-block: 0 1.6mm;
+  --vs--p-text-indent: 1em;
+  --vs--p-text-align: justify;
+
+  --vs--heading-font-family: 'Noto Sans JP', sans-serif;
+  --vs--heading-font-weight: 500;
+  --vs--heading-text-align: start;
+  --vs--heading-margin-block: 0 0;
+  --vs--heading-break-after: avoid;
+
+  /* 記事タイトル */
+  --vs--h1-font-size: 19pt;
+  --vs--h1-line-height: 1.15;
+  --vs--h1-letter-spacing: 0.01em;
+  --vs--h1-margin-block: 0 1.6mm;
+  --vs--h1-padding-block: 0 1.8mm;
+  --vs--h1-border-width-block-end: 2pt;
+
+  /* 本文の小見出し */
+  --vs--h2-font-size: 11pt;
+  --vs--h2-letter-spacing: 0.04em;
+  --vs--h2-margin-block: 2.2mm 1.4mm;
+  --vs--h2-padding-block: 0 0.9mm;
+  --vs--h2-border-width-block-end: 0.8pt;
+
+  --vs--figure-margin-block: 0;
+  --vs--figcaption-margin-block: 1.4mm 0;
+  --vs--figcaption-text-align: center;
+
+  --vs-math--display-margin-block: 1.6mm;
+
+  /* 記事は改ページで始める */
+  --vs-section--h1-break-before: page;
+
+  /* 数値・軸ラベル・測定条件は等幅 */
+  --vs--monospace-font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  --vs--monospace-font-size: 8.4pt;
+  --vs--monospace-line-height: 1.7;
+  --vs--pre-font-size: 8.4pt;
+  --vs--pre-margin-block: 0;
+  --vs--pre-overflow-x: visible;
+  --vs--pre-white-space: pre;
+
+  /* 仕様比較表: 総罫グリッド */
+  --vs--table-font-size: 8pt;
+  --vs--table-margin-block: 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-text-align: center;
+  --vs--table-border-width: 1px;
+  --vs--table-cell-padding-block: 1.3mm;
+  --vs--table-cell-padding-inline: 1.4mm;
+  --vs--th-background-color: var(
+    --vs-theme-mono-graph-comparison-table--color-table-header-bg
+  );
+  --vs--th-font-weight: 500;
+
+  --vs-theme-mono-graph-comparison-table--color-rule-soft: #9a9a9a;
+  --vs-theme-mono-graph-comparison-table--color-table-header-bg: #e6e6e6;
+  --vs-theme-mono-graph-comparison-table--color-table-zebra-bg: #f2f2f2;
+  --vs-theme-mono-graph-comparison-table--color-reverse-body: #ffffff;
+  --vs-theme-mono-graph-comparison-table--color-reverse-bg: #1a1a1a;
+  --vs-theme-mono-graph-comparison-table--columns: 2;
+  --vs-theme-mono-graph-comparison-table--column-gap: 10mm;
+  --vs-theme-mono-graph-comparison-table--figure-size-inline-column: 78mm;
+  --vs-theme-mono-graph-comparison-table--conditions-size-inline: 44mm;
+  --vs-theme-mono-graph-comparison-table--conditions-gap: 6mm;
+}
+
+/* 図番号は「図1　」、本文からの参照は「図1」 */
+:root:lang(ja) {
+  --vs-figure--marker-content: '図'
+    counter(vs-counter-fig, var(--vs-counter-style)) '\3000';
+}
+
+/* 柱に流す誌名は原稿から取る */
+.running-title {
+  position: running(vs-theme-magazine);
+  font-family: var(--vs--heading-font-family);
+  font-weight: 400;
+  font-size: 9.5pt;
+  letter-spacing: 0.16em;
+  white-space: nowrap;
+  text-indent: 0;
+}
+
+/* ===== 解説本文は2段組。記事名・全幅グラフ・下段は全幅のまま =====
+   段抜きを伴う multicol は段の均し (column-fill: balance) が効かず下段が
+   次ページへ送られるため、2段組は解説本文の <div class="body"> にだけ掛ける。 */
+.body {
+  columns: var(--vs-theme-mono-graph-comparison-table--columns);
+  column-gap: var(--vs-theme-mono-graph-comparison-table--column-gap);
+  column-rule-width: 0.4pt;
+  column-rule-style: solid;
+  column-rule-color: var(
+    --vs-theme-mono-graph-comparison-table--color-rule-soft
+  );
+}
+
+/* ===== Masthead / headline ===== */
+.meta {
+  display: flex;
+  align-items: baseline;
+  gap: 3mm;
+  font-family: var(--vs--monospace-font-family);
+  font-size: 9.5pt;
+  letter-spacing: 0.03em;
+  text-indent: 0;
+  margin-block: 0 3.4mm;
+}
+
+.stamp-area {
+  display: inline-block;
+  background-color: var(
+    --vs-theme-mono-graph-comparison-table--color-reverse-bg
+  );
+  color: var(--vs-theme-mono-graph-comparison-table--color-reverse-body);
+  font-weight: 500;
+  font-size: 8.5pt;
+  letter-spacing: 0.1em;
+  padding: 0.8mm 2.4mm;
+  white-space: nowrap;
+}
+
+.price {
+  font-weight: 500;
+}
+
+/* ===== 図版 (Markdown 画像 → figure > img + figcaption) =====
+   線種・軸ラベルの書式は外部 SVG 側の <style> が持つ。 */
+figure {
+  break-inside: avoid;
+}
+figure img {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+}
+figcaption {
+  font-weight: 500;
+}
+
+/* 全幅グラフは本文へ入る前に置く */
+figure:has(> img.wide) {
+  margin-block-end: 3.6mm;
+}
+
+/* 段中のグラフ */
+figure:not(:has(> img.wide)) {
+  margin-block: 2.4mm 0;
+}
+figure:not(:has(> img.wide)) img {
+  max-inline-size: var(
+    --vs-theme-mono-graph-comparison-table--figure-size-inline-column
+  );
+  margin-inline: auto;
+}
+
+/* リード (解説本文の最初の段落) は字下げなし・1行目だけ太らせる */
+.body > p:first-child {
+  text-indent: 0;
+}
+.body > p:first-child::first-line {
+  font-weight: 400;
+}
+
+/* ===== 記事末尾: 仕様表 + 測定条件箱 ===== */
+.bottom {
+  margin-block-start: 3.6mm;
+  break-inside: avoid;
+}
+
+.bottom > .conditions {
+  float: inline-end;
+  inline-size: var(
+    --vs-theme-mono-graph-comparison-table--conditions-size-inline
+  );
+  margin-inline-start: var(
+    --vs-theme-mono-graph-comparison-table--conditions-gap
+  );
+}
+
+.bottom > table {
+  inline-size: calc(
+    100% - var(--vs-theme-mono-graph-comparison-table--conditions-size-inline) -
+      var(--vs-theme-mono-graph-comparison-table--conditions-gap)
+  );
+}
+
+table {
+  table-layout: fixed;
+}
+th,
+td {
+  vertical-align: middle;
+}
+/* Markdown の表は本文行が td のみになるため、1列目を見出し列として扱う */
+tbody td:first-child {
+  background-color: var(
+    --vs-theme-mono-graph-comparison-table--color-table-header-bg
+  );
+  font-family: var(--vs-font-family);
+  font-weight: 400;
+  font-size: 8pt;
+  text-align: start;
+  white-space: nowrap;
+}
+tbody tr:nth-child(even) td:not(:first-child) {
+  background-color: var(
+    --vs-theme-mono-graph-comparison-table--color-table-zebra-bg
+  );
+}
+tbody td {
+  font-family: var(--vs--monospace-font-family);
+  font-size: 7.6pt;
+  letter-spacing: -0.01em;
+}
+thead th:first-child {
+  width: 27%;
+}
+
+/* Conditions box (rounded, monospace) */
+.conditions {
+  border-width: 0.8pt;
+  border-style: solid;
+  border-radius: 2.2mm;
+  padding: 2.4mm 3mm 3mm;
+  break-inside: avoid;
+}
+.conditions h2 {
+  font-weight: 700;
+  font-size: 10pt;
+  letter-spacing: 0.06em;
+  margin-block: 0 1.8mm;
+  padding-block: 0;
+  border-block-end-width: 0;
+}

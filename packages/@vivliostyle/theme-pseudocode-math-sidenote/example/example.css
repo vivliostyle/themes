@@ -1,0 +1,26 @@
+/*
+ * example 専用の上書き。theme.css には手を入れない。
+ */
+
+/* この抜粋は第4章・87ページから始まる */
+:root {
+  --vs-document-first-page-counter-reset: page 86 vs-counter-chapter 3;
+}
+
+/* 数式を含む傍注は VFM に処理させるため段落として書く。段落の既定は両端揃えなので、
+   ほかの傍注と同じ左揃えに戻す */
+.sidenote p {
+  text-align: start;
+}
+
+/* 疑似コードの行番号は li の外へ張り出すので、傍注と並ぶと桁がずれて重なる */
+.code {
+  clear: both;
+}
+
+/* MathJax レンダラのディスプレイ数式 (p > span.math.display) は自前に 1em の上下
+   マージンを持つので、theme.css の .eq が定める行送りにそれ以上足さない */
+.eq > p,
+.eq .math.display {
+  margin-block: 0;
+}

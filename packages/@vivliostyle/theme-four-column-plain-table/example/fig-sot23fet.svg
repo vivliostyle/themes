@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 158" role="img" aria-label="SOT-23 パッケージのピン配置図 (上面図・MOSFET)">
+  <style>
+    text { font-family: "JetBrains Mono", "Menlo", "Consolas", monospace; fill: #1a1a1a; font-size: 11px; }
+    .outline { fill: none; stroke: #1a1a1a; stroke-width: 1.6; }
+    .lead { fill: none; stroke: #1a1a1a; stroke-width: 1.2; }
+    .sym { fill: none; stroke: #1a1a1a; stroke-width: 1; }
+  </style>
+  <rect class="outline" x="70" y="46" width="100" height="58"/>
+  <rect class="lead" x="112" y="26" width="16" height="20"/>
+  <rect class="lead" x="85" y="104" width="16" height="20"/>
+  <rect class="lead" x="139" y="104" width="16" height="20"/>
+  <polyline class="sym" points="96,62 96,88"/>
+  <polyline class="sym" points="100,64 100,72"/>
+  <polyline class="sym" points="100,75 100,79"/>
+  <polyline class="sym" points="100,82 100,90"/>
+  <polyline class="sym" points="100,68 120,68 120,58"/>
+  <polyline class="sym" points="100,86 120,86 120,96"/>
+  <polyline class="sym" points="86,75 96,75"/>
+  <text x="108" y="20" text-anchor="end">3</text>
+  <text x="134" y="20">D</text>
+  <text x="93" y="139" text-anchor="middle">1</text>
+  <text x="93" y="152" text-anchor="middle">G</text>
+  <text x="147" y="139" text-anchor="middle">2</text>
+  <text x="147" y="152" text-anchor="middle">S</text>
+</svg>

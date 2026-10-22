@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 232" role="img" aria-label="Recommended land pattern for the 48-lead QFN. Twelve pads per side, each 0.85 by 0.25 mm on a 0.40 mm pitch, surround a 3.80 by 3.80 mm thermal land with a three by three array of 0.30 mm vias. The overall pad span is 6.80 mm." fill="none" stroke="#171717">
+<style>
+text { font-family: "Roboto Mono", "IBM Plex Mono", ui-monospace, monospace; stroke: none; }
+</style>
+<defs>
+<marker id="dim3" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+<path d="M0,3 L6,1 L6,5 Z" fill="#555555" stroke="none" />
+</marker>
+</defs>
+<rect x="82" y="65.5" width="17" height="5" stroke-width="0.6" fill="#eeeeee" />
+<rect x="201" y="65.5" width="17" height="5" stroke-width="0.6" fill="#eeeeee" />
+<rect x="103.5" y="44" width="5" height="17" stroke-width="0.6" fill="#eeeeee" />
+<rect x="103.5" y="163" width="5" height="17" stroke-width="0.6" fill="#eeeeee" />
+<rect x="82" y="73.5" width="17" height="5" stroke-width="0.6" fill="#eeeeee" />
+<rect x="201" y="73.5" width="17" height="5" stroke-width="0.6" fill="#eeeeee" />
+<rect x="111.5" y="44" width="5" height="17" stroke-width="0.6" fill="#eeeeee" />
+<rect x="111.5" y="163" width="5" height="17" stroke-width="0.6" fill="#eeeeee" />
+<rect x="82" y="81.5" width="17" height="5" stroke-width="0.6" fill="#eeeeee" />
+<rect x="201" y="81.5" width="17" height="5" stroke-width="0.6" fill="#eeeeee" />
+<rect x="119.5" y="44" width="5" height="17" stroke-width="0.6" fill="#eeeeee" />
+<rect x="119.5" y="163" width="5" height="17" stroke-width="0.6" fill="#eeeeee" />
+<rect x="82" y="89.5" width="17" height="5" stroke-width="0.6" fill="#eeeeee" />
+<rect x="201" y="89.5" width="17" height="5" stroke-width="0.6" fill="#eeeeee" />
+<rect x="127.5" y="44" width="5" height="17" stroke-width="0.6" fill="#eeeeee" />
+<rect x="127.5" y="163" width="5" height="17" stroke-width="0.6" fill="#eeeeee" />
+<rect x="82" y="97.5" width="17" height="5" stroke-width="0.6" fill="#eeeeee" />
+<rect x="201" y="97.5" width="17" height="5" stroke-width="0.6" fill="#eeeeee" />
+<rect x="135.5" y="44" width="5" height="17" stroke-width="0.6" fill="#eeeeee" />
+<rect x="135.5" y="163" width="5" height="17" stroke-width="0.6" fill="#eeeeee" />
+<rect x="82" y="105.5" width="17" height="5" stroke-width="0.6" fill="#eeeeee" />
+<rect x="201" y="105.5" width="17" height="5" stroke-width="0.6" fill="#eeeeee" />
+<rect x="143.5" y="44" width="5" height="17" stroke-width="0.6" fill="#eeeeee" />
+<rect x="143.5" y="163" width="5" height="17" stroke-width="0.6" fill="#eeeeee" />
+<rect x="82" y="113.5" width="17" height="5" stroke-width="0.6" fill="#eeeeee" />
+<rect x="201" y="113.5" width="17" height="5" stroke-width="0.6" fill="#eeeeee" />
+<rect x="151.5" y="44" width="5" height="17" stroke-width="0.6" fill="#eeeeee" />
+<rect x="151.5" y="163" width="5" height="17" stroke-width="0.6" fill="#eeeeee" />
+<rect x="82" y="121.5" width="17" height="5" stroke-width="0.6" fill="#eeeeee" />
+<rect x="201" y="121.5" width="17" height="5" stroke-width="0.6" fill="#eeeeee" />
+<rect x="159.5" y="44" width="5" height="17" stroke-width="0.6" fill="#eeeeee" />
+<rect x="159.5" y="163" width="5" height="17" stroke-width="0.6" fill="#eeeeee" />
+<rect x="82" y="129.5" width="17" height="5" stroke-width="0.6" fill="#eeeeee" />
+<rect x="201" y="129.5" width="17" height="5" stroke-width="0.6" fill="#eeeeee" />
+<rect x="167.5" y="44" width="5" height="17" stroke-width="0.6" fill="#eeeeee" />
+<rect x="167.5" y="163" width="5" height="17" stroke-width="0.6" fill="#eeeeee" />
+<rect x="82" y="137.5" width="17" height="5" stroke-width="0.6" fill="#eeeeee" />
+<rect x="201" y="137.5" width="17" height="5" stroke-width="0.6" fill="#eeeeee" />
+<rect x="175.5" y="44" width="5" height="17" stroke-width="0.6" fill="#eeeeee" />
+<rect x="175.5" y="163" width="5" height="17" stroke-width="0.6" fill="#eeeeee" />
+<rect x="82" y="145.5" width="17" height="5" stroke-width="0.6" fill="#eeeeee" />
+<rect x="201" y="145.5" width="17" height="5" stroke-width="0.6" fill="#eeeeee" />
+<rect x="183.5" y="44" width="5" height="17" stroke-width="0.6" fill="#eeeeee" />
+<rect x="183.5" y="163" width="5" height="17" stroke-width="0.6" fill="#eeeeee" />
+<rect x="82" y="153.5" width="17" height="5" stroke-width="0.6" fill="#eeeeee" />
+<rect x="201" y="153.5" width="17" height="5" stroke-width="0.6" fill="#eeeeee" />
+<rect x="191.5" y="44" width="5" height="17" stroke-width="0.6" fill="#eeeeee" />
+<rect x="191.5" y="163" width="5" height="17" stroke-width="0.6" fill="#eeeeee" />
+<rect x="112" y="74" width="76" height="76" stroke-width="0.8" fill="#eeeeee" />
+<circle cx="124" cy="86" r="3" stroke-width="0.6" fill="#ffffff" />
+<circle cx="124" cy="112" r="3" stroke-width="0.6" fill="#ffffff" />
+<circle cx="124" cy="138" r="3" stroke-width="0.6" fill="#ffffff" />
+<circle cx="150" cy="86" r="3" stroke-width="0.6" fill="#ffffff" />
+<circle cx="150" cy="112" r="3" stroke-width="0.6" fill="#ffffff" />
+<circle cx="150" cy="138" r="3" stroke-width="0.6" fill="#ffffff" />
+<circle cx="176" cy="86" r="3" stroke-width="0.6" fill="#ffffff" />
+<circle cx="176" cy="112" r="3" stroke-width="0.6" fill="#ffffff" />
+<circle cx="176" cy="138" r="3" stroke-width="0.6" fill="#ffffff" />
+<circle cx="74" cy="68" r="2.6" fill="#171717" stroke="none" />
+<text x="74" y="60" font-size="5.5" fill="#555555" stroke="none" text-anchor="middle">1</text>
+<line x1="82" y1="28" x2="218" y2="28" stroke="#555555" stroke-width="0.5" marker-start="url(#dim3)" marker-end="url(#dim3)" />
+<text x="150" y="25" font-size="6" fill="#555555" stroke="none" text-anchor="middle">6.80 mm</text>
+<line x1="138" y1="190" x2="146" y2="190" stroke="#555555" stroke-width="0.5" marker-start="url(#dim3)" marker-end="url(#dim3)" />
+<text x="142" y="198" font-size="6" fill="#555555" stroke="none" text-anchor="middle">e = 0.40</text>
+<line x1="218" y1="68" x2="240" y2="56" stroke="#555555" stroke-width="0.5" />
+<text x="242" y="55" font-size="6" fill="#555555" stroke="none" text-anchor="middle">0.85 &#215; 0.25</text>
+<text x="150" y="127" font-size="6.5" fill="#171717" stroke="none" text-anchor="middle">3.80 &#215; 3.80</text>
+<text x="150" y="222" font-size="6.3" fill="#555555" stroke="none" text-anchor="middle">NSMD pads &#183; 9 thermal vias, 0.30 dia &#183; dimensions in mm</text>
+</svg>

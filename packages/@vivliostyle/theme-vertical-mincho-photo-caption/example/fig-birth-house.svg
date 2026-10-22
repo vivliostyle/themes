@@ -1,0 +1,48 @@
+<svg viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="山を背にした木造平屋の家と井戸、昭和期のモノクロ写真">
+  <rect x="0" y="0" width="380" height="300" fill="#d8d4cd" />
+  <path d="M0 128 L74 74 L146 112 L216 62 L296 108 L380 78 L380 168 L0 168 Z" fill="#bcb7ae" />
+  <path d="M0 152 L96 118 L188 146 L272 116 L380 144 L380 186 L0 186 Z" fill="#b0aba2" />
+  <rect x="0" y="182" width="380" height="118" fill="#c6c1b8" />
+  <rect x="0" y="252" width="380" height="48" fill="#b7b2a9" />
+
+  <polygon points="46,152 176,96 306,152" fill="#6c675f" />
+  <rect x="40" y="148" width="272" height="10" fill="#57524a" />
+  <rect x="62" y="156" width="228" height="96" fill="#8d877d" />
+  <rect x="62" y="156" width="228" height="12" fill="#7a746b" />
+
+  <rect x="86" y="176" width="46" height="46" fill="#ddd8cf" />
+  <rect x="86" y="176" width="46" height="46" fill="none" stroke="#5f5a52" stroke-width="2" />
+  <path d="M109 176 L109 222" stroke="#5f5a52" stroke-width="2" />
+  <rect x="146" y="176" width="46" height="46" fill="#ddd8cf" />
+  <rect x="146" y="176" width="46" height="46" fill="none" stroke="#5f5a52" stroke-width="2" />
+  <path d="M169 176 L169 222" stroke="#5f5a52" stroke-width="2" />
+
+  <rect x="212" y="170" width="58" height="70" fill="#45413b" />
+  <rect x="206" y="164" width="70" height="8" fill="#3b3732" />
+  <rect x="206" y="170" width="7" height="70" fill="#5d584f" />
+  <rect x="269" y="170" width="7" height="70" fill="#5d584f" />
+
+  <rect x="62" y="222" width="140" height="12" fill="#a49f96" />
+  <rect x="62" y="234" width="140" height="6" fill="#8f8a81" />
+  <rect x="78" y="240" width="9" height="14" fill="#6f6a62" />
+  <rect x="176" y="240" width="9" height="14" fill="#6f6a62" />
+
+  <rect x="308" y="206" width="46" height="34" fill="#9c968c" />
+  <ellipse cx="331" cy="206" rx="23" ry="8" fill="#7f7a71" />
+  <ellipse cx="331" cy="206" rx="14" ry="5" fill="#4c483f" />
+  <rect x="304" y="150" width="6" height="58" fill="#6f6a62" />
+  <rect x="352" y="150" width="6" height="58" fill="#6f6a62" />
+  <rect x="300" y="146" width="62" height="6" fill="#5c574f" />
+  <path d="M331 152 L331 186" stroke="#5c574f" stroke-width="2" />
+  <rect x="324" y="186" width="14" height="10" fill="#7f7a71" />
+
+  <rect x="20" y="196" width="10" height="58" fill="#6a655c" />
+  <ellipse cx="25" cy="176" rx="34" ry="30" fill="#8b857b" />
+  <ellipse cx="48" cy="192" rx="22" ry="19" fill="#7d776e" />
+  <circle cx="14" cy="164" r="5" fill="#b9b4aa" />
+  <circle cx="36" cy="182" r="5" fill="#b9b4aa" />
+  <circle cx="52" cy="170" r="5" fill="#b9b4aa" />
+
+  <ellipse cx="176" cy="266" rx="70" ry="7" fill="#a8a39a" />
+  <ellipse cx="330" cy="256" rx="40" ry="6" fill="#a8a39a" />
+</svg>

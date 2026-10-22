@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-label="TO-220 パッケージのピン配置図 (上面図・3端子レギュレータ)">
+  <style>
+    text { font-family: "JetBrains Mono", "Menlo", "Consolas", monospace; fill: #1a1a1a; font-size: 11px; }
+    .outline { fill: none; stroke: #1a1a1a; stroke-width: 1.6; }
+    .lead { fill: none; stroke: #1a1a1a; stroke-width: 1.2; }
+    .thin { fill: none; stroke: #1a1a1a; stroke-width: 1; }
+    .small { font-size: 9px; }
+  </style>
+  <rect class="outline" x="68" y="18" width="104" height="40"/>
+  <circle class="lead" cx="120" cy="38" r="11"/>
+  <rect class="outline" x="68" y="58" width="104" height="62"/>
+  <rect class="lead" x="80" y="120" width="10" height="30"/>
+  <rect class="lead" x="115" y="120" width="10" height="30"/>
+  <rect class="lead" x="150" y="120" width="10" height="30"/>
+  <text x="85" y="164" text-anchor="middle">1</text>
+  <text x="85" y="177" text-anchor="middle">IN</text>
+  <text x="120" y="164" text-anchor="middle">2</text>
+  <text x="120" y="177" text-anchor="middle">GND</text>
+  <text x="155" y="164" text-anchor="middle">3</text>
+  <text x="155" y="177" text-anchor="middle">OUT</text>
+  <polyline class="thin" points="176,38 194,38"/>
+  <text class="small" x="198" y="41">TAB</text>
+  <text class="small" x="198" y="53">=GND</text>
+</svg>

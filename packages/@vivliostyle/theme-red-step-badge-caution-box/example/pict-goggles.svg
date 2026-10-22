@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" role="img" aria-label="保護めがねのピクトグラム">
+<circle cx="20" cy="20" r="17.6" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.8" />
+<path d="M20 8.5 q9 0 9 9.5 v5.5 q0 8.5 -9 8.5 q-9 0 -9 -8.5 v-5.5 q0 -9.5 9 -9.5" fill="none" stroke="#1a1a1a" stroke-width="1.5" />
+<rect x="11.4" y="16" width="7.6" height="5.6" rx="2" fill="#dbe9f6" stroke="#1a1a1a" stroke-width="1.4" />
+<rect x="21" y="16" width="7.6" height="5.6" rx="2" fill="#dbe9f6" stroke="#1a1a1a" stroke-width="1.4" />
+<path d="M19 18.8 h2 M11.4 18.8 h-2.6 M28.6 18.8 h2.6" stroke="#1a1a1a" stroke-width="1.2" fill="none" />
+<path d="M16.5 27.2 q3.5 1.8 7 0" stroke="#1a1a1a" stroke-width="1.2" fill="none" />
+</svg>
