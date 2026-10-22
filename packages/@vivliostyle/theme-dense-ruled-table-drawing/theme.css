@@ -180,7 +180,9 @@ figure.drawing img {
 }
 
 figure.chart img {
-  max-inline-size: var(--vs-theme-dense-ruled-table-drawing--fig-chart-size-inline);
+  max-inline-size: var(
+    --vs-theme-dense-ruled-table-drawing--fig-chart-size-inline
+  );
 }
 
 /* 参照は本文と同じ字面で組む */

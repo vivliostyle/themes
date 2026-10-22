@@ -155,9 +155,7 @@ header > p {
   letter-spacing: 0.32em;
   text-indent: 0.32em;
   text-align: center;
-  color: var(
-    --vs-theme-lilac-small-caps-dot-leader--color-muted
-  );
+  color: var(--vs-theme-lilac-small-caps-dot-leader--color-muted);
 }
 
 /* ---------- セクション見出し: 角に切込みのある細罫ボックス ---------- */
@@ -175,111 +173,63 @@ h2 {
   /* 枠線: 4辺は角の手前で止め、各角に一回り内側の L 字を重ねて切込み風の段差を作る */
   background:
     linear-gradient(
-        var(
-          --vs-theme-lilac-small-caps-dot-leader--color-accent-strong
-        ),
-        var(
-          --vs-theme-lilac-small-caps-dot-leader--color-accent-strong
-        )
+        var(--vs-theme-lilac-small-caps-dot-leader--color-accent-strong),
+        var(--vs-theme-lilac-small-caps-dot-leader--color-accent-strong)
       )
       top center / calc(100% - 13mm) 0.35mm no-repeat,
     linear-gradient(
-        var(
-          --vs-theme-lilac-small-caps-dot-leader--color-accent-strong
-        ),
-        var(
-          --vs-theme-lilac-small-caps-dot-leader--color-accent-strong
-        )
+        var(--vs-theme-lilac-small-caps-dot-leader--color-accent-strong),
+        var(--vs-theme-lilac-small-caps-dot-leader--color-accent-strong)
       )
       bottom center / calc(100% - 13mm) 0.35mm no-repeat,
     linear-gradient(
-        var(
-          --vs-theme-lilac-small-caps-dot-leader--color-accent-strong
-        ),
-        var(
-          --vs-theme-lilac-small-caps-dot-leader--color-accent-strong
-        )
+        var(--vs-theme-lilac-small-caps-dot-leader--color-accent-strong),
+        var(--vs-theme-lilac-small-caps-dot-leader--color-accent-strong)
       )
       center left / 0.35mm calc(100% - 8mm) no-repeat,
     linear-gradient(
-        var(
-          --vs-theme-lilac-small-caps-dot-leader--color-accent-strong
-        ),
-        var(
-          --vs-theme-lilac-small-caps-dot-leader--color-accent-strong
-        )
+        var(--vs-theme-lilac-small-caps-dot-leader--color-accent-strong),
+        var(--vs-theme-lilac-small-caps-dot-leader--color-accent-strong)
       )
       center right / 0.35mm calc(100% - 8mm) no-repeat,
     linear-gradient(
-        var(
-          --vs-theme-lilac-small-caps-dot-leader--color-accent
-        ),
-        var(
-          --vs-theme-lilac-small-caps-dot-leader--color-accent
-        )
+        var(--vs-theme-lilac-small-caps-dot-leader--color-accent),
+        var(--vs-theme-lilac-small-caps-dot-leader--color-accent)
       )
       left 1.2mm top 1.2mm / 5.6mm 0.35mm no-repeat,
     linear-gradient(
-        var(
-          --vs-theme-lilac-small-caps-dot-leader--color-accent
-        ),
-        var(
-          --vs-theme-lilac-small-caps-dot-leader--color-accent
-        )
+        var(--vs-theme-lilac-small-caps-dot-leader--color-accent),
+        var(--vs-theme-lilac-small-caps-dot-leader--color-accent)
       )
       left 1.2mm top 1.2mm / 0.35mm 3.4mm no-repeat,
     linear-gradient(
-        var(
-          --vs-theme-lilac-small-caps-dot-leader--color-accent
-        ),
-        var(
-          --vs-theme-lilac-small-caps-dot-leader--color-accent
-        )
+        var(--vs-theme-lilac-small-caps-dot-leader--color-accent),
+        var(--vs-theme-lilac-small-caps-dot-leader--color-accent)
       )
       right 1.2mm top 1.2mm / 5.6mm 0.35mm no-repeat,
     linear-gradient(
-        var(
-          --vs-theme-lilac-small-caps-dot-leader--color-accent
-        ),
-        var(
-          --vs-theme-lilac-small-caps-dot-leader--color-accent
-        )
+        var(--vs-theme-lilac-small-caps-dot-leader--color-accent),
+        var(--vs-theme-lilac-small-caps-dot-leader--color-accent)
       )
       right 1.2mm top 1.2mm / 0.35mm 3.4mm no-repeat,
     linear-gradient(
-        var(
-          --vs-theme-lilac-small-caps-dot-leader--color-accent
-        ),
-        var(
-          --vs-theme-lilac-small-caps-dot-leader--color-accent
-        )
+        var(--vs-theme-lilac-small-caps-dot-leader--color-accent),
+        var(--vs-theme-lilac-small-caps-dot-leader--color-accent)
       )
       left 1.2mm bottom 1.2mm / 5.6mm 0.35mm no-repeat,
     linear-gradient(
-        var(
-          --vs-theme-lilac-small-caps-dot-leader--color-accent
-        ),
-        var(
-          --vs-theme-lilac-small-caps-dot-leader--color-accent
-        )
+        var(--vs-theme-lilac-small-caps-dot-leader--color-accent),
+        var(--vs-theme-lilac-small-caps-dot-leader--color-accent)
       )
       left 1.2mm bottom 1.2mm / 0.35mm 3.4mm no-repeat,
     linear-gradient(
-        var(
-          --vs-theme-lilac-small-caps-dot-leader--color-accent
-        ),
-        var(
-          --vs-theme-lilac-small-caps-dot-leader--color-accent
-        )
+        var(--vs-theme-lilac-small-caps-dot-leader--color-accent),
+        var(--vs-theme-lilac-small-caps-dot-leader--color-accent)
       )
       right 1.2mm bottom 1.2mm / 5.6mm 0.35mm no-repeat,
     linear-gradient(
-        var(
-          --vs-theme-lilac-small-caps-dot-leader--color-accent
-        ),
-        var(
-          --vs-theme-lilac-small-caps-dot-leader--color-accent
-        )
+        var(--vs-theme-lilac-small-caps-dot-leader--color-accent),
+        var(--vs-theme-lilac-small-caps-dot-leader--color-accent)
       )
       right 1.2mm bottom 1.2mm / 0.35mm 3.4mm no-repeat;
 }
@@ -362,9 +312,7 @@ section.level2 table tbody tr:nth-child(even) td:first-child {
   font-size: 6.8pt;
   line-height: 1.5;
   letter-spacing: 0.1em;
-  color: var(
-    --vs-theme-lilac-small-caps-dot-leader--color-muted
-  );
+  color: var(--vs-theme-lilac-small-caps-dot-leader--color-muted);
 }
 
 section.level2 table tbody tr:last-child td {
@@ -384,15 +332,11 @@ blockquote.pull-quote::before,
 blockquote.pull-quote::after {
   position: absolute;
   top: -2.2mm;
-  font-family: var(
-    --vs-theme-lilac-small-caps-dot-leader--font-display
-  );
+  font-family: var(--vs-theme-lilac-small-caps-dot-leader--font-display);
   font-weight: 600;
   font-size: 26pt;
   line-height: 1;
-  color: var(
-    --vs-theme-lilac-small-caps-dot-leader--color-accent
-  );
+  color: var(--vs-theme-lilac-small-caps-dot-leader--color-accent);
 }
 
 blockquote.pull-quote::before {
@@ -418,9 +362,7 @@ blockquote.pull-quote p:last-child {
   letter-spacing: 0.24em;
   text-indent: 0.24em;
   text-align: center;
-  color: var(
-    --vs-theme-lilac-small-caps-dot-leader--color-muted
-  );
+  color: var(--vs-theme-lilac-small-caps-dot-leader--color-muted);
 }
 
 /* ---------- 季節のおすすめ: 二重枠ボックス ---------- */
@@ -449,9 +391,7 @@ blockquote.pull-quote p:last-child {
   inset: 1.2mm;
   border-width: 0.25mm;
   border-style: solid;
-  border-color: var(
-    --vs-theme-lilac-small-caps-dot-leader--color-accent-soft
-  );
+  border-color: var(--vs-theme-lilac-small-caps-dot-leader--color-accent-soft);
 }
 
 .note p:first-of-type {
@@ -469,9 +409,7 @@ blockquote.pull-quote p:last-child {
   font-size: 6.8pt;
   letter-spacing: 0.12em;
   text-align: center;
-  color: var(
-    --vs-theme-lilac-small-caps-dot-leader--color-muted
-  );
+  color: var(--vs-theme-lilac-small-caps-dot-leader--color-muted);
 }
 
 :root {

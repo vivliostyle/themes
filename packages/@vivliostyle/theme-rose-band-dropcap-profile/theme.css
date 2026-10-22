@@ -18,9 +18,7 @@
   --vs-theme-rose-band-dropcap-profile--frame-border-width: 0.45mm;
 
   /* 柱の左に出す叢書名。既定は刊行物名 */
-  --vs-theme-rose-band-dropcap-profile--running-publication: env(
-    pub-title
-  );
+  --vs-theme-rose-band-dropcap-profile--running-publication: env(pub-title);
 
   /* 著者プロフィール欄の幅 */
   --vs-theme-rose-band-dropcap-profile--profile-size-inline: 40mm;
@@ -115,18 +113,14 @@ section > h1:first-child + p {
   font-size: 45pt;
   font-weight: 500;
   line-height: 1;
-  color: var(
-    --vs-theme-rose-band-dropcap-profile--color-accent
-  );
+  color: var(--vs-theme-rose-band-dropcap-profile--color-accent);
   margin: 1.5mm 3.5mm 0 0;
 }
 
 /* 著者プロフィール。小口側に縦罫つきで置き、本文を回り込ませる */
 aside.sidebar {
   float: inline-end;
-  inline-size: var(
-    --vs-theme-rose-band-dropcap-profile--profile-size-inline
-  );
+  inline-size: var(--vs-theme-rose-band-dropcap-profile--profile-size-inline);
   margin-inline-start: 8mm;
   border-inline-start: var(
       --vs-theme-rose-band-dropcap-profile--frame-border-width

@@ -175,7 +175,9 @@ a[data-ref='sheet']::before {
 }
 /* 1 行に 2 組並べるときの 2 つめのラベル */
 .field dd + dt {
-  flex-basis: var(--vs-theme-mono-green-entry-form--field-label-size-inline-2nd);
+  flex-basis: var(
+    --vs-theme-mono-green-entry-form--field-label-size-inline-2nd
+  );
   padding-left: 2.5mm;
 }
 

@@ -89,7 +89,9 @@
   --vs-endnote--item-margin-block: 0 1mm;
   --vs-endnote--item-text-indent: 0;
   --vs-endnote--call-font-size: 0.72em;
-  --vs-endnote--call-text-color: var(--vs-theme-vertical-dropcap-endnote--color-sub);
+  --vs-endnote--call-text-color: var(
+    --vs-theme-vertical-dropcap-endnote--color-sub
+  );
 
   /*
    * 註番号・傍注番号は括弧付きの縦中横。text-combine-upright は一つのボックス内の

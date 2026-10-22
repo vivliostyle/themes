@@ -164,9 +164,7 @@ body > .titleblock {
   display: flow-root;
   border-block-end-width: 0.75pt;
   border-block-end-style: solid;
-  border-block-end-color: var(
-    --vs-theme-slate-blue-two-column--color-accent
-  );
+  border-block-end-color: var(--vs-theme-slate-blue-two-column--color-accent);
   padding-block-end: 2.5mm;
   margin-block-end: 5mm;
 }
@@ -174,9 +172,7 @@ body > .titleblock {
 .masthead p {
   margin: 0;
   padding-block-start: 6mm;
-  font-family: var(
-    --vs-theme-slate-blue-two-column--font-display
-  );
+  font-family: var(--vs-theme-slate-blue-two-column--font-display);
   font-size: 8pt;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -215,9 +211,7 @@ header.masthead > figure > img {
 
 .docid {
   color: var(--vs-theme-slate-blue-two-column--color-muted);
-  font-family: var(
-    --vs-theme-slate-blue-two-column--font-display
-  );
+  font-family: var(--vs-theme-slate-blue-two-column--font-display);
   font-size: 7.5pt;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -227,9 +221,7 @@ header.masthead > figure > img {
 
 .titleblock h1 {
   color: var(--vs-theme-slate-blue-two-column--color-accent);
-  font-family: var(
-    --vs-theme-slate-blue-two-column--font-display
-  );
+  font-family: var(--vs-theme-slate-blue-two-column--font-display);
   font-size: 25pt;
   font-weight: 700;
   letter-spacing: -0.01em;
@@ -258,8 +250,7 @@ header.masthead > figure > img {
 }
 
 .abstract {
-  border-block: 0.75pt solid
-    var(--vs-theme-slate-blue-two-column--color-rule);
+  border-block: 0.75pt solid var(--vs-theme-slate-blue-two-column--color-rule);
   margin-block: 0 3mm;
   padding-block: 2.6mm;
 }
@@ -271,9 +262,7 @@ header.masthead > figure > img {
 
 .label {
   color: var(--vs-theme-slate-blue-two-column--color-accent);
-  font-family: var(
-    --vs-theme-slate-blue-two-column--font-display
-  );
+  font-family: var(--vs-theme-slate-blue-two-column--font-display);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -333,9 +322,7 @@ figure:not([class]) {
 figure:not([class]) > img {
   border-width: 0.75pt;
   border-style: solid;
-  border-color: var(
-    --vs-theme-slate-blue-two-column--color-rule
-  );
+  border-color: var(--vs-theme-slate-blue-two-column--color-rule);
   border-radius: 2mm;
   background-color: #ffffff;
 }
@@ -347,9 +334,7 @@ figcaption {
 
 /* 採番は base の figure/table モジュール。書体・色だけ design 側で当てる */
 figcaption::before {
-  font-family: var(
-    --vs-theme-slate-blue-two-column--font-display
-  );
+  font-family: var(--vs-theme-slate-blue-two-column--font-display);
   font-weight: 600;
   color: var(--vs-theme-slate-blue-two-column--color-accent);
 }

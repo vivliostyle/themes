@@ -197,8 +197,7 @@ figcaption .unit {
 
 /* 縦軸ラベルは縦組みで象限の脇に立てる */
 .matrix .axis-y {
-  flex: 0 0
-    var(--vs-theme-vertical-matrix-diagram--matrix-axis-size, 4mm);
+  flex: 0 0 var(--vs-theme-vertical-matrix-diagram--matrix-axis-size, 4mm);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -216,8 +215,7 @@ figcaption .unit {
 }
 
 .matrix .rowhead {
-  flex: 0 0
-    var(--vs-theme-vertical-matrix-diagram--matrix-rowhead-size, 10.5mm);
+  flex: 0 0 var(--vs-theme-vertical-matrix-diagram--matrix-rowhead-size, 10.5mm);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -250,10 +248,7 @@ figcaption .unit {
   display: flex;
   padding-inline-start: calc(
     var(--vs-theme-vertical-matrix-diagram--matrix-axis-size, 4mm) +
-      var(
-        --vs-theme-vertical-matrix-diagram--matrix-rowhead-size,
-        10.5mm
-      )
+      var(--vs-theme-vertical-matrix-diagram--matrix-rowhead-size, 10.5mm)
   );
   padding-top: 0.8mm;
   font-size: 5.8pt;
@@ -268,10 +263,7 @@ figcaption .unit {
 .matrix .axis-x {
   padding-inline-start: calc(
     var(--vs-theme-vertical-matrix-diagram--matrix-axis-size, 4mm) +
-      var(
-        --vs-theme-vertical-matrix-diagram--matrix-rowhead-size,
-        10.5mm
-      )
+      var(--vs-theme-vertical-matrix-diagram--matrix-rowhead-size, 10.5mm)
   );
   padding-top: 0.6mm;
   text-align: center;

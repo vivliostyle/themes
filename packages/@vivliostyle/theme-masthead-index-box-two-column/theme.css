@@ -107,12 +107,8 @@
    article ラッパが無いため、段組は body に掛ける (段抜きを伴う多段組は
    --vs-columns では組めない)。 */
 body {
-  columns: var(
-    --vs-theme-masthead-index-box-two-column--columns
-  );
-  column-gap: var(
-    --vs-theme-masthead-index-box-two-column--column-gap
-  );
+  columns: var(--vs-theme-masthead-index-box-two-column--columns);
+  column-gap: var(--vs-theme-masthead-index-box-two-column--column-gap);
   column-fill: auto;
 }
 

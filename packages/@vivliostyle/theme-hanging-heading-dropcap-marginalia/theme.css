@@ -27,12 +27,8 @@
   --vs-theme-hanging-heading-dropcap-marginalia--sidenote-size-inline: 24mm;
   --vs-theme-hanging-heading-dropcap-marginalia--sidenote-gap: 4mm;
   --vs-theme-hanging-heading-dropcap-marginalia--sidenote-gutter: calc(
-    var(
-        --vs-theme-hanging-heading-dropcap-marginalia--sidenote-size-inline
-      ) +
-      var(
-        --vs-theme-hanging-heading-dropcap-marginalia--sidenote-gap
-      )
+    var(--vs-theme-hanging-heading-dropcap-marginalia--sidenote-size-inline) +
+      var(--vs-theme-hanging-heading-dropcap-marginalia--sidenote-gap)
   );
   /* 見出しが傍注帯へ食い込む量 */
   --vs-theme-hanging-heading-dropcap-marginalia--heading-hang-size-inline: 10mm;
@@ -162,10 +158,7 @@
     --vs-theme-hanging-heading-dropcap-marginalia--sidenote-size-inline
   );
   --vs-sidenote--margin-inline: calc(
-      -1 *
-        var(
-          --vs-theme-hanging-heading-dropcap-marginalia--sidenote-gutter
-        )
+      -1 * var(--vs-theme-hanging-heading-dropcap-marginalia--sidenote-gutter)
     )
     0;
   --vs-sidenote--margin-block: 0 6mm;
@@ -253,9 +246,7 @@ section > h1:first-child + p::first-letter {
   font-size: 38pt;
   line-height: 1;
   font-weight: 500;
-  color: var(
-    --vs-theme-hanging-heading-dropcap-marginalia--color-accent
-  );
+  color: var(--vs-theme-hanging-heading-dropcap-marginalia--color-accent);
   margin: 1mm 2.2mm 0 0;
 }
 
@@ -286,9 +277,7 @@ td:first-child {
 .checklist li::before {
   content: '☐';
   margin-inline-end: 0.2em;
-  color: var(
-    --vs-theme-hanging-heading-dropcap-marginalia--color-accent
-  );
+  color: var(--vs-theme-hanging-heading-dropcap-marginalia--color-accent);
 }
 
 /* 参照は本文と地続きに読ませる */
