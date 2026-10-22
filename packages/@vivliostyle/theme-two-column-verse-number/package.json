@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -57,6 +57,12 @@
         "elegant",
         "serif"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Two Column Verse Number sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

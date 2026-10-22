@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -56,6 +56,12 @@
         "dense",
         "data-driven"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Vertical Matrix Diagram sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

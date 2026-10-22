@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -55,6 +55,12 @@
         "memoir",
         "footnotes"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Vertical Mincho Photo Caption sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

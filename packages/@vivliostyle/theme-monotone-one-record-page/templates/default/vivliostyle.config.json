@@ -1,0 +1,15 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "ja",
+  "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-monotone-one-record-page"{{/if}}, "example.css"],
+  "entry": [
+    "adr-minimal.md",
+    "adr-minimal-02.md",
+    "adr-minimal-03.md",
+    "adr-minimal-04.md",
+    "adr-minimal-05.md",
+    "adr-minimal-06.md",
+    "adr-minimal-07.md"
+  ]
+}

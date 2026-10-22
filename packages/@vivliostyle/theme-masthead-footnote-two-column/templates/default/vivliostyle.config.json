@@ -1,0 +1,9 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "ja",
+  "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-masthead-footnote-two-column"{{/if}}, "example.css"],
+  "entry": [
+    "academic-abstracts.md"
+  ]
+}

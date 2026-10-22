@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -56,6 +56,12 @@
         "sidenotes",
         "figures"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Two Column Blue Sidenote sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -55,6 +55,12 @@
         "wide-margins",
         "easy-read"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Wide Margin Speaker Indent sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

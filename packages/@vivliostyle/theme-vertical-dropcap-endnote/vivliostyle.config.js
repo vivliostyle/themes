@@ -5,6 +5,6 @@ export default defineConfig({
   language: 'ja',
   title: '月影拾遺',
   theme: ['theme.css'],
-  entry: ['example/bunko-endnote-commentary.md'],
+  entry: ['templates/default/bunko-endnote-commentary.md'],
   output: 'book.pdf',
 });

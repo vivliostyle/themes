@@ -1,0 +1,9 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "en",
+  "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-green-heading-zebra-table"{{/if}}, "example.css"],
+  "entry": [
+    "data-finance.md"
+  ]
+}

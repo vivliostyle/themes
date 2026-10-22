@@ -1,0 +1,9 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "ja",
+  "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-hanging-heading-dropcap-marginalia"{{/if}}, "example.css"],
+  "entry": [
+    "book-style-consulting.md"
+  ]
+}

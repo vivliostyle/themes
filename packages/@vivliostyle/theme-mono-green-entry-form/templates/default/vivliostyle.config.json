@@ -1,0 +1,9 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "en",
+  "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-mono-green-entry-form"{{/if}}, "example.css"],
+  "entry": [
+    "fishing-log.md"
+  ]
+}

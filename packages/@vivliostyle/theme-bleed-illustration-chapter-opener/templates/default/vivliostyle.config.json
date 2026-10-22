@@ -1,0 +1,9 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "en",
+  "theme": {{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-bleed-illustration-chapter-opener"{{/if}},
+  "entry": [
+    "adventure-children-visual.md"
+  ]
+}

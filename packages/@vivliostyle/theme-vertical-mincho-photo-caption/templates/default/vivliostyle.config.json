@@ -1,0 +1,18 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "ja",
+  "theme": {{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-vertical-mincho-photo-caption"{{/if}},
+  "entry": [
+    "00-titlepage.md",
+    { "path": "01-contents.md", "rel": "contents" },
+    "02-birth-house.md",
+    "03-shigihama.md",
+    "04-seizaisho.md",
+    "05-kisha.md",
+    "06-tokai.md",
+    "07-kazoku.md",
+    "08-shiokaze.md",
+    "09-afterword.md"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "ja",
+  "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-wide-margin-speaker-indent"{{/if}}, "example.css"],
+  "entry": [
+    "01-cover.md",
+    "02-contents.md",
+    "03-intro.md",
+    "04-night-1.md",
+    "05-night-2.md",
+    "06-night-3.md",
+    "07-night-4.md",
+    "08-colophon.md"
+  ]
+}

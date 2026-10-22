@@ -1,0 +1,9 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "ja",
+  "theme": {{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-red-step-badge-caution-box"{{/if}},
+  "entry": [
+    "chemistry-experiment-safety.md"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "ja",
+  "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-vertical-three-column-thumb-index"{{/if}}, "example.css"],
+  "entry": [
+    "classical-japanese-kogo.md",
+    "classical-japanese-kogo-02.md"
+  ]
+}

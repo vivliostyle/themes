@@ -1,0 +1,9 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "en",
+  "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-two-column-blue-sidenote"{{/if}}, "example.css"],
+  "entry": [
+    "acm-extended.md"
+  ]
+}

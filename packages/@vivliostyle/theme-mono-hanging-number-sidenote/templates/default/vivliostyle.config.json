@@ -1,0 +1,9 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "en",
+  "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-mono-hanging-number-sidenote"{{/if}}, "example.css"],
+  "entry": [
+    "cs-programming-sidenotes.md"
+  ]
+}

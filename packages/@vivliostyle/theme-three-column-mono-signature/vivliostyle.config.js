@@ -4,7 +4,7 @@ import { defineConfig } from '@vivliostyle/cli';
 export default defineConfig({
   language: 'ja',
   title: '美しいAPIリファレンス',
-  theme: ['theme.css', 'example/example.css'],
-  entry: ['example/api-reference.md'],
+  theme: ['theme.css', 'templates/default/example.css'],
+  entry: ['templates/default/api-reference.md'],
   output: 'book.pdf',
 });

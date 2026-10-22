@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -55,6 +55,12 @@
         "dense",
         "compact"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Dense Serif Roman Numeral sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

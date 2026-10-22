@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -54,6 +54,12 @@
         "archival",
         "organized"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Issue Number Heading Rule sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

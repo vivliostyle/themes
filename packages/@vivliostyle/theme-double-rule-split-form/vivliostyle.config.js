@@ -6,10 +6,10 @@ export default defineConfig({
   title: '複合帳票（領収+納品）',
   theme: ['theme.css'],
   entry: [
-    'example/estimate.md',
-    'example/order-confirmation.md',
-    'example/combined-receipt-delivery.md',
-    'example/invoice.md',
+    'templates/default/estimate.md',
+    'templates/default/order-confirmation.md',
+    'templates/default/combined-receipt-delivery.md',
+    'templates/default/invoice.md',
   ],
   output: 'book.pdf',
 });

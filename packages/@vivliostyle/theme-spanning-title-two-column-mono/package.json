@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -55,6 +55,12 @@
         "data-heavy",
         "journal"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Spanning Title Two Column Mono sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

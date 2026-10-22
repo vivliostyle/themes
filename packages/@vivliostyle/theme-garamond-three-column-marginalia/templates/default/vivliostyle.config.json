@@ -1,0 +1,20 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "en",
+  "theme": {{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-garamond-three-column-marginalia"{{/if}},
+  "entry": [
+    "title-page.md",
+    "foreword.md",
+    "contents.md",
+    "before-the-imprint.md",
+    "press-proposed.md",
+    "academic-history.md",
+    "rationed-years.md",
+    "long-expansion.md",
+    "hot-metal-to-markup.md",
+    "chronology.md",
+    "office-of-printer.md",
+    "colophon.md"
+  ]
+}

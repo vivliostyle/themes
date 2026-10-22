@@ -1,0 +1,16 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "ja",
+  "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-issue-number-heading-rule"{{/if}}, "example.css"],
+  "entry": [
+    "newsletter-collection.md",
+    "newsletter-collection-02.md",
+    "newsletter-collection-03.md",
+    "newsletter-collection-04.md",
+    "newsletter-collection-05.md",
+    "newsletter-collection-06.md",
+    "newsletter-collection-07.md",
+    "newsletter-collection-08.md"
+  ]
+}

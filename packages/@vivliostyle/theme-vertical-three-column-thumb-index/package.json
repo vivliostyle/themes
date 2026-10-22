@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -54,6 +54,12 @@
         "ultra-dense",
         "mincho"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Vertical Three Column Thumb Index sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

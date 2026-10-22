@@ -1,0 +1,9 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "en",
+  "theme": {{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-navy-ruled-ledger-two-column"{{/if}},
+  "entry": [
+    "captain-log.md"
+  ]
+}

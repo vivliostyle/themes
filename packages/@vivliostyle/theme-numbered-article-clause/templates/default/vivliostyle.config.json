@@ -1,0 +1,9 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "ja",
+  "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-numbered-article-clause"{{/if}}, "example.css"],
+  "entry": [
+    "articles-of-association-standard.md"
+  ]
+}

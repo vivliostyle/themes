@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -57,6 +57,12 @@
         "sans-body",
         "visual"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Navy Band KPI Block sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

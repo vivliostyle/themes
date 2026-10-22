@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -57,6 +57,12 @@
         "formal-structure",
         "b5"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Numbered Heading Ledger List sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

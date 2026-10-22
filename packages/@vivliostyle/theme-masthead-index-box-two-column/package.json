@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -56,6 +56,12 @@
         "b5",
         "intellectual"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Masthead Index Box Two Column sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

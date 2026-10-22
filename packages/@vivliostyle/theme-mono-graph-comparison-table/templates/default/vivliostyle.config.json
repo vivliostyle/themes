@@ -1,0 +1,9 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "ja",
+  "theme": {{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-mono-graph-comparison-table"{{/if}},
+  "entry": [
+    "audio-equipment-review.md"
+  ]
+}

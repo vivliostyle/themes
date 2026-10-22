@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -55,6 +55,12 @@
         "field-guide",
         "practical"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Vertical Line Drawing Spec Table sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

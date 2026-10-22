@@ -1,0 +1,9 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "ja",
+  "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-centered-heading-bracket-subhead"{{/if}}, "example.css"],
+  "entry": [
+    "case-law-civil-cases.md"
+  ]
+}

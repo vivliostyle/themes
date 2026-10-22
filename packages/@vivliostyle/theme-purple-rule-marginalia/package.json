@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -55,6 +55,12 @@
         "narrative",
         "high-literacy"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Purple Rule Marginalia sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

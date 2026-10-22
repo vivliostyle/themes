@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -55,6 +55,12 @@
         "modern",
         "colorful"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Rose Band Dropcap Profile sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

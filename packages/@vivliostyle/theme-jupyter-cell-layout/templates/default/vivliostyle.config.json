@@ -1,0 +1,9 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "en",
+  "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-jupyter-cell-layout"{{/if}}, "example.css"],
+  "entry": [
+    "machine-learning-notebook.md"
+  ]
+}

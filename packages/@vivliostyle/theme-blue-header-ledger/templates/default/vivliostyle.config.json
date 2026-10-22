@@ -1,0 +1,9 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "ja",
+  "theme": {{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-blue-header-ledger"{{/if}},
+  "entry": [
+    "bank-statement.md"
+  ]
+}

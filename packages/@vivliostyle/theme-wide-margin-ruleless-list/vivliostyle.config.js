@@ -5,6 +5,6 @@ export default defineConfig({
   language: 'en',
   title: 'カフェメニュー・ホワイトスペース設計',
   theme: ['theme.css'],
-  entry: ['example/cafe-minimal-white.md'],
+  entry: ['templates/default/cafe-minimal-white.md'],
   output: 'book.pdf',
 });

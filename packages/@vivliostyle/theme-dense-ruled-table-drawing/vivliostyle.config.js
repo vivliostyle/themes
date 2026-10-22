@@ -5,6 +5,6 @@ export default defineConfig({
   language: 'en',
   title: 'ボタン電池コンパクト仕様',
   theme: ['theme.css'],
-  entry: ['example/battery-compact-format.md'],
+  entry: ['templates/default/battery-compact-format.md'],
   output: 'book.pdf',
 });

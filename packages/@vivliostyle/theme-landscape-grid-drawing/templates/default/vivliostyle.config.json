@@ -1,0 +1,14 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "ja",
+  "theme": {{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-landscape-grid-drawing"{{/if}},
+  "entry": [
+    "foreword.md",
+    "architect.md",
+    "tomoo-library.md",
+    "kuriuno-hall.md",
+    "architecture-technical.md",
+    "hinakura-shelter.md"
+  ]
+}

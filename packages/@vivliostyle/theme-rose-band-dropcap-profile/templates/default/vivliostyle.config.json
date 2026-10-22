@@ -1,0 +1,15 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "ja",
+  "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-rose-band-dropcap-profile"{{/if}}, "example.css"],
+  "entry": [
+    "anthology-colorful-modern.md",
+    "anthology-colorful-modern-02.md",
+    "anthology-colorful-modern-03.md",
+    "anthology-colorful-modern-04.md",
+    "anthology-colorful-modern-05.md",
+    "anthology-colorful-modern-06.md",
+    "anthology-colorful-modern-07.md"
+  ]
+}

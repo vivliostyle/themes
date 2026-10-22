@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -55,6 +55,12 @@
         "technical",
         "minimal"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Dense Ruled Table Drawing sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

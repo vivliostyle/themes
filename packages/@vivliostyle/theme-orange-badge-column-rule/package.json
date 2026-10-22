@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -54,6 +54,12 @@
         "gothic",
         "navigation-focused"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Orange Badge Column Rule sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

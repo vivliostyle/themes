@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -56,6 +56,12 @@
         "japanese-style",
         "dictionary-layout"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Three Column Mono Signature sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -54,6 +54,12 @@
         "two-column",
         "formal"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Two Column Three Line Table sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

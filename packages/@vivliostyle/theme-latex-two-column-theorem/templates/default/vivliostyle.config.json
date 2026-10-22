@@ -1,0 +1,9 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "en",
+  "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-latex-two-column-theorem"{{/if}}, "example.css"],
+  "entry": [
+    "annals-stat.md"
+  ]
+}

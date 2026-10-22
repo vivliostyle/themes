@@ -1,0 +1,12 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "ja",
+  "theme": {{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-double-rule-split-form"{{/if}},
+  "entry": [
+    "estimate.md",
+    "order-confirmation.md",
+    "combined-receipt-delivery.md",
+    "invoice.md"
+  ]
+}

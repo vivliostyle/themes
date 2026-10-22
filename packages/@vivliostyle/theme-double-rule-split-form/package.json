@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -56,6 +56,12 @@
         "commercial",
         "sans"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Double Rule Split Form sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

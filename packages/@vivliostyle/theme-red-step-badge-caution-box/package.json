@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -56,6 +56,12 @@
         "chemistry",
         "warning-system"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Red Step Badge Caution Box sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

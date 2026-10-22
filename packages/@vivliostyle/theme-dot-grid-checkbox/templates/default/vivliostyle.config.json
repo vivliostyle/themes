@@ -1,0 +1,16 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "en",
+  "theme": {{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-dot-grid-checkbox"{{/if}},
+  "entry": [
+    "index.md",
+    "key.md",
+    "monthly-log.md",
+    "daily-log-08.md",
+    "daily-log-09.md",
+    "daily-log-10.md",
+    "reading-list.md",
+    "north-bed.md"
+  ]
+}

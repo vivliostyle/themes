@@ -1,0 +1,17 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "ja",
+  "theme": {{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-ornamental-frame-corner-title"{{/if}},
+  "entry": [
+    "title-page.md",
+    "anthology-multiauthor.md",
+    "glass-garden-title.md",
+    "glass-garden.md",
+    "distant-thunder-title.md",
+    "distant-thunder.md",
+    "rusted-whistle-title.md",
+    "rusted-whistle.md",
+    "afterword.md"
+  ]
+}

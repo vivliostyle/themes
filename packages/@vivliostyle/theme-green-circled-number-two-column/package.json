@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -56,6 +56,12 @@
         "time-emphasis",
         "quick-reference"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Green Circled Number Two Column sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

@@ -5,6 +5,6 @@ export default defineConfig({
   language: 'en',
   title: '学術ニュース誌',
   theme: ['theme.css'],
-  entry: ['example/academic-news.md'],
+  entry: ['templates/default/academic-news.md'],
   output: 'book.pdf',
 });

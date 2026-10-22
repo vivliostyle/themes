@@ -1,0 +1,9 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "ja",
+  "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-gold-speaker-hanging-two-column"{{/if}}, "example.css"],
+  "entry": [
+    "podcast-transcript-dialogue.md"
+  ]
+}

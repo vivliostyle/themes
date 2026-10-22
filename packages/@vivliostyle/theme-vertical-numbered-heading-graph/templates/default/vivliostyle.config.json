@@ -1,0 +1,9 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "ja",
+  "theme": {{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-vertical-numbered-heading-graph"{{/if}},
+  "entry": [
+    "chuo-shinsho-academic.md"
+  ]
+}

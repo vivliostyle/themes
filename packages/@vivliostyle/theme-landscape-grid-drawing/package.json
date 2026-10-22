@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -55,6 +55,12 @@
         "minimalist",
         "exhibition-catalog"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Landscape Grid Drawing sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -55,6 +55,12 @@
         "monospace",
         "a4"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Mono Hanging Number Sidenote sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

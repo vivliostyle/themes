@@ -1,0 +1,20 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "en",
+  "theme": {{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-single-column-mono-chapter"{{/if}},
+  "entry": [
+    "01-title-page.md",
+    "02-declaration.md",
+    "03-abstract.md",
+    "04-acknowledgements.md",
+    "05-contents.md",
+    "06-introduction.md",
+    "07-literature-review.md",
+    "08-methodology.md",
+    "09-results.md",
+    "10-discussion.md",
+    "11-conclusion.md",
+    "12-references.md"
+  ]
+}

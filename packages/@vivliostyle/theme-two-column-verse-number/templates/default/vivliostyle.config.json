@@ -1,0 +1,17 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "ja",
+  "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-two-column-verse-number"{{/if}}, "example.css"],
+  "entry": [
+    "bible-two-column.md",
+    "bible-two-column-02.md",
+    "bible-two-column-03.md",
+    "bible-two-column-04.md",
+    "bible-two-column-05.md",
+    "bible-two-column-06.md",
+    "bible-two-column-07.md",
+    "bible-two-column-08.md",
+    "bible-two-column-09.md"
+  ]
+}

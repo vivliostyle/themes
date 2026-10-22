@@ -1,0 +1,9 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "ja",
+  "theme": {{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-orange-badge-column-rule"{{/if}},
+  "entry": [
+    "aruki-aruiteku-style.md"
+  ]
+}

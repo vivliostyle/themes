@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -55,6 +55,12 @@
         "code-embedded",
         "research"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Jupyter Cell Layout sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

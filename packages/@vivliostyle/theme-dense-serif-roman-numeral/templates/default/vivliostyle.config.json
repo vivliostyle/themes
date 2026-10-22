@@ -1,0 +1,9 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "en",
+  "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-dense-serif-roman-numeral"{{/if}}, "example.css"],
+  "entry": [
+    "aps-prl-physics.md"
+  ]
+}

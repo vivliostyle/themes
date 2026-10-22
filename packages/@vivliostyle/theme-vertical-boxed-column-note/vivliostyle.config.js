@@ -5,6 +5,6 @@ export default defineConfig({
   language: 'ja',
   title: '茶碗の文化史',
   theme: ['theme.css'],
-  entry: ['example/cultural-shinsho-columns.md'],
+  entry: ['templates/default/cultural-shinsho-columns.md'],
   output: 'book.pdf',
 });

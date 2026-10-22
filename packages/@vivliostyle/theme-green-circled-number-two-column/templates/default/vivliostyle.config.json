@@ -1,0 +1,10 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "ja",
+  "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-green-circled-number-two-column"{{/if}}, "example.css"],
+  "entry": [
+    "bento-compact.md",
+    "bento-tips.md"
+  ]
+}

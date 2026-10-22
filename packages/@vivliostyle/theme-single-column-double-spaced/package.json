@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -55,6 +55,12 @@
         "double-spaced",
         "formal"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Single Column Double Spaced sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

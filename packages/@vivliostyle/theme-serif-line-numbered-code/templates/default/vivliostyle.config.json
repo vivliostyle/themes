@@ -1,0 +1,9 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "en",
+  "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-serif-line-numbered-code"{{/if}}, "example.css"],
+  "entry": [
+    "acm-toplas.md"
+  ]
+}

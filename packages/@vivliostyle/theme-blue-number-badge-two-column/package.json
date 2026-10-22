@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -56,6 +56,12 @@
         "numbered",
         "youthful"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Blue Number Badge Two Column sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

@@ -4,15 +4,15 @@ import { defineConfig } from '@vivliostyle/cli';
 export default defineConfig({
   language: 'ja',
   title: 'アーキテクチャ決定記録（ミニマルスタイル）',
-  theme: ['theme.css', 'example/example.css'],
+  theme: ['theme.css', 'templates/default/example.css'],
   entry: [
-    'example/adr-minimal.md',
-    'example/adr-minimal-02.md',
-    'example/adr-minimal-03.md',
-    'example/adr-minimal-04.md',
-    'example/adr-minimal-05.md',
-    'example/adr-minimal-06.md',
-    'example/adr-minimal-07.md',
+    'templates/default/adr-minimal.md',
+    'templates/default/adr-minimal-02.md',
+    'templates/default/adr-minimal-03.md',
+    'templates/default/adr-minimal-04.md',
+    'templates/default/adr-minimal-05.md',
+    'templates/default/adr-minimal-06.md',
+    'templates/default/adr-minimal-07.md',
   ],
   output: 'book.pdf',
 });

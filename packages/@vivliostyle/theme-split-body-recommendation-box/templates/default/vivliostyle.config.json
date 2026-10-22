@@ -1,0 +1,9 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "ja",
+  "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-split-body-recommendation-box"{{/if}}, "example.css"],
+  "entry": [
+    "clinical-guideline-standard.md"
+  ]
+}

@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -55,6 +55,12 @@
         "two-column",
         "philosophy"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Dense Reversed Band Notes sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

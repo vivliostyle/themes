@@ -1,0 +1,13 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "ja",
+  "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-brown-double-frame-cream"{{/if}}, "example.css"],
+  "entry": [
+    "alumni-elegant.md",
+    "alumni-elegant-02.md",
+    "alumni-elegant-03.md",
+    "alumni-elegant-04.md",
+    "alumni-elegant-05.md"
+  ]
+}

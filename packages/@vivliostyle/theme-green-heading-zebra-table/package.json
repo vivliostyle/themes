@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -55,6 +55,12 @@
         "slab-serif",
         "dense"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Green Heading Zebra Table sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

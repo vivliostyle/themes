@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -54,6 +54,12 @@
         "illustrated",
         "serif"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Three Column Index Tab Figure sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

@@ -1,0 +1,9 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "en",
+  "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-slate-blue-two-column"{{/if}}, "example.css"],
+  "entry": [
+    "corporate-research-paper.md"
+  ]
+}

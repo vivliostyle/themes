@@ -1,0 +1,19 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "en",
+  "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-all-mono-black-band-warning"{{/if}}, "example.css"],
+  "entry": [
+    "01-cover.md",
+    "02-contents.md",
+    "03-overview.md",
+    "04-authentication.md",
+    "05-common.md",
+    "06-vaults.md",
+    "07-objects.md",
+    "08-multipart.md",
+    "09-lifecycle.md",
+    "10-appendix.md",
+    "11-colophon.md"
+  ]
+}

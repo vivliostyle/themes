@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -55,6 +55,12 @@
         "elegant",
         "japanese-style"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Monotone One Record Page sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

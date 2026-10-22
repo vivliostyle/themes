@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -55,6 +55,12 @@
         "b5",
         "academic"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Pseudocode Math Sidenote sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

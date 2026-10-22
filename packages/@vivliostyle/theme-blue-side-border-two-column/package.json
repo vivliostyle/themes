@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -56,6 +56,12 @@
         "japan",
         "serif"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Blue Side Border Two Column sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

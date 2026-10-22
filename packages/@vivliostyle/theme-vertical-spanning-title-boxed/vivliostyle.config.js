@@ -5,6 +5,6 @@ export default defineConfig({
   language: 'ja',
   title: '文藝春秋風特集ページ',
   theme: ['theme.css'],
-  entry: ['example/bungeishunju-vertical.md'],
+  entry: ['templates/default/bungeishunju-vertical.md'],
   output: 'book.pdf',
 });

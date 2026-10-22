@@ -1,0 +1,9 @@
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "en",
+  "theme": {{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-dense-ruled-table-drawing"{{/if}},
+  "entry": [
+    "battery-compact-format.md"
+  ]
+}

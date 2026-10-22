@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -56,6 +56,12 @@
         "centered-headings",
         "reference"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Centered Heading Bracket Subhead sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

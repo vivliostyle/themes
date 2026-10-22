@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -57,6 +57,12 @@
         "serif-body",
         "dense"
       ]
+    },
+    "template": {
+      "default": {
+        "name": "Dense Mono Two Column sample",
+        "source": "./templates/default"
+      }
     }
   }
 }

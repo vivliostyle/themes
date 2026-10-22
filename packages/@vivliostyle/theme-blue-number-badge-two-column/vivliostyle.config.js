@@ -6,12 +6,12 @@ export default defineConfig({
   title: 'みなみのはら高校　部活動記録集',
   theme: ['theme.css'],
   entry: [
-    'example/club-activity-report.md',
-    'example/club-activity-report-02.md',
-    'example/club-activity-report-03.md',
-    'example/club-activity-report-04.md',
-    'example/club-activity-report-05.md',
-    'example/club-activity-report-06.md',
+    'templates/default/club-activity-report.md',
+    'templates/default/club-activity-report-02.md',
+    'templates/default/club-activity-report-03.md',
+    'templates/default/club-activity-report-04.md',
+    'templates/default/club-activity-report-05.md',
+    'templates/default/club-activity-report-06.md',
   ],
   output: 'book.pdf',
 });
