@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-red-band-grid-table",
   "version": "0.0.0",
-  "description": "A4判・実務帳票のクレジットカード利用明細書テーマ。赤ベタ帯タイトルと3段組の格子表で構成する",
+  "description": "A4 theme for credit card statements, with a solid red title band and three-column grid tables",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,15 +47,19 @@
       "style": "theme.css",
       "category": "misc",
       "topics": [
-        "finance-personal",
-        "finance",
+        "business",
         "credit-card",
         "three-column",
         "sans-serif",
         "transaction",
         "a4",
         "detailed"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A4判・実務帳票のクレジットカード利用明細書テーマ。赤ベタ帯タイトルと3段組の格子表で構成する"
+        }
+      }
     },
     "template": {
       "default": {

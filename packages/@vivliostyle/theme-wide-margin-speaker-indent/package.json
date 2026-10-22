@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-wide-margin-speaker-indent",
   "version": "0.0.0",
-  "description": "A4縦・広めの余白を取った1段組の技術同人誌テーマ。対談形式のページを話者名のぶら下げインデントで組む",
+  "description": "Single-column A4 theme with wide margins for technical doujinshi, setting interview pages with hanging indents under speaker names",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,14 +47,19 @@
       "style": "theme.css",
       "category": "misc",
       "topics": [
-        "tech-doujin",
+        "technical",
         "dialogue",
         "interview",
         "a4",
         "conversation",
         "wide-margins",
         "easy-read"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A4縦・広めの余白を取った1段組の技術同人誌テーマ。対談形式のページを話者名のぶら下げインデントで組む"
+        }
+      }
     },
     "template": {
       "default": {

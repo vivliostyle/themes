@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-dense-mono-two-column",
   "version": "0.0.0",
-  "description": "EDINET提出書類の本文ページを模したA4縦・2段組の高密度モノクロ有価証券報告書テーマ",
+  "description": "Dense two-column A4 theme in black for annual securities reports, modeled on the body pages of EDINET filings",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,16 +47,21 @@
       "style": "theme.css",
       "category": "report",
       "topics": [
-        "annual-report",
+        "report",
         "edinet-format",
         "a4",
         "two-column",
         "formal",
         "financial-tables",
         "legal-disclosure",
-        "serif-body",
+        "serif",
         "dense"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "EDINET提出書類の本文ページを模したA4縦・2段組の高密度モノクロ有価証券報告書テーマ"
+        }
+      }
     },
     "template": {
       "default": {

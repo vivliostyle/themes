@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-lilac-small-caps-dot-leader",
   "version": "0.0.0",
-  "description": "A5判・1段組のパティスリーメニューテーマ。ライラックの細罫と欧文スモールキャップ、点線リーダーの品目表で華やかな菓子店の世界観を組む",
+  "description": "Single-column A5 theme for patisserie menus, with fine lilac rules, small caps and dot-leader price lists",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,15 +47,19 @@
       "style": "theme.css",
       "category": "misc",
       "topics": [
-        "menu-food",
+        "practical",
         "dessert",
         "pastry",
-        "visual",
+        "colorful",
         "elegant",
         "light",
-        "delicate",
         "a5"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A5判・1段組のパティスリーメニューテーマ。ライラックの細罫と欧文スモールキャップ、点線リーダーの品目表で華やかな菓子店の世界観を組む"
+        }
+      }
     },
     "template": {
       "default": {

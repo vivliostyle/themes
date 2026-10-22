@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-hanging-heading-dropcap-marginalia",
   "version": "0.0.0",
-  "description": "四六判・単行本風のコンサルティングガイド。ハンギング見出しと3行取りドロップキャップ、ブラウン罫の傍注を配した非対称グリッドのレポートテーマ",
+  "description": "Report theme for consulting guides in the Shiroku book size, with hanging headings, three-line drop caps and brown-ruled marginal notes on an asymmetric grid",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,14 +47,19 @@
       "style": "theme.css",
       "category": "report",
       "topics": [
-        "business-report",
+        "report",
         "book-style",
         "shiroku",
         "mincho",
         "serif",
         "elegant",
         "vertical-margin"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "四六判・単行本風のコンサルティングガイド。ハンギング見出しと3行取りドロップキャップ、ブラウン罫の傍注を配した非対称グリッドのレポートテーマ"
+        }
+      }
     },
     "template": {
       "default": {

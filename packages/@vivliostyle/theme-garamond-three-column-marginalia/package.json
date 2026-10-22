@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-garamond-three-column-marginalia",
   "version": "0.0.0",
-  "description": "A4縦・3段組の大学出版局150周年記念誌 (学史) テーマ。EB Garamond 本文と番号付き節見出し、小口側の傍注、脚注を密に組む",
+  "description": "Three-column A4 theme for a university press's 150th anniversary history, with EB Garamond text, numbered section headings, outer marginal notes and footnotes",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -52,10 +52,14 @@
         "a4",
         "three-column",
         "dense",
-        "scholarly",
         "footnotes",
         "indexed"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A4縦・3段組の大学出版局150周年記念誌 (学史) テーマ。EB Garamond 本文と番号付き節見出し、小口側の傍注、脚注を密に組む"
+        }
+      }
     },
     "template": {
       "default": {

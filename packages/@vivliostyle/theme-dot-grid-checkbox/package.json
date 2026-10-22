@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-dot-grid-checkbox",
   "version": "0.0.0",
-  "description": "5mm ドット方眼を敷いた A5 のバレットジャーナル向けデイリーページテーマ。角チェックボックスのタスクリストと丸印メモを罫線なしで整列させる",
+  "description": "A5 theme for bullet journal daily pages on a 5 mm dot grid, aligning square checkbox task lists and circled notes without rules",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,7 +47,7 @@
       "style": "theme.css",
       "category": "misc",
       "topics": [
-        "diary-planner",
+        "forms",
         "a5",
         "bullet-journal",
         "dot-grid",
@@ -55,7 +55,12 @@
         "minimal",
         "personal",
         "modular"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "5mm ドット方眼を敷いた A5 のバレットジャーナル向けデイリーページテーマ。角チェックボックスのタスクリストと丸印メモを罫線なしで整列させる"
+        }
+      }
     },
     "template": {
       "default": {

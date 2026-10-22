@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-rose-band-dropcap-profile",
   "version": "0.0.0",
-  "description": "A4判・墨とローズレッドの二色刷りエッセイアンソロジー篇頭テーマ。色ベタ帯の大題とドロップキャップ、著者プロフィール欄を組む",
+  "description": "A4 theme in black and rose red for the opening pages of essay anthologies, with titles on color bands, drop caps and author profiles",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,14 +47,17 @@
       "style": "theme.css",
       "category": "novel",
       "topics": [
-        "essay-critique",
-        "anthology",
-        "essay",
+        "literature",
         "multi-author",
         "a4",
-        "modern",
+        "contemporary",
         "colorful"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A4判・墨とローズレッドの二色刷りエッセイアンソロジー篇頭テーマ。色ベタ帯の大題とドロップキャップ、著者プロフィール欄を組む"
+        }
+      }
     },
     "template": {
       "default": {

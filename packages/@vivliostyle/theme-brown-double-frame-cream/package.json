@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-brown-double-frame-cream",
   "version": "0.0.0",
-  "description": "A5判・1段組の同窓会報テーマ。焦茶の二重飾り罫でクリーム地の版面を囲み、上下罫見出しと小口余白の縦組み傍注で静かな品位を組む",
+  "description": "Single-column A5 theme for alumni newsletters, framing a cream page with dark brown double rules, ruled headings and vertical marginal notes",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -53,7 +53,12 @@
         "single-column",
         "elegant",
         "minimal"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A5判・1段組の同窓会報テーマ。焦茶の二重飾り罫でクリーム地の版面を囲み、上下罫見出しと小口余白の縦組み傍注で静かな品位を組む"
+        }
+      }
     },
     "template": {
       "default": {

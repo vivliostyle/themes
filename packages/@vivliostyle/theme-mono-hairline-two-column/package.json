@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-mono-hairline-two-column",
   "version": "0.0.0",
-  "description": "レター判2段組・IBM Plex Mono等幅体の高密度RF-ICデータシートテーマ。極細グレー罫とタブラー数字で工業文書らしい情報密度を組む",
+  "description": "Dense two-column letter theme for RF IC datasheets in IBM Plex Mono, with hairline gray rules and tabular figures",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,7 +47,7 @@
       "style": "theme.css",
       "category": "report",
       "topics": [
-        "datasheet",
+        "reference",
         "semiconductor",
         "letter",
         "two-column",
@@ -55,7 +55,12 @@
         "rf-ic",
         "technical",
         "monospace"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "レター判2段組・IBM Plex Mono等幅体の高密度RF-ICデータシートテーマ。極細グレー罫とタブラー数字で工業文書らしい情報密度を組む"
+        }
+      }
     },
     "template": {
       "default": {

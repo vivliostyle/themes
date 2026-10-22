@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-mono-graph-comparison-table",
   "version": "0.0.0",
-  "description": "A4判モノクロ2段組のオーディオ機器レビュー誌テーマ。周波数特性グラフと仕様比較表でデータ視認性を優先した紙面",
+  "description": "Two-column A4 theme in black for audio equipment review magazines, putting frequency response graphs and specification tables first",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,7 +47,7 @@
       "style": "theme.css",
       "category": "magazine",
       "topics": [
-        "magazine-hobby",
+        "magazine",
         "audio",
         "equipment",
         "a4",
@@ -55,7 +55,12 @@
         "monochrome",
         "technical",
         "data-grid"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A4判モノクロ2段組のオーディオ機器レビュー誌テーマ。周波数特性グラフと仕様比較表でデータ視認性を優先した紙面"
+        }
+      }
     },
     "template": {
       "default": {

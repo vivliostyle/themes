@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-navy-ruled-ledger-two-column",
   "version": "0.0.0",
-  "description": "US letter・左右2段の貨物船航海日誌テーマ。ネイビーの番号付き見出しと罫囲みのレジャー式テーブルで気象・航海データを刻む",
+  "description": "Two-column US letter theme for cargo ship logbooks, with navy numbered headings and ruled ledger tables for weather and voyage data",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,16 +47,20 @@
       "style": "theme.css",
       "category": "misc",
       "topics": [
-        "diary-planner",
+        "forms",
         "maritime",
-        "log-book",
         "captain",
         "weather-data",
         "navigation",
         "table-format",
         "slab-serif",
         "formal"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "US letter・左右2段の貨物船航海日誌テーマ。ネイビーの番号付き見出しと罫囲みのレジャー式テーブルで気象・航海データを刻む"
+        }
+      }
     },
     "template": {
       "default": {

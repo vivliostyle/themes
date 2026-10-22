@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-dense-ruled-table-drawing",
   "version": "0.0.0",
-  "description": "A6縦・モノクロ1段組のボタン型リチウム電池データシートテーマ。高密度な罫線表と外形寸法図をポケットサイズにまとめる",
+  "description": "Single-column A6 theme in black for datasheets of coin lithium batteries, fitting dense ruled tables and outline drawings into a pocket size",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,14 +47,19 @@
       "style": "theme.css",
       "category": "report",
       "topics": [
-        "datasheet",
+        "reference",
         "battery",
-        "a6",
+        "bunko",
         "single-column",
-        "compact",
+        "dense",
         "technical",
         "minimal"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A6縦・モノクロ1段組のボタン型リチウム電池データシートテーマ。高密度な罫線表と外形寸法図をポケットサイズにまとめる"
+        }
+      }
     },
     "template": {
       "default": {

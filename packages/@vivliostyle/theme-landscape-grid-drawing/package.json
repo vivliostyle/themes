@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-landscape-grid-drawing",
   "version": "0.0.0",
-  "description": "B4横判・技術図面レイアウトの建築展図録テーマ。5mm方眼上に図面を配置し、下段に解説と仕様表を組む",
+  "description": "Landscape B4 theme for architecture exhibition catalogs in a technical drawing layout, placing drawings on a 5 mm grid above commentary and specification tables",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -52,9 +52,14 @@
         "technical-drawing",
         "b4",
         "blueprint",
-        "minimalist",
+        "minimal",
         "exhibition-catalog"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "B4横判・技術図面レイアウトの建築展図録テーマ。5mm方眼上に図面を配置し、下段に解説と仕様表を組む"
+        }
+      }
     },
     "template": {
       "default": {

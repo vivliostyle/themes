@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-two-column-three-line-table",
   "version": "0.0.0",
-  "description": "B5判・英語2段組の国際学術論文集テーマ。番号付き見出し、MathMLディスプレイ数式、三線データ表、段下脚注を組む",
+  "description": "Two-column B5 theme for English international proceedings, with numbered headings, MathML display equations, three-line tables and footnotes at the column bottoms",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,13 +47,17 @@
       "style": "theme.css",
       "category": "journal",
       "topics": [
-        "essay-critique",
+        "literature",
         "academic",
-        "research",
         "b5",
         "two-column",
         "formal"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "B5判・英語2段組の国際学術論文集テーマ。番号付き見出し、MathMLディスプレイ数式、三線データ表、段下脚注を組む"
+        }
+      }
     },
     "template": {
       "default": {

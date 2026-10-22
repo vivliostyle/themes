@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-single-column-mono-chapter",
   "version": "0.0.0",
-  "description": "英国ケンブリッジ式のA4縦1段組・墨1色の博士論文本文テーマ",
+  "description": "Single-column A4 theme in black for doctoral theses in the Cambridge style",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,7 +47,7 @@
       "style": "theme.css",
       "category": "journal",
       "topics": [
-        "thesis",
+        "academic",
         "uk-academic",
         "serif",
         "a4",
@@ -55,7 +55,12 @@
         "formal",
         "elegant",
         "endnotes"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "英国ケンブリッジ式のA4縦1段組・墨1色の博士論文本文テーマ"
+        }
+      }
     },
     "template": {
       "default": {

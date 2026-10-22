@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-monotone-one-record-page",
   "version": "0.0.0",
-  "description": "新書判・1段組・モノトーンのアーキテクチャ決定記録(ADR)テーマ。1レコード1ページ完結で細罫の補足ノートを添える",
+  "description": "Single-column monotone Shinsho theme for architecture decision records, with one record per page and supplementary notes under hairline rules",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,14 +47,19 @@
       "style": "theme.css",
       "category": "report",
       "topics": [
-        "software-doc",
+        "technical",
         "architecture-decision",
         "shinsho",
         "minimal",
         "serif",
         "elegant",
-        "japanese-style"
-      ]
+        "traditional"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "新書判・1段組・モノトーンのアーキテクチャ決定記録(ADR)テーマ。1レコード1ページ完結で細罫の補足ノートを添える"
+        }
+      }
     },
     "template": {
       "default": {

@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-vertical-three-column-thumb-index",
   "version": "0.0.0",
-  "description": "A5判・縦組み3段の古語辞典テーマ。柱に見出し語範囲、小口にツメ見出し、地にノンブルを配した高密度な辞典紙面",
+  "description": "Dense vertical three-column A5 theme for classical Japanese dictionaries, with headword ranges in the running heads, thumb index tabs on the fore edge and folios at the foot",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,13 +47,18 @@
       "style": "theme.css",
       "category": "misc",
       "topics": [
-        "dictionary-reference",
+        "reference",
         "classical-language",
         "a5",
         "vertical-writing",
-        "ultra-dense",
+        "dense",
         "mincho"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A5判・縦組み3段の古語辞典テーマ。柱に見出し語範囲、小口にツメ見出し、地にノンブルを配した高密度な辞典紙面"
+        }
+      }
     },
     "template": {
       "default": {

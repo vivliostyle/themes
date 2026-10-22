@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-dense-serif-roman-numeral",
   "version": "0.0.0",
-  "description": "PRL 風物理学レター誌テーマ。STIX Two Text の高密度セリフ2段組に、ローマ数字の節見出しと式番号付きディスプレイ数式でレター判の論文を組む",
+  "description": "Theme for physics letter journals in the style of PRL, setting dense two-column STIX Two Text with Roman-numeral section headings and numbered display equations on letter paper",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,14 +47,17 @@
       "style": "theme.css",
       "category": "journal",
       "topics": [
-        "academic-journal",
         "academic",
         "two-column",
         "letter",
         "physics",
-        "dense",
-        "compact"
-      ]
+        "dense"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "PRL 風物理学レター誌テーマ。STIX Two Text の高密度セリフ2段組に、ローマ数字の節見出しと式番号付きディスプレイ数式でレター判の論文を組む"
+        }
+      }
     },
     "template": {
       "default": {

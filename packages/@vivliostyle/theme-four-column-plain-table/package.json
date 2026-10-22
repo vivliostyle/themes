@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-four-column-plain-table",
   "version": "0.0.0",
-  "description": "A4縦・4段組・墨1色のデータベース風電子部品型番カタログテーマ。型番/主要特性/パッケージの3列プレーン表を高密度に連続配置",
+  "description": "Four-column A4 theme in black for electronic component catalogs, packing plain three-column tables of part numbers, key specifications and packages",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,16 +47,21 @@
       "style": "theme.css",
       "category": "misc",
       "topics": [
-        "directory-list",
+        "reference",
         "parts-catalog",
-        "technical-reference",
+        "technical",
         "four-column",
         "monospace",
         "dense",
         "specifications",
         "database-like",
         "engineering"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A4縦・4段組・墨1色のデータベース風電子部品型番カタログテーマ。型番/主要特性/パッケージの3列プレーン表を高密度に連続配置"
+        }
+      }
     },
     "template": {
       "default": {

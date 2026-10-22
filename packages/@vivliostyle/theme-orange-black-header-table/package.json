@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-orange-black-header-table",
   "version": "0.0.0",
-  "description": "A4縦・バーントオレンジ基調の予実管理レポートテーマ。黒ベタヘッダーの予実対比表と差異推移グラフ、ぶら下げ注記、角丸の対策メモで構成",
+  "description": "A4 theme in burnt orange for budget-versus-actual reports, with black-headed comparison tables, variance charts, hanging notes and rounded action memos",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,15 +47,18 @@
       "style": "theme.css",
       "category": "report",
       "topics": [
-        "business-report",
+        "report",
         "business",
-        "accounting",
         "a4",
         "data-table",
-        "monthly-report",
         "gothic",
         "practical"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A4縦・バーントオレンジ基調の予実管理レポートテーマ。黒ベタヘッダーの予実対比表と差異推移グラフ、ぶら下げ注記、角丸の対策メモで構成"
+        }
+      }
     },
     "template": {
       "default": {

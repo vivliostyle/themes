@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-bleed-illustration-chapter-opener",
   "version": "0.0.0",
-  "description": "児童向け冒険小説の章扉テーマ。裁ち落とし挿絵に特大の章題を重ね、2段組の本文にドロップキャップを添える",
+  "description": "Chapter-opener theme for children's adventure novels, setting oversized chapter titles over full-bleed illustrations and two-column text with drop caps",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,14 +47,18 @@
       "style": "theme.css",
       "category": "novel",
       "topics": [
-        "novel",
-        "children-literature",
+        "literature",
         "adventure",
         "illustrated",
         "two-column",
-        "visual",
+        "colorful",
         "sans-serif"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "児童向け冒険小説の章扉テーマ。裁ち落とし挿絵に特大の章題を重ね、2段組の本文にドロップキャップを添える"
+        }
+      }
     },
     "template": {
       "default": {

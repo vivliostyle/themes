@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-purple-rule-marginalia",
   "version": "0.0.0",
-  "description": "新書判横組1段の紀行エッセイ本文テーマ。濃紫の細罫・傍注・線描挿画で組む",
+  "description": "Single-column horizontal Shinsho theme for travel essays, with fine dark purple rules, marginal notes and line illustrations",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,14 +47,19 @@
       "style": "theme.css",
       "category": "novel",
       "topics": [
-        "travel-guide",
+        "practical",
         "essay-form",
         "bunko",
         "single-column",
         "mincho",
         "narrative",
         "high-literacy"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "新書判横組1段の紀行エッセイ本文テーマ。濃紫の細罫・傍注・線描挿画で組む"
+        }
+      }
     },
     "template": {
       "default": {

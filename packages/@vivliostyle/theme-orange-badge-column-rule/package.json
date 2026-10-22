@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-orange-badge-column-rule",
   "version": "0.0.0",
-  "description": "A4縦2段組の実用海外旅行ガイド本文テーマ。オレンジを章番号バッジ・段間罫・情報ボックスに一貫して差す",
+  "description": "Two-column A4 theme for practical overseas travel guides, using orange for chapter number badges, column rules and information boxes",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,13 +47,18 @@
       "style": "theme.css",
       "category": "misc",
       "topics": [
-        "travel-guide",
+        "practical",
         "foreign-destination",
         "dense",
         "two-column",
         "gothic",
         "navigation-focused"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A4縦2段組の実用海外旅行ガイド本文テーマ。オレンジを章番号バッジ・段間罫・情報ボックスに一貫して差す"
+        }
+      }
     },
     "template": {
       "default": {

@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-jupyter-cell-layout",
   "version": "0.0.0",
-  "description": "B5判・横組みの機械学習実験ノートブックテーマ。Jupyter Notebook のセル構造を模したコード・出力・数式セルを組む",
+  "description": "Horizontal B5 theme for machine learning experiment notebooks, setting code, output and math in cells modeled on Jupyter Notebook",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,14 +47,19 @@
       "style": "theme.css",
       "category": "misc",
       "topics": [
-        "techbook",
+        "technical",
         "machine-learning",
         "notebook-style",
         "jupyter-format",
         "b5",
         "code-embedded",
-        "research"
-      ]
+        "academic"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "B5判・横組みの機械学習実験ノートブックテーマ。Jupyter Notebook のセル構造を模したコード・出力・数式セルを組む"
+        }
+      }
     },
     "template": {
       "default": {

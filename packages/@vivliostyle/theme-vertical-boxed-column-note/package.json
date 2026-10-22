@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-vertical-boxed-column-note",
   "version": "0.0.0",
-  "description": "新書判・縦組み1段の教養新書テーマ。罫囲みコラムの縦帯・ノド側の図版・縦組み脚注を組み合わせる",
+  "description": "Single-column vertical Shinsho theme for general nonfiction, combining boxed column strips, figures by the gutter and vertical footnotes",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -50,12 +50,17 @@
         "bunko-shinsho",
         "shinsho",
         "cultural",
-        "educational",
+        "education",
         "vertical-writing",
         "mincho",
         "columns",
         "elegant"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "新書判・縦組み1段の教養新書テーマ。罫囲みコラムの縦帯・ノド側の図版・縦組み脚注を組み合わせる"
+        }
+      }
     },
     "template": {
       "default": {

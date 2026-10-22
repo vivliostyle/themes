@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-masthead-index-box-two-column",
   "version": "0.0.0",
-  "description": "B5判2段組の英文学術ニュース誌テーマ。全幅マストヘッドと索引ボックス、脚注で組む知的な誌面",
+  "description": "Two-column B5 theme for English academic newsletters, with a full-width masthead, index boxes and footnotes",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,15 +47,20 @@
       "style": "theme.css",
       "category": "magazine",
       "topics": [
-        "magazine-general",
+        "magazine",
         "academic",
         "two-column",
-        "serious",
+        "formal",
         "serif",
         "indexed",
         "b5",
         "intellectual"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "B5判2段組の英文学術ニュース誌テーマ。全幅マストヘッドと索引ボックス、脚注で組む知的な誌面"
+        }
+      }
     },
     "template": {
       "default": {

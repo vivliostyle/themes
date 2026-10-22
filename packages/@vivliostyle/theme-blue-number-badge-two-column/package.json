@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-blue-number-badge-two-column",
   "version": "0.0.0",
-  "description": "B5判縦・横組2段の部活動年間活動報告書テーマ。学園ブルーのアクセントで数字バッジ見出し・囲み記事・表を組む",
+  "description": "Two-column B5 theme for annual reports of school clubs, with numbered badge headings, boxed articles and tables in a school blue accent",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -48,14 +48,19 @@
       "category": "report",
       "topics": [
         "yearbook-anthology",
-        "activity-report",
+        "report",
         "b5",
         "two-column",
         "photo-centric",
         "colorful",
         "numbered",
         "youthful"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "B5判縦・横組2段の部活動年間活動報告書テーマ。学園ブルーのアクセントで数字バッジ見出し・囲み記事・表を組む"
+        }
+      }
     },
     "template": {
       "default": {

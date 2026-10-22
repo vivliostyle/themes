@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-all-mono-black-band-warning",
   "version": "0.0.0",
-  "description": "A5判・全編モノスペース組みの技術同人誌 API 仕様書テーマ。細罫グリッドのパラメータ表と黒帯警告ボックスを持つ",
+  "description": "Monospaced A5 theme for API specifications in technical doujinshi, with hairline-grid parameter tables and black-band warning boxes",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,15 +47,17 @@
       "style": "theme.css",
       "category": "report",
       "topics": [
-        "tech-doujin",
+        "technical",
         "code-focused",
         "monospace",
         "a5",
-        "specification",
-        "technical",
-        "dense",
-        "api-reference"
-      ]
+        "dense"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A5判・全編モノスペース組みの技術同人誌 API 仕様書テーマ。細罫グリッドのパラメータ表と黒帯警告ボックスを持つ"
+        }
+      }
     },
     "template": {
       "default": {

@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-mono-green-entry-form",
   "version": "0.0.0",
-  "description": "スリム手帳判 (105×173mm) の釣果記録フォームテーマ。等幅組み・緑1色で記入欄・釣果テーブル・NOTES 罫を1見開きに収める",
+  "description": "Fishing log form theme for a slim 105 × 173 mm planner, fitting monospaced entry fields, catch tables and ruled notes in one green on a spread",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,16 +47,20 @@
       "style": "theme.css",
       "category": "misc",
       "topics": [
-        "diary-planner",
+        "forms",
         "fishing",
-        "log-book",
         "sport",
-        "compact",
+        "dense",
         "data-recording",
-        "mono-font",
+        "monospace",
         "table-format",
         "specialist"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "スリム手帳判 (105×173mm) の釣果記録フォームテーマ。等幅組み・緑1色で記入欄・釣果テーブル・NOTES 罫を1見開きに収める"
+        }
+      }
     },
     "template": {
       "default": {

@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-ornamental-frame-corner-title",
   "version": "0.0.0",
-  "description": "四六判の短篇アンソロジーテーマ。二重の飾り枠と四隅の唐草角飾りで扉・目次・中扉を組み、本文は柱とノンブルだけで流す",
+  "description": "Shiroku theme for short story anthologies, setting title pages, contents and part titles in double ornamental frames with arabesque corners, and the text with only running heads and folios",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,15 +47,19 @@
       "style": "theme.css",
       "category": "novel",
       "topics": [
-        "novel",
-        "anthology",
+        "literature",
         "multi-author",
         "editorial",
         "elegant",
         "traditional",
         "formal",
         "japanese"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "四六判の短篇アンソロジーテーマ。二重の飾り枠と四隅の唐草角飾りで扉・目次・中扉を組み、本文は柱とノンブルだけで流す"
+        }
+      }
     },
     "template": {
       "default": {

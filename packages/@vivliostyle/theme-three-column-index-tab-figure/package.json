@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-three-column-index-tab-figure",
   "version": "0.0.0",
-  "description": "A4縦・三段組の植物ビジュアル用語集テーマ。在来/外来のマーカーと模式葉形図版、五十音索引タブで見出し語を組む",
+  "description": "Three-column A4 theme for illustrated botanical glossaries, with native and introduced markers, schematic leaf figures and Japanese syllabary index tabs",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,13 +47,18 @@
       "style": "theme.css",
       "category": "misc",
       "topics": [
-        "dictionary-reference",
+        "reference",
         "botanical-glossary",
         "tall-vertical",
         "three-column",
         "illustrated",
         "serif"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A4縦・三段組の植物ビジュアル用語集テーマ。在来/外来のマーカーと模式葉形図版、五十音索引タブで見出し語を組む"
+        }
+      }
     },
     "template": {
       "default": {

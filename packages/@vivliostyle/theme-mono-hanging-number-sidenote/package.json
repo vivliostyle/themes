@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-mono-hanging-number-sidenote",
   "version": "0.0.0",
-  "description": "A4判1段組・全面モノスペースの英語大学教科書テーマ。ハンギング節番号と版面外側へ流す番号付き傍注が特徴",
+  "description": "Single-column A4 theme for English university textbooks, set entirely in monospace with hanging section numbers and numbered sidenotes in the outer margin",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,14 +47,19 @@
       "style": "theme.css",
       "category": "misc",
       "topics": [
-        "textbook-higher",
-        "programming",
+        "education",
+        "technical",
         "computer-science",
         "code-heavy",
         "implementation",
         "monospace",
         "a4"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A4判1段組・全面モノスペースの英語大学教科書テーマ。ハンギング節番号と版面外側へ流す番号付き傍注が特徴"
+        }
+      }
     },
     "template": {
       "default": {

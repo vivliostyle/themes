@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-vertical-dropcap-endnote",
   "version": "0.0.0",
-  "description": "A6判・縦組み1段の文庫巻末解説ページテーマ。ドロップキャップ風の初字・傍注・巻末註をコンパクトに組む",
+  "description": "Single-column vertical A6 theme for afterword pages of bunko paperbacks, compactly setting drop-cap-like initials, marginal notes and endnotes",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -50,12 +50,17 @@
         "bunko-shinsho",
         "bunko",
         "annotated",
-        "literary",
+        "literature",
         "pocket-size",
         "vertical-writing",
         "mincho",
-        "scholarly"
-      ]
+        "academic"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A6判・縦組み1段の文庫巻末解説ページテーマ。ドロップキャップ風の初字・傍注・巻末註をコンパクトに組む"
+        }
+      }
     },
     "template": {
       "default": {

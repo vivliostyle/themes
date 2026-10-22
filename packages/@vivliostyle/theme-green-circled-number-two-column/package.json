@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-green-circled-number-two-column",
   "version": "0.0.0",
-  "description": "A5縦2段組のコンパクトなお弁当レシピ本テーマ。フレッシュグリーンを丸数字見出し・データバー・表罫に反復し、左右の段に1品ずつ完結配置する",
+  "description": "Compact two-column A5 theme for bento cookbooks, repeating fresh green in circled-number headings, data bars and table rules, with one recipe per column",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,15 +47,20 @@
       "style": "theme.css",
       "category": "misc",
       "topics": [
-        "cookbook",
+        "practical",
         "a5",
         "two-column",
         "bento",
-        "compact",
+        "dense",
         "daily-use",
         "time-emphasis",
-        "quick-reference"
-      ]
+        "reference"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A5縦2段組のコンパクトなお弁当レシピ本テーマ。フレッシュグリーンを丸数字見出し・データバー・表罫に反復し、左右の段に1品ずつ完結配置する"
+        }
+      }
     },
     "template": {
       "default": {

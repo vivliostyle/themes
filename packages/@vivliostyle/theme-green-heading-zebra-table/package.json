@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-green-heading-zebra-table",
   "version": "0.0.0",
-  "description": "レター判2段組のマネー本データテーブル型テーマ。ダークグリーンの色ベタ見出しとゼブラ柄のレッジャー表で金融書の本文ページを組む",
+  "description": "Two-column letter theme for personal finance books, with solid dark green headings and zebra-striped ledger tables",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,14 +47,18 @@
       "style": "theme.css",
       "category": "misc",
       "topics": [
-        "business-book",
+        "business",
         "letter",
         "two-column",
-        "finance",
         "data-grid",
         "slab-serif",
         "dense"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "レター判2段組のマネー本データテーブル型テーマ。ダークグリーンの色ベタ見出しとゼブラ柄のレッジャー表で金融書の本文ページを組む"
+        }
+      }
     },
     "template": {
       "default": {

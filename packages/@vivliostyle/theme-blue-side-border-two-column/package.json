@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-blue-side-border-two-column",
   "version": "0.0.0",
-  "description": "A4縦2段組の青色申告用勘定科目一覧表テーマ。資産・負債・純資産・収益・費用の五部を青い side-border 見出しでブロック化する",
+  "description": "Two-column A4 theme for charts of accounts in blue-form tax returns, grouping assets, liabilities, equity, revenue and expenses under blue side-border headings",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,15 +47,19 @@
       "style": "theme.css",
       "category": "misc",
       "topics": [
-        "invoice-forms",
-        "accounting",
+        "forms",
+        "business",
         "chart-of-accounts",
-        "tax",
         "a4",
         "two-column",
         "japan",
         "serif"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A4縦2段組の青色申告用勘定科目一覧表テーマ。資産・負債・純資産・収益・費用の五部を青い side-border 見出しでブロック化する"
+        }
+      }
     },
     "template": {
       "default": {

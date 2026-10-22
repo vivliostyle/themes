@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-vertical-spanning-title-boxed",
   "version": "0.0.0",
-  "description": "A4縦組み・墨一色の総合誌特集ページテーマ。段抜きの大題と縦罫、傍注列、囲み記事を組む戦後論壇誌風の紙面",
+  "description": "Vertical A4 theme in black for feature pages of general-interest magazines, with large titles across the columns, vertical rules, marginal note columns and boxed articles in a postwar review style",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,15 +47,20 @@
       "style": "theme.css",
       "category": "magazine",
       "topics": [
-        "magazine-general",
+        "magazine",
         "monthly",
         "vertical-writing",
-        "essay",
+        "literature",
         "intellectual",
         "elegant",
-        "classic",
+        "traditional",
         "japanese"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A4縦組み・墨一色の総合誌特集ページテーマ。段抜きの大題と縦罫、傍注列、囲み記事を組む戦後論壇誌風の紙面"
+        }
+      }
     },
     "template": {
       "default": {

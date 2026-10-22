@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-three-column-card-table-syntax",
   "version": "0.0.0",
-  "description": "TRPGカードゲームのルールブック向け3段組テーマ。カード効果対照表とコード風の構文ブロックを1章にまとめる",
+  "description": "Three-column theme for rulebooks of card-based tabletop RPGs, combining card effect tables and code-like syntax blocks in one chapter",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -53,9 +53,14 @@
         "grid",
         "reference",
         "b5",
-        "mono",
+        "monospace",
         "dense"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "TRPGカードゲームのルールブック向け3段組テーマ。カード効果対照表とコード風の構文ブロックを1章にまとめる"
+        }
+      }
     },
     "template": {
       "default": {

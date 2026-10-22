@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-numbered-heading-ledger-list",
   "version": "0.0.0",
-  "description": "B5判・横書き2段組の卒業年度別同窓会名簿テーマ。柱+ヘッダー罫、番号付き年度見出し、№/氏名/職業/連絡先の4列台帳型グリッドを高密度に反復",
+  "description": "Two-column horizontal B5 theme for alumni directories by graduation year, repeating four-column ledger grids of number, name, occupation and contact under numbered year headings",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,7 +47,7 @@
       "style": "theme.css",
       "category": "misc",
       "topics": [
-        "directory-list",
+        "reference",
         "alumni",
         "membership-list",
         "two-column",
@@ -56,7 +56,12 @@
         "contact-info",
         "formal-structure",
         "b5"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "B5判・横書き2段組の卒業年度別同窓会名簿テーマ。柱+ヘッダー罫、番号付き年度見出し、№/氏名/職業/連絡先の4列台帳型グリッドを高密度に反復"
+        }
+      }
     },
     "template": {
       "default": {

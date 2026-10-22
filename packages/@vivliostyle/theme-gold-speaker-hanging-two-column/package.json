@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-gold-speaker-hanging-two-column",
   "version": "0.0.0",
-  "description": "ポッドキャスト書き起こしの書籍化向けletter判2段組テーマ。話者名ぶら下げの対話組みと金茶のアクセントカラーで構成",
+  "description": "Two-column letter theme for podcast transcripts turned into books, with dialogue set under hanging speaker names and a golden brown accent",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -54,7 +54,12 @@
         "conversational",
         "dialogue",
         "accessible"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "ポッドキャスト書き起こしの書籍化向けletter判2段組テーマ。話者名ぶら下げの対話組みと金茶のアクセントカラーで構成"
+        }
+      }
     },
     "template": {
       "default": {

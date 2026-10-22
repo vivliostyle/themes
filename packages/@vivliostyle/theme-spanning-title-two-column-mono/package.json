@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-spanning-title-two-column-mono",
   "version": "0.0.0",
-  "description": "A4縦2段組の和文学術論文誌テーマ。段抜きの題字ブロックと図表・擬似コード、脚注を組む墨一色の誌面",
+  "description": "Two-column A4 theme in black for Japanese academic journals, with a title block across the columns, figures, tables, pseudocode and footnotes",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,14 +47,17 @@
       "style": "theme.css",
       "category": "journal",
       "topics": [
-        "magazine-general",
+        "magazine",
         "academic",
-        "research",
         "two-column",
         "technical",
-        "data-heavy",
-        "journal"
-      ]
+        "data-heavy"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A4縦2段組の和文学術論文誌テーマ。段抜きの題字ブロックと図表・擬似コード、脚注を組む墨一色の誌面"
+        }
+      }
     },
     "template": {
       "default": {

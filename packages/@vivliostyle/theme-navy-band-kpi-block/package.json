@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-navy-band-kpi-block",
   "version": "0.0.0",
-  "description": "B5判2段組の四半期決算短信・速報テーマ。紺青のタイトルバンドとKPIブロック、タブラー数字の財務表で情報密度の高い紙面を組む",
+  "description": "Two-column B5 theme for quarterly earnings briefs, with a navy title band, KPI blocks and financial tables in tabular figures",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,16 +47,21 @@
       "style": "theme.css",
       "category": "report",
       "topics": [
-        "annual-report",
+        "report",
         "earnings-brief",
         "b5",
         "two-column",
         "financial-highlight",
         "contemporary",
         "block-emphasis",
-        "sans-body",
-        "visual"
-      ]
+        "sans-serif",
+        "colorful"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "B5判2段組の四半期決算短信・速報テーマ。紺青のタイトルバンドとKPIブロック、タブラー数字の財務表で情報密度の高い紙面を組む"
+        }
+      }
     },
     "template": {
       "default": {

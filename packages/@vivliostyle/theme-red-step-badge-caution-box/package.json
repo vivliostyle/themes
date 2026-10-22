@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-red-step-badge-caution-box",
   "version": "0.0.0",
-  "description": "A5判横組み2段の高校化学実験マニュアルテーマ。赤を限定使用したSTEPバッジと安全上の注意ボックスが特徴",
+  "description": "Two-column horizontal A5 theme for high school chemistry lab manuals, with sparing red STEP badges and safety caution boxes",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,7 +47,7 @@
       "style": "theme.css",
       "category": "misc",
       "topics": [
-        "textbook-school",
+        "education",
         "high-school",
         "a5",
         "two-column",
@@ -55,7 +55,12 @@
         "icon-rich",
         "chemistry",
         "warning-system"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A5判横組み2段の高校化学実験マニュアルテーマ。赤を限定使用したSTEPバッジと安全上の注意ボックスが特徴"
+        }
+      }
     },
     "template": {
       "default": {

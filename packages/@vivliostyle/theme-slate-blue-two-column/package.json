@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-slate-blue-two-column",
   "version": "0.0.0",
-  "description": "A4縦2段組の企業テクニカルレポート向けテーマ。Archivo の番号付き見出しとダークスレートブルーのアクセント、柱・ノンブル付きの本文ページを組む",
+  "description": "Two-column A4 theme for corporate technical reports, with numbered Archivo headings, a dark slate blue accent, running heads and folios",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,15 +47,20 @@
       "style": "theme.css",
       "category": "journal",
       "topics": [
-        "academic-conference",
+        "academic",
         "corporate-research",
         "a4",
         "two-column",
         "cover",
         "formal",
         "toc",
-        "formal-report"
-      ]
+        "report"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A4縦2段組の企業テクニカルレポート向けテーマ。Archivo の番号付き見出しとダークスレートブルーのアクセント、柱・ノンブル付きの本文ページを組む"
+        }
+      }
     },
     "template": {
       "default": {

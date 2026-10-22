@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-numbered-article-clause",
   "version": "0.0.0",
-  "description": "A4判・単段の定款テーマ。条・項・号の三段階構造を番号付き見出しで表現する端正な法務文書",
+  "description": "Single-column A4 theme for articles of incorporation, expressing the three levels of articles, paragraphs and items with numbered headings",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,15 +47,19 @@
       "style": "theme.css",
       "category": "report",
       "topics": [
-        "legal-contract",
-        "statute",
+        "legal",
         "formal",
         "a4",
         "single-column",
         "serif",
         "numbered-articles",
         "traditional"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A4判・単段の定款テーマ。条・項・号の三段階構造を番号付き見出しで表現する端正な法務文書"
+        }
+      }
     },
     "template": {
       "default": {

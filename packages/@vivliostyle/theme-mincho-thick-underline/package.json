@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-mincho-thick-underline",
   "version": "0.0.0",
-  "description": "A4縦・明朝1段組の国内研究会配布資料向けテーマ。右寄せの柱、太下罫付き章見出し、上下太罫の学術表、巻末の注を組む",
+  "description": "Single-column A4 Mincho theme for handouts at domestic research meetings, with right-aligned running heads, thickly underlined chapter headings, academic tables and endnotes",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,15 +47,20 @@
       "style": "theme.css",
       "category": "journal",
       "topics": [
-        "academic-conference",
+        "academic",
         "research-group",
         "a4",
         "single-column",
-        "formal-report",
+        "report",
         "japanese",
         "footnotes",
         "traditional"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A4縦・明朝1段組の国内研究会配布資料向けテーマ。右寄せの柱、太下罫付き章見出し、上下太罫の学術表、巻末の注を組む"
+        }
+      }
     },
     "template": {
       "default": {

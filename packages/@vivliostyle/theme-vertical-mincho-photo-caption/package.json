@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-vertical-mincho-photo-caption",
   "version": "0.0.0",
-  "description": "四六判・縦組み1段の自分史テーマ。明朝の縦組み本文に右肩の章題、小口下の写真とキャプション、地の脚注を静かに組む",
+  "description": "Single-column vertical Shiroku theme for personal histories, with vertical Mincho text, chapter titles at the top right, captioned photos at the fore edge and footnotes at the foot",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -52,9 +52,14 @@
         "custom-size",
         "vertical-writing",
         "elegant",
-        "memoir",
+        "literature",
         "footnotes"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "四六判・縦組み1段の自分史テーマ。明朝の縦組み本文に右肩の章題、小口下の写真とキャプション、地の脚注を静かに組む"
+        }
+      }
     },
     "template": {
       "default": {

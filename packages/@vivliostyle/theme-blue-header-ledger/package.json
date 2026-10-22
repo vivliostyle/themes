@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-blue-header-ledger",
   "version": "0.0.0",
-  "description": "A5判・単段の銀行口座取引明細書テーマ。青ベタ白抜きヘッダーの台帳とタブラー数字で桁を揃える",
+  "description": "Single-column A5 theme for bank account statements, with ledgers under reversed blue headers and tabular figures aligned by digit",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,16 +47,18 @@
       "style": "theme.css",
       "category": "misc",
       "topics": [
-        "finance-personal",
-        "finance",
-        "banking",
+        "business",
         "transaction",
-        "compact",
+        "dense",
         "gothic",
-        "one-column",
-        "a5",
-        "dense"
-      ]
+        "single-column",
+        "a5"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A5判・単段の銀行口座取引明細書テーマ。青ベタ白抜きヘッダーの台帳とタブラー数字で桁を揃える"
+        }
+      }
     },
     "template": {
       "default": {

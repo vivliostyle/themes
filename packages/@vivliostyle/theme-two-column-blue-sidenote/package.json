@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-two-column-blue-sidenote",
   "version": "0.0.0",
-  "description": "A4縦2段組の学会拡張アブストラクト向けテーマ。Inter の番号見出しと青のアクセント、サイドノート、段抜きの図表・疑似コードに対応",
+  "description": "Two-column A4 theme for extended conference abstracts, with numbered Inter headings, a blue accent, sidenotes, and figures and pseudocode across the columns",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,15 +47,19 @@
       "style": "theme.css",
       "category": "journal",
       "topics": [
-        "academic-conference",
+        "academic",
         "international-conference",
         "a4",
         "two-column",
-        "extended-abstract",
         "hci",
         "sidenotes",
         "figures"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A4縦2段組の学会拡張アブストラクト向けテーマ。Inter の番号見出しと青のアクセント、サイドノート、段抜きの図表・疑似コードに対応"
+        }
+      }
     },
     "template": {
       "default": {

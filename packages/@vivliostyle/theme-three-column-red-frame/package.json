@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-three-column-red-frame",
   "version": "0.0.0",
-  "description": "A4縦・3段組の超高密度な学会講演要旨集テーマ。赤の白抜きタイトルバーと全周枠罫、末尾の謝辞・注意事項ボックスを組む",
+  "description": "Very dense three-column A4 theme for collections of conference abstracts, with red reversed title bars, frame rules all around and closing acknowledgment and notice boxes",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,15 +47,18 @@
       "style": "theme.css",
       "category": "journal",
       "topics": [
-        "academic-conference",
-        "proceedings",
+        "academic",
         "a4",
         "three-column",
         "dense",
-        "compact",
-        "colored-accent",
+        "colorful",
         "keyword-highlight"
-      ]
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A4縦・3段組の超高密度な学会講演要旨集テーマ。赤の白抜きタイトルバーと全周枠罫、末尾の謝辞・注意事項ボックスを組む"
+        }
+      }
     },
     "template": {
       "default": {

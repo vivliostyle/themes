@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-double-rule-split-form",
   "version": "0.0.0",
-  "description": "A4縦・墨1色の複合帳票テーマ。上半分に領収書、下半分に納品書を収め、中央の太い二重罫で分割する",
+  "description": "A4 theme in black for combined business forms, with a receipt in the upper half and a delivery note in the lower half, split by a thick double rule",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,15 +47,19 @@
       "style": "theme.css",
       "category": "misc",
       "topics": [
-        "invoice-forms",
+        "forms",
         "combined",
-        "receipt",
         "delivery",
         "a4",
         "dual-section",
         "commercial",
-        "sans"
-      ]
+        "sans-serif"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "A4縦・墨1色の複合帳票テーマ。上半分に領収書、下半分に納品書を収め、中央の太い二重罫で分割する"
+        }
+      }
     },
     "template": {
       "default": {
