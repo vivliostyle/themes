@@ -38,7 +38,7 @@ vivliostyle-theme-mybook/
 │   └── default/
 │       ├── ...
 │       ├── manuscript.md
-│       └── vivliostyle.config.js
+│       └── vivliostyle.config.json
 ├── theme.css
 └── vivliostyle.config.js
 ```
@@ -173,24 +173,21 @@ See [the templates guide of Vivliostyle CLI](https://github.com/vivliostyle/vivl
 
 ## template/
 
-Put each template in its own directory under `template/`, and include `template` in the `files` of package.json. A template contains a `vivliostyle.config.js` and at least one Markdown file that shows off the theme. In Markdown files, you can use [VFM (Vivliostyle Flavored Markdown)](https://vivliostyle.github.io/vfm/#/vfm).
+Put each template in its own directory under `template/`, and include `template` in the `files` of package.json. A template contains a `vivliostyle.config.json` and at least one Markdown file that shows off the theme. In Markdown files, you can use [VFM (Vivliostyle Flavored Markdown)](https://vivliostyle.github.io/vfm/#/vfm).
 
-`vivliostyle create` copies the files into the new project and fills in the [Handlebars](https://handlebarsjs.com/) expressions in every text file. The `vivliostyle.config.js` of the template uses them to take the values entered by the user:
+`vivliostyle create` copies the files into the new project and fills in the [Handlebars](https://handlebarsjs.com/) expressions in every text file. The `vivliostyle.config.json` of the template uses them to take the values entered by the user. Write it in JSON, not JavaScript: Vivliostyle Pub does not run JavaScript configs.
 
-```js
-// @ts-check
-import { defineConfig } from '@vivliostyle/cli';
-
-export default defineConfig({
-  title: {{json (proper title)}},
-  author: {{json author}},
-  language: "en",
-  theme: {{#if theme}}{{json theme}}{{else}}"vivliostyle-theme-mybook"{{/if}},
-  entry: ["manuscript.md"],
-});
+```json
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "en",
+  "theme": {{#if theme}}{{json theme}}{{else}}"vivliostyle-theme-mybook"{{/if}},
+  "entry": ["manuscript.md"]
+}
 ```
 
-`theme` is the chosen package with its version range, such as `"vivliostyle-theme-mybook@^1.0.0"`. To use another stylesheet of the package, write `{ specifier: {{json theme}}, import: "theme_print.css" }`.
+`theme` is the chosen package with its version range, such as `"vivliostyle-theme-mybook@^1.0.0"`. To use another stylesheet of the package, write `{ "specifier": {{json theme}}, "import": "theme_print.css" }`.
 
 Write `\{{` for a `{{` that should stay as it is, for example in a code block of the sample text.
 

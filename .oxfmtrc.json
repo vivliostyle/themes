@@ -10,7 +10,7 @@
     "*.html",
     "*.md",
     "packages/@vivliostyle/theme-epub3j/**/*.css",
-    "packages/@vivliostyle/*/template/**/vivliostyle.config.js",
+    "packages/@vivliostyle/*/template/**/vivliostyle.config.json",
     "pnpm-lock.yaml"
   ]
 }

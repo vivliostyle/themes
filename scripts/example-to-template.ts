@@ -30,6 +30,7 @@ interface Plan {
 const EXAMPLE_DIR = 'example';
 const TEMPLATE_DIR = 'template';
 const CONFIG_FILE = 'vivliostyle.config.js';
+const TEMPLATE_CONFIG_FILE = 'vivliostyle.config.json';
 // Options that only make sense for building the example inside the theme
 // package; a project created from the template uses the CLI's defaults.
 const DROPPED_OPTIONS = new Set([
@@ -127,23 +128,11 @@ function planTemplates(configs: Config[], themeName: string): Plan[] {
   });
 }
 
-function toJs(value: unknown, indent: string): string {
-  const inner = `${indent}  `;
-  if (Array.isArray(value)) {
-    return value.length === 0
-      ? '[]'
-      : `[\n${value.map((item: unknown) => `${inner}${toJs(item, inner)},`).join('\n')}\n${indent}]`;
-  }
-  if (isRecord(value)) {
-    const fields = Object.entries(value).map(
-      ([key, item]) =>
-        `${inner}${/^[A-Za-z_$][\w$]*$/v.test(key) ? key : JSON.stringify(key)}: ${toJs(item, inner)},`,
-    );
-    return fields.length === 0 ? '{}' : `{\n${fields.join('\n')}\n${indent}}`;
-  }
-  return JSON.stringify(value);
-}
+const indentJson = (value: unknown): string =>
+  JSON.stringify(value, null, 2).replaceAll('\n', '\n  ');
 
+// The template config is JSON so that Vivliostyle Pub, which does not run
+// JavaScript configs, can use the template as well as the CLI.
 function renderConfig(
   plan: Plan,
   packageName: string,
@@ -169,21 +158,28 @@ function renderConfig(
       return theme;
     }
     if (!normalized.includes('/')) {
-      return `{ specifier: ${theme}, import: ${JSON.stringify(normalized)} }`;
+      return `{ "specifier": ${theme}, "import": ${JSON.stringify(normalized)} }`;
     }
     return relative(normalized);
   };
-  const lines = ['title: {{json (proper title)}},', 'author: {{json author}},'];
+  const field = (key: string, value: string) =>
+    `${JSON.stringify(key)}: ${value}`;
+  const fields = [
+    field('title', '{{json (proper title)}}'),
+    field('author', '{{json author}}'),
+  ];
   const { config } = plan;
+  let optionalLanguage = '';
   if (typeof config.language === 'string') {
     // The sample text is written in this language whatever the user chooses.
-    lines.push(`language: ${JSON.stringify(config.language)},`);
+    fields.push(field('language', JSON.stringify(config.language)));
   } else {
-    lines.push('{{#if language}}', 'language: {{json language}},', '{{/if}}');
+    optionalLanguage =
+      '  {{#if language}}\n  "language": {{json language}},\n  {{/if}}\n';
   }
   for (const [key, value] of Object.entries(config)) {
     if (!DROPPED_OPTIONS.has(key)) {
-      lines.push(`${key}: ${toJs(value, '  ')},`);
+      fields.push(field(key, indentJson(value)));
     }
   }
   if (config.theme !== undefined) {
@@ -191,10 +187,11 @@ function renderConfig(
       ? config.theme
       : [config.theme];
     const rendered = themes.map((value) => themeEntry(value));
-    lines.push(
-      rendered.length === 1
-        ? `theme: ${rendered[0]},`
-        : `theme: [${rendered.join(', ')}],`,
+    fields.push(
+      field(
+        'theme',
+        rendered.length === 1 ? rendered[0] : `[${rendered.join(', ')}]`,
+      ),
     );
   }
   const entries = toEntries(config.entry ?? []).map((entry) => {
@@ -204,33 +201,32 @@ function renderConfig(
     if (Object.keys(entry).length === 1 && typeof entry.path === 'string') {
       return relative(entry.path);
     }
-    const fields = Object.entries(entry).map(([key, value]) => {
+    const members = Object.entries(entry).map(([key, value]) => {
       if (key === 'path') {
-        return `${key}: ${relative(value)}`;
+        return field(key, relative(value));
       }
       if (key === 'theme') {
-        return `${key}: ${themeEntry(value)}`;
+        return field(key, themeEntry(value));
       }
-      return `${key}: ${JSON.stringify(value)}`;
+      return field(key, JSON.stringify(value));
     });
-    return `{ ${fields.join(', ')} }`;
+    return `{ ${members.join(', ')} }`;
   });
-  lines.push(`entry: [\n    ${entries.join(',\n    ')},\n  ],`);
+  fields.push(field('entry', `[\n    ${entries.join(',\n    ')}\n  ]`));
   if (typeof config.cover === 'string') {
-    lines.push(`cover: ${relative(config.cover)},`);
+    fields.push(field('cover', relative(config.cover)));
   } else if (isRecord(config.cover)) {
     const { src, ...rest } = config.cover;
-    lines.push(
-      `cover: ${toJs({ ...rest, src: '<src>' }, '  ').replace('"<src>"', relative(src))},`,
+    fields.push(
+      field(
+        'cover',
+        indentJson({ ...rest, src: '<src>' }).replace('"<src>"', relative(src)),
+      ),
     );
   }
-  return `// @ts-check
-import { defineConfig } from '@vivliostyle/cli';
-
-export default defineConfig({
-  ${lines.join('\n  ')}
-});
-`;
+  // `{{#if language}}` comes first so that the comma it adds is always
+  // followed by another member.
+  return `{\n${optionalLanguage}  ${fields.join(',\n  ')}\n}\n`;
 }
 
 function escapeHandlebars(dir: string): string[] {
@@ -323,7 +319,7 @@ async function convert(packageDir: string, dryRun: boolean): Promise<void> {
         `${pkg.name}: escaped {{ in ${path.relative(packageDir, file)}`,
       );
     }
-    fs.writeFileSync(path.join(target, CONFIG_FILE), config);
+    fs.writeFileSync(path.join(target, TEMPLATE_CONFIG_FILE), config);
     templates[plan.id] = {
       name: plan.name,
       source: `./${TEMPLATE_DIR}/${plan.id}`,

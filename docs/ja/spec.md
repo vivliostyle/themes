@@ -38,7 +38,7 @@ vivliostyle-theme-mybook/
 │   └── default/
 │       ├── ...
 │       ├── manuscript.md
-│       └── vivliostyle.config.js
+│       └── vivliostyle.config.json
 ├── theme.css
 └── vivliostyle.config.js
 ```
@@ -171,24 +171,21 @@ package.jsonのトップレベルに `style` や `main` を指定することも
 
 ## template/
 
-テンプレートは`template/`の下にそれぞれディレクトリを作って置き、package.jsonの`files`に`template`を含めてください。テンプレートには、`vivliostyle.config.js`と、テーマの特徴がわかるMarkdownファイルを1つ以上含めます。Markdownファイルでは[VFM (Vivliostyle Flavored Markdown)](https://vivliostyle.github.io/vfm/#/vfm)が利用できます。
+テンプレートは`template/`の下にそれぞれディレクトリを作って置き、package.jsonの`files`に`template`を含めてください。テンプレートには、`vivliostyle.config.json`と、テーマの特徴がわかるMarkdownファイルを1つ以上含めます。Markdownファイルでは[VFM (Vivliostyle Flavored Markdown)](https://vivliostyle.github.io/vfm/#/vfm)が利用できます。
 
-`vivliostyle create`は、ファイルを新しいプロジェクトにコピーし、すべてのテキストファイルの[Handlebars](https://handlebarsjs.com/)の式を埋めます。テンプレートの`vivliostyle.config.js`では、これを使ってユーザーが入力した値を受け取ります。
+`vivliostyle create`は、ファイルを新しいプロジェクトにコピーし、すべてのテキストファイルの[Handlebars](https://handlebarsjs.com/)の式を埋めます。テンプレートの`vivliostyle.config.json`では、これを使ってユーザーが入力した値を受け取ります。Vivliostyle PubはJavaScriptの設定ファイルを実行しないため、JavaScriptではなくJSONで書いてください。
 
-```js
-// @ts-check
-import { defineConfig } from '@vivliostyle/cli';
-
-export default defineConfig({
-  title: {{json (proper title)}},
-  author: {{json author}},
-  language: "ja",
-  theme: {{#if theme}}{{json theme}}{{else}}"vivliostyle-theme-mybook"{{/if}},
-  entry: ["manuscript.md"],
-});
+```json
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "ja",
+  "theme": {{#if theme}}{{json theme}}{{else}}"vivliostyle-theme-mybook"{{/if}},
+  "entry": ["manuscript.md"]
+}
 ```
 
-`theme`は、選ばれたパッケージとそのバージョンの範囲です（例：`"vivliostyle-theme-mybook@^1.0.0"`）。パッケージ内の別のスタイルシートを使う場合は、`{ specifier: {{json theme}}, import: "theme_print.css" }`のように書きます。
+`theme`は、選ばれたパッケージとそのバージョンの範囲です（例：`"vivliostyle-theme-mybook@^1.0.0"`）。パッケージ内の別のスタイルシートを使う場合は、`{ "specifier": {{json theme}}, "import": "theme_print.css" }`のように書きます。
 
 サンプルの文章のコードブロックなどで、`{{`をそのまま残したい場合は`\{{`と書きます。
 

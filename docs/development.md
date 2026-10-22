@@ -198,7 +198,7 @@ npm run example:preview
 To let users start a project from your example, and to have it shown as the thumbnail and preview on [theme.vivliostyle.org](https://theme.vivliostyle.org), turn the example into a template:
 
 1. Move `example/` to `template/default/`, and update the paths in `vivliostyle.config.js` and the `files` of `package.json`.
-2. Add `template/default/vivliostyle.config.js`, which takes the title, the author and the theme chosen in `vivliostyle create`.
+2. Add `template/default/vivliostyle.config.json`, which takes the title, the author and the theme chosen in `vivliostyle create`.
 3. Declare the template in `vivliostyle.template` of `package.json`.
 
 See [`vivliostyle.template`](./spec.md#vivliostyletemplate-property) and [template/](./spec.md#template) in the spec for the details.
