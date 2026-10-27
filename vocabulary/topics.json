@@ -308,7 +308,7 @@
             "en": "Elegant",
             "ja": "エレガント"
           },
-          "aliases": ["delicate"]
+          "aliases": ["delicate", "sophisticated"]
         },
         {
           "id": "formal",
@@ -316,7 +316,7 @@
             "en": "Formal",
             "ja": "フォーマル"
           },
-          "aliases": ["serious"]
+          "aliases": ["serious", "reliable", "trustworthy"]
         },
         {
           "id": "minimal",
@@ -365,6 +365,62 @@
             "ja": "モダン"
           },
           "aliases": ["modern"]
+        },
+        {
+          "id": "playful",
+          "label": {
+            "en": "Playful",
+            "ja": "ポップ"
+          },
+          "aliases": ["pop", "fun", "happy"]
+        },
+        {
+          "id": "cute",
+          "label": {
+            "en": "Cute",
+            "ja": "かわいい"
+          },
+          "aliases": ["kawaii", "childlike"]
+        },
+        {
+          "id": "bold",
+          "label": {
+            "en": "Bold",
+            "ja": "力強い"
+          },
+          "aliases": ["strong", "loud", "rugged"]
+        },
+        {
+          "id": "calm",
+          "label": {
+            "en": "Calm",
+            "ja": "落ち着いた"
+          },
+          "aliases": ["quiet", "subdued"]
+        },
+        {
+          "id": "warm",
+          "label": {
+            "en": "Warm",
+            "ja": "温かみ"
+          },
+          "aliases": ["friendly", "sincere", "cozy"]
+        },
+        {
+          "id": "natural",
+          "label": {
+            "en": "Natural",
+            "ja": "ナチュラル"
+          },
+          "aliases": ["organic", "earthy"]
+        },
+        {
+          "id": "retro",
+          "label": {
+            "en": "Retro",
+            "ja": "レトロ"
+          },
+          "aliases": ["vintage", "nostalgic"]
         }
       ]
     }
