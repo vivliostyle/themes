@@ -137,9 +137,8 @@ Note that this list may be updated in the future. Describe the use more specific
 Optional. Keywords that describe the theme more specifically than the `category` property. [theme.vivliostyle.org](https://theme.vivliostyle.org) shows them as tags to filter themes by.
 
 - Write each topic in lowercase kebab-case English, such as `two-column`.
-- Prefer the terms of the controlled vocabulary in [`vocabulary/topics.json`](https://github.com/vivliostyle/themes/blob/main/vocabulary/topics.json), and write a term by its `id`. The vocabulary has facets for the page size, the columns, the writing mode, the typeface, the genre and the mood. The `aliases` of a term are other spellings, which are accepted but normalized to the `id`.
+- Prefer the terms of the controlled vocabulary in [`vocabulary/topics.json`](https://github.com/vivliostyle/themes/blob/main/vocabulary/topics.json), and write a term by its `id`. The vocabulary has facets for the columns, the writing mode, the typeface, the genre and the mood. The `aliases` of a term are other spellings, which are accepted but normalized to the `id`.
 - Other topics are shown as free tags.
-- You do not have to list the page size, because theme.vivliostyle.org reads it from the sample.
 
 The official themes in this repository are checked with `pnpm run validate`, and `node scripts/check-metadata.ts --fix` normalizes their topics.
 

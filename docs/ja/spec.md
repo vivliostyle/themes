@@ -135,9 +135,8 @@ package.jsonのトップレベルに `style` や `main` を指定することも
 任意。テーマの用途を`category`プロパティよりも具体的に表すキーワードです。[theme.vivliostyle.org](https://theme.vivliostyle.org)は、これをテーマを絞り込むためのタグとして表示します。
 
 - 各トピックは、`two-column`のように小文字のkebab-caseの英語で書きます。
-- [`vocabulary/topics.json`](https://github.com/vivliostyle/themes/blob/main/vocabulary/topics.json)の統制語彙に該当する語があれば、それを優先し、語の`id`で書きます。語彙には、判型、段組、組方向、書体、ジャンル、雰囲気のファセットがあります。語の`aliases`は別の表記で、受け付けますが`id`に正規化されます。
+- [`vocabulary/topics.json`](https://github.com/vivliostyle/themes/blob/main/vocabulary/topics.json)の統制語彙に該当する語があれば、それを優先し、語の`id`で書きます。語彙には、段組、組方向、書体、ジャンル、雰囲気のファセットがあります。語の`aliases`は別の表記で、受け付けますが`id`に正規化されます。
 - それ以外のトピックは自由タグとして表示されます。
-- 判型はtheme.vivliostyle.orgがサンプルから読み取るため、書く必要はありません。
 
 このリポジトリの公式テーマは`pnpm run validate`で検査され、`node scripts/check-metadata.ts --fix`でトピックを正規化できます。
 
