@@ -1,5 +1,5 @@
 {
-  "$comment": "Controlled vocabulary for the topics of official themes. Write the id of a term in `vivliostyle.theme.topics`; the aliases are other spellings that are normalized to it. See docs/spec.md.",
+  "$comment": "Controlled vocabulary for the topics of themes. Write the id of a term in `vivliostyle.theme.topics`; the aliases are other spellings that are normalized to it. See docs/spec.md.",
   "version": 1,
   "facets": [
     {

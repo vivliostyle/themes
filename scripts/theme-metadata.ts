@@ -141,8 +141,13 @@ export function normalizeTopic(value: string): string {
 
 export function indexVocabulary(vocabulary: Vocabulary): Map<string, string> {
   const index = new Map<string, string>();
+  const ids = new Set<string>();
   for (const facet of vocabulary.facets) {
     for (const term of facet.terms) {
+      if (ids.has(term.id)) {
+        throw new Error(`The id of ${facet.id}:${term.id} is used twice`);
+      }
+      ids.add(term.id);
       for (const alias of [term.id, ...term.aliases]) {
         const key = normalizeTopic(alias);
         const existing = index.get(key);
