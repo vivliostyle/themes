@@ -89,7 +89,7 @@ $ vivliostyle theme validate
 
 ### `description` プロパティ
 
-推奨。英語で書いてください。npmは、これをテーマの概要として表示します。翻訳は[`vivliostyle.theme.i18n`](#i18n-プロパティ)に書きます。
+推奨。英語で書いてください。npmは、これをテーマの概要として表示します。翻訳は [`vivliostyle.theme.i18n`](#i18n-プロパティ) に書きます。
 
 ### `keywords` プロパティ
 
@@ -128,18 +128,18 @@ package.jsonのトップレベルに `style` や `main` を指定することも
 - `"report"`
 - `"misc"`
 
-なお、このリストは今後更新される場合があります。ジャンルなど、より具体的な用途は`topics`で表します。
+なお、このリストは今後更新される場合があります。ジャンルなど、より具体的な用途は `topics` で表します。
 
 #### `topics` プロパティ
 
-任意。テーマの用途を`category`プロパティよりも具体的に表すキーワードです。
+任意。テーマの用途を `category` プロパティよりも具体的に表すキーワードです。
 
-- 各トピックは、`two-column`のように小文字のkebab-caseの英語で書きます。
-- [`vocabulary/topics.json`](https://github.com/vivliostyle/themes/blob/main/vocabulary/topics.json)の統制語彙に該当する語があれば、それを優先し、語の`id`で書きます。語彙には、段組、組方向、書体、ジャンル、雰囲気のファセットがあります。語の`aliases`は別の表記で、受け付けますが`id`に正規化されます。
+- 各トピックは、`two-column` のように小文字のkebab-caseの英語で書きます。
+- [`vocabulary/topics.json`](https://github.com/vivliostyle/themes/blob/main/vocabulary/topics.json) の統制語彙に該当する語があれば、それを優先し、語の `id` で書きます。語彙には、段組、組方向、書体、ジャンル、雰囲気のファセットがあります。語の `aliases` は別の表記で、受け付けますが `id` に正規化されます。
 
 #### `i18n` プロパティ
 
-任意。テーマの`name`とパッケージの`description`の翻訳を、言語コードをキーにして書きます。
+任意。テーマの `name` とパッケージの `description` の翻訳を、言語コードをキーにして書きます。
 
 ```json
 "i18n": {
@@ -152,7 +152,7 @@ package.jsonのトップレベルに `style` や `main` を指定することも
 
 ### `vivliostyle.template` プロパティ
 
-任意ですが、推奨します。テーマを使うプロジェクトのテンプレートを、テンプレートIDをキーにして書きます。Vivliostyle CLIは`vivliostyle create`でテーマが選ばれたあとにこれを選択肢として示します。テンプレートがない場合は、Vivliostyle CLIの`basic`テンプレートを使います。
+任意ですが、推奨します。テーマを使うプロジェクトのテンプレートを、テンプレートIDをキーにして書きます。Vivliostyle CLIは `vivliostyle create` でテーマが選ばれたあとにこれを選択肢として示します。テンプレートがない場合は、Vivliostyle CLIの `basic` テンプレートを使います。
 
 | フィールド    | 必須 | 説明                                       |
 | ------------- | ---- | ------------------------------------------ |
@@ -161,15 +161,15 @@ package.jsonのトップレベルに `style` や `main` を指定することも
 | `source`      | ✔   | テンプレートのファイルの場所               |
 | `prompt`      |      | プロジェクトの作成時に追加で尋ねる質問     |
 
-`source`には、`./`で始まるテーマのパッケージ内のパスか、`gh:user/repo/template`のような[giget](https://github.com/unjs/giget)形式のソースを書きます。パッケージ内のパスを推奨します。パッケージ内のパスは選ばれたテーマと同じバージョンのパッケージから読み込まれるため、テンプレートが常にテーマと一致します。giget形式のソースは、リポジトリのブランチの内容に追従します。パッケージ内のパスを使うには、Vivliostyle CLI 11.5.0以降が必要です。
+`source` には、`./` で始まるテーマのパッケージ内のパスか、`gh:user/repo/template` のような[giget](https://github.com/unjs/giget)形式のソースを書きます。パッケージ内のパスを推奨します。パッケージ内のパスは選ばれたテーマと同じバージョンのパッケージから読み込まれるため、テンプレートが常にテーマと一致します。giget形式のソースは、リポジトリのブランチの内容に追従します。パッケージ内のパスを使うには、Vivliostyle CLI 11.5.0以降が必要です。
 
-`prompt`と、テンプレートで使える変数については、[Vivliostyle CLIのテンプレートのガイド](https://github.com/vivliostyle/vivliostyle-cli/blob/main/docs/ja/templates.md)を参照してください。
+`prompt` と、テンプレートで使える変数については、[Vivliostyle CLIのテンプレートのガイド](https://github.com/vivliostyle/vivliostyle-cli/blob/main/docs/ja/templates.md)を参照してください。
 
 ## templates/
 
-テンプレートは`templates/`の下にそれぞれディレクトリを作って置き、package.jsonの`files`に`templates`を含めてください。テンプレートには、`vivliostyle.config.json`と、テーマの特徴がわかるMarkdownファイルを1つ以上含めます。Markdownファイルでは[VFM (Vivliostyle Flavored Markdown)](https://vivliostyle.github.io/vfm/#/vfm)が利用できます。
+テンプレートは `templates/` の下にそれぞれディレクトリを作って置き、package.jsonの `files` に `templates` を含めてください。テンプレートには、`vivliostyle.config.json` と、テーマの特徴がわかるMarkdownファイルを1つ以上含めます。Markdownファイルでは[VFM (Vivliostyle Flavored Markdown)](https://vivliostyle.github.io/vfm/#/vfm)が利用できます。
 
-`vivliostyle create`は、ファイルを新しいプロジェクトにコピーし、すべてのテキストファイルの[Handlebars](https://handlebarsjs.com/)の式を埋めます。テンプレートの`vivliostyle.config.json`では、これを使ってユーザーが入力した値を受け取ります。Vivliostyle PubはJavaScriptの設定ファイルを実行しないため、JavaScriptではなくJSONで書いてください。
+`vivliostyle create` は、ファイルを新しいプロジェクトにコピーし、すべてのテキストファイルの[Handlebars](https://handlebarsjs.com/)の式を埋めます。テンプレートの `vivliostyle.config.json` では、これを使ってユーザーが入力した値を受け取ります。Vivliostyle PubはJavaScriptの設定ファイルを実行しないため、JavaScriptではなくJSONで書いてください。
 
 ```json
 {
@@ -181,7 +181,7 @@ package.jsonのトップレベルに `style` や `main` を指定することも
 }
 ```
 
-`theme`には、選ばれたパッケージとそのバージョンの範囲が入ります（例：`"vivliostyle-theme-mybook@^1.0.0"`）。
+`theme` には、選ばれたパッケージとそのバージョンの範囲が入ります（例：`"vivliostyle-theme-mybook@^1.0.0"`）。
 
 ## theme.css
 

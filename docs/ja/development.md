@@ -2,7 +2,7 @@
 
 ## Themeを作成する
 
-### `vivliostyle theme create`による雛形生成
+### `vivliostyle theme create` による雛形生成
 
 Vivliostyle CLIでテーマプロジェクトの雛形を生成します。`npm create vivliostyle-theme` は同じコマンドのエイリアスです。
 
@@ -43,11 +43,11 @@ npm create vivliostyle-theme <directory>
 
 | ファイル                                    | 役割                                                                                                                                      |
 | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `package.json`                              | テーマのメタ情報。`vivliostyle.theme` プロパティでテーマ名・作者・メインCSS・カテゴリを定義し、`vivliostyle.template`でテンプレートを宣言 |
+| `package.json`                              | テーマのメタ情報。`vivliostyle.theme` プロパティでテーマ名・作者・メインCSS・カテゴリを定義し、`vivliostyle.template` でテンプレートを宣言 |
 | `theme.css`                                 | テーマのスタイル定義本体。theme-baseの `@import` とCSS変数のカスタマイズが初期設定済み                                                    |
 | `vivliostyle.config.js`                     | `vivliostyle preview` でテーマの動作確認に使用。entryに `templates/default/` の原稿を指定                                                 |
 | `templates/default/*.md`                    | テーマ適用例を示すサンプルMarkdown。[VFM](https://vivliostyle.github.io/vfm/#/vfm) 記法に対応                                             |
-| `templates/default/vivliostyle.config.json` | テンプレートから作成するプロジェクトの設定ファイル。`vivliostyle create`で選ばれたタイトル、著者、テーマを受け取る                        |
+| `templates/default/vivliostyle.config.json` | テンプレートから作成するプロジェクトの設定ファイル。`vivliostyle create` で選ばれたタイトル、著者、テーマを受け取る                       |
 
 ## 雛形をカスタマイズする
 
@@ -197,7 +197,7 @@ theme-baseや各テーマが公開するCSS変数を `:root` で上書きする�
 npm run example:preview
 ```
 
-複数のテンプレートを提供するには、`templates/` の下にテンプレートごとのディレクトリを作り、`package.json` の `vivliostyle.template` で宣言します。詳しくは仕様の[`vivliostyle.template`](./spec.md#vivliostyletemplate-プロパティ)と[templates/](./spec.md#templates)を参照してください。
+複数のテンプレートを提供するには、`templates/` の下にテンプレートごとのディレクトリを作り、`package.json` の `vivliostyle.template` で宣言します。詳しくは仕様の [`vivliostyle.template`](./spec.md#vivliostyletemplate-プロパティ) と[templates/](./spec.md#templates)を参照してください。
 
 ## Themeを公開する
 
