@@ -1,5 +1,6 @@
 ---
 "@vivliostyle/theme-academic": patch
+"@vivliostyle/theme-base": patch
 "@vivliostyle/theme-bunko": patch
 "@vivliostyle/theme-epub3j": patch
 "@vivliostyle/theme-gutenberg": patch
