@@ -223,8 +223,14 @@ body {
     var(--vs-document-root-counter-reset,);
 }
 
+/**
+ *  The code of a code block takes its typography from the enclosing `pre`, so
+ *  that a relative `--vs--monospace-font-size` is not applied twice and the
+ *  `--vs--pre-*` variables reach the code text. `:where()` keeps the
+ *  specificity of a plain `code` selector, so a theme's `code {}` still wins.
+ */
 @var -monospace {
-  code,
+  :where(:not(pre)) > code,
   kbd,
   pre,
   samp {
@@ -244,6 +250,13 @@ body {
     word-break: ;
     word-spacing: ;
   }
+}
+
+/* The UA stylesheets set these on `code`, which would block the inheritance. */
+:where(pre) > code {
+  font-family: inherit;
+  hanging-punctuation: inherit;
+  text-spacing: inherit;
 }
 
 h1 {
