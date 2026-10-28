@@ -1,5 +1,15 @@
 # @vivliostyle/theme-base
 
+## 3.0.1
+
+### Patch Changes
+
+- [#167](https://github.com/vivliostyle/themes/pull/167) [`930df96`](https://github.com/vivliostyle/themes/commit/930df96502cd2b5b56c6a4e7efb972547ec15a8e) Thanks [@spring-raining](https://github.com/spring-raining)! - Describe the themes in English, with the Japanese descriptions in `vivliostyle.theme.i18n.ja`, set `vivliostyle.theme.author`, and write the topics with the terms of `vocabulary/topics.json`. The category of `theme-academic` changes from `academic`, which is not in the spec, to `journal`, and that of `theme-epub3j` from `misc` to `novel`.
+
+- [#165](https://github.com/vivliostyle/themes/pull/165) [`92ad038`](https://github.com/vivliostyle/themes/commit/92ad038c6c1fe6acf1d3da9f5cd5fe8cf9b4125b) Thanks [@spring-raining](https://github.com/spring-raining)! - Fix `pre` ignoring the `--vs--monospace-*` variables. `--vs--pre-font-family`, `--vs--pre-font-size`, `--vs--pre-line-height` and `--vs--pre-word-break` now fall back to the matching `--vs--monospace-*` variable.
+
+- [#165](https://github.com/vivliostyle/themes/pull/165) [`92ad038`](https://github.com/vivliostyle/themes/commit/92ad038c6c1fe6acf1d3da9f5cd5fe8cf9b4125b) Thanks [@spring-raining](https://github.com/spring-raining)! - Fix `pre > code` applying the `--vs--monospace-*` variables on top of `pre`. The code in a code block now inherits its typography from `pre`, so a relative `--vs--monospace-font-size` is no longer applied twice and the `--vs--pre-*` variables reach the code text.
+
 ## 3.0.0
 
 ### Major Changes

@@ -1,5 +1,18 @@
 # @vivliostyle/theme-gutenberg
 
+## 3.1.0
+
+### Minor Changes
+
+- [#167](https://github.com/vivliostyle/themes/pull/167) [`930df96`](https://github.com/vivliostyle/themes/commit/930df96502cd2b5b56c6a4e7efb972547ec15a8e) Thanks [@spring-raining](https://github.com/spring-raining)! - The examples become project templates declared in `vivliostyle.template`, so that `vivliostyle create` can start a project from them. The files move from `example/` to `templates/`. Using these templates requires Vivliostyle CLI 11.5.0 or later, which reads a template `source` inside the theme package.
+
+### Patch Changes
+
+- [#167](https://github.com/vivliostyle/themes/pull/167) [`930df96`](https://github.com/vivliostyle/themes/commit/930df96502cd2b5b56c6a4e7efb972547ec15a8e) Thanks [@spring-raining](https://github.com/spring-raining)! - Describe the themes in English, with the Japanese descriptions in `vivliostyle.theme.i18n.ja`, set `vivliostyle.theme.author`, and write the topics with the terms of `vocabulary/topics.json`. The category of `theme-academic` changes from `academic`, which is not in the spec, to `journal`, and that of `theme-epub3j` from `misc` to `novel`.
+
+- Updated dependencies [[`930df96`](https://github.com/vivliostyle/themes/commit/930df96502cd2b5b56c6a4e7efb972547ec15a8e), [`92ad038`](https://github.com/vivliostyle/themes/commit/92ad038c6c1fe6acf1d3da9f5cd5fe8cf9b4125b), [`92ad038`](https://github.com/vivliostyle/themes/commit/92ad038c6c1fe6acf1d3da9f5cd5fe8cf9b4125b)]:
+  - @vivliostyle/theme-base@3.0.1
+
 ## 3.0.0
 
 ### Major Changes
