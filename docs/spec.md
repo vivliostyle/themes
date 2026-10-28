@@ -140,7 +140,7 @@ Optional. Keywords that describe the theme more specifically than the `category`
 - Prefer the terms of the controlled vocabulary in [`vocabulary/topics.json`](https://github.com/vivliostyle/themes/blob/main/vocabulary/topics.json), and write a term by its `id`. The vocabulary has facets for the columns, the writing mode, the typeface, the genre and the mood. The `aliases` of a term are other spellings, which are accepted but normalized to the `id`.
 - Other topics are shown as free tags.
 
-The official themes in this repository are checked with `pnpm run validate`, and `node scripts/check-metadata.ts --fix` normalizes their topics.
+The official themes in this repository are checked with `pnpm run validate`.
 
 #### `i18n` Property
 
@@ -189,8 +189,6 @@ Put each template in its own directory under `templates/`, and include `template
 `theme` is the chosen package with its version range, such as `"vivliostyle-theme-mybook@^1.0.0"`. To use another stylesheet of the package, write `{ "specifier": {{json theme}}, "import": "theme_print.css" }`.
 
 Write `\{{` for a `{{` that should stay as it is, for example in a code block of the sample text.
-
-The official themes in this repository were converted from `example/` with `node scripts/example-to-template.ts <package-dir>`.
 
 ## theme.css
 

@@ -10,9 +10,8 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     // scripts/*.ts run through Node's type stripping, which cannot transform
-    // enums, namespaces or parameter properties, nor rewrite import paths.
+    // enums, namespaces or parameter properties.
     "erasableSyntaxOnly": true,
-    "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true
   },
   "include": ["scripts", "packages/@vivliostyle/theme-base/plugins"]

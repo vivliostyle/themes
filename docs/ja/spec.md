@@ -138,7 +138,7 @@ package.jsonのトップレベルに `style` や `main` を指定することも
 - [`vocabulary/topics.json`](https://github.com/vivliostyle/themes/blob/main/vocabulary/topics.json)の統制語彙に該当する語があれば、それを優先し、語の`id`で書きます。語彙には、段組、組方向、書体、ジャンル、雰囲気のファセットがあります。語の`aliases`は別の表記で、受け付けますが`id`に正規化されます。
 - それ以外のトピックは自由タグとして表示されます。
 
-このリポジトリの公式テーマは`pnpm run validate`で検査され、`node scripts/check-metadata.ts --fix`でトピックを正規化できます。
+このリポジトリの公式テーマは`pnpm run validate`で検査されます。
 
 #### `i18n` プロパティ
 
@@ -187,8 +187,6 @@ package.jsonのトップレベルに `style` や `main` を指定することも
 `theme`は、選ばれたパッケージとそのバージョンの範囲です（例：`"vivliostyle-theme-mybook@^1.0.0"`）。パッケージ内の別のスタイルシートを使う場合は、`{ "specifier": {{json theme}}, "import": "theme_print.css" }`のように書きます。
 
 サンプルの文章のコードブロックなどで、`{{`をそのまま残したい場合は`\{{`と書きます。
-
-このリポジトリの公式テーマは、`node scripts/example-to-template.ts <package-dir>`で`example/`から変換しました。
 
 ## theme.css
 
