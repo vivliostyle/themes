@@ -1,5 +1,15 @@
 # @vivliostyle/theme-epub3j
 
+## 2.1.0
+
+### Minor Changes
+
+- [#167](https://github.com/vivliostyle/themes/pull/167) [`930df96`](https://github.com/vivliostyle/themes/commit/930df96502cd2b5b56c6a4e7efb972547ec15a8e) Thanks [@spring-raining](https://github.com/spring-raining)! - The examples become project templates declared in `vivliostyle.template`, so that `vivliostyle create` can start a project from them. The files move from `example/` to `templates/`. Using these templates requires Vivliostyle CLI 11.5.0 or later, which reads a template `source` inside the theme package.
+
+### Patch Changes
+
+- [#167](https://github.com/vivliostyle/themes/pull/167) [`930df96`](https://github.com/vivliostyle/themes/commit/930df96502cd2b5b56c6a4e7efb972547ec15a8e) Thanks [@spring-raining](https://github.com/spring-raining)! - Describe the themes in English, with the Japanese descriptions in `vivliostyle.theme.i18n.ja`, set `vivliostyle.theme.author`, and write the topics with the terms of `vocabulary/topics.json`. The category of `theme-academic` changes from `academic`, which is not in the spec, to `journal`, and that of `theme-epub3j` from `misc` to `novel`.
+
 ## 2.0.0
 
 ### Major Changes

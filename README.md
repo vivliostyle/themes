@@ -31,25 +31,9 @@ module.exports = {
 
 > original author: `Vivliostyle <mail@vivliostyle.org>`
 
-### [Academic](packages/@vivliostyle/theme-academic)
-
-Academic theme
-
-[![](https://img.shields.io/npm/v/@vivliostyle/theme-academic.svg)](https://npmjs.com/package/@vivliostyle/theme-academic)
-[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-academic)](https://npmjs.com/package/@vivliostyle/theme-academic)
-![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-academic)
-
-```js
-module.exports = {
-  theme: '@vivliostyle/theme-academic',
-};
-```
-
-> original author: `Vivliostyle <mail@vivliostyle.org>`
-
 ### [Techbook](packages/@vivliostyle/theme-techbook)
 
-Techbook (技術同人誌) theme
+Theme for Japanese technical doujinshi (self-published tech books)
 
 [![](https://img.shields.io/npm/v/@vivliostyle/theme-techbook.svg)](https://npmjs.com/package/@vivliostyle/theme-techbook)
 [![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-techbook)](https://npmjs.com/package/@vivliostyle/theme-techbook)
@@ -63,9 +47,25 @@ module.exports = {
 
 > original author: `Vivliostyle <mail@vivliostyle.org>`
 
+### [Academic](packages/@vivliostyle/theme-academic)
+
+Theme for academic papers and reports
+
+[![](https://img.shields.io/npm/v/@vivliostyle/theme-academic.svg)](https://npmjs.com/package/@vivliostyle/theme-academic)
+[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-academic)](https://npmjs.com/package/@vivliostyle/theme-academic)
+![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-academic)
+
+```js
+module.exports = {
+  theme: '@vivliostyle/theme-academic',
+};
+```
+
+> original author: `Vivliostyle <mail@vivliostyle.org>`
+
 ### [Bunko](packages/@vivliostyle/theme-bunko)
 
-文庫用のテーマ
+Theme for Japanese bunko paperbacks
 
 [![](https://img.shields.io/npm/v/@vivliostyle/theme-bunko.svg)](https://npmjs.com/package/@vivliostyle/theme-bunko)
 [![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-bunko)](https://npmjs.com/package/@vivliostyle/theme-bunko)
@@ -113,7 +113,7 @@ module.exports = {
 
 ### [EPUB3 (Japanese)](packages/@vivliostyle/theme-epub3j)
 
-EPUB3 (Japanese) 日本語EPUB用テーマ（電書協EPUB3制作ガイド準拠）
+Theme for Japanese EPUB 3 publications, following the EBPAJ EPUB 3 File Creation Guide
 
 [![](https://img.shields.io/npm/v/@vivliostyle/theme-epub3j.svg)](https://npmjs.com/package/@vivliostyle/theme-epub3j)
 [![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-epub3j)](https://npmjs.com/package/@vivliostyle/theme-epub3j)
