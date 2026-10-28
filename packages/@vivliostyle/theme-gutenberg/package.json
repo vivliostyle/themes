@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "template",
+    "templates",
     "config",
     "vivliostyle.config.js"
   ],
@@ -61,15 +61,15 @@
     "template": {
       "alice": {
         "name": "Alice’s Adventures in Wonderland",
-        "source": "./template/alice"
+        "source": "./templates/alice"
       },
       "fang": {
         "name": "White Fang",
-        "source": "./template/fang"
+        "source": "./templates/fang"
       },
       "sherlock": {
         "name": "The Adventures of Sherlock Holmes",
-        "source": "./template/sherlock"
+        "source": "./templates/sherlock"
       }
     }
   }

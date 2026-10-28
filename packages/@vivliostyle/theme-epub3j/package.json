@@ -17,7 +17,7 @@
   "files": [
     "*.css",
     "ebpaj_epub3guide",
-    "template",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -58,7 +58,7 @@
     "template": {
       "default": {
         "name": "EPUB3 (Japanese) sample",
-        "source": "./template/default"
+        "source": "./templates/default"
       }
     }
   }

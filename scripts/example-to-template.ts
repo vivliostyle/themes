@@ -28,7 +28,7 @@ interface Plan {
 }
 
 const EXAMPLE_DIR = 'example';
-const TEMPLATE_DIR = 'template';
+const TEMPLATE_DIR = 'templates';
 const CONFIG_FILE = 'vivliostyle.config.js';
 const TEMPLATE_CONFIG_FILE = 'vivliostyle.config.json';
 // Options that only make sense for building the example inside the theme

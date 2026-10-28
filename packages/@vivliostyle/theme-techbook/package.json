@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "template",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -59,7 +59,7 @@
     "template": {
       "default": {
         "name": "Techbook sample",
-        "source": "./template/default"
+        "source": "./templates/default"
       }
     }
   }

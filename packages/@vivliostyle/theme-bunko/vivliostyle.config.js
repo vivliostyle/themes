@@ -4,7 +4,7 @@ import { defineConfig } from '@vivliostyle/cli';
 export default defineConfig({
   language: 'ja',
   theme: ['theme.css'],
-  entry: ['template/default/bunko.md'],
+  entry: ['templates/default/bunko.md'],
   size: '148mm,210mm',
   output: [
     'book.pdf',

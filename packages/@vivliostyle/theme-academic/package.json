@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "template",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -61,7 +61,7 @@
     "template": {
       "default": {
         "name": "Academic sample",
-        "source": "./template/default"
+        "source": "./templates/default"
       }
     }
   }

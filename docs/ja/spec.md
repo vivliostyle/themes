@@ -34,7 +34,7 @@ vivliostyle-theme-mybook/
 ├── LICENSE
 ├── README.md
 ├── package.json
-├── template/
+├── templates/
 │   └── default/
 │       ├── ...
 │       ├── manuscript.md
@@ -43,7 +43,7 @@ vivliostyle-theme-mybook/
 └── vivliostyle.config.js
 ```
 
-[create-vivliostyle-theme][] でテーマの雛形を作成すると、上のようなファイルが自動生成されます。ただしサンプルは`template/`ではなく`example/`に置かれるため、[template/](#template)を参考にテンプレートにしてください。次の節からは代表的なファイルの詳細を見ていきます。
+[create-vivliostyle-theme][] でテーマの雛形を作成すると、上のようなファイルが自動生成されます。ただしサンプルは`templates/`ではなく`example/`に置かれるため、[templates/](#templates)を参考にテンプレートにしてください。次の節からは代表的なファイルの詳細を見ていきます。
 
 ## package.json
 
@@ -53,7 +53,7 @@ vivliostyle-theme-mybook/
   "description": "Theme for paperback novels",
   "author": "John Doe <john@example.com>",
   "main": "theme.css",
-  "files": ["*.css", "template"],
+  "files": ["*.css", "templates"],
   "keywords": [
     // 以下で説明
     "vivliostyle",
@@ -74,7 +74,7 @@ vivliostyle-theme-mybook/
     "template": {
       "default": {
         "name": "Mybook sample",
-        "source": "./template/default"
+        "source": "./templates/default"
       }
     }
   }
@@ -168,9 +168,9 @@ package.jsonのトップレベルに `style` や `main` を指定することも
 
 `prompt`と、テンプレートで使える変数については、[Vivliostyle CLIのテンプレートのガイド](https://github.com/vivliostyle/vivliostyle-cli/blob/main/docs/ja/templates.md)を参照してください。
 
-## template/
+## templates/
 
-テンプレートは`template/`の下にそれぞれディレクトリを作って置き、package.jsonの`files`に`template`を含めてください。テンプレートには、`vivliostyle.config.json`と、テーマの特徴がわかるMarkdownファイルを1つ以上含めます。Markdownファイルでは[VFM (Vivliostyle Flavored Markdown)](https://vivliostyle.github.io/vfm/#/vfm)が利用できます。
+テンプレートは`templates/`の下にそれぞれディレクトリを作って置き、package.jsonの`files`に`templates`を含めてください。テンプレートには、`vivliostyle.config.json`と、テーマの特徴がわかるMarkdownファイルを1つ以上含めます。Markdownファイルでは[VFM (Vivliostyle Flavored Markdown)](https://vivliostyle.github.io/vfm/#/vfm)が利用できます。
 
 `vivliostyle create`は、ファイルを新しいプロジェクトにコピーし、すべてのテキストファイルの[Handlebars](https://handlebarsjs.com/)の式を埋めます。テンプレートの`vivliostyle.config.json`では、これを使ってユーザーが入力した値を受け取ります。Vivliostyle PubはJavaScriptの設定ファイルを実行しないため、JavaScriptではなくJSONで書いてください。
 
@@ -215,7 +215,7 @@ theme: {
 module.exports = {
   language: 'en',
   theme: '.',
-  entry: ['template/default/manuscript.md'],
+  entry: ['templates/default/manuscript.md'],
   workspaceDir: '.vivliostyle',
   output: [
     'book.pdf',

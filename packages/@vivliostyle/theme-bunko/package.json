@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "template",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -60,7 +60,7 @@
     "template": {
       "default": {
         "name": "Bunko sample",
-        "source": "./template/default"
+        "source": "./templates/default"
       }
     }
   }

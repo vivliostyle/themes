@@ -8,10 +8,10 @@ export default defineConfig({
   theme: ['theme.css'],
   entry: [
     {
-      path: 'template/default/fet.md',
+      path: 'templates/default/fet.md',
     },
     {
-      path: 'template/default/microcomputer.md',
+      path: 'templates/default/microcomputer.md',
     },
   ],
   output: [

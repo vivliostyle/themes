@@ -34,7 +34,7 @@ vivliostyle-theme-mybook/
 ├── LICENSE
 ├── README.md
 ├── package.json
-├── template/
+├── templates/
 │   └── default/
 │       ├── ...
 │       ├── manuscript.md
@@ -43,7 +43,7 @@ vivliostyle-theme-mybook/
 └── vivliostyle.config.js
 ```
 
-When you create a theme template using [create-vivliostyle-theme][], the essential files mentioned above will be generated automatically, with the sample in `example/` instead of `template/`; see [template/](#template) to turn it into a template. The details of some typical files are described in the following sections.
+When you create a theme template using [create-vivliostyle-theme][], the essential files mentioned above will be generated automatically, with the sample in `example/` instead of `templates/`; see [templates/](#templates) to turn it into a template. The details of some typical files are described in the following sections.
 
 ## package.json
 
@@ -53,7 +53,7 @@ When you create a theme template using [create-vivliostyle-theme][], the essenti
   "description": "Theme for paperback novels",
   "author": "John Doe <john@example.com>",
   "main": "theme.css",
-  "files": ["*.css", "template"],
+  "files": ["*.css", "templates"],
   "keywords": [
     // described below
     "vivliostyle",
@@ -74,7 +74,7 @@ When you create a theme template using [create-vivliostyle-theme][], the essenti
     "template": {
       "default": {
         "name": "Mybook sample",
-        "source": "./template/default"
+        "source": "./templates/default"
       }
     }
   }
@@ -170,9 +170,9 @@ Optional, but recommended. Templates of projects that use the theme, keyed by a 
 
 See [the templates guide of Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli/blob/main/docs/templates.md) for `prompt` and the variables available in templates.
 
-## template/
+## templates/
 
-Put each template in its own directory under `template/`, and include `template` in the `files` of package.json. A template contains a `vivliostyle.config.json` and at least one Markdown file that shows off the theme. In Markdown files, you can use [VFM (Vivliostyle Flavored Markdown)](https://vivliostyle.github.io/vfm/#/vfm).
+Put each template in its own directory under `templates/`, and include `templates` in the `files` of package.json. A template contains a `vivliostyle.config.json` and at least one Markdown file that shows off the theme. In Markdown files, you can use [VFM (Vivliostyle Flavored Markdown)](https://vivliostyle.github.io/vfm/#/vfm).
 
 `vivliostyle create` copies the files into the new project and fills in the [Handlebars](https://handlebarsjs.com/) expressions in every text file. The `vivliostyle.config.json` of the template uses them to take the values entered by the user. Write it in JSON, not JavaScript: Vivliostyle Pub does not run JavaScript configs.
 
@@ -217,7 +217,7 @@ theme: {
 module.exports = {
   language: 'en',
   theme: '.',
-  entry: ['template/default/manuscript.md'],
+  entry: ['templates/default/manuscript.md'],
   workspaceDir: '.vivliostyle',
   output: [
     'book.pdf',
