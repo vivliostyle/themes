@@ -223,8 +223,14 @@ body {
     var(--vs-document-root-counter-reset,);
 }
 
+/**
+ *  The code of a code block takes its typography from the enclosing `pre`, so
+ *  that a relative `--vs--monospace-font-size` is not applied twice and the
+ *  `--vs--pre-*` variables reach the code text. `:where()` keeps the
+ *  specificity of a plain `code` selector, so a theme's `code {}` still wins.
+ */
 @var -monospace {
-  code,
+  :where(:not(pre)) > code,
   kbd,
   pre,
   samp {
@@ -244,6 +250,13 @@ body {
     word-break: ;
     word-spacing: ;
   }
+}
+
+/* The UA stylesheets set these on `code`, which would block the inheritance. */
+:where(pre) > code {
+  font-family: inherit;
+  hanging-punctuation: inherit;
+  text-spacing: inherit;
 }
 
 h1 {
@@ -1212,37 +1225,44 @@ dd {
   }
 }
 
-@var -pre {
-  pre {
-    background-color: ;
-    border-block-end-color: var(--vs--pre-border-color);
-    border-block-end-style: var(--vs--pre-border-style, solid);
-    border-block-end-width: var(--vs--pre-border-width, 0);
-    border-block-start-color: var(--vs--pre-border-color);
-    border-block-start-style: var(--vs--pre-border-style, solid);
-    border-block-start-width: var(--vs--pre-border-width, 0);
-    border-inline-end-color: var(--vs--pre-border-color);
-    border-inline-end-style: var(--vs--pre-border-style, solid);
-    border-inline-end-width: var(--vs--pre-border-width, 0);
-    border-inline-start-color: var(--vs--pre-border-color);
-    border-inline-start-style: var(--vs--pre-border-style, solid);
-    border-inline-start-width: var(--vs--pre-border-width, 0);
-    border-radius: ;
-    break-inside: ;
-    color: ;
-    font-family: ;
-    font-size: ;
-    inline-size: ;
-    line-height: ;
-    margin-block: ;
-    margin-inline: ;
-    overflow-x: ;
-    padding-block: ;
-    padding-inline: ;
-    text-align: ;
-    white-space: ;
-    word-break: ;
-    writing-mode: ;
+pre {
+  @var -pre {
+    & {
+      background-color: ;
+      border-block-end-color: var(--vs--pre-border-color);
+      border-block-end-style: var(--vs--pre-border-style, solid);
+      border-block-end-width: var(--vs--pre-border-width, 0);
+      border-block-start-color: var(--vs--pre-border-color);
+      border-block-start-style: var(--vs--pre-border-style, solid);
+      border-block-start-width: var(--vs--pre-border-width, 0);
+      border-inline-end-color: var(--vs--pre-border-color);
+      border-inline-end-style: var(--vs--pre-border-style, solid);
+      border-inline-end-width: var(--vs--pre-border-width, 0);
+      border-inline-start-color: var(--vs--pre-border-color);
+      border-inline-start-style: var(--vs--pre-border-style, solid);
+      border-inline-start-width: var(--vs--pre-border-width, 0);
+      border-radius: ;
+      break-inside: ;
+      color: ;
+      inline-size: ;
+      margin-block: ;
+      margin-inline: ;
+      overflow-x: ;
+      padding-block: ;
+      padding-inline: ;
+      text-align: ;
+      white-space: ;
+      writing-mode: ;
+    }
+  }
+
+  @var -pre, -monospace {
+    & {
+      font-family: ;
+      font-size: ;
+      line-height: ;
+      word-break: ;
+    }
   }
 }
 
