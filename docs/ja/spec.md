@@ -43,7 +43,7 @@ vivliostyle-theme-mybook/
 └── vivliostyle.config.js
 ```
 
-[create-vivliostyle-theme][] でテーマの雛形を作成すると、上のようなファイルが自動生成されます。ただしサンプルは`templates/`ではなく`example/`に置かれるため、[templates/](#templates)を参考にテンプレートにしてください。次の節からは代表的なファイルの詳細を見ていきます。
+[create-vivliostyle-theme][]でテーマの雛形を作成すると、`templates/default/` のテンプレートを含め、上のようなファイルが自動生成されます。次の節からは代表的なファイルの詳細を見ていきます。
 
 ## package.json
 

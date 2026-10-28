@@ -26,25 +26,28 @@ npm create vivliostyle-theme <directory>
 ```
 <directory>/
 ├── .gitignore
-├── package.json          # パッケージ定義（vivliostyle.theme 設定を含む）
+├── package.json          # パッケージ定義（テーマ、テンプレート設定を含む）
 ├── README.md             # テーマの説明・使い方
 ├── theme.css             # テーマのメイン CSS
 ├── vivliostyle.config.js # プレビュー用の設定ファイル
-└── example/
-    ├── 01_typography.md      # サンプル原稿（VFM 形式）
-    ├── 02_figures-and-tables.md
-    ├── 03_code-and-math.md
-    └── assets/
+└── templates/
+    └── default/                  # プロジェクトのテンプレート
+        ├── 01_typography.md      # サンプル原稿（VFM 形式）
+        ├── 02_figures-and-tables.md
+        ├── 03_code-and-math.md
+        ├── assets/
+        └── vivliostyle.config.json   # テンプレートから作成するプロジェクトの設定ファイル
 ```
 
 各ファイルの役割:
 
-| ファイル                | 役割                                                                                          |
-| ----------------------- | --------------------------------------------------------------------------------------------- |
-| `package.json`          | テーマのメタ情報。`vivliostyle.theme` プロパティでテーマ名・作者・メインCSS・カテゴリを定義   |
-| `theme.css`             | テーマのスタイル定義本体。theme-baseの `@import` とCSS変数のカスタマイズが初期設定済み        |
-| `vivliostyle.config.js` | `vivliostyle preview` でテーマの動作確認に使用。entryに `example/` の原稿を指定               |
-| `example/*.md`          | テーマ適用例を示すサンプルMarkdown。[VFM](https://vivliostyle.github.io/vfm/#/vfm) 記法に対応 |
+| ファイル                                    | 役割                                                                                                                                      |
+| ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `package.json`                              | テーマのメタ情報。`vivliostyle.theme` プロパティでテーマ名・作者・メインCSS・カテゴリを定義し、`vivliostyle.template`でテンプレートを宣言 |
+| `theme.css`                                 | テーマのスタイル定義本体。theme-baseの `@import` とCSS変数のカスタマイズが初期設定済み                                                    |
+| `vivliostyle.config.js`                     | `vivliostyle preview` でテーマの動作確認に使用。entryに `templates/default/` の原稿を指定                                                 |
+| `templates/default/*.md`                    | テーマ適用例を示すサンプルMarkdown。[VFM](https://vivliostyle.github.io/vfm/#/vfm) 記法に対応                                             |
+| `templates/default/vivliostyle.config.json` | テンプレートから作成するプロジェクトの設定ファイル。`vivliostyle create`で選ばれたタイトル、著者、テーマを受け取る                        |
 
 ## 雛形をカスタマイズする
 
@@ -178,13 +181,15 @@ theme-baseや各テーマが公開するCSS変数を `:root` で上書きする�
 }
 ```
 
-### example/ ディレクトリの編集
+### templates/default/ディレクトリの編集
 
-`example/` にはテーマの適用例を示すサンプルMarkdownを配置します。
+`templates/default/` は、テーマを使うプロジェクトのテンプレートです。ユーザーは `vivliostyle create` でこのテンプレートからプロジェクトを作成できます。ここにはテーマの適用例を示すサンプルMarkdownを配置します。
 
 - 最低1つのMarkdownファイルが必要です
 - [VFM (Vivliostyle Flavored Markdown)](https://vivliostyle.github.io/vfm/#/vfm) 記法が利用できます
 - テーマが対応する主要なスタイル（見出し、コードブロック、脚注、画像、数式等）を網羅する内容を推奨します
+- Markdownファイルは、`templates/default/vivliostyle.config.json` と `vivliostyle.config.js` の両方の `entry` に指定します
+- プロジェクトの作成時にすべてのテキストファイルがHandlebarsで処理されるため、`{{` をそのまま残したい場合は `\{{` と書きます
 
 プレビューで動作確認:
 
@@ -192,15 +197,7 @@ theme-baseや各テーマが公開するCSS変数を `:root` で上書きする�
 npm run example:preview
 ```
 
-### exampleをテンプレートとして提供する
-
-ユーザーがexampleからプロジェクトを始められるようにし、[theme.vivliostyle.org](https://theme.vivliostyle.org)でサムネイルとプレビューとして表示されるようにするには、exampleをテンプレートにします。
-
-1. `example/`を`templates/default/`に移し、`vivliostyle.config.js`のパスと`package.json`の`files`を更新します。
-2. `vivliostyle create`で選ばれたタイトル、著者、テーマを受け取る`templates/default/vivliostyle.config.json`を追加します。
-3. `package.json`の`vivliostyle.template`でテンプレートを宣言します。
-
-詳しくは仕様の[`vivliostyle.template`](./spec.md#vivliostyletemplate-プロパティ)と[templates/](./spec.md#templates)を参照してください。
+複数のテンプレートを提供するには、`templates/` の下にテンプレートごとのディレクトリを作り、`package.json` の `vivliostyle.template` で宣言します。詳しくは仕様の[`vivliostyle.template`](./spec.md#vivliostyletemplate-プロパティ)と[templates/](./spec.md#templates)を参照してください。
 
 ## Themeを公開する
 
@@ -228,7 +225,7 @@ npm run validate
 npm run example:preview
 ```
 
-`vivliostyle.config.js` の設定に基づき、`example/` のサンプル原稿にテーマを適用した状態でプレビューが表示されます。
+`vivliostyle.config.js` の設定に基づき、`templates/default/` のサンプル原稿にテーマを適用した状態でプレビューが表示されます。
 
 ### package.jsonの必須フィールド
 

@@ -43,7 +43,7 @@ vivliostyle-theme-mybook/
 └── vivliostyle.config.js
 ```
 
-When you create a theme template using [create-vivliostyle-theme][], the essential files mentioned above will be generated automatically, with the sample in `example/` instead of `templates/`; see [templates/](#templates) to turn it into a template. The details of some typical files are described in the following sections.
+When you create a theme template using [create-vivliostyle-theme][], the essential files mentioned above will be generated automatically, including a template in `templates/default/`. The details of some typical files are described in the following sections.
 
 ## package.json
 
