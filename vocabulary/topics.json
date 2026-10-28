@@ -1,0 +1,428 @@
+{
+  "$comment": "Controlled vocabulary for the topics of themes. Write the id of a term in `vivliostyle.theme.topics`; the aliases are other spellings that are normalized to it. See docs/spec.md.",
+  "version": 1,
+  "facets": [
+    {
+      "id": "columns",
+      "label": {
+        "en": "Columns",
+        "ja": "段組"
+      },
+      "terms": [
+        {
+          "id": "single-column",
+          "label": {
+            "en": "Single column",
+            "ja": "1段組"
+          },
+          "aliases": ["one-column", "1-column"]
+        },
+        {
+          "id": "two-column",
+          "label": {
+            "en": "Two columns",
+            "ja": "2段組"
+          },
+          "aliases": ["2-column", "double-column"]
+        },
+        {
+          "id": "three-column",
+          "label": {
+            "en": "Three columns",
+            "ja": "3段組"
+          },
+          "aliases": ["3-column"]
+        },
+        {
+          "id": "four-column",
+          "label": {
+            "en": "Four columns",
+            "ja": "4段組"
+          },
+          "aliases": ["4-column"]
+        }
+      ]
+    },
+    {
+      "id": "writing-mode",
+      "label": {
+        "en": "Writing mode",
+        "ja": "組方向"
+      },
+      "terms": [
+        {
+          "id": "horizontal-writing",
+          "label": {
+            "en": "Horizontal",
+            "ja": "横組"
+          },
+          "aliases": ["horizontal", "yokogaki", "横組", "横書き"]
+        },
+        {
+          "id": "vertical-writing",
+          "label": {
+            "en": "Vertical",
+            "ja": "縦組"
+          },
+          "aliases": ["vertical", "tategaki", "縦組", "縦書き"]
+        }
+      ]
+    },
+    {
+      "id": "typeface",
+      "label": {
+        "en": "Typeface",
+        "ja": "書体"
+      },
+      "terms": [
+        {
+          "id": "serif",
+          "label": {
+            "en": "Serif",
+            "ja": "セリフ"
+          },
+          "aliases": ["serif-body"]
+        },
+        {
+          "id": "sans-serif",
+          "label": {
+            "en": "Sans-serif",
+            "ja": "サンセリフ"
+          },
+          "aliases": ["sans", "sans-body"]
+        },
+        {
+          "id": "slab-serif",
+          "label": {
+            "en": "Slab serif",
+            "ja": "スラブセリフ"
+          },
+          "aliases": []
+        },
+        {
+          "id": "mincho",
+          "label": {
+            "en": "Mincho",
+            "ja": "明朝体"
+          },
+          "aliases": ["明朝", "明朝体"]
+        },
+        {
+          "id": "gothic",
+          "label": {
+            "en": "Gothic",
+            "ja": "ゴシック体"
+          },
+          "aliases": ["ゴシック", "ゴシック体"]
+        },
+        {
+          "id": "monospace",
+          "label": {
+            "en": "Monospace",
+            "ja": "等幅"
+          },
+          "aliases": ["mono", "mono-font"]
+        }
+      ]
+    },
+    {
+      "id": "genre",
+      "label": {
+        "en": "Genre",
+        "ja": "ジャンル"
+      },
+      "terms": [
+        {
+          "id": "academic",
+          "label": {
+            "en": "Academic",
+            "ja": "学術"
+          },
+          "aliases": [
+            "scholarly",
+            "academic-journal",
+            "academic-conference",
+            "research",
+            "thesis",
+            "proceedings",
+            "extended-abstract",
+            "journal",
+            "category:journal"
+          ]
+        },
+        {
+          "id": "report",
+          "label": {
+            "en": "Report",
+            "ja": "報告書"
+          },
+          "aliases": [
+            "formal-report",
+            "business-report",
+            "annual-report",
+            "activity-report",
+            "monthly-report",
+            "category:report"
+          ]
+        },
+        {
+          "id": "technical",
+          "label": {
+            "en": "Technical",
+            "ja": "技術書"
+          },
+          "aliases": [
+            "techbook",
+            "tech-doujin",
+            "software-doc",
+            "api-reference",
+            "programming",
+            "specification",
+            "technical-reference"
+          ]
+        },
+        {
+          "id": "literature",
+          "label": {
+            "en": "Literature",
+            "ja": "文芸"
+          },
+          "aliases": [
+            "novel",
+            "小説",
+            "essay",
+            "essay-critique",
+            "anthology",
+            "literary",
+            "memoir",
+            "children-literature",
+            "category:novel"
+          ]
+        },
+        {
+          "id": "magazine",
+          "label": {
+            "en": "Magazine",
+            "ja": "雑誌"
+          },
+          "aliases": [
+            "magazine-general",
+            "magazine-hobby",
+            "newsletter",
+            "category:magazine"
+          ]
+        },
+        {
+          "id": "business",
+          "label": {
+            "en": "Business",
+            "ja": "ビジネス"
+          },
+          "aliases": [
+            "business-book",
+            "finance",
+            "finance-personal",
+            "accounting",
+            "banking",
+            "tax"
+          ]
+        },
+        {
+          "id": "legal",
+          "label": {
+            "en": "Legal",
+            "ja": "法務"
+          },
+          "aliases": ["legal-contract", "statute", "case-law", "judicial"]
+        },
+        {
+          "id": "forms",
+          "label": {
+            "en": "Forms",
+            "ja": "帳票"
+          },
+          "aliases": [
+            "invoice-forms",
+            "ledger",
+            "receipt",
+            "log-book",
+            "diary-planner"
+          ]
+        },
+        {
+          "id": "reference",
+          "label": {
+            "en": "Reference",
+            "ja": "辞書・資料"
+          },
+          "aliases": [
+            "dictionary-reference",
+            "directory-list",
+            "datasheet",
+            "encyclopedia-fieldguide",
+            "field-guide",
+            "quick-reference"
+          ]
+        },
+        {
+          "id": "education",
+          "label": {
+            "en": "Education",
+            "ja": "教育"
+          },
+          "aliases": [
+            "textbook",
+            "textbook-higher",
+            "textbook-school",
+            "educational"
+          ]
+        },
+        {
+          "id": "practical",
+          "label": {
+            "en": "Practical",
+            "ja": "実用書"
+          },
+          "aliases": ["cookbook", "travel-guide", "menu-food"]
+        },
+        {
+          "id": "slides",
+          "label": {
+            "en": "Slides",
+            "ja": "スライド"
+          },
+          "aliases": ["slide", "presentation"]
+        }
+      ]
+    },
+    {
+      "id": "mood",
+      "label": {
+        "en": "Mood",
+        "ja": "雰囲気"
+      },
+      "terms": [
+        {
+          "id": "elegant",
+          "label": {
+            "en": "Elegant",
+            "ja": "エレガント"
+          },
+          "aliases": ["delicate", "sophisticated"]
+        },
+        {
+          "id": "formal",
+          "label": {
+            "en": "Formal",
+            "ja": "フォーマル"
+          },
+          "aliases": ["serious", "reliable", "trustworthy"]
+        },
+        {
+          "id": "minimal",
+          "label": {
+            "en": "Minimal",
+            "ja": "ミニマル"
+          },
+          "aliases": ["minimalist", "white-space"]
+        },
+        {
+          "id": "dense",
+          "label": {
+            "en": "Dense",
+            "ja": "高密度"
+          },
+          "aliases": ["compact", "ultra-dense"]
+        },
+        {
+          "id": "traditional",
+          "label": {
+            "en": "Traditional",
+            "ja": "伝統的"
+          },
+          "aliases": ["japanese-style", "classic"]
+        },
+        {
+          "id": "colorful",
+          "label": {
+            "en": "Colorful",
+            "ja": "カラフル"
+          },
+          "aliases": ["visual", "colored-accent"]
+        },
+        {
+          "id": "monochrome",
+          "label": {
+            "en": "Monochrome",
+            "ja": "モノクロ"
+          },
+          "aliases": []
+        },
+        {
+          "id": "contemporary",
+          "label": {
+            "en": "Contemporary",
+            "ja": "モダン"
+          },
+          "aliases": ["modern"]
+        },
+        {
+          "id": "playful",
+          "label": {
+            "en": "Playful",
+            "ja": "ポップ"
+          },
+          "aliases": ["pop", "fun", "happy"]
+        },
+        {
+          "id": "cute",
+          "label": {
+            "en": "Cute",
+            "ja": "かわいい"
+          },
+          "aliases": ["kawaii", "childlike"]
+        },
+        {
+          "id": "bold",
+          "label": {
+            "en": "Bold",
+            "ja": "力強い"
+          },
+          "aliases": ["strong", "loud", "rugged"]
+        },
+        {
+          "id": "calm",
+          "label": {
+            "en": "Calm",
+            "ja": "落ち着いた"
+          },
+          "aliases": ["quiet", "subdued"]
+        },
+        {
+          "id": "warm",
+          "label": {
+            "en": "Warm",
+            "ja": "温かみ"
+          },
+          "aliases": ["friendly", "sincere", "cozy"]
+        },
+        {
+          "id": "natural",
+          "label": {
+            "en": "Natural",
+            "ja": "ナチュラル"
+          },
+          "aliases": ["organic", "earthy"]
+        },
+        {
+          "id": "retro",
+          "label": {
+            "en": "Retro",
+            "ja": "レトロ"
+          },
+          "aliases": ["vintage", "nostalgic"]
+        }
+      ]
+    }
+  ]
+}

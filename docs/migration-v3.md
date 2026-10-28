@@ -348,7 +348,7 @@ The footnote area is styled with the standard `@footnote` at-rule instead of the
 ## Step 7. Building a theme on `theme-base`
 
 - Import the entry first, then the modules; the variable defaults (`define`) ship with the entry.
-- Variable defaults are now spread over the stylesheets and aggregated into `css/define.css`. Every variable, including the ones without a default, is described in the generated `@vivliostyle/theme-base/css-variables.json` (its CSS property, `@property` syntax and default).
+- Every variable, including the ones without a default, is described in the generated `@vivliostyle/theme-base/css-variables.json` (its CSS property, `@property` syntax and default).
 - Lengths need a unit: `0` is a `<number>`, and a variable holding it is dropped wherever a length is required.
 - Set `--vs--*` variables rather than re-declaring the property. The rules use logical properties, and a physical `margin` / `padding` shorthand does not reliably cancel them.
 

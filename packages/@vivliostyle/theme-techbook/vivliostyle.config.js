@@ -5,7 +5,7 @@ export default defineConfig({
   language: 'ja',
   theme: ['theme.css'],
   size: '182mm,257mm',
-  entry: ['example/techbook.md'],
+  entry: ['templates/default/techbook.md'],
   output: [
     'book.pdf',
     {

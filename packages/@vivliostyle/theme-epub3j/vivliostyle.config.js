@@ -8,22 +8,22 @@ export default defineConfig({
   theme: '.',
   readingProgression: 'rtl',
   entry: [
-    // "example/p-cover.md", // `cover:` を使う場合は不要
-    'example/p-titlepage.md',
-    'example/p-caution.md',
+    // "templates/default/p-cover.md", // `cover:` を使う場合は不要
+    'templates/default/p-titlepage.md',
+    'templates/default/p-caution.md',
     {
       // `toc:` を使う場合は不要
-      path: 'example/p-toc.md',
+      path: 'templates/default/p-toc.md',
       rel: 'contents',
     },
-    'example/p-001.md',
-    'example/p-002.md',
-    'example/p-cyushaku.md',
-    'example/p-colophon.md',
+    'templates/default/p-001.md',
+    'templates/default/p-002.md',
+    'templates/default/p-cyushaku.md',
+    'templates/default/p-colophon.md',
   ],
-  cover: 'example/assets/cover.jpg',
+  cover: 'templates/default/assets/cover.jpg',
   // toc: {
-  //   htmlPath: 'example/toc.html',
+  //   htmlPath: 'templates/default/toc.html',
   //   title: '目次',
   //   sectionDepth: 2,
   // },

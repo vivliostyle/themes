@@ -34,22 +34,26 @@ vivliostyle-theme-mybook/
 ├── LICENSE
 ├── README.md
 ├── package.json
-├── example/
-│   ├── ...
-│   └── default.md
+├── templates/
+│   └── default/
+│       ├── ...
+│       ├── manuscript.md
+│       └── vivliostyle.config.json
 ├── theme.css
 └── vivliostyle.config.js
 ```
 
-When you create a theme template using [create-vivliostyle-theme][], the essential files mentioned above will be generated automatically. The details of some typical files are described in the following sections.
+When you create a theme template using [create-vivliostyle-theme][], the essential files mentioned above will be generated automatically, including a template in `templates/default/`. The details of some typical files are described in the following sections.
 
 ## package.json
 
 ```json
 {
   "name": "vivliostyle-theme-mybook",
+  "description": "Theme for paperback novels",
   "author": "John Doe <john@example.com>",
   "main": "theme.css",
+  "files": ["*.css", "templates"],
   "keywords": [
     // described below
     "vivliostyle",
@@ -62,7 +66,16 @@ When you create a theme template using [create-vivliostyle-theme][], the essenti
       "name": "Mybook",
       "author": "John Doe",
       "category": "novel",
-      "topics": ["paperback"]
+      "topics": ["literature", "vertical-writing", "paperback"],
+      "i18n": {
+        "ja": { "description": "文庫本の小説向けのテーマ" }
+      }
+    },
+    "template": {
+      "default": {
+        "name": "Mybook sample",
+        "source": "./templates/default"
+      }
     }
   }
 }
@@ -73,6 +86,10 @@ You can use the `theme validate` command of [Vivliostyle CLI](https://github.com
 ```bash
 $ vivliostyle theme validate
 ```
+
+### `description` Property
+
+Recommended. Write it in English: npm shows it as the summary of your theme. Translations go in [`vivliostyle.theme.i18n`](#i18n-property).
 
 ### `keywords` Property
 
@@ -113,17 +130,60 @@ Choose the category that best fits your theme from the following list:
 - `"report"`
 - `"misc"`
 
-Note that this list may be updated in the future.
+Note that this list may be updated in the future. Describe the use more specifically, such as the genre, with `topics`.
 
 #### `topics` Property
 
-Optional. If you want more specific descriptions of the theme's use than the `category` property, you can list and describe them here.
+Optional. Keywords that describe the theme more specifically than the `category` property.
 
-## example/
+- Write each topic in lowercase kebab-case English, such as `two-column`.
+- Prefer the terms of the controlled vocabulary in [`vocabulary/topics.json`](https://github.com/vivliostyle/themes/blob/main/vocabulary/topics.json), and write a term by its `id`. The vocabulary has facets for the columns, the writing mode, the typeface, the genre and the mood. The `aliases` of a term are other spellings, which are accepted but normalized to the `id`.
 
-The example directory should contain at least one Markdown file, a straightforward example of a theme. The name of the file is arbitrary.
+#### `i18n` Property
 
-In Markdown files, you can use [VFM (Vivliostyle Flavored Markdown)](https://vivliostyle.github.io/vfm/#/vfm).
+Optional. Translations of the `name` of the theme and of the `description` of the package, keyed by a language code.
+
+```json
+"i18n": {
+  "ja": {
+    "name": "マイブック",
+    "description": "文庫本の小説向けのテーマ"
+  }
+}
+```
+
+### `vivliostyle.template` Property
+
+Optional, but recommended. Templates of projects that use the theme, keyed by a template ID. Vivliostyle CLI offers them in `vivliostyle create` after the theme is chosen. Without templates, it uses the `basic` template of Vivliostyle CLI.
+
+| Field         | Required | Description                                       |
+| ------------- | -------- | ------------------------------------------------- |
+| `name`        |          | Name shown when choosing a template               |
+| `description` |          | Short description shown with the name             |
+| `source`      | ✔        | Location of the template files                    |
+| `prompt`      |          | Additional questions asked when creating projects |
+
+`source` is either a path inside the theme package that starts with `./`, or a source in the [giget](https://github.com/unjs/giget) format such as `gh:user/repo/template`. Prefer a path inside the package: it is read from the same version of the package as the chosen theme, so the template always matches the theme, while a source in the giget format follows a branch of the repository. Paths inside the package require Vivliostyle CLI 11.5.0 or later.
+
+See [the templates guide of Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli/blob/main/docs/templates.md) for `prompt` and the variables available in templates.
+
+## templates/
+
+Put each template in its own directory under `templates/`, and include `templates` in the `files` of package.json. A template contains a `vivliostyle.config.json` and at least one Markdown file that shows off the theme. In Markdown files, you can use [VFM (Vivliostyle Flavored Markdown)](https://vivliostyle.github.io/vfm/#/vfm).
+
+`vivliostyle create` copies the files into the new project and fills in the [Handlebars](https://handlebarsjs.com/) expressions in every text file. The `vivliostyle.config.json` of the template uses them to take the values entered by the user. Write it in JSON, not JavaScript: Vivliostyle Pub does not run JavaScript configs.
+
+```json
+{
+  "title": {{json (proper title)}},
+  "author": {{json author}},
+  "language": "en",
+  "theme": {{#if theme}}{{json theme}}{{else}}"vivliostyle-theme-mybook"{{/if}},
+  "entry": ["manuscript.md"]
+}
+```
+
+`theme` holds the chosen package with its version range, such as `"vivliostyle-theme-mybook@^1.0.0"`.
 
 ## theme.css
 
@@ -150,7 +210,7 @@ theme: {
 module.exports = {
   language: 'en',
   theme: '.',
-  entry: ['example/default.md'],
+  entry: ['templates/default/manuscript.md'],
   workspaceDir: '.vivliostyle',
   output: [
     'book.pdf',
@@ -162,7 +222,7 @@ module.exports = {
 };
 ```
 
-This is a configuration file for generating publications from Markdown files in example. It is used by developers to develop themes and by theme's users to generate sample publications.
+This is a configuration file for building the Markdown files of a template with the stylesheet under development, without creating a project. Theme developers use it while developing the theme, and users of the theme also use it to generate a sample publication.
 
 [create-vivliostyle-theme]: https://www.npmjs.com/package/create-vivliostyle-theme
 [create book]: https://github.com/vivliostyle/create-book

@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "config",
     "vivliostyle.config.js"
   ],
@@ -47,7 +47,30 @@
       "author": "Vivliostyle <mail@vivliostyle.org>",
       "style": "theme.css",
       "category": "novel",
-      "topics": []
+      "topics": [
+        "literature",
+        "serif",
+        "traditional"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "欧文書籍用のテーマ"
+        }
+      }
+    },
+    "template": {
+      "alice": {
+        "name": "Alice’s Adventures in Wonderland",
+        "source": "./templates/alice"
+      },
+      "fang": {
+        "name": "White Fang",
+        "source": "./templates/fang"
+      },
+      "sherlock": {
+        "name": "The Adventures of Sherlock Holmes",
+        "source": "./templates/sherlock"
+      }
     }
   }
 }

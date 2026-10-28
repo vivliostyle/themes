@@ -27,25 +27,28 @@ You will be prompted to enter the following. Each one can also be given as a com
 ```
 <directory>/
 ├── .gitignore
-├── package.json          # Package definition (includes vivliostyle.theme config)
+├── package.json          # Package definition (includes theme and template config)
 ├── README.md             # Theme description and usage
 ├── theme.css             # Main theme CSS
 ├── vivliostyle.config.js # Configuration for previewing
-└── example/
-    ├── 01_typography.md      # Sample manuscripts (VFM format)
-    ├── 02_figures-and-tables.md
-    ├── 03_code-and-math.md
-    └── assets/
+└── templates/
+    └── default/                  # Project template
+        ├── 01_typography.md      # Sample manuscripts (VFM format)
+        ├── 02_figures-and-tables.md
+        ├── 03_code-and-math.md
+        ├── assets/
+        └── vivliostyle.config.json   # Configuration of projects created from the template
 ```
 
 File roles:
 
-| File                    | Role                                                                                                            |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `package.json`          | Theme metadata. The `vivliostyle.theme` property defines the theme name, author, main CSS, and category         |
-| `theme.css`             | The main style definition. Pre-configured with theme-base `@import` and CSS variable customizations             |
-| `vivliostyle.config.js` | Used with `vivliostyle preview` to check the theme. Entry points to the manuscripts in `example/`               |
-| `example/*.md`          | Sample Markdown demonstrating theme application. Supports [VFM](https://vivliostyle.github.io/vfm/#/vfm) syntax |
+| File                                        | Role                                                                                                                                                      |
+| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `package.json`                              | Theme metadata. The `vivliostyle.theme` property defines the theme name, author, main CSS, and category, and `vivliostyle.template` declares the template |
+| `theme.css`                                 | The main style definition. Pre-configured with theme-base `@import` and CSS variable customizations                                                       |
+| `vivliostyle.config.js`                     | Used with `vivliostyle preview` to check the theme. Entry points to the manuscripts in `templates/default/`                                               |
+| `templates/default/*.md`                    | Sample Markdown demonstrating theme application. Supports [VFM](https://vivliostyle.github.io/vfm/#/vfm) syntax                                           |
+| `templates/default/vivliostyle.config.json` | Configuration of projects created from the template. Takes the title, the author and the theme chosen in `vivliostyle create`                             |
 
 ## Customizing the Scaffold
 
@@ -179,19 +182,23 @@ As a practical example, [theme-techbook](https://github.com/vivliostyle/themes/t
 }
 ```
 
-### Editing the example/ Directory
+### Editing the templates/default/ Directory
 
-Place sample Markdown files in `example/` to demonstrate theme application.
+`templates/default/` is a template of projects that use the theme. Users can create a project from it with `vivliostyle create`. Place sample Markdown files in it to demonstrate theme application.
 
 - At least one Markdown file is required
 - [VFM (Vivliostyle Flavored Markdown)](https://vivliostyle.github.io/vfm/#/vfm) syntax is supported
 - It is recommended to cover the major styles your theme supports (headings, code blocks, footnotes, images, math equations, etc.)
+- List the Markdown files in the `entry` of both `templates/default/vivliostyle.config.json` and `vivliostyle.config.js`
+- Every text file is processed with Handlebars when a project is created, so write `\{{` for a `{{` that should stay as it is
 
 Preview for verification:
 
 ```bash
 npm run example:preview
 ```
+
+To provide more than one template, add a directory for each under `templates/` and declare them in `vivliostyle.template` of `package.json`. See [`vivliostyle.template`](./spec.md#vivliostyletemplate-property) and [templates/](./spec.md#templates) in the spec for the details.
 
 ## Publishing a Theme
 
@@ -219,7 +226,7 @@ Validation checks:
 npm run example:preview
 ```
 
-Based on the `vivliostyle.config.js` configuration, a preview with the theme applied to the sample manuscripts in `example/` will be displayed.
+Based on the `vivliostyle.config.js` configuration, a preview with the theme applied to the sample manuscripts in `templates/default/` will be displayed.
 
 ### Required package.json Fields
 

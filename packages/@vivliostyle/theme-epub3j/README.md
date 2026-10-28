@@ -17,7 +17,7 @@
 - ebpaj_epub3guide/style-reset.css
 - ebpaj_epub3guide/style-standard.css
 
-また、example ディレクトリ内のサンプル文書は、この制作ガイドに付属するサンプルEPUB（ebpaj-sample.epub）の内容を再利用して、XHTML文書からMarkdown原稿の形式に書き換えたものです。
+また、templates/default ディレクトリ内のサンプル文書は、この制作ガイドに付属するサンプルEPUB（ebpaj-sample.epub）の内容を再利用して、XHTML文書からMarkdown原稿の形式に書き換えたものです。
 
 ![Screenshot of theme-epub3j example](../../../docs/assets/captures/theme-epub3j.webp)
 

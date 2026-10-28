@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-academic",
   "version": "3.0.0",
-  "description": "Academic theme",
+  "description": "Theme for academic papers and reports",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -16,7 +16,7 @@
   },
   "files": [
     "*.css",
-    "example",
+    "templates",
     "vivliostyle.config.js"
   ],
   "type": "module",
@@ -43,12 +43,26 @@
   "vivliostyle": {
     "theme": {
       "name": "Academic",
-      "category": "academic",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "category": "journal",
       "style": "theme.css",
       "topics": [
-        "Academic",
-        "Report"
-      ]
+        "academic",
+        "report",
+        "horizontal-writing",
+        "mincho"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "学術論文やレポート用のテーマ"
+        }
+      }
+    },
+    "template": {
+      "default": {
+        "name": "Academic sample",
+        "source": "./templates/default"
+      }
     }
   }
 }
