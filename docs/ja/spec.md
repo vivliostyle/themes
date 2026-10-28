@@ -89,7 +89,7 @@ $ vivliostyle theme validate
 
 ### `description` プロパティ
 
-推奨。英語で書いてください。npmと[theme.vivliostyle.org](https://theme.vivliostyle.org)は、これをテーマの概要として表示します。翻訳は[`vivliostyle.theme.i18n`](#i18n-プロパティ)に書きます。
+推奨。英語で書いてください。npmは、これをテーマの概要として表示します。翻訳は[`vivliostyle.theme.i18n`](#i18n-プロパティ)に書きます。
 
 ### `keywords` プロパティ
 
@@ -132,17 +132,14 @@ package.jsonのトップレベルに `style` や `main` を指定することも
 
 #### `topics` プロパティ
 
-任意。テーマの用途を`category`プロパティよりも具体的に表すキーワードです。[theme.vivliostyle.org](https://theme.vivliostyle.org)は、これをテーマを絞り込むためのタグとして表示します。
+任意。テーマの用途を`category`プロパティよりも具体的に表すキーワードです。
 
 - 各トピックは、`two-column`のように小文字のkebab-caseの英語で書きます。
 - [`vocabulary/topics.json`](https://github.com/vivliostyle/themes/blob/main/vocabulary/topics.json)の統制語彙に該当する語があれば、それを優先し、語の`id`で書きます。語彙には、段組、組方向、書体、ジャンル、雰囲気のファセットがあります。語の`aliases`は別の表記で、受け付けますが`id`に正規化されます。
-- それ以外のトピックは自由タグとして表示されます。
-
-このリポジトリの公式テーマは`pnpm run validate`で検査されます。
 
 #### `i18n` プロパティ
 
-任意。テーマの`name`とパッケージの`description`の翻訳を、言語コードをキーにして書きます。theme.vivliostyle.orgはその言語のページでこれを表示し、翻訳がなければ元の値を使います。
+任意。テーマの`name`とパッケージの`description`の翻訳を、言語コードをキーにして書きます。
 
 ```json
 "i18n": {
@@ -155,7 +152,7 @@ package.jsonのトップレベルに `style` や `main` を指定することも
 
 ### `vivliostyle.template` プロパティ
 
-任意ですが、推奨します。テーマを使うプロジェクトのテンプレートを、テンプレートIDをキーにして書きます。Vivliostyle CLIは`vivliostyle create`でテーマが選ばれたあとにこれを選択肢として示し、theme.vivliostyle.orgはこれを描画してテーマのサムネイル（最初のテンプレート）とプレビューに使います。テンプレートがない場合は、どちらもVivliostyle CLIの`basic`テンプレートを使います。
+任意ですが、推奨します。テーマを使うプロジェクトのテンプレートを、テンプレートIDをキーにして書きます。Vivliostyle CLIは`vivliostyle create`でテーマが選ばれたあとにこれを選択肢として示します。テンプレートがない場合は、Vivliostyle CLIの`basic`テンプレートを使います。
 
 | フィールド    | 必須 | 説明                                       |
 | ------------- | ---- | ------------------------------------------ |
@@ -184,9 +181,7 @@ package.jsonのトップレベルに `style` や `main` を指定することも
 }
 ```
 
-`theme`は、選ばれたパッケージとそのバージョンの範囲です（例：`"vivliostyle-theme-mybook@^1.0.0"`）。パッケージ内の別のスタイルシートを使う場合は、`{ "specifier": {{json theme}}, "import": "theme_print.css" }`のように書きます。
-
-サンプルの文章のコードブロックなどで、`{{`をそのまま残したい場合は`\{{`と書きます。
+`theme`には、選ばれたパッケージとそのバージョンの範囲が入ります（例：`"vivliostyle-theme-mybook@^1.0.0"`）。
 
 ## theme.css
 
@@ -225,7 +220,7 @@ module.exports = {
 };
 ```
 
-プロジェクトを作らずに、テンプレートのMarkdownファイルを開発中のスタイルシートでビルドするための設定ファイルです。この場合はHandlebarsの式が埋められないため、コードブロック内の`\{{`はバックスラッシュが残ったまま表示されます。
+プロジェクトを作らずに、テンプレートのMarkdownファイルを開発中のスタイルシートでビルドするための設定ファイルです。開発者がテーマを開発する際に使うほか、テーマを使うユーザーがサンプル出版物を生成する際にも使います。
 
 [create-vivliostyle-theme]: https://www.npmjs.com/package/create-vivliostyle-theme
 [create book]: https://github.com/vivliostyle/create-book

@@ -89,7 +89,7 @@ $ vivliostyle theme validate
 
 ### `description` Property
 
-Recommended. Write it in English: npm and [theme.vivliostyle.org](https://theme.vivliostyle.org) show it as the summary of your theme. Translations go in [`vivliostyle.theme.i18n`](#i18n-property).
+Recommended. Write it in English: npm shows it as the summary of your theme. Translations go in [`vivliostyle.theme.i18n`](#i18n-property).
 
 ### `keywords` Property
 
@@ -134,17 +134,14 @@ Note that this list may be updated in the future. Describe the use more specific
 
 #### `topics` Property
 
-Optional. Keywords that describe the theme more specifically than the `category` property. [theme.vivliostyle.org](https://theme.vivliostyle.org) shows them as tags to filter themes by.
+Optional. Keywords that describe the theme more specifically than the `category` property.
 
 - Write each topic in lowercase kebab-case English, such as `two-column`.
 - Prefer the terms of the controlled vocabulary in [`vocabulary/topics.json`](https://github.com/vivliostyle/themes/blob/main/vocabulary/topics.json), and write a term by its `id`. The vocabulary has facets for the columns, the writing mode, the typeface, the genre and the mood. The `aliases` of a term are other spellings, which are accepted but normalized to the `id`.
-- Other topics are shown as free tags.
-
-The official themes in this repository are checked with `pnpm run validate`.
 
 #### `i18n` Property
 
-Optional. Translations of the `name` of the theme and of the `description` of the package, keyed by a language code. theme.vivliostyle.org shows them on the pages in that language, and falls back to the untranslated values.
+Optional. Translations of the `name` of the theme and of the `description` of the package, keyed by a language code.
 
 ```json
 "i18n": {
@@ -157,7 +154,7 @@ Optional. Translations of the `name` of the theme and of the `description` of th
 
 ### `vivliostyle.template` Property
 
-Optional, but recommended. Templates of projects that use the theme, keyed by a template ID. Vivliostyle CLI offers them in `vivliostyle create` after the theme is chosen, and theme.vivliostyle.org renders them for the thumbnail (the first template) and the previews of the theme. Without templates, both use the `basic` template of Vivliostyle CLI.
+Optional, but recommended. Templates of projects that use the theme, keyed by a template ID. Vivliostyle CLI offers them in `vivliostyle create` after the theme is chosen. Without templates, it uses the `basic` template of Vivliostyle CLI.
 
 | Field         | Required | Description                                       |
 | ------------- | -------- | ------------------------------------------------- |
@@ -186,9 +183,7 @@ Put each template in its own directory under `templates/`, and include `template
 }
 ```
 
-`theme` is the chosen package with its version range, such as `"vivliostyle-theme-mybook@^1.0.0"`. To use another stylesheet of the package, write `{ "specifier": {{json theme}}, "import": "theme_print.css" }`.
-
-Write `\{{` for a `{{` that should stay as it is, for example in a code block of the sample text.
+`theme` holds the chosen package with its version range, such as `"vivliostyle-theme-mybook@^1.0.0"`.
 
 ## theme.css
 
@@ -227,7 +222,7 @@ module.exports = {
 };
 ```
 
-This is a configuration file for building the Markdown files of a template with the stylesheet under development, without creating a project. Handlebars does not fill in the files in this case, so a `\{{` in a code block keeps its backslash.
+This is a configuration file for building the Markdown files of a template with the stylesheet under development, without creating a project. Theme developers use it while developing the theme, and users of the theme also use it to generate a sample publication.
 
 [create-vivliostyle-theme]: https://www.npmjs.com/package/create-vivliostyle-theme
 [create book]: https://github.com/vivliostyle/create-book
