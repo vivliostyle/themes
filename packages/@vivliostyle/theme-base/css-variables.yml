@@ -556,7 +556,6 @@ _basic:
   figcaption-margin-block:
     _syntax: '*'
     _property: 'margin-block'
-    _define: 'var(--vs-spacing-rlh)'
   figcaption-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
@@ -598,6 +597,10 @@ _basic:
     _syntax: 'column | column-reverse | row | row-reverse'
     _property: 'flex-direction'
     _define: 'column'
+  figure-gap:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'gap'
+    _define: 'var(--vs-spacing-rlh)'
   figure-item-max-size-block:
     _syntax: 'fit-content | max-content | min-content | none | stretch | <length-percentage>'
     _property: 'max-block-size'
