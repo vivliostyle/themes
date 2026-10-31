@@ -1,14 +1,17 @@
 @define {
   :root {
-    --vs-section--call-content: '§'
-      target-counters(
-        attr(href),
-        vs-counter-sections,
-        var(--vs-section--counter-delimiter),
-        var(--vs-section--counter-style, var(--vs-counter-style))
-      );
+    --vs-section--call-content: var(--vs-section--label)
+      var(--vs-section--call-counter-content);
+    --vs-section--call-counter-content: target-counters(
+      attr(href),
+      vs-counter-sections,
+      var(--vs-section--counter-delimiter),
+      var(--vs-section--counter-style, var(--vs-counter-style))
+    );
     --vs-section--counter-delimiter: '.';
-    --vs-section--marker-content: counters(
+    --vs-section--label: 'Section ';
+    --vs-section--marker-content: var(--vs-section--marker-counter-content);
+    --vs-section--marker-counter-content: counters(
       vs-counter-sections,
       var(--vs-section--counter-delimiter),
       var(--vs-section--counter-style, var(--vs-counter-style))
@@ -23,6 +26,12 @@
       var(--vs-section--root-counter-sec-h4,) vs-counter-sec-h5
       var(--vs-section--root-counter-sec-h5,) vs-counter-sec-h6
       var(--vs-section--root-counter-sec-h6,);
+  }
+
+  :root:lang(ja) {
+    --vs-section--label: '節';
+    --vs-section--call-content: var(--vs-section--call-counter-content)
+      var(--vs-section--label);
   }
 }
 
