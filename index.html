@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting…</title>
+    <link rel="canonical" href="https://docs.vivliostyle.org/en/themes/" />
+    <meta name="robots" content="noindex" />
+    <script>
+      var url = 'https://docs.vivliostyle.org/en/themes/';
+      var hash = location.hash;
+      // Links from the former docsify site, e.g. #/ja/spec, #/gallery#anchor
+      var route = /^#\/(ja\/?)?([\w-]*)(?:\?id=([^&#]*)|#(.*))?/.exec(hash);
+      if (route) {
+        var pages = ['usage', 'development', 'spec', 'migration-v3', 'official', 'gallery'];
+        var page = pages.indexOf(route[2]) >= 0 ? route[2] : '';
+        var anchor = page && (route[3] || route[4]);
+        url =
+          'https://docs.vivliostyle.org/' +
+          (route[1] ? 'ja' : 'en') +
+          '/themes/' +
+          (page && page + '/') +
+          (anchor ? '#' + anchor : '');
+        hash = '';
+      }
+      location.replace(url + hash);
+    </script>
+    <meta http-equiv="refresh" content="0; url=https://docs.vivliostyle.org/en/themes/" />
+  </head>
+  <body>
+    <p>This page has moved to <a href="https://docs.vivliostyle.org/en/themes/">https://docs.vivliostyle.org/en/themes/</a>.</p>
+  </body>
+</html>
