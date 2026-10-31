@@ -12,6 +12,7 @@
     "dev": "pnpm -r --parallel run dev",
     "example:build": "pnpm -r example:build",
     "example:capture-pdf": "node scripts/capture-pdf.ts",
+    "example:list-pdf": "node scripts/list-pdf.ts",
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",
     "lint": "oxlint",
