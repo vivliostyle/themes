@@ -37,12 +37,17 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                               | 既定値                                                      | 説明                                               |
 | ---------------------------------- | ----------------------------------------------------------- | -------------------------------------------------- |
-| `--vs-theme-orange-badge-column-rule--color-accent`         | `#ff6600`                                                   | 章番号バッジ・段間罫・情報ボックス枠のアクセント色 |
-| `--vs-theme-orange-badge-column-rule--font-condensed`       | `'Barlow Condensed', ...`                                   | 章番号・料金数字・参照ページの書体                 |
+| `--vs-color-foreground` | `#1f1f1f` | 本文の文字色 |
+| `--vs-color-background` | `#fdfcf8` | 紙面の地色 |
+| `--vs-color-foreground-alt` | `#ff6600` | アクセント色 |
+| `--vs-theme-orange-badge-column-rule--color-accent`         | `--vs-color-foreground-alt` と同じ | 章番号バッジ・段間罫・情報ボックス枠のアクセント色 |
+| `--vs-font-family-alt`       | `'Barlow Condensed', ...`                                   | 章番号・料金数字・参照ページの書体                 |
 | `--vs-theme-orange-badge-column-rule--font-caption`         | `'M PLUS 1p', ...`                                          | データ欄・表の書体                                 |
-| `--vs-theme-orange-badge-column-rule--color-muted`          | `#8a8a8a`                                                   | キャプション・ノンブルの色                         |
+| `--vs--figcaption-text-color`          | `--vs-color-foreground` × `--vs-color-background` 50% | キャプション・ノンブルの色                         |
 | `--vs-theme-orange-badge-column-rule--pageref-call-content` | `'→ P.' target-counter(attr(href), page)`                   | `data-ref="page"` の参照に出る文字列               |
 | `--vs--h1-font-size`               | `33pt`                                                      | 章題の文字サイズ                                   |
 | `--vs-section--h1-marker-content`  | `counter(vs-counter-sec-h1)`                                | 章番号バッジの内容                                 |

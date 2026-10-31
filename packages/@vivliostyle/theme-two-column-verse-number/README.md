@@ -52,18 +52,20 @@ title: 静謐の書
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                         | 既定値                                                                         | 説明                        |
 | -------------------------------------------- | ------------------------------------------------------------------------------ | --------------------------- |
 | `--vs-font-family`                           | `'Shippori Mincho', ...`                                                       | 本文書体                    |
 | `--vs--heading-font-family`                  | `'Noto Serif JP', ...`                                                         | 章題の書体                  |
-| `--vs-theme-two-column-verse-number--font-sans`                      | `'Noto Sans JP', ...`                                                          | 柱・脚注参照の書体          |
-| `--vs-color-foreground`                            | `#171613`                                                                      | 本文の文字色                |
-| `--vs-color-background`                      | `#f7f4ec`                                                                      | 地色                        |
-| `--vs-color-foreground-alt`                      | `#4e4b45`                                                                      | 柱・脚注の淡色              |
-| `--vs-theme-two-column-verse-number--color-rule`                     | `#a7a198`                                                                      | 段間罫・ヘッダー罫の色      |
+| `--vs-font-family-alt`                      | `'Noto Sans JP', ...`                                                          | 柱・脚注参照の書体          |
+| `--vs-color-foreground`                            | `#171613` | 本文の文字色                |
+| `--vs-color-background`                      | `#f7f4ec` | 地色                        |
+| `--vs-color-foreground-alt`                      | `--vs-color-foreground` × `--vs-color-background` 30% | 柱・脚注の淡色              |
+| `--vs-color-border`                     | `--vs-color-foreground` × `--vs-color-background` 65% | 段間罫・ヘッダー罫の色      |
 | `--vs-section--h2-marker-content`            | `'第' counter(vs-counter-sec-h2, cjk-ideographic) '章'`                        | 章番号の書式                |
 | `--vs-theme-two-column-verse-number--chapter-counter-style`          | `cjk-ideographic`                                                              | 章題見出しの章番号の数字    |
-| `--vs-theme-two-column-verse-number--pillar-content`                 | `env(doc-title) counter(vs-counter-sec-h2)`                                    | 柱の内容                    |
+| `--vs-page--mbox-top-outside-content`                 | `env(doc-title) counter(vs-counter-sec-h2)`                                    | 柱の内容                    |
 | `--vs-theme-two-column-verse-number--verse-marker-content`           | `counter(vs-counter-verse)`                                                    | 節番号の書式                |
 | `--vs-theme-two-column-verse-number--verse-counter-style`            | `decimal`                                                                      | 節番号の数字                |
 | `--vs-theme-two-column-verse-number--verse-marker-font-size`         | `1.06em`                                                                       | 節番号の大きさ              |

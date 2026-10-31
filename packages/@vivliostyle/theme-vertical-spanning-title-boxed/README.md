@@ -62,8 +62,8 @@ lang: ja
 | 変数                                    | 既定値                              | 説明                              |
 | --------------------------------------- | ----------------------------------- | --------------------------------- |
 | `--vs-font-family`                      | `'Noto Serif JP', ...`              | 本文・見出しの明朝書体            |
-| `--vs-color-foreground`                       | `#1a1a1a`                           | 本文・罫の墨色                    |
-| `--vs-color-background`                 | `#f5f2ea`                           | 黄味がかった地色                  |
+| `--vs-color-foreground`                       | `#1a1a1a` | 本文・罫の墨色                    |
+| `--vs-color-background`                 | `#f5f2ea` | 黄味がかった地色                  |
 | `--vs--h1-font-size`                    | `26pt`                              | 大題 (縦組み) の文字サイズ        |
 | `--vs-theme-vertical-spanning-title-boxed--columns`                   | `2`                                 | 段数 (縦組みなので上下に積まれる) |
 | `--vs-theme-vertical-spanning-title-boxed--column-gap`                | `6mm`                               | 段間                              |

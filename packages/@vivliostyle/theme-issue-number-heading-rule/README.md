@@ -44,8 +44,8 @@ class: chapter
 | ----------------------------------- | -------------------------------------------------- | ------------------------------ |
 | `--vs-font-family`                  | `'Noto Serif JP', ...`                             | 本文書体                       |
 | `--vs--heading-font-family`         | `'Noto Serif JP', ...`                             | 見出し (号数・小見出し) の書体 |
-| `--vs-color-foreground`                   | `#1a1a1a`                                          | 本文・柱・罫の基本色           |
-| `--vs-color-background`             | `#fcfbf7`                                          | 地色                           |
+| `--vs-color-foreground`                   | `#1a1a1a` | 本文・柱・罫の基本色           |
+| `--vs-color-background`             | `#fcfbf7` | 地色                           |
 | `--vs--h2-font-size`                | `12pt`                                             | 号数見出しの文字サイズ         |
 | `--vs--h3-font-size`                | `9.2pt`                                            | 連番付き小見出しの文字サイズ   |
 | `--vs-section--h2-marker-content`   | `'第' counter(vs-counter-chapter) '号'`            | 号数の表記                     |

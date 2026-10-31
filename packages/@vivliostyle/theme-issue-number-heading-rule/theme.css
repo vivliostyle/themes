@@ -17,21 +17,6 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  --vs-page--size: 105mm 173mm;
-  --vs-page--margin-top: 8mm;
-  --vs-page--margin-bottom: 13mm;
-  --vs-page--margin-left: 13mm;
-  --vs-page--margin-right: 13mm;
-  --vs-page--background-color: #fcfbf7;
-
-  --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
-  --vs-font-size: 7.5pt;
-  --vs-line-height: 1.6;
-  --vs-color-foreground: #1a1a1a;
-  --vs-color-background: #fcfbf7;
-  --vs-columns: 1;
-  --vs-color-border: #1a1a1a;
-
   /* 「第N号」の相互参照。扉の号一覧は発行日も見出しから引く */
   --vs-theme-issue-number-heading-rule--issueref-call-content: '第'
     target-counter(attr(href), vs-counter-chapter) '号';
@@ -39,21 +24,13 @@
     target-counter(attr(href), vs-counter-chapter) '号　'
     target-text(attr(href));
 
-  --vs-page--mbox-top-left-content: env(pub-title);
-  /* ノンブルは小口下 (右ページは右下、左ページは左下) */
-  --vs-page--mbox-bottom-outside-content: counter(page);
-  --vs-page--mbox-top-size-inline: 100%;
-  --vs-page--border-width-top: 0.5pt;
-  --vs-page--border-color-top: #1a1a1a;
-  --vs-page--mbox-top-font-family: 'Noto Sans JP', sans-serif;
-  --vs-page--mbox-top-font-size: 7pt;
-  --vs-page--mbox-top-font-weight: 500;
-  --vs-page--mbox-top-letter-spacing: 0.04em;
-  --vs-page--mbox-top-vertical-align: bottom;
-  --vs-page--mbox-top-padding-bottom: 1.2mm;
-  --vs-page--mbox-text-color: #1a1a1a;
-  --vs-page--mbox-bottom-font-family: 'Noto Sans JP', sans-serif;
-  --vs-page--mbox-bottom-font-size: 7.5pt;
+  --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+  --vs-font-size: 7.5pt;
+  --vs-line-height: 1.6;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-background: #fcfbf7;
+  --vs-columns: 1;
+  --vs-color-border: var(--vs-color-foreground);
 
   --vs--heading-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
 
@@ -74,6 +51,27 @@
   --vs--h3-font-size: 9.2pt;
   --vs--h3-line-height: 1.4;
   --vs--h3-margin-block: 2.2mm 0.8mm;
+
+  --vs-page--size: 105mm 173mm;
+  --vs-page--margin-top: 8mm;
+  --vs-page--margin-bottom: 13mm;
+  --vs-page--margin-left: 13mm;
+  --vs-page--margin-right: 13mm;
+
+  --vs-page--mbox-top-left-content: env(pub-title);
+  /* ノンブルは小口下 (右ページは右下、左ページは左下) */
+  --vs-page--mbox-bottom-outside-content: counter(page);
+  --vs-page--mbox-top-size-inline: 100%;
+  --vs-page--border-width-top: 0.5pt;
+  --vs-page--border-color-top: var(--vs-color-foreground);
+  --vs-page--mbox-top-font-family: 'Noto Sans JP', sans-serif;
+  --vs-page--mbox-top-font-size: 7pt;
+  --vs-page--mbox-top-font-weight: 500;
+  --vs-page--mbox-top-letter-spacing: 0.04em;
+  --vs-page--mbox-top-vertical-align: bottom;
+  --vs-page--mbox-top-padding-bottom: 1.2mm;
+  --vs-page--mbox-bottom-font-family: 'Noto Sans JP', sans-serif;
+  --vs-page--mbox-bottom-font-size: 7.5pt;
 
   /* 号数は文書カウンタ、小見出しの連番は号ごとにリセットされる h3 カウンタ */
   --vs-section--h2-marker-display: inline;

@@ -16,17 +16,45 @@
 @import '@vivliostyle/theme-base/toc';
 
 :root {
-  --vs-page--size: 127mm 188mm;
   /* --vs-page--size と対で持つ。飾り枠の高さを版面から導くのに使う */
   --vs-theme-ornamental-frame-corner-title--page-height: 188mm;
 
+  --vs-theme-ornamental-frame-corner-title--color-lead: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 40%
+  );
+
+  /* 飾りページの枠と角飾り */
+  --vs-theme-ornamental-frame-corner-title--plate-margin: 6mm;
+  --vs-theme-ornamental-frame-corner-title--plate-min-height: calc(
+    var(--vs-theme-ornamental-frame-corner-title--page-height) -
+      var(--vs-theme-ornamental-frame-corner-title--plate-margin) * 2
+  );
+  --vs-theme-ornamental-frame-corner-title--plate-padding: 5mm 11mm 0;
+  --vs-theme-ornamental-frame-corner-title--plate-border-width: 1.4pt;
+  --vs-theme-ornamental-frame-corner-title--plate-inner-border-inset: 1.9mm;
+  --vs-theme-ornamental-frame-corner-title--plate-inner-border-width: 0.5pt;
+  --vs-theme-ornamental-frame-corner-title--plate-corner-size: 15mm;
+  --vs-theme-ornamental-frame-corner-title--plate-corner-inset: 1.1mm;
+  /* 扉の見出し塊を天から落とす位置 */
+  --vs-theme-ornamental-frame-corner-title--plate-headline-margin-block-start: 58mm;
+  --vs-theme-ornamental-frame-corner-title--plate-folio-inset-block-end: 6mm;
+  /* 中扉の篇番号 */
+  --vs-theme-ornamental-frame-corner-title--work-marker-content: '第'
+    counter(vs-counter-chapter, cjk-ideographic) '篇';
+
   --vs-font-family: 'Noto Serif JP', serif;
+  --vs-font-family-alt: 'EB Garamond', 'Times New Roman', serif;
   --vs-font-size: 10pt;
   --vs-line-height: 1.7;
   --vs-color-foreground: #1c1c1c;
+  --vs-color-foreground-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 25%
+  );
   --vs-color-background: #faf7f1;
-
-  --vs-page--background-color: #faf7f1;
 
   --vs--heading-font-family: 'Shippori Mincho', 'Noto Serif JP', serif;
   --vs--h1-font-size: 23pt;
@@ -48,33 +76,16 @@
   --vs--rt-letter-spacing: 0;
   --vs--rt-line-height: 1;
 
-  --vs--hr-border-color: #1c1c1c;
+  --vs--hr-border-color: var(--vs-color-foreground);
   --vs--hr-border-width-block-start: 0.6pt;
   --vs--hr-margin-inline: auto;
 
-  --vs-theme-ornamental-frame-corner-title--font-numeral:
-    'EB Garamond', 'Times New Roman', serif;
-  --vs-theme-ornamental-frame-corner-title--color-byline: #4a463f;
-  --vs-theme-ornamental-frame-corner-title--color-lead: #6f6a60;
+  --vs--p-text-indent: 1em;
+  --vs--rt-font-size: 0.5em;
+  --vs--hr-size-inline: 14mm;
+  --vs--hr-margin-block: 5.5mm;
 
-  /* 飾りページの枠と角飾り */
-  --vs-theme-ornamental-frame-corner-title--plate-margin: 6mm;
-  --vs-theme-ornamental-frame-corner-title--plate-min-height: calc(
-    var(--vs-theme-ornamental-frame-corner-title--page-height) -
-      var(--vs-theme-ornamental-frame-corner-title--plate-margin) * 2
-  );
-  --vs-theme-ornamental-frame-corner-title--plate-padding: 5mm 11mm 0;
-  --vs-theme-ornamental-frame-corner-title--plate-border-width: 1.4pt;
-  --vs-theme-ornamental-frame-corner-title--plate-inner-border-inset: 1.9mm;
-  --vs-theme-ornamental-frame-corner-title--plate-inner-border-width: 0.5pt;
-  --vs-theme-ornamental-frame-corner-title--plate-corner-size: 15mm;
-  --vs-theme-ornamental-frame-corner-title--plate-corner-inset: 1.1mm;
-  /* 扉の見出し塊を天から落とす位置 */
-  --vs-theme-ornamental-frame-corner-title--plate-headline-margin-block-start: 58mm;
-  --vs-theme-ornamental-frame-corner-title--plate-folio-inset-block-end: 6mm;
-  /* 中扉の篇番号 */
-  --vs-theme-ornamental-frame-corner-title--work-marker-content: '第'
-    counter(vs-counter-chapter, cjk-ideographic) '篇';
+  --vs-page--size: 127mm 188mm;
 
   /* ---- 本文ページ ---- */
   --vs-page--margin-top: 16mm;
@@ -82,23 +93,14 @@
   --vs-page--margin-left: 12mm;
   --vs-page--margin-right: 12mm;
 
-  --vs--p-text-indent: 1em;
-  --vs--rt-font-size: 0.5em;
-  --vs--hr-size-inline: 14mm;
-  --vs--hr-margin-block: 5.5mm;
-
   --vs-page--mbox-top-center-content: env(doc-title);
   --vs-page--mbox-top-font-family: var(--vs--heading-font-family);
   --vs-page--mbox-top-font-size: 8pt;
   --vs-page--mbox-top-letter-spacing: 0.3em;
-  --vs-page--mbox-top-text-color: var(
-    --vs-theme-ornamental-frame-corner-title--color-byline
-  );
+  --vs-page--mbox-top-text-color: var(--vs-color-foreground-alt);
 
   --vs-page--mbox-bottom-center-content: counter(page);
-  --vs-page--mbox-bottom-font-family: var(
-    --vs-theme-ornamental-frame-corner-title--font-numeral
-  );
+  --vs-page--mbox-bottom-font-family: var(--vs-font-family-alt);
   --vs-page--mbox-bottom-font-size: 11pt;
   --vs-page--mbox-bottom-font-feature-settings: 'onum' 1;
   --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
@@ -269,7 +271,7 @@ body.plate--title .imprint {
   letter-spacing: 0.4em;
   text-align: center;
   text-indent: 0.4em;
-  color: var(--vs-theme-ornamental-frame-corner-title--color-byline);
+  color: var(--vs-color-foreground-alt);
 }
 
 body.plate--work .lead {
@@ -290,7 +292,7 @@ body.plate--toc::after {
     --vs-theme-ornamental-frame-corner-title--plate-folio-inset-block-end
   );
   text-align: center;
-  font-family: var(--vs-theme-ornamental-frame-corner-title--font-numeral);
+  font-family: var(--vs-font-family-alt);
   font-size: 11pt;
 }
 
@@ -342,7 +344,7 @@ body.plate--toc::after {
   content: var(--vs-toc--page-leader-content)
     target-counter(attr(href), page, var(--vs-toc--page-counter-style));
   display: var(--vs-toc--page-counter-display);
-  font-family: var(--vs-theme-ornamental-frame-corner-title--font-numeral);
+  font-family: var(--vs-font-family-alt);
   font-size: 12pt;
   font-weight: 400;
   letter-spacing: 0;
@@ -354,7 +356,7 @@ body.plate--toc::after {
   font-size: 8.5pt;
   font-weight: 400;
   letter-spacing: 0.03em;
-  color: var(--vs-theme-ornamental-frame-corner-title--color-byline);
+  color: var(--vs-color-foreground-alt);
 }
 
 /* 各項の2行目 = 内容紹介 */

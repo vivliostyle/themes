@@ -22,17 +22,20 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                | 既定値             | 説明                                          |
 | ----------------------------------- | ------------------ | --------------------------------------------- |
+| `--vs-color-foreground-alt` | `#34495e` | アクセント色 |
 | `--vs-font-family`                  | `'Noto Sans', ...` | 本文書体                                      |
 | `--vs--heading-font-family`         | `'Inter', ...`     | 見出し・ラベルの表示書体                      |
-| `--vs-color-foreground`                   | `#27313a`          | 本文の文字色                                  |
-| `--vs-color-background`             | `#fcfbf7`          | 地色 (ドット方眼の紙色)                       |
-| `--vs-theme-dot-grid-checkbox--font-display`          | `'Inter', ...`     | 日付・図キャプションの表示書体                |
-| `--vs-theme-dot-grid-checkbox--color-accent`          | `#34495e`          | 見出し・チェックボックス・罫のアクセント色    |
-| `--vs-theme-dot-grid-checkbox--color-muted`           | `#87929a`          | 完了タスク・図キャプション・ノンブルの色      |
+| `--vs-color-foreground`                   | `#27313a` | 本文の文字色                                  |
+| `--vs-color-background`             | `#fcfbf7` | 地色 (ドット方眼の紙色)                       |
+| `--vs-font-family-alt`          | `'Inter', ...`     | 日付・図キャプションの表示書体                |
+| `--vs-theme-dot-grid-checkbox--color-accent`          | `--vs-color-foreground-alt` と同じ | 見出し・チェックボックス・罫のアクセント色    |
+| `--vs-theme-dot-grid-checkbox--color-foreground-secondary`           | `--vs-color-foreground-alt` × `--vs-color-background` 45% | 完了タスク・図キャプション・ノンブルの色      |
 | `--vs-theme-dot-grid-checkbox--sketch-size-inline`    | `70mm`             | スケッチ図版の幅 (これより狭い図は拡大しない) |
-| `--vs-theme-dot-grid-checkbox--sketch-marker-content` | `'fig. — '`        | `figcaption` の頭に付く標識                   |
+| `--vs-figure--marker-content` | `'fig. — '`        | `figcaption` の頭に付く標識                   |
 
 ## 見開きで組む
 

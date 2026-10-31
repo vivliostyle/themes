@@ -23,37 +23,8 @@
 
 :root {
   /* ---- テーマ固有 (theme-base に対応する変数が無いもの) ---- */
-  --vs-theme-mincho-thick-underline--running-rule-color: var(
-    --vs-color-foreground
-  );
   --vs-theme-mincho-thick-underline--running-rule-width: 0.4pt;
   --vs-theme-mincho-thick-underline--steps-min-size-inline: 27mm;
-  --vs-equation--margin-block: 3mm;
-  --vs-equation--item-text-align: inherit;
-  --vs-equation--marker-margin-inline: 3mm 0;
-
-  --vs-page--size: A4;
-  --vs-page--margin-top: 18.5mm;
-  --vs-page--margin-bottom: 25mm;
-  --vs-page--margin-left: 22.5mm;
-  --vs-page--margin-right: 22.5mm;
-  --vs-page--border-width-top: var(
-    --vs-theme-mincho-thick-underline--running-rule-width
-  );
-  --vs-page--border-color-top: var(
-    --vs-theme-mincho-thick-underline--running-rule-color
-  );
-  /* 柱の下罫 (版面の上罫) と本文のアキ。罫の太さぶんを引いて本文位置を保つ */
-  --vs-page--padding-top: calc(
-    6.5mm - var(--vs-theme-mincho-thick-underline--running-rule-width)
-  );
-  /* 柱には原稿の題名を流す */
-  --vs-page--mbox-top-right-content: string(running-title);
-  --vs-page--mbox-bottom-right-content: '− ' counter(page) ' −';
-  --vs-page--mbox-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
-  --vs-page--mbox-text-color: var(--vs-color-foreground);
-  --vs-page--mbox-top-font-size: 9pt;
-  --vs-page--mbox-bottom-font-size: 9.5pt;
 
   --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
   --vs-font-size: 10pt;
@@ -61,7 +32,7 @@
   --vs-spacing-rlh: 1.8rem;
   --vs-color-foreground: #1a1a1a;
   --vs-color-background: #f7f5f0;
-  --vs-color-border: #1a1a1a;
+  --vs-color-border: var(--vs-color-foreground);
 
   --vs--h1-string-set: running-title content();
   --vs--h1-font-size: 16pt;
@@ -95,6 +66,31 @@
   --vs--figcaption-text-align: center;
 
   --vs--table-border-width: 0;
+
+  --vs-equation--margin-block: 3mm;
+  --vs-equation--item-text-align: inherit;
+  --vs-equation--marker-margin-inline: 3mm 0;
+
+  --vs-page--size: A4;
+  --vs-page--margin-top: 18.5mm;
+  --vs-page--margin-bottom: 25mm;
+  --vs-page--margin-left: 22.5mm;
+  --vs-page--margin-right: 22.5mm;
+  --vs-page--border-width-top: var(
+    --vs-theme-mincho-thick-underline--running-rule-width
+  );
+  --vs-page--border-color-top: var(--vs-color-foreground);
+  /* 柱の下罫 (版面の上罫) と本文のアキ。罫の太さぶんを引いて本文位置を保つ */
+  --vs-page--padding-top: calc(
+    6.5mm - var(--vs-theme-mincho-thick-underline--running-rule-width)
+  );
+  /* 柱には原稿の題名を流す */
+  --vs-page--mbox-top-right-content: string(running-title);
+  --vs-page--mbox-bottom-right-content: '− ' counter(page) ' −';
+  --vs-page--mbox-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+  --vs-page--mbox-text-color: var(--vs-color-foreground);
+  --vs-page--mbox-top-font-size: 9pt;
+  --vs-page--mbox-bottom-font-size: 9.5pt;
 
   /* ---- 章・節番号 (h2 が「1.」、h3 が「2.1」) ---- */
   --vs-section--marker-display: inline;

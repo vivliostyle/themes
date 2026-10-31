@@ -19,90 +19,7 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  --vs-theme-two-column-verse-number--font-sans:
-    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
-  --vs-color-foreground-alt: #4e4b45;
-  --vs-theme-two-column-verse-number--color-rule: #a7a198;
-
-  /* Page: A4 portrait, odd (recto) page — inner(left) 20mm / outer(right) 15mm */
-  --vs-page--size: A4;
-  --vs-page--margin-top: 20mm;
-  --vs-page--margin-bottom: 20mm;
-  --vs-page--margin-left: 17.5mm;
-  --vs-page--margin-right: 17.5mm;
-  --vs-color-background: #f7f4ec;
-  --vs-page--background-color: #f7f4ec;
-  --vs-page--border-width-top: 0.4pt;
-  --vs-page--border-color-top: var(
-    --vs-theme-two-column-verse-number--color-rule
-  );
-
-  /* Margin box: chapter pillar (serif, medium); folio overridden to sans below */
-  --vs-page--mbox-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
-  --vs-page--mbox-font-size: 7.8pt;
-  --vs-page--mbox-font-weight: 500;
-  --vs-page--mbox-text-color: #4e4b45;
-  --vs-page--mbox-letter-spacing: 0.08em;
-
-  /* Pillar and folio sit on the outer edge (right on a recto, left on a verso) */
-  --vs-page--mbox-top-outside-content: var(
-    --vs-theme-two-column-verse-number--pillar-content
-  );
-  --vs-page--mbox-bottom-outside-content: counter(page);
-
-  /* Folio set to sans */
-  --vs-page--mbox-bottom-left-font-family: var(
-    --vs-theme-two-column-verse-number--font-sans
-  );
-  --vs-page--mbox-bottom-left-font-weight: 400;
-  --vs-page--mbox-bottom-left-font-size: 8.4pt;
-  --vs-page--mbox-bottom-left-letter-spacing: 0.02em;
-  --vs-page--mbox-bottom-right-font-family: var(
-    --vs-theme-two-column-verse-number--font-sans
-  );
-  --vs-page--mbox-bottom-right-font-weight: 400;
-  --vs-page--mbox-bottom-right-font-size: 8.4pt;
-  --vs-page--mbox-bottom-right-letter-spacing: 0.02em;
-
-  /* Type: quiet, evenly-set mincho body at 9pt / 1.7 */
-  --vs-font-family:
-    'Shippori Mincho', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho ProN', serif;
-  --vs-font-size: 9pt;
-  --vs-line-height: 1.7;
-  --vs-color-foreground: #171613;
-  --vs-widows-orphans: 2;
-
-  /* Verses: flush left, no indent, tight gap between verses, justified.
-     0.42rem は rlh (1.7rem) の整数分数に載らない実測値。
-     calc(0.25 * var(--vs-spacing-rlh)) = 0.425rem にすると全体が 1pt 下にずれるため
-     リテラルのまま据え置く。 */
-  --vs--p-margin-block: 0.42rem 0;
-  --vs--p-text-indent: 0;
-  --vs--p-text-align: justify;
-
-  /* Chapter heading: wide and calm, set in the second (Noto) mincho */
-  --vs--heading-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
-  --vs--heading-font-weight: 600;
-  --vs--heading-letter-spacing: 0.14em;
-  --vs--heading-line-height: 1.3;
-  --vs--heading-text-align: start;
-  --vs--heading-margin-block: 0 1rem;
-  --vs--h2-font-size: 1.62em;
-
-  /* 章番号「第N章」 */
-  --vs-section--h2-marker-content: '第'
-    counter(
-      vs-counter-sec-h2,
-      var(--vs-theme-two-column-verse-number--chapter-counter-style)
-    )
-    '章';
-  --vs-section--h2-marker-display: inline;
-  --vs-section--h2-marker-margin-inline-end: 1em;
   --vs-theme-two-column-verse-number--chapter-counter-style: cjk-ideographic;
-
-  /* 柱: 書名と章番号 (章番号は算用数字で、章題見出しの漢数字と対にする) */
-  --vs-theme-two-column-verse-number--pillar-content: env(doc-title)
-    '\00a0\00a0' counter(vs-counter-sec-h2);
 
   /* 節番号: 見出し書体の太字を行頭に流し込む */
   --vs-theme-two-column-verse-number--verse-counter-style: decimal;
@@ -125,16 +42,109 @@
       var(--vs-theme-two-column-verse-number--verse-counter-style)
     );
 
+  --vs-color-foreground-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 30%
+  );
+
+  --vs-color-background: #f7f4ec;
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 65%
+  );
+
+  /* Type: quiet, evenly-set mincho body at 9pt / 1.7 */
+  --vs-font-family:
+    'Shippori Mincho', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho ProN', serif;
+  --vs-font-family-alt: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --vs-font-size: 9pt;
+  --vs-line-height: 1.7;
+  --vs-color-foreground: #171613;
+  --vs-widows-orphans: 2;
+
+  /* Verses: flush left, no indent, tight gap between verses, justified.
+     0.42rem は rlh (1.7rem) の整数分数に載らない実測値。
+     calc(0.25 * var(--vs-spacing-rlh)) = 0.425rem にすると全体が 1pt 下にずれるため
+     リテラルのまま据え置く。 */
+  --vs--p-margin-block: 0.42rem 0;
+  --vs--p-text-indent: 0;
+  --vs--p-text-align: justify;
+
+  /* Chapter heading: wide and calm, set in the second (Noto) mincho */
+  --vs--heading-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+  --vs--heading-font-weight: 600;
+  --vs--heading-letter-spacing: 0.14em;
+  --vs--heading-line-height: 1.3;
+  --vs--heading-text-align: start;
+  --vs--heading-margin-block: 0 1rem;
+  --vs--h2-font-size: 1.62em;
+
+  /* Page: A4 portrait, odd (recto) page — inner(left) 20mm / outer(right) 15mm */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 20mm;
+  --vs-page--margin-bottom: 20mm;
+  --vs-page--margin-left: 17.5mm;
+  --vs-page--margin-right: 17.5mm;
+  --vs-page--border-width-top: 0.4pt;
+  --vs-page--border-color-top: var(--vs-color-border);
+
+  /* Margin box: chapter pillar (serif, medium); folio overridden to sans below */
+  --vs-page--mbox-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+  --vs-page--mbox-font-size: 7.8pt;
+  --vs-page--mbox-font-weight: 500;
+  --vs-page--mbox-text-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 30%
+  );
+  --vs-page--mbox-letter-spacing: 0.08em;
+
+  /* Pillar and folio sit on the outer edge (right on a recto, left on a verso) */
+  /* 柱: 書名と章番号 (章番号は算用数字で、章題見出しの漢数字と対にする) */
+  --vs-page--mbox-top-outside-content: env(doc-title) '\00a0\00a0'
+    counter(vs-counter-sec-h2);
+  --vs-page--mbox-bottom-outside-content: counter(page);
+
+  /* Folio set to sans */
+  --vs-page--mbox-bottom-left-font-family: var(--vs-font-family-alt);
+  --vs-page--mbox-bottom-left-font-weight: 400;
+  --vs-page--mbox-bottom-left-font-size: 8.4pt;
+  --vs-page--mbox-bottom-left-letter-spacing: 0.02em;
+  --vs-page--mbox-bottom-right-font-family: var(--vs-font-family-alt);
+  --vs-page--mbox-bottom-right-font-weight: 400;
+  --vs-page--mbox-bottom-right-font-size: 8.4pt;
+  --vs-page--mbox-bottom-right-letter-spacing: 0.02em;
+
+  /* 章番号「第N章」 */
+  --vs-section--h2-marker-content: '第'
+    counter(
+      vs-counter-sec-h2,
+      var(--vs-theme-two-column-verse-number--chapter-counter-style)
+    )
+    '章';
+  --vs-section--h2-marker-display: inline;
+  --vs-section--h2-marker-margin-inline-end: 1em;
+
   /* Footnotes: bracketed reference marks, short warm-grey separator on the left */
   --vs-footnote--font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
   --vs-footnote--font-size: 7pt;
-  --vs-footnote--text-color: #4e4b45;
+  --vs-footnote--text-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 30%
+  );
   --vs-footnote--line-height: 1.5;
   --vs-footnote--call-content: '[' counter(vs-counter-footnote) ']';
   --vs-footnote--call-font-size: 0.72em;
   --vs-footnote--marker-content: '[' counter(vs-counter-footnote) ']\00a0';
   --vs-footnote--item-margin-block: 0.06rem 0;
-  --vs-footnote--area-before-border-color-block-start: #a7a198;
+  --vs-footnote--area-before-border-color-block-start: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 65%
+  );
   --vs-footnote--area-before-border-width-block-start: 0.5pt;
   --vs-footnote--area-before-margin-inline: 0 62%;
 
@@ -150,7 +160,7 @@ body > section.level2 {
   column-gap: 7mm;
   column-rule-width: 0.4pt;
   column-rule-style: solid;
-  column-rule-color: var(--vs-theme-two-column-verse-number--color-rule);
+  column-rule-color: var(--vs-color-border);
   column-fill: auto;
   padding-block-start: 3mm;
 }
@@ -193,7 +203,7 @@ p.unnumbered::before {
 
 /* Cross-reference tokens in the footnotes: quiet sans, the one modern accent */
 .footnote .meta {
-  font-family: var(--vs-theme-two-column-verse-number--font-sans);
+  font-family: var(--vs-font-family-alt);
   font-size: 0.92em;
   letter-spacing: 0.02em;
   margin-inline-start: 0.5em;

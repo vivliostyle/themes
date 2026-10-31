@@ -56,15 +56,18 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                    | 既定値                       | 説明                               |
 | --------------------------------------- | ---------------------------- | ---------------------------------- |
+| `--vs-color-background` | `#ffffff` | 紙面の地色 |
 | `--vs-font-family`                      | `'Noto Sans JP', sans-serif` | 本文の細字ゴシック書体             |
 | `--vs--monospace-font-family`           | `'IBM Plex Mono', ...`       | 数値・軸ラベル・測定条件の等幅書体 |
-| `--vs-color-foreground`                       | `#1a1a1a`                    | 本文・罫の墨色                     |
-| `--vs-theme-mono-graph-comparison-table--color-table-header-bg`     | `#e6e6e6`                    | 表ヘッダ・1列目の地色              |
-| `--vs-theme-mono-graph-comparison-table--color-table-zebra-bg`      | `#f2f2f2`                    | 表の縞地 (偶数行)                  |
-| `--vs-theme-mono-graph-comparison-table--color-rule-soft`           | `#9a9a9a`                    | 2段組の中央罫の色                  |
-| `--vs-theme-mono-graph-comparison-table--color-reverse-bg`          | `#1a1a1a`                    | 見出しスタンプの反転地色           |
+| `--vs-color-foreground`                       | `#1a1a1a` | 本文・罫の墨色                     |
+| `--vs-color-background-alt`     | `--vs-color-foreground` × `--vs-color-background` 90% | 表ヘッダ・1列目の地色              |
+| `--vs-theme-mono-graph-comparison-table--color-table-zebra-bg`      | `--vs-color-foreground` × `--vs-color-background` 95% | 表の縞地 (偶数行)                  |
+| `--vs-color-border-alt`           | `--vs-color-foreground` × `--vs-color-background` 60% | 2段組の中央罫の色                  |
+| `--vs-theme-mono-graph-comparison-table--color-reverse-bg`          | `--vs-color-foreground` と同じ | 見出しスタンプの反転地色           |
 | `--vs-theme-mono-graph-comparison-table--columns`                   | `2`                          | 解説本文の段数                     |
 | `--vs-theme-mono-graph-comparison-table--column-gap`                | `10mm`                       | 段間                               |
 | `--vs-theme-mono-graph-comparison-table--figure-size-inline-column` | `78mm`                       | 段中グラフの最大幅                 |

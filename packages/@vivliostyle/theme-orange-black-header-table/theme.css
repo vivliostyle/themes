@@ -17,9 +17,9 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  --vs-theme-orange-black-header-table--color-accent: #c05621;
-  --vs-theme-orange-black-header-table--color-accent-tint: #fbe9df;
-  --vs-theme-orange-black-header-table--color-rule: #1f2428;
+  --vs-theme-orange-black-header-table--color-accent: var(
+    --vs-color-foreground-alt
+  );
 
   /* 予実対比表の列幅 (項目 / 予算・実績・差異 / 差異率 / 合印) */
   --vs-theme-orange-black-header-table--table-label-size-inline: 21%;
@@ -34,31 +34,17 @@
   --vs-theme-orange-black-header-table--remark-call-content: '※'
     target-counter(attr(href), vs-counter-remark);
 
-  --vs-page--size: A4;
-  --vs-page--margin-top: 18mm;
-  --vs-page--margin-bottom: 18mm;
-  --vs-page--margin-left: 16mm;
-  --vs-page--margin-right: 16mm;
-
-  /* 柱: 左に文書名 (frontmatter の title)、右は原稿の .issuer を流す */
-  --vs-page--mbox-top-left-content: env(doc-title);
-  --vs-page--mbox-top-right-content: element(vs-theme-issuer);
-  /* 片面の帳票なのでノンブルは常に右下 */
-  --vs-page--mbox-bottom-right-content: counter(page);
-  --vs-page--mbox-top-font-size: 12pt;
-  --vs-page--mbox-top-font-weight: 700;
-  --vs-page--border-color-top: var(
-    --vs-theme-orange-black-header-table--color-rule
-  );
-  --vs-page--border-width-top: 1.6pt;
-  --vs-page--mbox-bottom-font-size: 9pt;
-  --vs-page--mbox-text-color: var(--vs-color-foreground);
-  --vs-page--mbox-font-family: var(--vs-font-family);
-
   --vs-font-family: 'Noto Sans JP', sans-serif;
   --vs-font-size: 9.5pt;
   --vs-line-height: 1.5;
   --vs-color-foreground: #1f2428;
+  --vs-color-foreground-alt: #c05621;
+  --vs-color-background: #ffffff;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 85%
+  );
 
   --vs--heading-font-family: 'Noto Sans JP', sans-serif;
   --vs--heading-break-after: avoid;
@@ -70,11 +56,6 @@
     --vs-theme-orange-black-header-table--color-accent
   );
   --vs--h2-padding-inline: 3mm 0;
-
-  /* 節番号は「1. 」 */
-  --vs-section--marker-display: inline;
-  --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '. ';
-  --vs-section--h2-marker-margin-inline-end: 0;
 
   --vs--p-text-indent: 0;
   --vs--p-margin-block: 0 2.8mm;
@@ -89,12 +70,16 @@
   --vs--table-margin-inline: 0;
   --vs--table-font-size: 8.5pt;
   --vs--table-border-width: 0.4pt;
-  --vs--table-border-color: #c9ccd0;
+  --vs--table-border-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 80%
+  );
   --vs--table-cell-padding-block: 1.85mm;
   --vs--table-cell-padding-inline: 2.4mm;
   --vs--td-text-align: right;
-  --vs--th-background-color: #24272b;
-  --vs--th-text-color: #ffffff;
+  --vs--th-background-color: var(--vs-color-foreground);
+  --vs--th-text-color: var(--vs-color-background);
 
   --vs--figure-margin-block: 4.5mm 0;
   --vs--figure-item-size-inline: 100%;
@@ -108,6 +93,30 @@
   --vs--lists-margin-inline: 0;
   --vs--ul-list-style-type: none;
   --vs--ul-padding-inline-start: 0;
+
+  --vs-page--size: A4;
+  --vs-page--margin-top: 18mm;
+  --vs-page--margin-bottom: 18mm;
+  --vs-page--margin-left: 16mm;
+  --vs-page--margin-right: 16mm;
+
+  /* 柱: 左に文書名 (frontmatter の title)、右は原稿の .issuer を流す */
+  --vs-page--mbox-top-left-content: env(doc-title);
+  --vs-page--mbox-top-right-content: element(vs-theme-issuer);
+  /* 片面の帳票なのでノンブルは常に右下 */
+  --vs-page--mbox-bottom-right-content: counter(page);
+  --vs-page--mbox-top-font-size: 12pt;
+  --vs-page--mbox-top-font-weight: 700;
+  --vs-page--border-color-top: var(--vs-color-foreground);
+  --vs-page--border-width-top: 1.6pt;
+  --vs-page--mbox-bottom-font-size: 9pt;
+  --vs-page--mbox-text-color: var(--vs-color-foreground);
+  --vs-page--mbox-font-family: var(--vs-font-family);
+
+  /* 節番号は「1. 」 */
+  --vs-section--marker-display: inline;
+  --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '. ';
+  --vs-section--h2-marker-margin-inline-end: 0;
 
   counter-reset: vs-counter-remark;
 }
@@ -153,8 +162,12 @@ td:nth-child(6) {
 /* 黒ベタヘッダーはセル自身に罫を持たせ、border-collapse で表の淡色罫に勝たせる (theme-base に th 罫の変数はない) */
 th {
   border-width: 0.4pt;
-  border-color: #24272b;
-  border-inline-color: #55585c;
+  border-color: var(--vs-color-foreground);
+  border-inline-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 25%
+  );
 }
 
 td:first-child {
@@ -173,9 +186,7 @@ td .neg {
   margin-inline: calc(-1 * var(--vs--table-cell-padding-inline));
   padding-block: var(--vs--table-cell-padding-block);
   padding-inline: var(--vs--table-cell-padding-inline);
-  background-color: var(
-    --vs-theme-orange-black-header-table--color-accent-tint
-  );
+  background-color: var(--vs-color-background-alt);
   color: var(--vs-theme-orange-black-header-table--color-accent);
   font-weight: 500;
 }
@@ -222,9 +233,7 @@ a[data-ref='remark']::before {
 
 /* ---- 対策メモ ---- */
 aside.note {
-  background-color: var(
-    --vs-theme-orange-black-header-table--color-accent-tint
-  );
+  background-color: var(--vs-color-background-alt);
   border-width: 0.8pt;
   border-color: var(--vs-theme-orange-black-header-table--color-accent);
   border-radius: 2.5mm;

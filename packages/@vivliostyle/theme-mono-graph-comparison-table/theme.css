@@ -24,32 +24,22 @@
 @import '@vivliostyle/theme-base/math';
 
 :root {
-  /* Page: A4 portrait, monochrome */
-  --vs-page--size: A4;
-  --vs-page--background-color: #ffffff;
-  --vs-page--margin-top: 16mm;
-  --vs-page--margin-bottom: 14mm;
-  --vs-page--margin-left: 15mm;
-  --vs-page--margin-right: 15mm;
-
-  /* 柱: 誌名の左右へ横罫を渡す。ノンブルは右下 */
-  --vs-page--mbox-top-left-content: '';
-  --vs-page--mbox-top-center-content: element(vs-theme-magazine);
-  --vs-page--mbox-top-right-content: '';
-  --vs-page--mbox-bottom-right-content: counter(page);
-  --vs-page--mbox-top-border-color-bottom: var(--vs-color-foreground);
-  --vs-page--mbox-top-border-width-bottom: 0.8pt;
-  /* 罫は誌名の左右へ渡すだけなので誌名の下には引かない */
-  --vs-page--mbox-top-center-border-width-bottom: 0;
-  --vs-page--mbox-top-left-padding-right: 1mm;
-  --vs-page--mbox-top-right-padding-left: 1mm;
-  --vs-page--mbox-top-margin-bottom: 2mm;
-  --vs-page--mbox-top-vertical-align: bottom;
-  --vs-page--mbox-bottom-font-family: var(--vs--monospace-font-family);
-  --vs-page--mbox-bottom-font-size: 9pt;
-  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
-  /* 本文が Light なのに対し、柱・ノンブルは Regular */
-  --vs-page--mbox-font-weight: 400;
+  --vs-theme-mono-graph-comparison-table--color-table-zebra-bg: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 95%
+  );
+  --vs-theme-mono-graph-comparison-table--color-reverse-body: var(
+    --vs-color-background
+  );
+  --vs-theme-mono-graph-comparison-table--color-reverse-bg: var(
+    --vs-color-foreground
+  );
+  --vs-theme-mono-graph-comparison-table--columns: 2;
+  --vs-theme-mono-graph-comparison-table--column-gap: 10mm;
+  --vs-theme-mono-graph-comparison-table--figure-size-inline-column: 78mm;
+  --vs-theme-mono-graph-comparison-table--conditions-size-inline: 44mm;
+  --vs-theme-mono-graph-comparison-table--conditions-gap: 6mm;
 
   /* Type: thin gothic body, 8.5pt / 1.4 */
   --vs-font-family: 'Noto Sans JP', sans-serif;
@@ -58,7 +48,17 @@
   --vs-line-height: 1.4;
   --vs-color-foreground: #1a1a1a;
   --vs-color-background: #ffffff;
-  --vs-color-border: #1a1a1a;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 90%
+  );
+  --vs-color-border: var(--vs-color-foreground);
+  --vs-color-border-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 60%
+  );
 
   --vs--p-margin-block: 0 1.6mm;
   --vs--p-text-indent: 1em;
@@ -89,11 +89,6 @@
   --vs--figcaption-margin-block: 1.4mm 0;
   --vs--figcaption-text-align: center;
 
-  --vs-math--display-margin-block: 1.6mm;
-
-  /* 記事は改ページで始める */
-  --vs-section--h1-break-before: page;
-
   /* 数値・軸ラベル・測定条件は等幅 */
   --vs--monospace-font-family: 'IBM Plex Mono', ui-monospace, monospace;
   --vs--monospace-font-size: 8.4pt;
@@ -111,21 +106,39 @@
   --vs--table-border-width: 1px;
   --vs--table-cell-padding-block: 1.3mm;
   --vs--table-cell-padding-inline: 1.4mm;
-  --vs--th-background-color: var(
-    --vs-theme-mono-graph-comparison-table--color-table-header-bg
-  );
+  --vs--th-background-color: var(--vs-color-background-alt);
   --vs--th-font-weight: 500;
 
-  --vs-theme-mono-graph-comparison-table--color-rule-soft: #9a9a9a;
-  --vs-theme-mono-graph-comparison-table--color-table-header-bg: #e6e6e6;
-  --vs-theme-mono-graph-comparison-table--color-table-zebra-bg: #f2f2f2;
-  --vs-theme-mono-graph-comparison-table--color-reverse-body: #ffffff;
-  --vs-theme-mono-graph-comparison-table--color-reverse-bg: #1a1a1a;
-  --vs-theme-mono-graph-comparison-table--columns: 2;
-  --vs-theme-mono-graph-comparison-table--column-gap: 10mm;
-  --vs-theme-mono-graph-comparison-table--figure-size-inline-column: 78mm;
-  --vs-theme-mono-graph-comparison-table--conditions-size-inline: 44mm;
-  --vs-theme-mono-graph-comparison-table--conditions-gap: 6mm;
+  /* Page: A4 portrait, monochrome */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 16mm;
+  --vs-page--margin-bottom: 14mm;
+  --vs-page--margin-left: 15mm;
+  --vs-page--margin-right: 15mm;
+
+  /* 柱: 誌名の左右へ横罫を渡す。ノンブルは右下 */
+  --vs-page--mbox-top-left-content: '';
+  --vs-page--mbox-top-center-content: element(vs-theme-magazine);
+  --vs-page--mbox-top-right-content: '';
+  --vs-page--mbox-bottom-right-content: counter(page);
+  --vs-page--mbox-top-border-color-bottom: var(--vs-color-foreground);
+  --vs-page--mbox-top-border-width-bottom: 0.8pt;
+  /* 罫は誌名の左右へ渡すだけなので誌名の下には引かない */
+  --vs-page--mbox-top-center-border-width-bottom: 0;
+  --vs-page--mbox-top-left-padding-right: 1mm;
+  --vs-page--mbox-top-right-padding-left: 1mm;
+  --vs-page--mbox-top-margin-bottom: 2mm;
+  --vs-page--mbox-top-vertical-align: bottom;
+  --vs-page--mbox-bottom-font-family: var(--vs--monospace-font-family);
+  --vs-page--mbox-bottom-font-size: 9pt;
+  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
+  /* 本文が Light なのに対し、柱・ノンブルは Regular */
+  --vs-page--mbox-font-weight: 400;
+
+  --vs-math--display-margin-block: 1.6mm;
+
+  /* 記事は改ページで始める */
+  --vs-section--h1-break-before: page;
 }
 
 /* 図番号は「図1　」、本文からの参照は「図1」 */
@@ -153,9 +166,7 @@
   column-gap: var(--vs-theme-mono-graph-comparison-table--column-gap);
   column-rule-width: 0.4pt;
   column-rule-style: solid;
-  column-rule-color: var(
-    --vs-theme-mono-graph-comparison-table--color-rule-soft
-  );
+  column-rule-color: var(--vs-color-border-alt);
 }
 
 /* ===== Masthead / headline ===== */
@@ -188,7 +199,7 @@
 }
 
 /* ===== 図版 (Markdown 画像 → figure > img + figcaption) =====
-   線種・軸ラベルの書式は外部 SVG 側の <style> が持つ。 */
+   線種・軸ラベルの書式は外部 SVG 側の \3c style> が持つ。 */
 figure {
   break-inside: avoid;
 }
@@ -257,9 +268,7 @@ td {
 }
 /* Markdown の表は本文行が td のみになるため、1列目を見出し列として扱う */
 tbody td:first-child {
-  background-color: var(
-    --vs-theme-mono-graph-comparison-table--color-table-header-bg
-  );
+  background-color: var(--vs-color-background-alt);
   font-family: var(--vs-font-family);
   font-weight: 400;
   font-size: 8pt;

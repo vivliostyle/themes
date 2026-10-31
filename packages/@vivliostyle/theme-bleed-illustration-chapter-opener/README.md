@@ -41,16 +41,18 @@ title: 書名
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                           | 既定値                         | 説明                                        |
 | ---------------------------------------------- | ------------------------------ | ------------------------------------------- |
 | `--vs-font-family`                             | `'Atkinson Hyperlegible', ...` | 本文書体                                    |
 | `--vs--heading-font-family`                    | `'League Spartan', ...`        | 章題の表示書体                              |
-| `--vs-theme-bleed-illustration-chapter-opener--font-meta`                        | `'Noto Sans', ...`             | ランニングヘッド・キャプションの書体        |
-| `--vs-color-foreground`                              | `#242629`                      | 本文の文字色                                |
-| `--vs-color-background`                        | `#f6f1e7`                      | 地色                                        |
-| `--vs-theme-bleed-illustration-chapter-opener--color-ink-strong`                 | `#17191b`                      | 章題・ドロップキャップの濃色                |
-| `--vs-color-foreground-alt`                        | `#6f7374`                      | ランニングヘッド・キャプションの淡色        |
-| `--vs-theme-bleed-illustration-chapter-opener--color-rule`                       | `#a9a69f`                      | キャプション両端の飾り点の色                |
+| `--vs-font-family-alt`                        | `'Noto Sans', ...`             | ランニングヘッド・キャプションの書体        |
+| `--vs-color-foreground`                              | `#242629` | 本文の文字色                                |
+| `--vs-color-background`                        | `#f6f1e7` | 地色                                        |
+| `--vs-theme-bleed-illustration-chapter-opener--color-ink-strong`                 | `#17191b` | 章題・ドロップキャップの濃色                |
+| `--vs-color-foreground-alt`                        | `--vs-color-foreground` × `--vs-color-background` 40% | ランニングヘッド・キャプションの淡色        |
+| `--vs-theme-bleed-illustration-chapter-opener--color-rule`                       | `--vs-color-foreground` × `--vs-color-background` 65% | キャプション両端の飾り点の色                |
 | `--vs-theme-bleed-illustration-chapter-opener--chapter-band-height`              | `135mm`                        | 章扉の裁ち落とし帯の高さ                    |
 | `--vs-theme-bleed-illustration-chapter-opener--chapter-title-inset-block-start`  | 帯の 40% 位置                  | 章題を帯のどこへ重ねるか (版面上端から)     |
 | `--vs-theme-bleed-illustration-chapter-opener--chapter-title-inset-inline-start` | `28%`                          | 章題の左インデント (版面幅比)               |

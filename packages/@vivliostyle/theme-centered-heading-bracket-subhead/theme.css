@@ -31,41 +31,27 @@
   /* テーマ固有 (--vs-* に対応物が無い値) */
   --vs-theme-centered-heading-bracket-subhead--font-display:
     'Shippori Mincho B1', 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
-  --vs-theme-centered-heading-bracket-subhead--font-sans:
-    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
-  --vs-theme-centered-heading-bracket-subhead--color-thead-bg: #ececea;
-  --vs-theme-centered-heading-bracket-subhead--color-rule: #555555;
 
-  /* Page: B5縦・四辺18mm均等 */
-  --vs-page--size: JIS-B5;
-  --vs-page--margin-top: 18mm;
-  --vs-page--margin-bottom: 18mm;
-  --vs-page--margin-left: 18mm;
-  --vs-page--margin-right: 18mm;
-  --vs-page--background-color: #fdfcf8;
-  --vs-page--border-width-top: 0.5pt;
-  --vs-page--border-color-top: var(
-    --vs-theme-centered-heading-bracket-subhead--color-rule
-  );
-
-  /* 柱(章題)と下罫・ノンブル */
-  --vs-page--mbox-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
-  --vs-page--mbox-font-size: 9pt;
-  --vs-page--mbox-text-color: #1a1a1a;
-  --vs-page--mbox-top-center-content: '第' counter(vs-counter-chapter) '章　'
-    env(doc-title);
-  --vs-page--mbox-bottom-center-content: counter(page);
-  --vs-page--mbox-top-font-weight: 500;
-  --vs-page--mbox-top-letter-spacing: 0.05em;
-  --vs-page--mbox-top-padding-bottom: 1.8mm;
-  --vs-page--mbox-top-vertical-align: bottom;
+  --vs-theme-centered-heading-bracket-subhead--note-call-content: '注('
+    target-counter(attr(href), vs-counter-endnote) ')';
 
   /* Type */
   --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --vs-font-family-alt: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
   --vs-font-size: 9.5pt;
   --vs-line-height: 1.6;
   --vs-color-foreground: #1a1a1a;
   --vs-color-background: #fdfcf8;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 95%
+  );
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 30%
+  );
   --vs-columns: 1;
   --vs-widows-orphans: 2;
 
@@ -102,6 +88,48 @@
   --vs--h3-line-height: 1.5;
   --vs--h3-margin-block: 2.6mm 0.8mm;
 
+  /* 本文中の上付き参照マーク (1)(2) */
+  --vs--sup-font-size: 0.66em;
+
+  /* 判旨: 引用要旨は字下げのみ、左揃え帯なし */
+  --vs--blockquote-margin-block: 0;
+  --vs--blockquote-margin-inline: 0;
+
+  /* 注ブロックを区切る細い上罫 */
+  --vs--hr-border-width-block-start: 0.5pt;
+  --vs--hr-margin-block: 0 1.8mm;
+
+  /* 争点整理表: 3列・全罫線・ヘッダは淡グレー地のゴシック */
+  --vs--table-font-size: 8.2pt;
+  --vs--table-margin-block: 3mm;
+  --vs--table-border-width: 0.5pt;
+  --vs--table-cell-padding-block: 1.3mm;
+  --vs--table-cell-padding-inline: 2.2mm;
+  --vs--table-text-align: justify;
+  --vs--th-font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --vs--th-font-size: 8.4pt;
+  --vs--th-text-align: center;
+
+  /* Page: B5縦・四辺18mm均等 */
+  --vs-page--size: JIS-B5;
+  --vs-page--margin-top: 18mm;
+  --vs-page--margin-bottom: 18mm;
+  --vs-page--margin-left: 18mm;
+  --vs-page--margin-right: 18mm;
+  --vs-page--border-width-top: 0.5pt;
+  --vs-page--border-color-top: var(--vs-color-border);
+
+  /* 柱(章題)と下罫・ノンブル */
+  --vs-page--mbox-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+  --vs-page--mbox-font-size: 9pt;
+  --vs-page--mbox-top-center-content: '第' counter(vs-counter-chapter) '章　'
+    env(doc-title);
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-top-font-weight: 500;
+  --vs-page--mbox-top-letter-spacing: 0.05em;
+  --vs-page--mbox-top-padding-bottom: 1.8mm;
+  --vs-page--mbox-top-vertical-align: bottom;
+
   /* 事件番号(h1)と解説の項番号(h3)。h2 の隅付き見出しには番号を付けない */
   --vs-section--h1-break-before: page;
   --vs-section--h1-marker-content: counter(vs-counter-sec-h1);
@@ -111,23 +139,7 @@
   --vs-section--h3-marker-display: inline;
   --vs-section--h3-marker-margin-inline-end: 1em;
 
-  /* 本文中の上付き参照マーク (1)(2) */
-  --vs--sup-font-size: 0.66em;
-
-  /* 判旨: 引用要旨は字下げのみ、左揃え帯なし */
-  --vs--blockquote-margin-block: 0;
-  --vs--blockquote-margin-inline: 0;
-
-  /* 注ブロックを区切る細い上罫 */
-  --vs--hr-border-color: var(
-    --vs-theme-centered-heading-bracket-subhead--color-rule
-  );
-  --vs--hr-border-width-block-start: 0.5pt;
-  --vs--hr-margin-block: 0 1.8mm;
-
   /* 注(後注): 番号は (1)(2)…、本文中の参照は「注(12)」 */
-  --vs-theme-centered-heading-bracket-subhead--note-call-content: '注('
-    target-counter(attr(href), vs-counter-endnote) ')';
   --vs-endnote--backlink-display: none;
   --vs-endnote--item-font-size: 8.6pt;
   --vs-endnote--item-line-height: 1.5;
@@ -137,17 +149,13 @@
   --vs-endnote--item-text-indent: -2.6em;
   --vs-endnote--marker-content: '(' counter(vs-counter-endnote) ')';
   --vs-endnote--marker-display: inline-block;
-  --vs-endnote--marker-font-family: var(
-    --vs-theme-centered-heading-bracket-subhead--font-sans
-  );
+  --vs-endnote--marker-font-family: var(--vs-font-family-alt);
   --vs-endnote--marker-margin-inline: 0 0.6em;
   --vs-endnote--marker-size-inline: 2em;
   --vs-endnote--marker-text-indent: 0;
   --vs-endnote--section-font-size: 8.6pt;
   --vs-endnote--section-heading-content: '注';
-  --vs-endnote--section-heading-font-family: var(
-    --vs-theme-centered-heading-bracket-subhead--font-sans
-  );
+  --vs-endnote--section-heading-font-family: var(--vs-font-family-alt);
   --vs-endnote--section-heading-font-size: 8.6pt;
   --vs-endnote--section-heading-font-weight: 700;
   --vs-endnote--section-heading-letter-spacing: 0.1em;
@@ -157,20 +165,6 @@
   --vs-endnote--section-ol-list-style-type: none;
   --vs-endnote--section-ol-margin-block: 0;
   --vs-endnote--section-ol-padding-inline-start: 0;
-
-  /* 争点整理表: 3列・全罫線・ヘッダは淡グレー地のゴシック */
-  --vs--table-font-size: 8.2pt;
-  --vs--table-margin-block: 3mm;
-  --vs--table-border-color: var(
-    --vs-theme-centered-heading-bracket-subhead--color-rule
-  );
-  --vs--table-border-width: 0.5pt;
-  --vs--table-cell-padding-block: 1.3mm;
-  --vs--table-cell-padding-inline: 2.2mm;
-  --vs--table-text-align: justify;
-  --vs--th-font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
-  --vs--th-font-size: 8.4pt;
-  --vs--th-text-align: center;
 }
 
 /* ==== 事件名見出しブロック(中央3段) ==== */
@@ -201,7 +195,7 @@ section.level2:first-of-type > h2 {
 
 /* 本文中の上付き参照マーク (1)(2) */
 sup {
-  font-family: var(--vs-theme-centered-heading-bracket-subhead--font-sans);
+  font-family: var(--vs-font-family-alt);
   font-weight: 500;
   vertical-align: super;
   letter-spacing: 0;
@@ -228,9 +222,7 @@ td {
 }
 
 thead th {
-  background-color: var(
-    --vs-theme-centered-heading-bracket-subhead--color-thead-bg
-  );
+  background-color: var(--vs-color-background-alt);
 }
 
 /* 1列目(争点)は明朝・左寄せの見出し列 */

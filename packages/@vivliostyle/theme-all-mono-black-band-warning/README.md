@@ -24,14 +24,17 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                             | 既定値                  | 説明                               |
 | -------------------------------- | ----------------------- | ---------------------------------- |
+| `--vs-color-background` | `#ffffff` | 紙面の地色 |
 | `--vs-font-family`               | `'JetBrains Mono', ...` | 本文・見出し共通のモノスペース書体 |
-| `--vs-color-foreground`                | `#1a1a1a`               | 本文・罫の墨色                     |
-| `--vs-theme-all-mono-black-band-warning--color-code-bg`      | `#f0f0f0`               | コードブロックの背景色             |
-| `--vs-theme-all-mono-black-band-warning--color-code-border`  | `#777777`               | コードブロックの枠線色             |
-| `--vs-theme-all-mono-black-band-warning--color-inverse-bg`   | `#000000`               | 警告ボックスのヘッダ背景色         |
-| `--vs-theme-all-mono-black-band-warning--color-inverse-body` | `#ffffff`               | 警告ボックスのヘッダ文字色         |
+| `--vs-color-foreground`                | `#1a1a1a` | 本文・罫の墨色                     |
+| `--vs--pre-background-color`      | `--vs-color-foreground` × `--vs-color-background` 95% | コードブロックの背景色             |
+| `--vs--pre-border-color`  | `--vs-color-foreground` × `--vs-color-background` 45% | コードブロックの枠線色             |
+| `--vs-theme-all-mono-black-band-warning--color-inverse-bg`   | `#000000` | 警告ボックスのヘッダ背景色         |
+| `--vs-theme-all-mono-black-band-warning--color-inverse-body` | `--vs-color-background` と同じ | 警告ボックスのヘッダ文字色         |
 
 生成内容の変数:
 

@@ -27,6 +27,6 @@ export default {
 | ------------------------ | ----------------------------- | -------------------- |
 | `--vs-columns`           | `4`                           | 型番表を流す段の数   |
 | `--vs-font-family`       | `'JetBrains Mono', monospace` | 全編共通の等幅書体   |
-| `--vs-color-foreground`        | `#1a1a1a`                     | 本文・罫の墨色       |
-| `--vs-color-background`  | `#f7f6f2`                     | 地色                 |
-| `--vs-theme-four-column-plain-table--rule-width` | `0.4pt`                       | 図版枠・NOTE枠の罫幅 |
+| `--vs-color-foreground`        | `#1a1a1a` | 本文・罫の墨色       |
+| `--vs-color-background`  | `#f7f6f2` | 地色                 |
+| `--vs-border-width` | `0.4pt`                       | 図版枠・NOTE枠の罫幅 |

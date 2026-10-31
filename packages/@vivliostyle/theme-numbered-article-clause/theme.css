@@ -23,34 +23,58 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  --vs-theme-numbered-article-clause--font-sans:
-    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
-  --vs-theme-numbered-article-clause--color-muted: #4a4a4a;
-
-  /* Page */
-  --vs-page--size: A4;
-  --vs-page--margin-top: 18.4mm;
-  --vs-page--margin-bottom: 20mm;
-  --vs-page--margin-left: 20mm;
-  --vs-page--margin-right: 20mm;
-  --vs-page--border-width-top: 0.5pt;
-  --vs-page--border-color-top: #707070;
-  /* 柱の下罫と本文のアキ。罫の太さぶんを引いて本文位置を保つ */
-  --vs-page--padding-top: calc(1.6mm - var(--vs-page--border-width-top));
-  --vs-page--mbox-font-family:
-    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
-  --vs-page--mbox-font-size: 8.5pt;
-  --vs-page--mbox-font-weight: 400;
-  --vs-page--mbox-text-color: #4a4a4a;
-  --vs-page--mbox-letter-spacing: 0.08em;
-  --vs-page--mbox-top-left-content: string(chaptitle);
-  --vs-page--mbox-bottom-center-content: counter(page);
+  /* ---- 条・項・号のカウンタと参照 ---- */
+  --vs-theme-numbered-article-clause--article-counter-style: decimal;
+  --vs-theme-numbered-article-clause--kou-counter-style: decimal;
+  --vs-theme-numbered-article-clause--gou-counter-style: cjk-ideographic;
+  --vs-theme-numbered-article-clause--kou-marker-content: counter(
+    vs-counter-kou,
+    var(--vs-theme-numbered-article-clause--kou-counter-style)
+  );
+  --vs-theme-numbered-article-clause--gou-marker-content: counter(
+    vs-counter-gou,
+    var(--vs-theme-numbered-article-clause--gou-counter-style)
+  );
+  --vs-theme-numbered-article-clause--chapter-call-content: '第'
+    target-counter(
+      attr(href),
+      vs-counter-sec-h2,
+      var(--vs-section--counter-style)
+    )
+    '章';
+  --vs-theme-numbered-article-clause--article-call-content: '第'
+    target-counter(
+      attr(href),
+      vs-counter-article,
+      var(--vs-theme-numbered-article-clause--article-counter-style)
+    )
+    '条';
+  --vs-theme-numbered-article-clause--kou-call-content: '第'
+    target-counter(
+      attr(href),
+      vs-counter-kou,
+      var(--vs-theme-numbered-article-clause--kou-counter-style)
+    )
+    '項';
+  --vs-theme-numbered-article-clause--gou-call-content: '第'
+    target-counter(
+      attr(href),
+      vs-counter-gou,
+      var(--vs-theme-numbered-article-clause--gou-counter-style)
+    )
+    '号';
 
   /* Type */
   --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --vs-font-family-alt: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
   --vs-font-size: 10.5pt;
   --vs-line-height: 1.5;
   --vs-color-foreground: #171717;
+  --vs-color-foreground-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 25%
+  );
   --vs-color-background: #ffffff;
   --vs-columns: 1;
   --vs-widows-orphans: 2;
@@ -96,69 +120,56 @@
 
   /* 社員名簿の規程表 (thin-ruled, narrow label column) */
   --vs--table-border-width: 0.4pt;
-  --vs--table-border-color: #707070;
+  --vs--table-border-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 45%
+  );
   --vs--table-font-size: 10pt;
   --vs--table-margin-block: 0.9em;
   --vs--table-cell-padding-block: 0.5em;
   --vs--table-cell-padding-inline: 0.85em;
   --vs--th-font-weight: 600;
 
+  /* Page */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 18.4mm;
+  --vs-page--margin-bottom: 20mm;
+  --vs-page--margin-left: 20mm;
+  --vs-page--margin-right: 20mm;
+  --vs-page--border-width-top: 0.5pt;
+  --vs-page--border-color-top: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 45%
+  );
+  /* 柱の下罫と本文のアキ。罫の太さぶんを引いて本文位置を保つ */
+  --vs-page--padding-top: calc(1.6mm - var(--vs-page--border-width-top));
+  --vs-page--mbox-font-family:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --vs-page--mbox-font-size: 8.5pt;
+  --vs-page--mbox-font-weight: 400;
+  --vs-page--mbox-text-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 25%
+  );
+  --vs-page--mbox-letter-spacing: 0.08em;
+  --vs-page--mbox-top-left-content: string(chaptitle);
+  --vs-page--mbox-bottom-center-content: counter(page);
+
   /* ---- 章・条の見出し番号 ---- */
   --vs-section--marker-display: inline;
   --vs-section--h1-marker-display: none;
   --vs-section--h2-marker-content: '第' counter(vs-counter-sec-h2) '章';
   --vs-section--h2-marker-margin-inline-end: 1em;
-  --vs-section--h3-marker-content: var(
-    --vs-theme-numbered-article-clause--article-marker-content
-  );
-  --vs-section--h3-marker-margin-inline-end: 0;
-
-  /* ---- 条・項・号のカウンタと参照 ---- */
-  --vs-theme-numbered-article-clause--article-counter-style: decimal;
-  --vs-theme-numbered-article-clause--kou-counter-style: decimal;
-  --vs-theme-numbered-article-clause--gou-counter-style: cjk-ideographic;
-  --vs-theme-numbered-article-clause--article-marker-content: '第'
+  --vs-section--h3-marker-content: '第'
     counter(
       vs-counter-article,
       var(--vs-theme-numbered-article-clause--article-counter-style)
     )
     '条';
-  --vs-theme-numbered-article-clause--kou-marker-content: counter(
-    vs-counter-kou,
-    var(--vs-theme-numbered-article-clause--kou-counter-style)
-  );
-  --vs-theme-numbered-article-clause--gou-marker-content: counter(
-    vs-counter-gou,
-    var(--vs-theme-numbered-article-clause--gou-counter-style)
-  );
-  --vs-theme-numbered-article-clause--chapter-call-content: '第'
-    target-counter(
-      attr(href),
-      vs-counter-sec-h2,
-      var(--vs-section--counter-style)
-    )
-    '章';
-  --vs-theme-numbered-article-clause--article-call-content: '第'
-    target-counter(
-      attr(href),
-      vs-counter-article,
-      var(--vs-theme-numbered-article-clause--article-counter-style)
-    )
-    '条';
-  --vs-theme-numbered-article-clause--kou-call-content: '第'
-    target-counter(
-      attr(href),
-      vs-counter-kou,
-      var(--vs-theme-numbered-article-clause--kou-counter-style)
-    )
-    '項';
-  --vs-theme-numbered-article-clause--gou-call-content: '第'
-    target-counter(
-      attr(href),
-      vs-counter-gou,
-      var(--vs-theme-numbered-article-clause--gou-counter-style)
-    )
-    '号';
+  --vs-section--h3-marker-margin-inline-end: 0;
 
   counter-reset: vs-counter-article vs-counter-kou vs-counter-gou;
 }
@@ -182,9 +193,9 @@
 }
 
 .revision-record {
-  font-family: var(--vs-theme-numbered-article-clause--font-sans);
+  font-family: var(--vs-font-family-alt);
   font-size: 8.5pt;
-  color: var(--vs-theme-numbered-article-clause--color-muted);
+  color: var(--vs-color-foreground-alt);
   letter-spacing: 0.06em;
   margin-block: 0.4rem 2.2rem;
 }

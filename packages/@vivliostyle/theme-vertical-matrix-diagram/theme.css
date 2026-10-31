@@ -19,40 +19,27 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  /* Theme: 図表バンド専用の第2書体と網掛け色 */
-  --vs-theme-vertical-matrix-diagram--font-figure:
-    'IBM Plex Sans JP', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
-  --vs-theme-vertical-matrix-diagram--color-tint: #d9d9d9;
   /* 図表バンドが紙面 (縦組みの行方向) から食う量 */
   --vs-theme-vertical-matrix-diagram--aside-size-inline: 46mm;
-
-  /* Page: 余白 */
-  --vs-page--size: 105mm 173mm;
-  --vs-page--margin-top: 14mm;
-  --vs-page--margin-bottom: 15mm;
-  --vs-page--margin-left: 14mm;
-  --vs-page--margin-right: 14mm;
-  --vs-page--mbox-text-color: #1a1a1a;
-  --vs-page--mbox-top-right-content: string(chapter-title);
-  --vs-page--mbox-bottom-center-content: counter(page);
-  --vs-page--mbox-top-font-family: 'Noto Sans JP', sans-serif;
-  --vs-page--mbox-top-font-size: 8pt;
-  --vs-page--mbox-top-letter-spacing: 0.04em;
-  --vs-page--mbox-bottom-font-family:
-    'IBM Plex Sans JP', 'Noto Sans JP', sans-serif;
-  --vs-page--mbox-bottom-font-size: 9pt;
-  --vs-page--mbox-bottom-letter-spacing: 0.06em;
 
   /* Type: 縦組みサンセリフ 9pt / 行送り 1.6 */
   --vs-writing-mode: vertical-rl;
   --vs-font-family:
     'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  /* 図表バンド専用の第2書体と網掛け色 */
+  --vs-font-family-alt:
+    'IBM Plex Sans JP', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
   --vs-font-size: 9pt;
   --vs-line-height: 1.6;
   --vs-letter-spacing: 0.01em;
   --vs-color-foreground: #1a1a1a;
   --vs-color-background: #f7f5f0;
-  --vs-color-border: #1a1a1a;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 90%
+  );
+  --vs-color-border: var(--vs-color-foreground);
 
   /* 黒1色。参照リンクも本文と同じ色で組む */
   --vs--anchor-text-color: inherit;
@@ -77,15 +64,6 @@
   --vs--h2-letter-spacing: 0.08em;
   --vs--h2-margin-block: 0;
   --vs--h2-margin-inline: 1mm 4mm;
-
-  /* 章番号「第1章」・節番号「1・2」。算用数字は正立させる */
-  --vs-section--h1-marker-display: block;
-  --vs-section--h1-marker-content: '第' counter(vs-counter-sec-h1) '章';
-  --vs-section--h1-marker-margin-inline-end: 0;
-  --vs-section--h2-marker-display: inline;
-  --vs-section--h2-marker-content: counter(vs-counter-sec-h1) '・'
-    counter(vs-counter-sec-h2);
-  --vs-section--h2-marker-margin-inline-end: 0.55em;
 
   /* Figures: 図表は縦に積むだけなので flex を解除する */
   --vs--figure-display: block;
@@ -112,14 +90,37 @@
   --vs--th-font-family:
     'IBM Plex Sans JP', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
   --vs--th-font-weight: 700;
-  --vs--th-background-color: var(
-    --vs-theme-vertical-matrix-diagram--color-tint
-  );
+  --vs--th-background-color: var(--vs-color-background-alt);
   --vs--th-vertical-align: middle;
   --vs--td-vertical-align: middle;
   --vs--td-text-align: center;
 
   --vs--small-font-size: 0.86em;
+
+  /* Page: 余白 */
+  --vs-page--size: 105mm 173mm;
+  --vs-page--margin-top: 14mm;
+  --vs-page--margin-bottom: 15mm;
+  --vs-page--margin-left: 14mm;
+  --vs-page--margin-right: 14mm;
+  --vs-page--mbox-top-right-content: string(chapter-title);
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-top-font-family: 'Noto Sans JP', sans-serif;
+  --vs-page--mbox-top-font-size: 8pt;
+  --vs-page--mbox-top-letter-spacing: 0.04em;
+  --vs-page--mbox-bottom-font-family:
+    'IBM Plex Sans JP', 'Noto Sans JP', sans-serif;
+  --vs-page--mbox-bottom-font-size: 9pt;
+  --vs-page--mbox-bottom-letter-spacing: 0.06em;
+
+  /* 章番号「第1章」・節番号「1・2」。算用数字は正立させる */
+  --vs-section--h1-marker-display: block;
+  --vs-section--h1-marker-content: '第' counter(vs-counter-sec-h1) '章';
+  --vs-section--h1-marker-margin-inline-end: 0;
+  --vs-section--h2-marker-display: inline;
+  --vs-section--h2-marker-content: counter(vs-counter-sec-h1) '・'
+    counter(vs-counter-sec-h2);
+  --vs-section--h2-marker-margin-inline-end: 0.55em;
 }
 
 :root:lang(ja) {
@@ -164,7 +165,7 @@ aside {
   writing-mode: horizontal-tb;
   width: var(--vs-theme-vertical-matrix-diagram--aside-size-inline);
   margin: 2.5mm 3mm 0 0;
-  font-family: var(--vs-theme-vertical-matrix-diagram--font-figure);
+  font-family: var(--vs-font-family-alt);
 }
 
 aside figure:last-child {
@@ -241,7 +242,7 @@ figcaption .unit {
 
 /* 金のなる木の象限を淡グレーで強調 */
 .matrix .cell.emph {
-  background-color: var(--vs-theme-vertical-matrix-diagram--color-tint);
+  background-color: var(--vs-color-background-alt);
 }
 
 .matrix .colheads {

@@ -18,10 +18,97 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  --vs-theme-navy-ruled-ledger-two-column--color-accent: #1e5a96;
-  --vs-theme-navy-ruled-ledger-two-column--color-tint: #e8eff6;
+  --vs-theme-navy-ruled-ledger-two-column--color-accent: var(
+    --vs-color-foreground-alt
+  );
   --vs-theme-navy-ruled-ledger-two-column--record-columns: 2;
   --vs-theme-navy-ruled-ledger-two-column--record-column-gap: 6mm;
+
+  /* Type: slab-serif body 8.5pt / 1.4, navy-on-cream ledger palette */
+  --vs-font-family: 'Zilla Slab', 'Roboto Slab', serif;
+  --vs-font-size: 8.5pt;
+  --vs-line-height: 1.4;
+  --vs-color-foreground: #1c1c1c;
+  --vs-color-foreground-alt: #1e5a96;
+  --vs-color-background: #faf7f0;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 95%
+  );
+
+  /* 表番号は帳票の欄記号として英大文字で振る */
+  --vs-counter-style: upper-alpha;
+
+  --vs--monospace-font-family: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --vs--p-margin-block: 0 0.5rem;
+  --vs--p-text-align: justify;
+  --vs--p-hyphens: none;
+
+  /* Numbered heading boxes: navy field, white slab */
+  --vs--heading-font-family: 'Roboto Slab', 'Rockwell', serif;
+  --vs--heading-font-weight: 700;
+  --vs--heading-text-align: start;
+  --vs--h2-font-size: 12.5pt;
+  --vs--h2-letter-spacing: 0.01em;
+  --vs--h2-line-height: 1.15;
+  --vs--h2-margin-block: 0 2.4mm;
+  --vs--h2-margin-inline: 0;
+  --vs--h2-background-color: var(
+    --vs-theme-navy-ruled-ledger-two-column--color-accent
+  );
+  --vs--h2-text-color: var(--vs-color-background);
+  --vs--h2-padding-block: 1.6mm 1.4mm;
+  --vs--h2-padding-inline: 3mm;
+  --vs--h3-font-size: 9.5pt;
+  --vs--h3-line-height: 1.15;
+  --vs--h3-margin-block: 4mm 2mm;
+  --vs--h3-margin-inline: 0;
+  --vs--h3-background-color: var(
+    --vs-theme-navy-ruled-ledger-two-column--color-accent
+  );
+  --vs--h3-text-color: var(--vs-color-background);
+  --vs--h3-padding-block: 1mm 0.9mm;
+  --vs--h3-padding-inline: 2.4mm;
+
+  /* Ledger tables: navy frame + navy rule under the head, pale-blue hairline grid */
+  --vs--table-table-layout: auto;
+  --vs--table-size-inline: 100%;
+  --vs--table-font-size: 8pt;
+  --vs--table-margin-block: 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-border-width: 0;
+  --vs--table-border-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 70%
+  );
+  --vs--table-border-color-outer: var(
+    --vs-theme-navy-ruled-ledger-two-column--color-accent
+  );
+  --vs--table-border-color-thead-inner: var(
+    --vs-theme-navy-ruled-ledger-two-column--color-accent
+  );
+  --vs--table-border-width-outer: 1.2pt;
+  --vs--table-border-width-cell: 1px;
+  --vs--table-border-width-thead-inner: 1pt;
+  --vs--table-cell-padding-block: 2.6mm;
+  --vs--table-cell-padding-inline: 2mm;
+  --vs--th-font-size: 7.2pt;
+  --vs--td-text-align: center;
+
+  /* Table wrapper: 表題を上に置くので figure は通常のブロックとして積む */
+  --vs--figure-display: block;
+  --vs--figure-margin-block: 0 5mm;
+  --vs--figure-margin-inline: 0;
+  --vs--figcaption-margin-block: 0 1mm;
+  --vs--figcaption-font-family: var(--vs--heading-font-family);
+  --vs--figcaption-font-size: 8pt;
+  --vs--figcaption-text-color: var(
+    --vs-theme-navy-ruled-ledger-two-column--color-accent
+  );
+  --vs--figcaption-text-align: start;
 
   /* Page: US letter portrait, ledger margins (inner wider for the binding) */
   --vs-page--size: letter;
@@ -58,44 +145,6 @@
     --vs-theme-navy-ruled-ledger-two-column--color-accent
   );
 
-  /* Type: slab-serif body 8.5pt / 1.4, navy-on-cream ledger palette */
-  --vs-font-family: 'Zilla Slab', 'Roboto Slab', serif;
-  --vs-font-size: 8.5pt;
-  --vs-line-height: 1.4;
-  --vs-color-foreground: #1c1c1c;
-  --vs-color-background: #faf7f0;
-  --vs--monospace-font-family: 'IBM Plex Mono', ui-monospace, monospace;
-
-  --vs--p-margin-block: 0 0.5rem;
-  --vs--p-text-align: justify;
-  --vs--p-hyphens: none;
-
-  /* Numbered heading boxes: navy field, white slab */
-  --vs--heading-font-family: 'Roboto Slab', 'Rockwell', serif;
-  --vs--heading-font-weight: 700;
-  --vs--heading-text-align: start;
-  --vs--h2-font-size: 12.5pt;
-  --vs--h2-letter-spacing: 0.01em;
-  --vs--h2-line-height: 1.15;
-  --vs--h2-margin-block: 0 2.4mm;
-  --vs--h2-margin-inline: 0;
-  --vs--h2-background-color: var(
-    --vs-theme-navy-ruled-ledger-two-column--color-accent
-  );
-  --vs--h2-text-color: var(--vs-color-background);
-  --vs--h2-padding-block: 1.6mm 1.4mm;
-  --vs--h2-padding-inline: 3mm;
-  --vs--h3-font-size: 9.5pt;
-  --vs--h3-line-height: 1.15;
-  --vs--h3-margin-block: 4mm 2mm;
-  --vs--h3-margin-inline: 0;
-  --vs--h3-background-color: var(
-    --vs-theme-navy-ruled-ledger-two-column--color-accent
-  );
-  --vs--h3-text-color: var(--vs-color-background);
-  --vs--h3-padding-block: 1mm 0.9mm;
-  --vs--h3-padding-inline: 2.4mm;
-
   /* 記録の連番と、記録内の小節 (船長所見など) の枝番 */
   --vs-section--marker-display: inline;
   --vs-section--marker-margin-inline-end: 0.6ch;
@@ -107,43 +156,6 @@
   );
   /* 日誌は 1 記録 = 1 頁から起こす */
   --vs-section--h2-break-before: page;
-
-  /* Ledger tables: navy frame + navy rule under the head, pale-blue hairline grid */
-  --vs--table-table-layout: auto;
-  --vs--table-size-inline: 100%;
-  --vs--table-font-size: 8pt;
-  --vs--table-margin-block: 0;
-  --vs--table-margin-inline: 0;
-  --vs--table-border-width: 0;
-  --vs--table-border-color: #b7cbe0;
-  --vs--table-border-color-outer: var(
-    --vs-theme-navy-ruled-ledger-two-column--color-accent
-  );
-  --vs--table-border-color-thead-inner: var(
-    --vs-theme-navy-ruled-ledger-two-column--color-accent
-  );
-  --vs--table-border-width-outer: 1.2pt;
-  --vs--table-border-width-cell: 1px;
-  --vs--table-border-width-thead-inner: 1pt;
-  --vs--table-cell-padding-block: 2.6mm;
-  --vs--table-cell-padding-inline: 2mm;
-  --vs--th-font-size: 7.2pt;
-  --vs--td-text-align: center;
-
-  /* Table wrapper: 表題を上に置くので figure は通常のブロックとして積む */
-  --vs--figure-display: block;
-  --vs--figure-margin-block: 0 5mm;
-  --vs--figure-margin-inline: 0;
-  --vs--figcaption-margin-block: 0 1mm;
-  --vs--figcaption-font-family: var(--vs--heading-font-family);
-  --vs--figcaption-font-size: 8pt;
-  --vs--figcaption-text-color: var(
-    --vs-theme-navy-ruled-ledger-two-column--color-accent
-  );
-  --vs--figcaption-text-align: start;
-
-  /* 表番号は帳票の欄記号として英大文字で振る */
-  --vs-counter-style: upper-alpha;
 }
 
 /* base は :root:lang(ja) 側にも既定値を持つので両方を上書きする */
@@ -229,7 +241,7 @@ td {
 
 /* Column headers: slab, uppercase, tinted, navy underline */
 thead th {
-  background-color: var(--vs-theme-navy-ruled-ledger-two-column--color-tint);
+  background-color: var(--vs-color-background-alt);
   letter-spacing: 0.02em;
   text-transform: uppercase;
   line-height: 1.2;

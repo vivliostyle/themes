@@ -18,11 +18,11 @@ export default {
 | 変数                                        | 既定値                                 | 説明                           |
 | ------------------------------------------- | -------------------------------------- | ------------------------------ |
 | `--vs-font-family`                          | `'Noto Serif JP', ...`                 | 本文書体                       |
-| `--vs-color-foreground`                           | `#1a1a1a`                              | 本文・罫の墨色                 |
-| `--vs-color-background`                     | `#f7f5f0`                              | 地色                           |
+| `--vs-color-foreground`                           | `#1a1a1a` | 本文・罫の墨色                 |
+| `--vs-color-background`                     | `#f7f5f0` | 地色                           |
 | `--vs--h2-font-size`                        | `14pt`                                 | 章見出しの文字サイズ           |
 | `--vs--p-text-indent`                       | `1em`                                  | 段落先頭の字下げ量             |
-| `--vs-theme-mincho-thick-underline--running-rule-color`            | `var(--vs-color-foreground)`                 | 柱の下罫の色                   |
+| `--vs-page--border-color-top`            | `var(--vs-color-foreground)`                 | 柱の下罫の色                   |
 | `--vs-theme-mincho-thick-underline--running-rule-width`            | `0.4pt`                                | 柱の下罫の太さ                 |
 | `--vs-theme-mincho-thick-underline--running-rule-margin-block-end` | `6.5mm`                                | 柱の下罫から版面までの空き     |
 | `--vs-theme-mincho-thick-underline--steps-min-size-inline`         | `27mm`                                 | ブロック図の枠 1 個の最小幅    |

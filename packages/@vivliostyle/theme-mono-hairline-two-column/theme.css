@@ -20,38 +20,32 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  --vs-theme-mono-hairline-two-column--font-tabular:
-    'Roboto Mono', 'IBM Plex Mono', monospace;
-  --vs-theme-mono-hairline-two-column--font-caption:
-    'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
-  --vs-theme-mono-hairline-two-column--color-muted: #555555;
-  --vs-theme-mono-hairline-two-column--color-rule: #a8a8a8;
-  --vs-theme-mono-hairline-two-column--color-rule-soft: #d6d6d6;
-  --vs-theme-mono-hairline-two-column--color-fill-soft: #eeeeee;
-  --vs-theme-mono-hairline-two-column--color-fill-zebra: #f5f5f5;
-
-  --vs-page--size: letter;
-  --vs-page--margin-top: 14mm;
-  --vs-page--margin-bottom: 12mm;
-  --vs-page--margin-left: 11mm;
-  --vs-page--margin-right: 11mm;
-  --vs-page--mbox-font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  --vs-page--mbox-font-size: 7pt;
-  --vs-page--mbox-font-weight: 500;
-  --vs-page--mbox-text-color: #555555;
-  --vs-page--mbox-letter-spacing: 0.04em;
-  --vs-page--border-width-top: 0.4pt;
-  --vs-page--border-color-top: var(
-    --vs-theme-mono-hairline-two-column--color-rule
+  --vs-theme-mono-hairline-two-column--color-fill-zebra: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 95%
   );
-  --vs-page--mbox-top-center-content: env(doc-title);
-  --vs-page--mbox-top-center-text-transform: uppercase;
-  --vs-page--mbox-top-right-content: counter(page);
 
   --vs-font-family: 'IBM Plex Mono', ui-monospace, monospace;
   --vs-font-size: 7.1pt;
   --vs-line-height: 1.18;
   --vs-color-foreground: #171717;
+  --vs-color-foreground-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 30%
+  );
+  --vs-color-background: #ffffff;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 95%
+  );
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 65%
+  );
   --vs-columns: 1;
   --vs-widows-orphans: 2;
   --vs-spacing-inline-indent: 0.95em;
@@ -83,17 +77,6 @@
   --vs--h3-margin-block: 0.42rem 0.2rem;
   --vs--h3-text-transform: uppercase;
 
-  /* 節番号: 文書名 (h1) は数えず、章立ては h2 から起こす */
-  --vs-section--marker-display: inline;
-  --vs-section--marker-margin-inline-end: 0.8ch;
-  --vs-section--h1-marker-display: none;
-  --vs-section--h2-marker-content: counter(vs-counter-sec-h2);
-  --vs-section--h3-marker-content: counter(vs-counter-sec-h2) '.'
-    counter(vs-counter-sec-h3);
-
-  /* コードのキャプションはタイトルのみでリスト番号は付けない */
-  --vs-listing--marker-display: none;
-
   /* Register map is a code fence; it must not be clipped inside a flex figure */
   --vs--monospace-font-family: 'Roboto Mono', 'IBM Plex Mono', monospace;
   --vs--monospace-line-height: 1.28;
@@ -102,9 +85,7 @@
   --vs--pre-overflow-x: visible;
   --vs--pre-padding-block: 0.34rem;
   --vs--pre-padding-inline: 0.5rem;
-  --vs--pre-background-color: var(
-    --vs-theme-mono-hairline-two-column--color-fill-soft
-  );
+  --vs--pre-background-color: var(--vs-color-background-alt);
   --vs--pre-border-width-block-start: 0.4pt;
   --vs--pre-border-width-block-end: 0.4pt;
   --vs--pre-border-width-inline-start: 0.4pt;
@@ -113,30 +94,18 @@
   --vs--pre-border-style-block-end: solid;
   --vs--pre-border-style-inline-start: solid;
   --vs--pre-border-style-inline-end: solid;
-  --vs--pre-border-color-block-start: var(
-    --vs-theme-mono-hairline-two-column--color-rule-soft
-  );
-  --vs--pre-border-color-block-end: var(
-    --vs-theme-mono-hairline-two-column--color-rule-soft
-  );
-  --vs--pre-border-color-inline-start: var(
-    --vs-theme-mono-hairline-two-column--color-rule-soft
-  );
-  --vs--pre-border-color-inline-end: var(
-    --vs-theme-mono-hairline-two-column--color-rule-soft
+  --vs--pre-border-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 85%
   );
 
   --vs--li-margin-block: 0.06rem;
-  --vs--lists-marker-text-color: var(
-    --vs-theme-mono-hairline-two-column--color-muted
-  );
+  --vs--lists-marker-text-color: var(--vs-color-foreground-alt);
 
   /* Tables: full thin grey grid, shaded head, tabular figures */
   --vs--table-size-inline: 100%;
-  --vs--table-font-family: var(
-    --vs-theme-mono-hairline-two-column--font-tabular
-  );
-  --vs--table-border-color: #a8a8a8;
+  --vs--table-font-family: 'Roboto Mono', 'IBM Plex Mono', monospace;
   --vs--table-border-width: 0.4pt;
   --vs--table-border-color-thead-inner: var(--vs-color-foreground);
   --vs--table-font-size: 6.1pt;
@@ -149,23 +118,49 @@
   --vs--table-cell-white-space: nowrap;
   --vs--th-font-family: 'Roboto Mono', 'IBM Plex Mono', monospace;
   --vs--th-font-weight: 500;
-  --vs--th-background-color: var(
-    --vs-theme-mono-hairline-two-column--color-fill-soft
-  );
+  --vs--th-background-color: var(--vs-color-background-alt);
 
   /* Figures + small condensed-sans captions */
   --vs--figure-margin-block: 0.4rem;
   --vs--figure-item-size-inline: 100%;
-  --vs--figcaption-font-family: var(
-    --vs-theme-mono-hairline-two-column--font-caption
-  );
-  --vs--figcaption-text-color: var(
-    --vs-theme-mono-hairline-two-column--color-muted
-  );
+  --vs--figcaption-font-family:
+    'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --vs--figcaption-text-color: var(--vs-color-foreground-alt);
   --vs--figcaption-line-height: 1.22;
   --vs--figcaption-font-size: 6.5pt;
   --vs--figcaption-text-align: center;
   --vs--figcaption-margin-block: 0.24rem 0;
+
+  --vs-page--size: letter;
+  --vs-page--margin-top: 14mm;
+  --vs-page--margin-bottom: 12mm;
+  --vs-page--margin-left: 11mm;
+  --vs-page--margin-right: 11mm;
+  --vs-page--mbox-font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  --vs-page--mbox-font-size: 7pt;
+  --vs-page--mbox-font-weight: 500;
+  --vs-page--mbox-text-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 30%
+  );
+  --vs-page--mbox-letter-spacing: 0.04em;
+  --vs-page--border-width-top: 0.4pt;
+  --vs-page--border-color-top: var(--vs-color-border);
+  --vs-page--mbox-top-center-content: env(doc-title);
+  --vs-page--mbox-top-center-text-transform: uppercase;
+  --vs-page--mbox-top-right-content: counter(page);
+
+  /* 節番号: 文書名 (h1) は数えず、章立ては h2 から起こす */
+  --vs-section--marker-display: inline;
+  --vs-section--marker-margin-inline-end: 0.8ch;
+  --vs-section--h1-marker-display: none;
+  --vs-section--h2-marker-content: counter(vs-counter-sec-h2);
+  --vs-section--h3-marker-content: counter(vs-counter-sec-h2) '.'
+    counter(vs-counter-sec-h3);
+
+  /* コードのキャプションはタイトルのみでリスト番号は付けない */
+  --vs-listing--marker-display: none;
 }
 
 /* 印刷時のみ pre を折り返し禁止に (レジスタマップの桁を保つ)。
@@ -209,7 +204,7 @@ section.level1 > section.level2:first-of-type > h2 {
 /* Conditions line under a section head */
 .lead {
   font-size: 6.6pt;
-  color: var(--vs-theme-mono-hairline-two-column--color-muted);
+  color: var(--vs-color-foreground-alt);
   margin-block: 0.06rem 0.26rem;
 }
 
@@ -217,7 +212,7 @@ section.level1 > section.level2:first-of-type > h2 {
   display: block;
   font-size: 6.2pt;
   line-height: 1.28;
-  color: var(--vs-theme-mono-hairline-two-column--color-muted);
+  color: var(--vs-color-foreground-alt);
   margin-block: 0.2rem 0.24rem;
 }
 

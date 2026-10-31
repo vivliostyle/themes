@@ -26,12 +26,12 @@ export default {
 | 変数                                    | 既定値                   | 説明                         |
 | --------------------------------------- | ------------------------ | ---------------------------- |
 | `--vs-font-family`                      | `'Noto Serif JP', serif` | 本文書体                     |
-| `--vs-color-foreground`                       | `#1a1a1a`                | 本文の墨色                   |
-| `--vs-color-background`                 | `#f7f5f0`                | 地色                         |
+| `--vs-color-foreground`                       | `#1a1a1a` | 本文の墨色                   |
+| `--vs-color-background`                 | `#f7f5f0` | 地色                         |
 | `--vs--h2-padding-inline`               | `11mm 0`                 | 節見出しの天からの一字下げ量 |
 | `--vs-section--counter-style`           | `cjk-ideographic`        | 節番号の書式                 |
 | `--vs-counter-style`                    | `cjk-ideographic`        | 図表番号の書式               |
-| `--vs-theme-vertical-numbered-heading-graph--figure-size-inline`        | `50mm`                   | 地に置く図版の幅             |
+| `--vs--figure-item-size-inline`        | `50mm`                   | 地に置く図版の幅             |
 | `--vs-page--mbox-top-right-content`     | `env(pub-title)`         | 柱の内容                     |
 | `--vs-page--mbox-bottom-right-content`  | `counter(page)`          | ノンブルの内容               |
 | `--vs-endnote--section-heading-content` | `'注'`                   | 巻末注の見出し               |

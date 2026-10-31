@@ -25,38 +25,34 @@
  */
 
 :root {
-  --vs-theme-split-body-recommendation-box--font-sans:
-    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
-  --vs-theme-split-body-recommendation-box--color-rule: #4d4d4d;
-  --vs-theme-split-body-recommendation-box--color-tint: #e8e8e8;
-
-  /* Page */
-  --vs-page--size: A4;
-  --vs-page--margin-top: 18mm;
-  --vs-page--margin-bottom: 18mm;
-  --vs-page--margin-left: 20mm;
-  --vs-page--margin-right: 20mm;
-  --vs-page--border-width-top: 0.4pt;
-  --vs-page--border-color-top: var(
-    --vs-theme-split-body-recommendation-box--color-rule
+  /* 推奨ボックスと節末の注 */
+  --vs-theme-split-body-recommendation-box--recommendation-marker-content: '推奨 '
+    counters(vs-counter-sections, '-');
+  --vs-theme-split-body-recommendation-box--note-marker-content: counter(
+    vs-counter-note
   );
-
-  /* 柱: ガイドライン名とノンブル */
-  --vs-page--mbox-top-left-content: env(doc-title);
-  --vs-page--mbox-top-center-content: counter(page);
-  --vs-page--mbox-font-family: 'Noto Serif JP', serif;
-  --vs-page--mbox-text-color: #1a1a1a;
-  --vs-page--mbox-top-font-size: 8pt;
-  /* ノンブルの箱だけ本文寄りの大きさに */
-  --vs-page--mbox-top-center-font-size: 9.5pt;
-  --vs-page--mbox-top-letter-spacing: -0.01em;
+  --vs-theme-split-body-recommendation-box--note-call-content: target-counter(
+    attr(href),
+    vs-counter-note
+  );
 
   /* Type */
   --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+  --vs-font-family-alt: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
   --vs-font-size: 10pt;
   --vs-line-height: 1.6;
   --vs-color-foreground: #1a1a1a;
   --vs-color-background: #ffffff;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 90%
+  );
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 25%
+  );
   --vs-widows-orphans: 2;
 
   /* 版面は通しの2段組。節ごとの改ページで1節=1見開き面の体裁を保つ */
@@ -87,6 +83,52 @@
 
   --vs--sup-font-size: 0.7em;
 
+  /* 表: 横罫のみ・グレーヘッダ */
+  --vs--table-font-size: 8pt;
+  --vs--table-margin-block: 0;
+  --vs--table-size-inline: 100%;
+  --vs--table-table-layout: fixed;
+  --vs--table-font-family: var(--vs-font-family-alt);
+  --vs--table-border-width: 0;
+  --vs--table-border-width-block-start: 0.8pt;
+  --vs--table-border-width-block-end: 0.8pt;
+  --vs--table-border-width-thead-inner: 0.8pt;
+  --vs--table-border-width-row: 0.4pt;
+  --vs--table-cell-padding-block: 2mm;
+  --vs--table-cell-padding-inline: 2mm;
+  --vs--table-cell-line-height: 1.5;
+  --vs--th-font-family: var(--vs-font-family-alt);
+  --vs--th-font-weight: 500;
+  --vs--th-text-align: center;
+  --vs--th-background-color: var(--vs-color-background-alt);
+  --vs--th-vertical-align: middle;
+  --vs--th-padding-block: 1.6mm;
+  --vs--td-vertical-align: middle;
+
+  /* 表・図は figure で組む。base 既定の flex は分割不可で長い表が溢れるため block に */
+  --vs--figure-display: block;
+  --vs--figure-break-inside: auto;
+  --vs--figure-margin-block: 0;
+  --vs--figure-margin-inline: 0;
+
+  /* Page */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 18mm;
+  --vs-page--margin-bottom: 18mm;
+  --vs-page--margin-left: 20mm;
+  --vs-page--margin-right: 20mm;
+  --vs-page--border-width-top: 0.4pt;
+  --vs-page--border-color-top: var(--vs-color-border);
+
+  /* 柱: ガイドライン名とノンブル */
+  --vs-page--mbox-top-left-content: env(doc-title);
+  --vs-page--mbox-top-center-content: counter(page);
+  --vs-page--mbox-font-family: 'Noto Serif JP', serif;
+  --vs-page--mbox-top-font-size: 8pt;
+  /* ノンブルの箱だけ本文寄りの大きさに */
+  --vs-page--mbox-top-center-font-size: 9.5pt;
+  --vs-page--mbox-top-letter-spacing: -0.01em;
+
   /* 章・節番号と節参照 */
   --vs-section--marker-display: inline;
   --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '.';
@@ -106,54 +148,6 @@
   --vs-listing--marker-margin-inline: 0 1.2em;
   --vs-table--marker-margin-inline: 0 1.2em;
   --vs-theorem--marker-margin-inline: 0 1.2em;
-
-  /* 推奨ボックスと節末の注 */
-  --vs-theme-split-body-recommendation-box--recommendation-marker-content: '推奨 '
-    counters(vs-counter-sections, '-');
-  --vs-theme-split-body-recommendation-box--note-marker-content: counter(
-    vs-counter-note
-  );
-  --vs-theme-split-body-recommendation-box--note-call-content: target-counter(
-    attr(href),
-    vs-counter-note
-  );
-
-  /* 表: 横罫のみ・グレーヘッダ */
-  --vs--table-font-size: 8pt;
-  --vs--table-margin-block: 0;
-  --vs--table-size-inline: 100%;
-  --vs--table-table-layout: fixed;
-  --vs--table-font-family: var(
-    --vs-theme-split-body-recommendation-box--font-sans
-  );
-  --vs--table-border-color: var(
-    --vs-theme-split-body-recommendation-box--color-rule
-  );
-  --vs--table-border-width: 0;
-  --vs--table-border-width-block-start: 0.8pt;
-  --vs--table-border-width-block-end: 0.8pt;
-  --vs--table-border-width-thead-inner: 0.8pt;
-  --vs--table-border-width-row: 0.4pt;
-  --vs--table-cell-padding-block: 2mm;
-  --vs--table-cell-padding-inline: 2mm;
-  --vs--table-cell-line-height: 1.5;
-  --vs--th-font-family: var(
-    --vs-theme-split-body-recommendation-box--font-sans
-  );
-  --vs--th-font-weight: 500;
-  --vs--th-text-align: center;
-  --vs--th-background-color: var(
-    --vs-theme-split-body-recommendation-box--color-tint
-  );
-  --vs--th-vertical-align: middle;
-  --vs--th-padding-block: 1.6mm;
-  --vs--td-vertical-align: middle;
-
-  /* 表・図は figure で組む。base 既定の flex は分割不可で長い表が溢れるため block に */
-  --vs--figure-display: block;
-  --vs--figure-break-inside: auto;
-  --vs--figure-margin-block: 0;
-  --vs--figure-margin-inline: 0;
 
   counter-reset: vs-counter-note;
 }
@@ -190,7 +184,7 @@ section:has(> h3:first-child) + section:has(> h3:first-child) > h3 {
 
 /* 表・図のキャプション */
 figcaption {
-  font-family: var(--vs-theme-split-body-recommendation-box--font-sans);
+  font-family: var(--vs-font-family-alt);
   font-weight: 700;
   font-size: 10.5pt;
   line-height: 1.3;
@@ -236,9 +230,7 @@ tbody td:nth-child(3) {
   padding-block-start: 2.5mm;
   border-block-start-width: 0.4pt;
   border-block-start-style: solid;
-  border-block-start-color: var(
-    --vs-theme-split-body-recommendation-box--color-rule
-  );
+  border-block-start-color: var(--vs-color-border);
 }
 
 .notes ol {
@@ -276,7 +268,7 @@ a[data-ref='note']::before {
 .card {
   --vs--p-margin-block: 0 2.5mm;
   --vs--p-text-indent: 0;
-  background-color: var(--vs-theme-split-body-recommendation-box--color-tint);
+  background-color: var(--vs-color-background-alt);
   border-radius: 2.5mm;
   padding: 5mm 5mm 3.5mm;
   margin-block-start: 7mm;
@@ -298,13 +290,13 @@ a[data-ref='note']::before {
     --vs-theme-split-body-recommendation-box--recommendation-marker-content
   );
   display: block;
-  font-family: var(--vs-theme-split-body-recommendation-box--font-sans);
+  font-family: var(--vs-font-family-alt);
   font-size: 11.5pt;
   margin-block-end: 3mm;
 }
 
 .card:not(.recommendation) > p:first-child {
-  font-family: var(--vs-theme-split-body-recommendation-box--font-sans);
+  font-family: var(--vs-font-family-alt);
   font-size: 11.5pt;
   margin-block-end: 3mm;
 }

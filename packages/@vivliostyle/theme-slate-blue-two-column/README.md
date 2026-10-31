@@ -15,12 +15,17 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                  | 既定値                                 | 説明                                             |
 | ------------------------------------- | -------------------------------------- | ------------------------------------------------ |
-| `--vs-theme-slate-blue-two-column--font-display`            | `'Archivo', ...`                       | 見出し・図表番号の表示書体                       |
-| `--vs-theme-slate-blue-two-column--color-accent`            | `#2c3e50`                              | 見出し・表ヘッダー・マストヘッド罫のアクセント色 |
-| `--vs-theme-slate-blue-two-column--color-rule`              | `#c9d3dd`                              | 表罫・図版の枠線色                               |
-| `--vs-theme-slate-blue-two-column--color-muted`             | `#5c6b7a`                              | マストヘッド・キャプションの抑えた文字色         |
+| `--vs-color-foreground` | `#1a1a1a` | 本文の文字色 |
+| `--vs-color-background` | `#fbfbf9` | 紙面の地色 |
+| `--vs-color-foreground-alt` | `#2c3e50` | アクセント色 |
+| `--vs-font-family-alt`            | `'Archivo', ...`                       | 見出し・図表番号の表示書体                       |
+| `--vs-theme-slate-blue-two-column--color-accent`            | `--vs-color-foreground-alt` と同じ | 見出し・表ヘッダー・マストヘッド罫のアクセント色 |
+| `--vs-color-border`              | `--vs-color-foreground-alt` × `--vs-color-background` 80% | 表罫・図版の枠線色                               |
+| `--vs-theme-slate-blue-two-column--color-foreground-secondary`             | `--vs-color-foreground-alt` × `--vs-color-background` 25% | マストヘッド・キャプションの抑えた文字色         |
 | `--vs-theme-slate-blue-two-column--figure-wide-size-inline` | `100%`                                 | 段抜きの本文図の画像の幅                         |
 | `--vs-theme-slate-blue-two-column--equation-marker-content` | `'(' counter(vs-counter-eq) ')'` | ディスプレイ数式の右端に出す式番号               |
 | `--vs-theme-slate-blue-two-column--equation-call-content`   | `'(' target-counter(…) ')'`            | 本文から式を参照したときの表示                   |

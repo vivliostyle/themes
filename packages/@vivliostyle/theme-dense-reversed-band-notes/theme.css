@@ -13,12 +13,14 @@
 
 :root {
   /* テーマ固有 */
-  --vs-theme-dense-reversed-band-notes--color-accent: #34495e;
-  --vs-theme-dense-reversed-band-notes--color-muted: #708397;
-  --vs-theme-dense-reversed-band-notes--color-rule: #aeb6bd;
-  --vs-theme-dense-reversed-band-notes--color-quote: #3b4046;
-  --vs-theme-dense-reversed-band-notes--font-latin:
-    'IBM Plex Sans', 'Noto Sans JP', sans-serif;
+  --vs-theme-dense-reversed-band-notes--color-foreground-secondary: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 35%
+  );
+  --vs-theme-dense-reversed-band-notes--color-accent: var(
+    --vs-color-foreground-alt
+  );
 
   /* 地の柱に出す誌名。既定は原稿のタイトル、誌名がある場合は利用者が上書きする */
   --vs-theme-dense-reversed-band-notes--running-publication: env(doc-title);
@@ -27,23 +29,20 @@
   --vs-theme-dense-reversed-band-notes--endnote-call-content: '［→注'
     target-counter(attr(href), vs-counter-endnote) '］';
 
-  /* Page */
-  --vs-page--size: A4;
-  --vs-page--margin-top: 18mm;
-  --vs-page--margin-bottom: 18mm;
-  --vs-page--margin-left: 16.5mm;
-  --vs-page--margin-right: 16.5mm;
-  --vs-page--background-color: #f7f5ef;
-  --vs-page--mbox-top-padding-bottom: 1.6mm;
-  --vs-page--mbox-top-vertical-align: bottom;
-
   /* Type */
   --vs-font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --vs-font-family-alt: 'IBM Plex Sans', 'Noto Sans JP', sans-serif;
   --vs-font-size: 8.5pt;
   --vs-line-height: 1.5;
   --vs-letter-spacing: -0.01em;
   --vs-color-foreground: #202326;
+  --vs-color-foreground-alt: #34495e;
   --vs-color-background: #f7f5ef;
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 65%
+  );
 
   --vs--heading-font-family:
     'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
@@ -53,7 +52,7 @@
   --vs--p-text-indent: 1em;
   --vs--p-text-align: justify;
 
-  /* 段を横断する章見出し帯。章はページを改める */
+  /* 段を横断する章見出し帯 */
   --vs--h1-font-size: 15pt;
   --vs--h1-font-weight: 900;
   --vs--h1-letter-spacing: 0.06em;
@@ -62,15 +61,11 @@
   --vs--h1-background-color: var(
     --vs-theme-dense-reversed-band-notes--color-accent
   );
-  --vs--h1-text-color: #fff;
+  --vs--h1-text-color: var(--vs-color-background);
   --vs--h1-padding-block: 2.6mm;
   --vs--h1-padding-inline: 4mm;
   --vs--h1-string-set: chapter-title '第' counter(vs-counter-sec-h1) '章　'
     content();
-  --vs-section--h1-break-before: page;
-  --vs-section--h1-marker-content: counter(vs-counter-sec-h1);
-  --vs-section--h1-marker-display: inline;
-  --vs-section--h1-marker-margin-inline-end: 0.7em;
 
   /* 番号付き節見出し「2.3」 */
   --vs--h2-font-size: 10.5pt;
@@ -78,6 +73,30 @@
   --vs--h2-line-height: 1.3;
   --vs--h2-margin-block: 4mm 1.6mm;
   --vs--h2-text-color: var(--vs-theme-dense-reversed-band-notes--color-accent);
+
+  --vs--blockquote-margin-block: 2mm;
+
+  --vs--sup-text-color: var(--vs-theme-dense-reversed-band-notes--color-accent);
+  --vs--sup-font-family: var(--vs-font-family-alt);
+  --vs--sup-font-weight: 500;
+
+  --vs--anchor-text-decoration: none;
+
+  /* Page */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 18mm;
+  --vs-page--margin-bottom: 18mm;
+  --vs-page--margin-left: 16.5mm;
+  --vs-page--margin-right: 16.5mm;
+  --vs-page--mbox-top-padding-bottom: 1.6mm;
+  --vs-page--mbox-top-vertical-align: bottom;
+
+  /* 章はページを改める */
+  --vs-section--h1-break-before: page;
+  --vs-section--h1-marker-content: counter(vs-counter-sec-h1);
+  --vs-section--h1-marker-display: inline;
+  --vs-section--h1-marker-margin-inline-end: 0.7em;
+
   --vs-section--h2-marker-content: counter(vs-counter-sec-h1) '.'
     counter(vs-counter-sec-h2);
   --vs-section--h2-marker-display: inline;
@@ -87,22 +106,12 @@
   --vs-section--call-content: '第'
     target-counter(attr(href), vs-counter-sec-h1, cjk-ideographic) '章';
 
-  --vs--blockquote-margin-block: 2mm;
-
-  --vs--sup-text-color: var(--vs-theme-dense-reversed-band-notes--color-accent);
-  --vs--sup-font-family: var(--vs-theme-dense-reversed-band-notes--font-latin);
-  --vs--sup-font-weight: 500;
-
-  --vs--anchor-text-decoration: none;
-
   /* 巻末注。罫は hr ではなく section の上罫で引く (hr は見出しより後ろに出るため) */
   --vs-endnote--section-margin-block: 4mm 0;
   --vs-endnote--section-padding-block: 2.5mm 0;
   --vs-endnote--section-font-size: 6.6pt;
   --vs-endnote--section-line-height: 1.4;
-  --vs-endnote--section-border-color-block-start: var(
-    --vs-theme-dense-reversed-band-notes--color-rule
-  );
+  --vs-endnote--section-border-color-block-start: var(--vs-color-border);
   --vs-endnote--section-border-style-block-start: solid;
   --vs-endnote--section-border-width-block-start: 0.6pt;
   --vs-endnote--section-heading-content: '注';
@@ -120,9 +129,7 @@
   --vs-endnote--item-text-indent: -2.6em;
   --vs-endnote--backlink-display: none;
   --vs-endnote--marker-content: counter(vs-counter-endnote) '.';
-  --vs-endnote--marker-font-family: var(
-    --vs-theme-dense-reversed-band-notes--font-latin
-  );
+  --vs-endnote--marker-font-family: var(--vs-font-family-alt);
   --vs-endnote--marker-font-weight: 600;
   --vs-endnote--marker-text-color: var(--vs-color-foreground);
   --vs-endnote--marker-margin-inline: 0 0.5em;
@@ -142,9 +149,7 @@
     --vs-theme-dense-reversed-band-notes--color-accent
   );
   --vs-page--mbox-top-font-weight: 500;
-  --vs-page--border-color-top: var(
-    --vs-theme-dense-reversed-band-notes--color-rule
-  );
+  --vs-page--border-color-top: var(--vs-color-border);
   --vs-page--border-width-top: 0.4pt;
 }
 
@@ -156,7 +161,7 @@ body > :is(section.level1, div.chapter) {
   column-gap: 7mm;
   column-rule-width: 0.3pt;
   column-rule-style: solid;
-  column-rule-color: var(--vs-theme-dense-reversed-band-notes--color-rule);
+  column-rule-color: var(--vs-color-border);
   column-fill: balance;
 }
 
@@ -171,7 +176,7 @@ body > h1 {
 }
 
 section > :is(h1, h2):first-child::before {
-  font-family: var(--vs-theme-dense-reversed-band-notes--font-latin);
+  font-family: var(--vs-font-family-alt);
 }
 
 section > h2:first-child::before {
@@ -188,10 +193,12 @@ section.level2 > blockquote {
   --vs--blockquote-padding-inline: 3mm 0;
   --vs--blockquote-border-width-inline-start: 1.2pt;
   --vs--blockquote-border-color-inline-start: var(
-    --vs-theme-dense-reversed-band-notes--color-muted
+    --vs-theme-dense-reversed-band-notes--color-foreground-secondary
   );
-  --vs--blockquote-text-color: var(
-    --vs-theme-dense-reversed-band-notes--color-quote
+  --vs--blockquote-text-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 15%
   );
   --vs--p-font-size: 8pt;
   --vs--p-line-height: 1.45;
@@ -201,13 +208,13 @@ section.level2 > blockquote {
 
 /* 用語注記 */
 .note {
-  color: var(--vs-theme-dense-reversed-band-notes--color-muted);
+  color: var(--vs-theme-dense-reversed-band-notes--color-foreground-secondary);
   font-size: 0.92em;
 }
 
 /* 巻末注への相互参照(→) */
 a[data-ref='note'] {
-  color: var(--vs-theme-dense-reversed-band-notes--color-muted);
+  color: var(--vs-theme-dense-reversed-band-notes--color-foreground-secondary);
   font-size: 0.92em;
 }
 
@@ -234,7 +241,7 @@ a[data-ref='note']::before {
   column-gap: 6mm;
   column-rule-width: 0.3pt;
   column-rule-style: solid;
-  column-rule-color: var(--vs-theme-dense-reversed-band-notes--color-rule);
+  column-rule-color: var(--vs-color-border);
 }
 
 [role='doc-endnotes'] > ol > li {
@@ -242,6 +249,6 @@ a[data-ref='note']::before {
 }
 
 .page-ref {
-  font-family: var(--vs-theme-dense-reversed-band-notes--font-latin);
-  color: var(--vs-theme-dense-reversed-band-notes--color-muted);
+  font-family: var(--vs-font-family-alt);
+  color: var(--vs-theme-dense-reversed-band-notes--color-foreground-secondary);
 }

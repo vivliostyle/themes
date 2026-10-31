@@ -19,17 +19,65 @@
 @import '@vivliostyle/theme-base/math';
 
 :root {
-  --vs-page--size: A5;
-  --vs-page--margin-top: 12mm;
-  --vs-page--margin-bottom: 13mm;
-  --vs-page--margin-left: 9mm;
-  --vs-page--margin-right: 9mm;
+  --vs-theme-red-step-badge-caution-box--color-accent: var(
+    --vs-color-foreground-alt
+  );
+  --vs-theme-red-step-badge-caution-box--color-on-accent: var(
+    --vs-color-background
+  );
+  --vs-theme-red-step-badge-caution-box--color-rule-column: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 65%
+  );
+
+  --vs-theme-red-step-badge-caution-box--section-columns: 2;
+  --vs-theme-red-step-badge-caution-box--section-column-gap: 8mm;
+  --vs-theme-red-step-badge-caution-box--step-figure-size-inline: 18mm;
+  /* 見出しバッジ: 実験・安全はそれぞれの通し番号、その他は data-badge の文字 */
+  --vs-theme-red-step-badge-caution-box--experiment-marker-content: '実験'
+    counter(
+      vs-counter-experiment,
+      var(--vs-theme-red-step-badge-caution-box--badge-counter-style)
+    );
+  --vs-theme-red-step-badge-caution-box--experiment-call-content: '実験'
+    target-counter(
+      attr(href),
+      vs-counter-experiment,
+      var(--vs-theme-red-step-badge-caution-box--badge-counter-style)
+    );
+  --vs-theme-red-step-badge-caution-box--safety-marker-content: '安全'
+    counter(
+      vs-counter-safety,
+      var(--vs-theme-red-step-badge-caution-box--badge-counter-style)
+    );
+  --vs-theme-red-step-badge-caution-box--badge-counter-style: decimal;
+  --vs-theme-red-step-badge-caution-box--step-marker-content: counter(
+    vs-counter-step
+  );
 
   --vs-columns: 1;
   --vs-font-family: 'Noto Sans JP', sans-serif;
   --vs-font-size: 7pt;
   --vs-line-height: 1.55;
   --vs-color-foreground: #1a1a1a;
+  --vs-color-foreground-alt: #ff3333;
+  --vs-color-background: #ffffff;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 90%
+  );
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 60%
+  );
+  --vs-color-border-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 80%
+  );
 
   --vs--heading-font-family: 'Noto Sans JP', sans-serif;
 
@@ -78,17 +126,17 @@
   --vs--table-border-width: 0;
   /* 行罫は淡グレー、見出し行下は本文色の太罫 (器具一覧表) */
   --vs--table-border-width-row: 0.25pt;
-  --vs--table-border-color-row: var(
-    --vs-theme-red-step-badge-caution-box--color-rule-cell
-  );
+  --vs--table-border-color-row: var(--vs-color-border-alt);
   --vs--table-border-width-block-end: 0.25pt;
-  --vs--table-border-color-block-end: var(
-    --vs-theme-red-step-badge-caution-box--color-rule-cell
-  );
+  --vs--table-border-color-block-end: var(--vs-color-border-alt);
   --vs--table-border-width-thead-inner: 0.6pt;
   --vs--table-border-color-thead-inner: var(--vs-color-foreground);
   --vs--th-font-size: 6pt;
-  --vs--th-text-color: var(--vs-theme-red-step-badge-caution-box--color-muted);
+  --vs--th-text-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 30%
+  );
 
   --vs--figure-margin-block: 8mm 0;
   --vs--figure-margin-inline: 0;
@@ -98,49 +146,27 @@
   --vs--figcaption-margin-inline: 0;
   --vs--figcaption-text-align: center;
 
-  --vs-theme-red-step-badge-caution-box--color-accent: #ff3333;
-  --vs-theme-red-step-badge-caution-box--color-accent-bg: #fff0f0;
-  --vs-theme-red-step-badge-caution-box--color-on-accent: #ffffff;
-  --vs-theme-red-step-badge-caution-box--color-rule: #999999;
-  --vs-theme-red-step-badge-caution-box--color-rule-column: #aaaaaa;
-  --vs-theme-red-step-badge-caution-box--color-rule-cell: #cccccc;
-  --vs-theme-red-step-badge-caution-box--color-muted: #555555;
+  --vs--h1-string-set: page-title content();
 
-  --vs-theme-red-step-badge-caution-box--section-columns: 2;
-  --vs-theme-red-step-badge-caution-box--section-column-gap: 8mm;
-  --vs-theme-red-step-badge-caution-box--step-figure-size-inline: 18mm;
-  /* 見出しバッジ: 実験・安全はそれぞれの通し番号、その他は data-badge の文字 */
-  --vs-theme-red-step-badge-caution-box--experiment-marker-content: '実験'
-    counter(
-      vs-counter-experiment,
-      var(--vs-theme-red-step-badge-caution-box--badge-counter-style)
-    );
-  --vs-theme-red-step-badge-caution-box--experiment-call-content: '実験'
-    target-counter(
-      attr(href),
-      vs-counter-experiment,
-      var(--vs-theme-red-step-badge-caution-box--badge-counter-style)
-    );
-  --vs-theme-red-step-badge-caution-box--safety-marker-content: '安全'
-    counter(
-      vs-counter-safety,
-      var(--vs-theme-red-step-badge-caution-box--badge-counter-style)
-    );
-  --vs-theme-red-step-badge-caution-box--badge-counter-style: decimal;
-  --vs-theme-red-step-badge-caution-box--step-marker-content: counter(
-    vs-counter-step
-  );
+  --vs-page--size: A5;
+  --vs-page--margin-top: 12mm;
+  --vs-page--margin-bottom: 13mm;
+  --vs-page--margin-left: 9mm;
+  --vs-page--margin-right: 9mm;
 
   /* 実験・安全のページはそれぞれ1ページで完結させる */
   --vs-section--h1-break-before: page;
 
   /* 柱: 左は各ページの章名、右はそのページの題 */
-  --vs--h1-string-set: page-title content();
   --vs-page--mbox-font-family: 'Noto Sans JP', sans-serif;
   --vs-page--mbox-top-font-size: 6.5pt;
-  --vs-page--mbox-top-text-color: #333333;
+  --vs-page--mbox-top-text-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 15%
+  );
   --vs-page--mbox-bottom-font-size: 8.5pt;
-  --vs-page--mbox-bottom-text-color: #1a1a1a;
+  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
   --vs-page--mbox-top-left-content: string(chapter-name);
   --vs-page--mbox-top-right-content: string(page-title, start);
   --vs-page--mbox-bottom-center-content: counter(page);
@@ -167,9 +193,7 @@ section:has(> h1:first-child) {
   );
   border-block-start-width: 0.35pt;
   border-block-start-style: solid;
-  border-block-start-color: var(
-    --vs-theme-red-step-badge-caution-box--color-rule
-  );
+  border-block-start-color: var(--vs-color-border);
   padding-block-start: 4mm;
 }
 
@@ -303,7 +327,7 @@ a:is([data-ref='exp'], [data-ref='page']) {
 .warning {
   margin-block-start: 3.5mm;
   border-radius: 2.5mm;
-  background-color: var(--vs-theme-red-step-badge-caution-box--color-accent-bg);
+  background-color: var(--vs-color-background-alt);
   break-inside: avoid;
   overflow: hidden;
 }

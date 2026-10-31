@@ -15,12 +15,17 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                   | 既定値                               | 説明                                       |
 | -------------------------------------- | ------------------------------------ | ------------------------------------------ |
-| `--vs-theme-three-column-red-frame--color-accent`             | `#d9534f`                            | タイトルバー・枠罫・強調文字のアクセント色 |
-| `--vs-theme-three-column-red-frame--color-accent-tint`        | `#f9e4e3`                            | 注意ボックスの淡色地                       |
-| `--vs-theme-three-column-red-frame--color-on-accent`          | `#ffffff`                            | タイトルバー上の文字色                     |
-| `--vs-theme-three-column-red-frame--color-column-rule`        | `#8a8a8a`                            | 段間の罫線色                               |
+| `--vs-color-foreground` | `#1a1a1a` | 本文の文字色 |
+| `--vs-color-background` | `#ffffff` | 紙面の地色 |
+| `--vs-color-foreground-alt` | `#d9534f` | アクセント色 |
+| `--vs-theme-three-column-red-frame--color-accent`             | `--vs-color-foreground-alt` と同じ | タイトルバー・枠罫・強調文字のアクセント色 |
+| `--vs-color-background-alt`        | `--vs-color-foreground-alt` × `--vs-color-background` 85% | 注意ボックスの淡色地                       |
+| `--vs--h2-text-color`          | `--vs-color-background` と同じ | タイトルバー上の文字色                     |
+| `--vs-color-border`        | `--vs-color-foreground` × `--vs-color-background` 55% | 段間の罫線色                               |
 | `--vs-page--border-color`              | `var(--vs-theme-three-column-red-frame--color-accent)`      | ページ全周の枠罫の色                       |
 | `--vs-page--border-width`              | `0.4pt`                              | 枠罫の太さ                                 |
 | `--vs-page--border-width-top`          | `2.4pt`                              | 天の枠罫 (柱下の見出し罫) の太さ           |

@@ -20,6 +20,12 @@
 @import '@vivliostyle/theme-base/math';
 
 :root {
+  /* 引用番号だけを出す参照 (「[6,7]」「[1–4]」のように連ねて書くため) */
+  --vs-theme-dense-serif-roman-numeral--cite-number-call-content: target-counter(
+    attr(href),
+    vs-counter-cite
+  );
+
   --vs-font-family: 'STIX Two Text', 'Times New Roman', serif;
   --vs-font-size: 8.3pt;
   --vs-line-height: 1.27;
@@ -30,17 +36,6 @@
   /* 段組は body に掛けるので html は単段のまま */
   --vs-columns: 1;
   --vs-column-gap: 6mm;
-
-  --vs-page--size: letter;
-  --vs-page--margin-top: 15mm;
-  --vs-page--margin-bottom: 15mm;
-  --vs-page--margin-left: 12mm;
-  --vs-page--margin-right: 12mm;
-  --vs-page--background-color: #ffffff;
-  --vs-page--mbox-bottom-center-content: counter(page);
-  --vs-page--mbox-font-family: var(--vs-font-family);
-  --vs-page--mbox-font-size: 9pt;
-  --vs-page--mbox-text-color: var(--vs-color-foreground);
 
   --vs--heading-font-family: 'STIX Two Text', 'Times New Roman', serif;
 
@@ -57,6 +52,37 @@
   --vs--h2-text-align: center;
   --vs--h2-text-transform: uppercase;
   --vs--h2-margin-block: 3.2mm 1.6mm;
+
+  /* 段落間はアキ無しで字下げのみ (誌面密度を上げる伝統的な組み) */
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 3.5mm;
+  --vs--p-text-align: justify;
+
+  --vs--sub-font-size: 68%;
+  --vs--sup-font-size: 68%;
+
+  /* theme-base の figure は flex column。中央揃えの block 図版に戻す */
+  --vs--figure-display: block;
+  --vs--figure-margin-block: 2.5mm 1.5mm;
+  --vs--figure-text-align: center;
+  --vs--figure-item-size-inline: 84%;
+  --vs--figure-break-inside: avoid;
+
+  --vs--figcaption-font-size: 7.5pt;
+  --vs--figcaption-text-align: justify;
+  --vs--figcaption-line-height: 1.28;
+  --vs--figcaption-margin-block: 1.5mm 0;
+  --vs--figcaption-margin-inline: 1mm;
+
+  --vs-page--size: letter;
+  --vs-page--margin-top: 15mm;
+  --vs-page--margin-bottom: 15mm;
+  --vs-page--margin-left: 12mm;
+  --vs-page--margin-right: 12mm;
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-font-family: var(--vs-font-family);
+  --vs-page--mbox-font-size: 9pt;
+  --vs-page--mbox-text-color: var(--vs-color-foreground);
 
   /* 節番号は「I.」「II.」。本文からの参照は「Sec. IV」 */
   --vs-section--counter-style: upper-roman;
@@ -88,33 +114,6 @@
     counter(vs-counter-fig, var(--vs-counter-style)) '. ';
   --vs-figure--call-content: 'Fig.\2009'
     target-counter(attr(href), vs-counter-fig, var(--vs-counter-style));
-
-  /* 引用番号だけを出す参照 (「[6,7]」「[1–4]」のように連ねて書くため) */
-  --vs-theme-dense-serif-roman-numeral--cite-number-call-content: target-counter(
-    attr(href),
-    vs-counter-cite
-  );
-
-  /* 段落間はアキ無しで字下げのみ (誌面密度を上げる伝統的な組み) */
-  --vs--p-margin-block: 0;
-  --vs--p-text-indent: 3.5mm;
-  --vs--p-text-align: justify;
-
-  --vs--sub-font-size: 68%;
-  --vs--sup-font-size: 68%;
-
-  /* theme-base の figure は flex column。中央揃えの block 図版に戻す */
-  --vs--figure-display: block;
-  --vs--figure-margin-block: 2.5mm 1.5mm;
-  --vs--figure-text-align: center;
-  --vs--figure-item-size-inline: 84%;
-  --vs--figure-break-inside: avoid;
-
-  --vs--figcaption-font-size: 7.5pt;
-  --vs--figcaption-text-align: justify;
-  --vs--figcaption-line-height: 1.28;
-  --vs--figcaption-margin-block: 1.5mm 0;
-  --vs--figcaption-margin-inline: 1mm;
 }
 
 /* 標題は段抜き、本文は 2 段。段は文章量に応じてページを送る */

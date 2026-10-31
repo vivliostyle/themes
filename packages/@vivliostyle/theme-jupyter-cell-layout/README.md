@@ -24,14 +24,19 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                             | 既定値                 | 説明                                    |
 | -------------------------------- | ---------------------- | --------------------------------------- |
+| `--vs-color-foreground` | `#23272b` | 本文の文字色 |
+| `--vs-color-background` | `#fffdf9` | 紙面の地色 |
+| `--vs-color-foreground-alt` | `#f37726` | アクセント色 |
 | `--vs-font-family`               | `'Source Sans 3', ...` | 本文書体                                |
 | `--vs--monospace-font-family`    | `'IBM Plex Mono', ...` | コードセルの書体                        |
-| `--vs-theme-jupyter-cell-layout--color-accent`       | `#f37726`              | 章見出し罫・実行番号ガターの Jupyter 橙 |
-| `--vs-theme-jupyter-cell-layout--color-cell-bg`      | `#ffffff`              | 説明・数式・結論セルの背景色            |
-| `--vs-theme-jupyter-cell-layout--color-code-bg`      | `#f1f2f3`              | コードセルの背景色                      |
-| `--vs-theme-jupyter-cell-layout--color-output-bg`    | `#faf7f3`              | 出力セルの背景色                        |
+| `--vs-theme-jupyter-cell-layout--color-accent`       | `--vs-color-foreground-alt` と同じ | 章見出し罫・実行番号ガターの Jupyter 橙 |
+| `--vs-color-background-alt`      | `--vs-color-background` と同じ | 説明・数式・結論セルの背景色            |
+| `--vs-theme-jupyter-cell-layout--color-code-bg`      | `--vs-color-foreground` × `--vs-color-background` 95% | コードセルの背景色                      |
+| `--vs-theme-jupyter-cell-layout--color-output-bg`    | `--vs-color-foreground-alt` × `--vs-color-background` 95% | 出力セルの背景色                        |
 | `--vs-theme-jupyter-cell-layout--cell-border-radius` | `0.8mm`                | セルの角丸半径                          |
 
 生成内容の変数:
@@ -40,7 +45,7 @@ export default {
 | ---------------------------------------- | ------------------------------------------ | ----------------------------------- |
 | `--vs-theme-jupyter-cell-layout--chapter-counter-style`      | `decimal-leading-zero`                     | 章番号の書式                        |
 | `--vs-theme-jupyter-cell-layout--chapter-marker-content`     | `counter(vs-counter-chapter, …)`           | 章表題に付く番号                    |
-| `--vs-theme-jupyter-cell-layout--running-head-content`       | `'CHAPTER ' … ' · ' string(chapter-title)` | 柱の内容                            |
+| `--vs-page--mbox-top-left-content`       | `'CHAPTER ' … ' · ' string(chapter-title)` | 柱の内容                            |
 | `--vs-theme-jupyter-cell-layout--cell-number-content`        | `' [' counter(vs-counter-cell) ']:'`       | 実行番号ラベルの番号部分            |
 | `--vs-theme-jupyter-cell-layout--section-title-call-content` | 節番号 + 見出し名                          | `data-ref="sec-title"` の参照文字列 |
 

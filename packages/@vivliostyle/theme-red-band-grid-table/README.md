@@ -19,13 +19,18 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                       | 既定値    | 説明                                     |
 | ------------------------------------------ | --------- | ---------------------------------------- |
-| `--vs-theme-red-band-grid-table--color-accent`                 | `#cc0000` | タイトル帯・見出し帯・請求概要枠の基調色 |
-| `--vs-theme-red-band-grid-table--color-rule`                   | `#999999` | 明細表の外枠・区切り罫の色               |
-| `--vs-theme-red-band-grid-table--color-rule-strong`            | `#444444` | 小計行の太罫の色                         |
-| `--vs-theme-red-band-grid-table--color-bg-thead`               | `#e4e4e4` | 明細表ヘッダー行の地色                   |
-| `--vs-theme-red-band-grid-table--color-bg-thead-subtle`        | `#efefef` | 囲み注記の表ヘッダー行の地色             |
+| `--vs-color-foreground` | `#1a1a1a` | 本文の文字色 |
+| `--vs-color-background` | `#ffffff` | 紙面の地色 |
+| `--vs-color-foreground-alt` | `#cc0000` | アクセント色 |
+| `--vs-theme-red-band-grid-table--color-accent`                 | `--vs-color-foreground-alt` と同じ | タイトル帯・見出し帯・請求概要枠の基調色 |
+| `--vs-color-border`                   | `--vs-color-foreground` × `--vs-color-background` 60% | 明細表の外枠・区切り罫の色               |
+| `--vs-theme-red-band-grid-table--color-rule-strong`            | `--vs-color-foreground` × `--vs-color-background` 20% | 小計行の太罫の色                         |
+| `--vs-color-background-alt`               | `--vs-color-foreground` × `--vs-color-background` 90% | 明細表ヘッダー行の地色                   |
+| `--vs-theme-red-band-grid-table--color-bg-thead-subtle`        | `--vs-color-foreground` × `--vs-color-background` 95% | 囲み注記の表ヘッダー行の地色             |
 | `--vs-theme-red-band-grid-table--ledger-columns`               | `3`       | 明細の段数                               |
 | `--vs-theme-red-band-grid-table--ledger-column-gap`            | `4mm`     | 段間                                     |
 | `--vs-theme-red-band-grid-table--ledger-date-width`            | `10mm`    | 明細表 1 列目（利用日）の幅              |

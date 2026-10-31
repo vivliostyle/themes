@@ -24,14 +24,17 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。通し番号を途中から起こすには base の `--vs-section--root-counter-sec-h1` に開始値の 1 つ手前を与える。
 
+配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                      | 既定値                  | 説明                                     |
 | ----------------------------------------- | ----------------------- | ---------------------------------------- |
+| `--vs-color-foreground-alt` | `#27ae60` | アクセント色 |
 | `--vs-font-family`                        | `'JetBrains Mono', ...` | 本文書体 (等幅)                          |
-| `--vs-color-foreground`                         | `#1c7a46`               | 記入インクの色                           |
-| `--vs-color-background`                   | `#fbfbf8`               | 地色                                     |
-| `--vs-theme-mono-green-entry-form--color-accent`                | `#27ae60`               | 見出し・罫・テーブル外枠のアクセント色   |
-| `--vs-theme-mono-green-entry-form--color-tint`                  | `#eaf7f0`               | 釣果テーブルヘッダーの淡緑地色           |
-| `--vs-theme-mono-green-entry-form--color-rule`                  | `#c8cdc9`               | NOTES 記入罫の色                         |
+| `--vs-color-foreground`                         | `#1c7a46` | 記入インクの色                           |
+| `--vs-color-background`                   | `#fbfbf8` | 地色                                     |
+| `--vs-theme-mono-green-entry-form--color-accent`                | `--vs-color-foreground-alt` と同じ | 見出し・罫・テーブル外枠のアクセント色   |
+| `--vs--th-background-color`                  | `--vs-color-foreground-alt` × `--vs-color-background` 95% | 釣果テーブルヘッダーの淡緑地色           |
+| `--vs-color-border`                  | `--vs-color-foreground` × `--vs-color-background` 70% | NOTES 記入罫の色                         |
 | `--vs-theme-mono-green-entry-form--field-label-size-inline`     | `13mm`                  | 記入欄ラベルの幅                         |
 | `--vs-theme-mono-green-entry-form--field-label-size-inline-2nd` | `17mm`                  | 1 行に 2 組並べたときの 2 つめのラベル幅 |
 | `--vs-theme-mono-green-entry-form--row-size-block`              | `3.8mm`                 | 釣果テーブルの記入行の高さ               |

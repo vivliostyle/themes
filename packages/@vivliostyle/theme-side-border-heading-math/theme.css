@@ -22,32 +22,54 @@
 @import '@vivliostyle/theme-base/sidenote';
 
 :root {
-  /* Page: A4縦。左(外)余白を広く取りサイドノート列にする */
-  --vs-page--size: A4;
-  --vs-page--margin-top: 20mm;
-  --vs-page--margin-bottom: 17mm;
-  --vs-page--margin-left: 42mm;
-  --vs-page--margin-right: 20mm;
-  --vs-page--background-color: #fdfdfb;
+  --vs-theme-side-border-heading-math--color-foreground-secondary: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 30%
+  );
 
-  /* 柱は原稿の論題、ノンブルはサイドノート列と同じ側の地に置く */
-  --vs-page--mbox-top-center-content: string(article-title);
-  --vs-page--mbox-bottom-left-content: counter(page);
-  --vs-page--mbox-top-center-text-transform: uppercase;
-  --vs-page--mbox-top-center-padding-left: 18mm;
-  --vs-page--mbox-top-center-padding-right: 18mm;
-  --vs-page--mbox-top-font-family: var(--vs--heading-font-family);
-  --vs-page--mbox-top-font-size: 8.5pt;
-  --vs-page--mbox-top-font-weight: 400;
-  --vs-page--mbox-top-letter-spacing: 0.08em;
-  --vs-page--mbox-top-padding-bottom: 2.2mm;
-  --vs-page--mbox-top-text-color: var(--vs-color-foreground);
-  --vs-page--border-width-top: var(--vs--hr-border-width-block-start);
-  --vs-page--border-color-top: var(--vs--hr-border-color);
-  --vs-page--mbox-bottom-font-family: var(--vs--heading-font-family);
-  --vs-page--mbox-bottom-font-size: 9.5pt;
-  --vs-page--mbox-bottom-letter-spacing: 0.02em;
-  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
+  --vs-theme-side-border-heading-math--accent-color: var(
+    --vs-color-foreground-alt
+  );
+
+  /* 定理環境: ラベルは種別ごとの変数で差し替える */
+  --vs-theme-side-border-heading-math--theorem-label-theorem: 'Theorem';
+  --vs-theme-side-border-heading-math--theorem-label-lemma: 'Lemma';
+  --vs-theme-side-border-heading-math--theorem-label-proposition: 'Proposition';
+  --vs-theme-side-border-heading-math--theorem-label-corollary: 'Corollary';
+  --vs-theme-side-border-heading-math--theorem-label-definition: 'Definition';
+  --vs-theme-side-border-heading-math--theorem-label-example: 'Example';
+  --vs-theme-side-border-heading-math--theorem-label-remark: 'Remark';
+  --vs-theme-side-border-heading-math--theorem-label-question: 'Question';
+  --vs-theme-side-border-heading-math--theorem-label-proof: 'Proof';
+  --vs-theme-side-border-heading-math--theorem-number-content: counter(
+      vs-counter-sec-h2
+    )
+    '.' counter(vs-counter-thm);
+  --vs-theme-side-border-heading-math--theorem-call-content: target-counter(
+      attr(href),
+      vs-counter-sec-h2
+    )
+    '.' target-counter(attr(href), vs-counter-thm);
+  --vs-theme-side-border-heading-math--proof-marker-content: var(
+      --vs-theme-side-border-heading-math--theorem-label-proof
+    )
+    '.';
+  --vs-theme-side-border-heading-math--proof-marker-content-of: var(
+      --vs-theme-side-border-heading-math--theorem-label-proof
+    )
+    ' of ';
+  --vs-theme-side-border-heading-math--proof-qed-content: '\2003\25A1';
+
+  /* サイドノートの符号は文書を通した小文字アルファベット */
+  --vs-theme-side-border-heading-math--sidenote-marker-content: '('
+    counter(vs-counter-sidenote, lower-alpha) ')';
+
+  /* 引用番号だけを出す参照 (「[1, ch. 4]」のように所在を添える書き方のため) */
+  --vs-theme-side-border-heading-math--cite-number-call-content: target-counter(
+    attr(href),
+    vs-counter-cite
+  );
 
   /* Type */
   --vs-font-family: 'STIX Two Text', 'Times New Roman', serif;
@@ -58,11 +80,21 @@
   --vs-columns: 1;
   --vs-widows-orphans: 2;
 
-  --vs-theme-side-border-heading-math--accent-color: #1e40af;
-  --vs-color-foreground-alt: #555555;
+  --vs-color-foreground-alt: #1e40af;
+
+  --vs-crossref-marker-counter-prefix: counter(vs-counter-sec-h2) '.';
+  --vs-crossref-call-counter-prefix: target-counter(
+      attr(href),
+      vs-counter-sec-h2
+    )
+    '.';
 
   /* 罫の色・太さ。脚注の区切り罫と版面の上罫はこの hr 変数にフォールバックする */
-  --vs--hr-border-color: #999999;
+  --vs--hr-border-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 60%
+  );
   --vs--hr-border-width-block-start: 0.5pt;
 
   /* Paragraphs: 継続段落は字下げ・段落間余白なし (書籍組)。先頭段落は字下げ解除 */
@@ -98,47 +130,38 @@
   --vs--h3-line-height: 1.25;
   --vs--h3-margin-block: 1.15rem 0.35rem;
 
+  /* Page: A4縦。左(外)余白を広く取りサイドノート列にする */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 20mm;
+  --vs-page--margin-bottom: 17mm;
+  --vs-page--margin-left: 42mm;
+  --vs-page--margin-right: 20mm;
+
+  /* 柱は原稿の論題、ノンブルはサイドノート列と同じ側の地に置く */
+  --vs-page--mbox-top-center-content: string(article-title);
+  --vs-page--mbox-bottom-left-content: counter(page);
+  --vs-page--mbox-top-center-text-transform: uppercase;
+  --vs-page--mbox-top-center-padding-left: 18mm;
+  --vs-page--mbox-top-center-padding-right: 18mm;
+  --vs-page--mbox-top-font-family: var(--vs--heading-font-family);
+  --vs-page--mbox-top-font-size: 8.5pt;
+  --vs-page--mbox-top-font-weight: 400;
+  --vs-page--mbox-top-letter-spacing: 0.08em;
+  --vs-page--mbox-top-padding-bottom: 2.2mm;
+  --vs-page--mbox-top-text-color: var(--vs-color-foreground);
+  --vs-page--border-width-top: var(--vs--hr-border-width-block-start);
+  --vs-page--border-color-top: var(--vs--hr-border-color);
+  --vs-page--mbox-bottom-font-family: var(--vs--heading-font-family);
+  --vs-page--mbox-bottom-font-size: 9.5pt;
+  --vs-page--mbox-bottom-letter-spacing: 0.02em;
+  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
+
   /* 節番号は常用数字。h2 が「1」、h3 が「1.1」 */
   --vs-section--marker-display: inline;
   --vs-section--h1-marker-display: none;
   --vs-section--marker-margin-inline-end: 0.55em;
 
-  /* 定理環境: ラベルは種別ごとの変数で差し替える */
-  --vs-theme-side-border-heading-math--theorem-label-theorem: 'Theorem';
-  --vs-theme-side-border-heading-math--theorem-label-lemma: 'Lemma';
-  --vs-theme-side-border-heading-math--theorem-label-proposition: 'Proposition';
-  --vs-theme-side-border-heading-math--theorem-label-corollary: 'Corollary';
-  --vs-theme-side-border-heading-math--theorem-label-definition: 'Definition';
-  --vs-theme-side-border-heading-math--theorem-label-example: 'Example';
-  --vs-theme-side-border-heading-math--theorem-label-remark: 'Remark';
-  --vs-theme-side-border-heading-math--theorem-label-question: 'Question';
-  --vs-theme-side-border-heading-math--theorem-label-proof: 'Proof';
-  --vs-theme-side-border-heading-math--theorem-number-content: counter(
-      vs-counter-sec-h2
-    )
-    '.' counter(vs-counter-thm);
-  --vs-theme-side-border-heading-math--theorem-call-content: target-counter(
-      attr(href),
-      vs-counter-sec-h2
-    )
-    '.' target-counter(attr(href), vs-counter-thm);
-  --vs-theme-side-border-heading-math--proof-marker-content: var(
-      --vs-theme-side-border-heading-math--theorem-label-proof
-    )
-    '.';
-  --vs-theme-side-border-heading-math--proof-marker-content-of: var(
-      --vs-theme-side-border-heading-math--theorem-label-proof
-    )
-    ' of ';
-  --vs-theme-side-border-heading-math--proof-qed-content: '\2003\25A1';
-
   /* 別行立て数式: 番号は「節.通番」、参照はラベルなしの '(N.M)' */
-  --vs-crossref-marker-counter-prefix: counter(vs-counter-sec-h2) '.';
-  --vs-crossref-call-counter-prefix: target-counter(
-      attr(href),
-      vs-counter-sec-h2
-    )
-    '.';
   --vs-equation--call-content: '(' var(--vs-crossref-call-counter-prefix)
     target-counter(attr(href), vs-counter-eq) ')';
   --vs-equation--margin-block: 1.15rem;
@@ -154,22 +177,17 @@
   --vs-sidenote--margin-block: 0.6mm 3mm;
   --vs-sidenote--font-size: 8.3pt;
   --vs-sidenote--line-height: 1.42;
-  --vs-sidenote--text-color: var(--vs-color-foreground-alt);
-  /* base の符号は段落の上に1行で立つため使わず、最初の段落の頭へ流し込む。
-     符号は文書を通した小文字アルファベット */
-  --vs-sidenote--marker-content: none;
-  --vs-theme-side-border-heading-math--sidenote-marker-content: '('
-    counter(vs-counter-sidenote, lower-alpha) ')';
-
-  /* 引用番号だけを出す参照 (「[1, ch. 4]」のように所在を添える書き方のため) */
-  --vs-theme-side-border-heading-math--cite-number-call-content: target-counter(
-    attr(href),
-    vs-counter-cite
+  --vs-sidenote--text-color: var(
+    --vs-theme-side-border-heading-math--color-foreground-secondary
   );
+  /* base の符号は段落の上に1行で立つため使わず、最初の段落の頭へ流し込む */
+  --vs-sidenote--marker-content: none;
 
   /* Footnotes: 上付き番号(アスタリスクなし) */
   --vs-footnote--font-size: 8.5pt;
-  --vs-footnote--text-color: var(--vs-color-foreground-alt);
+  --vs-footnote--text-color: var(
+    --vs-theme-side-border-heading-math--color-foreground-secondary
+  );
   --vs-footnote--line-height: 1.4;
   --vs-footnote--call-content: counter(
     vs-counter-footnote,
@@ -229,7 +247,7 @@ section > h2:first-child {
 }
 
 .paper-head .affil {
-  color: var(--vs-color-foreground-alt);
+  color: var(--vs-theme-side-border-heading-math--color-foreground-secondary);
   font-size: 0.82em;
   font-style: italic;
   line-height: 1.4;

@@ -24,17 +24,21 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                   | 既定値                                | 説明                                                |
 | -------------------------------------- | ------------------------------------- | --------------------------------------------------- |
+| `--vs-color-background` | `#ffffff` | 紙面の地色 |
+| `--vs-color-foreground-alt` | `#c05621` | アクセント色 |
 | `--vs-font-family`                     | `'Noto Sans JP', sans-serif`          | 本文書体                                            |
-| `--vs-color-foreground`                      | `#1f2428`                             | 本文の文字色                                        |
-| `--vs-theme-orange-black-header-table--color-accent`             | `#c05621`                             | 見出し罫・警告表示のアクセント色 (バーントオレンジ) |
-| `--vs-theme-orange-black-header-table--color-accent-tint`        | `#fbe9df`                             | 予算超過セル・対策メモの淡色地                      |
-| `--vs-theme-orange-black-header-table--color-rule`               | `#1f2428`                             | 柱の下の太罫の色                                    |
+| `--vs-color-foreground`                      | `#1f2428` | 本文の文字色                                        |
+| `--vs-theme-orange-black-header-table--color-accent`             | `--vs-color-foreground-alt` と同じ | 見出し罫・警告表示のアクセント色 (バーントオレンジ) |
+| `--vs-color-background-alt`        | `--vs-color-foreground-alt` × `--vs-color-background` 85% | 予算超過セル・対策メモの淡色地                      |
+| `--vs-page--border-color-top`               | `--vs-color-foreground` と同じ | 柱の下の太罫の色                                    |
 | `--vs-theme-orange-black-header-table--table-label-size-inline`  | `21%`                                 | 予実対比表の項目列の幅                              |
 | `--vs-theme-orange-black-header-table--table-value-size-inline`  | `18%`                                 | 予算・実績・差異列の幅                              |
 | `--vs-theme-orange-black-header-table--table-rate-size-inline`   | `17%`                                 | 差異率列の幅                                        |
 | `--vs-theme-orange-black-header-table--table-remark-size-inline` | `8%`                                  | 合印列の幅                                          |
 | `--vs-theme-orange-black-header-table--remark-marker-content`    | `'※' counter(vs-counter-remark) '　'` | 注記のぶら下げ番号                                  |
-| `--vs--table-border-color`             | `#c9ccd0`                             | 表の罫線色                                          |
-| `--vs--th-background-color`            | `#24272b`                             | 表ヘッダーの地色                                    |
+| `--vs--table-border-color`             | `--vs-color-foreground` × `--vs-color-background` 80% | 表の罫線色                                          |
+| `--vs--th-background-color`            | `--vs-color-foreground` と同じ | 表ヘッダーの地色                                    |

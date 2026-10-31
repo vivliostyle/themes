@@ -24,17 +24,19 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                  | 既定値                         | 説明                                      |
 | ------------------------------------- | ------------------------------ | ----------------------------------------- |
 | `--vs-font-family`                    | `'Noto Serif JP', ...`         | 本文・見出し共通の明朝書体                |
-| `--vs-color-foreground`                     | `#1a1a1a`                      | 本文・柱・罫の墨色                        |
-| `--vs-color-background`               | `#f7f6f2`                      | 用紙の地色                                |
-| `--vs-theme-dense-mono-two-column--color-rule`              | `#333333`                      | 段間罫の色                                |
+| `--vs-color-foreground`                     | `#1a1a1a` | 本文・柱・罫の墨色                        |
+| `--vs-color-background`               | `#f7f6f2` | 用紙の地色                                |
+| `--vs-color-border`              | `--vs-color-foreground` × `--vs-color-background` 15% | 段間罫の色                                |
 | `--vs-theme-dense-mono-two-column--table-label-size-inline` | `26%`                          | 指標表の科目名列の幅 (表ごとに上書きする) |
 | `--vs-theme-dense-mono-two-column--note-label-content`      | `'(注)'`                       | (注) 書きの肩のラベル                     |
 | `--vs-theme-dense-mono-two-column--note-label-size-inline`  | `2.4em`                        | (注) ラベルの占める幅                     |
 | `--vs-theme-dense-mono-two-column--note-marker-content`     | `counter(vs-counter-note) '.'` | (注) 書きの項番                           |
 | `--vs-theme-dense-mono-two-column--note-marker-size-inline` | `1.4em`                        | (注) 書きの項番のぶら下げ幅               |
-| `--vs--table-border-color`            | `#333333`                      | 経営指標表の罫色                          |
+| `--vs--table-border-color`            | `--vs-color-border` と同じ | 経営指標表の罫色                          |
 | `--vs--table-border-width-outer`      | `0.7pt`                        | 経営指標表の外枠の太さ                    |
 | `--vs--table-border-width-cell`       | `0.4pt`                        | 経営指標表のセル内罫の太さ                |

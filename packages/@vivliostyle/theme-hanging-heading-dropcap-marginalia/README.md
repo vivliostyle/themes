@@ -25,14 +25,16 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                   | 既定値                 | 説明                                           |
 | -------------------------------------- | ---------------------- | ---------------------------------------------- |
 | `--vs-font-family`                     | `'Noto Serif JP', ...` | 本文書体                                       |
-| `--vs-color-foreground`                      | `#2b2520`              | 本文の文字色                                   |
-| `--vs-color-background`                | `#faf7f2`              | 地色 (クリーム紙)                              |
-| `--vs-theme-hanging-heading-dropcap-marginalia--color-accent`             | `#5a4a42`              | 見出し・ドロップキャップ・傍注罫のアクセント色 |
-| `--vs-theme-hanging-heading-dropcap-marginalia--color-muted`              | `#8a7a70`              | 傍注の文字色・柱の色                           |
-| `--vs-theme-hanging-heading-dropcap-marginalia--color-rule`               | `#b3a396`              | 柱の下の罫の色                                 |
+| `--vs-color-foreground`                      | `#2b2520` | 本文の文字色                                   |
+| `--vs-color-background`                | `#faf7f2` | 地色 (クリーム紙)                              |
+| `--vs-theme-hanging-heading-dropcap-marginalia--color-accent`             | `--vs-color-foreground` × `--vs-color-background` 20% | 見出し・ドロップキャップ・傍注罫のアクセント色 |
+| `--vs-color-foreground-alt`              | `--vs-color-foreground` × `--vs-color-background` 45% | 傍注の文字色・柱の色                           |
+| `--vs-page--border-color-top`               | `--vs-color-foreground` × `--vs-color-background` 65% | 柱の下の罫の色                                 |
 | `--vs-theme-hanging-heading-dropcap-marginalia--sidenote-size-inline`     | `24mm`                 | 傍注帯の幅                                     |
 | `--vs-theme-hanging-heading-dropcap-marginalia--sidenote-gap`             | `4mm`                  | 傍注帯と本文の間隔                             |
 | `--vs-theme-hanging-heading-dropcap-marginalia--heading-hang-size-inline` | `10mm`                 | ハンギング見出しの突き出し量                   |

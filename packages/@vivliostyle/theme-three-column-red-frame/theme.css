@@ -15,15 +15,9 @@
 
 :root {
   /* ---- テーマ固有 ---- */
-  --vs-theme-three-column-red-frame--color-accent: #d9534f;
-  --vs-theme-three-column-red-frame--color-accent-tint: #f9e4e3;
-  --vs-theme-three-column-red-frame--color-on-accent: #ffffff;
-  --vs-theme-three-column-red-frame--color-column-rule: #8a8a8a;
-  /* 枠罫から本文までのアキ */
-  --vs-page--padding-top: 3mm;
-  --vs-page--padding-right: 2.5mm;
-  --vs-page--padding-bottom: 2.5mm;
-  --vs-page--padding-left: 2.5mm;
+  --vs-theme-three-column-red-frame--color-accent: var(
+    --vs-color-foreground-alt
+  );
   /* 演題番号。会告の付番規則 (接頭辞・開始番号・幅) は原稿側で与える */
   --vs-theme-three-column-red-frame--entry-marker-content: counter(
     vs-counter-sec-h2
@@ -45,30 +39,21 @@
   --vs-line-height: 1.18;
   --vs-spacing-rlh: 1.18rem;
   --vs-color-foreground: #1a1a1a;
+  --vs-color-foreground-alt: #d9534f;
   --vs-color-background: #ffffff;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 85%
+  );
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 55%
+  );
   --vs-columns: 1; /* html は単段のまま。3段は body に掛ける */
   --vs-column-gap: 5.2mm;
   --vs-hyphens: none;
-
-  --vs-page--size: A4;
-  --vs-page--margin-top: 12mm;
-  --vs-page--margin-bottom: 12mm;
-  --vs-page--margin-left: 10mm;
-  --vs-page--margin-right: 10mm;
-  --vs-page--background-color: #ffffff;
-  /* 全周の枠罫。天は太罫で柱下の見出し罫を兼ねる */
-  --vs-page--border-width: 0.4pt;
-  --vs-page--border-width-top: 2.4pt;
-  --vs-page--border-color: var(--vs-theme-three-column-red-frame--color-accent);
-  --vs-page--mbox-top-left-content: env(doc-title);
-  --vs-page--mbox-top-right-content: string(running-session) '　' counter(page);
-  --vs-page--mbox-font-family:
-    'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
-  --vs-page--mbox-font-size: 8pt;
-  --vs-page--mbox-font-weight: 700;
-  --vs-page--mbox-text-color: var(--vs-color-foreground);
-  --vs-page--mbox-top-padding-bottom: 1.4mm;
-  --vs-page--mbox-top-vertical-align: bottom;
 
   /* ---- theme-base 要素変数 ---- */
   --vs--heading-font-family:
@@ -81,7 +66,7 @@
   --vs--h2-background-color: var(
     --vs-theme-three-column-red-frame--color-accent
   );
-  --vs--h2-text-color: var(--vs-theme-three-column-red-frame--color-on-accent);
+  --vs--h2-text-color: var(--vs-color-background);
   --vs--h2-padding-block: 1.4mm 1.6mm;
   --vs--h2-padding-inline: 1.8mm;
 
@@ -102,6 +87,31 @@
 
   --vs--blockquote-margin-inline: 0;
 
+  /* 枠罫から本文までのアキ */
+  --vs-page--padding-top: 3mm;
+  --vs-page--padding-right: 2.5mm;
+  --vs-page--padding-bottom: 2.5mm;
+  --vs-page--padding-left: 2.5mm;
+
+  --vs-page--size: A4;
+  --vs-page--margin-top: 12mm;
+  --vs-page--margin-bottom: 12mm;
+  --vs-page--margin-left: 10mm;
+  --vs-page--margin-right: 10mm;
+  /* 全周の枠罫。天は太罫で柱下の見出し罫を兼ねる */
+  --vs-page--border-width: 0.4pt;
+  --vs-page--border-width-top: 2.4pt;
+  --vs-page--border-color: var(--vs-theme-three-column-red-frame--color-accent);
+  --vs-page--mbox-top-left-content: env(doc-title);
+  --vs-page--mbox-top-right-content: string(running-session) '　' counter(page);
+  --vs-page--mbox-font-family:
+    'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  --vs-page--mbox-font-size: 8pt;
+  --vs-page--mbox-font-weight: 700;
+  --vs-page--mbox-text-color: var(--vs-color-foreground);
+  --vs-page--mbox-top-padding-bottom: 1.4mm;
+  --vs-page--mbox-top-vertical-align: bottom;
+
   /* ---- 演題番号は h2 のセクションカウンタで採る ---- */
   --vs-section--marker-display: inline;
   --vs-section--h2-marker-content: var(
@@ -120,7 +130,7 @@ body {
   column-fill: auto;
   column-rule-width: 0.35pt;
   column-rule-style: solid;
-  column-rule-color: var(--vs-theme-three-column-red-frame--color-column-rule);
+  column-rule-color: var(--vs-color-border);
 }
 
 /* ── セッションの開催情報。3段の上に全幅で置く ── */
@@ -131,7 +141,7 @@ body > header {
   border-width: 0.8pt;
   border-style: solid;
   border-color: var(--vs-theme-three-column-red-frame--color-accent);
-  background-color: var(--vs-theme-three-column-red-frame--color-accent-tint);
+  background-color: var(--vs-color-background-alt);
 }
 
 body > header p {
@@ -242,9 +252,7 @@ footer blockquote {
   --vs--blockquote-margin-block: 2.4mm 0;
   --vs--blockquote-padding-block: 2.4mm;
   --vs--blockquote-padding-inline: 2mm;
-  --vs--blockquote-background-color: var(
-    --vs-theme-three-column-red-frame--color-accent-tint
-  );
+  --vs--blockquote-background-color: var(--vs-color-background-alt);
   --vs--blockquote-text-color: var(
     --vs-theme-three-column-red-frame--color-accent
   );

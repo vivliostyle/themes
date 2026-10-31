@@ -19,88 +19,6 @@
 @import '@vivliostyle/theme-base/math';
 
 :root {
-  --vs-theme-latex-two-column-theorem--font-math:
-    'STIX Two Math', 'Cambria Math', 'Latin Modern Math', math;
-
-  /* Page */
-  --vs-page--size: A4;
-  --vs-page--margin-top: 16mm;
-  --vs-page--margin-bottom: 18mm;
-  --vs-page--margin-left: 15mm;
-  --vs-page--margin-right: 15mm;
-  --vs-page--background-color: #fafaf7;
-  /* 柱の下の細罫 = 版面の上罫 */
-  --vs-page--border-width-top: 0.4pt;
-  --vs-page--border-color-top: var(--vs-color-border);
-  /* 罫と本文のアキ */
-  --vs-page--padding-top: 4mm;
-
-  /* 柱は左が著者、右が誌名。ノンブルは下中央 */
-  --vs-page--mbox-top-left-content: element(running-author);
-  --vs-page--mbox-top-right-content: string(journal-title);
-  --vs-page--mbox-bottom-center-content: counter(page);
-  --vs-page--mbox-font-family: 'EB Garamond', 'Times New Roman', serif;
-  --vs-page--mbox-font-size: 9pt;
-  --vs-page--mbox-text-color: #333333;
-
-  /* Type */
-  --vs-font-family: 'EB Garamond', 'STIX Two Text', 'Times New Roman', serif;
-  --vs-font-size: 9pt;
-  --vs-line-height: 1.4;
-  --vs-spacing-rlh: 1.4rem;
-  --vs-color-foreground: #333333;
-  --vs-color-background: #fafaf7;
-  --vs-color-border: #333333;
-  --vs-widows-orphans: 2;
-
-  /* 段組は body に掛けるので html は単段のまま */
-  --vs-columns: 1;
-  --vs-column-gap: 7mm;
-
-  --vs--p-hyphens: auto;
-  --vs--p-margin-block: 0;
-  --vs--p-text-indent: 1.2em;
-  --vs--p-text-align: justify;
-  --vs--p-first-text-indent: 0;
-
-  --vs--heading-font-family:
-    'EB Garamond', 'STIX Two Text', 'Times New Roman', serif;
-  --vs--heading-font-weight: 600;
-  --vs--heading-text-align: start;
-
-  --vs--h1-font-size: 13.5pt;
-  --vs--h1-font-weight: 600;
-  --vs--h1-line-height: 1.2;
-  --vs--h1-text-align: center;
-  --vs--h1-margin-block: 0 3.4mm;
-
-  --vs--h2-font-size: 9.8pt;
-  --vs--h2-line-height: 1.25;
-  --vs--h2-margin-block: 4.5mm 1.8mm;
-
-  --vs--h3-font-size: 9.2pt;
-  --vs--h3-line-height: 1.25;
-  --vs--h3-margin-block: 4.5mm 1.6mm;
-
-  --vs--bold-font-weight: 600;
-
-  /* 節番号は「1.」「3.1」。本文からの参照は「Section 3.1」 */
-  --vs-section--marker-display: inline;
-  --vs-section--marker-margin-inline-end: 0.5em;
-  --vs-section--h2-marker-content: counters(
-      vs-counter-sections,
-      var(--vs-section--counter-delimiter),
-      var(--vs-section--counter-style)
-    )
-    '.';
-  --vs-section--call-content: 'Section '
-    target-counters(
-      attr(href),
-      vs-counter-sections,
-      var(--vs-section--counter-delimiter),
-      var(--vs-section--counter-style)
-    );
-
   /* 表の欄などで番号だけを出す節参照 */
   --vs-theme-latex-two-column-theorem--section-number-call-content: target-counters(
     attr(href),
@@ -145,21 +63,49 @@
     '.' target-counter(attr(href), vs-counter-thm);
   --vs-theme-latex-two-column-theorem--proof-qed-content: '\2003\25A1';
 
-  /* 式番号は文書を通した連番。参照もラベルなしの '(N)' */
-  --vs-equation--call-content: '(' target-counter(attr(href), vs-counter-eq) ')';
-  --vs-equation--margin-block: 0;
-  --vs-equation--item-text-align: inherit;
-  --vs-equation--marker-margin-inline: 2mm 0;
-  --vs-citation--marker-inset-inline-start: -4.4mm;
+  /* Type */
+  --vs-font-family: 'EB Garamond', 'STIX Two Text', 'Times New Roman', serif;
+  --vs-font-size: 9pt;
+  --vs-line-height: 1.4;
+  --vs-spacing-rlh: 1.4rem;
+  --vs-color-foreground: #333333;
+  --vs-color-background: #fafaf7;
+  --vs-color-border: var(--vs-color-foreground);
+  --vs-widows-orphans: 2;
 
-  /* 表番号は「Table 1.」。図は使わないが同じ組みに揃えておく */
-  --vs-table--marker-content: 'Table '
-    counter(vs-counter-tbl, var(--vs-counter-style)) '. ';
-  --vs-figure--marker-content: 'Figure '
-    counter(vs-counter-fig, var(--vs-counter-style)) '. ';
+  /* 段組は body に掛けるので html は単段のまま */
+  --vs-columns: 1;
+  --vs-column-gap: 7mm;
+
+  --vs--p-hyphens: auto;
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 1.2em;
+  --vs--p-text-align: justify;
+  --vs--p-first-text-indent: 0;
+
+  --vs--heading-font-family:
+    'EB Garamond', 'STIX Two Text', 'Times New Roman', serif;
+  --vs--heading-font-weight: 600;
+  --vs--heading-text-align: start;
+
+  --vs--h1-font-size: 13.5pt;
+  --vs--h1-font-weight: 600;
+  --vs--h1-line-height: 1.2;
+  --vs--h1-text-align: center;
+  --vs--h1-margin-block: 0 3.4mm;
+
+  --vs--h2-font-size: 9.8pt;
+  --vs--h2-line-height: 1.25;
+  --vs--h2-margin-block: 4.5mm 1.8mm;
+
+  --vs--h3-font-size: 9.2pt;
+  --vs--h3-line-height: 1.25;
+  --vs--h3-margin-block: 4.5mm 1.6mm;
+
+  --vs--bold-font-weight: 600;
 
   /* booktabs: 上下の太罫 + ヘッダ下の細罫のみ */
-  --vs--table-border-color: #333333;
+  --vs--table-border-color: var(--vs-color-foreground);
   --vs--table-border-width: 0;
   --vs--table-border-width-block-start: 1.1pt;
   --vs--table-border-width-block-end: 1.1pt;
@@ -180,6 +126,55 @@
   --vs--figcaption-text-align: start;
   --vs--figcaption-margin-block: 0 1.6mm;
 
+  /* Page */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 16mm;
+  --vs-page--margin-bottom: 18mm;
+  --vs-page--margin-left: 15mm;
+  --vs-page--margin-right: 15mm;
+  /* 柱の下の細罫 = 版面の上罫 */
+  --vs-page--border-width-top: 0.4pt;
+  --vs-page--border-color-top: var(--vs-color-border);
+  /* 罫と本文のアキ */
+  --vs-page--padding-top: 4mm;
+
+  /* 柱は左が著者、右が誌名。ノンブルは下中央 */
+  --vs-page--mbox-top-left-content: element(running-author);
+  --vs-page--mbox-top-right-content: string(journal-title);
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-font-family: 'EB Garamond', 'Times New Roman', serif;
+  --vs-page--mbox-font-size: 9pt;
+
+  /* 節番号は「1.」「3.1」。本文からの参照は「Section 3.1」 */
+  --vs-section--marker-display: inline;
+  --vs-section--marker-margin-inline-end: 0.5em;
+  --vs-section--h2-marker-content: counters(
+      vs-counter-sections,
+      var(--vs-section--counter-delimiter),
+      var(--vs-section--counter-style)
+    )
+    '.';
+  --vs-section--call-content: 'Section '
+    target-counters(
+      attr(href),
+      vs-counter-sections,
+      var(--vs-section--counter-delimiter),
+      var(--vs-section--counter-style)
+    );
+
+  /* 式番号は文書を通した連番。参照もラベルなしの '(N)' */
+  --vs-equation--call-content: '(' target-counter(attr(href), vs-counter-eq) ')';
+  --vs-equation--margin-block: 0;
+  --vs-equation--item-text-align: inherit;
+  --vs-equation--marker-margin-inline: 2mm 0;
+  --vs-citation--marker-inset-inline-start: -4.4mm;
+
+  /* 表番号は「Table 1.」。図は使わないが同じ組みに揃えておく */
+  --vs-table--marker-content: 'Table '
+    counter(vs-counter-tbl, var(--vs-counter-style)) '. ';
+  --vs-figure--marker-content: 'Figure '
+    counter(vs-counter-fig, var(--vs-counter-style)) '. ';
+
   /* 脚注はページ下部。短い区切り罫 + ぶら下げインデント */
   --vs-footnote--call-content: counter(vs-counter-footnote, decimal);
   --vs-footnote--call-font-size: 0.72em;
@@ -187,7 +182,9 @@
   --vs-footnote--font-size: 7.6pt;
   --vs-footnote--line-height: 1.35;
   --vs-footnote--area-margin-block: 4mm 0;
-  --vs-footnote--area-before-border-color-block-start: #333333;
+  --vs-footnote--area-before-border-color-block-start: var(
+    --vs-color-foreground
+  );
   --vs-footnote--padding-inline-start: 1.5em;
   --vs-footnote--text-indent: -1.5em;
   --vs-footnote--area-before-border-width-block-start: 0.4pt;
@@ -329,7 +326,6 @@ figcaption {
 
 /* ---- 数式 ---- */
 :root {
-  --vs-math--font-family: var(--vs-theme-latex-two-column-theorem--font-math);
   --vs-math--display-margin-block: 2.4mm;
 }
 

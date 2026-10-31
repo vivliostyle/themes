@@ -37,13 +37,16 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                              | 既定値                            | 説明                               |
 | --------------------------------- | --------------------------------- | ---------------------------------- |
+| `--vs-color-background` | `#ffffff` | 紙面の地色 |
 | `--vs-font-family`                | `'Noto Serif JP', ...`            | 本文の明朝書体                     |
 | `--vs--heading-font-family`       | `'Noto Sans JP', ...`             | 見出し・柱・表見出しのゴシック書体 |
-| `--vs-theme-spanning-title-two-column-mono--font-latin`          | `'STIX Two Text', ...`            | 英題・数値・ノンブルの欧文書体     |
-| `--vs-color-foreground`                 | `#1a1a1a`                         | 本文・罫の墨色                     |
-| `--vs-color-background-alt`       | `#efefef`                         | 表ヘッダ・擬似コードの淡グレー地   |
+| `--vs-font-family-alt`          | `'STIX Two Text', ...`            | 英題・数値・ノンブルの欧文書体     |
+| `--vs-color-foreground`                 | `#1a1a1a` | 本文・罫の墨色                     |
+| `--vs-color-background-alt`       | `--vs-color-foreground` × `--vs-color-background` 95% | 表ヘッダ・擬似コードの淡グレー地   |
 | `--vs-theme-spanning-title-two-column-mono--columns`             | `2`                               | 本文の段数                         |
 | `--vs-theme-spanning-title-two-column-mono--column-gap`          | `8mm`                             | 段間                               |
 | `--vs-theme-spanning-title-two-column-mono--running-head-gap`    | `10mm`                            | 柱の左右の間隔                     |

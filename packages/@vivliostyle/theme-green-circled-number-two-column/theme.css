@@ -19,27 +19,29 @@
 
 :root {
   /* テーマ固有 */
-  --vs-theme-green-circled-number-two-column--color-accent: #66cc00;
-  --vs-theme-green-circled-number-two-column--color-rule: #b8e386;
-  --vs-theme-green-circled-number-two-column--color-tint: #eef8e0;
-  --vs-theme-green-circled-number-two-column--color-heading: #1a1a1a;
-  --vs-theme-green-circled-number-two-column--color-on-accent: #ffffff;
+  --vs-theme-green-circled-number-two-column--color-accent: var(
+    --vs-color-foreground-alt
+  );
+  --vs-theme-green-circled-number-two-column--color-on-accent: var(
+    --vs-color-background
+  );
 
-  --vs-page--size: A5;
-  --vs-page--margin-top: 10mm;
-  --vs-page--margin-bottom: 10mm;
-  --vs-page--margin-left: 8mm;
-  --vs-page--margin-right: 8mm;
-
-  /* ノンブル */
-  --vs-page--mbox-bottom-center-content: counter(page);
-  --vs-page--mbox-bottom-font-size: 9pt;
-  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
+  /* 手順番号 */
+  --vs-theme-green-circled-number-two-column--step-marker-content: counter(
+    vs-counter-step
+  );
 
   --vs-font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
   --vs-font-size: 8.5pt;
   --vs-line-height: 1.5;
   --vs-color-foreground: #333333;
+  --vs-color-foreground-alt: #66cc00;
+  --vs-color-background: #ffffff;
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 45%
+  );
 
   /* 2段。段境は淡いグリーンの細罫 */
   --vs-columns: 2;
@@ -47,9 +49,6 @@
   --vs-column-gap: 8mm;
   --vs-column-rule-width: 0.5pt;
   --vs-column-rule-style: solid;
-  --vs-column-rule-color: var(
-    --vs-theme-green-circled-number-two-column--color-rule
-  );
 
   --vs--heading-font-family:
     'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
@@ -66,27 +65,7 @@
   --vs--h2-margin-block: 0 2.4mm;
   --vs--h2-margin-inline: 0;
   --vs--h2-break-after: avoid;
-  --vs--h2-text-color: var(
-    --vs-theme-green-circled-number-two-column--color-heading
-  );
-
-  /* 品番は原稿の見出し順から振る。桁の体裁は example 側で差し替えられる */
-  --vs-theme-green-circled-number-two-column--recipe-marker-content: counter(
-    vs-counter-sec-h2,
-    decimal-leading-zero
-  );
-  --vs-section--h2-marker-display: inline-block;
-  --vs-section--h2-marker-content: var(
-    --vs-theme-green-circled-number-two-column--recipe-marker-content
-  );
-  --vs-section--h2-marker-margin-inline-end: 2.4mm;
-  /* 1段 = 1品 */
-  --vs-section--h2-break-before: column;
-
-  /* 手順番号 */
-  --vs-theme-green-circled-number-two-column--step-marker-content: counter(
-    vs-counter-step
-  );
+  --vs--h2-text-color: #1a1a1a;
 
   /* 完成写真 (Markdown 画像 → figure > img) */
   --vs--figure-display: block;
@@ -120,10 +99,33 @@
   --vs--table-cell-padding-inline: 2mm;
   --vs--th-font-weight: 700;
   --vs--th-text-align: center;
-  --vs--th-background-color: var(
-    --vs-theme-green-circled-number-two-column--color-tint
+  --vs--th-background-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 85%
   );
   --vs--td-line-height: 1.3;
+
+  --vs-page--size: A5;
+  --vs-page--margin-top: 10mm;
+  --vs-page--margin-bottom: 10mm;
+  --vs-page--margin-left: 8mm;
+  --vs-page--margin-right: 8mm;
+
+  /* ノンブル */
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-bottom-font-size: 9pt;
+  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
+
+  /* 品番は原稿の見出し順から振る。桁の体裁は example 側で差し替えられる */
+  --vs-section--h2-marker-display: inline-block;
+  --vs-section--h2-marker-content: counter(
+    vs-counter-sec-h2,
+    decimal-leading-zero
+  );
+  --vs-section--h2-marker-margin-inline-end: 2.4mm;
+  /* 1段 = 1品 */
+  --vs-section--h2-break-before: column;
 }
 
 /*
@@ -184,9 +186,7 @@ figure img {
 .stat-block li + li {
   border-left-width: 0.4pt;
   border-left-style: solid;
-  border-left-color: var(
-    --vs-theme-green-circled-number-two-column--color-rule
-  );
+  border-left-color: var(--vs-color-border);
 }
 .stat-block img {
   width: 4.6mm;
@@ -217,7 +217,7 @@ figure img {
 tr,
 th,
 td {
-  border-color: var(--vs-theme-green-circled-number-two-column--color-rule);
+  border-color: var(--vs-color-border);
 }
 thead > tr:last-child {
   border-color: var(--vs-theme-green-circled-number-two-column--color-accent);

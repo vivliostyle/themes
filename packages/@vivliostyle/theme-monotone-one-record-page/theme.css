@@ -27,53 +27,6 @@
 }
 
 :root {
-  --vs-font-family-alt: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
-  --vs-color-foreground-alt: #5c5a55;
-  --vs--figcaption-text-color: var(--vs-color-foreground-alt);
-  --vs--table-font-family: var(--vs-font-family-alt);
-  --vs-theme-monotone-one-record-page--color-rule: #b5b3ae;
-  --vs-theme-monotone-one-record-page--color-note-bg: #f1efea;
-
-  /* Page: 天18・地16・小口(outer)14・ノド(inner)16、柱なし、ノンブルのみ上中央 */
-  --vs-page--size: 105mm 173mm;
-  --vs-page--margin-top: 18mm;
-  --vs-page--margin-bottom: 16mm;
-  --vs-page--margin-left: 15mm;
-  --vs-page--margin-right: 15mm;
-  --vs-page--background-color: #fbfaf7;
-  --vs-page--mbox-top-center-content: counter(page);
-  --vs-page--mbox-font-family:
-    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
-  --vs-page--mbox-font-size: 8.5pt;
-  --vs-page--mbox-text-color: #5c5a55;
-  --vs-page--mbox-letter-spacing: 0.06em;
-
-  /* Type */
-  --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
-  --vs-font-size: 10pt;
-  --vs-line-height: 1.8;
-  --vs-color-foreground: #1c1c1c;
-  --vs-color-background: #fbfaf7;
-  --vs-columns: 1;
-  --vs-widows-orphans: 2;
-
-  /* 段落: 字下げなし、段落間に約 1/3 行分、両端揃え */
-  --vs--p-margin-block: 0 calc(var(--vs-spacing-rlh) / 3);
-  --vs--p-text-indent: 0;
-  --vs--p-text-align: justify;
-
-  /* 見出し: プレーンな太めセリフ、左揃え、色や下線は使わない */
-  --vs--heading-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
-  --vs--heading-font-weight: 600;
-  --vs--heading-text-align: start;
-  --vs--heading-letter-spacing: -0.01em;
-  --vs--h1-font-size: 1.6em;
-  --vs--h1-line-height: 1.32;
-  --vs--h1-margin-block: 0 0.55rem;
-  --vs--h2-font-size: 1.12em;
-  --vs--h2-line-height: 1.35;
-  --vs--h2-margin-block: 1rem calc(var(--vs-spacing-rlh) / 4);
-
   /* レコード番号: 1 レコード = 1 ドキュメントなので vs-counter-chapter で数える。
      h1 (レコード表題) だけ採番し、背景/決定/影響などの節には番号を付けない */
   --vs-theme-monotone-one-record-page--record-counter-style: decimal;
@@ -95,16 +48,55 @@
     vs-counter-chapter,
     var(--vs-theme-monotone-one-record-page--record-counter-style)
   );
-  --vs-section--h1-marker-content: '決定記録'
-    counter(
-      vs-counter-chapter,
-      var(--vs-theme-monotone-one-record-page--record-counter-style)
-    );
-  --vs-section--h1-marker-display: inline;
-  --vs-section--h1-marker-margin-inline-end: 1em;
+
+  --vs-font-family-alt: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --vs-color-foreground-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 30%
+  );
+
+  /* Type */
+  --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+  --vs-font-size: 10pt;
+  --vs-line-height: 1.8;
+  --vs-color-foreground: #1c1c1c;
+  --vs-color-background: #fbfaf7;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 95%
+  );
+  --vs-columns: 1;
+  --vs-widows-orphans: 2;
+
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 70%
+  );
+
+  --vs--figcaption-text-color: var(--vs-color-foreground-alt);
+  --vs--table-font-family: var(--vs-font-family-alt);
+
+  /* 段落: 字下げなし、段落間に約 1/3 行分、両端揃え */
+  --vs--p-margin-block: 0 calc(var(--vs-spacing-rlh) / 3);
+  --vs--p-text-indent: 0;
+  --vs--p-text-align: justify;
+
+  /* 見出し: プレーンな太めセリフ、左揃え、色や下線は使わない */
+  --vs--heading-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+  --vs--heading-font-weight: 600;
+  --vs--heading-text-align: start;
+  --vs--heading-letter-spacing: -0.01em;
+  --vs--h1-font-size: 1.6em;
+  --vs--h1-line-height: 1.32;
+  --vs--h1-margin-block: 0 0.55rem;
+  --vs--h2-font-size: 1.12em;
+  --vs--h2-line-height: 1.35;
+  --vs--h2-margin-block: 1rem calc(var(--vs-spacing-rlh) / 4);
 
   /* 罫線 (タイトル直下の細罫) */
-  --vs-color-border: #b5b3ae;
   --vs--hr-border-width-block-start: 0.3pt;
   --vs--hr-margin-block: 0 0.5rem;
 
@@ -123,9 +115,32 @@
   --vs--figcaption-font-size: 7.5pt;
   --vs--figcaption-text-align: center;
   --vs--figcaption-margin-block: 0.35rem 0;
-
-  --vs--anchor-text-color: #1c1c1c;
   --vs--anchor-text-decoration: none;
+
+  /* Page: 天18・地16・小口(outer)14・ノド(inner)16、柱なし、ノンブルのみ上中央 */
+  --vs-page--size: 105mm 173mm;
+  --vs-page--margin-top: 18mm;
+  --vs-page--margin-bottom: 16mm;
+  --vs-page--margin-left: 15mm;
+  --vs-page--margin-right: 15mm;
+  --vs-page--mbox-top-center-content: counter(page);
+  --vs-page--mbox-font-family:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --vs-page--mbox-font-size: 8.5pt;
+  --vs-page--mbox-text-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 30%
+  );
+  --vs-page--mbox-letter-spacing: 0.06em;
+
+  --vs-section--h1-marker-content: '決定記録'
+    counter(
+      vs-counter-chapter,
+      var(--vs-theme-monotone-one-record-page--record-counter-style)
+    );
+  --vs-section--h1-marker-display: inline;
+  --vs-section--h1-marker-margin-inline-end: 1em;
 
   /* 図番号は「図<レコード番号>-<連番>」。コードのキャプションには番号を付けない */
   --vs-listing--marker-display: none;
@@ -198,7 +213,7 @@ li {
 }
 
 li::marker {
-  color: var(--vs-theme-monotone-one-record-page--color-rule);
+  color: var(--vs-color-border);
   font-size: 0.7em;
 }
 
@@ -229,7 +244,7 @@ figure[class*='language-'] > pre {
   padding-inline: 3mm;
   border-width: 0.4pt;
   border-style: solid;
-  border-color: var(--vs-theme-monotone-one-record-page--color-rule);
+  border-color: var(--vs-color-border);
   background-color: transparent;
 }
 
@@ -245,8 +260,8 @@ figure[class*='language-'] > pre {
   padding-inline: 3.2mm;
   border-width: 0.4pt;
   border-style: solid;
-  border-color: var(--vs-theme-monotone-one-record-page--color-rule);
-  background-color: var(--vs-theme-monotone-one-record-page--color-note-bg);
+  border-color: var(--vs-color-border);
+  background-color: var(--vs-color-background-alt);
   break-inside: avoid;
 }
 
@@ -262,7 +277,7 @@ figure[class*='language-'] > pre {
 
 /* --- システム構成図 (Markdown 画像 → figure > img + figcaption) ---
    外部 SVG は <img> で読まれるため、図中のラベル書体は
-   fig-storage-arch.svg 側の <style> に持たせている。 */
+   fig-storage-arch.svg 側の \3c style> に持たせている。 */
 figure:not([class]) {
   --vs--figure-margin-block: 0.45rem 0.2rem;
   /* 既定の figure-item-padding-inline (0) では画像が意図より大きくなるため、

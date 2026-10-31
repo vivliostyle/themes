@@ -14,31 +14,17 @@
 @import '@vivliostyle/theme-base/page';
 
 :root {
-  --vs-page--size: A4;
-  --vs-page--margin-top: 22mm;
-  --vs-page--margin-bottom: 22mm;
-  --vs-page--margin-left: 23mm;
-  --vs-page--margin-right: 23mm;
-  --vs-page--background-color: #f5f2ea;
-  --vs-page--border-width-top: 0.4pt;
-  --vs-page--border-color-top: var(--vs-color-foreground);
-
-  /* 柱・ノンブルは縦組みの版面でも横組みで置く */
-  --vs-page--mbox-writing-mode: horizontal-tb;
-  --vs-page--mbox-top-right-content: element(vs-theme-feature);
-  --vs-page--mbox-bottom-left-content: counter(page);
-  --vs-page--mbox-top-font-size: 8.5pt;
-  --vs-page--mbox-top-letter-spacing: 0.16em;
-  --vs-page--mbox-top-text-color: var(--vs-color-foreground);
-  --vs-page--mbox-bottom-font-size: 10.5pt;
-  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
+  --vs-theme-vertical-spanning-title-boxed--columns: 2;
+  --vs-theme-vertical-spanning-title-boxed--column-gap: 6mm;
+  --vs-theme-vertical-spanning-title-boxed--headline-margin-block-end: 5mm;
+  --vs-theme-vertical-spanning-title-boxed--card-size-inline: 62mm;
 
   --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
   --vs-font-size: 9pt;
   --vs-line-height: 1.75;
   --vs-color-foreground: #1a1a1a;
   --vs-color-background: #f5f2ea;
-  --vs-color-border: #1a1a1a;
+  --vs-color-border: var(--vs-color-foreground);
   --vs-writing-mode: vertical-rl;
   --vs-columns: 1; /* 段組は body に掛ける (段抜きを伴うため) */
 
@@ -68,6 +54,24 @@
   --vs--figure-margin-block: 0 1.2mm;
   --vs--figcaption-margin-block: 1.2mm 0;
 
+  --vs-page--size: A4;
+  --vs-page--margin-top: 22mm;
+  --vs-page--margin-bottom: 22mm;
+  --vs-page--margin-left: 23mm;
+  --vs-page--margin-right: 23mm;
+  --vs-page--border-width-top: 0.4pt;
+  --vs-page--border-color-top: var(--vs-color-foreground);
+
+  /* 柱・ノンブルは縦組みの版面でも横組みで置く */
+  --vs-page--mbox-writing-mode: horizontal-tb;
+  --vs-page--mbox-top-right-content: element(vs-theme-feature);
+  --vs-page--mbox-bottom-left-content: counter(page);
+  --vs-page--mbox-top-font-size: 8.5pt;
+  --vs-page--mbox-top-letter-spacing: 0.16em;
+  --vs-page--mbox-top-text-color: var(--vs-color-foreground);
+  --vs-page--mbox-bottom-font-size: 10.5pt;
+  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
+
   /* 註: 合印は ＊ + 番号。版面の地に細罫を引いて落とす */
   --vs-footnote--font-size: 6.5pt;
   --vs-footnote--letter-spacing: 0.02em;
@@ -83,11 +87,6 @@
   --vs-footnote--area-before-border-width-block-start: 0.4pt;
   --vs-footnote--area-before-margin-block: 0 2.6mm;
   --vs-footnote--area-before-margin-inline: 0 55%;
-
-  --vs-theme-vertical-spanning-title-boxed--columns: 2;
-  --vs-theme-vertical-spanning-title-boxed--column-gap: 6mm;
-  --vs-theme-vertical-spanning-title-boxed--headline-margin-block-end: 5mm;
-  --vs-theme-vertical-spanning-title-boxed--card-size-inline: 62mm;
 }
 
 /* 縦中横 */

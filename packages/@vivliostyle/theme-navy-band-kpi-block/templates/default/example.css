@@ -8,28 +8,32 @@
   padding-block-end: 1.2mm;
   border-block-end-width: 0.4pt;
   border-block-end-style: solid;
-  border-block-end-color: var(--vs-theme-navy-band-kpi-block--color-rule);
+  border-block-end-color: var(--vs-color-border);
   font-size: 7pt;
   line-height: 1.4;
-  color: var(--vs-theme-navy-band-kpi-block--color-muted);
+  color: var(--vs-theme-navy-band-kpi-block--color-foreground-secondary);
   text-align: end;
 }
 
 /* KPI ブロックに前年同期比を添える */
 .kpi-delta {
   margin: 1.2mm 0 0;
-  font-family: var(--vs-theme-navy-band-kpi-block--font-numeric);
+  font-family: var(--vs-font-family-alt);
   font-variant-numeric: tabular-nums;
   font-size: 6.8pt;
   font-weight: 500;
   line-height: 1;
-  color: var(--vs-theme-navy-band-kpi-block--color-muted);
+  color: var(--vs-theme-navy-band-kpi-block--color-foreground-secondary);
   white-space: nowrap;
 }
 
 /* 予想値の系列を表す凡例スウォッチ */
 .legend .sw-est {
-  background-color: #8ab4f8;
+  background-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 45%
+  );
 }
 
 /* 節内の小見出しは本文と同級のため、色で階層を示す */
@@ -110,7 +114,7 @@
 }
 
 .tbl-dv > table > thead th:last-child {
-  background-color: var(--vs-theme-navy-band-kpi-block--color-tint);
+  background-color: var(--vs-color-background-alt);
 }
 
 /* 四半期業績の推移 (6 行): 5 行目から当期に切り替わる */

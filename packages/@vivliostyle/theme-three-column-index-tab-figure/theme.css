@@ -22,46 +22,52 @@
 
 :root {
   /* テーマ固有 */
-  --vs-theme-three-column-index-tab-figure--font-sans:
-    'Noto Sans JP', sans-serif;
+  --vs-theme-three-column-index-tab-figure--color-foreground-secondary: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 30%
+  );
   --vs-theme-three-column-index-tab-figure--font-latin:
     'Source Serif 4', 'Times New Roman', serif;
-  --vs-theme-three-column-index-tab-figure--color-accent: #27ae60;
-  --vs-theme-three-column-index-tab-figure--color-accent-dark: #176b3a;
+  --vs-theme-three-column-index-tab-figure--color-accent: var(
+    --vs-color-foreground-alt
+  );
+  --vs-theme-three-column-index-tab-figure--color-accent-dark: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-foreground) 50%
+  );
   --vs-theme-three-column-index-tab-figure--color-alt: #b98b35;
-  --vs-theme-three-column-index-tab-figure--color-muted: #5a635a;
-  --vs-theme-three-column-index-tab-figure--color-on-accent: #ffffff;
-  --vs-theme-three-column-index-tab-figure--color-tab-bg: #f0efe4;
+  --vs-theme-three-column-index-tab-figure--color-on-accent: var(
+    --vs-color-background
+  );
   --vs-theme-three-column-index-tab-figure--fig-marker-content: 'Fig. '
     counter(vs-counter-fig);
   --vs-theme-three-column-index-tab-figure--entry-marker-content: counter(
     vs-counter-entry
   );
 
-  /* Page: A4 portrait。索引タブを小口に固定するため左右の入れ替えはしない */
-  --vs-page--size: A4;
-  --vs-page--margin-top: 18mm;
-  --vs-page--margin-bottom: 16mm;
-  --vs-page--margin-left: 14mm;
-  --vs-page--margin-right: 16mm;
-  --vs-page--mbox-font-family: 'Noto Sans JP', sans-serif;
-  --vs-page--mbox-font-size: 7.5pt;
-  --vs-page--mbox-font-weight: 500;
-  --vs-page--mbox-text-color: #5a635a;
-  --vs-page--mbox-letter-spacing: 0.08em;
-  --vs-page--mbox-bottom-center-content: counter(page);
-  --vs-page--mbox-right-top-content: element(index-tabs);
-
   /* Type */
   --vs-font-family: 'Noto Serif JP', serif;
+  --vs-font-family-alt: 'Noto Sans JP', sans-serif;
   --vs-font-size: 8pt;
   --vs-line-height: 1.55;
   --vs-color-foreground: #252a26;
+  --vs-color-foreground-alt: #27ae60;
   --vs-color-background: #f8f6ee;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 95%
+  );
   --vs-columns: 1;
 
   /* 罫線の既定はヘアラインの淡緑 (天の柱罫だけ本文色を明示指定する) */
-  --vs-color-border: #b8c5ba;
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 75%
+  );
 
   /* Paragraphs: flush, justified */
   --vs--p-margin-block: 0;
@@ -98,7 +104,7 @@
   --vs--figcaption-display: none;
 
   /* 相互参照リンク */
-  --vs--anchor-text-color: #27ae60;
+  --vs--anchor-text-color: var(--vs-color-foreground-alt);
   --vs--anchor-text-decoration: none;
 
   /* 索引タブの ol は装飾を自前で持つのでリストの既定を全て落とす */
@@ -106,6 +112,24 @@
   --vs--lists-margin-inline: 0;
   --vs--ol-list-style-type: none;
   --vs--ol-padding-inline-start: 0px;
+
+  /* Page: A4 portrait。索引タブを小口に固定するため左右の入れ替えはしない */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 18mm;
+  --vs-page--margin-bottom: 16mm;
+  --vs-page--margin-left: 14mm;
+  --vs-page--margin-right: 16mm;
+  --vs-page--mbox-font-family: 'Noto Sans JP', sans-serif;
+  --vs-page--mbox-font-size: 7.5pt;
+  --vs-page--mbox-font-weight: 500;
+  --vs-page--mbox-text-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 30%
+  );
+  --vs-page--mbox-letter-spacing: 0.08em;
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-right-top-content: element(index-tabs);
 
   counter-reset: vs-counter-entry;
 }
@@ -232,12 +256,14 @@ body > section.level1 > h1 > .chap {
   flex: none;
   font-weight: 400;
   letter-spacing: 0.02em;
-  color: var(--vs-theme-three-column-index-tab-figure--color-muted);
+  color: var(
+    --vs-theme-three-column-index-tab-figure--color-foreground-secondary
+  );
   white-space: nowrap;
 }
 
 .entries > section > h2 small b {
-  font-family: var(--vs-theme-three-column-index-tab-figure--font-sans);
+  font-family: var(--vs-font-family-alt);
   font-weight: 500;
   color: var(--vs-theme-three-column-index-tab-figure--color-accent-dark);
   border-width: 0.5pt;
@@ -276,10 +302,12 @@ body > section.level1 > h1 > .chap {
   align-items: baseline;
   justify-content: space-between;
   gap: 0.6em;
-  font-family: var(--vs-theme-three-column-index-tab-figure--font-sans);
+  font-family: var(--vs-font-family-alt);
   font-size: 6.8pt;
   font-weight: 500;
-  color: var(--vs-theme-three-column-index-tab-figure--color-muted);
+  color: var(
+    --vs-theme-three-column-index-tab-figure--color-foreground-secondary
+  );
   letter-spacing: 0.02em;
   margin-block: 1.6mm 0;
   text-align: start;
@@ -313,17 +341,19 @@ nav.sidebar {
 }
 
 nav.sidebar li {
-  font-family: var(--vs-theme-three-column-index-tab-figure--font-sans);
+  font-family: var(--vs-font-family-alt);
   font-size: 8pt;
   font-weight: 500;
   text-align: center;
-  color: var(--vs-theme-three-column-index-tab-figure--color-muted);
+  color: var(
+    --vs-theme-three-column-index-tab-figure--color-foreground-secondary
+  );
   padding-block: 1.6mm;
   border-width: 0.5pt;
   border-style: solid;
   border-inline-end-width: 0;
   border-block-end-width: 0;
-  background-color: var(--vs-theme-three-column-index-tab-figure--color-tab-bg);
+  background-color: var(--vs-color-background-alt);
 }
 
 nav.sidebar li:last-child {

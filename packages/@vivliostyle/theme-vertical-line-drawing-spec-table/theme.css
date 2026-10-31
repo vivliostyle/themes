@@ -19,9 +19,7 @@
 }
 
 :root {
-  /* 傍注の第2書体と学名の欧文書体。--vs-* に対応物が無いためテーマ変数 */
-  --vs-theme-vertical-line-drawing-spec-table--font-sub:
-    'BIZ UDPGothic', 'Noto Sans JP', sans-serif;
+  /* 学名の欧文書体。--vs-* に対応物が無いためテーマ変数 */
   --vs-theme-vertical-line-drawing-spec-table--font-latin:
     'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
 
@@ -33,17 +31,9 @@
   --vs-theme-vertical-line-drawing-spec-table--note-size-inline: 20mm;
   --vs-theme-vertical-line-drawing-spec-table--note-margin-inline-end: 4mm;
 
-  --vs-page--size: 105mm 173mm;
-  --vs-page--margin-top: 12mm;
-  --vs-page--margin-bottom: 11mm;
-  --vs-page--margin-left: 9mm;
-  --vs-page--margin-right: 9mm;
-  --vs-page--border-width-top: 0.5pt;
-  --vs-page--border-color-top: var(--vs-color-foreground);
-  --vs-page--mbox-top-padding-bottom: 1.6mm;
-  --vs-page--mbox-top-vertical-align: bottom;
-
   --vs-font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  /* 傍注の第2書体 */
+  --vs-font-family-alt: 'BIZ UDPGothic', 'Noto Sans JP', sans-serif;
   --vs-font-size: 7.5pt;
   --vs-line-height: 1.4;
   --vs-color-foreground: #1c1c1c;
@@ -61,26 +51,16 @@
   --vs--heading-font-weight: 700;
   --vs--heading-text-align: start;
 
-  /* 種見出し「通し番号 + 和名 + 学名」。1種で1ページを起こす */
+  /* 種見出し */
   --vs--h1-font-size: 18pt;
   --vs--h1-letter-spacing: 0.01em;
   --vs--h1-line-height: 1.05;
   --vs--h1-margin-block: 0 2mm;
-  --vs-section--h1-break-before: page;
-  --vs-section--h1-marker-content: counter(vs-counter-sec-h1);
-  --vs-section--h1-marker-display: inline;
-  --vs-section--h1-marker-margin-inline-end: 0.12em;
 
-  /* 丸数字を頭に付ける節見出し「①分布」 */
+  /* 節見出し */
   --vs--h2-font-size: 8pt;
   --vs--h2-line-height: 1.2;
   --vs--h2-margin-block: 0 0.4mm;
-  --vs-section--h2-marker-content: counter(
-    vs-counter-sec-h2,
-    vs-theme--circled-number
-  );
-  --vs-section--h2-marker-display: inline;
-  --vs-section--h2-marker-margin-inline-end: 0;
 
   --vs--figure-margin-block: 0;
   --vs--figcaption-display: none;
@@ -95,6 +75,30 @@
   --vs--table-cell-padding-inline: 0;
   --vs--td-text-align: start;
   --vs--td-vertical-align: top;
+
+  --vs-page--size: 105mm 173mm;
+  --vs-page--margin-top: 12mm;
+  --vs-page--margin-bottom: 11mm;
+  --vs-page--margin-left: 9mm;
+  --vs-page--margin-right: 9mm;
+  --vs-page--border-width-top: 0.5pt;
+  --vs-page--border-color-top: var(--vs-color-foreground);
+  --vs-page--mbox-top-padding-bottom: 1.6mm;
+  --vs-page--mbox-top-vertical-align: bottom;
+
+  /* 種見出し「通し番号 + 和名 + 学名」。1種で1ページを起こす */
+  --vs-section--h1-break-before: page;
+  --vs-section--h1-marker-content: counter(vs-counter-sec-h1);
+  --vs-section--h1-marker-display: inline;
+  --vs-section--h1-marker-margin-inline-end: 0.12em;
+
+  /* 丸数字を頭に付ける節見出し「①分布」 */
+  --vs-section--h2-marker-content: counter(
+    vs-counter-sec-h2,
+    vs-theme--circled-number
+  );
+  --vs-section--h2-marker-display: inline;
+  --vs-section--h2-marker-margin-inline-end: 0;
 
   /* 柱は原稿のタイトル、地の中央にノンブル */
   --vs-page--mbox-top-left-content: env(doc-title);
@@ -169,7 +173,7 @@ aside.note {
     --vs-theme-vertical-line-drawing-spec-table--note-margin-inline-end
   );
   margin-block-end: 2.6mm;
-  font-family: var(--vs-theme-vertical-line-drawing-spec-table--font-sub);
+  font-family: var(--vs-font-family-alt);
   font-size: 5.5pt;
   line-height: 1.42;
   break-inside: avoid;

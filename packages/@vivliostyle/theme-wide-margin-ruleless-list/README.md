@@ -22,10 +22,15 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                           | 既定値             | 説明                         |
 | ------------------------------ | ------------------ | ---------------------------- |
-| `--vs-theme-wide-margin-ruleless-list--font-display`     | `'Inter', ...`     | 見出し・バイラインの表示書体 |
+| `--vs-color-foreground` | `#242321` | 本文の文字色 |
+| `--vs-color-background` | `#faf9f6` | 紙面の地色 |
+| `--vs-color-foreground-alt` | `#d4a574` | アクセント色 |
+| `--vs-font-family-alt`     | `'Inter', ...`     | 見出し・バイラインの表示書体 |
 | `--vs-font-family`             | `'Noto Sans', ...` | 本文書体                     |
-| `--vs-theme-wide-margin-ruleless-list--color-accent`     | `#d4a574`          | 見出し下罫のアクセント色     |
-| `--vs-theme-wide-margin-ruleless-list--color-rule-faint` | `#ead6c1`          | セクション区切りの極細罫の色 |
-| `--vs-theme-wide-margin-ruleless-list--color-muted`      | `#8c8983`          | フッター注記の文字色         |
+| `--vs--h2-border-color-block-end`     | `--vs-color-foreground-alt` と同じ | 見出し下罫のアクセント色     |
+| `--vs--table-border-color-block-end` | `--vs-color-foreground-alt` × `--vs-color-background` 60% | セクション区切りの極細罫の色 |
+| `--vs-theme-wide-margin-ruleless-list--color-foreground-secondary`      | `--vs-color-foreground` × `--vs-color-background` 50% | フッター注記の文字色         |

@@ -26,11 +26,12 @@ export default {
 
 | 変数                              | 既定値                 | 説明                                         |
 | --------------------------------- | ---------------------- | -------------------------------------------- |
-| `--vs-theme-rose-band-dropcap-profile--color-accent`        | `#c44569`              | 枠罫・大題帯・ドロップキャップのローズレッド |
-| `--vs-theme-rose-band-dropcap-profile--frame-border-width`  | `0.45mm`               | ページ全周の枠罫の太さ                       |
+| `--vs-color-foreground-alt` | `#c44569` | アクセント色 |
+| `--vs-theme-rose-band-dropcap-profile--color-accent`        | `--vs-color-foreground-alt` と同じ | 枠罫・大題帯・ドロップキャップのローズレッド |
+| `--vs-border-width`  | `0.45mm`               | ページ全周の枠罫の太さ                       |
 | `--vs-page--padding-{top,right,bottom,left}` | `7mm 11mm 5mm 11mm` | 枠罫から版面までのアキ                       |
 | `--vs-theme-rose-band-dropcap-profile--profile-size-inline` | `40mm`                 | 著者プロフィール欄の幅                       |
 | `--vs-theme-rose-band-dropcap-profile--running-publication` | `env(pub-title)`       | 篇頭ページの柱に出す叢書名                   |
 | `--vs-font-family`                | `'Noto Serif JP', ...` | 本文書体                                     |
-| `--vs-color-foreground`                 | `#1a1a1a`              | 本文の文字色                                 |
-| `--vs-color-background`           | `#faf8f5`              | 地色                                         |
+| `--vs-color-foreground`                 | `#1a1a1a` | 本文の文字色                                 |
+| `--vs-color-background`           | `#faf8f5` | 地色                                         |

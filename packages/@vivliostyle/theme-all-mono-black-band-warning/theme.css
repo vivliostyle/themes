@@ -20,46 +20,12 @@
 }
 
 :root {
-  --vs-page--mbox-bottom-center-content: counter(page);
-  --vs-page--mbox-font-family: 'JetBrains Mono', monospace;
-  --vs-page--mbox-font-size: 8pt;
-  --vs-page--mbox-text-color: #1a1a1a;
-
   /* テーマ固有 (--vs-* に対応物が無い色) */
-  --vs-theme-all-mono-black-band-warning--color-code-bg: #f0f0f0;
-  --vs-theme-all-mono-black-band-warning--color-code-border: #777777;
   --vs-theme-all-mono-black-band-warning--color-inverse-bg: #000000;
-  --vs-theme-all-mono-black-band-warning--color-inverse-body: #ffffff;
+  --vs-theme-all-mono-black-band-warning--color-inverse-body: var(
+    --vs-color-background
+  );
 
-  --vs-page--size: A5;
-  --vs-page--margin-top: 10mm;
-  --vs-page--margin-bottom: 10mm;
-  --vs-page--margin-left: 9mm;
-  --vs-page--margin-right: 9mm;
-  --vs-page--background-color: #ffffff;
-
-  --vs-font-family: 'JetBrains Mono', 'Menlo', 'Consolas', monospace;
-  --vs-font-size: 6.8pt;
-  --vs-line-height: 1.25;
-  --vs-color-foreground: #1a1a1a;
-  --vs-color-background: #ffffff;
-
-  --vs--monospace-font-family: 'JetBrains Mono', 'Menlo', 'Consolas', monospace;
-
-  /* ---- 見出し ---- */
-  --vs--heading-font-family: 'JetBrains Mono', 'Menlo', 'Consolas', monospace;
-  --vs--heading-font-weight: 700;
-  --vs--heading-text-align: start;
-
-  /* 章番号はドキュメントカウンタ、節・小節は base の見出しカウンタから */
-  --vs-section--h1-marker-content: counter(vs-counter-chapter);
-  --vs-section--h2-marker-content: counter(vs-counter-chapter) '.'
-    counter(vs-counter-sec-h2);
-  --vs-section--h3-marker-content: counter(vs-counter-chapter) '.'
-    counter(vs-counter-sec-h2) '.' counter(vs-counter-sec-h3);
-  /* 参照は「section 3.4」の数字部分だけを出し、語は原稿側に置く */
-  --vs-section--call-content: target-counter(attr(href), vs-counter-chapter) '.'
-    target-counter(attr(href), vs-counter-sec-h2);
   --vs-theme-all-mono-black-band-warning--chapter-call-content: target-counter(
       attr(href),
       vs-counter-chapter
@@ -92,6 +58,19 @@
       var(--vs-theme-all-mono-black-band-warning--appendix-counter-style)
     )
     ' ' target-text(attr(href));
+
+  --vs-font-family: 'JetBrains Mono', 'Menlo', 'Consolas', monospace;
+  --vs-font-size: 6.8pt;
+  --vs-line-height: 1.25;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-background: #ffffff;
+
+  --vs--monospace-font-family: 'JetBrains Mono', 'Menlo', 'Consolas', monospace;
+
+  /* ---- 見出し ---- */
+  --vs--heading-font-family: 'JetBrains Mono', 'Menlo', 'Consolas', monospace;
+  --vs--heading-font-weight: 700;
+  --vs--heading-text-align: start;
 
   --vs--h1-font-size: 13pt;
   --vs--h1-line-height: 1.15;
@@ -134,7 +113,7 @@
   --vs--table-margin-inline: 2mm 0;
   --vs--table-text-align: start;
   --vs--table-cell-vertical-align: top;
-  --vs--table-border-color: #1a1a1a;
+  --vs--table-border-color: var(--vs-color-foreground);
   --vs--table-border-width-outer: 0.35mm;
   --vs--table-border-width-cell: 0;
   --vs--table-border-width-column: 0.15mm;
@@ -144,8 +123,10 @@
   --vs--table-border-width: 0;
 
   /* ---- コードブロック ---- */
-  --vs--pre-background-color: var(
-    --vs-theme-all-mono-black-band-warning--color-code-bg
+  --vs--pre-background-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 95%
   );
   --vs--pre-border-width-block-start: 0.15mm;
   --vs--pre-border-width-block-end: 0.15mm;
@@ -155,17 +136,10 @@
   --vs--pre-border-style-block-end: solid;
   --vs--pre-border-style-inline-start: solid;
   --vs--pre-border-style-inline-end: solid;
-  --vs--pre-border-color-block-start: var(
-    --vs-theme-all-mono-black-band-warning--color-code-border
-  );
-  --vs--pre-border-color-block-end: var(
-    --vs-theme-all-mono-black-band-warning--color-code-border
-  );
-  --vs--pre-border-color-inline-start: var(
-    --vs-theme-all-mono-black-band-warning--color-code-border
-  );
-  --vs--pre-border-color-inline-end: var(
-    --vs-theme-all-mono-black-band-warning--color-code-border
+  --vs--pre-border-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 45%
   );
   --vs--pre-line-height: 1.14;
   --vs--pre-font-size: 5.6pt;
@@ -176,6 +150,26 @@
   --vs--pre-white-space: pre-wrap;
   /* 折り返し済みなので、スクロール領域を作って版面外を隠す必要はない */
   --vs--pre-overflow-x: visible;
+
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-font-family: 'JetBrains Mono', monospace;
+  --vs-page--mbox-font-size: 8pt;
+
+  --vs-page--size: A5;
+  --vs-page--margin-top: 10mm;
+  --vs-page--margin-bottom: 10mm;
+  --vs-page--margin-left: 9mm;
+  --vs-page--margin-right: 9mm;
+
+  /* 章番号はドキュメントカウンタ、節・小節は base の見出しカウンタから */
+  --vs-section--h1-marker-content: counter(vs-counter-chapter);
+  --vs-section--h2-marker-content: counter(vs-counter-chapter) '.'
+    counter(vs-counter-sec-h2);
+  --vs-section--h3-marker-content: counter(vs-counter-chapter) '.'
+    counter(vs-counter-sec-h2) '.' counter(vs-counter-sec-h3);
+  /* 参照は「section 3.4」の数字部分だけを出し、語は原稿側に置く */
+  --vs-section--call-content: target-counter(attr(href), vs-counter-chapter) '.'
+    target-counter(attr(href), vs-counter-sec-h2);
 }
 
 /* ---- 見出し番号 ---- */

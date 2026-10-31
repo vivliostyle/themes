@@ -26,13 +26,13 @@ export default {
 | 変数                                    | 既定値                       | 説明                         |
 | --------------------------------------- | ---------------------------- | ---------------------------- |
 | `--vs-font-family`                      | `'Noto Serif JP', serif`     | 本文書体                     |
-| `--vs-color-foreground`                       | `#1a1a1a`                    | 本文の墨色                   |
-| `--vs-color-background`                 | `#faf7f0`                    | 地色                         |
+| `--vs-color-foreground`                       | `#1a1a1a` | 本文の墨色                   |
+| `--vs-color-background`                 | `#faf7f0` | 地色                         |
 | `--vs--h2-padding-inline`               | `7mm 0`                      | 節見出しの天からの一字下げ量 |
 | `--vs-section--counter-style`           | `cjk-ideographic`            | 節番号の書式                 |
 | `--vs-counter-style`                    | `cjk-ideographic`            | 図番号の書式                 |
 | `--vs-theme-vertical-boxed-column-note--column-marker-content`     | `'コラム' counter(...) '　'` | コラム見出しの冠             |
-| `--vs-theme-vertical-boxed-column-note--figure-size-inline`        | `23mm`                       | ノド側に置く図版の幅         |
+| `--vs--figure-item-size-inline`        | `23mm`                       | ノド側に置く図版の幅         |
 | `--vs-footnote--call-content`           | `'＊' counter(...)`          | 脚注の合印                   |
 | `--vs-page--mbox-top-left-content`      | `'「' env(pub-title) '」'`   | 柱の内容                     |
 | `--vs-page--mbox-bottom-center-content` | `counter(page)`              | ノンブルの内容               |

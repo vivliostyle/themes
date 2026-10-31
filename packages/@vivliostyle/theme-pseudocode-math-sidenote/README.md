@@ -25,14 +25,16 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                          | 既定値                   | 説明                         |
 | ----------------------------- | ------------------------ | ---------------------------- |
 | `--vs-font-family`            | `'STIX Two Text', ...`   | 本文・見出し共通のセリフ書体 |
 | `--vs--monospace-font-family` | `'Source Code Pro', ...` | 疑似コードの書体             |
-| `--vs-color-foreground`             | `#1a1a1a`                | 本文・罫のインク色           |
-| `--vs-color-background`       | `#fafaf7`                | 地色                         |
-| `--vs-color-border`           | `#8c8c8c`                | 罫の既定色                   |
-| `--vs-theme-pseudocode-math-sidenote--color-muted`     | `#8c8c8c`                | サイドノート・行番号の色     |
+| `--vs-color-foreground`             | `#1a1a1a` | 本文・罫のインク色           |
+| `--vs-color-background`       | `#fafaf7` | 地色                         |
+| `--vs-color-border`           | `--vs-color-foreground` × `--vs-color-background` 55% | 罫の既定色                   |
+| `--vs-color-foreground-alt`     | `--vs-color-foreground` × `--vs-color-background` 55% | サイドノート・行番号の色     |
 
 生成内容の変数:
 

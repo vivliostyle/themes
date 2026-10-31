@@ -15,15 +15,20 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                        | 既定値                         | 説明                                               |
 | ------------------------------------------- | ------------------------------ | -------------------------------------------------- |
-| `--vs-theme-two-column-blue-sidenote--font-display`                  | `'Inter', ...`                 | 見出し・番号・キャプションの表示書体               |
-| `--vs-theme-two-column-blue-sidenote--font-ui`                       | `'IBM Plex Sans', ...`         | サイドノート・表内数値の書体                       |
-| `--vs-theme-two-column-blue-sidenote--color-accent`                  | `#0066cc`                      | 番号・短い水平罫・図の主系列に使うアクセント色     |
-| `--vs-theme-two-column-blue-sidenote--color-accent-soft`             | `#dceeff`                      | 表ヘッダーの淡色背景                               |
-| `--vs-theme-two-column-blue-sidenote--color-muted`                   | `#66717d`                      | サイドノート・キャプション・参考文献の抑えた文字色 |
-| `--vs-theme-two-column-blue-sidenote--color-rule`                    | `#e7ebef`                      | サイドノートの罫・表の行罫の淡色                   |
-| `--vs-theme-two-column-blue-sidenote--color-tint`                    | `#f4f7fb`                      | 疑似コード (pre) の地色                            |
+| `--vs-color-foreground` | `#20252b` | 本文の文字色 |
+| `--vs-color-background` | `#ffffff` | 紙面の地色 |
+| `--vs-color-foreground-alt` | `#0066cc` | アクセント色 |
+| `--vs-font-family-alt`                  | `'Inter', ...`                 | 見出し・番号・キャプションの表示書体               |
+| `--vs-sidenote--font-family`                       | `'IBM Plex Sans', ...`         | サイドノート・表内数値の書体                       |
+| `--vs-theme-two-column-blue-sidenote--color-accent`                  | `--vs-color-foreground-alt` と同じ | 番号・短い水平罫・図の主系列に使うアクセント色     |
+| `--vs--th-background-color`             | `--vs-color-foreground-alt` × `--vs-color-background` 85% | 表ヘッダーの淡色背景                               |
+| `--vs-theme-two-column-blue-sidenote--color-foreground-secondary`                   | `--vs-color-foreground` × `--vs-color-background` 40% | サイドノート・キャプション・参考文献の抑えた文字色 |
+| `--vs-color-border`                    | `--vs-color-foreground` × `--vs-color-background` 90% | サイドノートの罫・表の行罫の淡色                   |
+| `--vs--pre-background-color`                    | `--vs-color-foreground-alt` × `--vs-color-background` 95% | 疑似コード (pre) の地色                            |
 | `--vs-theme-two-column-blue-sidenote--figure-full-width-size-inline` | `100%`                         | 段抜き図 (`.full-width`) の画像の幅                |
 | `--vs-sidenote--marker-content`             | `counter(vs-counter-sidenote)` | サイドノートの見出し番号                           |
 | `--vs-sidenote--size-inline`                | `24mm`                         | サイドノートの幅                                   |

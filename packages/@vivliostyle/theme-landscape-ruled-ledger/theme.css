@@ -20,23 +20,40 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  /* Page: JIS B5 portrait (182x257mm), asymmetric ledger margins, no header */
-  --vs-page--size: JIS-B5;
-  --vs-page--margin-top: 12mm;
-  --vs-page--margin-bottom: 12mm;
-  --vs-page--margin-left: 13.5mm;
-  --vs-page--margin-right: 13.5mm;
+  /* Theme-specific tokens */
+  --vs-theme-landscape-ruled-ledger--color-rule-strong: var(
+    --vs-color-foreground
+  ); /* 外枠・表頭罫 */
+  --vs-theme-landscape-ruled-ledger--ledger-date-width: 7%;
+  --vs-theme-landscape-ruled-ledger--ledger-description-width: 39%;
+  --vs-theme-landscape-ruled-ledger--ledger-amount-width: 18%;
+  --vs-theme-landscape-ruled-ledger--date-group-label: '日付';
+  --vs-theme-landscape-ruled-ledger--date-group-block-size: 4.6mm;
 
   /* Type: gothic body, 9pt on a 1.6 lead */
   --vs-font-family:
     'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+  --vs-font-family-monospace: 'IBM Plex Mono', ui-monospace, monospace;
   --vs-font-size: 9pt;
   --vs-line-height: 1.6;
   --vs-color-foreground: #242424;
+  --vs-color-foreground-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 35%
+  ); /* 補助文字 */
   --vs-color-background: #faf9f5; /* 帳簿用紙色 */
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 95%
+  ); /* 計行のごく淡い地 */
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 45%
+  ); /* 列罫・主要横罫 */
   --vs-columns: 1;
-
-  --vs--monospace-font-family: 'IBM Plex Mono', ui-monospace, monospace;
 
   --vs--heading-font-family:
     'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
@@ -49,21 +66,15 @@
   --vs--h1-margin-block: 0 3mm;
   --vs--h1-margin-inline: 0;
 
-  /* 帳票番号: 一冊に複数の帳票を綴じたときの通し番号 */
-  --vs-section--h1-marker-display: inline;
-  --vs-section--h1-marker-content: counter(vs-counter-sec-h1);
-  --vs-section--h1-marker-margin-inline-end: 0.55em;
-
   /* Table: explicit 3-tone rules, no blanket border */
   --vs--table-border-width: 0;
-  --vs--table-border-color: var(
-    --vs-theme-landscape-ruled-ledger--color-rule
-  ); /* 列罫・主要横罫 */
   --vs--table-border-color-outer: var(
     --vs-theme-landscape-ruled-ledger--color-rule-strong
   );
-  --vs--table-border-color-row: var(
-    --vs-theme-landscape-ruled-ledger--color-rule-soft
+  --vs--table-border-color-row: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 70%
   );
   --vs--table-border-width-outer: 1pt; /* 外枠 (太) */
   --vs--table-border-width-column: 0.5pt; /* 列罫 (中) */
@@ -77,30 +88,24 @@
   --vs--th-font-weight: 500;
   --vs--th-text-align: center;
 
+  /* Page: JIS B5 portrait (182x257mm), asymmetric ledger margins, no header */
+  --vs-page--size: JIS-B5;
+  --vs-page--margin-top: 12mm;
+  --vs-page--margin-bottom: 12mm;
+  --vs-page--margin-left: 13.5mm;
+  --vs-page--margin-right: 13.5mm;
+
+  /* 帳票番号: 一冊に複数の帳票を綴じたときの通し番号 */
+  --vs-section--h1-marker-display: inline;
+  --vs-section--h1-marker-content: counter(vs-counter-sec-h1);
+  --vs-section--h1-marker-margin-inline-end: 0.55em;
+
   /* Folio: 小口側 (右ページは右下、左ページは左下) */
   --vs-page--mbox-bottom-outside-content: counter(page, decimal-leading-zero);
-  --vs-page--mbox-bottom-font-family: var(
-    --vs-theme-landscape-ruled-ledger--font-mono
-  );
+  --vs-page--mbox-bottom-font-family: var(--vs-font-family-monospace);
   --vs-page--mbox-bottom-font-size: 8pt;
-  --vs-page--mbox-bottom-text-color: var(
-    --vs-theme-landscape-ruled-ledger--color-muted
-  );
+  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground-alt);
   --vs-page--mbox-bottom-letter-spacing: 0.06em;
-
-  /* Theme-specific tokens */
-  --vs-theme-landscape-ruled-ledger--font-mono:
-    'IBM Plex Mono', ui-monospace, monospace;
-  --vs-theme-landscape-ruled-ledger--color-rule-strong: #242424; /* 外枠・表頭罫 */
-  --vs-theme-landscape-ruled-ledger--color-rule: #777777; /* 列罫・主要横罫 */
-  --vs-theme-landscape-ruled-ledger--color-rule-soft: #b8b8b8; /* 記入行罫 */
-  --vs-theme-landscape-ruled-ledger--color-muted: #666666; /* 補助文字 */
-  --vs-theme-landscape-ruled-ledger--color-tint: #f0efe9; /* 計行のごく淡い地 */
-  --vs-theme-landscape-ruled-ledger--ledger-date-width: 7%;
-  --vs-theme-landscape-ruled-ledger--ledger-description-width: 39%;
-  --vs-theme-landscape-ruled-ledger--ledger-amount-width: 18%;
-  --vs-theme-landscape-ruled-ledger--date-group-label: '日付';
-  --vs-theme-landscape-ruled-ledger--date-group-block-size: 4.6mm;
 }
 
 /* --- Masthead: 帳票名 (左) + 年/月の記入枠 (右) --- */
@@ -141,7 +146,7 @@ h1 .field label {
   justify-content: space-between;
   align-items: baseline;
   font-size: 8pt;
-  color: var(--vs-theme-landscape-ruled-ledger--color-muted);
+  color: var(--vs-color-foreground-alt);
   letter-spacing: 0.02em;
   margin-block: 0 1.6mm;
   margin-inline: 0;
@@ -218,7 +223,7 @@ thead th:first-child::before {
   letter-spacing: 0.04em;
   border-block-end-width: 0.5pt;
   border-block-end-style: solid;
-  border-block-end-color: var(--vs-theme-landscape-ruled-ledger--color-rule);
+  border-block-end-color: var(--vs-color-border);
 }
 
 /* --- Body rows --- */
@@ -229,7 +234,7 @@ tbody tr {
 /* 月 / 日: monospace, centred */
 tbody td:first-child,
 tbody td:nth-child(2) {
-  font-family: var(--vs-theme-landscape-ruled-ledger--font-mono);
+  font-family: var(--vs-font-family-monospace);
   text-align: center;
   padding-inline: 1mm;
   white-space: nowrap;
@@ -242,7 +247,7 @@ tbody td:nth-child(3) {
 
 /* 収入 / 支出 / 残高: monospace tabular, right, breathing room off the rule */
 tbody td:nth-child(n + 4) {
-  font-family: var(--vs-theme-landscape-ruled-ledger--font-mono);
+  font-family: var(--vs-font-family-monospace);
   font-variant-numeric: tabular-nums;
   text-align: end;
   padding-inline-end: 3mm;
@@ -255,13 +260,13 @@ tbody tr:has(> td:first-child:not(:empty)) > td:nth-child(3) {
 
 /* 月計行: 摘要を太字で書いた行。淡い地・太字・上に中罫/下に濃罫 */
 tbody tr:has(strong) {
-  background-color: var(--vs-theme-landscape-ruled-ledger--color-tint);
+  background-color: var(--vs-color-background-alt);
 }
 
 tbody tr:has(strong) > td {
   border-block-start-width: 0.6pt;
   border-block-start-style: solid;
-  border-block-start-color: var(--vs-theme-landscape-ruled-ledger--color-rule);
+  border-block-start-color: var(--vs-color-border);
   border-block-end-width: 0.7pt;
   border-block-end-style: solid;
   border-block-end-color: var(

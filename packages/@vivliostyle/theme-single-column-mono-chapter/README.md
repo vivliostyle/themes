@@ -28,6 +28,8 @@ export default {
 
 | 変数                                         | 既定値                           | 説明                              |
 | -------------------------------------------- | -------------------------------- | --------------------------------- |
+| `--vs-color-foreground` | `#1a1a1a` | 本文の文字色 |
+| `--vs-color-background` | `#ffffff` | 紙面の地色 |
 | `--vs-font-family`                           | `'EB Garamond', ...`             | 本文・見出し共通の書体            |
 | `--vs-page--margin-left` / `-right`          | `30mm` / `20mm`                  | ノド・小口の余白 (片面印刷前提)   |
 | `--vs-page--mbox-top-left-content`           | `env(pub-title)`                 | 柱 (イタリック) の内容            |

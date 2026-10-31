@@ -23,13 +23,16 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                | 既定値                | 説明                             |
 | ----------------------------------- | --------------------- | -------------------------------- |
-| `--vs-theme-landscape-grid-drawing--font-tabular`          | `'Roboto Mono', ...`  | 図面注記・仕様表の数値の等幅書体 |
-| `--vs-theme-landscape-grid-drawing--color-muted`           | `#555555`             | 解説文・表見出しの控えめな文字色 |
-| `--vs-theme-landscape-grid-drawing--color-accent`          | `#cccccc`             | 見出し左の色帯                   |
-| `--vs-theme-landscape-grid-drawing--color-rule`            | `#e4e4e1`             | 方眼線・表罫の淡い色             |
-| `--vs-theme-landscape-grid-drawing--color-fill-soft`       | `#f1f1ee`             | 仕様表1列目の淡い地色            |
+| `--vs-color-foreground` | `#202020` | 本文の文字色 |
+| `--vs-font-family-monospace`          | `'Roboto Mono', ...`  | 図面注記・仕様表の数値の等幅書体 |
+| `--vs-color-foreground-alt`           | `--vs-color-foreground` × `--vs-color-background` 30% | 解説文・表見出しの控えめな文字色 |
+| `--vs--h1-border-color-inline-start`          | `--vs-color-foreground` × `--vs-color-background` 80% | 見出し左の色帯                   |
+| `--vs-color-border`            | `--vs-color-foreground` × `--vs-color-background` 90% | 方眼線・表罫の淡い色             |
+| `--vs-color-background-alt`       | `--vs-color-foreground` × `--vs-color-background` 95% | 仕様表1列目の淡い地色            |
 | `--vs-theme-landscape-grid-drawing--grid-pitch`            | `5mm`                 | 図面の方眼の目                   |
 | `--vs-theme-landscape-grid-drawing--plan-size-inline`      | `136mm`               | 平面図の版面上の幅               |
 | `--vs-theme-landscape-grid-drawing--elevation-size-inline` | `107mm`               | 立面図の版面上の幅               |
@@ -39,6 +42,6 @@ export default {
 | `--vs-theme-landscape-grid-drawing--spec-gap`              | `14mm`                | 解説と仕様表パネルのアキ         |
 | `--vs-theme-landscape-grid-drawing--work-call-content`     | `target-counter(…)`   | 作品番号の参照の表記             |
 | `--vs-font-family`                  | `'Noto Sans JP', ...` | 本文書体                         |
-| `--vs-color-background`             | `#fafaf8`             | 地色                             |
+| `--vs-color-background`             | `#fafaf8` | 地色                             |
 
 ノンブルは `counter(page)` から生成し、小口下に3桁で入れる。判型 (B4横) は `--vs-page--size: 364mm 257mm` で指定している。

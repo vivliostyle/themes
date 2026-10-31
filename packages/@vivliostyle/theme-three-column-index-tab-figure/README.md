@@ -23,14 +23,19 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                               | 既定値                      | 説明                         |
 | ---------------------------------- | --------------------------- | ---------------------------- |
-| `--vs-theme-three-column-index-tab-figure--font-sans`            | `'Noto Sans JP', ...`       | 分類記号・柱・索引タブの書体 |
+| `--vs-color-foreground` | `#252a26` | 本文の文字色 |
+| `--vs-color-background` | `#f8f6ee` | 紙面の地色 |
+| `--vs-color-foreground-alt` | `#27ae60` | アクセント色 |
+| `--vs-font-family-alt`            | `'Noto Sans JP', ...`       | 分類記号・柱・索引タブの書体 |
 | `--vs-theme-three-column-index-tab-figure--font-latin`           | `'Source Serif 4', ...`     | 学名(イタリック)の書体       |
-| `--vs-theme-three-column-index-tab-figure--color-accent`         | `#27ae60`                   | 在来種マーカー・リンクの緑色 |
-| `--vs-theme-three-column-index-tab-figure--color-accent-dark`    | `#176b3a`                   | 学名・分類バッジ文字の濃緑色 |
-| `--vs-theme-three-column-index-tab-figure--color-alt`            | `#b98b35`                   | 国内評価バッジの琥珀色       |
-| `--vs-theme-three-column-index-tab-figure--color-muted`          | `#5a635a`                   | 柱・脚注の控えめな文字色     |
-| `--vs-theme-three-column-index-tab-figure--color-tab-bg`         | `#f0efe4`                   | 五十音索引タブの地色         |
+| `--vs-theme-three-column-index-tab-figure--color-accent`         | `--vs-color-foreground-alt` と同じ | 在来種マーカー・リンクの緑色 |
+| `--vs-theme-three-column-index-tab-figure--color-accent-dark`    | `--vs-color-foreground-alt` × `--vs-color-foreground` 50% | 学名・分類バッジ文字の濃緑色 |
+| `--vs-theme-three-column-index-tab-figure--color-alt`            | `#b98b35` | 国内評価バッジの琥珀色       |
+| `--vs-theme-three-column-index-tab-figure--color-foreground-secondary`          | `--vs-color-foreground` × `--vs-color-background` 30% | 柱・脚注の控えめな文字色     |
+| `--vs-color-background-alt`         | `--vs-color-foreground` × `--vs-color-background` 95% | 五十音索引タブの地色         |
 | `--vs-theme-three-column-index-tab-figure--fig-marker-content`   | `'Fig. ' counter(...)`      | 見出し語行に出す図版番号     |
 | `--vs-theme-three-column-index-tab-figure--entry-marker-content` | `counter(vs-counter-entry)` | 図版をもたない項目の通し番号 |

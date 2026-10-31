@@ -31,9 +31,10 @@ export default {
 
 | 変数                                   | 既定値                       | 説明                               |
 | -------------------------------------- | ---------------------------- | ---------------------------------- |
+| `--vs-color-background` | `transparent` | 紙面の地色 |
 | `--vs-font-family`                     | `'Noto Sans JP', sans-serif` | 本文・表題の書体                   |
-| `--vs-color-foreground`                      | `#1a1a1a`                    | 本文の墨色                         |
-| `--vs-color-border`                    | `#1a1a1a`                    | 外枠・仕切り罫・金額ボックスの罫色 |
+| `--vs-color-foreground`                      | `#1a1a1a` | 本文の墨色                         |
+| `--vs-color-border`                    | `--vs-color-foreground` と同じ | 外枠・仕切り罫・金額ボックスの罫色 |
 | `--vs-theme-double-rule-split-form--upper-form-block-size`    | `131mm`                      | 上半分（伝票部）の高さ             |
 | `--vs-theme-double-rule-split-form--divider-gap`              | `1.3mm`                      | 中央の二重罫のアキ                 |
 | `--vs-theme-double-rule-split-form--row-block-size`           | `10mm`                       | 明細表の記入行の高さ               |

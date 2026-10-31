@@ -46,18 +46,20 @@ VFM は空のインライン要素の直後の空白を落とすので、参照�
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                    | 既定値                         | 説明                                             |
 | --------------------------------------- | ------------------------------ | ------------------------------------------------ |
 | `--vs-font-family`                      | `'EB Garamond', ...`           | 本文書体                                         |
 | `--vs--heading-font-family`             | `'Libre Caslon Text', ...`     | 見出しの書体                                     |
-| `--vs-color-foreground`                       | `#1a1a1a`                      | 本文・罫の墨色                                   |
-| `--vs-color-background`                 | `#f7f4ec`                      | クリーム紙の地色                                 |
+| `--vs-color-foreground`                       | `#1a1a1a` | 本文・罫の墨色                                   |
+| `--vs-color-background`                 | `#f7f4ec` | クリーム紙の地色                                 |
 | `--vs-theme-garamond-three-column-marginalia--font-display`              | `'Libre Caslon Text', ...`     | 表題行の書体                                     |
-| `--vs-theme-garamond-three-column-marginalia--font-meta`                 | `'Archivo', ...`               | 柱・ノンブル・図表キャプションの書体             |
-| `--vs-theme-garamond-three-column-marginalia--color-halftone`            | `#8a8a8a`                      | 表ヘッダーの地色                                 |
-| `--vs-theme-garamond-three-column-marginalia--color-rule`                | `#c9c4b6`                      | 表の行罫の色                                     |
+| `--vs-font-family-alt`                 | `'Archivo', ...`               | 柱・ノンブル・図表キャプションの書体             |
+| `--vs--th-background-color`            | `--vs-color-foreground` × `--vs-color-background` 55% | 表ヘッダーの地色                                 |
+| `--vs--table-border-color`                | `--vs-color-foreground` × `--vs-color-background` 80% | 表の行罫の色                                     |
 | `--vs-theme-garamond-three-column-marginalia--running-head-content`      | `env(pub-title)`               | 柱 (中央) の内容。章・付録では章題・付録名になる |
-| `--vs-theme-garamond-three-column-marginalia--chapter-marker-content`    | `'Chapter ' counter(...)`      | 章標 (h1 の前) の内容                            |
+| `--vs-section--h1-marker-content`    | `'Chapter ' counter(...)`      | 章標 (h1 の前) の内容                            |
 | `--vs-theme-garamond-three-column-marginalia--appendix-marker-content`   | `'Appendix ' counter(...)`     | 付録の表題 (h1 の前) の内容                      |
 | `--vs-theme-garamond-three-column-marginalia--chapter-call-content`      | `target-counter(...)`          | `data-ref="chapter"` の参照文字列                |
 | `--vs-theme-garamond-three-column-marginalia--appendix-call-content`     | `target-counter(...)`          | `data-ref="appendix"` の参照文字列               |

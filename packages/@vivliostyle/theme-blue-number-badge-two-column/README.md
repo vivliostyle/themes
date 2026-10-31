@@ -53,17 +53,22 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                       | 既定値                | 説明                                      |
 | ------------------------------------------ | --------------------- | ----------------------------------------- |
+| `--vs-color-foreground` | `#1a1a1a` | 本文の文字色 |
+| `--vs-color-background` | `#ffffff` | 紙面の地色 |
+| `--vs-color-foreground-alt` | `#0066cc` | アクセント色 |
 | `--vs-page--size`                          | `182mm 257mm`         | 判型 (B5)                                 |
 | `--vs-columns`                             | `2`                   | 本文の段数                                |
 | `--vs-font-family`                         | `'Noto Sans JP', ...` | 本文書体                                  |
 | `--vs--heading-font-family`                | `'Noto Sans JP', ...` | 見出しの書体                              |
-| `--vs-theme-blue-number-badge-two-column--color-accent`                 | `#0066cc`             | 学園ブルーのアクセント色 (バッジ・罫・柱) |
-| `--vs-theme-blue-number-badge-two-column--color-on-accent`              | `#ffffff`             | アクセント地の上に乗る文字色              |
-| `--vs-theme-blue-number-badge-two-column--color-rule`                   | `#b9c8d8`             | 段組み境界・表罫の色                      |
-| `--vs-theme-blue-number-badge-two-column--color-tint`                   | `#eef5fc`             | 囲み記事の地色                            |
-| `--vs-theme-blue-number-badge-two-column--color-tint-row`               | `#f2f7fc`             | 表の縞模様行の地色                        |
+| `--vs-theme-blue-number-badge-two-column--color-accent`                 | `--vs-color-foreground-alt` と同じ | 学園ブルーのアクセント色 (バッジ・罫・柱) |
+| `--vs-theme-blue-number-badge-two-column--color-on-accent`              | `--vs-color-background` と同じ | アクセント地の上に乗る文字色              |
+| `--vs-color-border`                   | `--vs-color-foreground-alt` × `--vs-color-background` 65% | 段組み境界・表罫の色                      |
+| `--vs-color-background-alt`                   | `--vs-color-foreground-alt` × `--vs-color-background` 95% | 囲み記事の地色                            |
+| `--vs-theme-blue-number-badge-two-column--color-tint-row`               | `--vs-color-foreground-alt` × `--vs-color-background` 95% | 表の縞模様行の地色                        |
 | `--vs-theme-blue-number-badge-two-column--badge-size`                   | `7.2mm`               | 節番号バッジの大きさ                      |
 | `--vs-page--mbox-top-left-content`         | `env(pub-title)`      | 柱 (左) の内容                            |
 | `--vs-page--mbox-top-right-content`        | `env(doc-title)`      | 柱 (右) の内容                            |

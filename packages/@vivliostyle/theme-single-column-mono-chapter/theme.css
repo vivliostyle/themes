@@ -23,33 +23,8 @@
 @import '@vivliostyle/theme-base/math';
 
 :root {
-  --vs-page--size: A4;
-  --vs-page--margin-top: 20mm;
-  --vs-page--margin-bottom: 20mm;
-  /* 片面印刷前提。物理指定にして見開きでの内外反転を止める */
-  --vs-page--margin-left: 30mm;
-  --vs-page--margin-right: 20mm;
-
-  /* 柱の文字スタイル: 上左はイタリック、下中央はノンブル。書体・色・字間は共通なので
-     --vs-page--mbox-* に寄せ、字形が異なる部分だけ box ごとに与える */
-  --vs-page--mbox-top-left-content: env(pub-title);
-  --vs-page--mbox-top-left-font-style: italic;
-  --vs-page--mbox-top-left-font-size: 10pt;
-  --vs-page--mbox-top-left-font-weight: 400;
-  --vs-page--mbox-bottom-center-content: counter(page);
-  --vs-page--mbox-bottom-center-font-style: normal;
-  --vs-page--mbox-bottom-center-font-size: 11pt;
-  --vs-page--mbox-font-family:
-    'EB Garamond', Garamond, 'Times New Roman', serif;
-  --vs-page--mbox-text-color: #1a1a1a;
-  --vs-page--mbox-letter-spacing: 0;
-  /* 柱の下のヘアラインは版面の上罫 */
-  --vs-page--border-width-top: 0.5pt;
-  --vs-page--border-color-top: #1a1a1a;
-  --vs-page--mbox-top-vertical-align: bottom;
-  --vs-page--mbox-top-padding-bottom: 6.6mm;
-  --vs-page--mbox-bottom-vertical-align: top;
-  --vs-page--mbox-bottom-padding-top: 3.5mm;
+  --vs-theme-single-column-mono-chapter--chapter-call-content: 'Chapter '
+    target-counter(attr(href), vs-counter-chapter);
 
   --vs-font-family:
     'EB Garamond', Garamond, 'Adobe Garamond Pro', 'Times New Roman', serif;
@@ -60,7 +35,7 @@
 
   --vs-color-background: #ffffff;
   --vs-color-foreground: #1a1a1a;
-  --vs-color-border: #1a1a1a;
+  --vs-color-border: var(--vs-color-foreground);
 
   /* 本文と同一の書体で組む論文なので、見出し・太字も同じスタックを明示する */
   --vs--heading-font-family:
@@ -102,6 +77,33 @@
 
   --vs--anchor-text-decoration: none;
 
+  --vs-page--size: A4;
+  --vs-page--margin-top: 20mm;
+  --vs-page--margin-bottom: 20mm;
+  /* 片面印刷前提。物理指定にして見開きでの内外反転を止める */
+  --vs-page--margin-left: 30mm;
+  --vs-page--margin-right: 20mm;
+
+  /* 柱の文字スタイル: 上左はイタリック、下中央はノンブル。書体・色・字間は共通なので
+     --vs-page--mbox-* に寄せ、字形が異なる部分だけ box ごとに与える */
+  --vs-page--mbox-top-left-content: env(pub-title);
+  --vs-page--mbox-top-left-font-style: italic;
+  --vs-page--mbox-top-left-font-size: 10pt;
+  --vs-page--mbox-top-left-font-weight: 400;
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-bottom-center-font-style: normal;
+  --vs-page--mbox-bottom-center-font-size: 11pt;
+  --vs-page--mbox-font-family:
+    'EB Garamond', Garamond, 'Times New Roman', serif;
+  --vs-page--mbox-letter-spacing: 0;
+  /* 柱の下のヘアラインは版面の上罫 */
+  --vs-page--border-width-top: 0.5pt;
+  --vs-page--border-color-top: var(--vs-color-foreground);
+  --vs-page--mbox-top-vertical-align: bottom;
+  --vs-page--mbox-top-padding-bottom: 6.6mm;
+  --vs-page--mbox-bottom-vertical-align: top;
+  --vs-page--mbox-bottom-padding-top: 3.5mm;
+
   /* 章・節番号と、本文からの参照。章番号はドキュメントカウンタから採る */
   --vs-section--marker-display: inline;
   --vs-section--marker-margin-inline-end: 2ch;
@@ -113,8 +115,6 @@
   --vs-section--call-content: 'Section '
     target-counter(attr(href), vs-counter-chapter) '.'
     target-counter(attr(href), vs-counter-sec-h2);
-  --vs-theme-single-column-mono-chapter--chapter-call-content: 'Chapter '
-    target-counter(attr(href), vs-counter-chapter);
 
   /* 図表番号は「章番号.通し番号」。図表は章 (= 1ファイル) ごとに振り直される */
   --vs-figure--marker-content: 'Figure ' counter(vs-counter-chapter) '.'

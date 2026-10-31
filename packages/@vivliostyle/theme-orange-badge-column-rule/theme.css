@@ -26,46 +26,29 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  --vs-theme-orange-badge-column-rule--font-condensed:
-    'Barlow Condensed', 'Noto Sans JP', sans-serif;
   --vs-theme-orange-badge-column-rule--font-caption:
     'M PLUS 1p', 'Noto Sans JP', sans-serif;
-  --vs-theme-orange-badge-column-rule--color-accent: #ff6600;
-  --vs-theme-orange-badge-column-rule--color-muted: #8a8a8a;
-  --vs-theme-orange-badge-column-rule--color-rule: #e2ddd0;
-  --vs-theme-orange-badge-column-rule--color-reverse: #fff;
+  --vs-theme-orange-badge-column-rule--color-accent: var(
+    --vs-color-foreground-alt
+  );
+  --vs-theme-orange-badge-column-rule--color-reverse: var(
+    --vs-color-background
+  );
 
-  /* 「→ P.**」のページ参照 */
-  --vs-page--call-content: '→ P.' target-counter(attr(href), page);
-
-  /* Page: A4 縦, やや詰めた余白 */
-  --vs-page--size: A4;
-  --vs-page--margin-top: 13mm;
-  --vs-page--margin-bottom: 14mm;
-  --vs-page--margin-left: 14mm;
-  --vs-page--margin-right: 14mm;
   --vs-color-background: #fdfcf8;
-  --vs-page--background-color: #fdfcf8;
-
-  /* 柱(running head)・ノンブルは margin box に描画する。書体・色はボックスごとに
-     異なるので、ノンブル側 (Barlow Condensed) を既定にし、柱側は box 別に与える */
-  --vs-page--mbox-top-left-content: env(pub-title);
-  --vs-page--mbox-top-left-font-family: 'Noto Sans JP', sans-serif;
-  --vs-page--mbox-top-left-font-weight: 700;
-  --vs-page--mbox-top-left-font-size: 9pt;
-  --vs-page--mbox-top-left-text-color: #1f1f1f;
-  --vs-page--mbox-bottom-center-content: counter(page);
-  --vs-page--mbox-font-family: 'Barlow Condensed', sans-serif;
-  --vs-page--mbox-font-weight: 600;
-  --vs-page--mbox-font-size: 11pt;
-  --vs-page--mbox-letter-spacing: 0.04em;
-  --vs-page--mbox-text-color: #8a8a8a;
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 90%
+  );
 
   /* Type: ゴシック 9pt / 1.55 */
   --vs-font-family: 'Noto Sans JP', sans-serif;
+  --vs-font-family-alt: 'Barlow Condensed', 'Noto Sans JP', sans-serif;
   --vs-font-size: 9pt;
   --vs-line-height: 1.55;
   --vs-color-foreground: #1f1f1f;
+  --vs-color-foreground-alt: #ff6600;
 
   --vs--p-margin-block: 0 1.6mm;
   --vs--p-text-indent: 0;
@@ -92,12 +75,42 @@
   --vs--figcaption-line-height: 1.4;
   --vs--figcaption-margin-block: 1.2mm 0;
   --vs--figcaption-text-align: start;
-  --vs--figcaption-text-color: var(
-    --vs-theme-orange-badge-column-rule--color-muted
+  --vs--figcaption-text-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 50%
   );
 
   --vs--lists-margin-block: 0 2.5mm;
   --vs--table-border-width: 0;
+
+  /* 「→ P.**」のページ参照 */
+  --vs-page--call-content: '→ P.' target-counter(attr(href), page);
+
+  /* Page: A4 縦, やや詰めた余白 */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 13mm;
+  --vs-page--margin-bottom: 14mm;
+  --vs-page--margin-left: 14mm;
+  --vs-page--margin-right: 14mm;
+
+  /* 柱(running head)・ノンブルは margin box に描画する。書体・色はボックスごとに
+     異なるので、ノンブル側 (Barlow Condensed) を既定にし、柱側は box 別に与える */
+  --vs-page--mbox-top-left-content: env(pub-title);
+  --vs-page--mbox-top-left-font-family: 'Noto Sans JP', sans-serif;
+  --vs-page--mbox-top-left-font-weight: 700;
+  --vs-page--mbox-top-left-font-size: 9pt;
+  --vs-page--mbox-top-left-text-color: var(--vs-color-foreground);
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-font-family: 'Barlow Condensed', sans-serif;
+  --vs-page--mbox-font-weight: 600;
+  --vs-page--mbox-font-size: 11pt;
+  --vs-page--mbox-letter-spacing: 0.04em;
+  --vs-page--mbox-text-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 50%
+  );
 
   /* 章番号バッジ (h1) と「章-連番」の小見出し番号 (h2) */
   --vs-section--h1-break-before: page;
@@ -144,7 +157,7 @@ body > section.level1 > h1::before {
   block-size: 17mm;
   background-color: var(--vs-theme-orange-badge-column-rule--color-accent);
   color: var(--vs-theme-orange-badge-column-rule--color-reverse);
-  font-family: var(--vs-theme-orange-badge-column-rule--font-condensed);
+  font-family: var(--vs-font-family-alt);
   font-weight: 700;
   font-size: 42pt;
   line-height: 17mm;
@@ -153,7 +166,7 @@ body > section.level1 > h1::before {
 
 .subhead {
   display: block;
-  font-family: var(--vs-theme-orange-badge-column-rule--font-condensed);
+  font-family: var(--vs-font-family-alt);
   font-weight: 600;
   font-size: 13.5pt;
   letter-spacing: 0.16em;
@@ -172,7 +185,7 @@ section.level2 > h2:first-child {
   margin-inline: 0;
 }
 section > h2:first-child::before {
-  font-family: var(--vs-theme-orange-badge-column-rule--font-condensed);
+  font-family: var(--vs-font-family-alt);
   font-weight: 700;
   font-size: 1.05em;
   letter-spacing: 0.01em;
@@ -186,7 +199,7 @@ body > section.level1 > figure img {
 }
 
 figcaption::before {
-  font-family: var(--vs-theme-orange-badge-column-rule--font-condensed);
+  font-family: var(--vs-font-family-alt);
   font-weight: 700;
   color: var(--vs-theme-orange-badge-column-rule--color-accent);
 }
@@ -313,7 +326,7 @@ section:has(> h2.fee) table {
   border-collapse: collapse;
   border-width: 0.9pt;
   border-style: solid;
-  border-color: var(--vs-theme-orange-badge-column-rule--color-rule);
+  border-color: var(--vs-color-border);
   margin-block: 0 2.5mm;
   margin-inline: 0;
   break-inside: avoid;
@@ -336,7 +349,7 @@ section:has(> h2.fee) td {
   border: none;
   border-top-width: 0.6pt;
   border-top-style: solid;
-  border-top-color: var(--vs-theme-orange-badge-column-rule--color-rule);
+  border-top-color: var(--vs-color-border);
   padding: 1.6mm 2.6mm;
   font-family: var(--vs-theme-orange-badge-column-rule--font-caption);
   font-size: 8.5pt;
@@ -344,11 +357,11 @@ section:has(> h2.fee) td {
 section:has(> h2.fee) td:first-child {
   border-right-width: 0.6pt;
   border-right-style: solid;
-  border-right-color: var(--vs-theme-orange-badge-column-rule--color-rule);
+  border-right-color: var(--vs-color-border);
 }
 section:has(> h2.fee) td:last-child {
   text-align: right;
-  font-family: var(--vs-theme-orange-badge-column-rule--font-condensed);
+  font-family: var(--vs-font-family-alt);
   font-weight: 600;
   font-size: 11.5pt;
   letter-spacing: 0.02em;
@@ -366,7 +379,7 @@ section:has(> h2:is(.course, .fee)) > p {
 /* クロスリファレンス → P.**  (キャプション体より後に置いて詳細度の同点勝ちを取る) */
 body > section.level1 p.ref,
 section.level2 p.ref {
-  font-family: var(--vs-theme-orange-badge-column-rule--font-condensed);
+  font-family: var(--vs-font-family-alt);
   font-weight: 600;
   font-size: 10.5pt;
   letter-spacing: 0.03em;

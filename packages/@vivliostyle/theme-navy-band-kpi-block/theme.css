@@ -19,16 +19,28 @@
 
 :root {
   /* Theme tokens */
-  --vs-theme-navy-band-kpi-block--color-accent: #1a73e8;
-  --vs-theme-navy-band-kpi-block--color-accent-deep: #174ea6;
-  --vs-theme-navy-band-kpi-block--color-on-accent: #ffffff;
-  --vs-theme-navy-band-kpi-block--color-tint: #e8f0fe;
-  --vs-theme-navy-band-kpi-block--color-tint-subtle: #f4f8fe;
-  --vs-theme-navy-band-kpi-block--color-tint-faint: #f7fafe;
-  --vs-theme-navy-band-kpi-block--color-muted: #57606a;
-  --vs-theme-navy-band-kpi-block--color-rule: #d0d7de;
-  --vs-theme-navy-band-kpi-block--font-numeric:
-    'Roboto', 'Noto Sans JP', sans-serif;
+  --vs-theme-navy-band-kpi-block--color-foreground-secondary: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 30%
+  );
+  --vs-theme-navy-band-kpi-block--color-accent: var(--vs-color-foreground-alt);
+  --vs-theme-navy-band-kpi-block--color-accent-deep: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-foreground) 35%
+  );
+  --vs-theme-navy-band-kpi-block--color-on-accent: var(--vs-color-background);
+  --vs-theme-navy-band-kpi-block--color-tint-subtle: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 95%
+  );
+  --vs-theme-navy-band-kpi-block--color-tint-faint: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 95%
+  );
 
   /* 財務表: 科目名列の幅と合計行の強調 (表ごとに上書きして使う) */
   --vs-theme-navy-band-kpi-block--table-label-size-inline: 34%;
@@ -40,29 +52,27 @@
   );
   --vs-theme-navy-band-kpi-block--table-sum-rule-width: 0.9pt;
 
-  /* Page: B5 portrait, top18 / bottom12 / left12 / right12, folio only */
-  --vs-page--size: 182mm 257mm;
-  --vs-page--margin-top: 18mm;
-  --vs-page--margin-bottom: 12mm;
-  --vs-page--margin-left: 12mm;
-  --vs-page--margin-right: 12mm;
-  /* ノンブルは小口下 (右ページは右下、左ページは左下) */
-  --vs-page--mbox-bottom-outside-content: counter(page);
-  --vs-page--mbox-bottom-font-family: var(
-    --vs-theme-navy-band-kpi-block--font-numeric
-  );
-  --vs-page--mbox-bottom-font-size: 9pt;
-  --vs-page--mbox-bottom-text-color: var(
-    --vs-theme-navy-band-kpi-block--color-muted
-  );
   --vs-color-background: #ffffff;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 90%
+  );
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 85%
+  );
 
   /* Type: gothic body 9pt / 1.5 */
   --vs-font-family:
     'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --vs-font-family-alt: 'Roboto', 'Noto Sans JP', sans-serif;
   --vs-font-size: 9pt;
   --vs-line-height: 1.5;
   --vs-color-foreground: #1f2328;
+  --vs-color-foreground-alt: #1a73e8;
+
   --vs--p-margin-block: 0 2.4mm;
   --vs--p-text-indent: 0;
   --vs--p-text-align: justify;
@@ -82,20 +92,6 @@
   --vs--h3-font-size: 8.5pt;
   --vs--h3-margin-block: 0 1.4mm;
 
-  /* 節番号は「1．」、項番号は「（1）」。表題バンドの h1 には番号を出さない */
-  --vs-section--marker-display: inline;
-  --vs-section--h1-marker-display: none;
-  --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '．';
-  --vs-section--h2-marker-margin-inline-end: 0;
-  --vs-section--h3-marker-content: '（' counter(vs-counter-sec-h3) '）';
-  --vs-section--h3-marker-margin-inline-end: 0;
-  --vs-section--call-content: target-counters(
-      attr(href),
-      vs-counter-sections,
-      '．'
-    )
-    '．' target-text(attr(href));
-
   /* figure は素の block として使い、図題と本体を分断しない */
   --vs--figure-display: block;
   --vs--figure-break-inside: avoid;
@@ -109,7 +105,6 @@
   --vs--figcaption-text-align: start;
 
   /* Table: thin grid, tint header, tabular numerals */
-  --vs--table-border-color: #d0d7de;
   --vs--table-border-width: 0.4pt;
   --vs--table-font-size: 7.5pt;
   --vs--table-margin-block: 0;
@@ -121,6 +116,34 @@
   /* 多列の財務表でも期別見出しを折り返さず収めるため、見出し行だけ級数を詰める */
   --vs--th-font-size: 5.8pt;
   --vs--td-text-align: end;
+
+  /* Page: B5 portrait, top18 / bottom12 / left12 / right12, folio only */
+  --vs-page--size: 182mm 257mm;
+  --vs-page--margin-top: 18mm;
+  --vs-page--margin-bottom: 12mm;
+  --vs-page--margin-left: 12mm;
+  --vs-page--margin-right: 12mm;
+  /* ノンブルは小口下 (右ページは右下、左ページは左下) */
+  --vs-page--mbox-bottom-outside-content: counter(page);
+  --vs-page--mbox-bottom-font-family: var(--vs-font-family-alt);
+  --vs-page--mbox-bottom-font-size: 9pt;
+  --vs-page--mbox-bottom-text-color: var(
+    --vs-theme-navy-band-kpi-block--color-foreground-secondary
+  );
+
+  /* 節番号は「1．」、項番号は「（1）」。表題バンドの h1 には番号を出さない */
+  --vs-section--marker-display: inline;
+  --vs-section--h1-marker-display: none;
+  --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '．';
+  --vs-section--h2-marker-margin-inline-end: 0;
+  --vs-section--h3-marker-content: '（' counter(vs-counter-sec-h3) '）';
+  --vs-section--h3-marker-margin-inline-end: 0;
+  --vs-section--call-content: target-counters(
+      attr(href),
+      vs-counter-sections,
+      '．'
+    )
+    '．' target-text(attr(href));
 }
 
 /* 図表番号は和文組版の「図1　」「表1　」形式 */
@@ -185,7 +208,7 @@ section:has(> h1:first-child) {
 
 .kpi > div {
   flex: 1 1 0;
-  background-color: var(--vs-theme-navy-band-kpi-block--color-tint);
+  background-color: var(--vs-color-background-alt);
   border-top-width: 1mm;
   border-top-style: solid;
   border-top-color: var(--vs-theme-navy-band-kpi-block--color-accent);
@@ -201,7 +224,7 @@ section:has(> h1:first-child) {
 
 .kpi-value {
   margin: 0;
-  font-family: var(--vs-theme-navy-band-kpi-block--font-numeric);
+  font-family: var(--vs-font-family-alt);
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   font-size: 25pt;
@@ -225,7 +248,7 @@ section:has(> h1:first-child) {
   column-fill: auto;
   column-rule-width: 0.4pt;
   column-rule-style: solid;
-  column-rule-color: var(--vs-theme-navy-band-kpi-block--color-rule);
+  column-rule-color: var(--vs-color-border);
 }
 
 .flow > section {
@@ -265,7 +288,7 @@ figure.chart > img {
   margin: 1mm 0 0;
   font-size: 6.8pt;
   line-height: 1.4;
-  color: var(--vs-theme-navy-band-kpi-block--color-muted);
+  color: var(--vs-theme-navy-band-kpi-block--color-foreground-secondary);
   text-align: start;
 }
 
@@ -298,7 +321,7 @@ figure.tbl {
 
 figure.tbl > figcaption span {
   font-weight: 400;
-  color: var(--vs-theme-navy-band-kpi-block--color-muted);
+  color: var(--vs-theme-navy-band-kpi-block--color-foreground-secondary);
 }
 
 table {
@@ -307,7 +330,7 @@ table {
 }
 
 thead th {
-  background-color: var(--vs-theme-navy-band-kpi-block--color-tint);
+  background-color: var(--vs-color-background-alt);
   line-height: 1.1;
   vertical-align: middle;
   /* 期別見出しを2行に収めるため字送りと左右余白も詰める */
@@ -320,7 +343,7 @@ thead th:first-child {
 }
 
 td {
-  font-family: var(--vs-theme-navy-band-kpi-block--font-numeric);
+  font-family: var(--vs-font-family-alt);
   font-variant-numeric: tabular-nums;
 }
 

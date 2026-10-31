@@ -20,58 +20,35 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  --vs-theme-purple-rule-marginalia--color-accent: #330066;
-  --vs-theme-purple-rule-marginalia--color-rule: #b9aecb;
+  --vs-theme-purple-rule-marginalia--color-accent: var(
+    --vs-color-foreground-alt
+  );
   --vs-theme-purple-rule-marginalia--font-display:
     'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
-  --vs-theme-purple-rule-marginalia--font-gothic:
-    'Zen Kaku Gothic New', 'Hiragino Sans', 'Yu Gothic', sans-serif;
 
   /* 「→第N章」の章参照 */
   --vs-theme-purple-rule-marginalia--chapref-call-content: '→第'
     target-counter(attr(href), vs-counter-chapter, cjk-ideographic) '章';
 
-  --vs-page--size: 105mm 173mm;
-  --vs-page--margin-top: 12.6mm;
-  --vs-page--margin-bottom: 15mm;
-  --vs-page--margin-left: 14mm;
-  --vs-page--margin-right: 24mm;
-
-  --vs-page--mbox-bottom-center-content: counter(page);
-  --vs-page--mbox-font-family: 'Shippori Mincho', serif;
-  --vs-page--mbox-font-size: 8pt;
-  --vs-page--mbox-text-color: #1f1b24;
-
-  /* 柱: 章題を右寄せで流し、下に濃紫の細罫 (版面の上罫) を引く */
-  --vs-page--border-width-top: 0.4pt;
-  --vs-page--border-color-top: var(
-    --vs-theme-purple-rule-marginalia--color-accent
-  );
-  /* 罫と本文のアキ。罫の太さぶんを引いて本文位置を保つ */
-  --vs-page--padding-top: calc(2.4mm - var(--vs-page--border-width-top));
-  --vs-page--mbox-top-right-content: string(chapter-title);
-  --vs-page--mbox-top-font-family: var(
-    --vs-theme-purple-rule-marginalia--font-gothic
-  );
-  --vs-page--mbox-top-font-size: 7.5pt;
-  --vs-page--mbox-top-letter-spacing: 0.08em;
-  --vs-page--mbox-top-line-height: 1.3;
-  --vs-page--mbox-top-size-inline: 100%;
-  --vs-page--mbox-top-vertical-align: bottom;
-  --vs-page--mbox-top-padding-bottom: 1.4mm;
-
   --vs-font-family:
     'Shippori Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --vs-font-family-alt:
+    'Zen Kaku Gothic New', 'Hiragino Sans', 'Yu Gothic', sans-serif;
   --vs-font-size: 9pt;
   --vs-line-height: 1.75;
   --vs-color-foreground: #1f1b24;
+  --vs-color-foreground-alt: #330066;
   --vs-color-background: #faf7f0;
-  --vs-page--background-color: #faf7f0;
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 70%
+  );
 
   --vs--p-margin-block: 0;
   --vs--p-text-indent: 1em;
 
-  --vs--anchor-text-color: #330066;
+  --vs--anchor-text-color: var(--vs-color-foreground-alt);
   --vs--anchor-text-decoration: none;
 
   --vs--rt-font-size: 0.42em;
@@ -87,23 +64,47 @@
   --vs--h1-margin-block: 0 3.4mm;
   --vs--h1-string-set: chapter-title content();
 
+  --vs--figure-display: block;
+  --vs--figure-margin-block: 2.6mm;
+  --vs--figure-margin-inline: 0;
+
+  --vs--figcaption-font-family: var(--vs-font-family-alt);
+  --vs--figcaption-font-size: 6.5pt;
+  --vs--figcaption-line-height: 1.4;
+  --vs--figcaption-text-align: center;
+  --vs--figcaption-margin-block: 1.1mm 0;
+
+  --vs-page--size: 105mm 173mm;
+  --vs-page--margin-top: 12.6mm;
+  --vs-page--margin-bottom: 15mm;
+  --vs-page--margin-left: 14mm;
+  --vs-page--margin-right: 24mm;
+
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-font-family: 'Shippori Mincho', serif;
+  --vs-page--mbox-font-size: 8pt;
+
+  /* 柱: 章題を右寄せで流し、下に濃紫の細罫 (版面の上罫) を引く */
+  --vs-page--border-width-top: 0.4pt;
+  --vs-page--border-color-top: var(
+    --vs-theme-purple-rule-marginalia--color-accent
+  );
+  /* 罫と本文のアキ。罫の太さぶんを引いて本文位置を保つ */
+  --vs-page--padding-top: calc(2.4mm - var(--vs-page--border-width-top));
+  --vs-page--mbox-top-right-content: string(chapter-title);
+  --vs-page--mbox-top-font-family: var(--vs-font-family-alt);
+  --vs-page--mbox-top-font-size: 7.5pt;
+  --vs-page--mbox-top-letter-spacing: 0.08em;
+  --vs-page--mbox-top-line-height: 1.3;
+  --vs-page--mbox-top-size-inline: 100%;
+  --vs-page--mbox-top-vertical-align: bottom;
+  --vs-page--mbox-top-padding-bottom: 1.4mm;
+
   /* 章番号「第N章」は h1 の上に小さく置く */
   --vs-section--h1-marker-display: block;
   --vs-section--h1-marker-content: '第'
     counter(vs-counter-chapter, cjk-ideographic) '章';
   --vs-section--h1-marker-margin-inline-end: 0;
-
-  --vs--figure-display: block;
-  --vs--figure-margin-block: 2.6mm;
-  --vs--figure-margin-inline: 0;
-
-  --vs--figcaption-font-family: var(
-    --vs-theme-purple-rule-marginalia--font-gothic
-  );
-  --vs--figcaption-font-size: 6.5pt;
-  --vs--figcaption-line-height: 1.4;
-  --vs--figcaption-text-align: center;
-  --vs--figcaption-margin-block: 1.1mm 0;
 
   /* 脚注: 注記号・注番号ともに紫のアスタリスク。区切り罫は短い紫罫 */
   --vs-footnote--call-content: '*';
@@ -116,9 +117,7 @@
     --vs-theme-purple-rule-marginalia--color-accent
   );
   --vs-footnote--marker-margin-inline: 0 0.4em;
-  --vs-footnote--font-family: var(
-    --vs-theme-purple-rule-marginalia--font-gothic
-  );
+  --vs-footnote--font-family: var(--vs-font-family-alt);
   --vs-footnote--font-size: 6.5pt;
   --vs-footnote--line-height: 1.5;
   --vs-footnote--text-align: start;
@@ -162,7 +161,7 @@ section > h1:first-child::before {
 }
 
 .sidebar p {
-  font-family: var(--vs-theme-purple-rule-marginalia--font-gothic);
+  font-family: var(--vs-font-family-alt);
   font-size: 6pt;
   line-height: 1.55;
   text-align: start;
@@ -184,7 +183,7 @@ figure img {
   display: block;
   border-width: 0.4pt;
   border-style: solid;
-  border-color: var(--vs-theme-purple-rule-marginalia--color-rule);
+  border-color: var(--vs-color-border);
 }
 
 /* 章参照 */

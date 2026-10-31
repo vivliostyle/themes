@@ -22,14 +22,17 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                          | 既定値                 | 説明                                   |
 | ----------------------------- | ---------------------- | -------------------------------------- |
+| `--vs-color-background` | `#ffffff` | 紙面の地色 |
 | `--vs-font-family`            | `'Noto Sans JP', ...`  | 本文書体                               |
 | `--vs--monospace-font-family` | `'IBM Plex Mono', ...` | コードブロックの書体                   |
-| `--vs-color-foreground`             | `#1a1a1a`              | 本文色                                 |
-| `--vs-theme-wide-margin-speaker-indent--color-muted`     | `#666666`              | 柱・話者以外の地の文・キャプションの色 |
-| `--vs-theme-wide-margin-speaker-indent--color-rule`      | `#333333`              | プルクオート罫・コード左帯の色         |
-| `--vs-theme-wide-margin-speaker-indent--color-code-bg`   | `#f4f4f4`              | コードブロックの背景色                 |
+| `--vs-color-foreground`             | `#1a1a1a` | 本文色                                 |
+| `--vs-color-foreground-alt`     | `--vs-color-foreground` × `--vs-color-background` 35% | 柱・話者以外の地の文・キャプションの色 |
+| `--vs-color-border`      | `--vs-color-foreground` × `--vs-color-background` 15% | プルクオート罫・コード左帯の色         |
+| `--vs-color-background-alt`   | `--vs-color-foreground` × `--vs-color-background` 95% | コードブロックの背景色                 |
 
 生成内容の変数:
 

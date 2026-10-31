@@ -24,10 +24,10 @@ export default {
 
 | 変数                                      | 既定値                 | 説明                               |
 | ----------------------------------------- | ---------------------- | ---------------------------------- |
-| `--vs-theme-vertical-three-column-thumb-index--font-gothic`                 | `'Noto Sans JP', ...`  | 見出し語・ツメ見出しのゴシック書体 |
+| `--vs-font-family-alt`                 | `'Noto Sans JP', ...`  | 見出し語・ツメ見出しのゴシック書体 |
 | `--vs-theme-vertical-three-column-thumb-index--thumb-index-inset-block-end` | `139mm`                | ツメ見出しを地から持ち上げる量     |
 | `--vs-font-family`                        | `'Noto Serif JP', ...` | 語釈・古典用例の明朝書体           |
-| `--vs-color-foreground`                         | `#1a1a1a`              | 本文・罫・ツメ見出しの墨色         |
-| `--vs-color-background`                   | `#f7f5ef`              | 辞典用紙の地色                     |
-| `--vs-color-border`                       | `#1a1a1a`              | 帯を仕切る水平罫の色               |
+| `--vs-color-foreground`                         | `#1a1a1a` | 本文・罫・ツメ見出しの墨色         |
+| `--vs-color-background`                   | `#f7f5ef` | 辞典用紙の地色                     |
+| `--vs-color-border`                       | `--vs-color-foreground` と同じ | 帯を仕切る水平罫の色               |
 | `--vs-columns`                            | `3`                    | 紙面を分ける帯 (段) の数           |

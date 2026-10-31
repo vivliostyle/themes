@@ -18,35 +18,57 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  /* Page: A4 portrait. 参照用の単票なので左右余白は見開きで入れ替えない */
-  --vs-page--size: A4;
-  --vs-page--margin-top: 16mm;
-  --vs-page--margin-bottom: 16mm;
-  --vs-page--margin-left: 13mm;
-  --vs-page--margin-right: 13mm;
-
-  /* 柱は原稿の <header> をそのまま running element として毎ページに出す */
-  --vs-page--mbox-top-center-content: element(sheet-header);
-  --vs-page--mbox-top-size-inline: 100%;
-
-  /* ノンブルと、その上に引く版面の下罫 */
-  --vs-page--border-width-bottom: 1.5px;
-  --vs-page--border-color-bottom: var(
-    --vs-theme-three-column-warning-grid--color-accent
+  --vs-theme-three-column-warning-grid--color-foreground-secondary: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 35%
   );
-  --vs-page--mbox-bottom-right-content: counter(page);
-  --vs-page--mbox-bottom-font-family: var(--vs--monospace-font-family);
-  --vs-page--mbox-bottom-font-size: 9pt;
-  --vs-page--mbox-bottom-font-weight: 700;
-  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
-  --vs-page--mbox-bottom-size-inline: 16mm;
+  --vs-theme-three-column-warning-grid--sheet-marker-content: counter(
+    vs-counter-sec-h1,
+    decimal-leading-zero
+  );
+  --vs-theme-three-column-warning-grid--sheet-call-content: 'sheet '
+    target-counter(attr(href), vs-counter-sec-h1, decimal-leading-zero);
+
+  /* 工程番号 */
+  --vs-theme-three-column-warning-grid--step-marker-content: counter(
+    vs-counter-step
+  );
+
+  /* Red is reserved for alerts, the sheet number and key rules */
+  --vs-theme-three-column-warning-grid--color-accent: var(
+    --vs-color-foreground-alt
+  );
+  --vs-theme-three-column-warning-grid--color-alert-bg: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 90%
+  );
+  --vs-theme-three-column-warning-grid--color-alert-rule: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 70%
+  );
 
   /* Type: dense sans, left aligned for legibility */
   --vs-font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
   --vs-font-size: 8pt;
   --vs-line-height: 1.35;
   --vs-color-foreground: #161616;
+  --vs-color-foreground-alt: #ff0000;
+  --vs-color-background: #ffffff;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 95%
+  );
+  --vs-color-border-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 90%
+  );
   --vs-columns: 1;
+
   --vs--monospace-font-family: 'Roboto Mono', ui-monospace, monospace;
 
   --vs--p-margin-block: 0;
@@ -72,26 +94,6 @@
   --vs--h2-border-color-block-end: var(--vs-color-foreground);
   --vs--h2-padding-block: 0 0.7mm;
 
-  /* シート番号: 原稿の見出し順から振る。連番の体裁は example 側で差し替えられる */
-  --vs-theme-three-column-warning-grid--sheet-marker-content: counter(
-    vs-counter-sec-h1,
-    decimal-leading-zero
-  );
-  --vs-theme-three-column-warning-grid--sheet-call-content: 'sheet '
-    target-counter(attr(href), vs-counter-sec-h1, decimal-leading-zero);
-  --vs-section--h1-marker-display: inline;
-  --vs-section--h1-marker-content: var(
-    --vs-theme-three-column-warning-grid--sheet-marker-content
-  );
-  --vs-section--h1-marker-margin-inline-end: 0.14em;
-  /* 1 シート = 1 ページ。見出しの数だけページが増える */
-  --vs-section--h1-break-before: page;
-
-  /* 工程番号 */
-  --vs-theme-three-column-warning-grid--step-marker-content: counter(
-    vs-counter-step
-  );
-
   --vs--figure-display: block;
   --vs--figure-margin-block: 0 1.8mm;
   --vs--figure-item-size-inline: 100%;
@@ -99,17 +101,9 @@
   --vs--figcaption-margin-block: 0.8mm 0;
   --vs--figcaption-text-align: start;
   --vs--figcaption-text-color: var(
-    --vs-theme-three-column-warning-grid--color-muted
+    --vs-theme-three-column-warning-grid--color-foreground-secondary
   );
   --vs--figcaption-letter-spacing: 0.02em;
-  /* 参考写真は採番対象ではない。図番号が要る原稿は inline に戻す */
-  --vs-appendix--marker-display: none;
-  --vs-citation--marker-display: none;
-  --vs-equation--marker-display: none;
-  --vs-figure--marker-display: none;
-  --vs-listing--marker-display: none;
-  --vs-table--marker-display: none;
-  --vs-theorem--marker-display: none;
 
   /* 全リストは自前のマーカー (::before) を使うので theme のマーカーを外す */
   --vs--lists-margin-block: 0;
@@ -124,15 +118,48 @@
   --vs--table-cell-padding-inline: 1.5mm;
   --vs--th-text-align: start;
 
-  /* Red is reserved for alerts, the sheet number and key rules */
-  --vs-theme-three-column-warning-grid--color-accent: #ff0000;
-  --vs-theme-three-column-warning-grid--color-muted: #5c6266;
-  --vs-theme-three-column-warning-grid--color-rule: #e3e4e4;
-  --vs-theme-three-column-warning-grid--color-alert-bg: #fff0f0;
-  --vs-theme-three-column-warning-grid--color-alert-rule: #f4c6c6;
-  --vs-theme-three-column-warning-grid--color-row-alt-bg: #f2f3f3;
-
   --vs--table-border-width: 0;
+
+  /* Page: A4 portrait. 参照用の単票なので左右余白は見開きで入れ替えない */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 16mm;
+  --vs-page--margin-bottom: 16mm;
+  --vs-page--margin-left: 13mm;
+  --vs-page--margin-right: 13mm;
+
+  /* 柱は原稿の <header> をそのまま running element として毎ページに出す */
+  --vs-page--mbox-top-center-content: element(sheet-header);
+  --vs-page--mbox-top-size-inline: 100%;
+
+  /* ノンブルと、その上に引く版面の下罫 */
+  --vs-page--border-width-bottom: 1.5px;
+  --vs-page--border-color-bottom: var(
+    --vs-theme-three-column-warning-grid--color-accent
+  );
+  --vs-page--mbox-bottom-right-content: counter(page);
+  --vs-page--mbox-bottom-font-family: var(--vs--monospace-font-family);
+  --vs-page--mbox-bottom-font-size: 9pt;
+  --vs-page--mbox-bottom-font-weight: 700;
+  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
+  --vs-page--mbox-bottom-size-inline: 16mm;
+
+  /* シート番号: 原稿の見出し順から振る。連番の体裁は example 側で差し替えられる */
+  --vs-section--h1-marker-display: inline;
+  --vs-section--h1-marker-content: var(
+    --vs-theme-three-column-warning-grid--sheet-marker-content
+  );
+  --vs-section--h1-marker-margin-inline-end: 0.14em;
+  /* 1 シート = 1 ページ。見出しの数だけページが増える */
+  --vs-section--h1-break-before: page;
+
+  /* 参考写真は採番対象ではない。図番号が要る原稿は inline に戻す */
+  --vs-appendix--marker-display: none;
+  --vs-citation--marker-display: none;
+  --vs-equation--marker-display: none;
+  --vs-figure--marker-display: none;
+  --vs-listing--marker-display: none;
+  --vs-table--marker-display: none;
+  --vs-theorem--marker-display: none;
 }
 
 /* Running header: media name left, section name right, thin black rule below */
@@ -208,14 +235,14 @@ figure > img {
   font-size: 6.4pt;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--vs-theme-three-column-warning-grid--color-muted);
+  color: var(--vs-theme-three-column-warning-grid--color-foreground-secondary);
   border-bottom-width: 1.5px;
   border-bottom-color: var(--vs-color-foreground);
   padding-block: 0.5mm 0.8mm;
 }
 .col table td {
   border-bottom-width: 1px;
-  border-bottom-color: var(--vs-theme-three-column-warning-grid--color-rule);
+  border-bottom-color: var(--vs-color-border-alt);
 }
 .col table tbody tr:last-child td {
   border-bottom-width: 0;
@@ -238,7 +265,7 @@ section.level2:has(> .hd-ingredient) th {
   font-size: 6.4pt;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--vs-theme-three-column-warning-grid--color-muted);
+  color: var(--vs-theme-three-column-warning-grid--color-foreground-secondary);
   border-bottom-width: 1.5px;
   border-bottom-color: var(--vs-color-foreground);
   padding-block: 0 0.8mm;
@@ -246,7 +273,7 @@ section.level2:has(> .hd-ingredient) th {
 }
 section.level2:has(> .hd-ingredient) td {
   border-bottom-width: 1px;
-  border-bottom-color: var(--vs-theme-three-column-warning-grid--color-rule);
+  border-bottom-color: var(--vs-color-border-alt);
   padding-block: 0.55mm;
   padding-inline: 0 1mm;
 }
@@ -386,7 +413,7 @@ section.level2:has(> .hd-nutrition) td {
   padding-inline: 2mm;
 }
 section.level2:has(> .hd-nutrition) tbody tr:nth-child(even) td {
-  background-color: var(--vs-theme-three-column-warning-grid--color-row-alt-bg);
+  background-color: var(--vs-color-background-alt);
 }
 section.level2:has(> .hd-nutrition)
   :is(th, td):is(:nth-child(2), :nth-child(3), :nth-child(5), :nth-child(6)) {
@@ -404,7 +431,7 @@ section.level2:has(> .hd-nutrition) :is(th, td):nth-child(4) {
 }
 section.level2:has(> .hd-nutrition) > p {
   font-size: 7pt;
-  color: var(--vs-theme-three-column-warning-grid--color-muted);
+  color: var(--vs-theme-three-column-warning-grid--color-foreground-secondary);
   letter-spacing: 0.02em;
   margin-block-start: 1.3mm;
 }

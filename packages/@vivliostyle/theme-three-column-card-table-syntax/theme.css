@@ -17,19 +17,24 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  --vs-page--size: 182mm 257mm;
-  --vs-page--margin-top: 14mm;
-  --vs-page--margin-bottom: 14mm;
-  --vs-page--margin-left: 14mm;
-  --vs-page--margin-right: 14mm;
-  --vs-page--background-color: var(--vs-color-background);
+  --vs-theme-three-column-card-table-syntax--appendix-marker-content: '付録'
+    counter(vs-counter-appendix, upper-alpha) '　';
+  /* 項目番号。章ごとに 1 から数え直す */
+  --vs-theme-three-column-card-table-syntax--entry-marker-content: counter(
+    vs-counter-entry,
+    decimal-leading-zero
+  );
 
-  /* ノンブルは小口下 (右ページは右下、左ページは左下) */
-  --vs-page--mbox-bottom-outside-content: counter(page);
-  --vs-page--mbox-bottom-font-family: var(--vs-font-family);
-  --vs-page--mbox-bottom-font-size: 8.5pt;
-  --vs-page--mbox-bottom-font-weight: 500;
-  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
+  --vs-theme-three-column-card-table-syntax--color-code-bg: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 95%
+  );
+  --vs-theme-three-column-card-table-syntax--color-card-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 55%
+  );
 
   --vs-font-family: 'IBM Plex Mono', 'M PLUS 1 Code', monospace;
   --vs-font-feature-settings: 'palt' 0;
@@ -37,6 +42,16 @@
   --vs-line-height: 1.3;
   --vs-color-foreground: #1a1a1a;
   --vs-color-background: #fafaf7;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 95%
+  );
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 75%
+  );
 
   --vs--monospace-font-family: 'IBM Plex Mono', 'M PLUS 1 Code', monospace;
   --vs--monospace-font-size: 5.6pt;
@@ -51,24 +66,6 @@
   --vs--h1-margin-block: 0 2.4mm;
   --vs--h1-margin-inline: 0;
 
-  /* 章番号は原稿の見出し順から振る。体裁は変数で差し替えられる */
-  --vs-theme-three-column-card-table-syntax--chapter-marker-content: '第'
-    counter(vs-counter-sec-h1) '章　';
-  --vs-theme-three-column-card-table-syntax--appendix-marker-content: '付録'
-    counter(vs-counter-appendix, upper-alpha) '　';
-  /* 項目番号。章ごとに 1 から数え直す */
-  --vs-theme-three-column-card-table-syntax--entry-marker-content: counter(
-    vs-counter-entry,
-    decimal-leading-zero
-  );
-  --vs-section--h1-marker-display: inline;
-  --vs-section--h1-marker-content: var(
-    --vs-theme-three-column-card-table-syntax--chapter-marker-content
-  );
-  --vs-section--h1-marker-margin-inline-end: 0;
-  /* 章はページ頭から始める */
-  --vs-section--h1-break-before: page;
-
   /* 章冒頭のリード */
   --vs--p-line-height: 1.55;
   --vs--p-margin-block: 0 2.2mm;
@@ -76,7 +73,11 @@
   --vs--p-text-align: justify;
 
   /* カード効果対照表: 罫線は th / td 側で直接引く */
-  --vs--table-border-color: #cfcfc9;
+  --vs--table-border-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 85%
+  );
   --vs--table-border-width: 0;
   --vs--table-margin-block: 0;
   --vs--table-margin-inline: 0;
@@ -92,10 +93,26 @@
   --vs--pre-padding-inline: 1.6mm;
   --vs--pre-word-break: normal;
 
-  --vs-theme-three-column-card-table-syntax--color-rule: #b6b6b0;
-  --vs-theme-three-column-card-table-syntax--color-tint: #e8e8e4;
-  --vs-theme-three-column-card-table-syntax--color-code-bg: #eeeeea;
-  --vs-theme-three-column-card-table-syntax--color-card-border: #8f8f8a;
+  --vs-page--size: 182mm 257mm;
+  --vs-page--margin-top: 14mm;
+  --vs-page--margin-bottom: 14mm;
+  --vs-page--margin-left: 14mm;
+  --vs-page--margin-right: 14mm;
+  --vs-page--background-color: var(--vs-color-background);
+
+  /* ノンブルは小口下 (右ページは右下、左ページは左下) */
+  --vs-page--mbox-bottom-outside-content: counter(page);
+  --vs-page--mbox-bottom-font-family: var(--vs-font-family);
+  --vs-page--mbox-bottom-font-size: 8.5pt;
+  --vs-page--mbox-bottom-font-weight: 500;
+  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
+
+  /* 章番号は原稿の見出し順から振る。体裁は変数で差し替えられる */
+  --vs-section--h1-marker-display: inline;
+  --vs-section--h1-marker-content: '第' counter(vs-counter-sec-h1) '章　';
+  --vs-section--h1-marker-margin-inline-end: 0;
+  /* 章はページ頭から始める */
+  --vs-section--h1-break-before: page;
 
   /* 対照表の図版は採番対象ではない。図番号が要る原稿は inline に戻す
      (付録見出しの番号は残すので appendix は打ち消さない) */
@@ -122,7 +139,7 @@ section.level1 {
   column-gap: 5.2mm;
   column-rule-width: 0.15mm;
   column-rule-style: solid;
-  column-rule-color: var(--vs-theme-three-column-card-table-syntax--color-rule);
+  column-rule-color: var(--vs-color-border);
   column-fill: auto;
 }
 
@@ -232,12 +249,10 @@ td:nth-child(4) {
 }
 
 thead th {
-  background-color: var(--vs-theme-three-column-card-table-syntax--color-tint);
+  background-color: var(--vs-color-background-alt);
   border-block-start-width: 0.15mm;
   border-block-start-style: solid;
-  border-block-start-color: var(
-    --vs-theme-three-column-card-table-syntax--color-rule
-  );
+  border-block-start-color: var(--vs-color-border);
   border-block-end-width: 0.35mm;
   border-block-end-style: solid;
   border-block-end-color: var(--vs-color-foreground);
@@ -249,9 +264,7 @@ thead th {
 thead th + th {
   border-inline-start-width: 0.12mm;
   border-inline-start-style: solid;
-  border-inline-start-color: var(
-    --vs-theme-three-column-card-table-syntax--color-rule
-  );
+  border-inline-start-color: var(--vs-color-border);
 }
 
 tbody td {
@@ -319,7 +332,7 @@ tbody td:nth-child(4) {
 pre {
   border-width: 0.15mm;
   border-style: solid;
-  border-color: var(--vs-theme-three-column-card-table-syntax--color-rule);
+  border-color: var(--vs-color-border);
   border-radius: 0.8mm;
   background-color: var(
     --vs-theme-three-column-card-table-syntax--color-code-bg

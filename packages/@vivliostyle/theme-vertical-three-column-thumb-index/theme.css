@@ -28,10 +28,44 @@
 }
 
 :root {
-  /* 変数の値に var() は書けないため、ゴシックのスタックは
-     --vs--h2-font-family と --vs-theme-vertical-three-column-thumb-index--font-gothic に同じリテラルを持たせる */
-  --vs-theme-vertical-three-column-thumb-index--font-gothic:
+  /* 上中下 3 段の縦組み。段は天地方向に積まれる */
+  --vs-writing-mode: vertical-rl;
+  --vs-columns: 3;
+  --vs-column-fill: auto;
+  --vs-column-gap: 2.6mm;
+
+  --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --vs-font-family-alt:
     'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --vs-font-size: 7pt;
+  --vs-line-height: 1.2;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-background: #f7f5ef;
+  --vs-color-border: var(--vs-color-foreground);
+  --vs-border-width: 0.4pt;
+
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 0;
+  --vs--p-text-align: start;
+
+  /* 前付の節題 (凡例の各項) は算用数字ではなく漢数字で数える */
+  --vs--h1-string-set: vs-kogo-section content();
+  --vs--h1-font-family: var(--vs-font-family-alt);
+  --vs--h1-font-size: 9pt;
+  --vs--h1-margin-block: 0 1.4mm;
+  --vs--h1-text-align: start;
+
+  /* 見出し語行: 太字ゴシックのかな見出し +【漢字表記】+〔品詞〕 */
+  --vs--h2-font-family: var(--vs-font-family-alt);
+  --vs--h2-font-size: 7pt;
+  --vs--h2-font-weight: 700;
+  --vs--h2-letter-spacing: 0;
+  --vs--h2-line-height: 1.2;
+  --vs--h2-margin-block: 0;
+  --vs--h2-margin-inline: 0;
+  --vs--h2-text-align: start;
+
+  --vs--rt-font-size: 3.5pt;
 
   --vs-page--size: A5;
   --vs-page--margin-top: 12mm;
@@ -45,7 +79,6 @@
   --vs-page--mbox-right-top-padding-bottom: 139mm;
 
   /* 柱はそのページの最初と最後の見出し語、ツメ見出しは running element */
-  --vs-page--mbox-text-color: #1a1a1a;
   --vs-page--mbox-font-family: 'Noto Serif JP', serif;
   --vs-page--mbox-top-font-size: 7.5pt;
   --vs-page--mbox-top-font-weight: 500;
@@ -55,46 +88,6 @@
     string(vs-kogo-headword, last);
   --vs-page--mbox-bottom-right-content: counter(page);
   --vs-page--mbox-right-top-content: element(vs-kogo-thumb);
-
-  /* 上中下 3 段の縦組み。段は天地方向に積まれる */
-  --vs-writing-mode: vertical-rl;
-  --vs-columns: 3;
-  --vs-column-fill: auto;
-  --vs-column-gap: 2.6mm;
-
-  --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
-  --vs-font-size: 7pt;
-  --vs-line-height: 1.2;
-  --vs-color-foreground: #1a1a1a;
-  --vs-color-background: #f7f5ef;
-  --vs-page--background-color: #f7f5ef;
-  --vs-color-border: #1a1a1a;
-  --vs-border-width: 0.4pt;
-
-  --vs--p-margin-block: 0;
-  --vs--p-text-indent: 0;
-  --vs--p-text-align: start;
-
-  /* 前付の節題 (凡例の各項) は算用数字ではなく漢数字で数える */
-  --vs--h1-string-set: vs-kogo-section content();
-  --vs--h1-font-family:
-    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  --vs--h1-font-size: 9pt;
-  --vs--h1-margin-block: 0 1.4mm;
-  --vs--h1-text-align: start;
-
-  /* 見出し語行: 太字ゴシックのかな見出し +【漢字表記】+〔品詞〕 */
-  --vs--h2-font-family:
-    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  --vs--h2-font-size: 7pt;
-  --vs--h2-font-weight: 700;
-  --vs--h2-letter-spacing: 0;
-  --vs--h2-line-height: 1.2;
-  --vs--h2-margin-block: 0;
-  --vs--h2-margin-inline: 0;
-  --vs--h2-text-align: start;
-
-  --vs--rt-font-size: 3.5pt;
 
   counter-reset: vs-counter-sense;
 }
@@ -123,7 +116,7 @@ section + section {
 }
 
 h2 strong {
-  font-family: var(--vs-theme-vertical-three-column-thumb-index--font-gothic);
+  font-family: var(--vs-font-family-alt);
   font-weight: 700;
   font-size: 8pt;
   letter-spacing: 0.02em;
@@ -171,7 +164,7 @@ nav.bleed {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--vs-theme-vertical-three-column-thumb-index--font-gothic);
+  font-family: var(--vs-font-family-alt);
   font-weight: 700;
   font-size: 9.5pt;
 }

@@ -22,14 +22,17 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                 | 既定値                       | 説明                               |
 | ------------------------------------ | ---------------------------- | ---------------------------------- |
+| `--vs-color-background` | `#ffffff` | 紙面の地色 |
 | `--vs-theme-numbered-heading-ledger-list--article-marker-content` | `'第' counter(…) '条'`       | 条文番号の書式                     |
 | `--vs-font-family`                   | `'Noto Sans JP', sans-serif` | 本文・見出し書体                   |
-| `--vs-theme-numbered-heading-ledger-list--font-numeric`           | `'IBM Plex Sans', ...`       | 会員番号・連絡先のタブラー数字書体 |
-| `--vs-color-foreground`                    | `#1a1a1a`                    | 本文・罫の墨色                     |
-| `--vs-theme-numbered-heading-ledger-list--color-rule`             | `#8a8a8a`                    | 行間・段間の細罫色                 |
-| `--vs-theme-numbered-heading-ledger-list--color-fill`             | `#ededed`                    | 表ヘッダーの淡色地                 |
+| `--vs-font-family-alt`           | `'IBM Plex Sans', ...`       | 会員番号・連絡先のタブラー数字書体 |
+| `--vs-color-foreground`                    | `#1a1a1a` | 本文・罫の墨色                     |
+| `--vs-color-border-alt`             | `--vs-color-foreground` × `--vs-color-background` 55% | 行間・段間の細罫色                 |
+| `--vs--th-background-color`             | `--vs-color-foreground` × `--vs-color-background` 95% | 表ヘッダーの淡色地                 |
 
 ## 見開きで組む
 

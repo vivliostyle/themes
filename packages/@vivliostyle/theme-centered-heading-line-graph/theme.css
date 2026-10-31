@@ -19,21 +19,35 @@
 @import '@vivliostyle/theme-base/math';
 
 :root {
-  --vs-page--size: A4;
-  --vs-page--margin-top: 22mm;
-  --vs-page--margin-bottom: 17mm;
-  --vs-page--margin-left: 15mm;
-  --vs-page--margin-right: 15mm;
-  --vs-page--border-width-top: 0.4pt;
-  --vs-page--border-color-top: var(
-    --vs-theme-centered-heading-line-graph--color-runhead-rule
+  --vs-theme-centered-heading-line-graph--font-caption:
+    'PT Serif', 'Georgia', serif;
+  --vs-theme-centered-heading-line-graph--color-accent: var(
+    --vs-color-foreground-alt
   );
+  --vs-theme-centered-heading-line-graph--color-panel-bg: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 95%
+  );
+  --vs-theme-centered-heading-line-graph--section-columns: 2;
+  --vs-theme-centered-heading-line-graph--section-column-gap: 7mm;
 
   --vs-font-family: 'Source Serif 4', 'Georgia', serif;
   --vs-font-size: 8.5pt;
   --vs-line-height: 1.4;
   --vs-color-foreground: #1a1a1a;
+  --vs-color-foreground-alt: #006633;
   --vs-color-background: #fdfdf8;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 90%
+  );
+  --vs-color-border-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 70%
+  );
   /* 段が細いので、1〜2行だけ取り残される泣き別れを禁じる */
   --vs-widows-orphans: 3;
 
@@ -48,7 +62,7 @@
   --vs--p-text-indent: 1.5em;
   --vs--p-text-align: justify;
 
-  --vs--anchor-text-color: #006633;
+  --vs--anchor-text-color: var(--vs-color-foreground-alt);
   --vs--anchor-text-decoration: none;
 
   --vs--figure-margin-block: 0;
@@ -66,8 +80,10 @@
   --vs--table-text-align: center;
   --vs--table-border-width: 0;
   --vs--table-border-width-outer: 0.4pt;
-  --vs--table-border-color-outer: var(
-    --vs-theme-centered-heading-line-graph--color-rule
+  --vs--table-border-color-outer: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 45%
   );
   /* 行罫は参照PDF実測で墨色の太罫 (v2では淡緑指定が効かず既定罫が出ていた) */
   --vs--table-border-width-row: 1px;
@@ -79,22 +95,20 @@
   --vs--th-background-color: var(
     --vs-theme-centered-heading-line-graph--color-accent
   );
-  --vs--th-text-color: var(
-    --vs-theme-centered-heading-line-graph--color-accent-fg
-  );
+  --vs--th-text-color: var(--vs-color-background);
   --vs--th-padding-block: 1.4mm;
 
-  --vs-theme-centered-heading-line-graph--font-caption:
-    'PT Serif', 'Georgia', serif;
-  --vs-theme-centered-heading-line-graph--color-accent: #006633;
-  --vs-theme-centered-heading-line-graph--color-accent-fg: #ffffff;
-  --vs-theme-centered-heading-line-graph--color-tint: #e8f0e8;
-  --vs-theme-centered-heading-line-graph--color-rule: #8aa78f;
-  --vs-theme-centered-heading-line-graph--color-rule-light: #b7c9ba;
-  --vs-theme-centered-heading-line-graph--color-panel-bg: #f2f6f0;
-  --vs-theme-centered-heading-line-graph--color-runhead-rule: #55554f;
-  --vs-theme-centered-heading-line-graph--section-columns: 2;
-  --vs-theme-centered-heading-line-graph--section-column-gap: 7mm;
+  --vs-page--size: A4;
+  --vs-page--margin-top: 22mm;
+  --vs-page--margin-bottom: 17mm;
+  --vs-page--margin-left: 15mm;
+  --vs-page--margin-right: 15mm;
+  --vs-page--border-width-top: 0.4pt;
+  --vs-page--border-color-top: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 30%
+  );
 
   /* 見出し・図表の番号はいずれも「章番号.通し番号」 */
   --vs-section--marker-display: inline;
@@ -115,7 +129,6 @@
 
   /* 柱: 左に章番号と章題 (各章の frontmatter title)、右に書名 */
   --vs-page--mbox-font-family: 'PT Serif', 'Georgia', serif;
-  --vs-page--mbox-text-color: #1a1a1a;
   --vs-page--mbox-top-font-size: 8.5pt;
   --vs-page--mbox-top-letter-spacing: 0.02em;
   --vs-page--mbox-bottom-font-size: 9pt;
@@ -164,7 +177,7 @@ p + p {
 
 /* 表: 緑ベタ白抜きヘッダ + 淡緑ゼブラ */
 tbody tr:nth-child(odd) {
-  background-color: var(--vs-theme-centered-heading-line-graph--color-tint);
+  background-color: var(--vs-color-background-alt);
 }
 
 figure.tbl figcaption {
@@ -207,7 +220,7 @@ figure.tbl figcaption {
   background-color: var(--vs-theme-centered-heading-line-graph--color-panel-bg);
   border-width: 0.4pt;
   border-style: solid;
-  border-color: var(--vs-theme-centered-heading-line-graph--color-rule-light);
+  border-color: var(--vs-color-border-alt);
 }
 
 .panel figcaption {

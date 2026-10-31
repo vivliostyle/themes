@@ -15,17 +15,23 @@
  */
 
 :root {
-  /* Page: A5縦・小口/ノド10, 天15, 地12 */
-  --vs-page--size: A5;
-  --vs-page--margin-top: 15mm;
-  --vs-page--margin-bottom: 12mm;
-  --vs-page--margin-left: 10mm;
-  --vs-page--margin-right: 10mm;
+  --vs-theme-brown-double-frame-cream--font-display: 'Shippori Mincho', serif;
+  --vs-theme-brown-double-frame-cream--color-accent: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 15%
+  );
+  /* 縦傍注の行長。長い傍注はこの長さで折り返してガターに収まる */
+  --vs-theme-brown-double-frame-cream--marginalia-size: 62mm;
+  /* 柱の章番号。番号を出さない章は空文字にする */
+  --vs-theme-brown-double-frame-cream--running-chapter-content: '第'
+    counter(vs-counter-chapter, cjk-ideographic) '章　';
+
   --vs-color-background: #f7f3ec;
-  --vs-page--background-color: #f7f3ec;
 
   /* Type: セリフ本文 8.5pt / 行送り1.6 / 単段 */
   --vs-font-family: 'Noto Serif JP', serif;
+  --vs-font-family-alt: 'Zen Old Mincho', serif;
   --vs-font-size: 8.5pt;
   --vs-line-height: 1.6;
   --vs-color-foreground: #2b2620;
@@ -33,60 +39,21 @@
   --vs-columns: 1;
 
   /* 飾り罫・見出し罫はすべて焦茶 */
-  --vs-color-border: #4a3f35;
-
-  --vs-theme-brown-double-frame-cream--font-display: 'Shippori Mincho', serif;
-  --vs-theme-brown-double-frame-cream--font-note: 'Zen Old Mincho', serif;
-  --vs-theme-brown-double-frame-cream--color-accent: #4a3f35;
-  /* 縦傍注の行長。長い傍注はこの長さで折り返してガターに収まる */
-  --vs-theme-brown-double-frame-cream--marginalia-size: 62mm;
-  /* 版面を囲む二重飾り罫 */
-  --vs-page--border-width: 4.4px;
-  --vs-page--border-style: double;
-  --vs-page--border-color: var(--vs-color-border);
-  /* 飾り罫と本文の間隔 */
-  --vs-page--padding-top: 7mm;
-  --vs-page--padding-right: 8mm;
-  --vs-page--padding-bottom: 6mm;
-  --vs-page--padding-left: 8mm;
-  /* 柱の章番号。番号を出さない章は空文字にする */
-  --vs-theme-brown-double-frame-cream--running-chapter-content: '第'
-    counter(vs-counter-chapter, cjk-ideographic) '章　';
-
-  /* 柱(中央)は章題、ノンブルは小口(右上) */
-  --vs-page--mbox-top-center-content: var(
-      --vs-theme-brown-double-frame-cream--running-chapter-content
-    )
-    env(doc-title);
-  --vs-page--mbox-top-center-font-family: var(
-    --vs-theme-brown-double-frame-cream--font-display
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 15%
   );
-  --vs-page--mbox-top-center-font-size: 8.5pt;
-  --vs-page--mbox-top-center-font-weight: 500;
-  --vs-page--mbox-top-center-text-color: var(
-    --vs-theme-brown-double-frame-cream--color-accent
-  );
-  --vs-page--mbox-top-center-letter-spacing: 0.22em;
-  --vs-page--mbox-top-right-content: counter(page);
-  --vs-page--mbox-top-right-font-family: var(
-    --vs-theme-brown-double-frame-cream--font-note
-  );
-  --vs-page--mbox-top-right-font-size: 12pt;
-  --vs-page--mbox-top-right-text-color: var(
-    --vs-theme-brown-double-frame-cream--color-accent
-  );
-  --vs-page--mbox-top-right-letter-spacing: 0.04em;
 
   --vs--heading-font-family: 'Shippori Mincho', serif;
 
-  /* 記事名 (中央・大明朝)。記事はページから起こす */
+  /* 記事名 (中央・大明朝) */
   --vs--h1-font-size: 1.9em;
   --vs--h1-font-weight: 500;
   --vs--h1-line-height: 1.25;
   --vs--h1-letter-spacing: 0.12em;
   --vs--h1-text-align: center;
   --vs--h1-margin-block: 2mm 2mm;
-  --vs-section--h1-break-before: page;
 
   /* セクション見出し=上下の太罫で挟む中央見出し (プルクオート的) */
   --vs--h2-font-size: 1.75em;
@@ -111,9 +78,7 @@
   --vs--figure-margin-block: 4mm 0;
   --vs--figure-text-align: center;
   --vs--figure-item-size-inline: 66mm;
-  --vs--figcaption-font-family: var(
-    --vs-theme-brown-double-frame-cream--font-note
-  );
+  --vs--figcaption-font-family: var(--vs-font-family-alt);
   --vs--figcaption-font-size: 8pt;
   --vs--figcaption-letter-spacing: 0.08em;
   --vs--figcaption-margin-block: 2.5mm 0;
@@ -136,6 +101,48 @@
   --vs--th-font-family: var(--vs-theme-brown-double-frame-cream--font-display);
   --vs--th-font-weight: 500;
   --vs--th-letter-spacing: 0.1em;
+
+  /* Page: A5縦・小口/ノド10, 天15, 地12 */
+  --vs-page--size: A5;
+  --vs-page--margin-top: 15mm;
+  --vs-page--margin-bottom: 12mm;
+  --vs-page--margin-left: 10mm;
+  --vs-page--margin-right: 10mm;
+
+  /* 版面を囲む二重飾り罫 */
+  --vs-page--border-width: 4.4px;
+  --vs-page--border-style: double;
+  --vs-page--border-color: var(--vs-color-border);
+  /* 飾り罫と本文の間隔 */
+  --vs-page--padding-top: 7mm;
+  --vs-page--padding-right: 8mm;
+  --vs-page--padding-bottom: 6mm;
+  --vs-page--padding-left: 8mm;
+
+  /* 柱(中央)は章題、ノンブルは小口(右上) */
+  --vs-page--mbox-top-center-content: var(
+      --vs-theme-brown-double-frame-cream--running-chapter-content
+    )
+    env(doc-title);
+  --vs-page--mbox-top-center-font-family: var(
+    --vs-theme-brown-double-frame-cream--font-display
+  );
+  --vs-page--mbox-top-center-font-size: 8.5pt;
+  --vs-page--mbox-top-center-font-weight: 500;
+  --vs-page--mbox-top-center-text-color: var(
+    --vs-theme-brown-double-frame-cream--color-accent
+  );
+  --vs-page--mbox-top-center-letter-spacing: 0.22em;
+  --vs-page--mbox-top-right-content: counter(page);
+  --vs-page--mbox-top-right-font-family: var(--vs-font-family-alt);
+  --vs-page--mbox-top-right-font-size: 12pt;
+  --vs-page--mbox-top-right-text-color: var(
+    --vs-theme-brown-double-frame-cream--color-accent
+  );
+  --vs-page--mbox-top-right-letter-spacing: 0.04em;
+
+  /* 記事はページから起こす */
+  --vs-section--h1-break-before: page;
 }
 
 body {
@@ -163,7 +170,7 @@ p + p {
 /* 号数・発行日を誌名の下に添える一行 */
 .issue {
   margin-block-end: 3mm;
-  font-family: var(--vs-theme-brown-double-frame-cream--font-note);
+  font-family: var(--vs-font-family-alt);
   font-size: 7.6pt;
   letter-spacing: 0.16em;
   text-align: center;
@@ -172,7 +179,7 @@ p + p {
 /* 記事末尾の署名 */
 .signature {
   margin-block-start: 3mm;
-  font-family: var(--vs-theme-brown-double-frame-cream--font-note);
+  font-family: var(--vs-font-family-alt);
   letter-spacing: 0.1em;
   text-align: end;
 }
@@ -180,7 +187,7 @@ p + p {
 /* 連絡先 */
 .contact {
   margin-block-start: 3.5mm;
-  font-family: var(--vs-theme-brown-double-frame-cream--font-note);
+  font-family: var(--vs-font-family-alt);
   letter-spacing: 0.08em;
   line-height: 1.9;
   text-align: center;
@@ -189,7 +196,7 @@ p + p {
 /* 奥付 */
 .colophon {
   margin-block-start: 1mm;
-  font-family: var(--vs-theme-brown-double-frame-cream--font-note);
+  font-family: var(--vs-font-family-alt);
   font-size: 8pt;
   letter-spacing: 0.06em;
   line-height: 2;

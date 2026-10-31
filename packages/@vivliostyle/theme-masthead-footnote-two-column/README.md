@@ -24,17 +24,20 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                  | 既定値                        | 説明                                     |
 | ------------------------------------- | ----------------------------- | ---------------------------------------- |
+| `--vs-color-background` | `#fafaf7` | 紙面の地色 |
 | `--vs-theme-masthead-footnote-two-column--equation-marker-content` | `'(' counter(…) ')'`          | 数式の右端に置く式番号                   |
 | `--vs-theme-masthead-footnote-two-column--equation-call-content`   | `'式(' target-counter(…) ')'` | 本文中の式番号の参照                     |
 | `--vs-theme-masthead-footnote-two-column--page-call-content`       | `target-counter(…, page)`     | 本文中のページ参照                       |
 | `--vs-font-family`                    | `'Noto Serif JP', serif`      | 本文書体                                 |
 | `--vs-font-family-alt`          | `'Noto Sans JP', ...`         | 著者・柱・キャプション等の補助書体       |
-| `--vs-color-foreground`                     | `#161616`                     | 本文色                                   |
-| `--vs-color-foreground-alt`               | `#4a4a4a`                     | 著者所属・柱・キャプション等の補助文字色 |
-| `--vs-theme-masthead-footnote-two-column--color-rule`              | `#8c8c8c`                     | 概要・キーワード欄の細罫色               |
-| `--vs-theme-masthead-footnote-two-column--color-fill`              | `#e6e6e2`                     | 表ヘッダーの淡色面                       |
+| `--vs-color-foreground`                     | `#161616` | 本文色                                   |
+| `--vs-color-foreground-alt`               | `--vs-color-foreground` × `--vs-color-background` 25% | 著者所属・柱・キャプション等の補助文字色 |
+| `--vs-color-border-alt`              | `--vs-color-foreground` × `--vs-color-background` 55% | 概要・キーワード欄の細罫色               |
+| `--vs-color-background-alt`              | `--vs-color-foreground` × `--vs-color-background` 90% | 表ヘッダーの淡色面                       |
 
 ## 見開きで組む
 

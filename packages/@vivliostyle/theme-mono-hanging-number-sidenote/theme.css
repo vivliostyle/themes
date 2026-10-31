@@ -21,12 +21,11 @@
 
 :root {
   /* Theme-specific tokens (no --vs-* counterpart) */
-  --vs-theme-mono-hanging-number-sidenote--font-code:
-    'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
-  --vs-theme-mono-hanging-number-sidenote--color-muted: #6e6e6e;
-  --vs-theme-mono-hanging-number-sidenote--color-lineno: #9a9a9a;
-  --vs-theme-mono-hanging-number-sidenote--color-code-bg: #f2f2f2;
-  --vs-theme-mono-hanging-number-sidenote--color-rule: #333333;
+  --vs-theme-mono-hanging-number-sidenote--color-lineno: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 60%
+  );
 
   /* 版面: 本文の外に節番号のハングと傍注の帯を確保する */
   --vs-theme-mono-hanging-number-sidenote--section-hang-size-inline: 14mm;
@@ -36,27 +35,38 @@
     )
     '. ';
 
-  /* Page */
-  --vs-page--size: A4;
-  --vs-page--margin-top: 14mm;
-  --vs-page--margin-bottom: 12mm;
-  --vs-page--margin-left: 12mm;
-  --vs-page--margin-right: 12mm;
-
   /* Type: monospace throughout (本文・見出しとも同一スタック) */
   --vs-font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
-  --vs--heading-font-family:
-    'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+  --vs-font-family-monospace:
+    'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
   --vs-font-size: 9pt;
   --vs-line-height: 1.4;
   --vs-color-foreground: #111111;
+  --vs-color-foreground-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 45%
+  );
   --vs-color-background: #ffffff;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 95%
+  );
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 15%
+  );
   --vs-columns: 1;
 
   /* 段落頭の1行だけがページ末に残るのは避ける。逆に段落末の1行送りまで禁じると、
      傍注 (float) とその段落がまとめて次ページへ送られて版面下部が大きく空く */
   --vs-orphans: 2;
   --vs-widows: 1;
+
+  --vs--heading-font-family:
+    'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
 
   /* Paragraphs: flush left, ragged right, small vertical gap */
   --vs--p-margin-block: 0 3mm;
@@ -70,9 +80,7 @@
   --vs--h1-margin-block: 0 3mm;
   --vs--h1-padding-block: 0 3mm;
   --vs--h1-border-width-block-end: 0.8pt;
-  --vs--h1-border-color-block-end: var(
-    --vs-theme-mono-hanging-number-sidenote--color-rule
-  );
+  --vs--h1-border-color-block-end: var(--vs-color-border);
 
   /* ハンギング節番号つき見出し */
   --vs--h2-font-size: 13pt;
@@ -92,8 +100,6 @@
   --vs--blockquote-margin-block: 3mm;
   --vs--blockquote-margin-inline: 0;
 
-  --vs--monospace-font-family:
-    'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
   --vs--sup-font-size: 0.7em;
 
   /* pre は .code の flex アイテム。余白は .code 側で持つ */
@@ -101,6 +107,16 @@
   --vs--pre-margin-inline: 0;
   /* pre を flex アイテムにすると overflow-x: auto で中身が潰れる */
   --vs--pre-overflow-x: visible;
+
+  --vs--h1-string-set: chapter-title content();
+  --vs--h2-string-set: section-title content();
+
+  /* Page */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 14mm;
+  --vs-page--margin-bottom: 12mm;
+  --vs-page--margin-left: 12mm;
+  --vs-page--margin-right: 12mm;
 
   /* 小口の帯へ流す番号付き傍注 (lib/sidenote)。
      幅 + 負の margin-outside = 負 なので本文の行長は削られない */
@@ -135,12 +151,9 @@
     target-counter(attr(href), vs-counter-sec-h2);
 
   /* Running heads / folio */
-  --vs--h1-string-set: chapter-title content();
-  --vs--h2-string-set: section-title content();
   --vs-page--mbox-font-family: 'IBM Plex Mono', monospace;
   --vs-page--mbox-font-size: 8pt;
   --vs-page--mbox-letter-spacing: 0.02em;
-  --vs-page--mbox-text-color: #111111;
   --vs-page--mbox-top-left-content: 'Chapter ' counter(vs-counter-chapter) ' · '
     string(chapter-title);
   --vs-page--mbox-top-left-text-transform: uppercase;
@@ -185,7 +198,7 @@ section:has(> h2:first-child) + section:has(> h2:first-child),
 /* ---- 章扉 ---- */
 section > h1:first-child::before {
   margin-block-end: 1.5mm;
-  color: var(--vs-theme-mono-hanging-number-sidenote--color-muted);
+  color: var(--vs-color-foreground-alt);
   font-size: 8pt;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -202,7 +215,7 @@ section > h1:first-child::before {
   padding-block: 2.4mm;
   border-block-style: solid;
   border-block-width: 0.4pt;
-  border-block-color: var(--vs-theme-mono-hanging-number-sidenote--color-rule);
+  border-block-color: var(--vs-color-border);
 }
 
 .chapter-toc ul {
@@ -231,8 +244,8 @@ section > h1:first-child::before {
   font-variant-ligatures: none;
   margin-block: 2.4mm 3mm;
   padding: 1.8mm 3mm;
-  background-color: var(--vs-theme-mono-hanging-number-sidenote--color-code-bg);
-  font-family: var(--vs-theme-mono-hanging-number-sidenote--font-code);
+  background-color: var(--vs-color-background-alt);
+  font-family: var(--vs-font-family-monospace);
   font-size: 7.4pt;
   line-height: 1.35;
 }
@@ -257,7 +270,7 @@ section > h1:first-child::before {
 }
 
 .token.comment {
-  color: var(--vs-theme-mono-hanging-number-sidenote--color-muted);
+  color: var(--vs-color-foreground-alt);
 }
 
 .token.string,
@@ -281,7 +294,7 @@ blockquote {
   padding-block: 2.8mm;
   border-block-style: solid;
   border-block-width: 0.4pt;
-  border-block-color: var(--vs-theme-mono-hanging-number-sidenote--color-rule);
+  border-block-color: var(--vs-color-border);
   line-height: 1.3;
   text-align: center;
 }

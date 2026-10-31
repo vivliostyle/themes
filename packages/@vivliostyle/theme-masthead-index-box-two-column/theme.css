@@ -23,20 +23,9 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  /* Page: B5, wide even margins */
-  --vs-page--size: 176mm 250mm;
-  --vs-page--margin-top: 13mm;
-  --vs-page--margin-bottom: 13mm;
-  --vs-page--margin-left: 18mm;
-  --vs-page--margin-right: 18mm;
-  --vs-page--background-color: #f7f5ef;
-
-  /* フォリオは小口側の地 (右ページは右下、左ページは左下) */
-  --vs-page--mbox-bottom-outside-content: counter(page);
-  --vs-page--mbox-bottom-font-family: var(--vs-font-family-alt);
-  --vs-page--mbox-bottom-font-size: 8pt;
-  --vs-page--mbox-bottom-letter-spacing: 0.06em;
-  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground-alt);
+  /* ---- テーマ固有 ---- */
+  --vs-theme-masthead-index-box-two-column--columns: 2;
+  --vs-theme-masthead-index-box-two-column--column-gap: 7mm;
 
   /* Type: serif body, 9.5pt / 1.6, justified with hyphenation */
   --vs-font-family: 'Source Serif 4', 'Noto Serif', Georgia, serif;
@@ -45,6 +34,23 @@
   --vs-color-foreground: #1a1a1a;
   --vs-color-background: #f7f5ef;
   --vs-widows-orphans: 2;
+
+  --vs-font-family-alt: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  --vs-color-foreground-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 35%
+  );
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 95%
+  );
+  --vs-color-border-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 70%
+  );
 
   --vs--p-margin-block: 0;
   --vs--p-text-indent: 1em;
@@ -69,15 +75,6 @@
   --vs--h2-line-height: 1.15;
   --vs--h2-margin-block: 4.5mm 3mm;
 
-  --vs-section--marker-display: inline;
-  --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '.';
-  --vs-section--h2-marker-margin-inline-end: 0.35em;
-
-  /* Figure / table numbering */
-  --vs-figure--marker-content: 'Figure '
-    counter(vs-counter-fig, var(--vs-counter-style)) ' — ';
-  --vs-table--marker-content: 'Table '
-    counter(vs-counter-tbl, var(--vs-counter-style)) ' — ';
   --vs--figcaption-text-color: var(--vs-color-foreground-alt);
   --vs--table-font-family: var(--vs-font-family-alt);
 
@@ -93,13 +90,29 @@
   --vs--ul-padding-inline-start: 0;
   --vs--ol-padding-inline-start: 0;
 
-  /* ---- テーマ固有 ---- */
-  --vs-font-family-alt: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
-  --vs-color-foreground-alt: #62615d;
-  --vs-color-background-alt: #ebe8df;
-  --vs-theme-masthead-index-box-two-column--color-leader: #b0ada2;
-  --vs-theme-masthead-index-box-two-column--columns: 2;
-  --vs-theme-masthead-index-box-two-column--column-gap: 7mm;
+  /* Page: B5, wide even margins */
+  --vs-page--size: 176mm 250mm;
+  --vs-page--margin-top: 13mm;
+  --vs-page--margin-bottom: 13mm;
+  --vs-page--margin-left: 18mm;
+  --vs-page--margin-right: 18mm;
+
+  /* フォリオは小口側の地 (右ページは右下、左ページは左下) */
+  --vs-page--mbox-bottom-outside-content: counter(page);
+  --vs-page--mbox-bottom-font-family: var(--vs-font-family-alt);
+  --vs-page--mbox-bottom-font-size: 8pt;
+  --vs-page--mbox-bottom-letter-spacing: 0.06em;
+  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground-alt);
+
+  --vs-section--marker-display: inline;
+  --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '.';
+  --vs-section--h2-marker-margin-inline-end: 0.35em;
+
+  /* Figure / table numbering */
+  --vs-figure--marker-content: 'Figure '
+    counter(vs-counter-fig, var(--vs-counter-style)) ' — ';
+  --vs-table--marker-content: 'Table '
+    counter(vs-counter-tbl, var(--vs-counter-style)) ' — ';
 }
 
 /* ---- 2-column body; masthead, wide blocks & notes span both columns ----
@@ -217,9 +230,7 @@ figure:has(> :is(img, picture)) > figcaption {
   padding-block-start: 1.6mm;
   border-block-start-width: 0.5pt;
   border-block-start-style: solid;
-  border-block-start-color: var(
-    --vs-theme-masthead-index-box-two-column--color-leader
-  );
+  border-block-start-color: var(--vs-color-border-alt);
 }
 
 /* ---- 表: 縦罫なし・天地の太罫と見出し下の細罫だけで組む ---- */
@@ -270,9 +281,7 @@ figure th {
 figure tbody tr + tr td {
   border-block-start-width: 0.5pt;
   border-block-start-style: solid;
-  border-block-start-color: var(
-    --vs-theme-masthead-index-box-two-column--color-leader
-  );
+  border-block-start-color: var(--vs-color-border-alt);
 }
 
 /* ---- Topic index box ---- */

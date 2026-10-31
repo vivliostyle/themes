@@ -15,29 +15,6 @@
 @import '@vivliostyle/theme-base/toc';
 
 :root {
-  --vs-page--size: A4;
-  --vs-page--margin-bottom: 20mm;
-  --vs-page--margin-top: 20mm;
-  --vs-page--margin-left: 22.5mm;
-  --vs-page--margin-right: 22.5mm;
-  --vs-page--border-width-top: 0.5pt;
-  --vs-page--border-color-top: #cccccc;
-
-  /* 柱は各ファイルの frontmatter の title、ノンブルは通し番号 */
-  --vs-page--mbox-top-left-content: env(doc-title);
-  --vs-page--mbox-bottom-center-content: counter(page);
-  --vs-page--mbox-font-family: 'Noto Sans JP', sans-serif;
-  --vs-page--mbox-font-size: 8pt;
-  --vs-page--mbox-font-weight: 300;
-  --vs-page--mbox-letter-spacing: 0.04em;
-  --vs-page--mbox-text-color: #666666;
-
-  /* 章番号は章ドキュメントの h1 にだけ付ける */
-  --vs-section--h1-marker-content: counter(vs-counter-chapter);
-  --vs-section--h1-marker-display: none;
-  --vs-section--h1-marker-margin-inline-end: 1em;
-  /* 節は採番しないので、節参照は見出し名で示す */
-  --vs-section--call-content: target-text(attr(href));
   --vs-theme-wide-margin-speaker-indent--chapter-call-content: target-counter(
       attr(href),
       vs-counter-chapter
@@ -56,8 +33,22 @@
   --vs-letter-spacing: 0.01em;
   --vs-columns: 1;
   --vs-color-foreground: #1a1a1a;
+  --vs-color-foreground-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 35%
+  );
   --vs-color-background: #ffffff;
-  --vs-page--background-color: #ffffff;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 95%
+  );
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 15%
+  );
 
   --vs--monospace-font-family: 'IBM Plex Mono', ui-monospace, monospace;
   --vs--heading-font-family:
@@ -81,9 +72,37 @@
   /* figure 内の pre は flex アイテムになり、overflow:auto だと中身が消える */
   --vs--pre-overflow-x: visible;
 
-  --vs-theme-wide-margin-speaker-indent--color-muted: #666666;
-  --vs-theme-wide-margin-speaker-indent--color-rule: #333333;
-  --vs-theme-wide-margin-speaker-indent--color-code-bg: #f4f4f4;
+  --vs-page--size: A4;
+  --vs-page--margin-bottom: 20mm;
+  --vs-page--margin-top: 20mm;
+  --vs-page--margin-left: 22.5mm;
+  --vs-page--margin-right: 22.5mm;
+  --vs-page--border-width-top: 0.5pt;
+  --vs-page--border-color-top: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 80%
+  );
+
+  /* 柱は各ファイルの frontmatter の title、ノンブルは通し番号 */
+  --vs-page--mbox-top-left-content: env(doc-title);
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-font-family: 'Noto Sans JP', sans-serif;
+  --vs-page--mbox-font-size: 8pt;
+  --vs-page--mbox-font-weight: 300;
+  --vs-page--mbox-letter-spacing: 0.04em;
+  --vs-page--mbox-text-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 35%
+  );
+
+  /* 章番号は章ドキュメントの h1 にだけ付ける */
+  --vs-section--h1-marker-content: counter(vs-counter-chapter);
+  --vs-section--h1-marker-display: none;
+  --vs-section--h1-marker-margin-inline-end: 1em;
+  /* 節は採番しないので、節参照は見出し名で示す */
+  --vs-section--call-content: target-text(attr(href));
 }
 
 body {
@@ -144,7 +163,7 @@ a:is([data-ref='chap'], [data-ref='chap-num'], [data-ref='sec']) {
 
 .note p {
   margin: 0;
-  color: var(--vs-theme-wide-margin-speaker-indent--color-muted);
+  color: var(--vs-color-foreground-alt);
   font-size: 0.95em;
   text-indent: 1em;
   text-align: justify;
@@ -156,10 +175,10 @@ blockquote {
   padding: 0.8em 0;
   border-top-width: 0.6pt;
   border-top-style: solid;
-  border-top-color: var(--vs-theme-wide-margin-speaker-indent--color-rule);
+  border-top-color: var(--vs-color-border);
   border-bottom-width: 0.6pt;
   border-bottom-style: solid;
-  border-bottom-color: var(--vs-theme-wide-margin-speaker-indent--color-rule);
+  border-bottom-color: var(--vs-color-border);
   text-align: center;
 }
 
@@ -196,17 +215,17 @@ figure[class*='language-'] > figcaption {
   font-size: 0.78em;
   font-weight: 700;
   letter-spacing: 0.03em;
-  color: var(--vs-theme-wide-margin-speaker-indent--color-muted);
+  color: var(--vs-color-foreground-alt);
   text-align: start;
 }
 
 figure[class*='language-'] > pre {
   margin: 0;
   padding: 2mm 4mm;
-  background-color: var(--vs-theme-wide-margin-speaker-indent--color-code-bg);
+  background-color: var(--vs-color-background-alt);
   border-left-width: 0.8mm;
   border-left-style: solid;
-  border-left-color: var(--vs-theme-wide-margin-speaker-indent--color-rule);
+  border-left-color: var(--vs-color-border);
 }
 
 figure[class*='language-'] > pre code {
@@ -222,12 +241,20 @@ figure[class*='language-'] > pre code {
 }
 .token.string,
 .token.number {
-  color: #4d4d4d;
+  color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 25%
+  );
 }
 .token.comment {
-  color: #8c8c8c;
+  color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 55%
+  );
 }
 .token.punctuation,
 .token.operator {
-  color: var(--vs-theme-wide-margin-speaker-indent--color-muted);
+  color: var(--vs-color-foreground-alt);
 }

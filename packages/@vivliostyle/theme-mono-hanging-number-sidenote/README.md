@@ -22,14 +22,18 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                    | 既定値                              | 説明                                 |
 | --------------------------------------- | ----------------------------------- | ------------------------------------ |
+| `--vs-color-foreground` | `#111111` | 本文の文字色 |
+| `--vs-color-background` | `#ffffff` | 紙面の地色 |
 | `--vs-font-family`                      | `'IBM Plex Mono', ...`              | 本文・見出し共通の等幅書体           |
-| `--vs-theme-mono-hanging-number-sidenote--font-code`                 | `'JetBrains Mono', ...`             | コードブロックの書体                 |
-| `--vs-theme-mono-hanging-number-sidenote--color-muted`               | `#6e6e6e`                           | コメント等の抑え色                   |
-| `--vs-theme-mono-hanging-number-sidenote--color-lineno`              | `#9a9a9a`                           | コードの行番号ガターの色             |
-| `--vs-theme-mono-hanging-number-sidenote--color-code-bg`             | `#f2f2f2`                           | コードブロックの地色                 |
-| `--vs-theme-mono-hanging-number-sidenote--color-rule`                | `#333333`                           | 章扉・プルクオートの罫線色           |
+| `--vs-font-family-monospace`                 | `'JetBrains Mono', ...`             | コードブロックの書体                 |
+| `--vs-color-foreground-alt`               | `--vs-color-foreground` × `--vs-color-background` 45% | コメント等の抑え色                   |
+| `--vs-theme-mono-hanging-number-sidenote--color-lineno`              | `--vs-color-foreground` × `--vs-color-background` 60% | コードの行番号ガターの色             |
+| `--vs-color-background-alt`             | `--vs-color-foreground` × `--vs-color-background` 95% | コードブロックの地色                 |
+| `--vs-color-border`                | `--vs-color-foreground` × `--vs-color-background` 15% | 章扉・プルクオートの罫線色           |
 | `--vs-theme-mono-hanging-number-sidenote--section-hang-size-inline`  | `14mm`                              | 節番号をハングさせる幅               |
 | `--vs-theme-mono-hanging-number-sidenote--sidenote-band-size-inline` | `46mm`                              | 小口側に空ける傍注の帯の幅           |
 | `--vs-sidenote--size-inline`            | `34mm`                              | 傍注そのものの幅                     |

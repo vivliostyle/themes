@@ -26,34 +26,22 @@
 }
 
 :root {
-  --vs-page--size: A5;
-  --vs-page--margin-top: 10mm;
-  --vs-page--margin-bottom: 10mm;
-  --vs-page--margin-left: 11mm;
-  --vs-page--margin-right: 11mm;
-  /* 5mm 間隔のドット方眼を版面全面に敷く */
-  --vs-page--background-color: #fcfbf7;
-  --vs-page--background-image: radial-gradient(
-    circle,
-    #c9d0d4 0 0.32mm,
-    transparent 0.36mm
-  );
-  --vs-page--background-size: 5mm 5mm;
-  /* ノンブルは小口下 (右ページは右下、左ページは左下) */
-  --vs-page--mbox-bottom-outside-content: counter(page);
-  --vs-page--mbox-bottom-font-family: var(
-    --vs-theme-dot-grid-checkbox--font-display
-  );
-  --vs-page--mbox-bottom-font-size: 7pt;
-  --vs-page--mbox-bottom-text-color: var(
-    --vs-theme-dot-grid-checkbox--color-muted
+  --vs-theme-dot-grid-checkbox--color-foreground-secondary: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 45%
   );
 
+  --vs-theme-dot-grid-checkbox--color-accent: var(--vs-color-foreground-alt);
+  --vs-theme-dot-grid-checkbox--sketch-size-inline: 70mm;
+
   --vs-font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+  --vs-font-family-alt: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   --vs-font-size: 9pt;
   --vs-line-height: 1.5;
   --vs-columns: 1;
   --vs-color-foreground: #27313a;
+  --vs-color-foreground-alt: #34495e;
   --vs-color-background: #fcfbf7;
 
   --vs--p-margin-block: 0;
@@ -90,24 +78,40 @@
   --vs--figcaption-margin-block: 2mm 0;
   --vs--figcaption-text-align: end;
 
+  --vs-page--size: A5;
+  --vs-page--margin-top: 10mm;
+  --vs-page--margin-bottom: 10mm;
+  --vs-page--margin-left: 11mm;
+  --vs-page--margin-right: 11mm;
+  /* 5mm 間隔のドット方眼を版面全面に敷く */
+  --vs-page--background-image: radial-gradient(
+    circle,
+    color-mix(
+        in oklab,
+        var(--vs-color-foreground),
+        var(--vs-color-background) 80%
+      )
+      0 0.32mm,
+    transparent 0.36mm
+  );
+  --vs-page--background-size: 5mm 5mm;
+  /* ノンブルは小口下 (右ページは右下、左ページは左下) */
+  --vs-page--mbox-bottom-outside-content: counter(page);
+  --vs-page--mbox-bottom-font-family: var(--vs-font-family-alt);
+  --vs-page--mbox-bottom-font-size: 7pt;
+  --vs-page--mbox-bottom-text-color: var(
+    --vs-theme-dot-grid-checkbox--color-foreground-secondary
+  );
+
   /* Index: 項目の字下げをせず、他のリストと同じ左端に揃える */
   --vs-toc--ol-indent-size: 0;
-
-  --vs-theme-dot-grid-checkbox--font-display:
-    'Inter', 'Helvetica Neue', Arial, sans-serif;
-  --vs-theme-dot-grid-checkbox--color-accent: #34495e;
-  --vs-theme-dot-grid-checkbox--color-muted: #87929a;
-  --vs-theme-dot-grid-checkbox--sketch-size-inline: 70mm;
-  --vs-theme-dot-grid-checkbox--sketch-marker-content: 'fig. — ';
 }
 
 /* 手帳のスケッチは通し番号ではなく "fig." の標識だけを持つ。
    :lang(ja) 側の既定値に詳細度で負けないよう両方に書く */
 :root,
 :root:lang(ja) {
-  --vs-figure--marker-content: var(
-    --vs-theme-dot-grid-checkbox--sketch-marker-content
-  );
+  --vs-figure--marker-content: 'fig. — ';
 }
 
 /* Masthead: 媒体名を左、日付を右上に離す。日付は見出しの前に置いて回り込ませる
@@ -132,7 +136,7 @@ h1::after {
 }
 
 .meta time {
-  font-family: var(--vs-theme-dot-grid-checkbox--font-display);
+  font-family: var(--vs-font-family-alt);
   font-weight: 500;
   font-size: 10pt;
   letter-spacing: 0.24em;
@@ -177,7 +181,7 @@ li.task-list-item input[type='checkbox']:checked {
 }
 
 li.task-list-item del {
-  color: var(--vs-theme-dot-grid-checkbox--color-muted);
+  color: var(--vs-theme-dot-grid-checkbox--color-foreground-secondary);
   text-decoration-color: var(--vs-theme-dot-grid-checkbox--color-accent);
 }
 
@@ -211,7 +215,7 @@ section.level2 ul:not(.contains-task-list) li::before {
 }
 
 [role='doc-toc'] li > a::after {
-  font-family: var(--vs-theme-dot-grid-checkbox--font-display);
+  font-family: var(--vs-font-family-alt);
   color: var(--vs-theme-dot-grid-checkbox--color-accent);
 }
 
@@ -223,8 +227,8 @@ figure img {
 }
 
 figcaption {
-  font-family: var(--vs-theme-dot-grid-checkbox--font-display);
+  font-family: var(--vs-font-family-alt);
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--vs-theme-dot-grid-checkbox--color-muted);
+  color: var(--vs-theme-dot-grid-checkbox--color-foreground-secondary);
 }

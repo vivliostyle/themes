@@ -22,13 +22,18 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                               | 既定値                                                        | 説明                                   |
 | ---------------------------------- | ------------------------------------------------------------- | -------------------------------------- |
+| `--vs-color-foreground` | `#161616` | 本文の文字色 |
+| `--vs-color-background` | `#ffffff` | 紙面の地色 |
+| `--vs-color-foreground-alt` | `#ff0000` | アクセント色 |
 | `--vs-font-family`                 | `'Noto Sans', ...`                                            | 本文書体                               |
 | `--vs--monospace-font-family`      | `'Roboto Mono', ...`                                          | 栄養成分表・数値の書体                 |
 | `--vs-theme-three-column-warning-grid--sheet-marker-content` | `counter(vs-counter-sec-h1, decimal-leading-zero)`            | シート番号の体裁                       |
 | `--vs-theme-three-column-warning-grid--sheet-call-content`   | `'sheet ' target-counter(attr(href), vs-counter-sec-h1, ...)` | `data-ref="sheet"` の参照文字列        |
 | `--vs-theme-three-column-warning-grid--step-marker-content`  | `counter(vs-counter-step)`                                    | 工程番号の体裁                         |
-| `--vs-theme-three-column-warning-grid--color-accent`         | `#ff0000`                                                     | 警告・アレルゲンマーカー・重要罫線の赤 |
-| `--vs-theme-three-column-warning-grid--color-alert-bg`       | `#fff0f0`                                                     | 警告枠の地色                           |
-| `--vs-theme-three-column-warning-grid--color-row-alt-bg`     | `#f2f3f3`                                                     | 栄養成分表の縞地色                     |
+| `--vs-theme-three-column-warning-grid--color-accent`         | `--vs-color-foreground-alt` と同じ | 警告・アレルゲンマーカー・重要罫線の赤 |
+| `--vs-theme-three-column-warning-grid--color-alert-bg`       | `--vs-color-foreground-alt` × `--vs-color-background` 90% | 警告枠の地色                           |
+| `--vs-color-background-alt`     | `--vs-color-foreground` × `--vs-color-background` 95% | 栄養成分表の縞地色                     |

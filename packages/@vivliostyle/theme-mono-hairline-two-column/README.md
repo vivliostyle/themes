@@ -25,12 +25,16 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                           | 既定値                           | 説明                                       |
 | ------------------------------ | -------------------------------- | ------------------------------------------ |
-| `--vs-theme-mono-hairline-two-column--font-tabular`     | `'Roboto Mono', ...`             | データ表・レジスタマップの等幅数字書体     |
-| `--vs-theme-mono-hairline-two-column--font-caption`     | `'IBM Plex Sans Condensed', ...` | 図版キャプションの書体                     |
-| `--vs-theme-mono-hairline-two-column--color-muted`      | `#555555`                        | 注記・条件行・キャプションの控えめな文字色 |
-| `--vs-theme-mono-hairline-two-column--color-rule`       | `#a8a8a8`                        | 柱罫・表罫の基本グレー                     |
-| `--vs-theme-mono-hairline-two-column--color-rule-soft`  | `#d6d6d6`                        | コードブロックの淡い罫色                   |
-| `--vs-theme-mono-hairline-two-column--color-fill-soft`  | `#eeeeee`                        | 表ヘッダー・コードブロックの淡い地色       |
-| `--vs-theme-mono-hairline-two-column--color-fill-zebra` | `#f5f5f5`                        | 表の偶数行の縞地色                         |
+| `--vs-color-foreground` | `#171717` | 本文の文字色 |
+| `--vs-color-background` | `#ffffff` | 紙面の地色 |
+| `--vs--table-font-family`     | `'Roboto Mono', ...`             | データ表・レジスタマップの等幅数字書体     |
+| `--vs--figcaption-font-family`     | `'IBM Plex Sans Condensed', ...` | 図版キャプションの書体                     |
+| `--vs-color-foreground-alt`      | `--vs-color-foreground` × `--vs-color-background` 30% | 注記・条件行・キャプションの控えめな文字色 |
+| `--vs-color-border`       | `--vs-color-foreground` × `--vs-color-background` 65% | 柱罫・表罫の基本グレー                     |
+| `--vs--pre-border-color`  | `--vs-color-foreground` × `--vs-color-background` 85% | コードブロックの淡い罫色                   |
+| `--vs-color-background-alt`  | `--vs-color-foreground` × `--vs-color-background` 95% | 表ヘッダー・コードブロックの淡い地色       |
+| `--vs-theme-mono-hairline-two-column--color-fill-zebra` | `--vs-color-foreground` × `--vs-color-background` 95% | 表の偶数行の縞地色                         |

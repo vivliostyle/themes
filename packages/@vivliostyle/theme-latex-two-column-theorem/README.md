@@ -19,11 +19,11 @@ export default {
 | ------------------------------------------------------- | ---------------------------------- | --------------------------------------- |
 | `--vs-font-family`                                      | `'EB Garamond', ...`               | 本文書体                                |
 | `--vs--heading-font-family`                             | `'EB Garamond', ...`               | 見出し書体                              |
-| `--vs-theme-latex-two-column-theorem--font-math`                                 | `'STIX Two Math', ...`             | 数式の書体                              |
-| `--vs-color-foreground` / `--vs-color-border`                 | `#333333`                          | 本文・罫の墨色                          |
-| `--vs-color-background` / `--vs-page--background-color` | `#fafaf7`                          | 地色                                    |
+| `--vs-math--font-family`                                 | `'STIX Two Math', ...`             | 数式の書体                              |
+| `--vs-color-foreground` / `--vs-color-border`                 | `#333333` | 本文・罫の墨色                          |
+| `--vs-color-background` / `--vs-page--background-color` | `#fafaf7` | 地色                                    |
 | `--vs-column-gap`                                       | `7mm`                              | 2 段の間隔                              |
-| `--vs--table-border-color`                              | `#333333`                          | booktabs 風の表罫の色                   |
+| `--vs--table-border-color`                              | `--vs-color-foreground` と同じ | booktabs 風の表罫の色                   |
 | `--vs--table-border-width-block-start` / `-block-end`   | `1.1pt`                            | 表の上下太罫の幅                        |
 | `--vs--table-border-width-thead-inner`                  | `0.5pt`                            | ヘッダ下の細罫の幅                      |
 | `--vs-theme-latex-two-column-theorem--theorem-label-*`                           | `'Theorem'` / `'Lemma'` …          | 定理環境の種別ラベル (言語の差し替え用) |

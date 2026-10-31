@@ -42,12 +42,15 @@ class: chapter # base の章カウンタを増やす (柱の「第N章」)
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                 | 既定値                                                   | 説明                       |
 | ------------------------------------ | -------------------------------------------------------- | -------------------------- |
+| `--vs-color-foreground` | `#1a1a1a` | 本文の文字色 |
 | `--vs-theme-centered-heading-bracket-subhead--font-display`           | `'Shippori Mincho B1', ...`                              | 事件名見出し(h1)の表示書体 |
-| `--vs-color-background`              | `#fdfcf8`                                                | 地色(生成り)               |
-| `--vs-theme-centered-heading-bracket-subhead--color-thead-bg`         | `#ececea`                                                | 争点整理表ヘッダー行の地色 |
-| `--vs-theme-centered-heading-bracket-subhead--color-rule`             | `#555555`                                                | 罫線色(柱・表・注の区切り) |
+| `--vs-color-background`              | `#fdfcf8` | 地色(生成り)               |
+| `--vs-color-background-alt`         | `--vs-color-foreground` × `--vs-color-background` 95% | 争点整理表ヘッダー行の地色 |
+| `--vs-color-border`             | `--vs-color-foreground` × `--vs-color-background` 30% | 罫線色(柱・表・注の区切り) |
 | `--vs-page--mbox-top-center-content` | `'第' counter(vs-counter-chapter) '章　' env(doc-title)` | 柱の内容                   |
 | `--vs-section--h1-marker-content`    | `counter(vs-counter-sec-h1)`                             | 事件番号の書式             |
 | `--vs-section--h3-marker-content`    | `counter(vs-counter-sec-h3, cjk-ideographic)`            | 解説の項番号の書式         |

@@ -24,9 +24,13 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                  | 既定値    | 説明                             |
 | ------------------------------------- | --------- | -------------------------------- |
-| `--vs-theme-dense-ruled-table-drawing--color-rule`              | `#111111` | マストヘッド・脚の罫色           |
-| `--vs-theme-dense-ruled-table-drawing--color-table-head-fill`   | `#e6e6e6` | 表ヘッダーの地色                 |
+| `--vs-color-foreground` | `#111111` | 本文の文字色 |
+| `--vs-color-background` | `#ffffff` | 紙面の地色 |
+| `--vs-color-border`              | `--vs-color-foreground` と同じ | マストヘッド・脚の罫色           |
+| `--vs--th-background-color`   | `--vs-color-foreground` × `--vs-color-background` 90% | 表ヘッダーの地色                 |
 | `--vs-theme-dense-ruled-table-drawing--fig-drawing-size-inline` | `72mm`    | 線図 (`figure.drawing`) の最大幅 |
 | `--vs-theme-dense-ruled-table-drawing--fig-chart-size-inline`   | `95mm`    | グラフ (`figure.chart`) の最大幅 |

@@ -14,14 +14,6 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  /* Theme-specific: 図面注記・数値の等幅書体と、方眼/罫/地色のグレースケール */
-  --vs-theme-landscape-grid-drawing--font-tabular:
-    'Roboto Mono', ui-monospace, monospace;
-  --vs-theme-landscape-grid-drawing--color-muted: #555555;
-  --vs-theme-landscape-grid-drawing--color-accent: #cccccc;
-  --vs-theme-landscape-grid-drawing--color-rule: #e4e4e1;
-  --vs-theme-landscape-grid-drawing--color-fill-soft: #f1f1ee;
-
   /* 図面の方眼の目 */
   --vs-theme-landscape-grid-drawing--grid-pitch: 5mm;
 
@@ -35,20 +27,35 @@
   --vs-theme-landscape-grid-drawing--spec-size-inline: 105mm;
   --vs-theme-landscape-grid-drawing--spec-gap: 14mm;
 
-  --vs-page--size: 364mm 257mm;
-  --vs-page--margin-top: 20mm;
-  --vs-page--margin-bottom: 20mm;
-  --vs-page--margin-left: 25mm;
-  --vs-page--margin-right: 25mm;
+  /* 出品目録などから作品番号を引く <a href="…#id" data-ref="work"></a> */
+  --vs-theme-landscape-grid-drawing--work-call-content: target-counter(
+    attr(href),
+    vs-counter-chapter,
+    decimal-leading-zero
+  );
 
   /* Type: Noto Sans JP 9pt、地色は薄い紙白、既定の文字色は濃いグレー */
   --vs-font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --vs-font-family-monospace: 'Roboto Mono', ui-monospace, monospace;
   --vs-font-size: 9pt;
   --vs-line-height: 1.5;
   --vs-color-foreground: #202020;
+  --vs-color-foreground-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 30%
+  );
   --vs-color-background: #fafaf8;
-
-  --vs--monospace-font-family: 'Roboto Mono', ui-monospace, monospace;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 95%
+  );
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 90%
+  );
 
   --vs--p-margin-block: 0 calc(0.6 * var(--vs-spacing-rlh));
   --vs--p-text-align: justify;
@@ -64,29 +71,16 @@
   --vs--h1-margin-block: 0 5mm;
   --vs--h1-border-width-inline-start: 1.5mm;
   --vs--h1-border-style-inline-start: solid;
-  --vs--h1-border-color-inline-start: var(
-    --vs-theme-landscape-grid-drawing--color-accent
+  --vs--h1-border-color-inline-start: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 80%
   );
   --vs--h1-padding-inline: 3.5mm 0;
   --vs--h2-font-size: 10.5pt;
   --vs--h2-font-weight: 700;
   --vs--h2-letter-spacing: 0.06em;
   --vs--h2-margin-block: 0 2.5mm;
-
-  /* 作品番号は md ごとに増えるドキュメントカウンタから取る */
-  --vs-section--h1-marker-content: counter(
-    vs-counter-chapter,
-    decimal-leading-zero
-  );
-  --vs-section--h1-marker-display: inline;
-  --vs-section--h1-marker-margin-inline-end: 0.6em;
-
-  /* 出品目録などから作品番号を引く <a href="…#id" data-ref="work"></a> */
-  --vs-theme-landscape-grid-drawing--work-call-content: target-counter(
-    attr(href),
-    vs-counter-chapter,
-    decimal-leading-zero
-  );
 
   /* 図版は方眼の上に置くので base の flex/余白を殺して素の block に戻す */
   --vs--figure-display: block;
@@ -95,7 +89,7 @@
   --vs--figcaption-display: none;
 
   /* Zone divider — a single thin rule */
-  --vs--hr-border-color: var(--vs-theme-landscape-grid-drawing--color-muted);
+  --vs--hr-border-color: var(--vs-color-foreground-alt);
   --vs--hr-border-width-block-start: 0.5px;
   --vs--hr-margin-block: 5mm;
   --vs--hr-margin-inline: 0;
@@ -103,17 +97,11 @@
   /* Spec table */
   --vs--table-border-width: 0;
   --vs--table-border-width-block-start: 0.8px;
-  --vs--table-border-color-block-start: var(
-    --vs-theme-landscape-grid-drawing--color-rule
-  );
+  --vs--table-border-color-block-start: var(--vs-color-border);
   --vs--table-border-width-block-end: 0.8px;
-  --vs--table-border-color-block-end: var(
-    --vs-theme-landscape-grid-drawing--color-rule
-  );
+  --vs--table-border-color-block-end: var(--vs-color-border);
   --vs--table-border-width-thead-inner: 0.8px;
-  --vs--table-border-color-thead-inner: var(
-    --vs-theme-landscape-grid-drawing--color-muted
-  );
+  --vs--table-border-color-thead-inner: var(--vs-color-foreground-alt);
   --vs--table-size-inline: 100%;
   --vs--table-font-size: 8.5pt;
   --vs--table-margin-block: 0;
@@ -123,9 +111,23 @@
   --vs--th-font-size: 7pt;
   --vs--th-font-weight: 500;
   --vs--th-text-align: start;
-  --vs--th-text-color: var(--vs-theme-landscape-grid-drawing--color-muted);
+  --vs--th-text-color: var(--vs-color-foreground-alt);
   --vs--td-line-height: 1.4;
   --vs--td-vertical-align: baseline;
+
+  --vs-page--size: 364mm 257mm;
+  --vs-page--margin-top: 20mm;
+  --vs-page--margin-bottom: 20mm;
+  --vs-page--margin-left: 25mm;
+  --vs-page--margin-right: 25mm;
+
+  /* 作品番号は md ごとに増えるドキュメントカウンタから取る */
+  --vs-section--h1-marker-content: counter(
+    vs-counter-chapter,
+    decimal-leading-zero
+  );
+  --vs-section--h1-marker-display: inline;
+  --vs-section--h1-marker-margin-inline-end: 0.6em;
 
   /* ノンブルは3桁で小口下に */
   --vs-page--mbox-bottom-right-content: '0' counter(page, decimal-leading-zero);
@@ -137,7 +139,7 @@
 }
 
 section > h1:first-child::before {
-  font-family: var(--vs-theme-landscape-grid-drawing--font-tabular);
+  font-family: var(--vs-font-family-monospace);
   font-weight: 500;
 }
 
@@ -145,7 +147,7 @@ section > h1:first-child::before {
 a[data-ref='work'] {
   --vs--anchor-text-decoration: none;
   color: inherit;
-  font-family: var(--vs-theme-landscape-grid-drawing--font-tabular);
+  font-family: var(--vs-font-family-monospace);
 }
 
 a[data-ref='work']::before {
@@ -163,15 +165,15 @@ a[data-ref='work']::before {
   background-image:
     repeating-linear-gradient(
       to right,
-      var(--vs-theme-landscape-grid-drawing--color-rule) 0,
-      var(--vs-theme-landscape-grid-drawing--color-rule) 0.2mm,
+      var(--vs-color-border) 0,
+      var(--vs-color-border) 0.2mm,
       transparent 0.2mm,
       transparent var(--vs-theme-landscape-grid-drawing--grid-pitch)
     ),
     repeating-linear-gradient(
       to bottom,
-      var(--vs-theme-landscape-grid-drawing--color-rule) 0,
-      var(--vs-theme-landscape-grid-drawing--color-rule) 0.2mm,
+      var(--vs-color-border) 0,
+      var(--vs-color-border) 0.2mm,
       transparent 0.2mm,
       transparent var(--vs-theme-landscape-grid-drawing--grid-pitch)
     );
@@ -224,7 +226,7 @@ body > :is(section.level1, h1, p) {
 }
 
 :is(body, body > section.level1) > p {
-  color: var(--vs-theme-landscape-grid-drawing--color-muted);
+  color: var(--vs-color-foreground-alt);
 }
 
 /* 仕様表パネル — 小口側に置く */
@@ -243,7 +245,7 @@ aside.spec thead th {
 aside.spec tbody tr {
   border-block-start-width: 0.6px;
   border-block-start-style: solid;
-  border-block-start-color: var(--vs-theme-landscape-grid-drawing--color-rule);
+  border-block-start-color: var(--vs-color-border);
 }
 
 /* 1列目の強調とマスキング罫 (罫色を地色に揃えて列区切りを視覚的に消す) は
@@ -252,14 +254,14 @@ aside.spec tbody td:first-child {
   inline-size: 34%;
   font-weight: 500;
   letter-spacing: 0.02em;
-  background-color: var(--vs-theme-landscape-grid-drawing--color-fill-soft);
+  background-color: var(--vs-color-background-alt);
   border-inline-end-width: 0.8px;
   border-inline-end-style: solid;
   border-inline-end-color: var(--vs-color-background);
 }
 
 aside.spec tbody td:last-child {
-  font-family: var(--vs-theme-landscape-grid-drawing--font-tabular);
+  font-family: var(--vs-font-family-monospace);
   font-weight: 400;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.01em;

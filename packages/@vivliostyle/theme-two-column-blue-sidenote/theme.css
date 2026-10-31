@@ -28,37 +28,29 @@
 
 :root {
   /* ---- テーマ固有の値 (theme-base に対応する変数が無いもの) ---------------- */
-  --vs-theme-two-column-blue-sidenote--font-display:
-    'Inter', 'Helvetica Neue', Arial, sans-serif;
-  --vs-theme-two-column-blue-sidenote--font-ui:
-    'IBM Plex Sans', 'Source Sans 3', sans-serif;
-  --vs-theme-two-column-blue-sidenote--color-accent: #0066cc;
-  --vs-theme-two-column-blue-sidenote--color-accent-soft: #dceeff;
-  --vs-theme-two-column-blue-sidenote--color-muted: #66717d;
-  --vs-theme-two-column-blue-sidenote--color-rule: #e7ebef;
-  --vs-theme-two-column-blue-sidenote--color-tint: #f4f7fb;
-  --vs-theme-two-column-blue-sidenote--figure-full-width-size-inline: 100%;
-
-  /* ---- Page: A4, tight symmetric margins, folio only ---------------------- */
-  --vs-page--size: A4;
-  --vs-page--margin-top: 17mm;
-  --vs-page--margin-bottom: 17mm;
-  --vs-page--margin-left: 15mm;
-  --vs-page--margin-right: 15mm;
-  --vs-page--background-color: #ffffff;
-  --vs-page--mbox-bottom-center-content: counter(page);
-  --vs-page--mbox-font-family: 'IBM Plex Sans', sans-serif;
-  --vs-page--mbox-font-size: 8pt;
-  --vs-page--mbox-text-color: var(
-    --vs-theme-two-column-blue-sidenote--color-muted
+  --vs-theme-two-column-blue-sidenote--color-foreground-secondary: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 40%
   );
+  --vs-theme-two-column-blue-sidenote--color-accent: var(
+    --vs-color-foreground-alt
+  );
+  --vs-theme-two-column-blue-sidenote--figure-full-width-size-inline: 100%;
 
   /* ---- Type --------------------------------------------------------------- */
   --vs-font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  --vs-font-family-alt: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   --vs-font-size: 10pt;
   --vs-line-height: 1.3;
   --vs-color-foreground: #20252b;
+  --vs-color-foreground-alt: #0066cc;
   --vs-color-background: #ffffff;
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 90%
+  );
   --vs-columns: 1;
   --vs-column-gap: 6mm;
   --vs-widows-orphans: 2;
@@ -89,7 +81,7 @@
   --vs--h3-margin-block: 0.4rem 0.25rem;
 
   /* Short blue rule under the masthead (hr は本文中に1本だけ) */
-  --vs--hr-border-color: #0066cc;
+  --vs--hr-border-color: var(--vs-color-foreground-alt);
   --vs--hr-border-width-block-start: 2.5px;
   --vs--hr-margin-block: 0.1rem 0.6rem;
   --vs--hr-margin-inline: 0;
@@ -102,8 +94,10 @@
   --vs--pre-margin-block: 0.4rem 0.6rem;
   --vs--pre-padding-block: 0.4rem;
   --vs--pre-padding-inline: 0.6rem;
-  --vs--pre-background-color: var(
-    --vs-theme-two-column-blue-sidenote--color-tint
+  --vs--pre-background-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 95%
   );
   --vs--pre-break-inside: avoid;
   /* pre を multicol/flex 内で潰さない */
@@ -122,10 +116,8 @@
   --vs--table-size-inline: 100%;
   --vs--table-font-family: 'IBM Plex Sans', 'Source Sans 3', sans-serif;
   --vs--table-font-variant-numeric: tabular-nums;
-  --vs--table-border-color: #20252b;
-  --vs--table-border-color-row: var(
-    --vs-theme-two-column-blue-sidenote--color-rule
-  );
+  --vs--table-border-color: var(--vs-color-foreground);
+  --vs--table-border-color-row: var(--vs-color-border);
   --vs--table-border-width: 0;
   --vs--table-border-width-block-start: 1px;
   --vs--table-border-width-block-end: 1px;
@@ -139,8 +131,23 @@
   --vs--th-font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   --vs--th-font-weight: 600;
   --vs--th-text-align: start;
-  --vs--th-background-color: var(
-    --vs-theme-two-column-blue-sidenote--color-accent-soft
+  --vs--th-background-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 85%
+  );
+
+  /* ---- Page: A4, tight symmetric margins, folio only ---------------------- */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 17mm;
+  --vs-page--margin-bottom: 17mm;
+  --vs-page--margin-left: 15mm;
+  --vs-page--margin-right: 15mm;
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-font-family: 'IBM Plex Sans', sans-serif;
+  --vs-page--mbox-font-size: 8pt;
+  --vs-page--mbox-text-color: var(
+    --vs-theme-two-column-blue-sidenote--color-foreground-secondary
   );
 
   /* ---- Math ---------------------------------------------------------------- */
@@ -153,16 +160,14 @@
   --vs-sidenote--margin-block: 0.1rem 0.4rem;
   --vs-sidenote--margin-inline: 0 3mm;
   --vs-sidenote--padding-inline: 2mm 0;
-  --vs-sidenote--font-family: var(--vs-theme-two-column-blue-sidenote--font-ui);
+  --vs-sidenote--font-family: 'IBM Plex Sans', 'Source Sans 3', sans-serif;
   --vs-sidenote--font-size: 7.5pt;
   --vs-sidenote--line-height: 1.35;
   --vs-sidenote--text-color: var(
-    --vs-theme-two-column-blue-sidenote--color-muted
+    --vs-theme-two-column-blue-sidenote--color-foreground-secondary
   );
   --vs-sidenote--marker-content: counter(vs-counter-sidenote);
-  --vs-sidenote--marker-font-family: var(
-    --vs-theme-two-column-blue-sidenote--font-display
-  );
+  --vs-sidenote--marker-font-family: var(--vs-font-family-alt);
   --vs-sidenote--marker-font-size: 2em;
   --vs-sidenote--marker-font-weight: 700;
   --vs-sidenote--marker-text-color: var(
@@ -215,7 +220,7 @@ body > section.level1 {
 
 /* ---- Page-spanning masthead ---------------------------------------------- */
 .eyebrow {
-  font-family: var(--vs-theme-two-column-blue-sidenote--font-display);
+  font-family: var(--vs-font-family-alt);
   font-weight: 700;
   font-size: 10pt;
   letter-spacing: 0.05em;
@@ -248,7 +253,7 @@ h1 .subhead {
 
 section.level1 > .meta {
   font-size: 8pt;
-  color: var(--vs-theme-two-column-blue-sidenote--color-muted);
+  color: var(--vs-theme-two-column-blue-sidenote--color-foreground-secondary);
   margin-block: 0 0.55rem;
 }
 
@@ -269,7 +274,7 @@ h3 {
 
 .concepts,
 .keywords {
-  color: var(--vs-theme-two-column-blue-sidenote--color-muted);
+  color: var(--vs-theme-two-column-blue-sidenote--color-foreground-secondary);
   font-size: 8pt;
   line-height: 1.32;
   margin-block: 0 0.35rem;
@@ -279,7 +284,7 @@ h3 {
 .concepts > b:first-child,
 .keywords > b:first-child {
   color: var(--vs-theme-two-column-blue-sidenote--color-accent);
-  font-family: var(--vs-theme-two-column-blue-sidenote--font-display);
+  font-family: var(--vs-font-family-alt);
   font-size: 0.86em;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -291,9 +296,7 @@ h3 {
 .sidenote {
   border-inline-start-width: 1.5px;
   border-inline-start-style: solid;
-  border-inline-start-color: var(
-    --vs-theme-two-column-blue-sidenote--color-rule
-  );
+  border-inline-start-color: var(--vs-color-border);
   font-weight: 500;
 }
 
@@ -319,12 +322,12 @@ figure > img {
 
 figcaption {
   line-height: 1.3;
-  color: var(--vs-theme-two-column-blue-sidenote--color-muted);
+  color: var(--vs-theme-two-column-blue-sidenote--color-foreground-secondary);
 }
 
 /* 採番自体は base の figure/table モジュール。書体・色だけ design 側で当てる */
 figure > figcaption::before {
-  font-family: var(--vs-theme-two-column-blue-sidenote--font-display);
+  font-family: var(--vs-font-family-alt);
   font-weight: 600;
   color: var(--vs-color-foreground);
 }
@@ -338,7 +341,7 @@ figure.tbl {
 figure.tbl > figcaption {
   break-after: avoid;
   color: var(--vs-color-foreground);
-  font-family: var(--vs-theme-two-column-blue-sidenote--font-display);
+  font-family: var(--vs-font-family-alt);
   font-size: 8.5pt;
   font-weight: 600;
   line-height: 1.25;
@@ -394,7 +397,7 @@ pre {
 /* ---- References ----------------------------------------------------- */
 :root {
   --vs-citation--items-text-color: var(
-    --vs-theme-two-column-blue-sidenote--color-muted
+    --vs-theme-two-column-blue-sidenote--color-foreground-secondary
   );
   --vs-citation--items-font-size: 8pt;
   --vs-citation--items-line-height: 1.35;

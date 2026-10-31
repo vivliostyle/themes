@@ -17,9 +17,10 @@ export default {
 
 | 変数                                  | 既定値                                      | 説明                             |
 | ------------------------------------- | ------------------------------------------- | -------------------------------- |
+| `--vs-color-background` | `#ffffff` | 紙面の地色 |
 | `--vs-font-family`                    | `'STIX Two Text', 'Times New Roman', serif` | 本文書体                         |
 | `--vs-font-size`                      | `8.3pt`                                     | 本文サイズ (高密度な誌面)        |
-| `--vs-color-foreground`                     | `#111111`                                   | 本文・罫の墨色                   |
+| `--vs-color-foreground`                     | `#111111` | 本文・罫の墨色                   |
 | `--vs-column-gap`                     | `6mm`                                       | 2 段の間隔                       |
 | `--vs--h1-font-size`                  | `11.8pt`                                    | 論文タイトルのサイズ             |
 | `--vs--h2-font-size`                  | `8pt`                                       | ローマ数字センター見出しのサイズ |

@@ -19,21 +19,40 @@
 /* 章柱は紙の小口端に密着させる。左右ページで柱が内側に来ないよう、
    ノド/小口ではなく物理左右で余白を決める。 */
 :root {
+  /* エントリ参照に添えるページ番号 */
+  --vs-theme-three-column-mono-signature--color-foreground-secondary: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 20%
+  );
+  --vs-theme-three-column-mono-signature--api-page-call-content: '（p.'
+    target-counter(attr(href), page) '）';
+
+  /* ---- テーマ固有 ---- */
+  --vs-theme-three-column-mono-signature--accent-color: var(
+    --vs-color-foreground-alt
+  );
+  --vs-theme-three-column-mono-signature--color-rule-strong: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 60%
+  );
+
   /* ---- theme-base メタ変数 ---- */
   --vs-font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
   --vs-font-size: 7.5pt;
   --vs-line-height: 1.4;
   --vs-color-foreground: #1f1f1f;
   --vs-color-background: #ffffff;
-
-  --vs-page--size: 210mm 257mm;
-  --vs-page--margin-top: 16mm;
-  --vs-page--margin-bottom: 10mm;
-  --vs-page--margin-left: 12mm;
-  --vs-page--margin-right: 15mm;
-  --vs-page--border-width-top: 1.1pt;
-  --vs-page--border-color-top: var(
-    --vs-theme-three-column-mono-signature--accent-color
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 95%
+  );
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 80%
   );
 
   /* 3段組。エントリは段から段へ流れる */
@@ -41,40 +60,13 @@
   --vs-column-gap: 2.5mm;
   --vs-column-rule-width: 0.4pt;
   --vs-column-rule-style: solid;
-  --vs-column-rule-color: var(
-    --vs-theme-three-column-mono-signature--color-rule-soft
+  --vs-column-rule-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 85%
   );
 
-  /* 柱 (書名 ─ 章題) とノンブル */
-  --vs-page--mbox-top-left-content: env(doc-title);
-  --vs-page--mbox-top-right-content: counter(page);
-  --vs-page--mbox-top-font-size: 8.5pt;
-  --vs-page--mbox-top-letter-spacing: 0.02em;
-  --vs-page--mbox-top-text-color: var(
-    --vs-theme-three-column-mono-signature--color-running-head
-  );
-  /* ノンブルは柱より大きく置く */
-  --vs-page--mbox-top-right-font-size: 10pt;
-  --vs-page--mbox-top-right-font-weight: 500;
-  --vs-page--mbox-top-right-text-color: var(--vs-color-foreground);
-
-  /* 小口の縦書き章柱。章題は原稿の .chapter-tab から取る */
-  --vs-theme-three-column-mono-signature--chapter-tab-content: '第'
-    counter(vs-counter-chapter) '章　' string(chapter-name);
-  --vs-page--mbox-right-top-content: var(
-    --vs-theme-three-column-mono-signature--chapter-tab-content
-  );
-  --vs-page--mbox-right-background-color: var(
-    --vs-theme-three-column-mono-signature--accent-color
-  );
-  --vs-page--mbox-right-font-size: 10pt;
-  --vs-page--mbox-right-font-weight: 700;
-  --vs-page--mbox-right-letter-spacing: 0.16em;
-  /* 縦書きなので inline 方向 = 天地。帯の丈を決める */
-  --vs-page--mbox-right-size-inline: 82mm;
-  --vs-page--mbox-right-text-color: #ffffff;
-  --vs-page--mbox-right-writing-mode: vertical-rl;
-  --vs-page--mbox-top-inner-padding-top: 14mm;
+  --vs-color-foreground-alt: #0066cc;
 
   /* ---- theme-base 要素変数 ---- */
   --vs--monospace-font-family:
@@ -101,14 +93,13 @@
   /* 段幅が狭いため justify だと字間が大きく間延びする */
   --vs--p-text-align: start;
 
-  --vs--anchor-text-color: #0066cc;
+  --vs--anchor-text-color: var(--vs-color-foreground-alt);
   --vs--anchor-text-decoration: none;
 
   --vs--table-font-size: 6.4pt;
   --vs--table-margin-block: 0 1.8mm;
   --vs--table-margin-inline: 0;
   --vs--table-text-align: start;
-  --vs--table-border-color: #c8ccd2;
   --vs--table-border-width: 0;
   --vs--table-border-width-block-start: 0.6pt;
   --vs--table-border-width-block-end: 0.6pt;
@@ -133,25 +124,52 @@
   --vs--figcaption-margin-block: 1.2mm 0;
   --vs--figcaption-text-align: center;
 
+  --vs-page--size: 210mm 257mm;
+  --vs-page--margin-top: 16mm;
+  --vs-page--margin-bottom: 10mm;
+  --vs-page--margin-left: 12mm;
+  --vs-page--margin-right: 15mm;
+  --vs-page--border-width-top: 1.1pt;
+  --vs-page--border-color-top: var(
+    --vs-theme-three-column-mono-signature--accent-color
+  );
+
+  /* 柱 (書名 ─ 章題) とノンブル */
+  --vs-page--mbox-top-left-content: env(doc-title);
+  --vs-page--mbox-top-right-content: counter(page);
+  --vs-page--mbox-top-font-size: 8.5pt;
+  --vs-page--mbox-top-letter-spacing: 0.02em;
+  --vs-page--mbox-top-text-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 15%
+  );
+  /* ノンブルは柱より大きく置く */
+  --vs-page--mbox-top-right-font-size: 10pt;
+  --vs-page--mbox-top-right-font-weight: 500;
+  --vs-page--mbox-top-right-text-color: var(--vs-color-foreground);
+
+  /* 小口の縦書き章柱。章題は原稿の .chapter-tab から取る */
+  --vs-page--mbox-right-top-content: '第' counter(vs-counter-chapter) '章　'
+    string(chapter-name);
+  --vs-page--mbox-right-background-color: var(
+    --vs-theme-three-column-mono-signature--accent-color
+  );
+  --vs-page--mbox-right-font-size: 10pt;
+  --vs-page--mbox-right-font-weight: 700;
+  --vs-page--mbox-right-letter-spacing: 0.16em;
+  /* 縦書きなので inline 方向 = 天地。帯の丈を決める */
+  --vs-page--mbox-right-size-inline: 82mm;
+  --vs-page--mbox-right-text-color: var(--vs-color-background);
+  --vs-page--mbox-right-writing-mode: vertical-rl;
+  --vs-page--mbox-top-inner-padding-top: 14mm;
+
   /* 図番号は「図<章>-<連番>」 */
   --vs-figure--marker-content: 'Fig. ' counter(vs-counter-chapter) '-'
     counter(vs-counter-fig) '  ';
   --vs-figure--call-content: 'Fig. '
     target-counter(attr(href), vs-counter-chapter) '-'
     target-counter(attr(href), vs-counter-fig);
-
-  /* エントリ参照に添えるページ番号 */
-  --vs-theme-three-column-mono-signature--api-page-call-content: '（p.'
-    target-counter(attr(href), page) '）';
-
-  /* ---- テーマ固有 ---- */
-  --vs-theme-three-column-mono-signature--accent-color: #0066cc;
-  --vs-theme-three-column-mono-signature--color-running-head: #3a3a3a;
-  --vs-color-foreground-alt: #4a4a4a;
-  --vs-theme-three-column-mono-signature--color-rule: #c8ccd2;
-  --vs-theme-three-column-mono-signature--color-rule-soft: #d9dee6;
-  --vs-theme-three-column-mono-signature--color-rule-strong: #9aa2ad;
-  --vs-theme-three-column-mono-signature--color-code-bg: #eef4fb;
 }
 
 /* base は和文の図表マーカーを :root:lang(ja) で定義しているため同じ詳細度で上書きする */
@@ -189,7 +207,7 @@ section.level2 + section.level2 {
   padding-top: 2.1mm;
   border-top-width: 0.4pt;
   border-top-style: solid;
-  border-top-color: var(--vs-theme-three-column-mono-signature--color-rule);
+  border-top-color: var(--vs-color-border);
 }
 
 h2 {
@@ -244,7 +262,9 @@ td {
 }
 
 th {
-  color: var(--vs-color-foreground-alt);
+  color: var(
+    --vs-theme-three-column-mono-signature--color-foreground-secondary
+  );
 }
 
 th:first-child,
@@ -255,7 +275,7 @@ td:first-child {
 /* ── コード例 ─────────────────────────────────────────── */
 
 pre {
-  background-color: var(--vs-theme-three-column-mono-signature--color-code-bg);
+  background-color: var(--vs-color-background-alt);
   border-radius: 1.4mm;
   break-inside: avoid;
 }

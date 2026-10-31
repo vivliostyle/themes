@@ -22,14 +22,16 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                    | 既定値                                    | 説明                             |
 | --------------------------------------- | ----------------------------------------- | -------------------------------- |
 | `--vs-font-family`                      | `'Noto Sans JP', sans-serif`              | 本文書体                         |
-| `--vs-theme-vertical-matrix-diagram--font-figure`               | `'IBM Plex Sans JP', ...`                 | 図表バンド専用の書体             |
-| `--vs-theme-vertical-matrix-diagram--color-tint`                | `#d9d9d9`                                 | 網掛け (強調セル・表見出し) の色 |
+| `--vs-font-family-alt`               | `'IBM Plex Sans JP', ...`                 | 図表バンド専用の書体             |
+| `--vs-color-background-alt`                | `--vs-color-foreground` × `--vs-color-background` 90% | 網掛け (強調セル・表見出し) の色 |
 | `--vs-theme-vertical-matrix-diagram--aside-size-inline`         | `46mm`                                    | 図表バンドの幅                   |
-| `--vs-color-foreground`                       | `#1a1a1a`                                 | 本文の墨色                       |
-| `--vs-color-background`                 | `#f7f5f0`                                 | 地色                             |
+| `--vs-color-foreground`                       | `#1a1a1a` | 本文の墨色                       |
+| `--vs-color-background`                 | `#f7f5f0` | 地色                             |
 | `--vs-section--h1-marker-content`       | `'第' counter(...) '章'`                  | 章番号                           |
 | `--vs-section--h2-marker-content`       | `counter(...) '・' counter(...)`          | 節番号                           |
 | `--vs-figure--marker-content`     | `'図' counter(...) '-' counter(...) '　'` | 図番号                           |

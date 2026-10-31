@@ -26,35 +26,45 @@
 @import '@vivliostyle/theme-base/toc';
 
 :root {
-  --vs-page--size: A4;
-  --vs-page--margin-top: 18mm;
-  --vs-page--margin-bottom: 18mm;
-  --vs-page--margin-left: 22mm;
-  --vs-page--margin-right: 22mm;
-  --vs-page--border-width-top: 0.7pt;
-  --vs-page--border-color-top: var(--vs-color-foreground);
-  --vs-page--mbox-top-vertical-align: bottom;
-  --vs-page--mbox-top-padding-bottom: 2mm;
+  --vs-theme-garamond-three-column-marginalia--font-display:
+    'Libre Caslon Text', 'Georgia', serif;
 
-  /* 柱 (中央) + ノンブル (右)。その下の共通罫は版面の上罫 */
-  --vs-page--mbox-top-center-font-family: var(
-    --vs-theme-garamond-three-column-marginalia--font-meta
+  --vs-theme-garamond-three-column-marginalia--chapter-call-content: target-counter(
+    attr(href),
+    vs-counter-chapter
   );
-  --vs-page--mbox-top-center-font-size: 8pt;
-  --vs-page--mbox-top-center-font-weight: 500;
-  --vs-page--mbox-top-center-letter-spacing: 0.18em;
-  --vs-page--mbox-top-center-text-transform: uppercase;
-  --vs-page--mbox-top-center-text-color: var(--vs-color-foreground);
-  --vs-page--mbox-top-right-content: counter(page);
-  --vs-page--mbox-top-right-font-family: var(
-    --vs-theme-garamond-three-column-marginalia--font-meta
+  --vs-theme-garamond-three-column-marginalia--chapter-toc-content: 'Chapter '
+    target-counter(attr(href), vs-counter-chapter) ' \00B7\00A0';
+  --vs-theme-garamond-three-column-marginalia--appendix-marker-content: 'Appendix '
+    counter(vs-counter-appendix, upper-alpha) '.';
+  --vs-theme-garamond-three-column-marginalia--appendix-call-content: target-counter(
+    attr(href),
+    vs-counter-appendix,
+    upper-alpha
   );
-  --vs-page--mbox-top-right-font-size: 9.5pt;
-  --vs-page--mbox-top-right-font-weight: 600;
-  --vs-page--mbox-top-right-letter-spacing: 0.04em;
-  --vs-page--mbox-top-right-text-color: var(--vs-color-foreground);
+  --vs-theme-garamond-three-column-marginalia--appendix-toc-content: target-counter(
+      attr(href),
+      vs-counter-appendix,
+      upper-alpha
+    )
+    '.\00A0';
+  --vs-theme-garamond-three-column-marginalia--appendix-fig-call-content: 'Fig.\00A0'
+    target-counter(attr(href), vs-counter-appendix, upper-alpha) '.'
+    target-counter(attr(href), vs-counter-fig);
+  --vs-theme-garamond-three-column-marginalia--appendix-tbl-call-content: 'Table\00A0'
+    target-counter(attr(href), vs-counter-appendix, upper-alpha) '.'
+    target-counter(attr(href), vs-counter-tbl);
+  --vs-theme-garamond-three-column-marginalia--toc-sec-content: target-counter(
+      attr(href),
+      vs-counter-chapter
+    )
+    '.' target-counter(attr(href), vs-counter-sec-h2) '\00A0\00A0';
+  --vs-theme-garamond-three-column-marginalia--running-head-content: env(
+    pub-title
+  );
 
   --vs-font-family: 'EB Garamond', 'Georgia', 'Times New Roman', serif;
+  --vs-font-family-alt: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
   --vs-font-size: 8.4pt;
   --vs-line-height: 1.42;
   --vs-color-foreground: #1a1a1a;
@@ -101,13 +111,17 @@
   --vs--table-font-size: 8pt;
   --vs--table-margin-block: 0;
   --vs--table-margin-inline: 0;
-  --vs--table-border-color: var(
-    --vs-theme-garamond-three-column-marginalia--color-rule
+  --vs--table-border-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 80%
   );
   --vs--table-border-width: 0;
   --vs--table-border-width-row: 0.4pt;
-  --vs--th-background-color: var(
-    --vs-theme-garamond-three-column-marginalia--color-halftone
+  --vs--th-background-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 55%
   );
   --vs--th-text-color: var(--vs-color-background);
   --vs--th-font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
@@ -120,14 +134,36 @@
   --vs--td-padding-block: 0.8mm;
   --vs--td-padding-inline: 2mm;
 
+  --vs-page--size: A4;
+  --vs-page--margin-top: 18mm;
+  --vs-page--margin-bottom: 18mm;
+  --vs-page--margin-left: 22mm;
+  --vs-page--margin-right: 22mm;
+  --vs-page--border-width-top: 0.7pt;
+  --vs-page--border-color-top: var(--vs-color-foreground);
+  --vs-page--mbox-top-vertical-align: bottom;
+  --vs-page--mbox-top-padding-bottom: 2mm;
+
+  /* 柱 (中央) + ノンブル (右)。その下の共通罫は版面の上罫 */
+  --vs-page--mbox-top-center-font-family: var(--vs-font-family-alt);
+  --vs-page--mbox-top-center-font-size: 8pt;
+  --vs-page--mbox-top-center-font-weight: 500;
+  --vs-page--mbox-top-center-letter-spacing: 0.18em;
+  --vs-page--mbox-top-center-text-transform: uppercase;
+  --vs-page--mbox-top-center-text-color: var(--vs-color-foreground);
+  --vs-page--mbox-top-right-content: counter(page);
+  --vs-page--mbox-top-right-font-family: var(--vs-font-family-alt);
+  --vs-page--mbox-top-right-font-size: 9.5pt;
+  --vs-page--mbox-top-right-font-weight: 600;
+  --vs-page--mbox-top-right-letter-spacing: 0.04em;
+  --vs-page--mbox-top-right-text-color: var(--vs-color-foreground);
+
   --vs-footnote--font-family:
     'EB Garamond', 'Georgia', 'Times New Roman', serif;
   --vs-footnote--font-size: 7pt;
   --vs-footnote--line-height: 1.3;
   /* 脚注番号 (呼び出し) の書体は本文と分けて Archivo に */
-  --vs-footnote--call-font-family: var(
-    --vs-theme-garamond-three-column-marginalia--font-meta
-  );
+  --vs-footnote--call-font-family: var(--vs-font-family-alt);
   --vs-footnote--call-font-weight: 500;
 
   /* 節番号は「章番号.章内の連番」。章番号は文書カウンタ (class: chapter) から取る */
@@ -151,49 +187,6 @@
   --vs-table--call-content: 'Table\00A0'
     target-counter(attr(href), vs-counter-chapter) '.'
     target-counter(attr(href), vs-counter-tbl);
-
-  --vs-theme-garamond-three-column-marginalia--font-display:
-    'Libre Caslon Text', 'Georgia', serif;
-  --vs-theme-garamond-three-column-marginalia--font-meta:
-    'Archivo', 'Helvetica Neue', Arial, sans-serif;
-  --vs-theme-garamond-three-column-marginalia--color-halftone: #8a8a8a;
-  --vs-theme-garamond-three-column-marginalia--color-rule: #c9c4b6;
-
-  --vs-theme-garamond-three-column-marginalia--chapter-marker-content: 'Chapter '
-    counter(vs-counter-chapter) ' \00B7';
-  --vs-theme-garamond-three-column-marginalia--chapter-call-content: target-counter(
-    attr(href),
-    vs-counter-chapter
-  );
-  --vs-theme-garamond-three-column-marginalia--chapter-toc-content: 'Chapter '
-    target-counter(attr(href), vs-counter-chapter) ' \00B7\00A0';
-  --vs-theme-garamond-three-column-marginalia--appendix-marker-content: 'Appendix '
-    counter(vs-counter-appendix, upper-alpha) '.';
-  --vs-theme-garamond-three-column-marginalia--appendix-call-content: target-counter(
-    attr(href),
-    vs-counter-appendix,
-    upper-alpha
-  );
-  --vs-theme-garamond-three-column-marginalia--appendix-toc-content: target-counter(
-      attr(href),
-      vs-counter-appendix,
-      upper-alpha
-    )
-    '.\00A0';
-  --vs-theme-garamond-three-column-marginalia--appendix-fig-call-content: 'Fig.\00A0'
-    target-counter(attr(href), vs-counter-appendix, upper-alpha) '.'
-    target-counter(attr(href), vs-counter-fig);
-  --vs-theme-garamond-three-column-marginalia--appendix-tbl-call-content: 'Table\00A0'
-    target-counter(attr(href), vs-counter-appendix, upper-alpha) '.'
-    target-counter(attr(href), vs-counter-tbl);
-  --vs-theme-garamond-three-column-marginalia--toc-sec-content: target-counter(
-      attr(href),
-      vs-counter-chapter
-    )
-    '.' target-counter(attr(href), vs-counter-sec-h2) '\00A0\00A0';
-  --vs-theme-garamond-three-column-marginalia--running-head-content: env(
-    pub-title
-  );
 }
 
 /* 和文で使う場合も図表番号に章番号を冠する (base の :lang(ja) 既定に勝たせる) */
@@ -215,14 +208,11 @@
 /* 章の md: h1 は節のマストヘッドの上に置く小さな章標、節は改ページで起こす */
 body.chapter {
   --vs-section--h1-marker-display: inline;
-  --vs-section--h1-marker-content: var(
-    --vs-theme-garamond-three-column-marginalia--chapter-marker-content
-  );
+  --vs-section--h1-marker-content: 'Chapter ' counter(vs-counter-chapter)
+    ' \00B7';
   --vs-section--h1-marker-margin-inline-end: 0.5em;
   --vs-section--h2-break-before: page;
-  --vs--h1-font-family: var(
-    --vs-theme-garamond-three-column-marginalia--font-meta
-  );
+  --vs--h1-font-family: var(--vs-font-family-alt);
   --vs--h1-font-size: 8pt;
   --vs--h1-font-weight: 600;
   --vs--h1-letter-spacing: 0.18em;
@@ -387,7 +377,7 @@ figure img {
 }
 
 figcaption {
-  font-family: var(--vs-theme-garamond-three-column-marginalia--font-meta);
+  font-family: var(--vs-font-family-alt);
   line-height: 1.3;
 }
 
@@ -469,7 +459,7 @@ tbody tr:last-child td {
 
 /* 部立てのラベル行 (Front Matter / Chapter N / Appendices …) */
 :is(#toc, [role='doc-toc']) li.toc-part {
-  font-family: var(--vs-theme-garamond-three-column-marginalia--font-meta);
+  font-family: var(--vs-font-family-alt);
   font-size: 7.2pt;
   font-weight: 600;
   letter-spacing: 0.1em;

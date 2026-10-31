@@ -43,12 +43,17 @@ class: chapter
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                               | 既定値                                                   | 説明                         |
 | ---------------------------------- | -------------------------------------------------------- | ---------------------------- |
-| `--vs-theme-purple-rule-marginalia--color-accent`         | `#330066`                                                | 罫・注記号・相互参照の濃紫   |
-| `--vs-theme-purple-rule-marginalia--color-rule`           | `#b9aecb`                                                | 挿画の枠の薄紫               |
+| `--vs-color-foreground` | `#1f1b24` | 本文の文字色 |
+| `--vs-color-background` | `#faf7f0` | 紙面の地色 |
+| `--vs-color-foreground-alt` | `#330066` | アクセント色 |
+| `--vs-theme-purple-rule-marginalia--color-accent`         | `--vs-color-foreground-alt` と同じ | 罫・注記号・相互参照の濃紫   |
+| `--vs-color-border`           | `--vs-color-foreground-alt` × `--vs-color-background` 70% | 挿画の枠の薄紫               |
 | `--vs-theme-purple-rule-marginalia--font-display`         | `'Zen Old Mincho', ...`                                  | 章題・章番号の書体           |
-| `--vs-theme-purple-rule-marginalia--font-gothic`          | `'Zen Kaku Gothic New', ...`                             | 柱・傍注・脚注のゴシック書体 |
+| `--vs-font-family-alt`          | `'Zen Kaku Gothic New', ...`                             | 柱・傍注・脚注のゴシック書体 |
 | `--vs-theme-purple-rule-marginalia--chapref-call-content` | `'→第' target-counter(...) '章'`                         | `data-ref="chap"` の参照文字 |
 | `--vs-font-family`                 | `'Shippori Mincho', ...`                                 | 本文書体                     |
 | `--vs-section--h1-marker-content`  | `'第' counter(vs-counter-chapter, cjk-ideographic) '章'` | 章番号の表記                 |

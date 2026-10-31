@@ -28,45 +28,29 @@
 
 :root {
   /* ── テーマ固有 (--vs-* に対応物が無いもの) ── */
-  --vs-theme-slate-blue-two-column--font-display:
-    'Archivo', 'Inter', 'Helvetica Neue', Arial, sans-serif;
-  --vs-theme-slate-blue-two-column--color-accent: #2c3e50;
-  --vs-theme-slate-blue-two-column--color-rule: #c9d3dd;
-  --vs-theme-slate-blue-two-column--color-muted: #5c6b7a;
-  --vs-equation--call-content: '(' target-counter(attr(href), vs-counter-eq) ')';
-  --vs-equation--margin-block: 0.5rem 0.7rem;
-  --vs-equation--item-text-align: inherit;
-  --vs-equation--marker-font-size: 8pt;
+  --vs-theme-slate-blue-two-column--color-foreground-secondary: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 25%
+  );
+  --vs-theme-slate-blue-two-column--color-accent: var(
+    --vs-color-foreground-alt
+  );
   --vs-theme-slate-blue-two-column--figure-wide-size-inline: 100%;
-
-  --vs-page--size: A4;
-  --vs-page--margin-top: 20mm;
-  --vs-page--margin-bottom: 20mm;
-  --vs-page--margin-left: 20mm;
-  --vs-page--margin-right: 20mm;
-  --vs-page--background-color: #fbfbf9;
-  --vs-page--mbox-top-left-content: string(running-title);
-  --vs-page--mbox-bottom-right-content: counter(page);
-  --vs-page--mbox-top-font-family: 'Inter', sans-serif;
-  --vs-page--mbox-top-font-size: 7.5pt;
-  --vs-page--mbox-top-font-weight: 600;
-  --vs-page--mbox-top-letter-spacing: 0.14em;
-  --vs-page--mbox-top-left-text-transform: uppercase;
-  --vs-page--mbox-top-text-color: var(
-    --vs-theme-slate-blue-two-column--color-accent
-  );
-  --vs-page--mbox-bottom-font-family: 'Inter', sans-serif;
-  --vs-page--mbox-bottom-font-size: 8.5pt;
-  --vs-page--mbox-bottom-text-color: var(
-    --vs-theme-slate-blue-two-column--color-accent
-  );
 
   /* Type */
   --vs-font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --vs-font-family-alt: 'Archivo', 'Inter', 'Helvetica Neue', Arial, sans-serif;
   --vs-font-size: 9.5pt;
   --vs-line-height: 1.5;
   --vs-color-foreground: #1a1a1a;
+  --vs-color-foreground-alt: #2c3e50;
   --vs-color-background: #fbfbf9;
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 80%
+  );
   --vs-columns: 1; /* html は単段のまま。段組は body に掛ける */
   --vs-column-gap: 7mm;
   --vs-hyphens: none;
@@ -108,7 +92,6 @@
   --vs--table-font-size: 7.5pt;
   --vs--table-font-variant-numeric: tabular-nums;
   --vs--table-margin-block: 0;
-  --vs--table-border-color: #c9d3dd;
   --vs--table-border-width: 0;
   --vs--table-border-width-block-start: 0;
   --vs--table-border-width-block-end: 1px;
@@ -124,9 +107,35 @@
   --vs--th-background-color: var(
     --vs-theme-slate-blue-two-column--color-accent
   );
-  --vs--th-text-color: #ffffff;
+  --vs--th-text-color: var(--vs-color-background);
   --vs--th-padding-block: 0.9mm;
   --vs--td-text-align: start;
+
+  --vs-equation--call-content: '(' target-counter(attr(href), vs-counter-eq) ')';
+  --vs-equation--margin-block: 0.5rem 0.7rem;
+  --vs-equation--item-text-align: inherit;
+  --vs-equation--marker-font-size: 8pt;
+
+  --vs-page--size: A4;
+  --vs-page--margin-top: 20mm;
+  --vs-page--margin-bottom: 20mm;
+  --vs-page--margin-left: 20mm;
+  --vs-page--margin-right: 20mm;
+  --vs-page--mbox-top-left-content: string(running-title);
+  --vs-page--mbox-bottom-right-content: counter(page);
+  --vs-page--mbox-top-font-family: 'Inter', sans-serif;
+  --vs-page--mbox-top-font-size: 7.5pt;
+  --vs-page--mbox-top-font-weight: 600;
+  --vs-page--mbox-top-letter-spacing: 0.14em;
+  --vs-page--mbox-top-left-text-transform: uppercase;
+  --vs-page--mbox-top-text-color: var(
+    --vs-theme-slate-blue-two-column--color-accent
+  );
+  --vs-page--mbox-bottom-font-family: 'Inter', sans-serif;
+  --vs-page--mbox-bottom-font-size: 8.5pt;
+  --vs-page--mbox-bottom-text-color: var(
+    --vs-theme-slate-blue-two-column--color-accent
+  );
 
   /* ── 節番号: h2 が「1.」、h3 が「1.1」 ── */
   --vs-section--marker-display: inline;
@@ -172,12 +181,12 @@ body > .titleblock {
 .masthead p {
   margin: 0;
   padding-block-start: 6mm;
-  font-family: var(--vs-theme-slate-blue-two-column--font-display);
+  font-family: var(--vs-font-family-alt);
   font-size: 8pt;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--vs-theme-slate-blue-two-column--color-muted);
+  color: var(--vs-theme-slate-blue-two-column--color-foreground-secondary);
 }
 
 /* シールは Markdown 画像なので <figure><img><figcaption> になる。本文図の
@@ -210,8 +219,8 @@ header.masthead > figure > img {
 }
 
 .docid {
-  color: var(--vs-theme-slate-blue-two-column--color-muted);
-  font-family: var(--vs-theme-slate-blue-two-column--font-display);
+  color: var(--vs-theme-slate-blue-two-column--color-foreground-secondary);
+  font-family: var(--vs-font-family-alt);
   font-size: 7.5pt;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -221,7 +230,7 @@ header.masthead > figure > img {
 
 .titleblock h1 {
   color: var(--vs-theme-slate-blue-two-column--color-accent);
-  font-family: var(--vs-theme-slate-blue-two-column--font-display);
+  font-family: var(--vs-font-family-alt);
   font-size: 25pt;
   font-weight: 700;
   letter-spacing: -0.01em;
@@ -231,7 +240,7 @@ header.masthead > figure > img {
 }
 
 .subtitle {
-  color: var(--vs-theme-slate-blue-two-column--color-muted);
+  color: var(--vs-theme-slate-blue-two-column--color-foreground-secondary);
   font-size: 11pt;
   font-weight: 500;
   margin-block: 0 4mm;
@@ -244,13 +253,13 @@ header.masthead > figure > img {
 }
 
 .affil {
-  color: var(--vs-theme-slate-blue-two-column--color-muted);
+  color: var(--vs-theme-slate-blue-two-column--color-foreground-secondary);
   font-size: 8.5pt;
   margin-block: 0 4.5mm;
 }
 
 .abstract {
-  border-block: 0.75pt solid var(--vs-theme-slate-blue-two-column--color-rule);
+  border-block: 0.75pt solid var(--vs-color-border);
   margin-block: 0 3mm;
   padding-block: 2.6mm;
 }
@@ -262,7 +271,7 @@ header.masthead > figure > img {
 
 .label {
   color: var(--vs-theme-slate-blue-two-column--color-accent);
-  font-family: var(--vs-theme-slate-blue-two-column--font-display);
+  font-family: var(--vs-font-family-alt);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -270,7 +279,7 @@ header.masthead > figure > img {
 
 .terms,
 .distribution {
-  color: var(--vs-theme-slate-blue-two-column--color-muted);
+  color: var(--vs-theme-slate-blue-two-column--color-foreground-secondary);
   font-size: 8.5pt;
   margin-block: 0 1.2mm;
 }
@@ -322,19 +331,19 @@ figure:not([class]) {
 figure:not([class]) > img {
   border-width: 0.75pt;
   border-style: solid;
-  border-color: var(--vs-theme-slate-blue-two-column--color-rule);
+  border-color: var(--vs-color-border);
   border-radius: 2mm;
-  background-color: #ffffff;
+  background-color: var(--vs-color-background);
 }
 
 figcaption {
   line-height: 1.35;
-  color: var(--vs-theme-slate-blue-two-column--color-muted);
+  color: var(--vs-theme-slate-blue-two-column--color-foreground-secondary);
 }
 
 /* 採番は base の figure/table モジュール。書体・色だけ design 側で当てる */
 figcaption::before {
-  font-family: var(--vs-theme-slate-blue-two-column--font-display);
+  font-family: var(--vs-font-family-alt);
   font-weight: 600;
   color: var(--vs-theme-slate-blue-two-column--color-accent);
 }
@@ -405,7 +414,7 @@ a[data-ref='eq'] {
 }
 
 .doccontrol p {
-  color: var(--vs-theme-slate-blue-two-column--color-muted);
+  color: var(--vs-theme-slate-blue-two-column--color-foreground-secondary);
 }
 
 .doccontrol p strong {

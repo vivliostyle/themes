@@ -26,11 +26,12 @@
 :root {
   --vs-theme-bleed-illustration-chapter-opener--font-display:
     'League Spartan', 'Arial Narrow', sans-serif;
-  --vs-theme-bleed-illustration-chapter-opener--font-meta:
-    'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
   --vs-theme-bleed-illustration-chapter-opener--color-ink-strong: #17191b;
-  --vs-color-foreground-alt: #6f7374;
-  --vs-theme-bleed-illustration-chapter-opener--color-rule: #a9a69f;
+  --vs-theme-bleed-illustration-chapter-opener--color-rule: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 65%
+  );
 
   /* 章扉の帯と、そこへ重ねる章題の位置 */
   --vs-theme-bleed-illustration-chapter-opener--chapter-band-height: 135mm;
@@ -42,22 +43,16 @@
   --vs-theme-bleed-illustration-chapter-opener--chapter-columns: 2;
   --vs-theme-bleed-illustration-chapter-opener--chapter-column-gap: 8mm;
 
-  --vs-page--size: A4;
-  --vs-page--margin-top: 16mm;
-  --vs-page--margin-bottom: 15mm;
-  --vs-page--margin-left: 19mm;
-  --vs-page--margin-right: 19mm;
-  --vs-page--background-color: #f6f1e7;
-  --vs-page--mbox-bottom-center-content: counter(page);
-  --vs-page--mbox-font-family: 'Noto Sans', sans-serif;
-  --vs-page--mbox-font-size: 9pt;
-  --vs-page--mbox-font-weight: 500;
-  --vs-page--mbox-letter-spacing: 0.1em;
-  --vs-page--mbox-text-color: #6f7374;
+  --vs-color-foreground-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 40%
+  );
 
   /* Type: 児童向けに大きめ・広い行間の sans */
   --vs-font-family:
     'Atkinson Hyperlegible', 'Helvetica Neue', Arial, sans-serif;
+  --vs-font-family-alt: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
   --vs-font-size: 11pt;
   --vs-line-height: 1.75;
   --vs-color-foreground: #242629;
@@ -85,6 +80,22 @@
   --vs--h1-margin-block: 0;
   --vs--h1-margin-inline: 0;
   --vs--h1-text-transform: uppercase;
+
+  --vs-page--size: A4;
+  --vs-page--margin-top: 16mm;
+  --vs-page--margin-bottom: 15mm;
+  --vs-page--margin-left: 19mm;
+  --vs-page--margin-right: 19mm;
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-font-family: 'Noto Sans', sans-serif;
+  --vs-page--mbox-font-size: 9pt;
+  --vs-page--mbox-font-weight: 500;
+  --vs-page--mbox-letter-spacing: 0.1em;
+  --vs-page--mbox-text-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 40%
+  );
 
   /* 章番号は章題の上に小さく置く */
   --vs-section--counter-style: vs-theme-chapter-word;
@@ -155,7 +166,7 @@ header.bleed::before {
   left: 0;
   right: 0;
   text-align: center;
-  font-family: var(--vs-theme-bleed-illustration-chapter-opener--font-meta);
+  font-family: var(--vs-font-family-alt);
   font-size: 9pt;
   font-weight: 500;
   letter-spacing: 0.34em;
@@ -208,7 +219,7 @@ section > figure img {
 }
 
 section > figure figcaption {
-  font-family: var(--vs-theme-bleed-illustration-chapter-opener--font-meta);
+  font-family: var(--vs-font-family-alt);
   font-style: italic;
   line-height: 1.4;
   color: var(--vs-color-foreground-alt);

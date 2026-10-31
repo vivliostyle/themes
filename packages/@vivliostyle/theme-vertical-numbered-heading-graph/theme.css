@@ -19,21 +19,6 @@
 :root {
   --vs-writing-mode: vertical-rl;
 
-  --vs-page--size: 105mm 173mm;
-  --vs-page--background-color: #f7f5f0;
-  --vs-page--margin-top: 13mm;
-  --vs-page--margin-bottom: 17mm;
-  --vs-page--margin-left: 7.5mm;
-  --vs-page--margin-right: 7.5mm;
-  --vs-page--mbox-font-family: 'Noto Serif JP', serif;
-  --vs-page--mbox-text-color: #1a1a1a;
-  --vs-page--mbox-top-right-content: env(pub-title);
-  --vs-page--mbox-bottom-right-content: counter(page);
-  --vs-page--mbox-top-font-size: 7pt;
-  --vs-page--mbox-top-letter-spacing: 0.1em;
-  --vs-page--mbox-bottom-font-size: 8pt;
-  --vs-page--mbox-bottom-letter-spacing: 0.04em;
-
   --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
   --vs-font-size: 9pt;
   --vs-line-height: 1.75;
@@ -59,15 +44,6 @@
   --vs--h2-margin-block: 5mm;
   --vs--h2-padding-inline: 11mm 0;
 
-  /* 節番号は漢数字。番号と見出し語のあいだは全角アキ。 */
-  --vs-section--counter-style: cjk-ideographic;
-  --vs-section--h2-marker-display: inline;
-  --vs-section--h2-marker-content: counter(
-    vs-counter-sec-h2,
-    var(--vs-section--counter-style)
-  );
-  --vs-section--marker-margin-inline-end: 1em;
-
   /* 本文中の上付き注番号 (巻末注)。縦中横で正立させる。 */
   --vs--sup-font-size: 0.62em;
   /* reset.css の sub,sup { line-height: 0 } では縦組みの行が詰まる。 */
@@ -79,16 +55,34 @@
   /* 図版は横組みに戻して版面の地側に置く。 */
   --vs--figure-writing-mode: horizontal-tb;
   --vs--figure-margin-block: 3mm 0;
-  --vs--figure-item-size-inline: var(
-    --vs-theme-vertical-numbered-heading-graph--figure-size-inline
-  );
+  /* 地に置く図版が版面の横幅 (縦組みの行方向) から食う量。 */
+  --vs--figure-item-size-inline: 50mm;
   --vs--figcaption-font-size: 6.6pt;
   --vs--figcaption-margin-block: 2mm 0;
   --vs--figcaption-text-align: left;
   --vs--figcaption-text-color: inherit;
 
-  /* 地に置く図版が版面の横幅 (縦組みの行方向) から食う量。 */
-  --vs-theme-vertical-numbered-heading-graph--figure-size-inline: 50mm;
+  --vs-page--size: 105mm 173mm;
+  --vs-page--margin-top: 13mm;
+  --vs-page--margin-bottom: 17mm;
+  --vs-page--margin-left: 7.5mm;
+  --vs-page--margin-right: 7.5mm;
+  --vs-page--mbox-font-family: 'Noto Serif JP', serif;
+  --vs-page--mbox-top-right-content: env(pub-title);
+  --vs-page--mbox-bottom-right-content: counter(page);
+  --vs-page--mbox-top-font-size: 7pt;
+  --vs-page--mbox-top-letter-spacing: 0.1em;
+  --vs-page--mbox-bottom-font-size: 8pt;
+  --vs-page--mbox-bottom-letter-spacing: 0.04em;
+
+  /* 節番号は漢数字。番号と見出し語のあいだは全角アキ。 */
+  --vs-section--counter-style: cjk-ideographic;
+  --vs-section--h2-marker-display: inline;
+  --vs-section--h2-marker-content: counter(
+    vs-counter-sec-h2,
+    var(--vs-section--counter-style)
+  );
+  --vs-section--marker-margin-inline-end: 1em;
 
   /* 巻末注。本文より小さい字を、合印ぶら下げ (2em) で組む。 */
   --vs-endnote--section-heading-content: '注';

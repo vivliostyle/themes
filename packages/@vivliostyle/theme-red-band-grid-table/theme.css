@@ -22,13 +22,19 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  --vs-theme-red-band-grid-table--color-accent: #cc0000;
-  --vs-theme-red-band-grid-table--color-on-accent: #ffffff;
-  --vs-theme-red-band-grid-table--color-rule: #999999;
-  --vs-theme-red-band-grid-table--color-rule-strong: #444444;
-  --vs-theme-red-band-grid-table--color-bg-panel: #ffffff;
-  --vs-theme-red-band-grid-table--color-bg-thead: #e4e4e4;
-  --vs-theme-red-band-grid-table--color-bg-thead-subtle: #efefef;
+  --vs-theme-red-band-grid-table--color-accent: var(--vs-color-foreground-alt);
+  --vs-theme-red-band-grid-table--color-on-accent: var(--vs-color-background);
+  --vs-theme-red-band-grid-table--color-rule-strong: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 20%
+  );
+  --vs-theme-red-band-grid-table--color-bg-panel: var(--vs-color-background);
+  --vs-theme-red-band-grid-table--color-bg-thead-subtle: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 95%
+  );
   --vs-theme-red-band-grid-table--ledger-columns: 3;
   --vs-theme-red-band-grid-table--ledger-column-gap: 4mm;
   --vs-theme-red-band-grid-table--ledger-date-width: 10mm;
@@ -36,17 +42,23 @@
   --vs-theme-red-band-grid-table--ledger-description-font-size: 5.7pt;
   --vs-theme-red-band-grid-table--note-inline-size: 106mm;
 
-  --vs-page--size: A4;
-  --vs-page--margin-top: 12mm;
-  --vs-page--margin-bottom: 12mm;
-  --vs-page--margin-left: 15mm;
-  --vs-page--margin-right: 15mm;
-
   --vs-font-family:
     'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
   --vs-font-size: 9pt;
   --vs-line-height: 1.5;
   --vs-color-foreground: #1a1a1a;
+  --vs-color-foreground-alt: #cc0000;
+  --vs-color-background: #ffffff;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 90%
+  );
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 60%
+  );
   --vs-columns: 1;
 
   --vs--heading-font-family:
@@ -75,6 +87,12 @@
   --vs--table-margin-block: 0;
   --vs--table-margin-inline: 0;
   --vs--table-border-width: 0;
+
+  --vs-page--size: A4;
+  --vs-page--margin-top: 12mm;
+  --vs-page--margin-bottom: 12mm;
+  --vs-page--margin-left: 15mm;
+  --vs-page--margin-right: 15mm;
 
   /* 区分見出しは「1.」からの通し番号 */
   --vs-section--h2-marker-display: inline;
@@ -219,10 +237,12 @@ address .meta {
 
 /* ---- 明細表 ---- */
 .col table {
-  --vs--table-border-color: #c9c9c9;
-  --vs--table-border-color-outer: var(
-    --vs-theme-red-band-grid-table--color-rule
+  --vs--table-border-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 80%
   );
+  --vs--table-border-color-outer: var(--vs-color-border);
   --vs--table-border-width-outer: 0.35mm;
   --vs--table-border-width-cell: 0.15mm;
   --vs--table-cell-padding-block: 0.9mm;
@@ -249,9 +269,9 @@ address .meta {
 }
 
 .col thead th {
-  background-color: var(--vs-theme-red-band-grid-table--color-bg-thead);
+  background-color: var(--vs-color-background-alt);
   border-block-end-width: 0.15mm;
-  border-block-end-color: var(--vs-theme-red-band-grid-table--color-rule);
+  border-block-end-color: var(--vs-color-border);
   white-space: nowrap;
 }
 
@@ -315,14 +335,18 @@ address .meta {
   margin-block-start: 5.5mm;
   border-width: 0.35mm;
   border-style: solid;
-  border-color: var(--vs-theme-red-band-grid-table--color-rule);
+  border-color: var(--vs-color-border);
   padding: 2.4mm 3mm 3mm;
   background-color: var(--vs-theme-red-band-grid-table--color-bg-panel);
   break-inside: avoid;
 }
 
 .note table {
-  --vs--table-border-color: #999999;
+  --vs--table-border-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 60%
+  );
   --vs--table-border-width-outer: 0.15mm;
   --vs--table-border-width-cell: 0.15mm;
   --vs--table-cell-padding-block: 1.4mm;

@@ -23,48 +23,38 @@
 
 :root {
   /* Theme tokens */
-  --vs-theme-green-heading-zebra-table--color-accent: #1a472a;
-  --vs-theme-green-heading-zebra-table--color-accent-tint: #dce8df;
-  --vs-theme-green-heading-zebra-table--color-on-accent: #f7f5f0;
-  --vs-theme-green-heading-zebra-table--color-rule: #b8b8ae;
-  --vs-theme-green-heading-zebra-table--font-tabular:
-    'Zilla Slab', 'Rockwell', serif;
+  --vs-theme-green-heading-zebra-table--color-accent: var(
+    --vs-color-foreground-alt
+  );
+  --vs-theme-green-heading-zebra-table--color-on-accent: var(
+    --vs-color-background
+  );
 
-  /* 図版は段幅いっぱいに置かず、左右にわずかな余白を残す */
-  --vs-theme-green-heading-zebra-table--figure-image-size-inline: 94%;
-
-  /* Page: letter portrait, 柱のぶん天を深くとる */
-  --vs-page--size: letter;
-  --vs-page--margin-top: 19mm;
-  --vs-page--margin-bottom: 11mm;
-  --vs-page--margin-left: 15mm;
-  --vs-page--margin-right: 15mm;
   --vs-color-background: #f7f5f0;
-  --vs-page--background-color: #f7f5f0;
-
-  /* 柱: 原稿の <header> を天中央に流し、黒の太め罫で本文と切り離す */
-  --vs-page--mbox-top-center-content: element(vs-theme-running-head);
-  --vs-page--border-color-top: var(--vs-color-foreground);
-  --vs-page--border-width-top: 1pt;
-  /* ノンブルは小口下 (右ページは右下、左ページは左下) */
-  --vs-page--mbox-bottom-outside-content: counter(page);
-  --vs-page--mbox-bottom-font-family: var(--vs-font-family);
-  --vs-page--mbox-bottom-font-size: 10pt;
-  --vs-page--mbox-bottom-font-weight: 500;
-  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 90%
+  );
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 75%
+  );
 
   /* 2 段組。段間に細い縦罫を引き、段は順に埋める */
   --vs-columns: 2;
   --vs-column-fill: auto;
   --vs-column-gap: 8.2mm;
   --vs-column-rule-width: 0.35pt;
-  --vs-column-rule-color: var(--vs-theme-green-heading-zebra-table--color-rule);
 
   /* Type: slab serif 8.4pt / 1.45 */
   --vs-font-family: 'Roboto Slab', 'Rockwell', serif;
+  --vs-font-family-alt: 'Zilla Slab', 'Rockwell', serif;
   --vs-font-size: 8.4pt;
   --vs-line-height: 1.45;
   --vs-color-foreground: #1c1c1c;
+  --vs-color-foreground-alt: #1a472a;
 
   --vs--heading-font-family: 'Roboto Slab', 'Rockwell', serif;
 
@@ -86,6 +76,54 @@
   );
   --vs--h2-padding-block: 1.4mm 1.6mm;
   --vs--h2-padding-inline: 2.5mm;
+
+  /* Ledger table: 罫を持たない緑ヘッダー行 + 淡緑ゼブラ */
+  --vs--table-border-width: 0;
+  --vs--table-font-family: var(--vs-font-family-alt);
+  --vs--table-font-variant-numeric: tabular-nums;
+  --vs--table-font-size: 7.8pt;
+  --vs--table-margin-block: 0 2.5mm;
+  --vs--table-margin-inline: 0;
+  --vs--table-cell-padding-block: 1.3mm;
+  --vs--table-cell-padding-inline: 2.2mm;
+  --vs--th-font-family: var(--vs-font-family-alt);
+  --vs--th-font-weight: 600;
+  --vs--th-text-align: start;
+  --vs--th-background-color: var(
+    --vs-theme-green-heading-zebra-table--color-accent
+  );
+  --vs--th-text-color: var(
+    --vs-theme-green-heading-zebra-table--color-on-accent
+  );
+
+  --vs--figure-margin-block: 1mm 3mm;
+  --vs--figure-margin-inline: 0;
+  --vs--figcaption-font-family: var(--vs-font-family-alt);
+  --vs--figcaption-font-size: 8.8pt;
+  --vs--figcaption-font-style: italic;
+  --vs--figcaption-margin-block: 1.4mm 0;
+  --vs--figcaption-text-align: center;
+
+  --vs--ol-padding-inline-start: 5mm;
+  --vs--lists-margin-block: 0 1.6mm;
+
+  /* Page: letter portrait, 柱のぶん天を深くとる */
+  --vs-page--size: letter;
+  --vs-page--margin-top: 19mm;
+  --vs-page--margin-bottom: 11mm;
+  --vs-page--margin-left: 15mm;
+  --vs-page--margin-right: 15mm;
+
+  /* 柱: 原稿の <header> を天中央に流し、黒の太め罫で本文と切り離す */
+  --vs-page--mbox-top-center-content: element(vs-theme-running-head);
+  --vs-page--border-color-top: var(--vs-color-foreground);
+  --vs-page--border-width-top: 1pt;
+  /* ノンブルは小口下 (右ページは右下、左ページは左下) */
+  --vs-page--mbox-bottom-outside-content: counter(page);
+  --vs-page--mbox-bottom-font-family: var(--vs-font-family);
+  --vs-page--mbox-bottom-font-size: 10pt;
+  --vs-page--mbox-bottom-font-weight: 500;
+  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
 
   /* 節番号・図表番号は「章番号.連番」 */
   --vs-section--marker-display: inline;
@@ -111,41 +149,6 @@
   --vs-listing--marker-margin-inline: 0 0.5em;
   --vs-table--marker-margin-inline: 0 0.5em;
   --vs-theorem--marker-margin-inline: 0 0.5em;
-
-  /* Ledger table: 罫を持たない緑ヘッダー行 + 淡緑ゼブラ */
-  --vs--table-border-width: 0;
-  --vs--table-font-family: var(
-    --vs-theme-green-heading-zebra-table--font-tabular
-  );
-  --vs--table-font-variant-numeric: tabular-nums;
-  --vs--table-font-size: 7.8pt;
-  --vs--table-margin-block: 0 2.5mm;
-  --vs--table-margin-inline: 0;
-  --vs--table-border-color: #b8b8ae;
-  --vs--table-cell-padding-block: 1.3mm;
-  --vs--table-cell-padding-inline: 2.2mm;
-  --vs--th-font-family: var(--vs-theme-green-heading-zebra-table--font-tabular);
-  --vs--th-font-weight: 600;
-  --vs--th-text-align: start;
-  --vs--th-background-color: var(
-    --vs-theme-green-heading-zebra-table--color-accent
-  );
-  --vs--th-text-color: var(
-    --vs-theme-green-heading-zebra-table--color-on-accent
-  );
-
-  --vs--figure-margin-block: 1mm 3mm;
-  --vs--figure-margin-inline: 0;
-  --vs--figcaption-font-family: var(
-    --vs-theme-green-heading-zebra-table--font-tabular
-  );
-  --vs--figcaption-font-size: 8.8pt;
-  --vs--figcaption-font-style: italic;
-  --vs--figcaption-margin-block: 1.4mm 0;
-  --vs--figcaption-text-align: center;
-
-  --vs--ol-padding-inline-start: 5mm;
-  --vs--lists-margin-block: 0 1.6mm;
 }
 
 /* 柱は本文から抜き出して天の margin box で使う */
@@ -179,15 +182,11 @@ figure.tbl > table {
 
 /* 図版は段幅より少し狭く、キャプションは図の下 */
 figure:not(.tbl) {
-  --vs--figure-item-size-inline: var(
-    --vs-theme-green-heading-zebra-table--figure-image-size-inline
-  );
+  --vs--figure-item-size-inline: 94%;
 }
 
 tbody tr:nth-child(even) td {
-  background-color: var(
-    --vs-theme-green-heading-zebra-table--color-accent-tint
-  );
+  background-color: var(--vs-color-background-alt);
 }
 
 /* 数値列は中央揃え。2 列表 (Year/配当) は全列中央 */
@@ -204,7 +203,7 @@ li {
 }
 
 li::marker {
-  font-family: var(--vs-theme-green-heading-zebra-table--font-tabular);
+  font-family: var(--vs-font-family-alt);
   font-weight: 600;
 }
 

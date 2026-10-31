@@ -23,13 +23,18 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                              | 既定値                      | 説明                             |
 | --------------------------------- | --------------------------- | -------------------------------- |
+| `--vs-color-foreground` | `#3a3336` | 本文の文字色 |
+| `--vs-color-background` | `#fdfbf8` | 紙面の地色 |
+| `--vs-color-foreground-alt` | `#d4a8d8` | アクセント色 |
 | `--vs--h1-font-family`            | `'Cormorant Garamond', ...` | タイトルの表示書体               |
 | `--vs-font-family`                | `'Noto Serif JP', serif`    | 本文書体                         |
-| `--vs-theme-lilac-small-caps-dot-leader--font-display`        | `'Cormorant Garamond', ...` | 見出し・引用符・ノンブルの書体   |
-| `--vs-theme-lilac-small-caps-dot-leader--color-accent`        | `#d4a8d8`                   | 見出し枠・引用符のアクセント色   |
-| `--vs-theme-lilac-small-caps-dot-leader--color-accent-strong` | `#b98cc0`                   | 見出し枠の主線・点線リーダーの色 |
-| `--vs-theme-lilac-small-caps-dot-leader--color-accent-tint`   | `#faf5fb`                   | 季節のおすすめボックスの地色     |
-| `--vs-theme-lilac-small-caps-dot-leader--color-muted`         | `#5f5459`                   | 説明文・キャプションの文字色     |
-| `--vs-theme-lilac-small-caps-dot-leader--color-folio`         | `#8d7f90`                   | ノンブルの文字色                 |
+| `--vs-font-family-alt`        | `'Cormorant Garamond', ...` | 見出し・引用符・ノンブルの書体   |
+| `--vs-theme-lilac-small-caps-dot-leader--color-accent`        | `--vs-color-foreground-alt` と同じ | 見出し枠・引用符のアクセント色   |
+| `--vs-theme-lilac-small-caps-dot-leader--color-accent-strong` | `--vs-color-foreground-alt` × `--vs-color-foreground` 20% | 見出し枠の主線・点線リーダーの色 |
+| `--vs-color-background-alt`   | `--vs-color-foreground-alt` × `--vs-color-background` 90% | 季節のおすすめボックスの地色     |
+| `--vs-theme-lilac-small-caps-dot-leader--color-foreground-secondary`         | `--vs-color-foreground` × `--vs-color-background` 20% | 説明文・キャプションの文字色     |
+| `--vs-page--mbox-bottom-text-color`         | `--vs-color-foreground-alt` × `--vs-color-foreground` 40% | ノンブルの文字色                 |

@@ -12,7 +12,10 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  --vs-theme-vertical-dropcap-endnote--color-sub: #4a4842;
+  --vs-theme-vertical-dropcap-endnote--sidenote-marker-content: '('
+    counter(vs-counter-sidenote) ')';
+  /* 傍注を天から下げる量。小口寄りの短冊として置く。 */
+  --vs-theme-vertical-dropcap-endnote--sidenote-padding-inline-start: 22mm;
 
   /* Type: 縦組み明朝 8pt / 行間 1.7 */
   --vs-writing-mode: vertical-rl;
@@ -21,28 +24,22 @@
   --vs-line-height: 1.7;
   --vs-spacing-rlh: 1.7rem;
   --vs-color-foreground: #1d1c1a;
+  --vs-color-foreground-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 25%
+  );
   --vs-color-background: #f7f3e8;
   --vs-letter-spacing: 0.02em;
 
   /* 罫線は巻末註の細罫のみ */
-  --vs-color-border: #aaa59a;
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 65%
+  );
 
-  --vs-page--size: 105mm 148mm;
-  --vs-page--margin-top: 12mm;
-  --vs-page--margin-bottom: 13mm;
-  --vs-page--margin-left: 11mm;
-  --vs-page--margin-right: 11mm;
-  --vs-page--background-color: #f7f3e8;
-  --vs-page--mbox-font-family: 'Noto Serif JP', serif;
-  --vs-page--mbox-text-color: #4a4842;
-  /* 柱は「書名　　解説の題」。ノンブルは文庫の慣習にならい漢数字。 */
-  --vs-page--mbox-top-left-content: env(pub-title) '　　' string(chapter-title);
-  --vs-page--mbox-bottom-right-content: counter(page, cjk-decimal);
-  --vs-page--mbox-top-font-size: 6pt;
-  --vs-page--mbox-top-letter-spacing: 0.06em;
-  --vs-page--mbox-bottom-font-size: 8pt;
-  --vs-page--mbox-bottom-letter-spacing: 0.12em;
-  --vs-page--mbox-bottom-writing-mode: vertical-rl;
+  --vs-document-root-counter-reset: vs-counter-sidenote;
 
   /* Paragraphs: 一字下げ、両端揃え、段間なし */
   --vs--p-margin-block: 0;
@@ -65,10 +62,30 @@
   /* ルビは本文の約半分 */
   --vs--rt-font-size: 0.5em;
 
+  --vs-page--size: 105mm 148mm;
+  --vs-page--margin-top: 12mm;
+  --vs-page--margin-bottom: 13mm;
+  --vs-page--margin-left: 11mm;
+  --vs-page--margin-right: 11mm;
+  --vs-page--mbox-font-family: 'Noto Serif JP', serif;
+  --vs-page--mbox-text-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 25%
+  );
+  /* 柱は「書名　　解説の題」。ノンブルは文庫の慣習にならい漢数字。 */
+  --vs-page--mbox-top-left-content: env(pub-title) '　　' string(chapter-title);
+  --vs-page--mbox-bottom-right-content: counter(page, cjk-decimal);
+  --vs-page--mbox-top-font-size: 6pt;
+  --vs-page--mbox-top-letter-spacing: 0.06em;
+  --vs-page--mbox-bottom-font-size: 8pt;
+  --vs-page--mbox-bottom-letter-spacing: 0.12em;
+  --vs-page--mbox-bottom-writing-mode: vertical-rl;
+
   /* 巻末註: 本文終端の細罫の先にコンパクトに収める。罫は hr ではなく section の
      上罫で引く (hr は見出しより後ろに出るため) */
   --vs-endnote--section-border-color-block-start: var(
-    --vs-theme-vertical-dropcap-endnote--color-sub
+    --vs-color-foreground-alt
   );
   --vs-endnote--section-border-style-block-start: solid;
   --vs-endnote--section-border-width-block-start: 0.4pt;
@@ -83,15 +100,11 @@
   --vs-endnote--section-margin-block: 2.5mm 0;
   --vs-endnote--section-ol-list-style-type: none;
   --vs-endnote--section-padding-block: 2.5mm 0;
-  --vs-endnote--section-text-color: var(
-    --vs-theme-vertical-dropcap-endnote--color-sub
-  );
+  --vs-endnote--section-text-color: var(--vs-color-foreground-alt);
   --vs-endnote--item-margin-block: 0 1mm;
   --vs-endnote--item-text-indent: 0;
   --vs-endnote--call-font-size: 0.72em;
-  --vs-endnote--call-text-color: var(
-    --vs-theme-vertical-dropcap-endnote--color-sub
-  );
+  --vs-endnote--call-text-color: var(--vs-color-foreground-alt);
 
   /*
    * 註番号・傍注番号は括弧付きの縦中横。text-combine-upright は一つのボックス内の
@@ -104,12 +117,6 @@
   --vs-endnote--marker-content: '(' counter(vs-counter-endnote) ')';
   --vs-endnote--marker-text-combine-upright: all;
   --vs-endnote--marker-margin-inline: 0 0.2em;
-  --vs-theme-vertical-dropcap-endnote--sidenote-marker-content: '('
-    counter(vs-counter-sidenote) ')';
-  /* 傍注を天から下げる量。小口寄りの短冊として置く。 */
-  --vs-theme-vertical-dropcap-endnote--sidenote-padding-inline-start: 22mm;
-
-  --vs-document-root-counter-reset: vs-counter-sidenote;
 }
 
 /* 冒頭一字をドロップキャップ風に約2.6倍へ拡大する */
@@ -136,7 +143,7 @@ body > section > p:first-of-type > ruby:first-child rt {
 /* 小口側の短い縦組み傍注 */
 .sidebar {
   font-size: 0.7em;
-  color: var(--vs-theme-vertical-dropcap-endnote--color-sub);
+  color: var(--vs-color-foreground-alt);
   line-height: 1.45;
   letter-spacing: 0.02em;
   margin-block: 0;

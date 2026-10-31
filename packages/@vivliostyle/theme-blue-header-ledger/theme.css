@@ -20,23 +20,43 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  /* Page: A5 portrait, compact banking margins */
-  --vs-page--size: A5;
-  --vs-page--margin-top: 12mm;
-  --vs-page--margin-bottom: 12mm;
-  --vs-page--margin-left: 9.5mm;
-  --vs-page--margin-right: 9.5mm;
-  /* 柱を版面から切り離す細い青罫 */
-  --vs-page--border-width-top: 0.7pt;
-  --vs-page--border-color-top: var(--vs-theme-blue-header-ledger--color-accent);
+  /* Theme-specific */
+  --vs-theme-blue-header-ledger--color-foreground-secondary: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 15%
+  );
+  --vs-theme-blue-header-ledger--color-accent: var(--vs-color-foreground-alt);
+  --vs-theme-blue-header-ledger--color-accent-deep: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-foreground) 20%
+  );
+  --vs-theme-blue-header-ledger--ledger-date-width: 14%;
+  --vs-theme-blue-header-ledger--ledger-description-width: 38%;
+  --vs-theme-blue-header-ledger--ledger-amount-width: 16%;
+  --vs-theme-blue-header-ledger--section-margin-block-start: 5mm;
 
   /* Type: gothic 8.5pt body / 1.4 lead */
   --vs-font-family:
     'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --vs-font-family-alt:
+    'IBM Plex Sans JP', 'Noto Sans JP', ui-monospace, monospace;
   --vs-font-size: 8.5pt;
   --vs-line-height: 1.4;
   --vs-color-background: #ffffff;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 90%
+  );
+  --vs-color-border-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 65%
+  );
   --vs-color-foreground: #1a1a1a;
+  --vs-color-foreground-alt: #0066cc;
   --vs-columns: 1;
 
   --vs--p-margin-block: calc(0.25 * var(--vs-spacing-rlh));
@@ -62,11 +82,25 @@
   --vs--table-margin-inline: 0;
   --vs--table-border-width: 0;
   --vs--table-border-width-row: 0.4pt;
-  --vs--table-border-color: #d9e6f4;
+  --vs--table-border-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 85%
+  );
   --vs--table-cell-padding-block: 1mm;
   --vs--table-cell-padding-inline: 2mm;
   --vs--th-font-size: 8pt;
   --vs--td-text-align: start;
+
+  /* Page: A5 portrait, compact banking margins */
+  --vs-page--size: A5;
+  --vs-page--margin-top: 12mm;
+  --vs-page--margin-bottom: 12mm;
+  --vs-page--margin-left: 9.5mm;
+  --vs-page--margin-right: 9.5mm;
+  /* 柱を版面から切り離す細い青罫 */
+  --vs-page--border-width-top: 0.7pt;
+  --vs-page--border-color-top: var(--vs-theme-blue-header-ledger--color-accent);
 
   /* 柱・ノンブル */
   --vs-page--mbox-top-left-content: env(doc-title);
@@ -75,28 +109,17 @@
   --vs-page--mbox-bottom-right-content: counter(page);
   --vs-page--mbox-top-font-size: 8pt;
   --vs-page--mbox-top-letter-spacing: 0.06em;
-  --vs-page--mbox-top-text-color: #55606b;
-  --vs-page--mbox-bottom-font-family: var(
-    --vs-theme-blue-header-ledger--font-numeric
+  --vs-page--mbox-top-text-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 35%
   );
+  --vs-page--mbox-bottom-font-family: var(--vs-font-family-alt);
   --vs-page--mbox-bottom-font-size: 9.5pt;
   --vs-page--mbox-bottom-font-weight: 500;
   --vs-page--mbox-bottom-text-color: var(
-    --vs-theme-blue-header-ledger--color-numeric
+    --vs-theme-blue-header-ledger--color-foreground-secondary
   );
-
-  /* Theme-specific */
-  --vs-theme-blue-header-ledger--font-numeric:
-    'IBM Plex Sans JP', 'Noto Sans JP', ui-monospace, monospace;
-  --vs-theme-blue-header-ledger--color-accent: #0066cc;
-  --vs-theme-blue-header-ledger--color-accent-deep: #0b4ea8;
-  --vs-theme-blue-header-ledger--color-tint: #e8f1fb;
-  --vs-theme-blue-header-ledger--color-tint-border: #a9cdf0;
-  --vs-theme-blue-header-ledger--color-numeric: #333333;
-  --vs-theme-blue-header-ledger--ledger-date-width: 14%;
-  --vs-theme-blue-header-ledger--ledger-description-width: 38%;
-  --vs-theme-blue-header-ledger--ledger-amount-width: 16%;
-  --vs-theme-blue-header-ledger--section-margin-block-start: 5mm;
 }
 
 /* 発行者の注記(見本表示・問い合わせ先など)を原稿から地の柱へ流す */
@@ -104,7 +127,11 @@
   position: running(footer-note);
   font-family: var(--vs-font-family);
   font-size: 7pt;
-  color: #5c6773;
+  color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 35%
+  );
 }
 
 /* h1(文書題)は柱が担うため視覚的に隠す */
@@ -164,10 +191,10 @@ header::after {
   margin-inline-start: 6mm;
   min-width: 62mm;
   font-style: normal;
-  background-color: var(--vs-theme-blue-header-ledger--color-tint);
+  background-color: var(--vs-color-background-alt);
   border-width: 0.5pt;
   border-style: solid;
-  border-color: var(--vs-theme-blue-header-ledger--color-tint-border);
+  border-color: var(--vs-color-border-alt);
   border-radius: 1mm;
   padding: 2.4mm 3.4mm;
   font-size: 8pt;
@@ -219,7 +246,7 @@ thead {
 
 thead th {
   background-color: var(--vs-theme-blue-header-ledger--color-accent);
-  color: #ffffff;
+  color: var(--vs-color-background);
   letter-spacing: 0.02em;
   padding-block: 1.5mm;
   padding-inline: 1.8mm;
@@ -240,21 +267,21 @@ tbody td {
 }
 
 tbody tr:nth-child(even) td {
-  background-color: var(--vs-theme-blue-header-ledger--color-tint);
+  background-color: var(--vs-color-background-alt);
 }
 
 /* 日付列: タブラー等幅数字で桁揃え */
 tbody td:first-child {
-  font-family: var(--vs-theme-blue-header-ledger--font-numeric);
+  font-family: var(--vs-font-family-alt);
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.02em;
   white-space: nowrap;
-  color: var(--vs-theme-blue-header-ledger--color-numeric);
+  color: var(--vs-theme-blue-header-ledger--color-foreground-secondary);
 }
 
 /* 摘要列より後は金額列とみなして右揃えの数字に */
 tbody td:nth-child(n + 3) {
-  font-family: var(--vs-theme-blue-header-ledger--font-numeric);
+  font-family: var(--vs-font-family-alt);
   font-variant-numeric: tabular-nums;
   text-align: end;
   white-space: nowrap;

@@ -14,15 +14,20 @@ export default {
 ## カスタマイズ
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。
+
+配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
 `:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
 | 変数                                  | 既定値                                 | 説明                                     |
 | ------------------------------------- | -------------------------------------- | ---------------------------------------- |
+| `--vs-color-foreground` | `#17171b` | 本文の文字色 |
+| `--vs-color-background` | `#ffffff` | 紙面の地色 |
+| `--vs-color-foreground-alt` | `#14148c` | アクセント色 |
 | `--vs-font-family`                    | `'STIX Two Text', ...`                 | 本文書体                                 |
 | `--vs--heading-font-family`           | `--vs-font-family-alt`           | 見出し書体                               |
-| `--vs-theme-serif-line-numbered-code--accent-color`                   | `#14148c`                              | 節番号・罫線・参照記号・コード左罫の濃紺 |
-| `--vs-color-foreground-alt`               | `#555563`                              | 柱・メタ情報・脚注の控えめな文字色       |
-| `--vs-color-background-alt`           | `#f4f5fa`                              | コードブロックの地色                     |
+| `--vs-theme-serif-line-numbered-code--accent-color`                   | `--vs-color-foreground-alt` と同じ | 節番号・罫線・参照記号・コード左罫の濃紺 |
+| `--vs-theme-serif-line-numbered-code--color-foreground-secondary`               | `--vs-color-foreground` × `--vs-color-background` 30% | 柱・メタ情報・脚注の控えめな文字色       |
+| `--vs-color-background-alt`           | `--vs-color-foreground-alt` × `--vs-color-background` 95% | コードブロックの地色                     |
 | `--vs-font-family-alt`          | `'Source Sans 3', ...`                 | 見出し・柱・キャプションの表示書体       |
 | `--vs--table-border-color`            | `--vs-theme-serif-line-numbered-code--accent-color`                    | 表罫の色 (水平罫のみ)                    |
 | `--vs-theme-serif-line-numbered-code--equation-marker-content` | `'(' counter(vs-counter-eq) ')'` | 別行立て数式の右端に出す式番号           |

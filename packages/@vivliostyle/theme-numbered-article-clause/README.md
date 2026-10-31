@@ -44,15 +44,19 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                 | 既定値                                            | 説明                           |
 | ------------------------------------ | ------------------------------------------------- | ------------------------------ |
+| `--vs-color-foreground` | `#171717` | 本文の文字色 |
+| `--vs-color-background` | `#ffffff` | 紙面の地色 |
 | `--vs-font-family`                   | `'Noto Serif JP', ...`                            | 本文書体                       |
 | `--vs--heading-font-family`          | `'Noto Serif JP', ...`                            | 章・条見出しの書体             |
-| `--vs-theme-numbered-article-clause--color-muted`            | `#4a4a4a`                                         | 発行主体・改定履歴・柱の濃灰色 |
-| `--vs--table-border-color`           | `#707070`                                         | 社員名簿等の規程表の罫線色     |
+| `--vs-color-foreground-alt`            | `--vs-color-foreground` × `--vs-color-background` 25% | 発行主体・改定履歴・柱の濃灰色 |
+| `--vs--table-border-color`           | `--vs-color-foreground` × `--vs-color-background` 45% | 社員名簿等の規程表の罫線色     |
 | `--vs-page--mbox-top-left-content`   | `string(chaptitle)`                               | 柱に表示する現在章名           |
 | `--vs-section--h2-marker-content`    | `'第' counter(vs-counter-sec-h2) '章'`            | 章番号の書式                   |
-| `--vs-theme-numbered-article-clause--article-marker-content` | `'第' counter(vs-counter-article) '条'`           | 条番号の書式                   |
+| `--vs-section--h3-marker-content` | `'第' counter(vs-counter-article) '条'`           | 条番号の書式                   |
 | `--vs-theme-numbered-article-clause--kou-marker-content`     | `counter(vs-counter-kou)`                         | 項番号の書式                   |
 | `--vs-theme-numbered-article-clause--gou-marker-content`     | `counter(vs-counter-gou, cjk-ideographic)`        | 号番号の書式                   |
 | `--vs-theme-numbered-article-clause--article-counter-style`  | `decimal`                                         | 条番号のカウンタスタイル       |

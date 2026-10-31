@@ -34,7 +34,7 @@
   font-size: 5.4pt;
 }
 .layers .core {
-  background-color: var(--vs-theme-vertical-matrix-diagram--color-tint);
+  background-color: var(--vs-color-background-alt);
 }
 
 /* 参入障壁の高さ (横棒) */
@@ -67,7 +67,7 @@
   block-size: 2.2mm;
   inline-size: calc(var(--v) * 0.85%);
   border-width: 0.5pt;
-  background-color: var(--vs-theme-vertical-matrix-diagram--color-tint);
+  background-color: var(--vs-color-background-alt);
 }
 .bars .val {
   font-size: 5.2pt;
@@ -84,7 +84,7 @@
   padding: 1mm 1.2mm;
 }
 .flow .step.emph {
-  background-color: var(--vs-theme-vertical-matrix-diagram--color-tint);
+  background-color: var(--vs-color-background-alt);
 }
 .flow .name {
   font-weight: 700;

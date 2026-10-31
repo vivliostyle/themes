@@ -21,7 +21,7 @@ section:has(> h1.voices:first-child) strong {
 
 .note {
   margin-block-start: 4mm;
-  font-family: var(--vs-theme-brown-double-frame-cream--font-note);
+  font-family: var(--vs-font-family-alt);
   font-size: 7.4pt;
   letter-spacing: 0.04em;
   text-align: center;

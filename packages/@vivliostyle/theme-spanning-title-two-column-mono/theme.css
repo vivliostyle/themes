@@ -28,9 +28,6 @@
 
 :root {
   /* theme 固有: --vs-* に対応物がない値のみ */
-  --vs-theme-spanning-title-two-column-mono--font-latin:
-    'STIX Two Text', 'Times New Roman', serif;
-  --vs-color-background-alt: #efefef;
   --vs-theme-spanning-title-two-column-mono--columns: 2;
   --vs-theme-spanning-title-two-column-mono--column-gap: 8mm;
   --vs-theme-spanning-title-two-column-mono--figure-size-inline: 100%;
@@ -38,42 +35,21 @@
   --vs-theme-spanning-title-two-column-mono--eq-marker-content: '('
     counter(vs-counter-eq) ')';
 
-  /* Page: A4 縦・天地 20mm / ノド 25mm / 小口 15mm */
-  --vs-page--size: A4;
-  --vs-page--margin-top: 20mm;
-  --vs-page--margin-bottom: 20mm;
-  --vs-page--margin-left: 20mm;
-  --vs-page--margin-right: 20mm;
-  --vs-page--background-color: #ffffff;
-  --vs-page--mbox-top-padding-bottom: 1.6mm;
-  --vs-page--mbox-top-vertical-align: bottom;
-
-  /* 柱: 左に誌名・巻号、右に論題。細罫を下に敷く */
-  --vs-page--mbox-top-left-content: element(vs-theme-journal);
-  --vs-page--mbox-top-right-content: env(doc-title);
-  --vs-page--mbox-top-font-family: var(--vs--heading-font-family);
-  --vs-page--mbox-top-font-size: 7.5pt;
-  --vs-page--mbox-top-text-color: var(--vs-color-foreground);
-  --vs-page--border-color-top: var(--vs-color-foreground);
-  --vs-page--border-width-top: 0.5pt;
-
-  /* ノンブル */
-  --vs-page--mbox-bottom-center-content: counter(page);
-  --vs-page--mbox-bottom-font-family: var(
-    --vs-theme-spanning-title-two-column-mono--font-latin
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 95%
   );
-  --vs-page--mbox-bottom-font-size: 10pt;
-  --vs-page--mbox-bottom-letter-spacing: 0.04em;
-  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
 
   /* Type: 本文 9.5pt 明朝 / 行間 1.45 */
   --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'YuMincho', serif;
+  --vs-font-family-alt: 'STIX Two Text', 'Times New Roman', serif;
   --vs-font-size: 9.5pt;
   --vs-line-height: 1.45;
   --vs-color-foreground: #1a1a1a;
   --vs-color-background: #ffffff;
   --vs-widows-orphans: 2;
-  --vs-color-border: #1a1a1a;
+  --vs-color-border: var(--vs-color-foreground);
 
   --vs--monospace-font-family: 'Source Code Pro', ui-monospace, monospace;
   --vs--monospace-line-height: 1.5;
@@ -110,15 +86,6 @@
   --vs--h3-line-height: 1.3;
   --vs--h3-margin-block: 2.2mm 1mm;
 
-  /* 節番号: 章は「1.」、小節は「1.1」。論題 (h1) には番号を付けない */
-  --vs-section--marker-display: inline;
-  --vs-section--h1-marker-display: none;
-  --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '.';
-  --vs-section--h3-marker-content: counter(vs-counter-sec-h2) '.'
-    counter(vs-counter-sec-h3);
-  --vs-section--marker-margin-inline-end: 0.5em;
-  --vs-section--call-content: target-counter(attr(href), vs-counter-sec-h2) '章';
-
   /* 図: 折れ線グラフ (外部 SVG) */
   --vs--figure-margin-block: 2.5mm 2mm;
   --vs--figcaption-font-family: var(--vs--heading-font-family);
@@ -147,13 +114,49 @@
   --vs--pre-background-color: var(--vs-color-background-alt);
   --vs--pre-break-inside: avoid;
 
+  /* Page: A4 縦・天地 20mm / ノド 25mm / 小口 15mm */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 20mm;
+  --vs-page--margin-bottom: 20mm;
+  --vs-page--margin-left: 20mm;
+  --vs-page--margin-right: 20mm;
+  --vs-page--mbox-top-padding-bottom: 1.6mm;
+  --vs-page--mbox-top-vertical-align: bottom;
+
+  /* 柱: 左に誌名・巻号、右に論題。細罫を下に敷く */
+  --vs-page--mbox-top-left-content: element(vs-theme-journal);
+  --vs-page--mbox-top-right-content: env(doc-title);
+  --vs-page--mbox-top-font-family: var(--vs--heading-font-family);
+  --vs-page--mbox-top-font-size: 7.5pt;
+  --vs-page--mbox-top-text-color: var(--vs-color-foreground);
+  --vs-page--border-color-top: var(--vs-color-foreground);
+  --vs-page--border-width-top: 0.5pt;
+
+  /* ノンブル */
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-bottom-font-family: var(--vs-font-family-alt);
+  --vs-page--mbox-bottom-font-size: 10pt;
+  --vs-page--mbox-bottom-letter-spacing: 0.04em;
+  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
+
+  /* 節番号: 章は「1.」、小節は「1.1」。論題 (h1) には番号を付けない */
+  --vs-section--marker-display: inline;
+  --vs-section--h1-marker-display: none;
+  --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '.';
+  --vs-section--h3-marker-content: counter(vs-counter-sec-h2) '.'
+    counter(vs-counter-sec-h3);
+  --vs-section--marker-margin-inline-end: 0.5em;
+  --vs-section--call-content: target-counter(attr(href), vs-counter-sec-h2) '章';
+
   /* 脚注 (著者所属): ※ + 番号、上に区切り罫 */
   --vs-footnote--font-size: 8pt;
   --vs-footnote--call-content: counter(vs-counter-footnote, decimal);
   --vs-footnote--call-font-size: 0.7em;
   --vs-footnote--marker-content: '\203B' counter(vs-counter-footnote, decimal)
     '\2002';
-  --vs-footnote--area-before-border-color-block-start: #1a1a1a;
+  --vs-footnote--area-before-border-color-block-start: var(
+    --vs-color-foreground
+  );
   --vs-footnote--area-before-border-width-block-start: 0.5pt;
   /* 脚注本体は字下げしない */
   --vs-footnote--text-indent: 0;
@@ -200,7 +203,7 @@ section.level1 > .frontmatter {
   border-bottom-style: solid;
 }
 .subhead {
-  font-family: var(--vs-theme-spanning-title-two-column-mono--font-latin);
+  font-family: var(--vs-font-family-alt);
   font-style: italic;
   font-weight: 500;
   font-size: 11.5pt;
@@ -274,7 +277,7 @@ table {
   text-align: end;
 }
 td[align='right'] {
-  font-family: var(--vs-theme-spanning-title-two-column-mono--font-latin);
+  font-family: var(--vs-font-family-alt);
 }
 
 /* ---- 擬似コード: 淡グレー地 ---- */
@@ -296,7 +299,7 @@ p:has(> .math.display)::after {
   inset-inline-end: 0;
   inset-block-end: 50%;
   transform: translateY(50%);
-  font-family: var(--vs-theme-spanning-title-two-column-mono--font-latin);
+  font-family: var(--vs-font-family-alt);
 }
 
 /* ---- 参考文献 ---- */

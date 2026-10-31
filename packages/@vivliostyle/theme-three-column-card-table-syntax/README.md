@@ -23,20 +23,22 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                  | 既定値                                                  | 説明                           |
 | ------------------------------------- | ------------------------------------------------------- | ------------------------------ |
 | `--vs-font-family`                    | `'IBM Plex Mono', ...`                                  | 本文書体 (等幅)                |
 | `--vs--heading-font-family`           | `'M PLUS 1 Code', ...`                                  | 見出し書体                     |
-| `--vs-theme-three-column-card-table-syntax--chapter-marker-content`  | `'第' counter(vs-counter-sec-h1) '章　'`                | 章番号の体裁                   |
+| `--vs-section--h1-marker-content`  | `'第' counter(vs-counter-sec-h1) '章　'`                | 章番号の体裁                   |
 | `--vs-theme-three-column-card-table-syntax--appendix-marker-content` | `'付録' counter(vs-counter-appendix, upper-alpha) '　'` | 付録番号の体裁                 |
 | `--vs-theme-three-column-card-table-syntax--entry-marker-content`    | `counter(vs-counter-entry, decimal-leading-zero)`       | 項目番号の体裁                 |
 | `--vs-theme-three-column-card-table-syntax--page-call-content`       | `target-counter(attr(href), page)`                      | `data-ref="page"` の参照文字列 |
-| `--vs-color-foreground`                     | `#1a1a1a`                                               | 本文・罫の基本色               |
-| `--vs-color-background`               | `#fafaf7`                                               | 地色                           |
-| `--vs-theme-three-column-card-table-syntax--color-rule`              | `#b6b6b0`                                               | 段区切り罫・表罫の色           |
-| `--vs-theme-three-column-card-table-syntax--color-tint`              | `#e8e8e4`                                               | 表見出し行の背景色             |
-| `--vs-theme-three-column-card-table-syntax--color-code-bg`           | `#eeeeea`                                               | 構文ブロック (`pre`) の背景色  |
-| `--vs-theme-three-column-card-table-syntax--color-card-border`       | `#8f8f8a`                                               | カードアイコンの枠色           |
+| `--vs-color-foreground`                     | `#1a1a1a` | 本文・罫の基本色               |
+| `--vs-color-background`               | `#fafaf7` | 地色                           |
+| `--vs-color-border`              | `--vs-color-foreground` × `--vs-color-background` 75% | 段区切り罫・表罫の色           |
+| `--vs-color-background-alt`              | `--vs-color-foreground` × `--vs-color-background` 95% | 表見出し行の背景色             |
+| `--vs-theme-three-column-card-table-syntax--color-code-bg`           | `--vs-color-foreground` × `--vs-color-background` 95% | 構文ブロック (`pre`) の背景色  |
+| `--vs-theme-three-column-card-table-syntax--color-card-border`       | `--vs-color-foreground` × `--vs-color-background` 55% | カードアイコンの枠色           |
 
 ## 見開きで組む
 

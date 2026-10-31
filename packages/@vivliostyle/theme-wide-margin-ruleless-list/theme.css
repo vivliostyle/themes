@@ -17,24 +17,19 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  --vs-theme-wide-margin-ruleless-list--font-display:
-    'Inter', 'Helvetica Neue', Arial, sans-serif;
-  --vs-theme-wide-margin-ruleless-list--color-accent: #d4a574;
-  --vs-theme-wide-margin-ruleless-list--color-rule-faint: #ead6c1;
-  --vs-theme-wide-margin-ruleless-list--color-muted: #8c8983;
-
-  /* Page: A5 portrait, wide even margins, no folio / running head */
-  --vs-page--size: A5;
-  --vs-page--margin-top: 18mm;
-  --vs-page--margin-bottom: 18mm;
-  --vs-page--margin-left: 20mm;
-  --vs-page--margin-right: 20mm;
+  --vs-theme-wide-margin-ruleless-list--color-foreground-secondary: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 50%
+  );
 
   /* Type */
   --vs-font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+  --vs-font-family-alt: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   --vs-font-size: 9pt;
   --vs-line-height: 1.42;
   --vs-color-foreground: #242321;
+  --vs-color-foreground-alt: #d4a574;
   --vs-color-background: #faf9f6;
 
   --vs--p-margin-block: 0;
@@ -59,21 +54,11 @@
   --vs--h2-padding-block: 0 1.4mm;
   --vs--h2-border-width-block-end: 0.75px;
   --vs--h2-border-style-block-end: solid;
-  --vs--h2-border-color-block-end: var(
-    --vs-theme-wide-margin-ruleless-list--color-accent
-  );
+  --vs--h2-border-color-block-end: var(--vs-color-foreground-alt);
 
   /* Masthead mark: flush cup figure, floated beside the title */
   --vs--figure-margin-block: 8mm 0;
   --vs--figure-margin-inline: 6mm 0;
-  /* メニューの図版は採番対象ではない。図番号が要る原稿は inline に戻す */
-  --vs-appendix--marker-display: none;
-  --vs-citation--marker-display: none;
-  --vs-equation--marker-display: none;
-  --vs-figure--marker-display: none;
-  --vs-listing--marker-display: none;
-  --vs-table--marker-display: none;
-  --vs-theorem--marker-display: none;
 
   /* Borderless price tables (faint camel divider drawn per-section below) */
   --vs--table-size-inline: 100%;
@@ -84,6 +69,22 @@
   --vs--table-cell-padding-inline: 0;
   --vs--table-cell-line-height: 1.5;
   --vs--table-cell-vertical-align: baseline;
+
+  /* Page: A5 portrait, wide even margins, no folio / running head */
+  --vs-page--size: A5;
+  --vs-page--margin-top: 18mm;
+  --vs-page--margin-bottom: 18mm;
+  --vs-page--margin-left: 20mm;
+  --vs-page--margin-right: 20mm;
+
+  /* メニューの図版は採番対象ではない。図番号が要る原稿は inline に戻す */
+  --vs-appendix--marker-display: none;
+  --vs-citation--marker-display: none;
+  --vs-equation--marker-display: none;
+  --vs-figure--marker-display: none;
+  --vs-listing--marker-display: none;
+  --vs-table--marker-display: none;
+  --vs-theorem--marker-display: none;
 }
 
 /* --- Masthead ------------------------------------------------------------ */
@@ -105,7 +106,7 @@ body > figure figcaption {
 
 /* 店名などのバイライン */
 .byline {
-  font-family: var(--vs-theme-wide-margin-ruleless-list--font-display);
+  font-family: var(--vs-font-family-alt);
   font-weight: 300;
   font-size: 1.1em;
   text-transform: uppercase;
@@ -141,8 +142,10 @@ td:last-child {
 section.level2:not(:last-of-type) table {
   --vs--table-border-width-block-end: 0.75px;
   --vs--table-border-style-block-end: solid;
-  --vs--table-border-color-block-end: var(
-    --vs-theme-wide-margin-ruleless-list--color-rule-faint
+  --vs--table-border-color-block-end: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 60%
   );
 }
 
@@ -163,7 +166,7 @@ footer p {
   font-size: 0.78em;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--vs-theme-wide-margin-ruleless-list--color-muted);
+  color: var(--vs-theme-wide-margin-ruleless-list--color-foreground-secondary);
 }
 
 :root {

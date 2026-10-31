@@ -50,14 +50,17 @@ html.closing {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                  | 既定値                                                     | 説明                                       |
 | ------------------------------------- | ---------------------------------------------------------- | ------------------------------------------ |
+| `--vs-color-foreground` | `#2b2620` | 本文の文字色 |
 | `--vs-theme-brown-double-frame-cream--font-display`            | `'Shippori Mincho', serif`                                 | 誌名・見出しの表示書体                     |
-| `--vs-theme-brown-double-frame-cream--font-note`               | `'Zen Old Mincho', serif`                                  | 縦組み傍注・キャプションの書体             |
-| `--vs-theme-brown-double-frame-cream--color-accent`            | `#4a3f35`                                                  | 飾り罫・傍注の焦茶色                       |
+| `--vs-font-family-alt`               | `'Zen Old Mincho', serif`                                  | 縦組み傍注・キャプションの書体             |
+| `--vs-theme-brown-double-frame-cream--color-accent`            | `--vs-color-foreground` × `--vs-color-background` 15% | 飾り罫・傍注の焦茶色                       |
 | `--vs-theme-brown-double-frame-cream--marginalia-gutter`       | `9mm`                                                      | 小口の縦組み傍注のために本文に確保する余白 |
 | `--vs-theme-brown-double-frame-cream--marginalia-size`         | `62mm`                                                     | 縦組み傍注の行長 (これを超えると折り返す)  |
 | `--vs-page--border-width`             | `4.4px`                                                    | 版面を囲む二重飾り罫の太さ                 |
 | `--vs-page--padding-{top,right,bottom,left}` | `7mm 8mm 6mm 8mm`                                   | 飾り罫と本文の間隔                         |
 | `--vs-theme-brown-double-frame-cream--running-chapter-content` | `'第' counter(vs-counter-chapter, cjk-ideographic) '章　'` | 柱に出す章番号                             |
-| `--vs-color-background`               | `#f7f3ec`                                                  | 紙面の地色                                 |
+| `--vs-color-background`               | `#f7f3ec` | 紙面の地色                                 |

@@ -53,15 +53,17 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                | 既定値                                  | 説明                                         |
 | ----------------------------------- | --------------------------------------- | -------------------------------------------- |
 | `--vs-font-family`                  | `'Source Serif 4', ...`                 | 本文・見出しのセリフ書体                     |
 | `--vs-font-family-alt`        | `'Source Sans 3', ...`                  | 柱・キッカー・署名・索引などのサンセリフ書体 |
-| `--vs-color-foreground`                   | `#1a1a1a`                               | 本文の墨色                                   |
-| `--vs-color-background`             | `#f7f5ef`                               | 地色                                         |
-| `--vs-color-foreground-alt`             | `#62615d`                               | 所属・注・索引数字などの抑えた色             |
-| `--vs-color-background-alt`         | `#ebe8df`                               | 索引ボックスの地色                           |
-| `--vs-theme-masthead-index-box-two-column--color-leader`          | `#b0ada2`                               | 索引ボックスのドットリーダー色               |
+| `--vs-color-foreground`                   | `#1a1a1a` | 本文の墨色                                   |
+| `--vs-color-background`             | `#f7f5ef` | 地色                                         |
+| `--vs-color-foreground-alt`             | `--vs-color-foreground` × `--vs-color-background` 35% | 所属・注・索引数字などの抑えた色             |
+| `--vs-color-background-alt`         | `--vs-color-foreground` × `--vs-color-background` 95% | 索引ボックスの地色                           |
+| `--vs-color-border-alt`          | `--vs-color-foreground` × `--vs-color-background` 70% | 索引ボックスのドットリーダー色               |
 | `--vs-theme-masthead-index-box-two-column--columns`               | `2`                                     | 本文の段数                                   |
 | `--vs-theme-masthead-index-box-two-column--column-gap`            | `7mm`                                   | 段間                                         |
 | `--vs-section--h2-marker-content`   | `counter(vs-counter-sec-h2) '.'`        | 節番号の書式                                 |

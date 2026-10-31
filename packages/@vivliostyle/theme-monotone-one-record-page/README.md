@@ -22,16 +22,18 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                          | 既定値                 | 説明                             |
 | ----------------------------- | ---------------------- | -------------------------------- |
 | `--vs-font-family`            | `'Noto Serif JP', ...` | 本文書体                         |
 | `--vs-font-family-alt`  | `'Noto Sans JP', ...`  | メタ情報・キャプションの書体     |
 | `--vs--monospace-font-family` | `'IBM Plex Mono', ...` | レコード番号・コードの等幅書体   |
-| `--vs-color-foreground`             | `#1c1c1c`              | 本文の文字色                     |
-| `--vs-color-background`       | `#fbfaf7`              | 地色                             |
-| `--vs-color-foreground-alt`       | `#5c5a55`              | ステータス行・キャプションの淡色 |
-| `--vs-theme-monotone-one-record-page--color-rule`      | `#b5b3ae`              | 罫線・リストマーカーの色         |
-| `--vs-theme-monotone-one-record-page--color-note-bg`   | `#f1efea`              | 補足ノートの地色                 |
+| `--vs-color-foreground`             | `#1c1c1c` | 本文の文字色                     |
+| `--vs-color-background`       | `#fbfaf7` | 地色                             |
+| `--vs-color-foreground-alt`       | `--vs-color-foreground` × `--vs-color-background` 30% | ステータス行・キャプションの淡色 |
+| `--vs-color-border`      | `--vs-color-foreground` × `--vs-color-background` 70% | 罫線・リストマーカーの色         |
+| `--vs-color-background-alt`   | `--vs-color-foreground` × `--vs-color-background` 95% | 補足ノートの地色                 |
 
 レコード番号まわりの変数:
 

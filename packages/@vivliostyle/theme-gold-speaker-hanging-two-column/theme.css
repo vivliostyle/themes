@@ -20,47 +20,31 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  --vs-theme-gold-speaker-hanging-two-column--color-accent: #d4a574;
-  --vs-theme-gold-speaker-hanging-two-column--color-rule: #c9c9c9;
-  --vs-theme-gold-speaker-hanging-two-column--font-numeric:
-    'Inter', 'Noto Sans JP', sans-serif;
+  --vs-theme-gold-speaker-hanging-two-column--color-accent: var(
+    --vs-color-foreground-alt
+  );
   --vs-theme-gold-speaker-hanging-two-column--quote-font-family:
     Georgia, 'Noto Sans JP', serif;
   /* 話者ラベルのぶら下げ幅 */
   --vs-theme-gold-speaker-hanging-two-column--speaker-size-inline: 11mm;
 
-  --vs-page--size: letter;
-  /* ノド側を 2mm 広く取る */
-  --vs-page--margin-top: 19mm;
-  --vs-page--margin-bottom: 19mm;
-  --vs-page--margin-outside: 17mm;
-  --vs-page--margin-inside: 15mm;
-
-  /* 柱は小口グレー、ノンブルは小口下 (右ページは右下、左ページは左下) */
-  --vs-page--mbox-top-left-content: env(pub-title);
-  --vs-page--mbox-bottom-outside-content: counter(page);
-  --vs-page--mbox-top-text-color: #9a9a9a;
-  --vs-page--mbox-top-font-family: 'Noto Sans JP', sans-serif;
-  --vs-page--mbox-top-font-size: 8.5pt;
-  --vs-page--mbox-top-font-weight: 500;
-  --vs-page--mbox-top-letter-spacing: 0.08em;
-  --vs-page--mbox-bottom-text-color: #2b2b2b;
-  --vs-page--mbox-bottom-font-family: var(
-    --vs-theme-gold-speaker-hanging-two-column--font-numeric
-  );
-  --vs-page--mbox-bottom-font-size: 9.5pt;
-  --vs-page--mbox-bottom-font-weight: 500;
-
   --vs-font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --vs-font-family-alt: 'Inter', 'Noto Sans JP', sans-serif;
   --vs-font-size: 9.9pt;
   --vs-line-height: 1.73;
   --vs-color-foreground: #2b2b2b;
+  --vs-color-foreground-alt: #d4a574;
   --vs-color-background: #ffffff;
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 75%
+  );
 
   --vs--heading-font-family:
     'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
 
-  /* エピソード見出し: 黒太字 + 下端の金茶罫。回数はドキュメントカウンタ */
+  /* エピソード見出し: 黒太字 + 下端の金茶罫 */
   --vs--h1-font-size: 14pt;
   --vs--h1-letter-spacing: 0.02em;
   --vs--h1-margin-block: 0 7mm;
@@ -70,9 +54,6 @@
   --vs--h1-border-color-block-end: var(
     --vs-theme-gold-speaker-hanging-two-column--color-accent
   );
-  --vs-section--h1-marker-display: inline;
-  --vs-section--h1-marker-content: '第' counter(vs-counter-chapter) '回';
-  --vs-section--h1-marker-margin-inline-end: 1em;
 
   /* コーナー見出し: h1 の金茶罫を細く受け直した、段抜きの中見出し */
   --vs--h2-font-size: 11.5pt;
@@ -81,9 +62,7 @@
   --vs--h2-padding-block: 0 2.4mm;
   --vs--h2-border-width-block-end: 0.5pt;
   --vs--h2-border-style-block-end: solid;
-  --vs--h2-border-color-block-end: var(
-    --vs-theme-gold-speaker-hanging-two-column--color-rule
-  );
+  --vs--h2-border-color-block-end: var(--vs-color-border);
 
   /* 段内の小見出し */
   --vs--h3-font-size: 9.9pt;
@@ -99,6 +78,35 @@
   --vs--blockquote-margin-block: 6.5mm 7.5mm;
   --vs--blockquote-margin-inline: 0;
 
+  --vs-page--size: letter;
+  /* ノド側を 2mm 広く取る */
+  --vs-page--margin-top: 19mm;
+  --vs-page--margin-bottom: 19mm;
+  --vs-page--margin-outside: 17mm;
+  --vs-page--margin-inside: 15mm;
+
+  /* 柱は小口グレー、ノンブルは小口下 (右ページは右下、左ページは左下) */
+  --vs-page--mbox-top-left-content: env(pub-title);
+  --vs-page--mbox-bottom-outside-content: counter(page);
+  --vs-page--mbox-top-text-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 55%
+  );
+  --vs-page--mbox-top-font-family: 'Noto Sans JP', sans-serif;
+  --vs-page--mbox-top-font-size: 8.5pt;
+  --vs-page--mbox-top-font-weight: 500;
+  --vs-page--mbox-top-letter-spacing: 0.08em;
+  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
+  --vs-page--mbox-bottom-font-family: var(--vs-font-family-alt);
+  --vs-page--mbox-bottom-font-size: 9.5pt;
+  --vs-page--mbox-bottom-font-weight: 500;
+
+  /* エピソードの回数はドキュメントカウンタ */
+  --vs-section--h1-marker-display: inline;
+  --vs-section--h1-marker-content: '第' counter(vs-counter-chapter) '回';
+  --vs-section--h1-marker-margin-inline-end: 1em;
+
   /* 脚注: 金茶の番号 + タイムコード。細罫で本文と切る。
      脚注は書かれた場所の書式を引き継ぐので、見出し中に置いても本文組みに戻す */
   --vs-footnote--text-color: var(--vs-color-foreground);
@@ -107,18 +115,14 @@
   --vs-footnote--call-text-color: var(
     --vs-theme-gold-speaker-hanging-two-column--color-accent
   );
-  --vs-footnote--call-font-family: var(
-    --vs-theme-gold-speaker-hanging-two-column--font-numeric
-  );
+  --vs-footnote--call-font-family: var(--vs-font-family-alt);
   --vs-footnote--call-font-weight: 500;
   --vs-footnote--call-font-size: 6pt;
   --vs-footnote--marker-content: counter(vs-counter-footnote);
   --vs-footnote--marker-text-color: var(
     --vs-theme-gold-speaker-hanging-two-column--color-accent
   );
-  --vs-footnote--marker-font-family: var(
-    --vs-theme-gold-speaker-hanging-two-column--font-numeric
-  );
+  --vs-footnote--marker-font-family: var(--vs-font-family-alt);
   --vs-footnote--marker-font-weight: 700;
   --vs-footnote--marker-margin-inline: 0 1.8mm;
   --vs-footnote--font-size: 7pt;
@@ -127,9 +131,7 @@
   /* 脚注は書かれた場所のぶら下げ (負の text-indent) を引き継ぐので打ち消す */
   --vs-footnote--text-indent: 0;
   --vs-footnote--area-margin-block: 5mm 0;
-  --vs-footnote--area-before-border-color-block-start: var(
-    --vs-theme-gold-speaker-hanging-two-column--color-rule
-  );
+  --vs-footnote--area-before-border-color-block-start: var(--vs-color-border);
   --vs-footnote--area-before-border-width-block-start: 0.4pt;
   --vs-footnote--area-before-margin-block: 0 2.6mm;
 }
@@ -211,6 +213,6 @@ section > h2:first-child::before {
 
 /* 脚注のタイムコード */
 .tc {
-  font-family: var(--vs-theme-gold-speaker-hanging-two-column--font-numeric);
+  font-family: var(--vs-font-family-alt);
   font-weight: 500;
 }

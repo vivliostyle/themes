@@ -21,9 +21,7 @@ table {
   --vs--table-margin-inline: 0;
   --vs--table-size-inline: 100%;
   --vs--table-text-align: start;
-  --vs--table-border-color: var(
-    --vs-theme-monotone-one-record-page--color-rule
-  );
+  --vs--table-border-color: var(--vs-color-border);
   --vs--table-border-width: 0;
   --vs--table-border-width-block-start: 0.5pt;
   --vs--table-border-width-block-end: 0.5pt;

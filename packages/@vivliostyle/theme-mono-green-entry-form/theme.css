@@ -20,9 +20,9 @@
 
 :root {
   /* テーマ固有 */
-  --vs-theme-mono-green-entry-form--color-accent: #27ae60;
-  --vs-theme-mono-green-entry-form--color-tint: #eaf7f0;
-  --vs-theme-mono-green-entry-form--color-rule: #c8cdc9;
+  --vs-theme-mono-green-entry-form--color-accent: var(
+    --vs-color-foreground-alt
+  );
   --vs-theme-mono-green-entry-form--field-label-size-inline: 13mm;
   --vs-theme-mono-green-entry-form--field-label-size-inline-2nd: 17mm;
   --vs-theme-mono-green-entry-form--row-size-block: 3.8mm;
@@ -35,23 +35,17 @@
     vs-theme--sheet-number
   );
 
-  --vs-page--size: 105mm 173mm;
-  --vs-page--margin-top: 8mm;
-  --vs-page--margin-bottom: 8mm;
-  --vs-page--margin-left: 8mm;
-  --vs-page--margin-right: 8mm;
-
-  /* ノンブル */
-  --vs-page--mbox-bottom-center-content: counter(page);
-  --vs-page--mbox-font-family: 'JetBrains Mono', monospace;
-  --vs-page--mbox-font-size: 8pt;
-  --vs-page--mbox-text-color: #1c7a46;
-
   --vs-font-family: 'JetBrains Mono', 'Noto Sans JP', ui-monospace, monospace;
   --vs-font-size: 8pt;
   --vs-line-height: 1.5;
   --vs-color-foreground: #1c7a46;
+  --vs-color-foreground-alt: #27ae60;
   --vs-color-background: #fbfbf8;
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 70%
+  );
   --vs-columns: 1;
 
   --vs--heading-font-family:
@@ -75,9 +69,6 @@
   );
   --vs--h1-padding-block: 0 1.4mm;
 
-  /* 記録用紙は 1 枚 = 1 ページ */
-  --vs-section--h1-break-before: page;
-
   /* TACKLE / NOTES 見出し */
   --vs--h2-font-size: 8.5pt;
   --vs--h2-font-weight: 700;
@@ -97,7 +88,7 @@
   --vs--table-table-layout: auto;
   --vs--table-size-inline: 100%;
   --vs--table-border-width: 0;
-  --vs--table-border-color: #27ae60;
+  --vs--table-border-color: var(--vs-color-foreground-alt);
   --vs--table-border-width-outer: 0.9pt;
   --vs--table-border-width-cell: 0.4pt;
   --vs--table-margin-block: 1.5mm 3.5mm;
@@ -106,8 +97,26 @@
   --vs--table-cell-padding-inline: 2mm;
   --vs--th-font-size: 100%;
   --vs--th-font-weight: 500;
-  --vs--th-background-color: var(--vs-theme-mono-green-entry-form--color-tint);
+  --vs--th-background-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 95%
+  );
   --vs--th-text-color: var(--vs-theme-mono-green-entry-form--color-accent);
+
+  --vs-page--size: 105mm 173mm;
+  --vs-page--margin-top: 8mm;
+  --vs-page--margin-bottom: 8mm;
+  --vs-page--margin-left: 8mm;
+  --vs-page--margin-right: 8mm;
+
+  /* ノンブル */
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-font-family: 'JetBrains Mono', monospace;
+  --vs-page--mbox-font-size: 8pt;
+
+  /* 記録用紙は 1 枚 = 1 ページ */
+  --vs-section--h1-break-before: page;
 }
 
 /* ---- ヘッダ: 用紙名を左、記録番号を右に振り分ける ---- */
@@ -207,7 +216,7 @@ h2.notes ~ ul li {
   padding: 0.4mm 1mm 0.2mm;
   border-bottom-width: 0.3pt;
   border-bottom-style: solid;
-  border-bottom-color: var(--vs-theme-mono-green-entry-form--color-rule);
+  border-bottom-color: var(--vs-color-border);
 }
 /* 罫線を版面幅いっぱいに引くため、マーカーは li の内側に置く */
 h2.notes ~ ul {

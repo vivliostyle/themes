@@ -14,57 +14,21 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  --vs-page--size: A4;
-  --vs-page--margin-top: 9mm;
-  --vs-page--margin-bottom: 12mm;
-  --vs-page--margin-left: 10mm;
-  --vs-page--margin-right: 10mm;
-  --vs-page--background-color: #f7f6f2;
-  --vs-page--mbox-font-family: 'JetBrains Mono', monospace;
-  --vs-page--mbox-font-size: 7.5pt;
-  --vs-page--mbox-text-color: #1a1a1a;
-  --vs-page--mbox-top-left-content: env(pub-title);
-  --vs-page--mbox-bottom-center-content: counter(page);
-  --vs-page--mbox-bottom-margin-top: 2.5mm;
-  --vs-page--mbox-top-font-weight: 700;
-  --vs-page--mbox-top-letter-spacing: 0.04em;
-  /* 誌名を折り返さずに 1 行で通す */
-  --vs-page--mbox-top-size-inline: 100%;
-  --vs-page--border-width-top: 0.4pt;
-  --vs-page--border-color-top: #1a1a1a;
-  /* 版面の上罫と本文のアキ。罫の太さぶんを引いて本文位置を保つ */
-  --vs-page--padding-top: calc(3mm - var(--vs-page--border-width-top));
+  --vs-theme-four-column-plain-table--section-prefix: '';
+  --vs-theme-four-column-plain-table--section-call-prefix: '';
 
   /* 4 段組。型番表は段とページをまたいで流す */
   --vs-columns: 4;
   --vs-column-fill: auto;
   --vs-column-gap: 3mm;
 
-  /* 節番号 (章立ての原稿では章番号を冠する) */
-  --vs-theme-four-column-plain-table--section-prefix: '';
-  --vs-section--h2-marker-display: inline;
-  --vs-section--h2-marker-content: var(
-      --vs-theme-four-column-plain-table--section-prefix
-    )
-    counter(vs-counter-sec-h2);
-  --vs-section--h3-marker-display: inline;
-  --vs-section--h3-marker-content: var(
-      --vs-theme-four-column-plain-table--section-prefix
-    )
-    counter(vs-counter-sec-h2) '.' counter(vs-counter-sec-h3);
-  --vs-section--marker-margin-inline-end: 1ch;
-  --vs-section--call-content: var(
-      --vs-theme-four-column-plain-table--section-call-prefix
-    )
-    target-counter(attr(href), vs-counter-sec-h2);
-  --vs-theme-four-column-plain-table--section-call-prefix: '';
-
   --vs-font-family: 'JetBrains Mono', 'Menlo', 'Consolas', monospace;
   --vs-font-size: 7.5pt;
   --vs-line-height: 1.3;
   --vs-color-foreground: #1a1a1a;
   --vs-color-background: #f7f6f2;
-  --vs-color-border: #1a1a1a;
+  --vs-color-border: var(--vs-color-foreground);
+  --vs-border-width: 0.4pt;
 
   --vs--heading-font-family: 'JetBrains Mono', 'Menlo', 'Consolas', monospace;
   --vs--monospace-font-family: 'JetBrains Mono', 'Menlo', 'Consolas', monospace;
@@ -114,7 +78,41 @@
   --vs--lists-text-align: start;
   --vs--ol-padding-inline-start: 3.2mm;
 
-  --vs-theme-four-column-plain-table--rule-width: 0.4pt;
+  --vs-page--size: A4;
+  --vs-page--margin-top: 9mm;
+  --vs-page--margin-bottom: 12mm;
+  --vs-page--margin-left: 10mm;
+  --vs-page--margin-right: 10mm;
+  --vs-page--mbox-font-family: 'JetBrains Mono', monospace;
+  --vs-page--mbox-font-size: 7.5pt;
+  --vs-page--mbox-top-left-content: env(pub-title);
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-bottom-margin-top: 2.5mm;
+  --vs-page--mbox-top-font-weight: 700;
+  --vs-page--mbox-top-letter-spacing: 0.04em;
+  /* 誌名を折り返さずに 1 行で通す */
+  --vs-page--mbox-top-size-inline: 100%;
+  --vs-page--border-width-top: 0.4pt;
+  --vs-page--border-color-top: var(--vs-color-foreground);
+  /* 版面の上罫と本文のアキ。罫の太さぶんを引いて本文位置を保つ */
+  --vs-page--padding-top: calc(3mm - var(--vs-page--border-width-top));
+
+  /* 節番号 (章立ての原稿では章番号を冠する) */
+  --vs-section--h2-marker-display: inline;
+  --vs-section--h2-marker-content: var(
+      --vs-theme-four-column-plain-table--section-prefix
+    )
+    counter(vs-counter-sec-h2);
+  --vs-section--h3-marker-display: inline;
+  --vs-section--h3-marker-content: var(
+      --vs-theme-four-column-plain-table--section-prefix
+    )
+    counter(vs-counter-sec-h2) '.' counter(vs-counter-sec-h3);
+  --vs-section--marker-margin-inline-end: 1ch;
+  --vs-section--call-content: var(
+      --vs-theme-four-column-plain-table--section-call-prefix
+    )
+    target-counter(attr(href), vs-counter-sec-h2);
 }
 
 /* 章立ての原稿 (frontmatter の class: chapter) では節番号に章番号を冠する */
@@ -163,7 +161,7 @@ th:nth-child(2) {
 figure {
   float: bottom;
   float-reference: column;
-  border-width: var(--vs-theme-four-column-plain-table--rule-width);
+  border-width: var(--vs-border-width);
   border-style: solid;
   padding: 1.5mm 1.5mm 1mm;
 }
@@ -181,7 +179,7 @@ figure img {
   --vs--li-font-size: 4.9pt;
   --vs--li-line-height: 1.4;
   --vs--li-margin-block: 0 0.5mm;
-  border-width: var(--vs-theme-four-column-plain-table--rule-width);
+  border-width: var(--vs-border-width);
   border-style: solid;
   padding: 1.5mm 1.8mm;
   break-inside: avoid;

@@ -19,17 +19,38 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  --vs-page--size: A5;
-  --vs-page--margin-top: 9mm;
-  --vs-page--margin-bottom: 14mm;
-  --vs-page--margin-left: 12mm;
-  --vs-page--margin-right: 12mm;
+  --vs-theme-lilac-small-caps-dot-leader--color-foreground-secondary: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 20%
+  );
+
+  --vs-theme-lilac-small-caps-dot-leader--color-accent: var(
+    --vs-color-foreground-alt
+  );
+  --vs-theme-lilac-small-caps-dot-leader--color-accent-strong: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-foreground) 20%
+  );
+  --vs-theme-lilac-small-caps-dot-leader--color-accent-soft: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 40%
+  );
 
   --vs-font-family: 'Noto Serif JP', serif;
+  --vs-font-family-alt: 'Cormorant Garamond', 'Noto Serif JP', serif;
   --vs-font-size: 9pt;
   --vs-line-height: 1.6;
   --vs-color-foreground: #3a3336;
+  --vs-color-foreground-alt: #d4a8d8;
   --vs-color-background: #fdfbf8;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 90%
+  );
   --vs-columns: 1;
 
   --vs--h1-font-family: 'Cormorant Garamond', 'Noto Serif JP', serif;
@@ -85,23 +106,20 @@
   --vs--table-cell-padding-inline: 0;
   --vs--table-cell-vertical-align: baseline;
 
-  --vs-theme-lilac-small-caps-dot-leader--font-display:
-    'Cormorant Garamond', 'Noto Serif JP', serif;
-  --vs-theme-lilac-small-caps-dot-leader--color-muted: #5f5459;
-  --vs-theme-lilac-small-caps-dot-leader--color-accent: #d4a8d8;
-  --vs-theme-lilac-small-caps-dot-leader--color-accent-strong: #b98cc0;
-  --vs-theme-lilac-small-caps-dot-leader--color-accent-soft: #e2c9e6;
-  --vs-theme-lilac-small-caps-dot-leader--color-accent-tint: #faf5fb;
-  --vs-theme-lilac-small-caps-dot-leader--color-folio: #8d7f90;
+  --vs-page--size: A5;
+  --vs-page--margin-top: 9mm;
+  --vs-page--margin-bottom: 14mm;
+  --vs-page--margin-left: 12mm;
+  --vs-page--margin-right: 12mm;
 
   /* ページ末尾中央のノンブル飾り */
   --vs-page--mbox-bottom-center-content: '\2015\2002' counter(page) '\2002\2015';
-  --vs-page--mbox-bottom-font-family: var(
-    --vs-theme-lilac-small-caps-dot-leader--font-display
-  );
+  --vs-page--mbox-bottom-font-family: var(--vs-font-family-alt);
   --vs-page--mbox-bottom-font-size: 9pt;
-  --vs-page--mbox-bottom-text-color: var(
-    --vs-theme-lilac-small-caps-dot-leader--color-folio
+  --vs-page--mbox-bottom-text-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-foreground) 40%
   );
   --vs-page--mbox-bottom-letter-spacing: 0.08em;
 
@@ -155,7 +173,9 @@ header > p {
   letter-spacing: 0.32em;
   text-indent: 0.32em;
   text-align: center;
-  color: var(--vs-theme-lilac-small-caps-dot-leader--color-muted);
+  color: var(
+    --vs-theme-lilac-small-caps-dot-leader--color-foreground-secondary
+  );
 }
 
 /* ---------- セクション見出し: 角に切込みのある細罫ボックス ---------- */
@@ -312,7 +332,9 @@ section.level2 table tbody tr:nth-child(even) td:first-child {
   font-size: 6.8pt;
   line-height: 1.5;
   letter-spacing: 0.1em;
-  color: var(--vs-theme-lilac-small-caps-dot-leader--color-muted);
+  color: var(
+    --vs-theme-lilac-small-caps-dot-leader--color-foreground-secondary
+  );
 }
 
 section.level2 table tbody tr:last-child td {
@@ -332,7 +354,7 @@ blockquote.pull-quote::before,
 blockquote.pull-quote::after {
   position: absolute;
   top: -2.2mm;
-  font-family: var(--vs-theme-lilac-small-caps-dot-leader--font-display);
+  font-family: var(--vs-font-family-alt);
   font-weight: 600;
   font-size: 26pt;
   line-height: 1;
@@ -362,7 +384,9 @@ blockquote.pull-quote p:last-child {
   letter-spacing: 0.24em;
   text-indent: 0.24em;
   text-align: center;
-  color: var(--vs-theme-lilac-small-caps-dot-leader--color-muted);
+  color: var(
+    --vs-theme-lilac-small-caps-dot-leader--color-foreground-secondary
+  );
 }
 
 /* ---------- 季節のおすすめ: 二重枠ボックス ---------- */
@@ -379,9 +403,7 @@ blockquote.pull-quote p:last-child {
   border-color: var(
     --vs-theme-lilac-small-caps-dot-leader--color-accent-strong
   );
-  background-color: var(
-    --vs-theme-lilac-small-caps-dot-leader--color-accent-tint
-  );
+  background-color: var(--vs-color-background-alt);
   text-align: center;
 }
 
@@ -409,7 +431,9 @@ blockquote.pull-quote p:last-child {
   font-size: 6.8pt;
   letter-spacing: 0.12em;
   text-align: center;
-  color: var(--vs-theme-lilac-small-caps-dot-leader--color-muted);
+  color: var(
+    --vs-theme-lilac-small-caps-dot-leader--color-foreground-secondary
+  );
 }
 
 :root {

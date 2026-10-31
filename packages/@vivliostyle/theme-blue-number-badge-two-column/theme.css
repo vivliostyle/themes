@@ -16,52 +16,40 @@
 
 :root {
   /* テーマ固有 */
-  --vs-theme-blue-number-badge-two-column--color-accent: #0066cc;
-  --vs-theme-blue-number-badge-two-column--color-on-accent: #ffffff;
-  --vs-theme-blue-number-badge-two-column--color-rule: #b9c8d8;
-  --vs-theme-blue-number-badge-two-column--color-rule-light: #c5d6ea;
-  --vs-theme-blue-number-badge-two-column--color-tint: #eef5fc;
-  --vs-theme-blue-number-badge-two-column--color-tint-row: #f2f7fc;
+  --vs-theme-blue-number-badge-two-column--color-accent: var(
+    --vs-color-foreground-alt
+  );
+  --vs-theme-blue-number-badge-two-column--color-on-accent: var(
+    --vs-color-background
+  );
+  --vs-theme-blue-number-badge-two-column--color-tint-row: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 95%
+  );
   --vs-theme-blue-number-badge-two-column--badge-size: 7.2mm;
-
-  --vs-page--size: 182mm 257mm;
-  --vs-page--margin-top: 19mm;
-  --vs-page--margin-bottom: 18mm;
-  --vs-page--margin-left: 14mm;
-  --vs-page--margin-right: 14mm;
-  --vs-page--border-width-top: 1.1mm;
-  --vs-page--border-color-top: var(
-    --vs-theme-blue-number-badge-two-column--color-accent
-  );
-  --vs-page--mbox-top-vertical-align: top;
-  --vs-page--mbox-top-margin-bottom: 1mm;
-
-  /* 柱は左が書名・右が報告の題、ノンブルは地中央。box ごとに書体が異なる */
-  --vs-page--mbox-top-left-content: env(pub-title);
-  --vs-page--mbox-top-left-font-family: 'Noto Sans JP', sans-serif;
-  --vs-page--mbox-top-left-font-weight: 700;
-  --vs-page--mbox-top-left-font-size: 10pt;
-  --vs-page--mbox-top-left-text-color: var(--vs-color-foreground);
-  --vs-page--mbox-top-left-vertical-align: bottom;
-  --vs-page--mbox-top-right-content: env(doc-title);
-  --vs-page--mbox-top-right-font-family: 'Noto Sans JP', sans-serif;
-  --vs-page--mbox-top-right-font-weight: 700;
-  --vs-page--mbox-top-right-font-size: 9pt;
-  --vs-page--mbox-top-right-letter-spacing: 0.04em;
-  --vs-page--mbox-top-right-text-color: var(
-    --vs-theme-blue-number-badge-two-column--color-accent
-  );
-  --vs-page--mbox-top-right-vertical-align: bottom;
-  --vs-page--mbox-bottom-center-content: '\2014\3000' counter(page) '\3000\2014';
-  --vs-page--mbox-bottom-center-font-family: 'Noto Sans JP', sans-serif;
-  --vs-page--mbox-bottom-center-font-weight: 500;
-  --vs-page--mbox-bottom-center-font-size: 9pt;
-  --vs-page--mbox-bottom-center-text-color: var(--vs-color-foreground);
 
   --vs-font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
   --vs-font-size: 7.8pt;
   --vs-line-height: 1.55;
   --vs-color-foreground: #1a1a1a;
+  --vs-color-foreground-alt: #0066cc;
+  --vs-color-background: #ffffff;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 95%
+  );
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 65%
+  );
+  --vs-color-border-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 75%
+  );
 
   /* 2段組は本文全体に掛け、段間に細い境界罫を引く */
   --vs-columns: 2;
@@ -69,9 +57,6 @@
   --vs-column-gap: 11mm;
   --vs-column-rule-width: 0.2mm;
   --vs-column-rule-style: solid;
-  --vs-column-rule-color: var(
-    --vs-theme-blue-number-badge-two-column--color-rule
-  );
 
   --vs--heading-font-family:
     'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
@@ -117,9 +102,6 @@
   --vs--table-font-size: 6.5pt;
   --vs--table-margin-block: 1.6mm 0;
   --vs--table-margin-inline: 0;
-  --vs--table-border-color: var(
-    --vs-theme-blue-number-badge-two-column--color-rule
-  );
   --vs--table-border-width: 0;
   --vs--table-border-width-row: 0.15mm;
   --vs--table-cell-padding-block: 0.6mm;
@@ -132,6 +114,40 @@
     --vs-theme-blue-number-badge-two-column--color-on-accent
   );
   --vs--td-vertical-align: top;
+
+  --vs-page--size: 182mm 257mm;
+  --vs-page--margin-top: 19mm;
+  --vs-page--margin-bottom: 18mm;
+  --vs-page--margin-left: 14mm;
+  --vs-page--margin-right: 14mm;
+  --vs-page--border-width-top: 1.1mm;
+  --vs-page--border-color-top: var(
+    --vs-theme-blue-number-badge-two-column--color-accent
+  );
+  --vs-page--mbox-top-vertical-align: top;
+  --vs-page--mbox-top-margin-bottom: 1mm;
+
+  /* 柱は左が書名・右が報告の題、ノンブルは地中央。box ごとに書体が異なる */
+  --vs-page--mbox-top-left-content: env(pub-title);
+  --vs-page--mbox-top-left-font-family: 'Noto Sans JP', sans-serif;
+  --vs-page--mbox-top-left-font-weight: 700;
+  --vs-page--mbox-top-left-font-size: 10pt;
+  --vs-page--mbox-top-left-text-color: var(--vs-color-foreground);
+  --vs-page--mbox-top-left-vertical-align: bottom;
+  --vs-page--mbox-top-right-content: env(doc-title);
+  --vs-page--mbox-top-right-font-family: 'Noto Sans JP', sans-serif;
+  --vs-page--mbox-top-right-font-weight: 700;
+  --vs-page--mbox-top-right-font-size: 9pt;
+  --vs-page--mbox-top-right-letter-spacing: 0.04em;
+  --vs-page--mbox-top-right-text-color: var(
+    --vs-theme-blue-number-badge-two-column--color-accent
+  );
+  --vs-page--mbox-top-right-vertical-align: bottom;
+  --vs-page--mbox-bottom-center-content: '\2014\3000' counter(page) '\3000\2014';
+  --vs-page--mbox-bottom-center-font-family: 'Noto Sans JP', sans-serif;
+  --vs-page--mbox-bottom-center-font-weight: 500;
+  --vs-page--mbox-bottom-center-font-size: 9pt;
+  --vs-page--mbox-bottom-center-text-color: var(--vs-color-foreground);
 
   /* 節番号は theme-base の見出しカウンタ (md ごとに 01 から) */
   --vs-section--marker-display: none;
@@ -233,7 +249,7 @@ figure img {
   display: block;
   border-width: 0.2mm;
   border-style: solid;
-  border-color: var(--vs-theme-blue-number-badge-two-column--color-rule-light);
+  border-color: var(--vs-color-border-alt);
 }
 
 /* ---- 活動記録・実績の表 ---- */
@@ -272,7 +288,7 @@ tbody td:last-child {
   border-style: solid;
   border-color: var(--vs-theme-blue-number-badge-two-column--color-accent);
   border-radius: 2.5mm;
-  background-color: var(--vs-theme-blue-number-badge-two-column--color-tint);
+  background-color: var(--vs-color-background-alt);
   padding: 2.4mm 3.2mm 2.6mm;
   break-inside: avoid;
 }

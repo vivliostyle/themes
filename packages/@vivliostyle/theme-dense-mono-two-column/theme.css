@@ -26,9 +26,6 @@
 }
 
 :root {
-  /* 段間・表の罫は本文墨より僅かに淡い墨で引く */
-  --vs-theme-dense-mono-two-column--color-rule: #333333;
-
   /* 指標表: 科目名列の幅 (表ごとに上書きして使う) */
   --vs-theme-dense-mono-two-column--table-label-size-inline: 26%;
 
@@ -41,31 +38,22 @@
     '.';
   --vs-theme-dense-mono-two-column--note-marker-size-inline: 1.4em;
 
-  --vs-page--size: A4;
-  --vs-page--margin-top: 20mm;
-  --vs-page--margin-bottom: 15mm;
-  --vs-page--margin-left: 15mm;
-  --vs-page--margin-right: 15mm;
+  /* 段間・表の罫は本文墨より僅かに淡い墨で引く */
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 15%
+  );
+
   --vs-color-background: #f7f6f2;
-  --vs-page--background-color: #f7f6f2;
 
-  /* 天の柱は提出書類名 (各 md の frontmatter title)、地はノンブル */
-  --vs-page--mbox-top-center-content: env(doc-title);
-  --vs-page--mbox-bottom-center-content: '－ ' counter(page) ' －';
-  --vs-page--mbox-text-color: var(--vs-color-foreground);
-  --vs-page--mbox-font-family: var(--vs-font-family);
-  --vs-page--mbox-top-font-size: 10.5pt;
-  --vs-page--mbox-top-letter-spacing: 0.14em;
-  --vs-page--border-color-top: var(--vs-color-foreground);
-  --vs-page--border-width-top: 0.6pt;
-  --vs-page--mbox-bottom-font-size: 8.5pt;
-  --vs-page--mbox-bottom-letter-spacing: 0.06em;
-
-  /* 本文: 明朝 8pt / 1.3・段落間ゼロ・1 字下げの官庁書類組み */
+  /* 本文: 明朝 8pt / 1.3 */
   --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'YuMincho', serif;
   --vs-font-size: 8pt;
   --vs-line-height: 1.3;
   --vs-color-foreground: #1a1a1a;
+
+  /* 段落間ゼロ・1 字下げの官庁書類組み */
   --vs--p-margin-block: 0;
   --vs--p-text-indent: 1em;
   --vs--p-text-align: justify;
@@ -99,24 +87,7 @@
   --vs--h5-margin-block: 1.8mm 0.6mm;
   --vs--h5-text-indent: 1em;
 
-  /* 見出し番号は「第2」「2」「(1)」「①」「(a)」の 5 階層 */
-  --vs-section--marker-display: inline;
-  --vs-section--h1-marker-content: '第' counter(vs-counter-sec-h1) '　';
-  --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '　';
-  --vs-section--h3-marker-content: '(' counter(vs-counter-sec-h3) ')　';
-  --vs-section--h4-marker-content: counter(
-      vs-counter-sec-h4,
-      vs-theme-circled-decimal
-    )
-    '　';
-  --vs-section--h5-marker-content: '(' counter(vs-counter-sec-h5, lower-alpha)
-    ')　';
-  --vs-section--marker-margin-inline-end: 0;
-  --vs-section--call-content: '「' target-text(attr(href), before)
-    target-text(attr(href)) '」';
-
   /* 連結経営指標表: 外枠 0.7pt・全セル 0.4pt の総罫 */
-  --vs--table-border-color: #333333;
   --vs--table-border-width: 0;
   --vs--table-border-width-outer: 0.7pt;
   --vs--table-border-width-cell: 0.4pt;
@@ -142,6 +113,40 @@
   --vs--figcaption-text-align: start;
   --vs--figcaption-text-indent: 0;
   --vs--figcaption-margin-block: 0 1.2mm;
+
+  --vs-page--size: A4;
+  --vs-page--margin-top: 20mm;
+  --vs-page--margin-bottom: 15mm;
+  --vs-page--margin-left: 15mm;
+  --vs-page--margin-right: 15mm;
+
+  /* 天の柱は提出書類名 (各 md の frontmatter title)、地はノンブル */
+  --vs-page--mbox-top-center-content: env(doc-title);
+  --vs-page--mbox-bottom-center-content: '－ ' counter(page) ' －';
+  --vs-page--mbox-text-color: var(--vs-color-foreground);
+  --vs-page--mbox-font-family: var(--vs-font-family);
+  --vs-page--mbox-top-font-size: 10.5pt;
+  --vs-page--mbox-top-letter-spacing: 0.14em;
+  --vs-page--border-color-top: var(--vs-color-foreground);
+  --vs-page--border-width-top: 0.6pt;
+  --vs-page--mbox-bottom-font-size: 8.5pt;
+  --vs-page--mbox-bottom-letter-spacing: 0.06em;
+
+  /* 見出し番号は「第2」「2」「(1)」「①」「(a)」の 5 階層 */
+  --vs-section--marker-display: inline;
+  --vs-section--h1-marker-content: '第' counter(vs-counter-sec-h1) '　';
+  --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '　';
+  --vs-section--h3-marker-content: '(' counter(vs-counter-sec-h3) ')　';
+  --vs-section--h4-marker-content: counter(
+      vs-counter-sec-h4,
+      vs-theme-circled-decimal
+    )
+    '　';
+  --vs-section--h5-marker-content: '(' counter(vs-counter-sec-h5, lower-alpha)
+    ')　';
+  --vs-section--marker-margin-inline-end: 0;
+  --vs-section--call-content: '「' target-text(attr(href), before)
+    target-text(attr(href)) '」';
 }
 
 /* 図表番号は和文組版の「図1　」「表1　」形式 */
@@ -164,7 +169,7 @@ body {
   column-fill: auto;
   column-rule-width: 0.4pt;
   column-rule-style: solid;
-  column-rule-color: var(--vs-theme-dense-mono-two-column--color-rule);
+  column-rule-color: var(--vs-color-border);
 }
 
 /* h1 は書類の部見出しなので段抜きにする */

@@ -18,28 +18,18 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
+  --vs-theme-vertical-boxed-column-note--column-marker-content: 'コラム'
+    counter(vs-counter-column, cjk-ideographic) '　';
+
   --vs-writing-mode: vertical-rl;
   --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
   --vs-font-size: 8.5pt;
   --vs-line-height: 1.7;
   --vs-color-foreground: #1a1a1a;
   --vs-color-background: #faf7f0;
-  --vs-color-border: #1a1a1a;
+  --vs-color-border: var(--vs-color-foreground);
 
-  --vs-page--size: 105mm 173mm;
-  --vs-page--margin-top: 13mm;
-  --vs-page--margin-bottom: 17mm;
-  --vs-page--margin-left: 7.5mm;
-  --vs-page--margin-right: 7.5mm;
-  --vs-page--background-color: #faf7f0;
-  --vs-page--mbox-font-family: 'Noto Serif JP', serif;
-  --vs-page--mbox-text-color: #1a1a1a;
-  --vs-page--mbox-top-left-content: '「' env(pub-title) '」';
-  --vs-page--mbox-bottom-center-content: counter(page);
-  --vs-page--mbox-top-font-size: 6.5pt;
-  --vs-page--mbox-top-letter-spacing: 0.06em;
-  --vs-page--mbox-bottom-font-size: 8pt;
-  --vs-page--mbox-bottom-letter-spacing: 0.04em;
+  --vs-document-root-counter-reset: vs-counter-column;
 
   /* 墨1色。参照リンクも本文と同じ色で組む。 */
   --vs--anchor-text-color: inherit;
@@ -66,15 +56,6 @@
   --vs--h3-line-height: 1.5;
   --vs--h3-margin-block: 0 2.5mm;
 
-  /* 節番号は漢数字。番号と見出し語のあいだは全角アキ。 */
-  --vs-section--counter-style: cjk-ideographic;
-  --vs-section--h2-marker-display: inline;
-  --vs-section--h2-marker-content: counter(
-    vs-counter-sec-h2,
-    var(--vs-section--counter-style)
-  );
-  --vs-section--marker-margin-inline-end: 1em;
-
   /* 傍注合印 (＊一 など)。 */
   --vs--sup-font-size: 0.62em;
 
@@ -87,16 +68,32 @@
   --vs--figure-align-items: flex-start;
   --vs--figure-flex-direction: row;
   --vs--figure-margin-inline: 0;
-  --vs--figure-item-size-inline: var(
-    --vs-theme-vertical-boxed-column-note--figure-size-inline
-  );
+  /* ノド側に置く図版の幅。 */
+  --vs--figure-item-size-inline: 23mm;
   /* 図版は横組みに戻す。 */
   --vs--figure-writing-mode: horizontal-tb;
 
-  /* ノド側に置く図版の幅。 */
-  --vs-theme-vertical-boxed-column-note--figure-size-inline: 23mm;
-  --vs-theme-vertical-boxed-column-note--column-marker-content: 'コラム'
-    counter(vs-counter-column, cjk-ideographic) '　';
+  --vs-page--size: 105mm 173mm;
+  --vs-page--margin-top: 13mm;
+  --vs-page--margin-bottom: 17mm;
+  --vs-page--margin-left: 7.5mm;
+  --vs-page--margin-right: 7.5mm;
+  --vs-page--mbox-font-family: 'Noto Serif JP', serif;
+  --vs-page--mbox-top-left-content: '「' env(pub-title) '」';
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-top-font-size: 6.5pt;
+  --vs-page--mbox-top-letter-spacing: 0.06em;
+  --vs-page--mbox-bottom-font-size: 8pt;
+  --vs-page--mbox-bottom-letter-spacing: 0.04em;
+
+  /* 節番号は漢数字。番号と見出し語のあいだは全角アキ。 */
+  --vs-section--counter-style: cjk-ideographic;
+  --vs-section--h2-marker-display: inline;
+  --vs-section--h2-marker-content: counter(
+    vs-counter-sec-h2,
+    var(--vs-section--counter-style)
+  );
+  --vs-section--marker-margin-inline-end: 1em;
 
   /* 脚注。短罫で区切った縦組み小字。 */
   --vs-footnote--counter-style: cjk-ideographic;
@@ -116,8 +113,6 @@
   --vs-footnote--area-before-border-width-block-start: 0.25mm;
   --vs-footnote--area-before-margin-block: 0 2.5mm;
   --vs-footnote--area-before-margin-inline: 0 60%;
-
-  --vs-document-root-counter-reset: vs-counter-column;
 }
 
 :root:lang(ja) {

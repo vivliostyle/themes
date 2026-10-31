@@ -22,33 +22,46 @@
 
 :root {
   /* Theme-specific palette (no --vs-* counterpart) */
-  --vs-theme-blue-side-border-two-column--color-accent: #2b6cb0; /* 見出し左罫・表頭下罫・ヘッダールール */
-  --vs-theme-blue-side-border-two-column--color-accent-deep: #1a4f8a; /* 濃い青（コード番号） */
-  --vs-theme-blue-side-border-two-column--color-accent-tint: #eaf4fb; /* 表頭の淡青帯 */
-  --vs-theme-blue-side-border-two-column--color-rule: #c4d4e2; /* 表のグリッド罫（淡い青灰） */
-  --vs-theme-blue-side-border-two-column--color-rule-soft: #e2ebf3; /* 記入行罫 */
-  --vs-theme-blue-side-border-two-column--color-muted: #52606d; /* 導入文・説明欄 */
+  --vs-theme-blue-side-border-two-column--color-foreground-secondary: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 30%
+  ); /* 導入文・説明欄 */
+  --vs-theme-blue-side-border-two-column--color-accent: var(
+    --vs-color-foreground-alt
+  ); /* 見出し左罫・表頭下罫・ヘッダールール */
+  --vs-theme-blue-side-border-two-column--color-accent-deep: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-foreground) 50%
+  ); /* 濃い青（コード番号） */
   --vs-theme-blue-side-border-two-column--table-code-width: 15%;
   --vs-theme-blue-side-border-two-column--table-name-width: 29%;
   --vs-theme-blue-side-border-two-column--table-note-width: 56%;
 
-  /* 柱: 章番号は base のドキュメントカウンタ、章題は原稿の frontmatter から */
-  --vs-theme-blue-side-border-two-column--running-head-content: '第'
-    counter(vs-counter-chapter) '章　' env(doc-title);
-
-  /* Page geometry: A4 portrait, asymmetric ledger margins */
-  --vs-page--size: A4;
-  --vs-page--margin-top: 13mm;
-  --vs-page--margin-bottom: 13mm;
-  --vs-page--margin-left: 13.5mm;
-  --vs-page--margin-right: 13.5mm;
   --vs-color-background: #ffffff;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 90%
+  ); /* 表頭の淡青帯 */
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 75%
+  ); /* 表のグリッド罫（淡い青灰） */
+  --vs-color-border-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 85%
+  ); /* 記入行罫 */
 
   /* Type: Japanese serif body, 8.5pt / 1.5 */
   --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
   --vs-font-size: 8.5pt;
   --vs-line-height: 1.5;
   --vs-color-foreground: #1f2933;
+  --vs-color-foreground-alt: #2b6cb0;
   --vs-columns: 1;
 
   --vs--monospace-font-family: 'Roboto Mono', ui-monospace, monospace;
@@ -57,24 +70,16 @@
   --vs--heading-font-weight: 700;
   --vs--p-margin-block: 0;
 
-  /* Section title (節): 章番号付きの通し番号でページを起こす */
+  /* Section title (節) */
   --vs--h1-font-size: 22pt;
   --vs--h1-line-height: 1.1;
   --vs--h1-letter-spacing: 0.02em;
   --vs--h1-margin-block: 0 3.5mm;
-  --vs-section--h1-break-before: page;
-  --vs-section--h1-marker-display: inline;
-  --vs-section--h1-marker-content: counter(vs-counter-chapter) '.'
-    counter(vs-counter-sec-h1);
-  --vs-section--h1-marker-margin-inline-end: 0.5em;
 
   /* Part headings (部) */
   --vs--h2-font-size: 11pt;
   --vs--h2-line-height: 1.2;
   --vs--h2-margin-block: 0 1.8mm;
-  --vs-section--h2-marker-display: inline;
-  --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '.';
-  --vs-section--h2-marker-margin-inline-end: 0.4em;
 
   /* Ledger tables */
   --vs--table-border-width: 0;
@@ -90,10 +95,28 @@
   --vs--th-font-size: 7.5pt;
   --vs--th-font-weight: 500;
 
+  /* Page geometry: A4 portrait, asymmetric ledger margins */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 13mm;
+  --vs-page--margin-bottom: 13mm;
+  --vs-page--margin-left: 13.5mm;
+  --vs-page--margin-right: 13.5mm;
+
+  /* Section title (節): 章番号付きの通し番号でページを起こす */
+  --vs-section--h1-break-before: page;
+  --vs-section--h1-marker-display: inline;
+  --vs-section--h1-marker-content: counter(vs-counter-chapter) '.'
+    counter(vs-counter-sec-h1);
+  --vs-section--h1-marker-margin-inline-end: 0.5em;
+
+  --vs-section--h2-marker-display: inline;
+  --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '.';
+  --vs-section--h2-marker-margin-inline-end: 0.4em;
+
   /* Running head + folio */
-  --vs-page--mbox-top-right-content: var(
-    --vs-theme-blue-side-border-two-column--running-head-content
-  );
+  /* 柱: 章番号は base のドキュメントカウンタ、章題は原稿の frontmatter から */
+  --vs-page--mbox-top-right-content: '第' counter(vs-counter-chapter) '章　'
+    env(doc-title);
   --vs-page--mbox-bottom-right-content: counter(page);
   --vs-page--mbox-font-family:
     'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
@@ -113,7 +136,7 @@ body > section.level1 {
   column-gap: 8mm;
   column-rule-width: 0.5pt;
   column-rule-style: solid;
-  column-rule-color: var(--vs-theme-blue-side-border-two-column--color-rule);
+  column-rule-color: var(--vs-color-border);
   border-top-width: 1.3pt; /* header-rule under the running head */
   border-top-style: solid;
   border-top-color: var(--vs-theme-blue-side-border-two-column--color-accent);
@@ -140,7 +163,9 @@ body > section.level1 > p {
   margin-block: 0 4.5mm;
   font-size: 7.8pt;
   line-height: 1.55;
-  color: var(--vs-theme-blue-side-border-two-column--color-muted);
+  color: var(
+    --vs-theme-blue-side-border-two-column--color-foreground-secondary
+  );
 }
 
 /* --- Part sections --- */
@@ -188,14 +213,12 @@ tbody tr {
 /* Header band: light-blue fill, sans labels, blue rule beneath */
 thead th {
   letter-spacing: 0.04em;
-  background-color: var(
-    --vs-theme-blue-side-border-two-column--color-accent-tint
-  );
+  background-color: var(--vs-color-background-alt);
   padding-block: 1mm;
   padding-inline: 1.5mm;
   border-width: 0.5pt;
   border-style: solid;
-  border-color: var(--vs-theme-blue-side-border-two-column--color-rule);
+  border-color: var(--vs-color-border);
   border-block-end-width: 1.2pt;
   border-block-end-color: var(
     --vs-theme-blue-side-border-two-column--color-accent
@@ -206,8 +229,8 @@ thead th {
 tbody td {
   border-width: 0.4pt;
   border-style: solid;
-  border-color: var(--vs-theme-blue-side-border-two-column--color-rule-soft);
-  border-inline-color: var(--vs-theme-blue-side-border-two-column--color-rule);
+  border-color: var(--vs-color-border-alt);
+  border-inline-color: var(--vs-color-border);
   vertical-align: middle;
   line-height: 1.28;
 }
@@ -225,6 +248,8 @@ tbody td:first-child {
 /* 説明: 記帳例。狭い列なので一段小さく、灰寄りの本文色で */
 tbody td:nth-child(3) {
   font-size: 7.3pt;
-  color: var(--vs-theme-blue-side-border-two-column--color-muted);
+  color: var(
+    --vs-theme-blue-side-border-two-column--color-foreground-secondary
+  );
   padding-inline-start: 2.4mm;
 }

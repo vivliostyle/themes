@@ -3,9 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Quattrocento&display=swap');
 
 :root {
-  --vs-font-family: baskerville, 'Libre Baskerville', Georgia, serif;
-
   --vs-theme-gutenberg--dropcap-font-weight: initial;
+
+  --vs-font-family: baskerville, 'Libre Baskerville', Georgia, serif;
 
   --vs--heading-font-family:
     'Quattrocento', baskerville, 'Libre Baskerville', Georgia, serif;

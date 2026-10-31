@@ -24,22 +24,26 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                          | 既定値                | 説明                               |
 | ----------------------------- | --------------------- | ---------------------------------- |
+| `--vs-color-background` | `#ffffff` | 紙面の地色 |
+| `--vs-color-foreground-alt` | `#0066cc` | アクセント色 |
 | `--vs-font-family`            | `'Noto Sans JP', ...` | 本文書体                           |
 | `--vs--monospace-font-family` | `'Roboto Mono', ...`  | シグネチャ・コードの等幅書体       |
-| `--vs-color-foreground`             | `#1f1f1f`             | 本文の文字色                       |
-| `--vs-theme-three-column-mono-signature--accent-color`           | `#0066cc`             | 見出し・章柱・リンクのアクセント色 |
-| `--vs-color-foreground-alt`       | `#4a4a4a`             | 表見出し(th)の淡色                 |
-| `--vs-theme-three-column-mono-signature--color-rule`      | `#c8ccd2`             | エントリ区切り罫の色               |
-| `--vs-theme-three-column-mono-signature--color-code-bg`   | `#eef4fb`             | コード例の地色                     |
+| `--vs-color-foreground`             | `#1f1f1f` | 本文の文字色                       |
+| `--vs-theme-three-column-mono-signature--accent-color`           | `--vs-color-foreground-alt` と同じ | 見出し・章柱・リンクのアクセント色 |
+| `--vs-theme-three-column-mono-signature--color-foreground-secondary`       | `--vs-color-foreground` × `--vs-color-background` 20% | 表見出し(th)の淡色                 |
+| `--vs-color-border`      | `--vs-color-foreground` × `--vs-color-background` 80% | エントリ区切り罫の色               |
+| `--vs-color-background-alt`   | `--vs-color-foreground-alt` × `--vs-color-background` 95% | コード例の地色                     |
 | `--vs-columns`                | `3`                   | 段数                               |
 
 生成内容の変数:
 
 | 変数                                | 既定値                                                         | 説明                           |
 | ----------------------------------- | -------------------------------------------------------------- | ------------------------------ |
-| `--vs-theme-three-column-mono-signature--chapter-tab-content`   | `'第' counter(vs-counter-chapter) '章　' string(chapter-name)` | 小口の章柱の内容               |
+| `--vs-page--mbox-right-top-content`   | `'第' counter(vs-counter-chapter) '章　' string(chapter-name)` | 小口の章柱の内容               |
 | `--vs-theme-three-column-mono-signature--api-page-call-content` | `'（p.' target-counter(attr(href), page) '）'`                 | エントリ参照に添えるページ番号 |
 
 柱とノンブルは `--vs-page--mbox-top-*-content`、章柱の帯は `--vs-page--mbox-right-*` で変更できる。

@@ -27,38 +27,11 @@
 
 :root {
   --vs-font-family-alt: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
-  --vs-color-foreground-alt: #4a4a4a;
-  --vs-theme-masthead-footnote-two-column--color-rule: #8c8c8c;
-  --vs-theme-masthead-footnote-two-column--color-fill: #e6e6e2;
-  --vs--table-font-family: var(--vs-font-family-alt);
-  --vs-equation--margin-block: 0.45rem;
-  --vs-equation--item-text-align: inherit;
-  --vs-equation--marker-font-size: 0.82em;
-  --vs-equation--marker-font-family: var(--vs-font-family-alt);
-  --vs-math--display-margin-block: 0.45rem;
-
-  /* Page: A5 portrait, tight even margins。柱は誌名と部名、ノンブルは小口下 */
-  --vs-page--size: A5;
-  --vs-page--margin-top: 10.5mm;
-  --vs-page--margin-bottom: 10.5mm;
-  --vs-page--margin-left: 10mm;
-  --vs-page--margin-right: 10mm;
-  --vs-page--mbox-font-family: 'Noto Sans JP', sans-serif;
-  --vs-page--mbox-font-size: 6.8pt;
-  --vs-page--mbox-text-color: #4a4a4a;
-  --vs-page--mbox-letter-spacing: 0.01em;
-  --vs-page--mbox-top-left-content: env(pub-title);
-  --vs-page--mbox-top-right-content: env(doc-title);
-  /* ノンブルは小口下 (右ページは右下、左ページは左下) */
-  --vs-page--mbox-bottom-outside-content: counter(page);
-
-  /* 概要は 1 件 1 頁 */
-  --vs-section--h1-break-before: page;
-
-  /* 節番号は概要ごとに 1 から。h1 (題目) には番号を付けない */
-  --vs-section--h2-marker-display: inline;
-  --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '.';
-  --vs-section--h2-marker-margin-inline-end: 0.5ch;
+  --vs-color-foreground-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 25%
+  );
 
   /* Type: dense Japanese serif body */
   --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
@@ -66,7 +39,19 @@
   --vs-line-height: 1.3;
   --vs-color-foreground: #161616;
   --vs-color-background: #fafaf7;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 90%
+  );
+  --vs-color-border-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 55%
+  );
   --vs-widows-orphans: 2;
+
+  --vs--table-font-family: var(--vs-font-family-alt);
 
   /* Paragraphs: 1em first-line indent, no inter-paragraph gap */
   --vs--p-margin-block: 0;
@@ -98,7 +83,11 @@
 
   /* Tables: thin full grid, gray header fill */
   --vs--table-font-size: 6.2pt;
-  --vs--table-border-color: #8c8c8c;
+  --vs--table-border-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 55%
+  );
   --vs--table-border-width: 0.5px;
   --vs--table-cell-padding-block: 0.2rem;
   --vs--table-cell-padding-inline: 0.3rem;
@@ -111,9 +100,46 @@
   --vs--ol-padding-inline-start: 1.7em;
   --vs--ol-text-align: justify;
 
+  --vs-equation--margin-block: 0.45rem;
+  --vs-equation--item-text-align: inherit;
+  --vs-equation--marker-font-size: 0.82em;
+  --vs-equation--marker-font-family: var(--vs-font-family-alt);
+  --vs-math--display-margin-block: 0.45rem;
+
+  /* Page: A5 portrait, tight even margins。柱は誌名と部名、ノンブルは小口下 */
+  --vs-page--size: A5;
+  --vs-page--margin-top: 10.5mm;
+  --vs-page--margin-bottom: 10.5mm;
+  --vs-page--margin-left: 10mm;
+  --vs-page--margin-right: 10mm;
+  --vs-page--mbox-font-family: 'Noto Sans JP', sans-serif;
+  --vs-page--mbox-font-size: 6.8pt;
+  --vs-page--mbox-text-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 25%
+  );
+  --vs-page--mbox-letter-spacing: 0.01em;
+  --vs-page--mbox-top-left-content: env(pub-title);
+  --vs-page--mbox-top-right-content: env(doc-title);
+  /* ノンブルは小口下 (右ページは右下、左ページは左下) */
+  --vs-page--mbox-bottom-outside-content: counter(page);
+
+  /* 概要は 1 件 1 頁 */
+  --vs-section--h1-break-before: page;
+
+  /* 節番号は概要ごとに 1 から。h1 (題目) には番号を付けない */
+  --vs-section--h2-marker-display: inline;
+  --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '.';
+  --vs-section--h2-marker-margin-inline-end: 0.5ch;
+
   /* Footnotes at column/page bottom */
   --vs-footnote--font-size: 6pt;
-  --vs-footnote--text-color: #4a4a4a;
+  --vs-footnote--text-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 25%
+  );
   --vs-footnote--line-height: 1.35;
   --vs-footnote--marker-content: '*' counter(vs-counter-footnote) '\2003';
   --vs-footnote--area-margin-block: 0.5rem 0;
@@ -199,7 +225,7 @@ body > section.level1 > p.abstract {
   padding-bottom: 0.45rem;
   border-bottom-width: 0.5px;
   border-bottom-style: solid;
-  border-bottom-color: var(--vs-theme-masthead-footnote-two-column--color-rule);
+  border-bottom-color: var(--vs-color-border-alt);
 }
 
 /* キーワード行: 左寄せ・下罫 */
@@ -209,7 +235,7 @@ body > section.level1 > p.keywords {
   margin-block: 0;
   border-bottom-width: 0.5px;
   border-bottom-style: solid;
-  border-bottom-color: var(--vs-theme-masthead-footnote-two-column--color-rule);
+  border-bottom-color: var(--vs-color-border-alt);
 }
 
 body > section.level1 > p.abstract strong,
@@ -316,7 +342,7 @@ p.caption.plain::before {
 }
 
 thead th {
-  background-color: var(--vs-theme-masthead-footnote-two-column--color-fill);
+  background-color: var(--vs-color-background-alt);
   font-family: var(--vs-font-family-alt);
 }
 
@@ -357,7 +383,7 @@ p.index-terms {
   padding-top: 0.35rem;
   border-top-width: 0.5px;
   border-top-style: solid;
-  border-top-color: var(--vs-theme-masthead-footnote-two-column--color-rule);
+  border-top-color: var(--vs-color-border-alt);
 }
 
 p.index-terms strong {

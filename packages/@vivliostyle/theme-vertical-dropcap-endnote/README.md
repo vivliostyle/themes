@@ -23,13 +23,15 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                        | 既定値                                        | 説明                     |
 | ------------------------------------------- | --------------------------------------------- | ------------------------ |
 | `--vs-font-family`                          | `'Noto Serif JP', serif`                      | 本文書体                 |
 | `--vs-font-size`                            | `8pt`                                         | 本文文字サイズ           |
-| `--vs-color-foreground`                           | `#1d1c1a`                                     | 本文の墨色               |
-| `--vs-color-background`                     | `#f7f3e8`                                     | 地色                     |
-| `--vs-theme-vertical-dropcap-endnote--color-sub`                     | `#4a4842`                                     | 傍注・巻末註・柱の濃灰色 |
+| `--vs-color-foreground`                           | `#1d1c1a` | 本文の墨色               |
+| `--vs-color-background`                     | `#f7f3e8` | 地色                     |
+| `--vs-color-foreground-alt`                     | `--vs-color-foreground` × `--vs-color-background` 25% | 傍注・巻末註・柱の濃灰色 |
 | `--vs-theme-vertical-dropcap-endnote--endnote-call-content`          | `'(' counter(...) ')'`                        | 本文中の註番号           |
 | `--vs-theme-vertical-dropcap-endnote--sidenote-marker-content`       | `'(' counter(...) ')'`                        | 傍注の番号               |
 | `--vs-theme-vertical-dropcap-endnote--sidenote-padding-inline-start` | `22mm`                                        | 傍注を天から下げる量     |

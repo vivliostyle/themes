@@ -15,12 +15,17 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
+配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
 | 変数                                  | 既定値                             | 説明                                    |
 | ------------------------------------- | ---------------------------------- | --------------------------------------- |
+| `--vs-color-foreground` | `#1a1a1a` | 本文の文字色 |
+| `--vs-color-background` | `#fdfdfb` | 紙面の地色 |
+| `--vs-color-foreground-alt` | `#1e40af` | アクセント色 |
 | `--vs-font-family`                    | `'STIX Two Text', ...`             | 本文書体                                |
 | `--vs--heading-font-family`           | `'Source Serif 4', ...`            | 見出し・定理ラベル・柱の表示書体        |
-| `--vs-theme-side-border-heading-math--accent-color`                   | `#1e40af`                          | 節見出しの縦バー・定理ラベルの群青色    |
-| `--vs-color-foreground-alt`               | `#555555`                          | サイドノート・脚注本文の色              |
+| `--vs-theme-side-border-heading-math--accent-color`                   | `--vs-color-foreground-alt` と同じ | 節見出しの縦バー・定理ラベルの群青色    |
+| `--vs-theme-side-border-heading-math--color-foreground-secondary`               | `--vs-color-foreground` × `--vs-color-background` 30% | サイドノート・脚注本文の色              |
 | `--vs-math--font-family`              | `'STIX Two Math', ...`             | 数式の書体                              |
 | `--vs-page--margin-inner`             | `42mm`                             | 物理左側 (サイドノート列) の余白        |
 | `--vs-page--margin-outer`             | `20mm`                             | 物理右側の余白                          |

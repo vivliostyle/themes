@@ -23,45 +23,24 @@
 @import '@vivliostyle/theme-base/math';
 
 :root {
+  --vs-theme-serif-line-numbered-code--color-foreground-secondary: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 30%
+  );
+  --vs-theme-serif-line-numbered-code--accent-color: var(
+    --vs-color-foreground-alt
+  );
+
   /* 役割トークン */
   --vs-font-family-alt: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
-  --vs-theme-serif-line-numbered-code--accent-color: #14148c;
-  --vs-color-foreground-alt: #555563;
-  --vs-color-background-alt: #f4f5fa;
-  --vs--figcaption-text-color: var(--vs-color-foreground-alt);
-  --vs--table-font-family: var(--vs-font-family-alt);
-  --vs--th-background-color: var(--vs-color-background-alt);
-
-  /* 式参照はラベルなしの '(N)' */
-  --vs-equation--call-content: '(' target-counter(attr(href), vs-counter-eq) ')';
-  --vs-equation--margin-block: 0.7rem;
-  --vs-equation--item-text-align: inherit;
-
-  /* Page */
-  --vs-page--size: A4;
-  --vs-page--margin-top: 20mm;
-  --vs-page--margin-bottom: 20mm;
-  --vs-page--margin-left: 20mm;
-  --vs-page--margin-right: 20mm;
-
-  /* 柱は左が誌名、右が論題。どちらも原稿の string-set から取る */
-  --vs-page--mbox-top-left-content: string(journal-title);
-  --vs-page--mbox-top-right-content: string(article-title);
-  --vs-page--mbox-top-left-text-transform: uppercase;
-  --vs-page--mbox-top-right-text-transform: uppercase;
-  --vs-page--mbox-top-font-family: var(--vs-font-family-alt);
-  --vs-page--mbox-top-font-size: 8pt;
-  --vs-page--mbox-top-font-weight: 500;
-  --vs-page--mbox-top-letter-spacing: 0.04em;
-  --vs-page--mbox-top-padding-bottom: 2mm;
-  --vs-page--mbox-top-text-color: var(--vs-color-foreground-alt);
-  --vs-page--mbox-top-vertical-align: bottom;
-  /* ノンブルは小口側の地 (右ページは右下、左ページは左下) */
-  --vs-page--mbox-bottom-outside-content: counter(page);
-  --vs-page--mbox-bottom-font-family: var(--vs-font-family-alt);
-  --vs-page--mbox-bottom-font-size: 8pt;
-  --vs-page--mbox-bottom-font-weight: 500;
-  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground-alt);
+  --vs-color-foreground-alt: #14148c;
+  --vs-color-background: #ffffff;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 95%
+  );
 
   /* Type */
   --vs-font-family: 'STIX Two Text', 'Times New Roman', serif;
@@ -70,6 +49,12 @@
   --vs-color-foreground: #17171b;
   --vs-columns: 1;
   --vs-widows-orphans: 2;
+
+  --vs--figcaption-text-color: var(
+    --vs-theme-serif-line-numbered-code--color-foreground-secondary
+  );
+  --vs--table-font-family: var(--vs-font-family-alt);
+  --vs--th-background-color: var(--vs-color-background-alt);
 
   /* Paragraphs: indented continuation, no inter-paragraph space */
   --vs--p-margin-block: 0;
@@ -100,23 +85,6 @@
   );
   --vs--anchor-text-decoration: none;
 
-  /* 節番号: h2 が「1.」、h3 が「1.1」。論題の h1 には番号を付けない */
-  --vs-section--marker-display: inline;
-  --vs-section--h1-marker-display: none;
-  --vs-section--h2-marker-content: counters(
-      vs-counter-sections,
-      var(--vs-section--counter-delimiter),
-      var(--vs-section--counter-style)
-    )
-    '.';
-  --vs-section--call-content: 'Section '
-    target-counters(
-      attr(href),
-      vs-counter-sections,
-      var(--vs-section--counter-delimiter),
-      var(--vs-section--counter-style)
-    );
-
   /* Monospace / code block: 低彩度の地に濃紺の左罫 */
   --vs--monospace-font-family: 'IBM Plex Mono', ui-monospace, monospace;
   --vs--monospace-line-height: 1.42;
@@ -125,7 +93,9 @@
   --vs--pre-padding-block: 0.6rem;
   --vs--pre-padding-inline: 0.9rem;
   --vs--pre-background-color: var(--vs-color-background-alt);
-  --vs--pre-text-color: var(--vs-color-foreground-alt);
+  --vs--pre-text-color: var(
+    --vs-theme-serif-line-numbered-code--color-foreground-secondary
+  );
   --vs--pre-border-width-inline-start: 3px;
   --vs--pre-border-style-inline-start: solid;
   --vs--pre-border-color-inline-start: var(
@@ -170,20 +140,78 @@
   --vs--li-line-height: 1.4;
   --vs--li-margin-block: 0.15rem;
 
+  /* 式参照はラベルなしの '(N)' */
+  --vs-equation--call-content: '(' target-counter(attr(href), vs-counter-eq) ')';
+  --vs-equation--margin-block: 0.7rem;
+  --vs-equation--item-text-align: inherit;
+
+  /* Page */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 20mm;
+  --vs-page--margin-bottom: 20mm;
+  --vs-page--margin-left: 20mm;
+  --vs-page--margin-right: 20mm;
+
+  /* 柱は左が誌名、右が論題。どちらも原稿の string-set から取る */
+  --vs-page--mbox-top-left-content: string(journal-title);
+  --vs-page--mbox-top-right-content: string(article-title);
+  --vs-page--mbox-top-left-text-transform: uppercase;
+  --vs-page--mbox-top-right-text-transform: uppercase;
+  --vs-page--mbox-top-font-family: var(--vs-font-family-alt);
+  --vs-page--mbox-top-font-size: 8pt;
+  --vs-page--mbox-top-font-weight: 500;
+  --vs-page--mbox-top-letter-spacing: 0.04em;
+  --vs-page--mbox-top-padding-bottom: 2mm;
+  --vs-page--mbox-top-text-color: var(
+    --vs-theme-serif-line-numbered-code--color-foreground-secondary
+  );
+  --vs-page--mbox-top-vertical-align: bottom;
+  /* ノンブルは小口側の地 (右ページは右下、左ページは左下) */
+  --vs-page--mbox-bottom-outside-content: counter(page);
+  --vs-page--mbox-bottom-font-family: var(--vs-font-family-alt);
+  --vs-page--mbox-bottom-font-size: 8pt;
+  --vs-page--mbox-bottom-font-weight: 500;
+  --vs-page--mbox-bottom-text-color: var(
+    --vs-theme-serif-line-numbered-code--color-foreground-secondary
+  );
+
+  /* 節番号: h2 が「1.」、h3 が「1.1」。論題の h1 には番号を付けない */
+  --vs-section--marker-display: inline;
+  --vs-section--h1-marker-display: none;
+  --vs-section--h2-marker-content: counters(
+      vs-counter-sections,
+      var(--vs-section--counter-delimiter),
+      var(--vs-section--counter-style)
+    )
+    '.';
+  --vs-section--call-content: 'Section '
+    target-counters(
+      attr(href),
+      vs-counter-sections,
+      var(--vs-section--counter-delimiter),
+      var(--vs-section--counter-style)
+    );
+
   /* Footnotes at page bottom */
   --vs-footnote--font-size: 8pt;
-  --vs-footnote--text-color: var(--vs-color-foreground-alt);
+  --vs-footnote--text-color: var(
+    --vs-theme-serif-line-numbered-code--color-foreground-secondary
+  );
   --vs-footnote--line-height: 1.35;
   --vs-footnote--text-indent: 0;
   --vs-footnote--call-content: counter(vs-counter-footnote, decimal);
   --vs-footnote--marker-content: counter(vs-counter-footnote, decimal) '  ';
   --vs-footnote--area-before-margin-inline: 0 68%;
-  --vs-footnote--area-before-border-color-block-start: #d9d9ea;
+  --vs-footnote--area-before-border-color-block-start: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 85%
+  );
 }
 
 /* ---- 標題まわり (VFM: body 直下) ---- */
 .masthead {
-  color: var(--vs-color-foreground-alt);
+  color: var(--vs-theme-serif-line-numbered-code--color-foreground-secondary);
   font-family: var(--vs-font-family-alt);
   font-size: 8.5pt;
   letter-spacing: 0.02em;
@@ -207,13 +235,18 @@
 .meta {
   font-family: var(--vs-font-family-alt);
   font-size: 8.5pt;
-  color: var(--vs-color-foreground-alt);
+  color: var(--vs-theme-serif-line-numbered-code--color-foreground-secondary);
   text-align: center;
   margin-block: 0.2rem;
 }
 
 .refformat {
-  border-block-start: 0.5px solid #d9d9ea;
+  border-block-start: 0.5px solid
+    color-mix(
+      in oklab,
+      var(--vs-color-foreground-alt),
+      var(--vs-color-background) 85%
+    );
   padding-block-start: 0.5rem;
 }
 

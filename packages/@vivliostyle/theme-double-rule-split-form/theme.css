@@ -20,20 +20,20 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  --vs-page--size: A4;
-  --vs-page--margin-top: 15mm;
-  --vs-page--margin-bottom: 15mm;
-  --vs-page--margin-left: 17.5mm;
-  --vs-page--margin-right: 17.5mm;
-  /* 全面フレーム: 版面いっぱいの枠なのでページ側に持たせる */
-  --vs-page--border-width: 0.5mm;
-  --vs-page--border-color: var(--vs-color-border);
+  /* 帳票の寸法 */
+  --vs-theme-double-rule-split-form--upper-form-block-size: 131mm;
+  --vs-theme-double-rule-split-form--divider-gap: 1.3mm;
+  --vs-theme-double-rule-split-form--row-block-size: 10mm;
+  --vs-theme-double-rule-split-form--item-width: 37%;
+  --vs-theme-double-rule-split-form--quantity-width: 16%;
+  --vs-theme-double-rule-split-form--unit-price-width: 22%;
+  --vs-theme-double-rule-split-form--amount-width: 25%;
 
   --vs-font-family: 'Noto Sans JP', sans-serif;
   --vs-font-size: 9pt;
   --vs-line-height: 1.5;
   --vs-color-foreground: #1a1a1a;
-  --vs-color-border: #1a1a1a;
+  --vs-color-border: var(--vs-color-foreground);
   --vs-columns: 1;
 
   --vs--heading-font-family: 'Noto Sans JP', sans-serif;
@@ -55,14 +55,14 @@
   --vs--table-cell-padding-block: 2.2mm;
   --vs--table-cell-padding-inline: 3mm;
 
-  /* 帳票の寸法 */
-  --vs-theme-double-rule-split-form--upper-form-block-size: 131mm;
-  --vs-theme-double-rule-split-form--divider-gap: 1.3mm;
-  --vs-theme-double-rule-split-form--row-block-size: 10mm;
-  --vs-theme-double-rule-split-form--item-width: 37%;
-  --vs-theme-double-rule-split-form--quantity-width: 16%;
-  --vs-theme-double-rule-split-form--unit-price-width: 22%;
-  --vs-theme-double-rule-split-form--amount-width: 25%;
+  --vs-page--size: A4;
+  --vs-page--margin-top: 15mm;
+  --vs-page--margin-bottom: 15mm;
+  --vs-page--margin-left: 17.5mm;
+  --vs-page--margin-right: 17.5mm;
+  /* 全面フレーム: 版面いっぱいの枠なのでページ側に持たせる */
+  --vs-page--border-width: 0.5mm;
+  --vs-page--border-color: var(--vs-color-border);
 }
 
 body > section.level1 {
