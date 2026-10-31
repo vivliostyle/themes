@@ -5412,7 +5412,13 @@ section:
   call-content:
     _syntax: '*'
     _property: 'content'
-    _define: "'§' target-counters(attr(href), vs-counter-sections, var(--vs-section--counter-delimiter), var(--vs-section--counter-style, var(--vs-counter-style)))"
+    _define:
+      - value: 'var(--vs-section--label) var(--vs-section--call-counter-content)'
+      - selector: ':root:lang(ja)'
+        value: 'var(--vs-section--call-counter-content) var(--vs-section--label)'
+  call-counter-content:
+    _syntax: '*'
+    _define: 'target-counters(attr(href), vs-counter-sections, var(--vs-section--counter-delimiter), var(--vs-section--counter-style, var(--vs-counter-style)))'
   call-display:
     _syntax: '*'
     _property: 'display'
@@ -5511,9 +5517,18 @@ section:
   h6-marker-margin-inline-end:
     _syntax: 'auto | <length-percentage>'
     _property: 'margin-inline-end'
+  label:
+    _syntax: '*'
+    _define:
+      - value: "'Section '"
+      - selector: ':root:lang(ja)'
+        value: "'節'"
   marker-content:
     _syntax: '*'
     _property: 'content'
+    _define: 'var(--vs-section--marker-counter-content)'
+  marker-counter-content:
+    _syntax: '*'
     _define: 'counters(vs-counter-sections, var(--vs-section--counter-delimiter), var(--vs-section--counter-style, var(--vs-counter-style)))'
   marker-display:
     _syntax: '*'
