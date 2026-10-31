@@ -39,7 +39,7 @@
   }
 
   @var marker {
-    figure:is(.lst, :has(> pre)) figcaption::before,
+    figure:where(.lst, :has(> pre)) figcaption::before,
     .lst-caption::before {
       content: ;
       display: ;
@@ -48,7 +48,7 @@
   }
 }
 
-figure:is(.lst, :has(> pre)),
+figure:where(.lst, :has(> pre)),
 .lst-caption {
   counter-increment: vs-counter-lst;
 }
