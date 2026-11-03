@@ -1,7 +1,3 @@
-/*
- * example 専用の上書き。theme.css には手を入れない。
- */
-
 :root {
   --vs-theme-title-band-dropcap-profile--running-publication: '随想の庭――十二人の随筆';
 }
@@ -11,7 +7,6 @@ html.part {
   --vs-document-first-page-counter-reset: vs-counter-part 1;
 }
 
-/* 部扉: 題辞と収録作一覧 */
 .lead {
   margin-block-end: 2.25rlh;
   text-align: justify;

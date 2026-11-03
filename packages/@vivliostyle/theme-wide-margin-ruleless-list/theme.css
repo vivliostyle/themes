@@ -1,9 +1,3 @@
-/*
- * wide-margin-ruleless-list
- * A5縦のメニュー向けテーマ。温白の地に細身の英大文字見出しと
- * 本文を疎に置き、罫線のない表形式で品名(左)と価格(右)を整列する。
- * キャメルの極細罫は見出し下と区切りに限定し、装飾は抽象的なマーク1点のみ。
- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Noto+Sans:wght@300;400&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -17,7 +11,6 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  /* Type */
   --vs-font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
   --vs-font-family-alt: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   --vs-font-size: 9pt;
@@ -29,7 +22,6 @@
   --vs--p-margin-block: 0;
   --vs--p-text-align: start;
 
-  /* Headings: Inter, uppercase, flush left, spacing handled per level */
   --vs--heading-font-family: var(--vs-font-family-alt);
   --vs--heading-font-weight: 500;
   --vs--heading-margin-block: 0;
@@ -48,11 +40,9 @@
   --vs--h2-border-style-block-end: solid;
   --vs--h2-border-color-block-end: var(--vs-color-foreground-alt);
 
-  /* Masthead mark: flush figure, floated beside the title */
   --vs--figure-margin-block: 1.75rlh 0;
   --vs--figure-margin-inline: 1.9em 0;
 
-  /* Borderless price tables (faint camel divider drawn per-section below) */
   --vs--table-size-inline: 100%;
   --vs--table-table-layout: fixed;
   --vs--table-margin-block: 0;
@@ -63,7 +53,6 @@
   --vs--table-cell-line-height: 1.5;
   --vs--table-cell-vertical-align: baseline;
 
-  /* Page: A5 portrait, wide even margins, no folio / running head */
   --vs-page--size: A5;
   --vs-page--margin-top: 18mm;
   --vs-page--margin-bottom: 18mm;
@@ -80,9 +69,6 @@
   --vs-theorem--marker-display: none;
 }
 
-/* --- Masthead ------------------------------------------------------------ */
-
-/* Abstract mark (Markdown 画像 → figure > img)。タイトル脇へ回り込ませる */
 body > figure {
   float: right;
   width: 17mm;
@@ -97,7 +83,6 @@ body > figure figcaption {
   display: none;
 }
 
-/* 店名などのバイライン */
 .byline {
   font-family: var(--vs-font-family-alt);
   font-weight: 300;
@@ -106,16 +91,12 @@ body > figure figcaption {
   letter-spacing: 0.42em;
 }
 
-/* --- Menu sections --------------------------------------------------------- */
-
-/* 品目表は分量に関わらず1つの塊として扱い、ページをまたいで割らない */
 section.level2 {
   margin-block-start: 0.75rlh;
   break-inside: avoid;
 }
 
-/* Borderless price table: item name left, price right-aligned.
-   GFM は見出し行必須なので空の thead を隠して罫線のない品目表にする */
+/* GFM は見出し行必須なので空の thead を隠して罫線のない品目表にする */
 thead {
   display: none;
 }
@@ -131,7 +112,6 @@ td:last-child {
   white-space: nowrap;
 }
 
-/* Faint camel divider between sections */
 section.level2:not(:last-of-type) table {
   --vs--table-border-width-block-end: 0.75px;
   --vs--table-border-style-block-end: solid;
@@ -142,12 +122,9 @@ section.level2:not(:last-of-type) table {
   );
 }
 
-/* Extra breathing room below the rows, above the faint divider */
 section.level2:not(:last-of-type) tbody tr:last-child td {
   padding-block-end: 0.25rlh;
 }
-
-/* --- Footer note --------------------------------------------------------- */
 
 footer {
   display: block;

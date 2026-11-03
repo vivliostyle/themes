@@ -1,11 +1,3 @@
-/*
- * 図表入り新書 (vertical-matrix-diagram)
- * 新書の本文ページ。新書判 105×173mm・縦組み1段。
- * Noto Sans JP のサンセリフ本文 (9pt / 行送り1.6) を右から左へ密に流し、番号付きの太字
- * 節見出しを右端に立てる。紙面下部には縦書き本文が回り込むように、横組み (horizontal-tb) の
- * マトリクス図やデータ表を配置する。柱は天小口 (右上)、
- * ノンブルは地中央。黒1色のモノクロ、網掛けは淡グレーのみ。
- */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=IBM+Plex+Sans+JP:wght@400;500;700&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -19,14 +11,11 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  /* 図表バンドが紙面 (縦組みの行送り方向) から食う量 */
   --vs-theme-vertical-matrix-diagram--aside-size-inline: 9rlh;
 
-  /* Type: 縦組みサンセリフ 9pt / 行送り 1.6 */
   --vs-writing-mode: vertical-rl;
   --vs-font-family:
     'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  /* 図表バンド専用の第2書体と網掛け色 */
   --vs-font-family-alt:
     'IBM Plex Sans JP', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
   --vs-font-size: 9pt;
@@ -40,7 +29,6 @@
     var(--vs-color-background) 90%
   );
   --vs-color-border: var(--vs-color-foreground);
-  /* 図表番号は「図1-2」の章通し */
   --vs-crossref-call-counter-prefix: target-counter(
       attr(href),
       vs-counter-sec-h1
@@ -48,14 +36,11 @@
     '-';
   --vs-crossref-marker-counter-prefix: counter(vs-counter-sec-h1) '-';
 
-  /* 黒1色。参照リンクも本文と同じ色で組む */
   --vs--anchor-text-color: inherit;
 
-  /* Paragraphs: 一字下げ・段間なしの高密度組み */
   --vs--p-margin-block: 0;
   --vs--p-text-indent: 1em;
 
-  /* Headings: 章題と節見出しは太字。右端から立てる */
   --vs--h1-font-size: 2.2em;
   --vs--h1-line-height: 1.3;
   --vs--h1-letter-spacing: 0.12em;
@@ -68,14 +53,13 @@
   --vs--h2-margin-block: 0;
   --vs--h2-margin-inline: 1mm 4mm;
 
-  /* Figures: 図表は縦に積むだけなので flex を解除する */
+  /* 図表は縦に積むだけなので flex を解除する */
   --vs--figure-display: block;
   --vs--figure-margin-block: 0 0.75rlh;
   --vs--figcaption-font-size: 0.75em;
   --vs--figcaption-margin-block: 0 0.25rlh;
   --vs--figcaption-text-align: start;
 
-  /* Tables: 図表バンドのデータ表 */
   --vs--table-font-size: 0.6em;
   --vs--table-margin-block: 0;
   --vs--table-margin-inline: 0;
@@ -93,7 +77,6 @@
 
   --vs--small-font-size: 0.86em;
 
-  /* Page: 余白 */
   --vs-page--size: 105mm 173mm;
   --vs-page--margin-top: 14mm;
   --vs-page--margin-bottom: 15mm;
@@ -106,7 +89,6 @@
   --vs-page--mbox-bottom-font-family: var(--vs-font-family-alt);
   --vs-page--mbox-bottom-letter-spacing: 0.06em;
 
-  /* 章番号「第1章」・節番号「1・2」。算用数字は正立させる */
   --vs-section--h1-marker-display: block;
   --vs-section--h1-marker-content: '第' counter(vs-counter-sec-h1) '章';
   --vs-section--h1-marker-margin-inline-end: 0;
@@ -123,27 +105,23 @@
 }
 
 /*
- * 図表番号は章ごとに振り直す。base は section:has(> h1:first-child) 側で
- * counter-reset を使っているため、見出し要素側に置いて衝突を避ける。
+ * base は section:has(> h1:first-child) 側で counter-reset を使っているため、
+ * 見出し要素側に置いて衝突を避ける。
  */
 section > h1:first-child {
   counter-reset: vs-counter-fig vs-counter-tbl;
 }
 
-/* 縦組みの本文に現れる算用数字は正立させる */
 section > :is(h1, h2):first-child::before,
 a:is([data-ref='fig'], [data-ref='tbl'])::before {
   text-orientation: upright;
 }
 
-/* 縦中横 (原稿中の算用数字を正立させる) */
 .tcy {
   text-combine-upright: all;
 }
 
-/* ── 図表領域 ──
-   縦組み本文の中に、横組み (horizontal-tb) の図表をまとめて埋め込む。
-   縦組みでは float の left/right が行相対に解釈され、float: right = 紙面下端。
+/* 縦組みでは float の left/right が行相対に解釈され、float: right = 紙面下端。
    本文の途中に置くことで、以降の縦組み行が図表の上側へ回り込み、
    図表が紙面の下半分・小口側に居座る新書の図版レイアウトになる。 */
 aside {
@@ -171,7 +149,6 @@ figcaption .unit {
   letter-spacing: 0;
 }
 
-/* マトリクス図 (横組みの 2×2 図) */
 .matrix .plot {
   width: var(--vs-theme-vertical-matrix-diagram--aside-size-inline);
   font-size: 0.75em;
@@ -183,7 +160,6 @@ figcaption .unit {
   align-items: stretch;
 }
 
-/* 縦軸ラベルは縦組みで象限の脇に立てる */
 .matrix .axis-y {
   flex: 0 0 4mm;
   display: flex;
@@ -227,7 +203,6 @@ figcaption .unit {
   min-block-size: 5.6em;
 }
 
-/* 強調する象限は淡グレーの網を敷く */
 .matrix .cell.emph {
   background-color: var(--vs-color-background-alt);
 }
@@ -253,7 +228,6 @@ figcaption .unit {
   letter-spacing: 0.12em;
 }
 
-/* 比較表 (Markdown の表 → 横組みのデータ表) */
 aside thead th:first-child,
 aside tbody td:first-child {
   width: 12mm;

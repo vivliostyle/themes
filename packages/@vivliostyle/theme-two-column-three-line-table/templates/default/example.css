@@ -1,8 +1,3 @@
-/*
- * この誌面見本に固有の値 (誌名・巻号) と、VFM の MathJax レンダラ向けの微調整。
- */
-
-/* 天の柱の左に出す誌名・巻号 */
 :root {
   --vs-page--mbox-top-left-content: 'Transactions of the Meridian Society for Computational Inference, Vol. 12, No. 3, 2026';
 }

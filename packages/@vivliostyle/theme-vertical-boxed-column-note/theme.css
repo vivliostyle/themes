@@ -1,9 +1,3 @@
-/*
- * 教養新書コラム多数版 (vertical-boxed-column-note)
- * 新書判 105×173mm・縦組み1段・明朝 8.5pt / 行送り 1.7・墨1色。小口上の横組み柱と地の中央の
- * ノンブル、hanging の節見出し。罫囲みコラムを本文中の縦帯に、図版をノド側のページフロートに、
- * 注をページ脚注に流し、本文はページをまたいで組む。
- */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -25,18 +19,16 @@
   --vs-color-foreground: #1a1a1a;
   --vs-color-background: #faf7f0;
   --vs-color-border: var(--vs-color-foreground);
-  /* 節番号・図番号・合印は漢数字。縦組みの本文中でも縦中横を要さない。 */
+  /* 縦組みの本文中でも縦中横を要さない。 */
   --vs-counter-style: cjk-ideographic;
 
   --vs-document-root-counter-reset: vs-counter-column;
 
-  /* 墨1色。参照リンクも本文と同じ色で組む。 */
   --vs--anchor-text-color: inherit;
 
   --vs--p-margin-block: 0;
   --vs--p-text-indent: 1em;
 
-  /* 番号付き節見出し。天から一字下げた hanging 縦組。 */
   --vs--h2-font-size: 1.35em;
   --vs--h2-font-weight: 500;
   --vs--h2-letter-spacing: 0.08em;
@@ -44,26 +36,21 @@
   --vs--h2-margin-block: 0.25rlh 0.75rlh;
   --vs--h2-padding-inline: 1.75em 0;
 
-  /* コラム見出し。 */
   --vs--h3-font-size: 0.85em;
   --vs--h3-font-weight: 600;
   --vs--h3-letter-spacing: 0.05em;
   --vs--h3-line-height: 1.5;
   --vs--h3-margin-block: 0 0.5rlh;
 
-  /* 傍注合印 (＊一 など)。 */
   --vs--sup-font-size: 0.6em;
 
-  /* 縦組みキャプションの block 方向は右→左。図の左脇に添える。 */
   --vs--figcaption-font-size: 0.75em;
 
   --vs--figure-align-items: flex-start;
   --vs--figure-flex-direction: row;
   --vs--figure-gap: 0.25rlh;
   --vs--figure-margin-inline: 0;
-  /* ノド側に置く図版の幅。 */
   --vs--figure-item-size-inline: 23mm;
-  /* 図版は横組みに戻す。 */
   --vs--figure-writing-mode: horizontal-tb;
 
   --vs-page--size: 105mm 173mm;
@@ -86,7 +73,6 @@
     )
     '　';
 
-  /* 番号と見出し語のあいだは全角アキ。 */
   --vs-section--h2-marker-display: inline;
   --vs-section--h2-marker-content: counter(
     vs-counter-sec-h2,
@@ -94,7 +80,6 @@
   );
   --vs-section--marker-margin-inline-end: 1em;
 
-  /* 脚注。短罫で区切った縦組み小字。 */
   --vs-footnote--call-content: '＊'
     counter(
       vs-counter-footnote,
@@ -110,7 +95,6 @@
   --vs-footnote--font-size: 0.75em;
   --vs-footnote--line-height: 1.6;
   --vs-footnote--item-margin-block: 0 0.25rlh;
-  /* 合印のぶら下げ。 */
   --vs-footnote--text-indent: -1.8em;
   --vs-footnote--padding-inline-start: 1.8em;
   --vs-footnote--area-margin-block: 0.5rlh 0;
@@ -124,8 +108,8 @@
 }
 
 /*
- * 罫囲みコラムは本文の流れに置く縦組みの帯。縦組みでは通常のブロックが版面の
- * 天地いっぱいに伸びるので、分割を禁じるだけで帯として成立する。
+ * 縦組みでは通常のブロックが版面の天地いっぱいに伸びるので、分割を禁じるだけで
+ * 帯として成立する。
  */
 .column {
   break-inside: avoid;
@@ -133,8 +117,7 @@
 }
 
 /*
- * 図版はノド側 (縦組みの block-end) の地へ送るページフロート。本文が脇を
- * 回り込むので、小さな図が版面の天地いっぱいの帯を占めることがない。
+ * 本文が脇を回り込むので、小さな図が版面の天地いっぱいの帯を占めることがない。
  */
 figure:has(> :is(img, picture, svg)) {
   float: bottom left;
@@ -142,7 +125,6 @@ figure:has(> :is(img, picture, svg)) {
   margin-block: 0 0.75rlh;
 }
 
-/* 罫囲みコラム。1〜2級小さい縦組を細罫で囲む。 */
 .column {
   counter-increment: vs-counter-column;
   border-style: solid;

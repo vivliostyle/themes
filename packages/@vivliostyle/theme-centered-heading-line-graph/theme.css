@@ -1,10 +1,3 @@
-/*
- * 大学教科書のグラフ多用型向けテーマ
- * A4判縦・英文セリフ2段組。Source Serif 4 の本文とセンタリングの番号付き見出し、
- * PT Serif のキャプション・柱・ノンブル。深緑を見出し番号・表ヘッダ・相互参照に、
- * 焦げオレンジを第2系列に使う配色を図版側と揃える。
- * 段組は `--vs-columns` を節ごとの multi-column に掛け、節見出しと `.wide` の図表は段抜きにする。
- */
 @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -98,7 +91,6 @@
   --vs-page--padding-top: 1rlh;
   --vs-page--padding-bottom: 1rlh;
 
-  /* 見出し・図表の番号はいずれも「章番号.通し番号」 */
   --vs-crossref-call-counter-prefix: counter(vs-counter-chapter) '.';
   --vs-crossref-marker-counter-prefix: counter(vs-counter-chapter) '.';
   --vs-section--marker-display: inline;
@@ -153,7 +145,6 @@ section > h2:first-child {
   margin-block: 1rlh;
 }
 
-/* 見出しの節番号は深緑 */
 section > h2:first-child::before {
   color: var(--vs-theme-centered-heading-line-graph--color-accent);
   margin-inline-end: 0.35em;
@@ -168,12 +159,10 @@ section > h2.closing:first-child::before {
   content: none;
 }
 
-/* 表: 緑ベタ白抜きヘッダ + 淡緑ゼブラ */
 tbody tr:nth-child(odd) {
   background-color: var(--vs-color-background-alt);
 }
 
-/* 折れ線チャート: 図番号を持たず、キャプションを図の上に置く (column-reverse) */
 .chart {
   margin: 0.5rlh 0;
 }
@@ -187,7 +176,7 @@ tbody tr:nth-child(odd) {
   content: none;
 }
 
-/* グラフ図版: 淡緑パネル (枠は img 自身に持たせ、キャプションは枠の外) */
+/* 枠は img 自身に持たせ、キャプションは枠の外 */
 .panel {
   margin: 1rlh 0 0.5rlh;
 }

@@ -1,18 +1,3 @@
-/*
- * エッセイの新書 (fine-rule-marginalia)
- * 新書判 105×173mm・横組1段。Shippori Mincho 9pt/1.75 の随筆本文に、
- * Zen Old Mincho の章題 + 濃紫 (#330066) の細罫・太罫、小口側の傍注、
- * 線描の挿画、版面下部の脚注を重ねる。
- * 紫は章番号・罫・注記号・相互参照だけに限る。
- *
- * 原稿 (VFM) の書き方:
- *   1 章 = 1 ファイル。frontmatter に `class: chapter` を書くと「第N章」が自動で付く。
- *   # 章題 {#id}                      柱にもこの章題が流れる
- *   # あとがき #                      番号を付けない章 (frontmatter の class も外す)
- *   <aside class="sidebar">…</aside>  小口マージンへ流す傍注
- *   <span class="footnote">…</span>   版面下部へ送る脚注
- *   <a href="ch.html#id" data-ref="chap"></a>  「→第N章」の相互参照
- */
 @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=Zen+Old+Mincho:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/footnote';
@@ -45,8 +30,8 @@
 
   --vs--rt-font-size: 0.42em;
 
-  /* 章題のみ Zen Old Mincho (見出し共通の --vs--heading-font-family は
-     b/strong/th へは波及しないので、これ1本で足りる) */
+  /* 見出し共通の --vs--heading-font-family は
+     b/strong/th へは波及しないので、これ1本で足りる */
   --vs--heading-font-family:
     'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
   --vs--h1-font-size: 1.4em;
@@ -75,12 +60,11 @@
   --vs-page--mbox-font-family: 'Shippori Mincho', serif;
   --vs-page--mbox-font-size: 0.9em;
 
-  /* 柱: 章題を右寄せで流し、下に濃紫の細罫 (版面の上罫) を引く */
   --vs-page--border-width-top: 0.4pt;
   --vs-page--border-color-top: var(
     --vs-theme-fine-rule-marginalia--color-accent
   );
-  /* 罫と本文のアキ。罫の太さぶんを引いて本文位置を保つ */
+  /* 罫の太さぶんを引いて本文位置を保つ */
   --vs-page--padding-top: calc(0.5rlh - var(--vs-page--border-width-top));
   --vs-page--mbox-top-right-content: string(chapter-title);
   --vs-page--mbox-top-font-family: var(--vs-font-family-alt);
@@ -91,13 +75,11 @@
   --vs-page--mbox-top-vertical-align: bottom;
   --vs-page--mbox-top-padding-bottom: 0.25rlh;
 
-  /* 章番号「第N章」は h1 の上に小さく置く */
   --vs-section--h1-marker-display: block;
   --vs-section--h1-marker-content: '第'
     counter(vs-counter-chapter, cjk-ideographic) '章';
   --vs-section--h1-marker-margin-inline-end: 0;
 
-  /* 脚注: 注記号・注番号ともに紫のアスタリスク。区切り罫は短い紫罫 */
   --vs-footnote--call-content: '*';
   --vs-footnote--call-text-color: var(
     --vs-theme-fine-rule-marginalia--color-accent
@@ -124,7 +106,6 @@
   --vs-footnote--area-margin-block: 0.75rlh 0;
 }
 
-/* 章題は太罫で本文と切り、その上に小さく章番号を置く */
 h1 {
   border-bottom-width: 0.9pt;
   border-bottom-style: solid;
@@ -141,7 +122,6 @@ section > h1:first-child::before {
   margin-bottom: 0.25em;
 }
 
-/* 傍注: 小口マージンへ流し込む。■は紫、ぶら下げ組み */
 .sidebar {
   float: right;
   clear: right;
@@ -166,7 +146,6 @@ section > h1:first-child::before {
   margin-right: 0.7mm;
 }
 
-/* 挿画: 薄紫の細枠で囲む */
 figure img {
   width: 100%;
   height: auto;
@@ -176,7 +155,6 @@ figure img {
   border-color: var(--vs-color-border);
 }
 
-/* 章参照 */
 a[data-ref='chap'] {
   color: inherit;
   text-decoration: none;

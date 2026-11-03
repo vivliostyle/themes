@@ -1,13 +1,3 @@
-/*
- * 企業のテクニカルレポート向けテーマ。
- * A4縦・左右2段。本文 Inter / 番号付き見出し Archivo・ダークスレートブルー。
- * 柱には原稿の h1 (論題)、ノンブルはページカウンタを全ページに出す。
- *
- * VFM 出力の DOM:
- *   body > (header.masthead, div.titleblock, section.level2 …)
- * 段組は body に掛ける。章ごとに multicol を切ると章の変わり目で段がリセットされ、
- * 章が段の途中で終わっても次の章が新しい段から始まってしまうため。
- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Archivo:wght@500;600;700&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -27,7 +17,6 @@
 }
 
 :root {
-  /* ── テーマ固有 (--vs-* に対応物が無いもの) ── */
   --vs-theme-archivo-heading-two-column--color-foreground-secondary: color-mix(
     in oklab,
     var(--vs-color-foreground-alt),
@@ -38,7 +27,6 @@
   );
   --vs-theme-archivo-heading-two-column--figure-wide-size-inline: 100%;
 
-  /* Type */
   --vs-font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   --vs-font-family-alt: 'Archivo', 'Inter', 'Helvetica Neue', Arial, sans-serif;
   --vs-font-size: 9.5pt;
@@ -56,7 +44,6 @@
   --vs-column-fill: auto;
   --vs-hyphens: none;
 
-  /* Headings: 番号付き見出しは Archivo。柱は h1 から取る */
   --vs--h1-string-set: running-title content();
   --vs--heading-font-family: var(--vs-font-family-alt);
   --vs--h2-font-size: 2.1em;
@@ -69,22 +56,18 @@
   --vs--h3-margin-block: 0.5rlh 0.25em;
   --vs--bold-font-weight: 600;
 
-  /* Paragraphs */
   --vs--p-margin-block: 0 0.5rlh;
 
-  /* Lists */
   --vs--lists-margin-block: 0 0.5rlh;
   --vs--ul-padding-inline-start: 1.2em;
   --vs--ul-text-align: justify;
 
-  /* Figures: 本文図は全幅、マストヘッドのシールは .masthead figure で上書き */
   --vs--figure-item-size-inline: 100%;
   --vs--figure-margin-block: 0.25rlh 0.5rlh;
   --vs--figure-gap: 0.25rlh;
   --vs--figcaption-font-size: 0.8em;
   --vs--figcaption-text-align: start;
 
-  /* Tables: 横罫主体, 青ヘッダ */
   --vs--table-font-size: 0.8em;
   --vs--table-font-variant-numeric: tabular-nums;
   --vs--table-margin-block: 0;
@@ -134,7 +117,6 @@
     --vs-theme-archivo-heading-two-column--color-accent
   );
 
-  /* ── 節番号: h2 が「1.」、h3 が「1.1」 ── */
   --vs-section--marker-display: inline;
   --vs-section--h2-marker-content: var(--vs-section--marker-counter-content) '.';
 
@@ -145,6 +127,8 @@
   --vs-citation--item-text-align: start;
 }
 
+/* 段組は body に掛ける。章ごとに multicol を切ると章の変わり目で段がリセットされ、
+   章が段の途中で終わっても次の章が新しい段から始まってしまうため。 */
 html {
   columns: auto;
 }
@@ -162,7 +146,6 @@ body > .titleblock {
   column-span: all;
 }
 
-/* ── 段抜きマストヘッド: 左に部門ライン, 右に円形シール, 下に細罫 ── */
 .masthead {
   /* float シールを内包し, 下罫をシール下端に置く */
   display: flow-root;
@@ -210,7 +193,6 @@ header.masthead > figure > img {
   display: none;
 }
 
-/* ── 標題ブロック ── */
 .titleblock {
   margin-block: 0 1rlh;
 }
@@ -281,14 +263,13 @@ header.masthead > figure > img {
   margin-block: 0 0.25rlh;
 }
 
-/* ── 見出し ── */
 h2,
 h3 {
   break-after: avoid;
   color: var(--vs-theme-archivo-heading-two-column--color-accent);
 }
 
-/* 節と節の間を空ける。2 つ目のセレクタは閉じ `#` で書いた非採番の節見出し
+/* 2 つ目のセレクタは閉じ `#` で書いた非採番の節見出し
    (section に包まれず body 直下に置かれる) を拾う */
 body > section.level2 + section.level2 > h2,
 body > section.level2 ~ h2 {
@@ -307,16 +288,13 @@ li strong {
   color: var(--vs-theme-archivo-heading-two-column--color-accent);
 }
 
-/* ── 図版 ── */
 figure > img {
   display: block;
   block-size: auto;
 }
 
-/* 本文中の図 (Markdown 画像 = class の付かない figure) は白地に細い角丸罫で
-   囲む。作図は横長で段幅では読めないため段抜きにする */
+/* 作図は横長で段幅では読めないため段抜きにする */
 figure:not([class]) {
-  /* 図版を段幅いっぱいにせず左右にわずかな余白を持たせる */
   --vs--figure-item-padding-inline: min(2ch, 5vw);
   --vs--figure-item-size-inline: var(
     --vs-theme-archivo-heading-two-column--figure-wide-size-inline
@@ -338,14 +316,13 @@ figcaption {
   color: var(--vs-theme-archivo-heading-two-column--color-foreground-secondary);
 }
 
-/* 採番は base の figure/table モジュール。書体・色だけ design 側で当てる */
+/* 採番は base の figure/table モジュール */
 figcaption::before {
   font-family: var(--vs-font-family-alt);
   font-weight: 600;
   color: var(--vs-theme-archivo-heading-two-column--color-accent);
 }
 
-/* ── データ表: figcaption を表の上のキャプションとして使う ── */
 figure.datatable {
   /* flex のままだと長い表が段・ページをまたげない */
   display: block;
@@ -392,7 +369,6 @@ td {
   font-size: 0.86em;
 }
 
-/* ── 後付けの節 (謝辞・参考文献・書誌管理) ── */
 .acks p,
 .doccontrol p {
   font-size: 0.9em;

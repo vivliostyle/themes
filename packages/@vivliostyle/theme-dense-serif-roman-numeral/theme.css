@@ -1,11 +1,3 @@
-/*
- * 速報論文誌 (PRL 風) のレター判・墨一色テーマ。
- * STIX Two Text の高密度セリフ2段組に、中央揃えの標題ブロック、ローマ数字の
- * センター見出し、段の右端に式番号を置くディスプレイ数式、モノクロ図版を配置する。
- * 節番号・式番号・図番号・引用番号はすべてカウンタが付ける。
- * 論題の h1 は閉じ `#` (`# 論題 #`) で書いて標題ブロックに置きセクション化を止めるので、
- * 節番号は body 直下の section.level2 から始まる。番号を付けない見出しも閉じ `#` で書く。
- */
 @import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -29,19 +21,16 @@
   --vs-color-foreground: #111111;
   --vs-color-background: #ffffff;
 
-  /* 論文タイトル */
   --vs--h1-font-size: 1.4em;
   --vs--h1-line-height: 1.25;
   --vs--h1-text-align: center;
   --vs--h1-margin-block: 0 0.75rlh;
 
-  /* ローマ数字のセンター節見出し */
   --vs--h2-font-size: 0.95em;
   --vs--h2-text-align: center;
   --vs--h2-text-transform: uppercase;
   --vs--h2-margin-block: 0.75rlh 0.5rlh;
 
-  /* 段落間はアキ無しで字下げのみ (誌面密度を上げる伝統的な組み) */
   --vs--p-margin-block: 0;
   --vs--p-text-indent: 1.2em;
 
@@ -68,20 +57,17 @@
   --vs-page--mbox-font-family: var(--vs-font-family);
   --vs-page--mbox-font-size: 1.1em;
 
-  /* 節番号は「I.」「II.」。本文からの参照は「Sec. IV」 */
   --vs-section--counter-style: upper-roman;
   --vs-section--marker-display: inline;
   --vs-section--marker-margin-inline-end: 0.4em;
   --vs-section--h2-marker-content: var(--vs-section--marker-counter-content) '.';
   --vs-section--label: 'Sec.\2009';
 
-  /* 式番号は文書を通した連番。参照の「Eq. (4)」のアキは thin space */
   --vs-equation--label: 'Eq.\2009';
   --vs-equation--margin-block: 0.5rlh;
   --vs-equation--item-text-align: inherit;
   --vs-citation--marker-inset-inline-start: -5mm;
 
-  /* 図番号は「FIG. 1.」、参照は「Fig. 1」 */
   --vs-figure--label: 'Fig.\2009';
   --vs-figure--marker-content: 'FIG.\2009'
     counter(
@@ -91,7 +77,6 @@
     '. ';
 }
 
-/* 標題は段抜き、本文は 2 段。段は文章量に応じてページを送る */
 html {
   columns: auto;
 }
@@ -107,13 +92,11 @@ body > .titleblock {
   margin-block-end: 0.75rlh;
 }
 
-/* 見出し・図版のキャプションが段末に取り残されないように */
 h2,
 figcaption {
   break-after: avoid;
 }
 
-/* ---- 標題ブロック ---- */
 .titleblock :is(p, .masthead, .byline, .affil, .received) {
   hyphens: manual;
   text-align: center;
@@ -145,7 +128,6 @@ figcaption {
   text-indent: 0;
 }
 
-/* 節見出しとディスプレイ数式に続く受け文は字下げしない */
 h2 + p,
 .equation + p,
 figure + p {
@@ -164,7 +146,6 @@ a:is([data-ref='eq'], [data-ref='citenum']) {
   text-decoration: none;
 }
 
-/* ---- 図版 ---- */
 figure > img {
   display: block;
   block-size: auto;
@@ -182,7 +163,6 @@ figcaption > p {
   margin-block: 0;
 }
 
-/* ---- 参考文献: 番号をぶら下げた小さな組み ---- */
 :root {
   --vs-citation--items-border-color-block-start: currentColor;
   --vs-citation--items-border-style-block-start: solid;

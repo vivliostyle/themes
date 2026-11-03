@@ -1,10 +1,3 @@
-/*
- * three-column-warning-grid
- * 安全重視型の単票テーマ。A4縦・1項目 = 1シートで、
- * 高密度サンセリフ組版に番号付き大見出し・3段トラック(概要/チェック表/工程)・
- * 等幅書体の数値表を組み合わせ、見た目の魅力より誤読なき安全確認を優先する。
- * 赤は警告枠・シート番号・確認マーカー・重要罫線に限定して反復する。
- */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&family=Roboto+Mono:wght@500;700&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -36,7 +29,6 @@
     var(--vs-color-background) 70%
   );
 
-  /* Type: dense sans, left aligned for legibility */
   --vs-font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
   --vs-font-size: 8pt;
   --vs-line-height: 1.35;
@@ -101,18 +93,16 @@
 
   --vs--table-border-width: 0;
 
-  /* Page: A4 portrait. 参照用の単票なので左右余白は見開きで入れ替えない */
+  /* 参照用の単票なので左右余白は見開きで入れ替えない */
   --vs-page--size: A4;
   --vs-page--margin-top: 16mm;
   --vs-page--margin-bottom: 16mm;
   --vs-page--margin-left: 13mm;
   --vs-page--margin-right: 13mm;
 
-  /* 柱は原稿の <header> をそのまま running element として毎ページに出す */
   --vs-page--mbox-top-center-content: element(sheet-header);
   --vs-page--mbox-top-size-inline: 100%;
 
-  /* ノンブルと、その上に引く版面の下罫 */
   --vs-page--border-width-bottom: 1.5px;
   --vs-page--border-color-bottom: var(
     --vs-theme-three-column-warning-grid--color-accent
@@ -123,14 +113,12 @@
   --vs-page--mbox-bottom-font-weight: 700;
   --vs-page--mbox-bottom-size-inline: 16mm;
 
-  /* シート番号: 原稿の見出し順から振る。連番の体裁は example 側で差し替えられる */
   --vs-section--h1-marker-display: inline;
   --vs-section--h1-marker-content: counter(
     vs-counter-sec-h1,
     decimal-leading-zero
   );
   --vs-section--h1-marker-margin-inline-end: 0.14em;
-  /* 1 シート = 1 ページ。見出しの数だけページが増える */
   --vs-section--h1-break-before: page;
 
   /* 参考写真は採番対象ではない。図番号が要る原稿は inline に戻す */
@@ -143,7 +131,6 @@
   --vs-theorem--marker-display: none;
 }
 
-/* Running header: media name left, section name right, thin black rule below */
 body > header {
   position: running(sheet-header);
   display: flex;
@@ -160,7 +147,7 @@ body > header {
 }
 
 /*
- * 3 段トラック。1 シートに収まる分量を前提とした様式なので flex で組む
+ * 1 シートに収まる分量を前提とした様式なので flex で組む
  * (分割が必要な原稿では溢れが見えるようにしてあり、切り捨てはしない)
  */
 body > section.level1 {
@@ -176,7 +163,6 @@ body > section.level1 > section.level2 {
   min-width: 0;
 }
 
-/* Hero: red sheet number + black all-caps title spanning full width */
 body > section.level1 > h1 {
   flex: 0 0 100%;
 }
@@ -184,7 +170,6 @@ section > h1:first-child::before {
   color: var(--vs-theme-three-column-warning-grid--color-accent);
 }
 
-/* シート参照: 本文の語と地続きに見せる */
 a[data-ref='sheet'] {
   --vs--anchor-text-color: inherit;
   --vs--anchor-text-decoration: none;
@@ -193,15 +178,11 @@ a[data-ref='sheet']::before {
   content: var(--vs-theme-three-column-warning-grid--sheet-call-content);
 }
 
-/* Photo + caption */
 figure > img {
   display: block;
   height: auto;
 }
 
-/* Tables share one dense grid; each track overrides its own rules below */
-
-/* Sheet info table (first track): label -> mono value, framed */
 .col table {
   --vs--table-border-width-block-start: 1.5px;
   --vs--table-border-width-block-end: 1.5px;
@@ -237,7 +218,6 @@ figure > img {
   white-space: nowrap;
 }
 
-/* Check table: name row + red marker (mark) */
 section.level2:has(> .hd-ingredient) table {
   font-size: 0.95em;
   line-height: 1.1;
@@ -276,7 +256,6 @@ mark {
   white-space: nowrap;
 }
 
-/* Method: big bold step numbers */
 section.level2:has(> .hd-method) ol {
   counter-reset: vs-counter-step;
 }
@@ -301,7 +280,6 @@ section.level2:has(> .hd-method) ol > li::before {
   color: var(--vs-color-foreground);
 }
 
-/* Warning boxes: red frame, pale red fill, uppercase red headline */
 .warning {
   border-width: 1.5px;
   border-color: var(--vs-theme-three-column-warning-grid--color-accent);
@@ -356,7 +334,6 @@ section.level2:has(> .hd-method) ol > li::before {
   font-size: 0.85em;
   line-height: 1.24;
 }
-/* Glyph row inside a warning box */
 .warning .glyphs {
   display: flex;
   justify-content: space-around;
@@ -374,7 +351,6 @@ section.level2:has(> .hd-method) ol > li::before {
   height: 2em;
 }
 
-/* Full-width data table: twin panels split by a red rule */
 body > section.level1 > section.level2:has(> .hd-nutrition) {
   flex: 0 0 100%;
   margin-block-start: 0.75rlh;

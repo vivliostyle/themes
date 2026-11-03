@@ -1,15 +1,3 @@
-/*
- * 短篇アンソロジー・複数筆者 (ornamental-frame-corner-title)
- * 四六判 127×188mm・墨一色。Shippori Mincho の見出し + Noto Serif JP 本文。
- * 二重の飾り枠と四隅の唐草角飾りを立てた「飾りページ」(書名扉・目次・篇の中扉) と、
- * 枠を外して柱とノンブルだけを置く本文ページの2種類でアンソロジーを組む。
- *
- * 原稿の書き方 (frontmatter の class):
- *   plate plate--title    書名扉
- *   plate plate--toc      目次 (中身は <nav role="doc-toc"> のリスト)
- *   plate plate--work     篇の中扉。chapter を併記すると篇番号が自動で振られる
- *   (指定なし)            本文。柱は frontmatter の title から取る
- */
 @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600&family=EB+Garamond:wght@400;500&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/page';
@@ -25,7 +13,6 @@
     var(--vs-color-background) 40%
   );
 
-  /* 飾りページの枠と角飾り */
   --vs-theme-ornamental-frame-corner-title--plate-margin: 6mm;
   --vs-theme-ornamental-frame-corner-title--plate-corner-inset: 0.3em;
 
@@ -71,7 +58,6 @@
 
   --vs-page--size: 127mm 188mm;
 
-  /* ---- 本文ページ ---- */
   --vs-page--margin-top: 16mm;
   --vs-page--margin-bottom: 15mm;
   --vs-page--margin-left: 12mm;
@@ -89,19 +75,15 @@
   --vs-page--mbox-bottom-font-feature-settings: 'onum' 1;
 }
 
-/* 篇の起こしページには柱を立てない */
 @page :nth(1) {
   --vs-page--mbox-top-center-content: none;
 }
 
-/* 本文末尾に置く著者名 */
 body:not(.plate) .byline {
   margin-block-start: var(--vs-spacing-rlh);
   text-align: end;
   text-indent: 0;
 }
-
-/* ---- 飾りページ ---- */
 
 html.plate {
   /* 枠を版面いっぱいに立てるので余白は狭く取る */
@@ -145,7 +127,6 @@ body.plate {
   box-decoration-break: clone;
 }
 
-/* 二重罫の内側の線 */
 body.plate::before {
   content: '';
   position: absolute;
@@ -155,7 +136,6 @@ body.plate::before {
   pointer-events: none;
 }
 
-/* 四隅の角飾り (同一 SVG を鏡映して4隅へ) */
 .corners {
   height: 0;
 }
@@ -184,7 +164,6 @@ body.plate::before {
   transform: scale(-1, -1);
 }
 
-/* 柱 + 中央短罫 */
 body.plate > header {
   text-align: center;
 }
@@ -203,12 +182,10 @@ body.plate > header hr {
   --vs--hr-size-inline: 20mm;
 }
 
-/* 中扉の篇番号は base のドキュメントカウンタから振る */
 body.plate--work > header::before {
   content: '第' counter(vs-counter-chapter, cjk-ideographic) '篇';
 }
 
-/* 扉の見出し塊 */
 body.plate--title section,
 body.plate--work section {
   margin-block-start: 9.75rlh;
@@ -261,7 +238,6 @@ body.plate--work .lead {
   color: var(--vs-theme-ornamental-frame-corner-title--color-lead);
 }
 
-/* 目次のノンブルは枠の内側へ入れる */
 body.plate--toc::after {
   content: counter(page);
   position: absolute;
@@ -271,8 +247,6 @@ body.plate--toc::after {
   font-family: var(--vs-font-family-alt);
   font-size: 1.1em;
 }
-
-/* ---- 目次 ---- */
 
 [role='doc-toc'] {
   --vs-toc--ol-indent-size: 13mm;
@@ -291,7 +265,6 @@ body.plate--toc::after {
 }
 
 /*
- * 各項の1行目 = 篇題 + 著者 + リーダー + 頁。
  * 内容紹介を持たせるため Markdown の loose list になり <li> > <p> > <a> と
  * 一段深くなるので、base の toc.css の li > a の指定をここで当て直す。
  */
@@ -329,7 +302,6 @@ body.plate--toc::after {
   color: var(--vs-color-foreground-alt);
 }
 
-/* 各項の2行目 = 内容紹介 */
 [role='doc-toc'] li > p + p {
   margin-block: 0.3em 0;
   margin-inline: 13mm 0;
@@ -339,7 +311,6 @@ body.plate--toc::after {
   color: var(--vs-theme-ornamental-frame-corner-title--color-lead);
 }
 
-/* 編者あとがきなど、番号と内容紹介を持たない項 */
 [role='doc-toc'] .afterword {
   margin-block: 0.5rlh 0;
   margin-inline: 13mm 0;

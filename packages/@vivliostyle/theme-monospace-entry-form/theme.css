@@ -1,18 +1,8 @@
-/*
- * 記録帳 (monospace-entry-form)
- * スリム手帳判(105×173mm)の記録フォーム。等幅組みで緑1色(アクセント
- * #27ae60 + 濃緑の記入インク)に統一し、記入下線・淡緑ヘッダーの記録表・
- * 記入欄・グレー罫の NOTES を1ページに収める。
- * 1 記録 = h1 で始まる section.level1 = 1 ページで、通し番号は h1 の
- * セクションカウンタから振る。用紙の中の欄と NOTES は section.level2、
- * 記録表は Markdown の table。
- */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/page';
 @import '@vivliostyle/theme-base/section';
 
-/* 記録番号は 3 桁ゼロ詰め */
 @counter-style vs-theme--sheet-number {
   system: extends decimal;
   pad: 3 '0';
@@ -37,7 +27,6 @@
   --vs--p-text-indent: 0;
   --vs--p-text-align: start;
 
-  /* ヘッダ: 用紙名 + No. */
   --vs--h1-font-size: 1.5em;
   --vs--h1-line-height: 1.2;
   --vs--h1-letter-spacing: 0.14em;
@@ -50,7 +39,6 @@
   );
   --vs--h1-padding-block: 0 0.35em;
 
-  /* 用紙の中の欄の見出し */
   --vs--h2-font-size: 1.05em;
   --vs--h2-letter-spacing: 0.08em;
   --vs--h2-margin-block: 0 0.25rlh;
@@ -61,8 +49,6 @@
   --vs--dd-margin-inline-start: 0;
   --vs--ul-padding-inline-start: 0px;
 
-  /* 記録表: 外枠 0.9pt / セル罫 0.4pt の緑罫。
-     欄幅は原稿の記入内容に合わせて自動で決める */
   --vs--table-table-layout: auto;
   --vs--table-size-inline: 100%;
   --vs--table-border-width: 0;
@@ -87,14 +73,11 @@
   --vs-page--margin-left: 8mm;
   --vs-page--margin-right: 8mm;
 
-  /* ノンブル */
   --vs-page--mbox-bottom-center-content: counter(page);
 
-  /* 記録用紙は 1 枚 = 1 ページ */
   --vs-section--h1-break-before: page;
 }
 
-/* ---- ヘッダ: 用紙名を左、記録番号を右に振り分ける ---- */
 h1 {
   display: flex;
   align-items: baseline;
@@ -113,13 +96,10 @@ section > h1:first-child::after {
   letter-spacing: 0.06em;
 }
 
-/* 原稿が見出しに番号を書き入れた用紙 (総括・記入例など) は
-   記録の通し番号を消費しない */
 section:has(> h1:first-child:has(.no)) {
   counter-increment: none;
 }
 
-/* 他の用紙の番号を引く参照 */
 a[data-ref='sheet'] {
   color: inherit;
   text-decoration: none;
@@ -133,12 +113,10 @@ a[data-ref='sheet']::before {
   );
 }
 
-/* ---- 記入欄: ラベル + 下線 (flex 1行) ---- */
 .field {
   margin-block-end: 0.25rlh;
 }
-/* 記入値が 1 行に収まらないときは折り返して伸ばす。stretch にしておくと
-   同じ行の記入罫が伸びたほうの下端で揃う */
+/* stretch にしておくと同じ行の記入罫が伸びたほうの下端で揃う */
 .field dl {
   display: flex;
   align-items: stretch;
@@ -161,13 +139,11 @@ a[data-ref='sheet']::before {
   border-bottom-color: var(--vs-theme-monospace-entry-form--color-accent);
   font-size: 0.85em;
 }
-/* 1 行に 2 組並べるときの 2 つめのラベル */
 .field dd + dt {
   flex-basis: 17mm;
   padding-left: 2.5mm;
 }
 
-/* ---- 記録表 (Markdown の table) ---- */
 th,
 td {
   white-space: nowrap;
@@ -180,7 +156,6 @@ tbody td[align='right'] {
   padding-inline-end: 3.5mm;
 }
 
-/* ---- NOTES 罫線: 段落・箇条書き・空罫をすべて記入罫として扱う ---- */
 h2.notes {
   margin-block-start: 0.25rlh;
 }

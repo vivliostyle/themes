@@ -1,16 +1,9 @@
-/*
- * ポケット図鑑 (vertical-line-drawing-spec-table)
- * 新書判 (105mm×173mm)・墨一色のハンディ図鑑。1項目を1ページに起こし、Noto Sans JP の
- * ゴシック本文に通し番号付きの項目見出しと欧文学名 (Noto Sans 斜体) を組む。
- * 線画は左に回り込ませて右に識別スペック表を流し、その下は BIZ UDPGothic の
- * 「観察メモ」傍注に本文を回り込ませながら丸数字の節見出しで解説を続ける。
- */
 @import url('https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Noto+Sans:ital,wght@0,400;1,400&family=Noto+Sans+JP:wght@400;500;700&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/page';
 @import '@vivliostyle/theme-base/section';
 
-/* 節見出しの丸数字。20 を超えると decimal にフォールバックする */
+/* 20 を超えると decimal にフォールバックする */
 @counter-style vs-theme--circled-number {
   system: fixed;
   symbols: '①' '②' '③' '④' '⑤' '⑥' '⑦' '⑧' '⑨' '⑩' '⑪' '⑫' '⑬' '⑭' '⑮' '⑯' '⑰'
@@ -20,7 +13,6 @@
 
 :root {
   --vs-font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
-  /* 傍注の第2書体 */
   --vs-font-family-alt: 'BIZ UDPGothic', 'Noto Sans JP', sans-serif;
   --vs-font-size: 7.5pt;
   --vs-line-height: 1.4;
@@ -34,13 +26,11 @@
 
   --vs--heading-text-align: start;
 
-  /* 項目見出し */
   --vs--h1-font-size: 2.4em;
   --vs--h1-letter-spacing: 0.01em;
   --vs--h1-line-height: 1.05;
   --vs--h1-margin-block: 0 0.5rlh;
 
-  /* 節見出し */
   --vs--h2-font-size: 1.05em;
   --vs--h2-line-height: 1.2;
   --vs--h2-margin-block: 0;
@@ -48,7 +38,6 @@
   --vs--figure-margin-block: 0;
   --vs--figcaption-display: none;
 
-  /* 識別スペック表: 罫線を持たない密なリスト組み */
   --vs--table-border-width: 0;
   --vs--table-font-size: 0.8em;
   --vs--table-margin-block: 0;
@@ -69,13 +58,11 @@
   --vs-page--mbox-top-padding-bottom: 0.5rlh;
   --vs-page--mbox-top-vertical-align: bottom;
 
-  /* 項目見出し「通し番号 + 名称 + 学名」。1項目で1ページを起こす */
   --vs-section--h1-break-before: page;
   --vs-section--h1-marker-content: counter(vs-counter-sec-h1);
   --vs-section--h1-marker-display: inline;
   --vs-section--h1-marker-margin-inline-end: 0.12em;
 
-  /* 丸数字を頭に付ける節見出し「①分布」 */
   --vs-section--h2-marker-content: counter(
     vs-counter-sec-h2,
     vs-theme--circled-number
@@ -83,7 +70,6 @@
   --vs-section--h2-marker-display: inline;
   --vs-section--h2-marker-margin-inline-end: 0;
 
-  /* 柱は原稿のタイトル、地の中央にノンブル */
   --vs-page--mbox-top-left-content: env(doc-title);
   --vs-page--mbox-bottom-center-content: counter(page);
   --vs-page--mbox-font-family: var(--vs-font-family);
@@ -101,7 +87,6 @@ h1 .latin {
   margin-inline-start: 0.35em;
 }
 
-/* 線画。右の識別スペック表を回り込ませる */
 figure {
   --vs--figure-item-size-inline: 100%;
   float: inline-start;
@@ -114,7 +99,7 @@ figure img {
   block-size: auto;
 }
 
-/* 識別スペック表。見出し行は紙面に出さない (対応する変数が無い) */
+/* 見出し行は紙面に出さない (対応する変数が無い) */
 thead {
   display: none;
 }
@@ -123,7 +108,6 @@ td {
   hyphens: none;
 }
 
-/* 項目名は 4.3em の均等割り付け + 全角コロン */
 td:first-child {
   inline-size: 4.3em;
   padding-inline-end: 0.45em;
@@ -136,7 +120,6 @@ td:first-child::after {
   content: '：';
 }
 
-/* 観察メモ。傍注として左に置き、解説の本文を回り込ませる */
 aside.note {
   --vs--p-text-indent: 0;
   --vs--p-text-align: start;
@@ -151,7 +134,6 @@ aside.note {
   break-inside: avoid;
 }
 
-/* 傍注の1段落目 (**観察メモ**) が小見出しになる */
 aside.note > p:first-child {
   font-weight: 700;
 }

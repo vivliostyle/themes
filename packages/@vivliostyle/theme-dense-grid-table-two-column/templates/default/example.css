@@ -1,14 +1,10 @@
-/*
- * example 専用の上書き。theme.css には手を入れない。
- */
-
 /* この例は「第2」の部だけを収めた抜粋なので部番号を 2 から始める */
 :root {
   --vs-section--root-counter-sec-h1: 1;
 }
 
 /*
- * 表ごとの 1 列目の幅。table-layout: fixed のため、残りの列は等分される。
+ * table-layout: fixed のため、残りの列は等分される。
  */
 .tbl-4 {
   --vs-theme-dense-grid-table-two-column--table-label-size-inline: 34%;

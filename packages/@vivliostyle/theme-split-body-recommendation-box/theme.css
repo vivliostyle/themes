@@ -11,21 +11,7 @@
 @import '@vivliostyle/theme-base/section';
 @import '@vivliostyle/theme-base/math';
 
-/*
- * ガイドライン（標準2段型） (guideline)
- * A4判縦・横書き2段組のガイドライン本編。Noto Serif JP の明朝本文に、
- * Noto Sans JP の番号付き見出し・表・推奨ボックスを組み合わせる。節ごとに改ページし、
- * 左段に本文と節末の注、右段 (.sidebar) に表と推奨ボックスを流して、
- * 墨一色 (#1a1a1a) の階調で情報階層を表現する。
- *
- * 章・節番号 (3.、3.1)、表番号 (表3-1)、図番号 (図3-1)、推奨番号 (推奨 3-2)、注番号は
- * すべてカウンタで生成する。原稿の見出し・キャプションには番号を書かず、参照は
- * `<a href="#id" data-ref="sec|tbl|fig|note"></a>` で書く。
- * 柱のガイドライン名は各原稿の frontmatter の title (env(doc-title)) から取る。
- */
-
 :root {
-  /* Type */
   --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
   --vs-font-family-alt: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
   --vs-font-size: 10pt;
@@ -44,12 +30,10 @@
   );
   --vs-widows-orphans: 2;
 
-  /* 版面は通しの2段組。節ごとの改ページで1節=1見開き面の体裁を保つ */
   --vs-columns: 2;
   --vs-column-gap: 8mm;
   --vs-column-fill: auto;
 
-  /* 表・図番号は章番号付き (表3-1 / 図3-1) */
   --vs-crossref-call-counter-prefix: target-counter(
       attr(href),
       vs-counter-sec-h2
@@ -57,14 +41,11 @@
     '-';
   --vs-crossref-marker-counter-prefix: counter(vs-counter-sec-h2) '-';
 
-  /* 見出し・太字・表ヘッダはゴシック */
   --vs--heading-font-family: var(--vs-font-family-alt);
 
-  /* 本文段落: 1字下げ・両端揃え・段落間空けなし */
   --vs--p-margin-block: 0;
   --vs--p-text-indent: 1em;
 
-  /* 見出し: ゴシック・墨。h2 が章大見出し、h3 が節見出し */
   --vs--h2-font-size: 1.6em;
   --vs--h2-letter-spacing: 0.01em;
   --vs--h2-line-height: 1.3;
@@ -76,7 +57,6 @@
 
   --vs--sup-font-size: 0.7em;
 
-  /* 表: 横罫のみ・グレーヘッダ */
   --vs--table-font-size: 0.8em;
   --vs--table-margin-block: 0;
   --vs--table-size-inline: 100%;
@@ -103,21 +83,17 @@
   --vs--figure-margin-block: 0;
   --vs--figure-margin-inline: 0;
 
-  /* Page: 天地は base 既定の 18mm */
   --vs-page--size: A4;
   --vs-page--margin-left: 20mm;
   --vs-page--margin-right: 20mm;
   --vs-page--border-width-top: 0.4pt;
 
-  /* 柱: ガイドライン名とノンブル */
   --vs-page--mbox-top-left-content: env(doc-title);
   --vs-page--mbox-top-center-content: counter(page);
   --vs-page--mbox-top-font-size: 0.8em;
-  /* ノンブルの箱だけ本文寄りの大きさに */
   --vs-page--mbox-top-center-font-size: 0.95em;
   --vs-page--mbox-top-letter-spacing: -0.01em;
 
-  /* 章・節番号 */
   --vs-section--marker-display: inline;
   --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '.';
   --vs-section--h2-marker-margin-inline-end: 0.35em;
@@ -137,28 +113,23 @@
   counter-reset: vs-counter-note;
 }
 
-/* 節の参照は番号だけを出す (「3.2」) */
 :root,
 :root:lang(ja) {
   --vs-section--call-content: var(--vs-section--call-counter-content);
 }
 
-/* 節は改ページから始める。章見出し直後の第1節は続けて組む */
 section:has(> h3:first-child) + section:has(> h3:first-child) {
   break-before: page;
 }
 
-/* 改ページで始まる節の見出しを柱下の罫に揃える */
 section:has(> h3:first-child) + section:has(> h3:first-child) > h3 {
   margin-block-start: 0;
 }
 
-/* 表・推奨ボックスなどの補足は右段に送る */
 .sidebar {
   break-before: column;
 }
 
-/* 表・図のキャプション */
 figcaption {
   font-family: var(--vs-font-family-alt);
   font-weight: 700;
@@ -197,7 +168,6 @@ tbody td:nth-child(3) {
   white-space: nowrap;
 }
 
-/* ==== 節末の注 ==== */
 .notes {
   --vs--lists-margin-block: 0;
   --vs--ol-list-style-type: none;
@@ -240,7 +210,6 @@ a[data-ref='note']::before {
   vertical-align: super;
 }
 
-/* ==== 推奨ボックス: グレー地・角丸 ==== */
 .card {
   --vs--p-margin-block: 0 0.5rlh;
   --vs--p-text-indent: 0;
@@ -260,7 +229,6 @@ a[data-ref='note']::before {
   margin-block-end: 0;
 }
 
-/* 推奨には節番号から起こした番号を、それ以外は原稿の見出し段落を表題にする */
 .card.recommendation::before {
   content: '推奨 ' counters(vs-counter-sections, '-');
   display: block;
@@ -275,7 +243,6 @@ a[data-ref='note']::before {
   margin-block-end: 0.5rlh;
 }
 
-/* 図の囲みはキャプションと組にする */
 figcaption + .card {
   margin-block-start: 0;
 }

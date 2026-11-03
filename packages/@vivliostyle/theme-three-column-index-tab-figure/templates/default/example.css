@@ -1,8 +1,3 @@
-/*
- * この example は図譜の第四章だけを抜き出したもの。
- * 章番号と、章のなかでの改ページの取り方をここで与える。
- */
-
 :root {
   /* 第四章の抜粋なので、章カウンタを 4 から数え始める */
   --vs-document-first-page-counter-reset: vs-counter-chapter 3;

@@ -1,8 +1,3 @@
-/*
- * theme.css だけでこの技報は組める。ここで与えるのは、この見本の作図と
- * 表記に合わせた寸法だけ。
- */
-
 /* 段抜きの作図は横長で、段幅いっぱいに引き伸ばすと線が太って見えるため詰める */
 :root {
   --vs-theme-archivo-heading-two-column--figure-wide-size-inline: 88%;

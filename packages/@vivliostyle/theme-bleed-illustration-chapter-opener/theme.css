@@ -1,14 +1,3 @@
-/*
- * 児童小説・画像重視版 (bleed-illustration-chapter-opener)
- * 章扉を兼ねた本文ページ。A4縦。天・左右へ裁ち落とした挿絵を上部に敷き、
- * そこへ League Spartan の特大章題を重ねる。下半分は Atkinson Hyperlegible を
- * 11pt / 行送り 1.75 でゆったり組んだ2段組の読み物とし、章頭をドロップキャップ、
- * 本文中に小さな挿絵を差し込む。色は温かな紙色と数段階のグレーのみで
- * 彩色アクセントは持たない。
- *
- * 原稿は `# 章題` 1つで1章。章番号は base のセクションカウンタから生成するので、
- * 見出しに番号を書かない。挿絵は章題の直後の <header class="bleed"> に置く。
- */
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=League+Spartan:wght@600;700;800&family=Noto+Sans:ital,wght@0,400;0,500;1,400&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/page';
@@ -30,7 +19,7 @@
     #000 20%
   );
 
-  /* 章扉の裁ち落とし帯。章題はこの高さの 40% の位置へ重ねる */
+  /* 章題はこの高さの 40% の位置へ重ねる */
   --vs-theme-bleed-illustration-chapter-opener--chapter-band-height: 135mm;
 
   --vs-color-foreground-alt: color-mix(
@@ -41,7 +30,6 @@
   --vs-columns: 2;
   --vs-column-gap: 8mm;
 
-  /* Type: 児童向けに大きめ・広い行間の sans */
   --vs-font-family:
     'Atkinson Hyperlegible', 'Helvetica Neue', Arial, sans-serif;
   --vs-font-family-alt: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
@@ -50,7 +38,6 @@
   --vs-color-foreground: #242629;
   --vs-color-background: #f6f1e7;
 
-  /* Paragraphs: 一字下げ・段間なし・左揃え(ラグドライト) */
   --vs--p-margin-block: 0;
   --vs--p-text-indent: 1.2em;
   --vs--p-text-align: start;
@@ -62,7 +49,6 @@
   --vs--figcaption-font-size: 0.75em;
   --vs--figcaption-text-align: center;
 
-  /* Headings: 章題は特大の League Spartan */
   --vs--heading-font-family: 'League Spartan', 'Arial Narrow', sans-serif;
   --vs--heading-font-weight: 800;
   --vs--heading-text-align: start;
@@ -88,7 +74,6 @@
   --vs-page--mbox-letter-spacing: 0.1em;
   --vs-page--mbox-text-color: var(--vs-color-foreground-alt);
 
-  /* 章番号は章題の上に小さく置く */
   --vs-section--counter-style: vs-theme-chapter-word;
   --vs-section--h1-marker-display: block;
   --vs-section--h1-marker-content: 'Chapter '
@@ -101,13 +86,10 @@ html {
   columns: auto;
 }
 
-/* 章ごとに2段組。章題と裁ち落とし帯だけが段抜きになる */
 section:has(> h1:first-child) {
   columns: var(--vs-columns);
   column-gap: var(--vs-column-gap);
 }
-
-/* ------- 章扉ヘッダー: 天・左右へ裁ち落とした挿絵 + 重ねた特大章題 ------- */
 
 /*
  * 章題は帯より前に流れるので、自身は高さを持たずに後続の帯へ重ねる。
@@ -142,10 +124,9 @@ header.bleed {
   margin-block-start: calc(-1 * var(--vs-page--margin-top));
   margin-inline: calc(-1 * var(--vs-page--margin-left));
   margin-block-end: 1.25rlh;
-  overflow: hidden; /* 挿絵を帯の寸法へ切り抜く */
+  overflow: hidden;
 }
 
-/* ランニングヘッド: 帯の最上部中央に控えめに置く */
 header.bleed::before {
   content: env(doc-title);
   position: absolute;
@@ -161,7 +142,6 @@ header.bleed::before {
   color: var(--vs-color-foreground-alt);
 }
 
-/* 挿絵は Markdown の ![](fig.svg) → figure > img。キャプションは持たない */
 header.bleed figure {
   display: block;
   margin-block: 0;
@@ -180,10 +160,6 @@ header.bleed figure figcaption {
   display: none;
 }
 
-/* ------- 本文 ------- */
-
-/* 章頭は字下げなし + ドロップキャップ
-   (Atkinson Hyperlegible Bold、約3行取り) */
 section > p:first-of-type {
   text-indent: 0;
 }
@@ -198,7 +174,6 @@ section > p:first-of-type::first-letter {
   color: var(--vs-theme-bleed-illustration-chapter-opener--color-ink-strong);
 }
 
-/* ------- 段に差し込む小さな挿絵 ------- */
 section > figure img {
   display: block;
   width: 78%;

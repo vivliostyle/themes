@@ -1,20 +1,9 @@
-/*
- * データベース風カタログ (four-column-plain-table)
- * A4縦・4段組・墨1色のデータベース風リファレンスカタログ。
- * JetBrains Mono で全編を統一し、3列のプレーン表を高密度に連続配置。
- * 柱は誌名 (env(pub-title)) + 細下罫、下部中央にノンブル、
- * 図版と NOTE 枠は段の下部に定着させる。
- *
- * 4 段は html のマルチカラム (--vs-columns) なので、表は段とページを
- * またいで流れる。節番号は章番号 + 節の通し番号で生成する。
- */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/page';
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  /* 4 段組。表は段とページをまたいで流す */
   --vs-columns: 4;
   --vs-column-fill: auto;
   --vs-column-gap: 3mm;
@@ -32,7 +21,6 @@
   --vs--p-text-indent: 0;
   --vs--p-text-align: start;
 
-  /* カテゴリ見出し (plain・太字のみ) */
   --vs--h2-font-size: 0.95em;
   --vs--h2-letter-spacing: 0.03em;
   --vs--h2-margin-block: 1.25rlh 0.5rlh;
@@ -40,7 +28,6 @@
   --vs--h3-letter-spacing: 0.03em;
   --vs--h3-margin-block: 0.75rlh 0.5rlh;
 
-  /* 一覧表: 罫線なし・背景交互なしのプレーン3列表。段をまたいで流す */
   --vs--table-break-inside: auto;
   --vs--table-border-width: 0;
   --vs--table-border-width-thead-inner: 0.35pt;
@@ -57,7 +44,6 @@
   --vs--table-cell-vertical-align: baseline;
   --vs--th-padding-block: var(--vs--table-cell-padding-block) 0.3em;
 
-  /* 図版: 段下部に定着 (page float) */
   --vs--figure-gap: 0.25rlh;
   --vs--figure-margin-block: 0.75rlh 0;
   --vs--figure-item-size-inline: 100%;
@@ -86,7 +72,6 @@
   --vs-page--border-width-top: 0.4pt;
   --vs-page--padding-top: 0.75rlh;
 
-  /* 節番号 (章立ての原稿では章番号を冠する) */
   --vs-section--h2-marker-display: inline;
   --vs-section--h2-marker-content: var(--vs-crossref-marker-counter-prefix, '')
     counter(vs-counter-sec-h2);
@@ -104,7 +89,6 @@
   --vs-section--call-content: var(--vs-section--call-counter-content);
 }
 
-/* 章立ての原稿 (frontmatter の class: chapter) では節番号に章番号を冠する */
 html.chapter {
   --vs-crossref-marker-counter-prefix: counter(vs-counter-chapter) '.';
   --vs-crossref-call-counter-prefix: target-counter(
@@ -143,7 +127,6 @@ th:nth-child(2) {
   padding-right: 0.45em;
 }
 
-/* 図版は段の地に定着させる */
 figure {
   float: bottom;
   float-reference: column;
@@ -157,7 +140,6 @@ figure img {
   height: auto;
 }
 
-/* NOTE 枠: code-block 風の等幅小字注記 */
 .note {
   --vs--p-font-size: 0.7em;
   --vs--p-line-height: 1.35;

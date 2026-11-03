@@ -1,7 +1,3 @@
-/*
- * example 専用の上書き。theme.css には手を入れない。
- */
-
 html.issue-start {
   --vs-document-first-page-counter-reset: vs-counter-chapter 11;
 }
@@ -33,7 +29,6 @@ body.colophon p {
 body.colophon hr {
   margin-block: 1rlh 1.25rlh;
 }
-/* 発行事項は1行1項目。連続する p を明細として組む */
 body.colophon hr ~ p {
   margin-block-end: 0.5rlh;
 }

@@ -1,4 +1,3 @@
-/* バナー直下のメタ情報 */
 .meta {
   margin: 0 0 0.75rlh;
   padding-block-end: 0.25rlh;
@@ -11,7 +10,6 @@
   text-align: end;
 }
 
-/* KPI ブロックに増減率を添える */
 .kpi-delta {
   margin: 0.25rlh 0 0;
   font-family: var(--vs-font-family-alt);
@@ -23,7 +21,6 @@
   white-space: nowrap;
 }
 
-/* 予想値の系列を表す凡例スウォッチ */
 .legend .sw-est {
   background-color: color-mix(
     in oklab,
@@ -42,7 +39,7 @@
 }
 
 /*
- * 表ごとの見出し列の幅。table-layout: fixed のため、残りの列は等分される。
+ * table-layout: fixed のため、残りの列は等分される。
  */
 .tbl-pl,
 .tbl-qt {
@@ -70,7 +67,6 @@
   --vs-theme-title-band-kpi-block--table-label-size-inline: 44%;
 }
 
-/* 小計行 */
 .tbl-std
   > table
   > tbody
@@ -94,7 +90,6 @@
   font-weight: 700;
 }
 
-/* 合計列を強調 */
 .tbl-dv > table :is(thead, tbody) :is(th, td):last-child {
   background-color: var(
     --vs-theme-title-band-kpi-block--table-sum-background-color

@@ -1,12 +1,3 @@
-/*
- * アーキテクチャ決定記録（ミニマルスタイル） (one-record-page)
- * 新書判（105mm × 173mm）・1段・モノトーン。
- * Noto Serif JP の飾らない見出しと 10pt 本文を行送り 1.8 でゆったり組み、
- * IBM Plex Mono のレコード番号、Noto Sans JP のメタ/キャプション、
- * 細罫で囲んだ補足ノート、小さな線画の図で「記録文書の品位」を出す。
- * 1 レコード = 1 ファイル (frontmatter に class: chapter) とし、
- * レコード番号は base のドキュメントカウンタ vs-counter-chapter から起こす。
- */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -19,7 +10,6 @@
 @import '@vivliostyle/theme-base/page';
 @import '@vivliostyle/theme-base/section';
 
-/* ADR-015 のように 3 桁ゼロ詰めで示すレコード番号 */
 @counter-style vs-theme-adr-record {
   system: numeric;
   symbols: '0' '1' '2' '3' '4' '5' '6' '7' '8' '9';
@@ -34,7 +24,6 @@
     var(--vs-color-background) 30%
   );
 
-  /* Type */
   --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
   --vs-font-size: 10pt;
   --vs-line-height: 1.8;
@@ -54,7 +43,6 @@
     var(--vs-color-background) 70%
   );
 
-  /* 図番号は「図<レコード番号>-<連番>」 */
   --vs-crossref-call-counter-prefix: target-counter(
       attr(href),
       vs-counter-chapter
@@ -65,10 +53,8 @@
   --vs--figcaption-text-color: var(--vs-color-foreground-alt);
   --vs--table-font-family: var(--vs-font-family-alt);
 
-  /* 段落: 字下げなし、段落間に約 1/4 行分、両端揃え */
   --vs--p-margin-block: 0 0.25rlh;
 
-  /* 見出し: プレーンな太めセリフ、左揃え、色や下線は使わない */
   --vs--heading-font-weight: 600;
   --vs--heading-text-align: start;
   --vs--heading-letter-spacing: -0.01em;
@@ -79,27 +65,23 @@
   --vs--h2-line-height: 1.35;
   --vs--h2-margin-block: 0.5rlh 0.25rlh;
 
-  /* 罫線 (タイトル直下の細罫) */
   --vs--hr-border-width-block-start: 0.3pt;
   --vs--hr-margin-block: 0 0.25rlh;
 
   /* pre は figure (flex) の子になるため、overflow で潰されないようにする */
   --vs--pre-overflow-x: visible;
 
-  /* 箇条書き (決定事項・影響の列挙) */
   --vs--lists-margin-block: 0 0.25rlh;
   --vs--lists-text-align: start;
   --vs--ul-list-style-type: square;
   --vs--ul-padding-inline-start: 4.6mm;
 
-  /* 図キャプション: サンセリフ・中央 */
   --vs--figure-gap: 0.25rlh;
   --vs--figcaption-font-family: var(--vs-font-family-alt);
   --vs--figcaption-font-size: 0.75em;
   --vs--figcaption-text-align: center;
   --vs--anchor-text-decoration: none;
 
-  /* Page: 天18・地16・小口(outer)14・ノド(inner)16、柱なし、ノンブルのみ上中央 */
   --vs-page--size: 105mm 173mm;
   --vs-page--margin-top: 18mm;
   --vs-page--margin-bottom: 16mm;
@@ -111,8 +93,7 @@
   --vs-page--mbox-text-color: var(--vs-color-foreground-alt);
   --vs-page--mbox-letter-spacing: 0.06em;
 
-  /* レコード番号: 1 レコード = 1 ドキュメントなので vs-counter-chapter で数える。
-     h1 (レコード表題) だけ採番し、背景/決定/影響などの節には番号を付けない */
+  /* 1 レコード = 1 ドキュメントなので vs-counter-chapter で数える */
   --vs-section--h1-marker-content: '決定記録'
     counter(
       vs-counter-chapter,
@@ -121,7 +102,6 @@
   --vs-section--h1-marker-display: inline;
   --vs-section--h1-marker-margin-inline-end: 1em;
 
-  /* コードのキャプションには番号を付けない */
   --vs-listing--marker-display: none;
   --vs-figure--label: 'Fig. ';
   --vs-figure--marker-content: var(--vs-figure--label)
@@ -133,7 +113,6 @@
     '\2003';
 }
 
-/* --- Header: レコード番号 → タイトル → 細罫 → ステータス行 --- */
 body.chapter > section:has(> h1:first-child)::before {
   content: 'ADR-' counter(vs-counter-chapter, vs-theme-adr-record);
 }
@@ -148,7 +127,6 @@ body.chapter > section:has(> h1:first-child)::before,
   text-align: start;
 }
 
-/* --- レコード相互参照 --- */
 a[data-ref='adr']::before {
   content: '決定記録'
     target-counter(
@@ -170,8 +148,8 @@ a:is([data-ref='adr'], [data-ref='adr-num']) {
   color: inherit;
 }
 
-/* ステータス行 (Noto Sans JP 7.5pt)。採番しない表題は閉じ # で書かれ section に
-   包まれないため、body 直下に置かれる場合も拾う */
+/* 採番しない表題は閉じ # で書かれ section に包まれないため、body 直下に置かれる
+   場合も拾う */
 :is(body, section.level1) > hr + p {
   --vs--p-margin-block: 0 0.5rlh;
   --vs--p-text-align: start;
@@ -181,7 +159,6 @@ a:is([data-ref='adr'], [data-ref='adr-num']) {
   color: var(--vs-color-foreground-alt);
 }
 
-/* 最初の小見出し (背景) は本文冒頭に近づける */
 section.level2:first-of-type > h2 {
   --vs--h2-margin-block: 0.25rlh;
 }
@@ -200,7 +177,6 @@ li code {
   font-size: 0.9em;
 }
 
-/* --- コード / コマンド (VFM の ```lang title="…" → figure.language-* ) --- */
 figure[class*='language-'] {
   --vs--figure-align-items: stretch;
   --vs--figure-margin-block: 0 0.25rlh;
@@ -225,12 +201,10 @@ figure[class*='language-'] > pre {
   background-color: transparent;
 }
 
-/* モノトーンを保ち、注記だけ弱める */
 .token.comment {
   color: var(--vs-color-foreground-alt);
 }
 
-/* --- 補足ノート: 細罫囲み・薄グレージュ地 --- */
 .note {
   margin-block: 0 0.25rlh;
   padding-block: 0.25rlh;
@@ -252,11 +226,9 @@ figure[class*='language-'] > pre {
   --vs--p-margin-block: 0.25rlh 0;
 }
 
-/* --- 図 (Markdown 画像 → figure > img + figcaption) ---
-   外部 SVG は <img> で読まれるため、図中のラベル書体は SVG 側の \3c style> に持たせる。 */
+/* 外部 SVG は <img> で読まれるため、図中のラベル書体は SVG 側の \3c style> に持たせる。 */
 figure:not([class]) {
   --vs--figure-margin-block: 0.25rlh 0;
-  /* 左右に余白を取り、版面幅より一回り小さく収める */
   --vs--figure-item-padding-inline: min(2ch, 5vw);
 }
 
@@ -265,7 +237,6 @@ figure:not([class]) img {
   height: auto;
 }
 
-/* --- 相互参照 (右寄せ) --- */
 .xref {
   --vs--p-margin-block: 0.25rlh 0;
   --vs--p-text-align: end;

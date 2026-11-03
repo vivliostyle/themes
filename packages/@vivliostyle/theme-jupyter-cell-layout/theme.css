@@ -1,11 +1,3 @@
-/*
- * ノートブック コード埋め込み説明型 (jupyter-cell-layout)
- * B5縦・横組み・1段。Jupyter Notebook のセル構造を模した章。
- * 白地 + Jupyter 橙 (#f37726)。コード fence の figure/figcaption を
- * 「実行番号ラベル + セル本体」に、段落・表・図・リストをそのままセルとして扱う。
- * 1 章 = 1 ファイル (frontmatter に class: chapter) とし、章番号は base の
- * ドキュメントカウンタ vs-counter-chapter から起こす。
- */
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -27,7 +19,6 @@
   );
   --vs-theme-jupyter-cell-layout--chapter-counter-style: decimal-leading-zero;
 
-  /* ---- テーマ固有 ---- */
   --vs-theme-jupyter-cell-layout--color-accent: var(--vs-color-foreground-alt);
   --vs-theme-jupyter-cell-layout--color-output-bg: color-mix(
     in oklab,
@@ -49,7 +40,6 @@
   --vs-theme-jupyter-cell-layout--cell-border-radius: 0.8mm;
   --vs-theme-jupyter-cell-layout--cell-gutter-width: 0.6mm;
 
-  /* ---- theme-base メタ変数 ---- */
   --vs-font-family: 'Source Sans 3', 'Helvetica Neue', sans-serif;
   --vs-font-family-alt: 'STIX Two Text', 'Times New Roman', serif;
   --vs-font-size: 8.5pt;
@@ -63,7 +53,6 @@
     var(--vs-color-background) 80%
   );
   --vs-border-width: 0.4pt;
-  /* 図・表・節の番号は「章番号.通し番号」 */
   --vs-crossref-call-counter-prefix: target-counter(
       attr(href),
       vs-counter-chapter,
@@ -76,7 +65,6 @@
     )
     '.';
 
-  /* ---- theme-base 要素変数 ---- */
   --vs--monospace-font-family: 'IBM Plex Mono', ui-monospace, monospace;
 
   --vs--h2-font-size: 1.75em;
@@ -87,7 +75,6 @@
   --vs--p-margin-block: 0;
   --vs--p-text-align: start;
 
-  /* コードセルの本体 */
   --vs--pre-background-color: color-mix(
     in oklab,
     var(--vs-color-foreground),
@@ -121,14 +108,12 @@
   --vs--table-margin-inline: 0;
   --vs--table-border-width: 0;
 
-  /* ---- Page ---- */
   --vs-page--size: 182mm 257mm;
   --vs-page--margin-top: 12mm;
   --vs-page--margin-bottom: 16mm;
   --vs-page--margin-left: 13mm;
   --vs-page--margin-right: 13mm;
 
-  /* 柱は「CHAPTER 04 · 章題」。章題は原稿の章見出しから取る */
   --vs-page--mbox-top-left-content: 'CHAPTER '
     counter(
       vs-counter-chapter,
@@ -145,22 +130,18 @@
     --vs-theme-jupyter-cell-layout--color-foreground-secondary
   );
   --vs-page--mbox-top-vertical-align: bottom;
-  /* ノンブルは小口下 (右ページは右下、左ページは左下) */
   --vs-page--mbox-bottom-outside-content: counter(page);
   --vs-page--mbox-bottom-font-family: 'IBM Plex Mono', monospace;
   --vs-page--mbox-bottom-font-size: 0.95em;
 
-  /* 章番号は 2 桁ゼロ詰め。節番号は「04.3」 */
   --vs-section--h2-marker-content: var(--vs-crossref-marker-counter-prefix)
     counter(vs-counter-sec-h2);
   --vs-section--h2-marker-display: inline;
   --vs-section--h2-marker-margin-inline-end: 0;
-  /* 節参照は番号だけを出す */
   --vs-section--label: '';
   --vs-section--call-counter-content: var(--vs-crossref-call-counter-prefix)
     target-counter(attr(href), vs-counter-sec-h2);
 
-  /* 図番号は「Fig. 04.2 — 」。コードのキャプションには番号を付けない */
   --vs-listing--marker-display: none;
   --vs-figure--label: 'Fig. ';
   --vs-figure--marker-content: var(--vs-figure--label)
@@ -172,7 +153,6 @@
     ' — ';
 }
 
-/* ---- セルの積み ---- */
 :root {
   counter-reset: vs-counter-cell;
 }
@@ -190,7 +170,6 @@ body > section.level2 > figure.language-text {
   break-before: avoid;
 }
 
-/* ---- 見出し (橙罫 + 番号) ---- */
 h2 {
   display: flex;
   align-items: baseline;
@@ -205,7 +184,6 @@ section > h2:first-child::before {
   color: var(--vs-theme-jupyter-cell-layout--color-accent);
 }
 
-/* 章の表題。番号は節番号を消費せず、章番号だけを出す */
 h2.chapter-title {
   string-set: chapter-title content();
 }
@@ -221,7 +199,6 @@ section > h2.chapter-title:first-child::before {
   );
 }
 
-/* ---- 相互参照 ---- */
 a[data-ref='sec-title']::before {
   content: var(--vs-section--call-counter-content) ' ' target-text(attr(href));
 }
@@ -231,7 +208,6 @@ a:is([data-ref='sec'], [data-ref='sec-title'], [data-ref='fig']) {
   text-decoration: none;
 }
 
-/* ---- 説明セル (通常段落) ---- */
 section.level2 > p {
   padding: 0.7em 3.6mm;
   border-width: var(--vs-border-width);
@@ -247,10 +223,9 @@ section.level2 > p sub {
   line-height: 0;
 }
 
-/* ---- コードセル / 出力セル ----
-   VFM の ```lang title="In" は
+/* VFM の ```lang title="In" は
    <figure class="language-lang"><figcaption>In</figcaption><pre>…</pre></figure>
-   になる。figcaption を橙の実行番号ガター、pre をセル本体として横並びにする。 */
+   になる。 */
 figure[class*='language-'] {
   flex-direction: row;
   align-items: stretch;
@@ -262,7 +237,6 @@ figure[class*='language-']:not(.language-text) {
   counter-increment: vs-counter-cell;
 }
 
-/* 実行番号ラベル「In [3]:」の [3]: の部分 */
 figure[class*='language-'] > figcaption::after {
   content: ' [' counter(vs-counter-cell) ']:';
 }
@@ -295,7 +269,7 @@ figure.language-text > pre {
   );
 }
 
-/* Prism トークン (theme-base の prism partial は使わず最小限だけ着色) */
+/* theme-base の prism partial は使わず最小限だけ着色 */
 .token.keyword,
 .token.builtin {
   color: var(--vs-theme-jupyter-cell-layout--color-token-keyword);
@@ -313,7 +287,6 @@ figure.language-text > pre {
   color: var(--vs-color-foreground);
 }
 
-/* ---- 数式セル (イタリックセリフ手組み) ---- */
 .math-cell {
   border-width: var(--vs-border-width);
   border-style: solid;
@@ -392,7 +365,6 @@ figure.language-text > pre {
   font-family: var(--vs-font-family-alt);
 }
 
-/* ---- 表 ---- */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -437,8 +409,7 @@ tbody strong {
   color: var(--vs-theme-jupyter-cell-layout--color-accent);
 }
 
-/* ---- チャート (Markdown 画像 → figure > img + figcaption) ----
-   SVG 内部のスタイルは SVG ファイル側に持たせる (外部 SVG は
+/* SVG 内部のスタイルは SVG ファイル側に持たせる (外部 SVG は
    <img> で読み込まれるため親文書の CSS が効かない)。 */
 figure:not([class]) {
   padding: 0.65em 3.6mm 0.45em;
@@ -459,7 +430,6 @@ figure:not([class]) figcaption {
   text-align: start;
 }
 
-/* ---- 結論セル (箇条書き + 再現手順ノートの2列) ---- */
 .concl {
   display: flex;
   gap: 5mm;

@@ -1,14 +1,3 @@
-/*
- * ご利用明細書 (title-band-grid-table)
- * A4縦・横組みの実務帳票。Noto Sans JP のゴシックのみで構成し、赤を
- * タイトル帯・header-rule・請求概要の太枠・区分見出しの帯に限定して使う。
- * 上部は 赤ベタ帯タイトル+柱風の赤細罫 / 左に会員情報・右に赤太枠の請求概要ボックス。
- * 本文は3段の段組で、各段に赤帯の区分見出し+利用日/ご利用先/金額の格子表を置き、
- * 太罫の小計行で締める。明細が版面に収まらないときは表頭を繰り返して段・ページへ
- * 流れ続ける。末尾にグレー枠の囲み注記、下部中央にノンブル - 1 -。
- * 金額は tabular-nums の右揃えで桁を揃える。
- * DOM は VFM 出力に合わせ、明細表は Markdown の table、小計は tbody の最終行で表現する。
- */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -48,7 +37,6 @@
     var(--vs-color-foreground),
     var(--vs-color-background) 80%
   );
-  /* 段組は明細 (.cols) にだけ掛ける */
   --vs-columns: 3;
   --vs-column-gap: 4mm;
 
@@ -80,7 +68,6 @@
   --vs-page--margin-left: 15mm;
   --vs-page--margin-right: 15mm;
 
-  /* 区分見出しは「1.」からの通し番号 */
   --vs-section--h2-marker-display: inline;
   --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '. ';
   --vs-section--h2-marker-margin-inline-end: 0;
@@ -92,7 +79,6 @@ html {
   columns: auto;
 }
 
-/* ---- 赤ベタのタイトル帯 ---- */
 h1 {
   display: flex;
   justify-content: space-between;
@@ -110,7 +96,6 @@ h1 .meta {
   white-space: nowrap;
 }
 
-/* ---- 柱風の赤細罫 + センター小タイトル (header-rule) ---- */
 .subhead {
   display: flex;
   align-items: center;
@@ -131,7 +116,6 @@ h1 .meta {
   border-block-start-color: var(--vs-theme-title-band-grid-table--color-accent);
 }
 
-/* ---- 会員情報 (左) + 請求概要ボックス (右) ---- */
 .frontmatter {
   display: flex;
   justify-content: space-between;
@@ -203,26 +187,22 @@ address .meta {
   letter-spacing: 0.01em;
 }
 
-/* ---- 明細の段組 ---- */
 .cols {
   columns: var(--vs-columns);
   column-gap: var(--vs-column-gap);
   margin-block-start: 1.25rlh;
 }
 
-/* 区分ごとに段を改める。段に収まらない明細はそのまま次の段・次ページへ流れる */
 .col + .col {
   break-before: column;
 }
 
-/* 段見出し: 赤ベタ帯 (block-bg) */
 .col h2 {
   background-color: var(--vs-theme-title-band-grid-table--color-accent);
   color: var(--vs-color-background);
   padding: 0.55em 2.6mm;
 }
 
-/* ---- 明細表 ---- */
 .col table {
   --vs--table-border-color: var(--vs-color-border-alt);
   --vs--table-border-color-outer: var(--vs-color-border);
@@ -278,7 +258,6 @@ address .meta {
   padding-inline: 0.8mm;
 }
 
-/* 金額列: tabular-nums の右揃えで桁を揃える */
 .price,
 .col td:nth-child(3) {
   font-variant-numeric: tabular-nums;
@@ -288,7 +267,6 @@ address .meta {
   text-align: right;
 }
 
-/* 小計行 (Markdown 表の最終行): 太字・太罫で締め、日付欄との縦罫を消して2列分に見せる */
 .col tbody tr:last-child td {
   border-block-start-width: 0.45mm;
   border-block-start-color: color-mix(
@@ -313,7 +291,6 @@ address .meta {
   text-indent: 0.3em;
 }
 
-/* ---- 囲み注記 (boxed-note) ---- */
 .note {
   inline-size: 106mm;
   margin-inline-start: auto;

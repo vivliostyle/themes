@@ -1,14 +1,3 @@
-/*
- * 学術ニュース誌 (masthead-index-box-two-column)
- * B5判 (176×250mm) の英文学術ニュース誌 記事面。Source Serif 4 の題目/節見出し/
- * 本文/注に、Source Sans 3 の柱・記事種別・著者・索引・ノンブルを重ね、墨と温白の
- * みで抑制して組む。全幅マストヘッド(太罫の柱 + 中央寄せの大見出し・デッキ・署名)
- * + 均等2段組本文 + 段抜きの図版・表 + 薄地の索引ボックス + 全幅の巻末注、という
- * ニュース誌の中面レイアウト。
- *
- * 原稿は `## 節見出し` で1節。節番号・図番号・表番号・注番号はいずれも base の
- * カウンタが付けるので、原稿には書かない。
- */
 @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Source+Sans+3:wght@400;500;600;700&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -26,7 +15,6 @@
   --vs-columns: 2;
   --vs-column-gap: 7mm;
 
-  /* Type: serif body, 9.5pt / 1.6, justified with hyphenation */
   --vs-font-family: 'Source Serif 4', 'Noto Serif', Georgia, serif;
   --vs-font-size: 9.5pt;
   --vs-line-height: 1.6;
@@ -54,17 +42,14 @@
   --vs--p-margin-block: 0;
   --vs--p-text-indent: 1em;
 
-  /* Headings: serif, near-black */
   --vs--heading-font-weight: 600;
   --vs--heading-letter-spacing: 0.005em;
   --vs--heading-margin-block: 0 0.5rlh;
 
-  /* Article title (masthead) */
   --vs--h1-font-size: 2.65em;
   --vs--h1-line-height: 1.04;
   --vs--h1-text-align: center;
 
-  /* Numbered section headings */
   --vs--h2-font-size: 1.35em;
   --vs--h2-line-height: 1.15;
   --vs--h2-margin-block: 0.75rlh 0.5rlh;
@@ -75,26 +60,22 @@
   --vs--figcaption-text-color: var(--vs-color-foreground-alt);
   --vs--table-font-family: var(--vs-font-family-alt);
 
-  /* Footnote reference marks */
   --vs--sup-font-size: 0.66em;
 
-  /* 紙面ではリンクに下線を引かない */
   --vs--anchor-text-decoration: none;
 
-  /* 索引ボックスのリストは自前で組む (マーカー・字下げなし) */
+  /* 索引ボックスのリストは自前で組む */
   --vs--lists-margin-block: 0;
   --vs--ul-list-style-type: none;
   --vs--ul-padding-inline-start: 0;
   --vs--ol-padding-inline-start: 0;
 
-  /* Page: B5, wide even margins */
   --vs-page--size: 176mm 250mm;
   --vs-page--margin-top: 13mm;
   --vs-page--margin-bottom: 13mm;
   --vs-page--margin-left: 18mm;
   --vs-page--margin-right: 18mm;
 
-  /* フォリオは小口側の地 (右ページは右下、左ページは左下) */
   --vs-page--mbox-bottom-outside-content: counter(page);
   --vs-page--mbox-bottom-font-family: var(--vs-font-family-alt);
   --vs-page--mbox-bottom-font-size: 0.85em;
@@ -105,15 +86,13 @@
   --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '.';
   --vs-section--h2-marker-margin-inline-end: 0.35em;
 
-  /* Figure / table numbering */
   --vs-figure--marker-content: 'Figure '
     counter(vs-counter-fig, var(--vs-counter-style)) ' — ';
   --vs-table--marker-content: 'Table '
     counter(vs-counter-tbl, var(--vs-counter-style)) ' — ';
 }
 
-/* ---- 2-column body; masthead, wide blocks & notes span both columns ----
-   段抜きを伴うため、段組はルートでなく body に掛ける */
+/* 段抜きを伴うため、段組はルートでなく body に掛ける */
 html {
   columns: 1;
 }
@@ -129,7 +108,6 @@ body > [role='doc-endnotes'] {
   column-span: all;
 }
 
-/* ---- Masthead ---- */
 body > header {
   margin-block-end: 1rlh;
 }
@@ -138,7 +116,6 @@ header p {
   text-indent: 0;
 }
 
-/* Running head: top rule + department, sans caps, tracked */
 header .meta {
   font-family: var(--vs-font-family-alt);
   font-weight: 500;
@@ -153,7 +130,6 @@ header .meta {
   margin-block: 0 0.75rlh;
 }
 
-/* Kicker (article kind): sans caps, centered, tracked */
 header .subhead {
   font-family: var(--vs-font-family-alt);
   font-weight: 600;
@@ -164,7 +140,6 @@ header .subhead {
   margin-block: 0 0.25rlh;
 }
 
-/* Deck / standfirst */
 header .lead {
   font-size: 1.1em;
   line-height: 1.42;
@@ -174,7 +149,6 @@ header .lead {
   margin-inline: auto;
 }
 
-/* Byline: sans, bold, caps, tracked */
 header .byline {
   font-family: var(--vs-font-family-alt);
   font-weight: 700;
@@ -185,7 +159,6 @@ header .byline {
   margin-block: 0 0.25rlh;
 }
 
-/* Affiliation: serif italic, muted, centered */
 header .credit {
   font-style: italic;
   font-size: 1.05em;
@@ -198,20 +171,17 @@ body > header + section > h2:first-child {
   margin-block-start: 0;
 }
 
-/* Footnote reference marks in the body */
 sup {
   color: var(--vs-color-foreground-alt);
   vertical-align: super;
   margin-inline-start: 0.1em;
 }
 
-/* ---- 図版・表: 段抜きで置く ---- */
 .wide {
   column-span: all;
   break-inside: avoid;
 }
 
-/* 図版のキャプションは図の下、細罫を挟んで小さく */
 figure:has(> :is(img, picture)) > figcaption {
   font-size: 0.8em;
   line-height: 1.4;
@@ -222,9 +192,6 @@ figure:has(> :is(img, picture)) > figcaption {
   border-block-start-color: var(--vs-color-border-alt);
 }
 
-/* ---- 表: 縦罫なし・天地の太罫と見出し下の細罫だけで組む ---- */
-
-/* 表のキャプションは表の上、サンセリフの小見出しとして */
 figure:has(table) > figcaption {
   font-family: var(--vs-font-family-alt);
   font-weight: 600;
@@ -271,7 +238,6 @@ figure tbody tr + tr td {
   border-block-start-color: var(--vs-color-border-alt);
 }
 
-/* ---- Topic index box ---- */
 .card {
   break-inside: avoid;
   background-color: var(--vs-color-background-alt);
@@ -306,7 +272,6 @@ figure tbody tr + tr td {
   margin-block-end: 0;
 }
 
-/* リーダーと参照先のノンブルは leader() + target-counter() で引く */
 .card li > a {
   color: var(--vs-color-foreground);
 }
@@ -317,7 +282,6 @@ figure tbody tr + tr td {
   font-variant-numeric: tabular-nums;
 }
 
-/* ---- 中見出し代わりの引用 ---- */
 blockquote.pull {
   break-inside: avoid;
   margin-block: 0.75rlh;
@@ -347,7 +311,6 @@ blockquote.pull .attribution {
   margin-block-start: 0.25rlh;
 }
 
-/* ---- 巻末注: 全幅・細罫・ぶら下げ番号 ---- */
 :root {
   --vs-endnote--section-margin-block: 1rlh 0;
   --vs-endnote--section-hr-margin-block: 0 0.5rlh;
@@ -366,6 +329,5 @@ blockquote.pull .attribution {
   --vs-endnote--item-padding-inline-start: 2.4em;
   --vs-endnote--item-text-indent: -2.4em;
   --vs-endnote--item-text-align: justify;
-  /* 紙面では往復リンクを見せない */
   --vs-endnote--backlink-display: none;
 }

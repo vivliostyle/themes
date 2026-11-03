@@ -1,10 +1,3 @@
-/**
- * 国際学術論文集 本文頁 (theme-two-column-three-line-table)
- * B5縦・横組み2段組。Noto Sans のサンセリフ本文 (9pt/1.5)、番号付きの紺見出し、
- * STIX Two Text のディスプレイ数式 + 右端式番号、三線データ表、段下の区切り罫付き脚注。
- * 天の両端に誌名と論文名のランニングヘッド+紺細罫、地の中央にノンブル。
- * VFM 出力: body > div.paper-head (全幅) + section.level2 (> section.level3)。
- */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -20,7 +13,6 @@
 @import '@vivliostyle/theme-base/math';
 
 :root {
-  /* テーマ固有トークン */
   --vs-theme-two-column-three-line-table--color-accent: var(
     --vs-color-foreground-alt
   );
@@ -29,7 +21,6 @@
   --vs-column-fill: auto;
   --vs-column-gap: 6mm;
 
-  /* Type */
   --vs-font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
   --vs-font-size: 9pt;
   --vs-line-height: 1.5;
@@ -48,10 +39,8 @@
   );
   --vs-widows-orphans: 2;
 
-  /* Paragraphs: 字下げなし・段落後に微小アキ・両端揃え */
   --vs--p-margin-block: 0 0.25rlh;
 
-  /* Headings */
   --vs--h2-font-size: 1.45em;
   --vs--h2-line-height: 1.2;
   --vs--h2-letter-spacing: 0.01em;
@@ -66,13 +55,12 @@
     --vs-theme-two-column-three-line-table--color-accent
   );
 
-  /* 図表は本文と同じ幅の塊として置く (flex だとページ分割できない)。
+  /* flex だとページ分割できない。
      block なので図とキャプションの間はキャプションのマージンで空ける */
   --vs--figure-display: block;
   --vs--figure-margin-block: 0 0.5rlh;
   --vs--figure-margin-inline: 0;
 
-  /* 三線データ表: 天地の太罫・ヘッダ下の中罫・行間の細罫のみ */
   --vs--table-border-width: 0;
   --vs--table-border-width-block-start: 1.3pt;
   --vs--table-border-width-block-end: 1.3pt;
@@ -97,12 +85,10 @@
   --vs--th-font-weight: 600;
   --vs--th-padding-block: 0 0.95em;
 
-  /* ディスプレイ数式の参照 <a href="#eq-N" data-ref="eq"></a> はラベルなしの '(N)' */
   --vs-equation--label: '';
   --vs-equation--margin-block: 0.5rlh;
   --vs-equation--marker-font-size: 0.95em;
 
-  /* Page: B5縦 */
   --vs-page--size: JIS-B5;
   --vs-page--margin-top: 15mm;
   --vs-page--margin-bottom: 15mm;
@@ -111,14 +97,12 @@
   --vs-page--mbox-top-padding-bottom: 0.25rlh;
   --vs-page--mbox-top-vertical-align: bottom;
 
-  /* Headings: 節は「1.」、小節は「2.1」 */
   --vs-section--h2-marker-content: var(--vs-section--marker-counter-content) '.';
   --vs-section--h2-marker-display: inline;
   --vs-section--h2-marker-margin-inline-end: 0.35em;
   --vs-section--h3-marker-display: inline;
   --vs-section--h3-marker-margin-inline-end: 0.45em;
 
-  /* 表の見出し「TABLE 2.」と、その参照 <a href="#tbl-id" data-ref="tbl"></a> */
   --vs-table--label: 'TABLE ';
   --vs-table--marker-content: var(--vs-table--label)
     var(--vs-crossref-marker-counter-prefix, '')
@@ -129,10 +113,8 @@
     '.';
   --vs-table--marker-margin-inline: 0 0.35em;
 
-  /* 参考文献: [n] をぶら下げた小さな組み */
   --vs-citation--marker-margin-inline: 0 0.4em;
 
-  /* Footnotes: 段下・番号(装飾なし)・上に短い区切り罫 */
   --vs-footnote--font-size: 0.9em;
   --vs-footnote--line-height: 1.4;
   --vs-footnote--call-content: counter(vs-counter-footnote, decimal);
@@ -143,7 +125,6 @@
   --vs-footnote--area-before-margin-inline: 0 66%;
   --vs-footnote--area-before-margin-block: 0.25rlh;
 
-  /* 柱(両端ランニングヘッド)+紺細罫、地の中央にノンブル。左の柱は誌名・巻号 */
   --vs-page--mbox-top-left-content: env(pub-title);
   --vs-page--mbox-top-right-content: env(doc-title);
   --vs-page--mbox-bottom-center-content: counter(page);
@@ -156,7 +137,6 @@
   --vs-page--border-width-top: 0.5pt;
 }
 
-/* 2段組は body に掛ける。標題ブロックだけが段を横断する */
 html {
   columns: auto;
 }
@@ -167,7 +147,6 @@ body {
   column-fill: var(--vs-column-fill);
 }
 
-/* ---- 標題ブロック: 段を横断する全幅 ---- */
 .paper-head {
   column-span: all;
   border-block-end: 0.5pt solid var(--vs-color-border-alt);
@@ -206,7 +185,6 @@ body {
   letter-spacing: 0.02em;
 }
 
-/* ---- MathML ---- */
 :root {
   --vs-math--display-margin-block: 0;
 }
@@ -220,7 +198,6 @@ a[data-ref='eq'] {
   --vs--anchor-text-color: inherit;
 }
 
-/* ---- 三線データ表 ---- */
 figcaption {
   text-align: start;
   font-size: 0.95em;
@@ -242,7 +219,6 @@ tbody td:first-child {
   font-weight: 600;
 }
 
-/* ---- 参考文献 ---- */
 :root {
   --vs-citation--items-margin-block: 0;
   --vs-citation--items-padding-inline-start: 0;

@@ -1,12 +1,3 @@
-/*
- * バレットジャーナル (dot-grid-checkbox)
- * A5 のバレットジャーナル。5mm 間隔のドット方眼を版面全面に敷き、簡潔な
- * ラベル/日付とタスク・メモを、枠線を使わず短いスレートブルーの罫だけで
- * 緩やかに整列させる。タスクは角チェックボックス付きリスト、メモは小さな
- * 丸印の箇条書き、スケッチは製図調の図版で表す。端正なミニマル組版。
- * 1 ページ = 1 コレクション (キー/月間ログ/デイリーログ/リスト) を単位とし、
- * ノンブルと、ページ番号を自動で拾うインデックス (nav[role=doc-toc]) を持つ。
- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans:wght@400;500&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -49,25 +40,22 @@
   --vs--heading-font-weight: 500;
   --vs--heading-margin-block: 0;
 
-  /* Masthead: 媒体名 */
   --vs--h1-font-size: 1.55em;
   --vs--h1-font-weight: 600;
   --vs--h1-letter-spacing: 0.13em;
   --vs--h1-line-height: 1.1;
   --vs--h1-margin-block: 0 1.25rlh;
 
-  /* Section labels: 英大文字・広トラッキング */
   --vs--h2-font-size: 0.95em;
   --vs--h2-letter-spacing: 0.3em;
   --vs--h2-margin-block: 0 0.75rlh;
 
-  /* Lists: マーカーは自前で描くので既定のマーカー・字下げを解除する */
+  /* マーカーは自前で描くので既定のマーカー・字下げを解除する */
   --vs--lists-margin-block: 0;
   --vs--lists-margin-inline: 0;
   --vs--ul-list-style-type: none;
   --vs--ul-padding-inline-start: 0;
 
-  /* Sketch: 製図調の図版を外側寄せに置く */
   --vs--figure-align-items: end;
   --vs--figure-gap: 0.5rlh;
   --vs--figure-item-size-inline: 70mm;
@@ -80,7 +68,6 @@
   --vs-page--margin-bottom: 10mm;
   --vs-page--margin-left: 11mm;
   --vs-page--margin-right: 11mm;
-  /* 5mm 間隔のドット方眼を版面全面に敷く */
   --vs-page--background-image: radial-gradient(
     circle,
     color-mix(
@@ -92,7 +79,6 @@
     transparent 0.36mm
   );
   --vs-page--background-size: 5mm 5mm;
-  /* ノンブルは小口下 (右ページは右下、左ページは左下) */
   --vs-page--mbox-bottom-outside-content: counter(page);
   --vs-page--mbox-bottom-font-family: var(--vs-font-family-alt);
   --vs-page--mbox-bottom-font-size: 0.8em;
@@ -100,14 +86,13 @@
     --vs-theme-dot-grid-checkbox--color-foreground-secondary
   );
 
-  /* Index: 項目の字下げをせず、他のリストと同じ左端に揃える */
+  /* 他のリストと同じ左端に揃える */
   --vs-toc--ol-indent-size: 0;
 
-  /* スケッチは通し番号ではなく "fig." の標識だけを持つ */
   --vs-figure--marker-content: 'fig. — ';
 }
 
-/* Masthead: 媒体名を左、日付を右上に離す。日付は見出しの前に置いて回り込ませる
+/* 日付は見出しの前に置いて回り込ませる
    (絶対配置だとページ分割時に位置が定まらない) */
 .meta {
   float: inline-end;
@@ -118,7 +103,6 @@ h1 {
   color: var(--vs-theme-dot-grid-checkbox--color-accent);
 }
 
-/* 見出し下の短いアクセント罫 */
 h1::after {
   content: '';
   display: block;
@@ -145,7 +129,6 @@ h2 {
   color: var(--vs-theme-dot-grid-checkbox--color-accent);
 }
 
-/* Tasks: 角チェックボックス付きリスト (Markdown のタスクリスト) */
 li.task-list-item {
   margin-block: 0.25rlh;
   line-height: 1.4;
@@ -165,8 +148,7 @@ li.task-list-item input[type='checkbox'] {
   background-color: transparent;
 }
 
-/* 完了タスク: チェックボックスに X。
-   linear-gradient を 2 層重ねると Vivliostyle が 2 層目の色を落として黒く
+/* linear-gradient を 2 層重ねると Vivliostyle が 2 層目の色を落として黒く
    塗るため、X は 1 枚の SVG で描く */
 li.task-list-item input[type='checkbox']:checked {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M-20 -20L120 120M120 -20L-20 120' stroke='%2334495e' stroke-width='19.8'/%3E%3C/svg%3E");
@@ -178,7 +160,6 @@ li.task-list-item del {
   text-decoration-color: var(--vs-theme-dot-grid-checkbox--color-accent);
 }
 
-/* Notes: 小さな丸印の箇条書き */
 section.level2 ul:not(.contains-task-list) li {
   position: relative;
   padding-inline-start: 1.6em;
@@ -197,7 +178,7 @@ section.level2 ul:not(.contains-task-list) li::before {
   background-color: var(--vs-color-foreground);
 }
 
-/* Index: 見出しとノンブルを点リーダでつなぐ。ページ番号は target-counter 任せ */
+/* ページ番号は target-counter 任せ */
 [role='doc-toc'] li {
   margin-block: 0.5rlh;
   line-height: 1.4;

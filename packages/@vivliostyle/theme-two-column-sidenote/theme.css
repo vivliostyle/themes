@@ -1,17 +1,3 @@
-/*
- * 学会の拡張アブストラクト (extended abstract) 向けテーマ。
- * A4縦・左右2段の高密度なレイアウト。Inter のプレーンな番号付き見出しと
- * 20pt級のタイトル、Source Sans 3 の本文、IBM Plex Sans の極小サイドノート/表内数値、
- * IBM Plex Mono の短い疑似コードを組み合わせる。青は番号・短い水平罫・図中の主系列・
- * サイドノートのマーカーに限定し、淡青は表ヘッダーと注目領域、オレンジは図中の
- * 第二系列にのみ用いる。マストヘッドと段抜きの表・疑似コードは column-span: all、
- * 段抜きの図はページ天に送るページフロート。
- *
- * VFM 出力の DOM:
- *   body > p.eyebrow
- *        > section.level1 > (h1, p.byline, p.meta, hr, section.level2 …)
- * 段組は section.level1 に掛ける。
- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -27,7 +13,6 @@
 @import '@vivliostyle/theme-base/sidenote';
 
 :root {
-  /* ---- テーマ固有の値 (theme-base に対応する変数が無いもの) ---------------- */
   --vs-theme-two-column-sidenote--color-foreground-secondary: color-mix(
     in oklab,
     var(--vs-color-foreground),
@@ -36,7 +21,6 @@
   --vs-theme-two-column-sidenote--color-accent: var(--vs-color-foreground-alt);
   --vs-theme-two-column-sidenote--figure-full-width-size-inline: 100%;
 
-  /* ---- Type --------------------------------------------------------------- */
   --vs-font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
   --vs-font-family-alt: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   --vs-font-family-monospace: 'IBM Plex Mono', ui-monospace, monospace;
@@ -56,12 +40,10 @@
   --vs-widows-orphans: 2;
   --vs-hyphens: none;
 
-  /* Paragraphs: no indent, small block gap */
   --vs--p-margin-block: 0 0.5rlh;
   --vs--p-text-indent: 0;
   --vs--p-text-align: justify;
 
-  /* Headings: Inter, plain; uppercase handled per-element */
   --vs--heading-font-family: var(--vs-font-family-alt);
   --vs--heading-font-weight: 600;
   --vs--heading-margin-block: 0.25rlh;
@@ -78,14 +60,13 @@
 
   --vs--h3-font-size: 0.95em;
 
-  /* Short blue rule under the masthead (hr は本文中に1本だけ) */
+  /* hr は本文中に1本だけ */
   --vs--hr-border-color: var(--vs-color-foreground-alt);
   --vs--hr-border-width-block-start: 2.5px;
   --vs--hr-margin-block: 0 0.5rlh;
   --vs--hr-margin-inline: 0;
   --vs--hr-size-inline: 46%;
 
-  /* Pseudocode (```text フェンス) */
   --vs--monospace-line-height: 1.4;
   --vs--pre-font-size: 0.8em;
   --vs--pre-margin-block: 0.25rlh 0.5rlh;
@@ -104,7 +85,6 @@
   /* pre を multicol/flex 内で潰さない */
   --vs--pre-overflow-x: visible;
 
-  /* Figures: full column width */
   --vs--figure-align-items: stretch;
   --vs--figure-gap: 0.25rlh;
   --vs--figure-item-size-inline: 100%;
@@ -112,7 +92,6 @@
   --vs--figcaption-font-size: 0.8em;
   --vs--figcaption-text-align: start;
 
-  /* Tables: ink frame + light row rules, sans header on tint */
   --vs--table-font-size: 0.8em;
   --vs--table-size-inline: 100%;
   --vs--table-font-family: 'IBM Plex Sans', 'Source Sans 3', sans-serif;
@@ -135,7 +114,6 @@
     var(--vs-color-background) 85%
   );
 
-  /* ---- Page: A4, tight symmetric margins, folio only ---------------------- */
   --vs-page--size: A4;
   --vs-page--margin-top: 17mm;
   --vs-page--margin-bottom: 17mm;
@@ -148,10 +126,8 @@
     --vs-theme-two-column-sidenote--color-foreground-secondary
   );
 
-  /* ---- Math ---------------------------------------------------------------- */
   --vs-math--display-margin-block: 0.5rlh;
 
-  /* ---- Sidenotes: 段の左肩に浮かせ、番号だけを大きく立てる ------------------ */
   --vs-sidenote--float: inline-start;
   --vs-sidenote--clear: none;
   --vs-sidenote--size-inline: 24mm;
@@ -172,7 +148,6 @@
     --vs-theme-two-column-sidenote--color-accent
   );
 
-  /* ---- Cross references ---------------------------------------------------- */
   /* 図表番号は alt/キャプションに書けないので base のカウンタで採番する */
   --vs-figure--label: 'Fig. ';
   --vs-figure--marker-content: var(--vs-figure--label)
@@ -190,7 +165,6 @@
     )
     ' ';
 
-  /* ---- Section numbering ---------------------------------------------------- */
   --vs-section--marker-display: inline;
   --vs-section--h1-marker-display: none;
   --vs-section--h2-marker-margin-inline-end: 0.5ch;
@@ -213,7 +187,6 @@ section > h2:first-child::before {
   font-weight: 700;
 }
 
-/* ---- 2段組は section.level1 (本文を包む要素) に掛ける --------------------- */
 html {
   columns: auto;
 }
@@ -224,7 +197,6 @@ body > section.level1 {
   column-fill: var(--vs-column-fill);
 }
 
-/* ---- Page-spanning masthead ---------------------------------------------- */
 .eyebrow {
   font-family: var(--vs-font-family-alt);
   font-weight: 700;
@@ -266,7 +238,6 @@ h2 {
   text-transform: uppercase;
 }
 
-/* ---- Front matter (abstract / concepts / keywords) ----------------------- */
 .abstract {
   font-size: 0.95em;
   line-height: 1.32;
@@ -293,7 +264,7 @@ h2 {
   text-transform: uppercase;
 }
 
-/* ---- Sidenotes (base の sidenote 変数に無いぶんの装飾) -------------------- */
+/* base の sidenote 変数に無いぶんの装飾 */
 .sidenote {
   border-inline-start-width: 1.5px;
   border-inline-start-style: solid;
@@ -301,7 +272,6 @@ h2 {
   font-weight: 500;
 }
 
-/* 番号は本文に流し込まず、見出しとして1行に立てる */
 .sidenote::before {
   display: block;
   line-height: 1;
@@ -313,7 +283,6 @@ h2 {
   text-align: start;
 }
 
-/* ---- Figures (Markdown 画像 → class の付かない figure) -------------------- */
 figure > img {
   display: block;
   block-size: auto;
@@ -324,7 +293,6 @@ figcaption {
   color: var(--vs-theme-two-column-sidenote--color-foreground-secondary);
 }
 
-/* 採番自体は base の figure/table モジュール。書体・色だけ design 側で当てる */
 figure > figcaption::before {
   font-family: var(--vs-font-family-alt);
   font-weight: 600;
@@ -347,8 +315,8 @@ figure.tbl > figcaption {
   margin-block: 0.25rlh;
 }
 
-/* ---- 段抜き (VFM は画像の class を <img> 側に付ける) ---------------------- */
-/* 段抜きの図は組版位置に空きが無いと column-span では脱落するため、
+/* VFM は画像の class を <img> 側に付ける。
+   段抜きの図は組版位置に空きが無いと column-span では脱落するため、
    ページ天に送るページフロートで置く */
 figure:has(> img.full-width) {
   float: top;
@@ -374,7 +342,6 @@ figure > img.full-width {
   margin-block: 0;
 }
 
-/* ---- Math ------------------------------------------------------------ */
 .math.display {
   font-size: 0.95em;
 }
@@ -383,7 +350,6 @@ figure > img.full-width {
   font-size: 0.9em;
 }
 
-/* ---- References ----------------------------------------------------- */
 :root {
   --vs-citation--items-text-color: var(
     --vs-theme-two-column-sidenote--color-foreground-secondary

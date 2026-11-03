@@ -1,10 +1,3 @@
-/*
- * 文庫巻末詳細解説版 (vertical-dropcap-endnote)
- * 文庫の巻末解説ページ。A6判・縦組み1段。Noto Serif JP の端正な明朝体で、
- * ドロップキャップ風の初字・ルビ・小さな註番号を持つ本文を組み、
- * 小口側に短い縦組み傍注、本文終端の細い縦罫の先に巻末註をコンパクトに収録する。
- * アクセント色は用いず、墨色と濃灰、単色の細罫のみで学術的な静けさを保つ。
- */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/endnote';
@@ -12,7 +5,6 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  /* Type: 縦組み明朝 8pt / 行間 1.7 */
   --vs-writing-mode: vertical-rl;
   --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
   --vs-font-size: 8pt;
@@ -26,7 +18,6 @@
   --vs-color-background: #f7f3e8;
   --vs-letter-spacing: 0.02em;
 
-  /* 罫線は巻末註の細罫のみ */
   --vs-color-border: color-mix(
     in oklab,
     var(--vs-color-foreground),
@@ -35,14 +26,11 @@
 
   --vs-document-root-counter-reset: vs-counter-sidenote;
 
-  /* Paragraphs: 一字下げ、両端揃え、段間なし */
   --vs--p-margin-block: 0;
   --vs--p-text-indent: 1em;
 
-  /* Headings: 装飾を抑えた明朝 Medium */
   --vs--heading-font-weight: 500;
 
-  /* 章題: 右上から始める一行見出し。字間をやや広く取る */
   --vs--h1-font-size: 1.28em;
   --vs--h1-line-height: 1.4;
   --vs--h1-letter-spacing: 0.18em;
@@ -50,7 +38,6 @@
   --vs--h1-margin-inline: 2.5mm 0;
   --vs--h1-string-set: chapter-title content();
 
-  /* ルビは本文の約半分 */
   --vs--rt-font-size: 0.5em;
 
   --vs-page--size: 105mm 148mm;
@@ -60,7 +47,7 @@
   --vs-page--margin-right: 11mm;
   --vs-page--mbox-font-family: var(--vs-font-family);
   --vs-page--mbox-text-color: var(--vs-color-foreground-alt);
-  /* 柱は「書名　　解説の題」。ノンブルは文庫の慣習にならい漢数字。 */
+  /* ノンブルは文庫の慣習にならい漢数字。 */
   --vs-page--mbox-top-left-content: env(pub-title) '　　' string(chapter-title);
   --vs-page--mbox-bottom-right-content: counter(page, cjk-decimal);
   --vs-page--mbox-top-font-size: 0.75em;
@@ -68,8 +55,7 @@
   --vs-page--mbox-bottom-letter-spacing: 0.12em;
   --vs-page--mbox-bottom-writing-mode: vertical-rl;
 
-  /* 巻末註: 本文終端の細罫の先にコンパクトに収める。罫は hr ではなく section の
-     上罫で引く (hr は見出しより後ろに出るため) */
+  /* 罫は hr ではなく section の上罫で引く (hr は見出しより後ろに出るため) */
   --vs-endnote--section-border-color-block-start: var(
     --vs-color-foreground-alt
   );
@@ -93,8 +79,8 @@
   --vs-endnote--call-text-color: var(--vs-color-foreground-alt);
 
   /*
-   * 註番号・傍注番号は括弧付きの縦中横。text-combine-upright は一つのボックス内の
-   * 連続テキストしか合成しないため、合印は ::before で丸ごと生成して <sup> は隠す。
+   * text-combine-upright は一つのボックス内の連続テキストしか合成しないため、
+   * 合印は ::before で丸ごと生成して <sup> は隠す。
    */
   --vs-endnote--call-content: '(' counter(vs-counter-endnote-call) ')';
   --vs-endnote--call-sup-display: none;
@@ -105,7 +91,6 @@
   --vs-endnote--marker-margin-inline: 0 0.2em;
 }
 
-/* 冒頭一字をドロップキャップ風に約2.6倍へ拡大する */
 body > section > p:first-of-type {
   text-indent: 0;
 }
@@ -121,19 +106,16 @@ body > section > p:first-of-type > ruby:first-child rt {
   font-weight: 400;
 }
 
-/* 縦中横 */
 .tcy {
   text-combine-upright: all;
 }
 
-/* 小口側の短い縦組み傍注 */
 .sidebar {
   font-size: 0.7em;
   color: var(--vs-color-foreground-alt);
   line-height: 1.45;
   letter-spacing: 0.02em;
   margin-block: 0;
-  /* 天から下げ、小口寄りの短冊として置く */
   padding-inline-start: 22mm;
 }
 
@@ -149,14 +131,12 @@ body > section > p:first-of-type > ruby:first-child rt {
   margin-inline-end: 0.15em;
 }
 
-/* 章句の切れ目に置く星印 */
 .divider {
   margin-block: 0.25rlh;
   text-align: center;
   text-indent: 0;
 }
 
-/* 解説者の署名は末尾に寄せる */
 .byline {
   margin-block-start: 0.25rlh;
 }

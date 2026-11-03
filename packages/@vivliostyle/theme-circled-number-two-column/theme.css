@@ -1,10 +1,3 @@
-/*
- * circled-number-two-column
- * A5縦・横書き2段のコンパクトなレシピ集テーマ。1段に1品を組み、
- * フレッシュグリーン (#66cc00) を番号バッジ・データバー・表罫に反復し、
- * 調理時間/人数/保存期間のデータバーの特大数字を最も目立たせる。
- * 品数のぶんだけ段が増え、段が尽きればページが増える。
- */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -18,7 +11,6 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  /* テーマ固有 */
   --vs-theme-circled-number-two-column--color-accent: var(
     --vs-color-foreground-alt
   );
@@ -35,7 +27,6 @@
     var(--vs-color-background) 45%
   );
 
-  /* 2段。段境は淡いグリーンの細罫 */
   --vs-columns: 2;
   --vs-column-fill: auto;
   --vs-column-gap: 8mm;
@@ -44,7 +35,6 @@
   --vs--p-margin-block: 0 0.5rlh;
   --vs--p-text-align: start;
 
-  /* レシピ見出し */
   --vs--h2-font-size: 1.45em;
   --vs--h2-font-weight: 900;
   --vs--h2-line-height: 1.2;
@@ -53,7 +43,6 @@
   --vs--h2-margin-inline: 0;
   --vs--h2-text-color: #1a1a1a;
 
-  /* 完成写真 (Markdown 画像 → figure > img) */
   --vs--figure-display: block;
   --vs--figure-margin-block: 0 0.5rlh;
   --vs--figure-margin-inline: 0;
@@ -68,7 +57,6 @@
   --vs--ul-list-style-type: none;
   --vs--ol-list-style-type: none;
 
-  /* 材料表 */
   --vs--table-size-inline: 100%;
   --vs--table-font-size: 0.95em;
   --vs--table-margin-block: 0.5rlh 0.75rlh;
@@ -97,23 +85,19 @@
   --vs-page--margin-left: 8mm;
   --vs-page--margin-right: 8mm;
 
-  /* ノンブル */
   --vs-page--mbox-bottom-center-content: counter(page);
   --vs-page--mbox-bottom-font-size: 1.05em;
 
-  /* 品番は原稿の見出し順から振る。桁の体裁は example 側で差し替えられる */
   --vs-section--h2-marker-display: inline-block;
   --vs-section--h2-marker-content: counter(
     vs-counter-sec-h2,
     decimal-leading-zero
   );
   --vs-section--h2-marker-margin-inline-end: 0.8rem;
-  /* 1段 = 1品 */
   --vs-section--h2-break-before: column;
 }
 
 /*
- * レシピ見出し: 緑角丸バッジの白抜き番号 + 太字レシピ名。
  * バッジは flex ではなく負の text-indent でぶら下げる (flex は見出し中の
  * ルビ・強調などのインライン要素を別アイテムに割ってしまう)
  */
@@ -143,7 +127,6 @@ figure img {
   border-radius: 1.2mm;
 }
 
-/* データバー: 時計/人数/冷蔵/冷凍の4セル・特大グリーン数字 */
 .stat-block {
   margin-block-end: 0.5rlh;
   break-inside: avoid;
@@ -194,8 +177,6 @@ figure img {
   color: var(--vs-color-foreground);
 }
 
-/* 材料表: 薄緑地ヘッダ + グリーン罫 */
-/* 外枠と表頭下罫だけアクセント、行罫・段罫は淡いグリーン */
 tr,
 th,
 td {
@@ -209,7 +190,7 @@ table td + td {
   width: 38%;
 }
 
-/* 手順: 緑丸数字 + 本文。読み物の見出しは閉じ # で書き section に包まれないため、
+/* 読み物の見出しは閉じ # で書き section に包まれないため、
    その手順リストは body 直下に置かれる */
 :is(body, section) > ol {
   counter-reset: vs-counter-step;

@@ -1,8 +1,3 @@
-/*
- * theme.css だけでこの研究会資料は組める。ここで与えるのは、この見本の図と表の
- * 列数に合わせた寸法だけ。
- */
-
 /* 5 ブロックの系統図は theme.css の枠幅では版面に収まらないため詰める */
 .steps.compact {
   --vs-theme-mincho-thick-underline--steps-min-size-inline: 21mm;

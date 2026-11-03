@@ -1,13 +1,8 @@
-/*
- * example 専用の上書き。theme.css には手を入れない。
- */
-
 /* この本は第42回だけを収めた抜粋なので、回数の起点をずらす */
 html.chapter {
   --vs-document-first-page-counter-reset: vs-counter-chapter 41;
 }
 
-/* お便り: 金茶の縦罫で本編の掛け合いと切り分ける */
 .letter {
   margin-block: 0.25rlh 0.5rlh;
   padding-inline-start: 3.6mm;
@@ -31,7 +26,6 @@ html.chapter {
   letter-spacing: 0.04em;
 }
 
-/* 用語解説 */
 dl.glossary {
   margin-block: 0;
 }

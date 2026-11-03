@@ -1,10 +1,4 @@
-/*
- * example 専用の上書き。theme.css には手を入れない。
- */
-
-/* ---- 章の見出しまわり ---- */
-
-/* 節見出し: theme.css は章見出し (h1) しか持たないので、対談の左欄 20mm と
+/* theme.css は章見出し (h1) しか持たないので、対談の左欄 20mm と
    同じ位置に小さな黒角を置いた中見出しを足す */
 h2 {
   display: flex;
@@ -25,7 +19,6 @@ h2::before {
   background-color: var(--vs-color-border);
 }
 
-/* 章の頭に置く日付と舞台のクレジット */
 .chapter-lead {
   margin-block: -0.25rlh 1rlh;
   font-size: 0.82em;
@@ -33,8 +26,6 @@ h2::before {
   letter-spacing: 0.08em;
   color: var(--vs-color-foreground-alt);
 }
-
-/* ---- 対談以外の本文要素 ---- */
 
 /* 箇条書き・表・用語表はコード欄と同じ 20mm の位置に寄せて、
    対談の流れから一段引いた資料として見せる */
@@ -72,8 +63,6 @@ li {
   --vs--th-text-align: start;
   --vs--th-font-weight: 700;
 }
-
-/* ---- 表紙 ---- */
 
 body.cover {
   page: cover;
@@ -148,8 +137,6 @@ body.cover {
   text-indent: 0.14em;
 }
 
-/* ---- もくじ ---- */
-
 [role='doc-toc'] ol {
   margin-block: 0;
   margin-inline: 6mm 3mm;
@@ -194,8 +181,6 @@ body.cover {
   font-size: 0.9em;
   color: var(--vs-color-foreground-alt);
 }
-
-/* ---- 奥付 ---- */
 
 .colophon-meta {
   --vs--table-size-inline: 100%;

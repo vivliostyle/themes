@@ -1,12 +1,3 @@
-/*
- * 学術誌論文 (Elsevier / Advances in Mathematics 風、A4縦・1段組)。
- * STIX Two Text のセリフ本文に、番号付き見出しの左へ太い群青バーを添えた節見出し、
- * スモールキャップラベル+斜体本文の定理環境、中央揃えの別行立て数式+右端の式番号、
- * 外(左)余白のサイドノート、地に区切り罫付きの脚注を配置する。
- * 節番号・定理番号・式番号・サイドノートの符号はすべてカウンタが付ける。
- * 論題の h1 は閉じ `#` (`# 論題 #`) で書いてセクション化を止めるので、節番号は
- * body 直下の section.level2 から始まる。番号を付けない見出しも閉じ `#` で書く。
- */
 @import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -32,10 +23,9 @@
     --vs-color-foreground-alt
   );
 
-  /* 証明のラベル (言語の差し替え用) */
+  /* 言語の差し替え用 */
   --vs-theme-side-border-heading-math--proof-label: 'Proof';
 
-  /* Type */
   --vs-font-family: 'STIX Two Text', 'Times New Roman', serif;
   --vs-font-family-alt: 'Source Serif 4', 'STIX Two Text', serif;
   --vs-font-size: 10.5pt;
@@ -53,7 +43,7 @@
     )
     '.';
 
-  /* 罫の色・太さ。脚注の区切り罫と版面の上罫はこの hr 変数にフォールバックする */
+  /* 脚注の区切り罫と版面の上罫はこの hr 変数にフォールバックする */
   --vs--hr-border-color: color-mix(
     in oklab,
     var(--vs-color-foreground),
@@ -61,18 +51,14 @@
   );
   --vs--hr-border-width-block-start: 0.5pt;
 
-  /* Paragraphs: 継続段落は字下げ・段落間余白なし (書籍組)。先頭段落は字下げ解除 */
   --vs--p-margin-block: 0;
   --vs--p-text-indent: 1.3em;
   --vs--p-first-text-indent: 0;
 
-  /* Headings */
   --vs--heading-font-family: var(--vs-font-family-alt);
 
-  /* 論題を柱に流す */
   --vs--h1-string-set: article-title content();
 
-  /* 節見出し */
   --vs--h2-font-size: 1.32em;
   --vs--h2-line-height: 1.2;
   --vs--h2-letter-spacing: 0.005em;
@@ -83,21 +69,19 @@
     --vs-theme-side-border-heading-math--accent-color
   );
 
-  /* 小見出しは節見出しの群青バーを付けず、書体だけ揃える */
   --vs--h3-font-size: 1.06em;
   --vs--h3-font-weight: 600;
   --vs--h3-letter-spacing: 0.005em;
   --vs--h3-line-height: 1.25;
   --vs--h3-margin-block: 0.75rlh 0.25rlh;
 
-  /* Page: A4縦。左(外)余白を広く取りサイドノート列にする */
+  /* 左(外)余白を広く取りサイドノート列にする */
   --vs-page--size: A4;
   --vs-page--margin-top: 20mm;
   --vs-page--margin-bottom: 17mm;
   --vs-page--margin-left: 42mm;
   --vs-page--margin-right: 20mm;
 
-  /* 柱は原稿の論題、ノンブルはサイドノート列と同じ側の地に置く */
   --vs-page--mbox-top-center-content: string(article-title);
   --vs-page--mbox-bottom-left-content: counter(page);
   --vs-page--mbox-top-center-text-transform: uppercase;
@@ -113,20 +97,16 @@
   --vs-page--mbox-bottom-font-size: 0.9em;
   --vs-page--mbox-bottom-letter-spacing: 0.02em;
 
-  /* 節番号は常用数字。h2 が「1」、h3 が「1.1」 */
   --vs-section--marker-display: inline;
   --vs-section--h1-marker-display: none;
   --vs-section--marker-margin-inline-end: 0.55em;
-  /* 節の参照は「§2.1」 */
   --vs-section--label: '§';
 
-  /* 別行立て数式: 番号は「節.通番」、参照はラベルなしの '(N.M)' */
   --vs-equation--label: '';
   --vs-equation--margin-block: 0.75rlh;
   --vs-equation--marker-font-size: 0.95em;
   --vs-citation--marker-inset-inline-start: -6.5mm;
 
-  /* サイドノート: 左(外)余白へ引き出す */
   --vs-sidenote--float: left;
   --vs-sidenote--clear: left;
   --vs-sidenote--break-inside: auto;
@@ -141,7 +121,6 @@
   /* base の符号は段落の上に1行で立つため使わず、最初の段落の頭へ流し込む */
   --vs-sidenote--marker-content: none;
 
-  /* Footnotes: 上付き番号(アスタリスクなし) */
   --vs-footnote--font-size: 0.8em;
   --vs-footnote--text-color: var(
     --vs-theme-side-border-heading-math--color-foreground-secondary
@@ -162,10 +141,8 @@
 
   --vs-math--display-margin-block: 0;
 
-  /* 定理環境の見出しは「Lemma 2.3.」 */
   --vs-theorem--marker-suffix: '.';
 
-  /* 参考文献: 番号をぶら下げた小さな組み */
   --vs-citation--items-font-size: 0.86em;
   --vs-citation--items-hyphens: auto;
   --vs-citation--items-line-height: 1.35;
@@ -180,19 +157,18 @@
   counter-reset: vs-counter-thm;
 }
 
-/* 定理・数式の番号は節ごとに振り直す。base が section 要素に持つ counter-reset を
-   潰さないよう、リセットは見出し要素側に置く (カウンタは h2 と後続の兄弟に及ぶ) */
+/* base が section 要素に持つ counter-reset を潰さないよう、リセットは見出し要素側に置く
+   (カウンタは h2 と後続の兄弟に及ぶ) */
 section > h2:first-child {
   counter-reset: vs-counter-thm vs-counter-eq;
 }
 
-/* 継続段落は字下げ。theme-base の --vs--p-first-text-indent は見出し・図表・
-   引用の直後を自動でカバーするが、定理・数式の直後は対象外のため個別に指定する */
+/* theme-base の --vs--p-first-text-indent は見出し・図表・引用の直後を自動でカバーするが、
+   定理・数式の直後は対象外のため個別に指定する */
 :is(.equation, .theorem, .proof) + p {
   text-indent: var(--vs--p-first-text-indent);
 }
 
-/* ---- 標題ブロック ---- */
 .paper-head {
   border-block-end-color: var(--vs--hr-border-color);
   border-block-end-style: solid;
@@ -253,15 +229,12 @@ section > h2:first-child {
   letter-spacing: 0.03em;
 }
 
-/* ---- 番号を持たない後付けの見出し (謝辞・参考文献) ----
-   閉じ `#` で書くと section に包まれず body 直下に置かれる。
-   節見出しの群青バーの左に入る番号分の余白だけを詰める */
+/* 閉じ `#` で書くと section に包まれず body 直下に置かれる */
 body > h2 {
   margin-block-start: 1.25rlh;
 }
 
-/* ---- 定理環境 ----
-   theme-base の theorem モジュールは複数段落の定理でラベルを独立した行に立てるので
+/* theme-base の theorem モジュールは複数段落の定理でラベルを独立した行に立てるので
    読み込まず、ラベル (--vs-theorem--label) と区切り (--vs-theorem--marker-suffix) の
    変数だけを使う */
 .theorem {
@@ -297,7 +270,6 @@ body > h2 {
   --vs-theorem--label: 'Question ';
 }
 
-/* 主張は斜体、定義・例・注意・問題は立体で組む */
 .theorem > p {
   font-style: italic;
   text-indent: 0;
@@ -321,7 +293,6 @@ body > h2 {
   content: '.';
 }
 
-/* ラベル・名前・仮定の見出しは共通のスモールキャップ */
 .theorem > p:first-child::before,
 .thmname,
 .hypotheses strong:first-child {
@@ -337,14 +308,12 @@ body > h2 {
   margin-inline-end: 0.4em;
 }
 
-/* 数式は地の文の斜体を継がない */
 .theorem .math,
 .proof .math,
 .theorem math {
   font-style: normal;
 }
 
-/* 番号を持たない仮定の並び */
 .hypotheses {
   margin-block: 0.5rlh;
 }
@@ -353,7 +322,6 @@ body > h2 {
   text-indent: 0;
 }
 
-/* ---- 証明 ---- */
 .proof {
   margin-block: 0.5rlh;
 }
@@ -373,7 +341,6 @@ body > h2 {
   margin-inline-end: 0.4em;
 }
 
-/* 対象を明示する証明は「Proof of 〜.」。区切りの句点は対象の後ろへ回す */
 .proof > p:first-child:has(> .proofof:first-child)::before {
   content: var(--vs-theme-side-border-heading-math--proof-label) ' of ';
   margin-inline-end: 0;
@@ -387,7 +354,6 @@ body > h2 {
   content: '.';
 }
 
-/* 別行立ての数式を挟んで続く証明は冒頭のラベルを繰り返さない */
 .proof.continued > p:first-child::before {
   content: none;
 }
@@ -430,7 +396,7 @@ a:is(
   font-size: 0.96em;
 }
 
-/* ---- サイドノート (base の sidenote 変数に無いぶんの装飾) ---- */
+/* base の sidenote 変数に無いぶんの装飾 */
 .sidenote {
   hyphens: none;
 }
@@ -440,7 +406,6 @@ a:is(
   text-align: start;
 }
 
-/* サイドノートの符号は文書を通した小文字アルファベット */
 .sidenote > p:first-child::before {
   content: '(' counter(vs-counter-sidenote, lower-alpha) ')';
   color: var(--vs-color-foreground);
@@ -453,7 +418,6 @@ a:is(
   text-indent: var(--vs--p-text-indent);
 }
 
-/* ---- 参考文献 ---- */
 ol.cite-items > li > p {
   margin-block: 0;
   text-indent: 0;

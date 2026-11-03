@@ -1,11 +1,3 @@
-/*
- * small-caps-dot-leader
- * A5縦・1段組のメニュー向けテーマ。アイボリー紙にライラックの罫と
- * 欧文スモールキャップ/イタリック、和文明朝を組む。
- * 角に切込みのある細罫見出しボックス・点線リーダーの品目表・プルクオート・
- * 二重枠のおすすめボックスで華やかな意匠をつくる。
- * 品目は table (品名行 / 説明行の交互) で組み、分類ごとにページを割らない。
- */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+JP:wght@300;400;500&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -70,7 +62,6 @@
   --vs--h3-letter-spacing: 0.12em;
   --vs--h3-line-height: 1.25;
 
-  /* 強調 (em) は品名・引用文とも欧文イタリックの装飾書体で組む */
   --vs--emphasis-font-family: var(--vs-font-family-alt);
   --vs--emphasis-font-weight: 500;
 
@@ -86,7 +77,7 @@
   /* 図版キャプションはこの紙面では使わない (alt は img に残る) */
   --vs--figcaption-display: none;
 
-  /* 品目表は罫線もセル余白も持たない (点線リーダーは td の疑似要素で描く) */
+  /* 点線リーダーは td の疑似要素で描く */
   --vs--table-border-width: 0;
   --vs--table-size-inline: 100%;
   --vs--table-margin-block: 0;
@@ -101,7 +92,6 @@
   --vs-page--margin-left: 12mm;
   --vs-page--margin-right: 12mm;
 
-  /* ページ末尾中央のノンブル飾り */
   --vs-page--mbox-bottom-center-content: '\2015\2002' counter(page) '\2002\2015';
   --vs-page--mbox-bottom-font-family: var(--vs-font-family-alt);
   --vs-page--mbox-bottom-text-color: color-mix(
@@ -121,13 +111,10 @@
   --vs-theorem--marker-display: none;
 }
 
-/* ---------- ヘッダー ---------- */
-
 header {
   text-align: center;
 }
 
-/* 図版は役割ごとに幅だけを決め、高さは画像の実寸比に任せる */
 figure img {
   display: block;
   margin-inline: auto;
@@ -159,9 +146,6 @@ header > p {
   color: var(--vs-theme-small-caps-dot-leader--color-foreground-secondary);
 }
 
-/* ---------- セクション見出し: 角に切込みのある細罫ボックス ---------- */
-
-/* 品目分類はひとまとまりの単位。ページをまたいで割らない */
 section.level2 {
   margin-block-start: 0.5rlh;
   break-inside: avoid;
@@ -243,8 +227,6 @@ h3 .subhead {
   letter-spacing: 0.22em;
 }
 
-/* ---------- 品目表 + 図版の横並び ---------- */
-
 /* 図版を添える分類だけ .grid で囲む。図版が無ければ表は通常どおり流れる */
 .grid {
   display: flex;
@@ -261,12 +243,11 @@ h3 .subhead {
   flex: none;
 }
 
-/* 見出し行 (品名 / 価格) は紙面には出さない */
 section.level2 table thead {
   display: none;
 }
 
-/* 奇数行 = 品名 + 価格。点線リーダーは td の疑似要素で敷き、
+/* 点線リーダーは td の疑似要素で敷き、
    品名側は紙色の背景で覆って「品名 …… 価格」に見せる。 */
 section.level2 table tbody tr:nth-child(odd) td:first-child {
   position: relative;
@@ -305,7 +286,6 @@ section.level2 table tbody tr:nth-child(odd) td:last-child {
   white-space: nowrap;
 }
 
-/* 偶数行 = 品目の説明文 */
 section.level2 table tbody tr:nth-child(even) td:first-child {
   padding-block-end: 0.8em;
   padding-inline-start: 0.6mm;
@@ -319,8 +299,6 @@ section.level2 table tbody tr:nth-child(even) td:first-child {
 section.level2 table tbody tr:last-child td {
   padding-block-end: 0;
 }
-
-/* ---------- プルクオート ---------- */
 
 blockquote.pull-quote {
   position: relative;
@@ -364,8 +342,6 @@ blockquote.pull-quote p:last-child {
   text-align: center;
   color: var(--vs-theme-small-caps-dot-leader--color-foreground-secondary);
 }
-
-/* ---------- おすすめ: 二重枠ボックス ---------- */
 
 .note {
   position: relative;

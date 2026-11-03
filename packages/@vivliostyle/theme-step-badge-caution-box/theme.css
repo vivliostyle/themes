@@ -1,10 +1,3 @@
-/*
- * 学校教科書の実験マニュアル向けテーマ
- * A5縦・横組み2段。白地に赤を見出しバッジ・STEPバッジ・安全注意ボックスへ限定
- * 反復する Noto Sans JP の実用紙面。柱は両側、ノンブルは地の中央。
- * 実験・安全ページは h1 ごとに改ページし、番号はカウンタから振る。
- * 器具は表、材料・安全注意は箇条書き、操作は番号付きリストで書く。
- */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -91,7 +84,6 @@
   --vs--table-cell-line-height: 1.35;
   --vs--table-cell-vertical-align: top;
   --vs--table-border-width: 0;
-  /* 行罫は淡グレー、見出し行下は本文色の太罫 (器具一覧表) */
   --vs--table-border-width-row: 0.25pt;
   --vs--table-border-color-row: var(--vs-color-border-alt);
   --vs--table-border-width-block-end: 0.25pt;
@@ -119,10 +111,8 @@
   --vs-page--margin-left: 9mm;
   --vs-page--margin-right: 9mm;
 
-  /* 実験・安全のページはそれぞれ1ページで完結させる */
   --vs-section--h1-break-before: page;
 
-  /* 柱: 左は各ページの章名、右はそのページの題 */
   --vs-page--mbox-font-family: var(--vs-font-family);
   --vs-page--mbox-top-font-size: 0.95em;
   --vs-page--mbox-top-text-color: color-mix(
@@ -148,7 +138,6 @@
     '\3000';
 }
 
-/* ---- ページの版面: 上罫 + 2段組 (見出しと図は段抜き) ---- */
 html {
   columns: auto;
 }
@@ -164,12 +153,11 @@ section:has(> h1:first-child) {
   padding-block-start: 1rlh;
 }
 
-/* 図番号はページごとに振り直す (カウンタのスコープは h1 の後続兄弟に及ぶ) */
+/* カウンタのスコープは h1 の後続兄弟に及ぶ */
 section > h1:first-child {
   counter-reset: vs-counter-fig;
 }
 
-/* ---- 見出しブロック: 赤バッジ + 特大題 + リード文 ---- */
 h1 {
   display: flex;
   align-items: center;
@@ -196,7 +184,6 @@ section:has(> h1.safety:first-child) {
   counter-increment: vs-counter-safety;
 }
 
-/* 見出しバッジ: 実験・安全はそれぞれの通し番号、その他は data-badge の文字 */
 section > h1.experiment:first-child::before {
   content: '実験' counter(vs-counter-experiment, var(--vs-counter-style));
 }
@@ -205,7 +192,6 @@ section > h1.safety:first-child::before {
   content: '安全' counter(vs-counter-safety, var(--vs-counter-style));
 }
 
-/* 通し番号を持たないページ (もくじなど) は原稿にバッジの文字を書く */
 section > h1[data-badge]:first-child::before {
   content: attr(data-badge);
 }
@@ -218,7 +204,6 @@ section > h1[data-badge]:first-child::before {
   line-height: 1.6;
 }
 
-/* 柱へ流すための章名。紙面には出さない */
 .chapter-name {
   string-set: chapter-name content(text);
   height: 0;
@@ -226,13 +211,11 @@ section > h1[data-badge]:first-child::before {
   overflow: hidden;
 }
 
-/* 段組の開始位置をリード文から離す */
 .chapter-name + .lead,
 h1 + .lead {
   margin-block-end: 1.25rlh;
 }
 
-/* ---- 準備セクション: 赤■見出し + ●小見出し ---- */
 h2::before {
   content: '■';
   color: var(--vs-theme-step-badge-caution-box--color-accent);
@@ -246,7 +229,6 @@ h3::before {
   vertical-align: 0.15em;
 }
 
-/* ---- 器具一覧 (表) ---- */
 thead th {
   letter-spacing: 0.04em;
 }
@@ -256,7 +238,6 @@ thead th {
   white-space: nowrap;
 }
 
-/* ---- 材料 (箇条書き) ---- */
 section > ul {
   margin-block: 0.25rlh 0;
 }
@@ -266,7 +247,6 @@ section > ul > li {
   line-height: 1.5;
 }
 
-/* ---- もくじ ---- */
 .toc :is(th, td):last-child {
   width: 9mm;
   text-align: end;
@@ -290,7 +270,6 @@ a:is([data-ref='exp'], [data-ref='page']) {
   --vs--anchor-text-color: inherit;
 }
 
-/* ---- 安全上の注意ボックス (赤ヘッダ+薄赤地角丸+ピクトグラム) ---- */
 .warning {
   margin-block-start: 1rlh;
   border-radius: 2.5mm;
@@ -346,9 +325,6 @@ a:is([data-ref='exp'], [data-ref='page']) {
   width: 10.5mm;
 }
 
-/* ---- 操作手順 (番号付きリスト → 赤角丸STEPバッジ) ----
-   li::before = バッジ本体と "STEP" の小文字、li::after = 通し番号。
-   どちらも absolute にして本文のフローから外す。 */
 .steps > ol {
   list-style-type: none;
   counter-reset: vs-counter-step;
@@ -409,7 +385,7 @@ a:is([data-ref='exp'], [data-ref='page']) {
   color: var(--vs-theme-step-badge-caution-box--color-accent);
 }
 
-/* 線画は本文の右へ回り込ませる (li 先頭の画像だけの段落を浮かせる) */
+/* li 先頭の画像だけの段落を浮かせる */
 .steps > ol > li > p:first-child {
   float: right;
   margin-block: 0 0.25rlh;
@@ -421,7 +397,6 @@ a:is([data-ref='exp'], [data-ref='page']) {
   width: 18mm;
 }
 
-/* ---- 装置図 ---- */
 section > figure img {
   display: block;
   width: 100%;

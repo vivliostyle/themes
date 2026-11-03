@@ -1,16 +1,3 @@
-/*
- * 記念誌・アンソロジー向けの A4縦・3段組の本文ページ。
- * EB Garamond のオールドスタイル・セリフ本文に、Libre Caslon Text の見出し、
- * Archivo の柱・ノンブル・図表キャプションを合わせる。墨一色 (クリーム紙)。
- *
- * 原稿の構成 (VFM):
- *   章の md   … frontmatter に `class: chapter` (h1 = 章題、h2 = 節題)
- *   付録の md … `class: appendix` (h1 = 付録の表題)
- *   前付・後付 … class なし (h1 の番号は出さない)
- *   標題紙     … `class: title-page` (柱・ノンブルを出さない)
- * 3段組は本文が流れる単位 (章の md では節、それ以外では本文全体) に掛け、
- * 見出しと段抜きの表は column-span: all で段抜きする。
- */
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Archivo:wght@400;500;600&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -37,7 +24,6 @@
   --vs-widows-orphans: 2;
   --vs-font-feature-settings: 'onum' 1, 'liga' 1, 'kern' 1;
 
-  /* 節・図表の番号は「章番号.連番」。章番号は文書カウンタ (class: chapter) から取る */
   --vs-crossref-call-counter-prefix: target-counter(
       attr(href),
       vs-counter-chapter
@@ -105,7 +91,6 @@
   --vs-page--mbox-top-vertical-align: bottom;
   --vs-page--mbox-top-padding-bottom: 0.5rlh;
 
-  /* 柱 (中央) + ノンブル (右)。その下の共通罫は版面の上罫 */
   --vs-page--mbox-top-font-family: var(--vs-font-family-alt);
   --vs-page--mbox-top-center-font-size: 0.95em;
   --vs-page--mbox-top-center-font-weight: 500;
@@ -118,7 +103,6 @@
 
   --vs-footnote--font-size: 0.85rem;
   --vs-footnote--line-height: 1.3;
-  /* 脚注番号 (呼び出し) の書体は本文と分けて Archivo に */
   --vs-footnote--call-font-family: var(--vs-font-family-alt);
   --vs-footnote--call-font-weight: 500;
 
@@ -185,11 +169,6 @@ html {
   columns: auto;
 }
 
-/*
- * 文書の種別
- */
-
-/* 章の md: h1 は節のマストヘッドの上に置く小さな章標、節は改ページで起こす */
 body.chapter {
   --vs-section--h1-marker-display: inline;
   --vs-section--h1-marker-content: 'Chapter ' counter(vs-counter-chapter)
@@ -205,7 +184,6 @@ body.chapter {
   --vs--h1-margin-block: 0 0.75rlh;
 }
 
-/* 付録の図表は章番号ではなく付録記号を冠する */
 html.appendix,
 body.appendix {
   page: appendix-document;
@@ -241,11 +219,7 @@ body.title-page {
   --vs-page--mbox-top-right-content: '';
 }
 
-/*
- * 本文
- */
-
-/* 段組は本文が流れる単位に掛ける。章の md では節ごと、それ以外は本文全体 */
+/* 段組は本文が流れる単位に掛ける */
 body:not(.chapter) > section.level1,
 body.chapter > section.level1 > section.level2 {
   columns: var(--vs-columns);
@@ -256,12 +230,11 @@ body.chapter > section.level1 > section.level2 {
   column-span: all;
 }
 
-/* 章の最初の節は章標に続けて組む (改ページで章標だけが残らないように) */
+/* 改ページで章標だけが残らないように */
 section > h1:first-child + section:has(> h2:first-child) {
   break-before: auto;
 }
 
-/* イタリックのリード文: マストヘッド直後の段落 */
 section > :is(h1, h2):first-child + p {
   column-span: all;
   font-style: italic;
@@ -272,7 +245,6 @@ section > :is(h1, h2):first-child + p {
   margin-block: 0.5rlh 0.75rlh;
 }
 
-/* 本文の書き出し段落は字下げしない */
 section > :is(h1, h2):first-child + p + p {
   text-indent: 0;
 }
@@ -294,7 +266,6 @@ a[data-ref='tbl-appendix']::before {
     target-counter(attr(href), vs-counter-tbl);
 }
 
-/* 小口側の傍注: イタリックの脇注を小口マージンへ float させる */
 aside {
   float: right;
   clear: right;
@@ -326,7 +297,6 @@ figure:has(> img) > figcaption::before {
   letter-spacing: 0.02em;
 }
 
-/* 段抜きのデータ表ブロック: キャプション + 横罫主体の表 */
 .full-width {
   column-span: all;
   break-inside: avoid;
@@ -341,7 +311,6 @@ figure:has(table) > figcaption {
   break-after: avoid;
 }
 
-/* 標題紙などで使う独立した表題行 */
 .caption {
   font-family: var(--vs--heading-font-family);
   font-weight: 700;
@@ -372,7 +341,6 @@ tbody td:first-child {
   text-align: start;
 }
 
-/* 合計行: 上下を太罫で挟み、数字を太字にする */
 tbody tr:last-child td {
   font-weight: 600;
   border-block-start-width: 0.9pt;
@@ -383,10 +351,6 @@ tbody tr:last-child td {
   border-block-end-color: var(--vs-color-foreground);
 }
 
-/*
- * 目次
- */
-
 :is(#toc, [role='doc-toc']) ol {
   margin-block: 0;
   padding-inline-start: 0;
@@ -396,7 +360,6 @@ tbody tr:last-child td {
   text-indent: 0;
 }
 
-/* 部立てのラベル行 (Front Matter / Chapter N / Appendices …) */
 :is(#toc, [role='doc-toc']) li.toc-part {
   font-family: var(--vs-font-family-alt);
   font-size: 0.85em;

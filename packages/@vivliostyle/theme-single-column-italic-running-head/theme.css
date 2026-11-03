@@ -1,12 +1,3 @@
-/*
- * 英国ケンブリッジ式論文 (single-column-italic-running-head)
- * A4縦1段組・墨1色の博士論文。EB Garamond のみで組み、版面上部にイタリックの柱と
- * ヘアライン、下部中央にノンブル、版面下部に短い罫の注欄を置く。製本を考えた
- * 非対称余白 (ノド30mm・小口20mm、片面印刷前提で丁数パリティによらず固定)。
- * 前付は小ローマ数字、本文は算用数字で章ごとに 1 ファイル。章番号は base の
- * ドキュメントカウンタ (vs-counter-chapter) から採るので、各章の frontmatter に
- * body.class: chapter が要る。
- */
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -33,7 +24,6 @@
   --vs-color-foreground: #1a1a1a;
   --vs-color-border: var(--vs-color-foreground);
 
-  /* 節・図表の番号は「章番号.通し番号」。章番号はドキュメントカウンタから採る */
   --vs-crossref-call-counter-prefix: target-counter(
       attr(href),
       vs-counter-chapter
@@ -61,7 +51,6 @@
   --vs--figcaption-text-align: center;
   --vs--figcaption-line-height: 1.35;
 
-  /* 表は罫を天地とヘッダ下だけに絞った学術書の体裁 */
   --vs--table-border-width: 0;
   --vs--table-border-width-block-start: 0.9pt;
   --vs--table-border-width-block-end: 0.9pt;
@@ -82,22 +71,20 @@
   --vs-page--margin-left: 30mm;
   --vs-page--margin-right: 20mm;
 
-  /* 柱の文字スタイル: 上左はイタリック、下中央はノンブル。書体・色・字間は共通なので
-     --vs-page--mbox-* に寄せ、字形が異なる部分だけ box ごとに与える */
+  /* 書体・色・字間は共通なので --vs-page--mbox-* に寄せ、
+     字形が異なる部分だけ box ごとに与える */
   --vs-page--mbox-top-left-content: env(pub-title);
   --vs-page--mbox-top-left-font-style: italic;
   --vs-page--mbox-top-left-font-size: 0.9em;
   --vs-page--mbox-top-left-font-weight: 400;
   --vs-page--mbox-bottom-center-content: counter(page);
   --vs-page--mbox-font-family: var(--vs-font-family);
-  /* 柱の下のヘアラインは版面の上罫 */
   --vs-page--border-width-top: 0.5pt;
   --vs-page--mbox-top-vertical-align: bottom;
   --vs-page--mbox-top-padding-bottom: 1.25rlh;
   --vs-page--mbox-bottom-vertical-align: top;
   --vs-page--mbox-bottom-padding-top: 0.5rlh;
 
-  /* 章・節番号と、本文からの参照 */
   --vs-section--marker-display: inline;
   --vs-section--marker-margin-inline-end: 2ch;
   --vs-section--h1-marker-content: counter(vs-counter-chapter);
@@ -108,11 +95,9 @@
   --vs-section--call-counter-content: var(--vs-crossref-call-counter-prefix)
     target-counter(attr(href), vs-counter-sec-h2);
 
-  /* 注は版面下部に短い罫を引いた古典的な注欄に落とす */
   --vs-footnote--font-size: 0.8rem;
   --vs-footnote--line-height: 1.32;
   --vs-footnote--text-align: justify;
-  /* 注記号のぶら下げ */
   --vs-footnote--padding-inline-start: 3.6mm;
   --vs-footnote--text-indent: -3.6mm;
   --vs-footnote--call-content: counter(vs-counter-footnote);
@@ -128,11 +113,9 @@
   --vs-footnote--area-before-border-width-block-start: 0.5pt;
   --vs-footnote--area-before-margin-block: 0 0.5rlh;
 
-  /* 目次: 見出し名の右にリーダーとノンブル */
   --vs-toc--ol-indent-size: 9mm;
 }
 
-/* 前付は小ローマ数字、本文の最初の章でノンブルを1へ戻す */
 body.frontmatter {
   page: frontmatter;
 }
@@ -159,12 +142,11 @@ figure figcaption::before {
   font-weight: var(--vs--bold-font-weight);
 }
 
-/* 本文からの章参照 (base が扱うのは fig/tbl/cite/sec) */
+/* base が扱うのは fig/tbl/cite/sec */
 a[data-ref='chapter']::before {
   content: 'Chapter ' target-counter(attr(href), vs-counter-chapter);
 }
 
-/* 表紙 */
 .cover {
   padding-block-start: 4.5rlh;
 }
@@ -205,7 +187,6 @@ a[data-ref='chapter']::before {
   margin-block-start: 2.5rlh;
 }
 
-/* 目次 */
 :is(#toc, [role='doc-toc']) ol {
   list-style: none;
   margin-block: 0;
@@ -220,7 +201,6 @@ a[data-ref='chapter']::before {
   display: flex;
 }
 
-/* 前付の項目は小ローマ数字のノンブルを引く */
 :is(#toc, [role='doc-toc']) .toc-front {
   --vs-toc--page-counter-style: lower-roman;
 }
@@ -229,7 +209,6 @@ a[data-ref='chapter']::before {
   margin-block-start: 0.5rlh;
 }
 
-/* 章・節番号は見出し側のカウンタから引く */
 :is(#toc, [role='doc-toc']) .toc-body a::before {
   flex: 0 0 var(--vs-toc--ol-indent-size);
   content: target-counter(attr(href), vs-counter-chapter);
@@ -239,12 +218,10 @@ a[data-ref='chapter']::before {
   content: var(--vs-section--call-counter-content);
 }
 
-/* 表 */
 :is(th, td):last-child {
   padding-inline-end: 0;
 }
 
-/* 参考文献はぶら下げインデント */
 .reference-list p {
   padding-inline-start: 8mm;
   text-align: start;

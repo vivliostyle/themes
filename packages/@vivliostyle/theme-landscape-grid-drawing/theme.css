@@ -1,26 +1,13 @@
-/**
- * 展覧会図録 (theme-landscape-grid-drawing)
- * 図録の作品解説ページ。B4横判を上下に二分し、上半分は
- * 淡い5mm方眼の上に平面図・立面図・断面図の線画(外部SVG)を規則配置、
- * 下半分は作品番号付き見出し+解説と仕様表を約2:1で分節する。
- * Noto Sans JP の端正な見出し/本文、Roboto Mono の数値・図面注記、抑えたグレー
- * スケールで技術資料の客観性と展示図録の静けさを両立させる。
- * VFM 出力に合わせ、図版は Markdown 画像 (figure > img)、解説は段落、
- * 仕様表は aside.spec に置いた Markdown の表。
- */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Roboto+Mono:wght@400;500&family=Roboto:wght@500&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/page';
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  /* 図面の方眼の目 */
   --vs-theme-landscape-grid-drawing--grid-pitch: 5mm;
 
-  /* 仕様表パネルの幅 */
   --vs-theme-landscape-grid-drawing--spec-size-inline: 105mm;
 
-  /* Type: Noto Sans JP 9pt、地色は薄い紙白、既定の文字色は濃いグレー */
   --vs-font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
   --vs-font-family-monospace: 'Roboto Mono', ui-monospace, monospace;
   --vs-font-size: 9pt;
@@ -45,7 +32,6 @@
 
   --vs--p-margin-block: 0 0.5rlh;
 
-  /* Headings: 作品番号付き大見出しと仕様表の小見出し */
   --vs--heading-margin-block: 0;
   --vs--h1-font-size: 1.9em;
   --vs--h1-line-height: 1.2;
@@ -67,12 +53,10 @@
   --vs--figure-margin-block: 0;
   --vs--figcaption-display: none;
 
-  /* Zone divider: a single thin rule */
   --vs--hr-border-color: var(--vs-color-foreground-alt);
   --vs--hr-border-width-block-start: 0.5px;
   --vs--hr-margin-block: 1rlh;
 
-  /* Spec table */
   --vs--table-border-width: 0;
   --vs--table-border-width-block-start: 0.8px;
   --vs--table-border-width-block-end: 0.8px;
@@ -106,7 +90,6 @@
   --vs-section--h1-marker-display: inline;
   --vs-section--h1-marker-margin-inline-end: 0.6em;
 
-  /* ノンブルは3桁で小口下に */
   --vs-page--mbox-bottom-right-content: '0' counter(page, decimal-leading-zero);
   --vs-page--mbox-font-family: 'Roboto', 'Noto Sans JP', sans-serif;
   --vs-page--mbox-font-weight: 500;
@@ -119,7 +102,6 @@ section > h1:first-child::before {
   font-weight: 500;
 }
 
-/* 作品番号の参照。番号は周りの文字色のまま等幅で出す */
 a[data-ref='work'] {
   color: inherit;
   font-family: var(--vs-font-family-monospace);
@@ -129,9 +111,6 @@ a[data-ref='work']::before {
   content: target-counter(attr(href), vs-counter-chapter, decimal-leading-zero);
 }
 
-/* ==================================================================== */
-/*  UPPER ZONE: DRAWINGS on a 5mm engineering grid                       */
-/* ==================================================================== */
 .drawings {
   /* 平面図の回り込みを内側に閉じ込め、方眼の地が図版全体を覆うようにする */
   display: flow-root;
@@ -155,7 +134,6 @@ a[data-ref='work']::before {
   background-position: 0 0;
 }
 
-/* 平面図 = 左に回り込ませる / 立面図・断面図 = その右に上下 */
 .drawings figure {
   text-align: center;
 }
@@ -169,7 +147,7 @@ a[data-ref='work']::before {
   vertical-align: top;
 }
 
-/* 図版の版面上の幅。図種ごとに縮尺が異なるため個別に持つ */
+/* 図種ごとに縮尺が異なるため個別に持つ */
 .drawings img.plan {
   inline-size: 136mm;
 }
@@ -187,10 +165,6 @@ hr {
   clear: both;
 }
 
-/* ==================================================================== */
-/*  LOWER ZONE: COMMENTARY + SPEC TABLE (≈2:1)                           */
-/*  VFM: aside.spec = 仕様表 / section.level1 または body 直下 = 解説        */
-/* ==================================================================== */
 /* 解説は仕様表パネルのぶんを空けた版面で通す。回り込みに任せるとパネルより下の行だけ
    全幅になり、B4横では一行が長くなりすぎる。作品番号を持たない解説は表題を閉じ #
    で書くため section に包まれず、body 直下に並ぶ */
@@ -204,7 +178,6 @@ body > :is(section.level1, h1, p) {
   color: var(--vs-color-foreground-alt);
 }
 
-/* 仕様表パネル: 小口側に置く */
 aside.spec {
   float: inline-end;
   inline-size: var(--vs-theme-landscape-grid-drawing--spec-size-inline);

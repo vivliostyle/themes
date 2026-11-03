@@ -1,15 +1,3 @@
-/*
- * 製品評価ページ (graph-comparison-table)
- * 専門誌の製品評価記事。A4 縦・モノクロ・横組み。柱を左右横罫つきで中央上に、
- * ノンブルを右下に置く。記事は 1 本 = 改ページで始まり、段抜きの記事名と型式スタンプ、
- * 全幅のグラフ、2 段組の本文 (段中に小さなグラフ)、段抜きの仕様表と等幅の
- * 「測定条件」箱で構成する。見出し Noto Sans JP Medium・本文 Light、
- * 数値/軸/表 IBM Plex Mono。
- *
- * 原稿は `# 記事名` で 1 記事。図番号は base のカウンタが付けるので原稿には書かない。
- * 全幅で置くグラフは画像に `.wide` を付ける。柱の誌名は原稿の
- * <p class="running-title"> から取る。
- */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -29,7 +17,6 @@
 
   --vs-columns: 2;
   --vs-column-gap: 10mm;
-  /* Type: thin gothic body, 8.5pt / 1.4 */
   --vs-font-family: 'Noto Sans JP', sans-serif;
   --vs-font-family-monospace: 'IBM Plex Mono', ui-monospace, monospace;
   --vs-font-size: 8.5pt;
@@ -56,7 +43,6 @@
   --vs--heading-text-align: start;
   --vs--heading-margin-block: 0;
 
-  /* 記事タイトル */
   --vs--h1-font-size: 2.25em;
   --vs--h1-line-height: 1.15;
   --vs--h1-letter-spacing: 0.01em;
@@ -64,7 +50,6 @@
   --vs--h1-padding-block: 0 0.25em;
   --vs--h1-border-width-block-end: 2pt;
 
-  /* 本文の小見出し */
   --vs--h2-font-size: 1.3em;
   --vs--h2-letter-spacing: 0.04em;
   --vs--h2-margin-block: 0.5rlh 0.25rlh;
@@ -76,14 +61,12 @@
   --vs--figcaption-font-weight: 500;
   --vs--figcaption-text-align: center;
 
-  /* 数値・軸ラベル・測定条件は等幅 */
   --vs--monospace-font-size: 1em;
   --vs--monospace-line-height: 1.7;
   --vs--pre-margin-block: 0;
   --vs--pre-overflow-x: visible;
   --vs--pre-white-space: pre;
 
-  /* 仕様比較表: 総罫グリッド */
   --vs--table-font-size: 0.95em;
   --vs--table-margin-block: 0;
   --vs--table-margin-inline: 0;
@@ -99,14 +82,12 @@
   --vs--th-background-color: var(--vs-color-background-alt);
   --vs--th-font-weight: 500;
 
-  /* Page: A4 portrait, monochrome */
   --vs-page--size: A4;
   --vs-page--margin-top: 16mm;
   --vs-page--margin-bottom: 14mm;
   --vs-page--margin-left: 15mm;
   --vs-page--margin-right: 15mm;
 
-  /* 柱: 誌名の左右へ横罫を渡す。ノンブルは右下 */
   --vs-page--mbox-top-left-content: '';
   --vs-page--mbox-top-center-content: element(vs-theme-magazine);
   --vs-page--mbox-top-right-content: '';
@@ -121,16 +102,13 @@
   --vs-page--mbox-top-vertical-align: bottom;
   --vs-page--mbox-bottom-font-family: var(--vs-font-family-monospace);
   --vs-page--mbox-bottom-font-size: 1.05em;
-  /* 本文が Light なのに対し、柱・ノンブルは Regular */
   --vs-page--mbox-font-weight: 400;
 
   --vs-math--display-margin-block: 0.25rlh;
 
-  /* 記事は改ページで始める */
   --vs-section--h1-break-before: page;
 }
 
-/* 図番号は「図1　」、本文からの参照は「図1」 */
 :root:lang(ja) {
   --vs-figure--marker-content: var(--vs-figure--label)
     counter(
@@ -140,7 +118,6 @@
     '\3000';
 }
 
-/* 柱に流す誌名は原稿から取る */
 .running-title {
   position: running(vs-theme-magazine);
   font-weight: 400;
@@ -150,8 +127,7 @@
   text-indent: 0;
 }
 
-/* ===== 解説本文は2段組。記事名・全幅グラフ・下段は全幅のまま =====
-   段抜きを伴う multicol は段の均し (column-fill: balance) が効かず下段が
+/* 段抜きを伴う multicol は段の均し (column-fill: balance) が効かず下段が
    次ページへ送られるため、2段組は解説本文の <div class="body"> にだけ掛ける。 */
 html {
   columns: auto;
@@ -165,7 +141,6 @@ html {
   column-rule-color: var(--vs-color-border-alt);
 }
 
-/* ===== Masthead / headline ===== */
 .meta {
   display: flex;
   align-items: baseline;
@@ -192,20 +167,17 @@ html {
   font-weight: 500;
 }
 
-/* ===== 図版 (Markdown 画像 → figure > img + figcaption) =====
-   線種・軸ラベルの書式は外部 SVG 側の \3c style> が持つ。 */
+/* 線種・軸ラベルの書式は外部 SVG 側の \3c style> が持つ。 */
 figure img {
   display: block;
   inline-size: 100%;
   block-size: auto;
 }
 
-/* 全幅グラフは本文へ入る前に置く */
 figure:has(> img.wide) {
   margin-block-end: 0.75rlh;
 }
 
-/* 段中のグラフ */
 figure:not(:has(> img.wide)) {
   margin-block: 0.5rlh 0;
 }
@@ -214,7 +186,6 @@ figure:not(:has(> img.wide)) img {
   margin-inline: auto;
 }
 
-/* リード (解説本文の最初の段落) は字下げなし・1行目だけ太らせる */
 .body > p:first-child {
   text-indent: 0;
 }
@@ -222,7 +193,6 @@ figure:not(:has(> img.wide)) img {
   font-weight: 400;
 }
 
-/* ===== 記事末尾: 仕様表 + 測定条件箱 ===== */
 .bottom {
   margin-block-start: 0.75rlh;
   break-inside: avoid;
@@ -259,7 +229,6 @@ thead th:first-child {
   width: 27%;
 }
 
-/* Conditions box (rounded, monospace) */
 .conditions {
   border-width: 0.8pt;
   border-style: solid;

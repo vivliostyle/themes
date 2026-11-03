@@ -1,10 +1,3 @@
-/**
- * 学術批評誌 (theme-dense-reversed-band-notes)
- * A4縦・高密度な横書き2段組。段を横断する濃紺灰色の白抜き章見出し帯、段間の細い縦罫、
- * 番号付き節見出し、本文中の上付き参照番号、巻末に細い上罫で区切った全幅3段の注領域を組む。
- * 柱は章題 (string-set)、ノンブルは誌名と合わせて margin box に出す。
- * VFM 出力に対応: body > section.level1 (2段組) + body > section.footnotes (巻末注)。
- */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=IBM+Plex+Sans:wght@400;600&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/endnote';
@@ -12,7 +5,6 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  /* テーマ固有 */
   --vs-theme-dense-reversed-band-notes--color-foreground-secondary: color-mix(
     in oklab,
     var(--vs-color-foreground-alt),
@@ -22,10 +14,9 @@
     --vs-color-foreground-alt
   );
 
-  /* 地の柱に出す誌名。既定は原稿のタイトル、誌名がある場合は利用者が上書きする */
+  /* 誌名がある場合は利用者が上書きする */
   --vs-theme-dense-reversed-band-notes--running-publication: env(doc-title);
 
-  /* Type */
   --vs-font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
   --vs-font-family-alt: 'IBM Plex Sans', 'Noto Sans JP', sans-serif;
   --vs-font-size: 8.5pt;
@@ -43,12 +34,10 @@
   --vs-column-gap: 7mm;
   --vs-column-rule-width: 0.3pt;
 
-  /* Paragraphs: 字下げ1字、段落間なし、両端揃え */
   --vs--p-margin-block: 0;
   --vs--p-text-indent: 1em;
   --vs--p-text-align: justify;
 
-  /* 段を横断する章見出し帯 */
   --vs--h1-font-size: 1.75em;
   --vs--h1-font-weight: 900;
   --vs--h1-letter-spacing: 0.06em;
@@ -63,7 +52,6 @@
   --vs--h1-string-set: chapter-title '第' counter(vs-counter-sec-h1) '章　'
     content();
 
-  /* 番号付き節見出し「2.3」 */
   --vs--h2-font-size: 1.25em;
   --vs--h2-letter-spacing: 0.02em;
   --vs--h2-line-height: 1.3;
@@ -78,14 +66,12 @@
 
   --vs--anchor-text-decoration: none;
 
-  /* Page */
   --vs-page--size: A4;
   --vs-page--margin-left: 16.5mm;
   --vs-page--margin-right: 16.5mm;
   --vs-page--mbox-top-padding-bottom: 0.25rlh;
   --vs-page--mbox-top-vertical-align: bottom;
 
-  /* 章はページを改める */
   --vs-section--h1-break-before: page;
   --vs-section--h1-marker-content: counter(vs-counter-sec-h1);
   --vs-section--h1-marker-display: inline;
@@ -96,14 +82,13 @@
   --vs-section--h2-marker-display: inline;
   --vs-section--h2-marker-margin-inline-end: 0.5em;
 
-  /* 本文中の章参照 <a href="#ch-id" data-ref="sec"></a> は「第一章」と組む */
   --vs-section--call-counter-content: target-counter(
     attr(href),
     vs-counter-sec-h1,
     cjk-ideographic
   );
 
-  /* 巻末注。罫は hr ではなく section の上罫で引く (hr は見出しより後ろに出るため) */
+  /* 罫は hr ではなく section の上罫で引く (hr は見出しより後ろに出るため) */
   --vs-endnote--section-margin-block: 1rlh 0;
   --vs-endnote--section-padding-block: 0.5rlh 0;
   --vs-endnote--section-font-size: 0.75em;
@@ -135,7 +120,6 @@
     var(--vs-section--label);
 }
 
-/* 柱は章題、地は誌名とノンブル。地は小口側 (右ページは右下、左ページは左下) に置く */
 :root {
   --vs-page--mbox-top-left-content: string(chapter-title);
   --vs-page--mbox-bottom-outside-content: var(
@@ -155,8 +139,7 @@ html {
   columns: auto;
 }
 
-/* 2段組は本文コンテナに掛ける。段抜き要素(章見出し帯)は section.level1 の直接の子。
-   序・結など採番しない章は見出しを閉じ # で書くため VFM が section に包まない。
+/* 序・結など採番しない章は見出しを閉じ # で書くため VFM が section に包まない。
    その本文は原稿側で div.chapter に括り、同じ2段組を掛ける */
 body > :is(section.level1, div.chapter) {
   columns: var(--vs-columns);
@@ -208,13 +191,11 @@ section.level2 > blockquote {
   break-inside: avoid;
 }
 
-/* 用語注記 */
 .note {
   color: var(--vs-theme-dense-reversed-band-notes--color-foreground-secondary);
   font-size: 0.9em;
 }
 
-/* 巻末注への相互参照(→) */
 a[data-ref='note'] {
   color: var(--vs-theme-dense-reversed-band-notes--color-foreground-secondary);
   font-size: 0.9em;
@@ -224,7 +205,6 @@ a[data-ref='note']::before {
   content: '［→注' target-counter(attr(href), vs-counter-endnote) '］';
 }
 
-/* 巻末注: 3段で密に組む。柱にも「注」を出す */
 [role='doc-endnotes'] {
   page: endnotes;
 }

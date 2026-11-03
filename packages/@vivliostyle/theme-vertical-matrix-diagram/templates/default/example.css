@@ -1,10 +1,3 @@
-/*
- * example 専用の追補。theme.css が持つ図表イディオムはマトリクス図と
- * データ表の二つだけなので、章を通して組むのに必要な図版 (入れ子の層図・横棒図・
- * 工程図・四象限の要点図) をここで足す。いずれも theme.css の図表バンドの体裁
- * (aside 内・横組み・0.5pt の黒罫・淡グレーの網) に合わせている。
- */
-
 .layers .stack,
 .bars .chart,
 .flow .chain,
@@ -12,7 +5,6 @@
   width: var(--vs-theme-vertical-matrix-diagram--aside-size-inline);
 }
 
-/* 入れ子の帯 */
 .layers .stack {
   font-size: 0.7em;
   line-height: 1.25;
@@ -37,7 +29,6 @@
   background-color: var(--vs-color-background-alt);
 }
 
-/* 横棒図 */
 .bars .chart {
   display: flex;
   flex-direction: column;
@@ -73,7 +64,6 @@
   font-size: 0.9em;
 }
 
-/* 工程図 (縦に連ねた箱と矢印) */
 .flow .chain {
   font-size: 0.65em;
   line-height: 1.25;
@@ -122,7 +112,6 @@
   font-size: 0.95em;
 }
 
-/* 要点の四象限 */
 .quad .cells {
   display: flex;
   flex-wrap: wrap;

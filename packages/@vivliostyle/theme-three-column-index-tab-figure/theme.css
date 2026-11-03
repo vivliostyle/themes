@@ -1,13 +1,3 @@
-/*
- * ビジュアル用語集 (three-column-index-tab-figure)
- * A4縦・三段組の図譜。Noto Serif JP の明朝で見出し語と本文を組み、
- * 見出し語直下の欧文は Source Serif 4 のイタリック、分類記号・柱・ノンブルは Noto Sans JP。
- * 見出し語の種別は緑ベタ円 (.native) と緑枠白抜き円 (.foreign) で識別し、
- * 段間の極細縦罫と天の柱罫で階層を示す。図版は SVG を見出し語ごとに添える。
- *
- * 見出し語 1 件 = 1 section (`.entries > section`)。図版をもつ項目には図番号、
- * もたない項目には章内の通し番号を、見出し語行のバッジに続けて生成する。
- */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Source+Serif+4:ital,wght@0,400;1,400&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -21,7 +11,6 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  /* テーマ固有 */
   --vs-theme-three-column-index-tab-figure--color-foreground-secondary: color-mix(
     in oklab,
     var(--vs-color-foreground),
@@ -36,7 +25,6 @@
     var(--vs-color-foreground) 50%
   );
 
-  /* Type */
   --vs-font-family: 'Noto Serif JP', serif;
   --vs-font-family-alt: 'Noto Sans JP', sans-serif;
   --vs-font-size: 8pt;
@@ -52,44 +40,36 @@
   --vs-columns: 3;
   --vs-column-gap: 7mm;
 
-  /* 罫線の既定はヘアラインの淡緑 (天の柱罫だけ本文色を明示指定する) */
   --vs-color-border: color-mix(
     in oklab,
     var(--vs-color-foreground),
     var(--vs-color-background) 75%
   );
 
-  /* Paragraphs: flush, justified */
   --vs--p-margin-block: 0;
 
-  /* Headings: plain mincho, wide tracking */
   --vs--heading-font-weight: 600;
   --vs--heading-text-align: start;
   --vs--heading-margin-block: 0;
 
-  /* 柱 (誌名 + 章名) */
   --vs--h1-font-size: 1.3em;
   --vs--h1-margin-block: 0 0.75rlh;
   --vs--h1-border-width-block-end: 0.9pt;
   --vs--h1-border-color-block-end: var(--vs-color-foreground);
   --vs--h1-padding-block: 0 0.45em;
 
-  /* 見出し語 */
   --vs--h2-font-size: 1.55em;
   --vs--h2-line-height: 1.2;
   --vs--h2-letter-spacing: 0.05em;
 
-  /* 見出し語行の右クラスタ (分類バッジ + 図番) */
   --vs--small-font-size: 0.5em;
 
-  /* Figures: flush-left plates, no theme gutter */
   --vs--figure-align-items: flex-start;
   --vs--figure-margin-block: 0.25rlh;
   --vs--figure-item-size-inline: 100%;
   /* Markdown 画像が自動生成する空の figcaption はこの用語集では使わない */
   --vs--figcaption-display: none;
 
-  /* 相互参照リンク */
   --vs--anchor-text-color: var(--vs-color-foreground-alt);
   --vs--anchor-text-decoration: none;
 
@@ -98,7 +78,7 @@
   --vs--ol-list-style-type: none;
   --vs--ol-padding-inline-start: 0px;
 
-  /* Page: A4 portrait。索引タブを小口に固定するため左右の入れ替えはしない */
+  /* 索引タブを小口に固定するため左右の入れ替えはしない */
   --vs-page--size: A4;
   --vs-page--margin-top: 18mm;
   --vs-page--margin-bottom: 16mm;
@@ -125,13 +105,11 @@
   counter-reset: vs-counter-entry;
 }
 
-/* 和文でも図番号は欧文の「Fig.」で組む */
 :root,
 :root:lang(ja) {
   --vs-figure--label: 'Fig. ';
 }
 
-/* 章立ての原稿 (frontmatter の class: chapter) では図番号に章番号を冠する */
 html.chapter {
   --vs-crossref-call-counter-prefix: target-counter(
       attr(href),
@@ -141,15 +119,13 @@ html.chapter {
   --vs-crossref-marker-counter-prefix: counter(vs-counter-chapter) '-';
 }
 
-/* Header band: publication name + chapter, thin rule below */
 body > section.level1 > h1 {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
 }
 
-/* 項目番号は章 (h1 の節) ごとに振り直す。base は section 側に
-   counter-reset を持つので、見出し要素にスコープを作って衝突を避ける */
+/* base は section 側に counter-reset を持つので、見出し要素にスコープを作って衝突を避ける */
 section > h1:first-child {
   counter-reset: vs-counter-entry;
 }
@@ -166,7 +142,6 @@ html {
   columns: auto;
 }
 
-/* Three-column body with hairline column rules */
 .entries {
   columns: var(--vs-columns);
   column-gap: var(--vs-column-gap);
@@ -176,7 +151,6 @@ html {
   column-fill: auto;
 }
 
-/* One dictionary entry */
 .entries > section {
   break-inside: avoid;
   margin-block-end: 1rlh;
@@ -189,7 +163,6 @@ html {
   border-block-end-style: none;
 }
 
-/* Headword line: marker + name (left), origin badge + fig no. (right) */
 .entries > section > h2 {
   display: flex;
   align-items: baseline;
@@ -243,7 +216,6 @@ html {
   border-color: var(--vs-theme-three-column-index-tab-figure--color-accent);
 }
 
-/* right cluster: badge + Fig no. */
 .entries > section > h2 small {
   flex: none;
   font-weight: 400;
@@ -266,12 +238,10 @@ html {
   margin-inline-end: 0.5em;
 }
 
-/* 索引の図版参照は本文と同じ墨色で組む (項目末の案内リンクだけを緑にする) */
 .entries a[data-ref='fig'] {
   color: var(--vs-color-foreground);
 }
 
-/* Latin italic line directly under headword */
 .entries > section > h2 + p {
   font-family: 'Source Serif 4', 'Times New Roman', serif;
   font-style: italic;
@@ -280,14 +250,12 @@ html {
   letter-spacing: 0.01em;
 }
 
-/* Entry figure */
 .entries > section > figure img {
   display: block;
   max-width: 42mm;
   height: auto;
 }
 
-/* Status + cross-reference footer line */
 .entries > section > p:has(> .st) {
   display: flex;
   align-items: baseline;
@@ -324,8 +292,7 @@ html {
   white-space: nowrap;
 }
 
-/* Index tabs in the outer margin。
-   running element にすることで、節が何ページに渡っても小口にタブが立つ */
+/* running element にすることで、節が何ページに渡っても小口にタブが立つ */
 nav.sidebar {
   position: running(index-tabs);
   width: 9mm;

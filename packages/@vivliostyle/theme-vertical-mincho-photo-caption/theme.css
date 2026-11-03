@@ -1,16 +1,3 @@
-/*
- * 自分史・回想録（縦組版）向けテーマ。四六判 (127×188mm)・縦組み1段。
- * Noto Serif JP の明朝を 9pt / 行送り 1.9 で組み、右肩の章題の下に細い横罫を添える。
- * 版面下端にモノクロ写真と縦組みキャプション、章末に細罫で区切った注、
- * 天の柱と小口下の漢数字ノンブルを置く。墨一色・生成り地。
- *
- * 原稿の構成 (VFM):
- *   章の md   … frontmatter に `class: chapter` (h1 = 章題。第N章の N は文書順から数える)
- *   標題紙    … `class: title-page` (柱・ノンブルを出さない)
- *   目次      … `<nav role="doc-toc">` (theme-base が柱・ノンブルを外す)
- *   あとがき等 … class なし (h1 に章番号は付かない)
- *   注は VFM の `[^n]` 記法で書き、theme-base の endnote モジュールで章末に出す。
- */
 @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Noto+Serif+JP:wght@400;500&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/endnote';
@@ -51,7 +38,6 @@
     var(--vs-color-background) 80%
   );
 
-  /* 章題: 右肩から縦一行 */
   --vs--h1-font-size: 1.8em;
   --vs--h1-font-weight: 500;
   --vs--h1-letter-spacing: 0.04em;
@@ -84,7 +70,6 @@
   --vs-page--margin-left: 11mm;
   --vs-page--margin-right: 11mm;
 
-  /* 柱 (天) は横組み、ノンブル (地) は縦組み */
   --vs-page--mbox-top-left-font-family: var(--vs-font-family);
   --vs-page--mbox-top-left-font-size: 0.9em;
   --vs-page--mbox-top-left-text-color: var(--vs-color-foreground-alt);
@@ -96,7 +81,7 @@
   --vs-page--mbox-bottom-left-letter-spacing: 0.12em;
   --vs-page--mbox-bottom-left-writing-mode: vertical-rl;
 
-  /* 章末の注: 罫と番号は theme 側で組むので base の hr と ::marker は使わず、
+  /* 罫と番号は theme 側で組むので base の hr と ::marker は使わず、
      本文と切る細罫は inline-start (=上端) の section 罫で引く */
   --vs-endnote--section-hr-display: none;
   --vs-endnote--section-border-color-inline-start: var(--vs-color-border);
@@ -116,25 +101,22 @@
   --vs-endnote--call-font-size: 1em;
   --vs-endnote--call-sup-font-size: 0.62em;
   --vs-endnote--call-sup-text-combine-upright: all;
-  /* 本文中の注番号は肩付きにせず行中に置く */
   --vs-endnote--call-sup-vertical-align: baseline;
   --vs-endnote--call-margin-inline: 0.15em;
   --vs-endnote--item-line-height: 1.5;
   --vs-endnote--item-margin-block: 0 0.25rlh;
   --vs-endnote--item-text-align: start;
   --vs-endnote--item-text-indent: 0;
-  /* 注番号は縦中横 */
   --vs-endnote--marker-content: counter(vs-counter-endnote);
   --vs-endnote--marker-text-combine-upright: all;
   --vs-endnote--marker-margin-inline: 0 0.6em;
 
-  /* 目次: ドットリーダーは使わず、全角空きのあとに漢数字のノンブルを置く */
   --vs-toc--ol-indent-size: 0;
   --vs-toc--page-counter-style: cjk-decimal;
   --vs-toc--page-leader-content: '\3000';
 }
 
-/* 章の md: 章番号は文書の順序 (theme-base の vs-counter-chapter) から数える */
+/* 章番号は文書の順序 (theme-base の vs-counter-chapter) から数える */
 body.chapter {
   --vs-section--h1-marker-display: inline;
   --vs-section--h1-marker-content: '第'
@@ -164,7 +146,6 @@ body.title-page {
     string(chapter-title);
 }
 
-/* 標題紙と目次には柱もノンブルも置かない */
 @page title-page {
   --vs-theme-vertical-mincho-photo-caption--running-head-content: none;
   --vs-theme-vertical-mincho-photo-caption--folio-content: none;
@@ -175,7 +156,7 @@ body.title-page {
   --vs-theme-vertical-mincho-photo-caption--folio-content: none;
 }
 
-/* 章題の行長 (見出し用の inline-size 変数はないため直書き) */
+/* 見出し用の inline-size 変数はないため直書き */
 h1 {
   inline-size: 80mm;
 }
@@ -185,7 +166,7 @@ h1 {
 }
 
 /*
- * 図版: 縦組みでは float: right が line-right = 版面下端側への回り込みになる。
+ * 縦組みでは float: right が line-right = 版面下端側への回り込みになる。
  * display は var() 経由では効かないため直書きする (flex 既定を解除して
  * 写真の左 (block-end 側) に縦組みキャプションが続くようにする)。
  */
@@ -211,17 +192,13 @@ figcaption {
 }
 
 /*
- * 章末の注: 版面の下端に小さな組で置く。clear で図版より下に確実に送る
- * (clear と幅の変数は base に無いため直書き)。
+ * clear で図版より下に確実に送る (clear と幅の変数は base に無いため直書き)。
  */
 [role='doc-endnotes'] {
   clear: both;
   inline-size: 58mm;
 }
 
-/*
- * 標題紙: 書名を天から縦一行に置き、著者名と刊記を小口側に添える
- */
 .title-page h1 {
   inline-size: auto;
   margin-block: 2.75rlh 2.25rlh;
@@ -246,10 +223,6 @@ figcaption {
   font-size: 0.9em;
   color: var(--vs-color-foreground-alt);
 }
-
-/*
- * 目次
- */
 
 :is(#toc, [role='doc-toc']) ol {
   margin-block: 0;

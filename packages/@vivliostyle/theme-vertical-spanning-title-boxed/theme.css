@@ -1,13 +1,3 @@
-/*
- * 総合誌 特集論考ページ (vertical-spanning-title-boxed)
- * A4 縦・墨1色・黄味のある本文用紙。縦組み明朝の上下2段組で、記事の頭に段抜きの
- * 大題と縦罫・著者名を立てる戦後論壇誌風の紙面。合印の付いた註は版面の地
- * (縦組みでは左端) の脚注欄へ落とし、著者略歴と用語解説の囲み記事は段の地へ回す。
- *
- * 上下2段は縦組みの multicol (縦組みでは段が上下に積まれる)。本文は段とページを
- * またいで流れるので、原稿の分量に合わせてページ数が増減する。
- * 柱の特集名は原稿の <p class="running-feature"> から取る。
- */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/footnote';
@@ -35,7 +25,6 @@
   --vs--h1-letter-spacing: 0.08em;
   --vs--h1-margin-block: 0;
 
-  /* 段中の小見出し */
   --vs--h2-font-size: 1.2em;
   --vs--h2-line-height: 1.35;
   --vs--h2-letter-spacing: 0.18em;
@@ -51,7 +40,6 @@
   --vs-page--margin-right: 23mm;
   --vs-page--border-width-top: 0.4pt;
 
-  /* 柱・ノンブルは縦組みの版面でも横組みで置く */
   --vs-page--mbox-writing-mode: horizontal-tb;
   --vs-page--mbox-top-right-content: element(vs-theme-feature);
   --vs-page--mbox-bottom-left-content: counter(page);
@@ -59,7 +47,6 @@
   --vs-page--mbox-top-letter-spacing: 0.16em;
   --vs-page--mbox-bottom-font-size: 1.15em;
 
-  /* 註: 合印は ＊ + 番号。版面の地に細罫を引いて落とす */
   --vs-footnote--font-size: 0.72em;
   --vs-footnote--letter-spacing: 0.02em;
   --vs-footnote--line-height: 1.7;
@@ -67,7 +54,6 @@
   --vs-footnote--call-font-size: 0.72em;
   --vs-footnote--marker-content: '＊' counter(vs-counter-footnote);
   --vs-footnote--marker-margin-inline: 0 0.3em;
-  /* 合印の数字は縦組みでも寝かせない */
   --vs-footnote--call-text-orientation: upright;
   --vs-footnote--marker-text-orientation: upright;
   --vs-footnote--item-margin-block: 0 0.25rlh;
@@ -76,19 +62,16 @@
   --vs-footnote--area-before-margin-inline: 0 55%;
 }
 
-/* 縦中横 */
 .tcy {
   text-combine-upright: all;
 }
 
-/* 柱に流す特集名は原稿から取る */
 .running-feature {
   position: running(vs-theme-feature);
   writing-mode: horizontal-tb;
   text-indent: 0;
 }
 
-/* ---- 上下2段: 縦組みの段組では段が上下に積まれる ---- */
 /* 大題を段抜きにするため、段組は html でなく body に掛ける */
 html {
   columns: auto;
@@ -100,7 +83,6 @@ body {
   column-fill: var(--vs-column-fill);
 }
 
-/* ---- 大題 (段抜き・記事の頭。縦組みなので版面の右端に立つ) ---- */
 header.headline {
   column-span: all;
   margin-block-end: 1rlh;
@@ -117,7 +99,6 @@ header.headline h1 .subhead {
   letter-spacing: 0.12em;
 }
 
-/* 著者名行: 大題との間に縦罫 */
 header.headline .byline {
   margin-block: 1rlh 0;
   padding-block-start: 0.75rlh;
@@ -136,7 +117,6 @@ header.headline .byline .meta {
   letter-spacing: 0.1em;
 }
 
-/* ---- 囲み記事 (肖像 + 略歴 + 用語解説): 段の地へ回す ---- */
 .card {
   float: inline-end;
   float-reference: column;

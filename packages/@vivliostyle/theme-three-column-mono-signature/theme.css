@@ -1,9 +1,3 @@
-/*
- * 美しいAPIリファレンス (three-column-mono-signature)
- * AB判 210×257mm・3段組の API 辞書ページ。青の等幅シグネチャ + 2列引数表 +
- * 淡青地コード例を1エントリとし、ルート段組へ流し込む。
- * 天に柱とノンブル、小口に青帯の縦書き章柱を置く。
- */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -17,12 +11,10 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  /* ---- テーマ固有 ---- */
   --vs-theme-three-column-mono-signature--accent-color: var(
     --vs-color-foreground-alt
   );
 
-  /* ---- theme-base メタ変数 ---- */
   --vs-font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
   --vs-font-family-monospace:
     'Roboto Mono', 'Noto Sans JP', ui-monospace, monospace;
@@ -41,14 +33,12 @@
     var(--vs-color-background) 80%
   );
 
-  /* 3段組。エントリは段から段へ流れる */
   --vs-columns: 3;
   --vs-column-gap: 2.5mm;
   --vs-column-rule-width: 0.4pt;
 
   --vs-color-foreground-alt: #0066cc;
 
-  /* 図番号は「図<章>-<連番>」 */
   --vs-crossref-call-counter-prefix: target-counter(
       attr(href),
       vs-counter-chapter
@@ -56,7 +46,6 @@
     '-';
   --vs-crossref-marker-counter-prefix: counter(vs-counter-chapter) '-';
 
-  /* ---- theme-base 要素変数 ---- */
   --vs--h1-font-size: 1.15em;
   --vs--h1-font-weight: 400;
   --vs--h1-letter-spacing: 0.02em;
@@ -114,8 +103,7 @@
   --vs--figcaption-margin-block: 0.25rlh 0;
   --vs--figcaption-text-align: center;
 
-  /* 章柱は紙の小口端に密着させる。左右ページで柱が内側に来ないよう、
-     ノド/小口ではなく物理左右で余白を決める。 */
+  /* 左右ページで柱が内側に来ないよう、ノド/小口ではなく物理左右で余白を決める。 */
   --vs-page--size: 210mm 257mm;
   --vs-page--margin-top: 16mm;
   --vs-page--margin-bottom: 10mm;
@@ -126,7 +114,6 @@
     --vs-theme-three-column-mono-signature--accent-color
   );
 
-  /* 柱 (書名 ─ 章題) とノンブル */
   --vs-page--mbox-top-left-content: env(doc-title);
   --vs-page--mbox-top-right-content: counter(page);
   --vs-page--mbox-top-font-size: 1.15em;
@@ -136,12 +123,10 @@
     var(--vs-color-foreground),
     var(--vs-color-background) 15%
   );
-  /* ノンブルは柱より大きく置く */
   --vs-page--mbox-top-right-font-size: 1.35em;
   --vs-page--mbox-top-right-font-weight: 500;
   --vs-page--mbox-top-right-text-color: var(--vs-color-foreground);
 
-  /* 小口の縦書き章柱。章題は原稿の .chapter-tab から取る */
   --vs-page--mbox-right-top-content: '第' counter(vs-counter-chapter) '章　'
     string(chapter-name);
   --vs-page--mbox-right-background-color: var(
@@ -150,7 +135,7 @@
   --vs-page--mbox-right-font-size: 1.35em;
   --vs-page--mbox-right-font-weight: 700;
   --vs-page--mbox-right-letter-spacing: 0.16em;
-  /* 縦書きなので inline 方向 = 天地。帯の丈を決める */
+  /* 縦書きなので inline 方向 = 天地 */
   --vs-page--mbox-right-size-inline: 82mm;
   --vs-page--mbox-right-text-color: var(--vs-color-background);
   --vs-page--mbox-right-writing-mode: vertical-rl;
@@ -166,8 +151,6 @@
     '　';
 }
 
-/* ── 版面 ─────────────────────────────────────────────── */
-
 /* :root で --vs-hanging-punctuation を設定すると theme-base の
    p の hanging-punctuation 継承経由で段落にも掛かり行組版が変わるため、
    body 直書きで見出し・表だけに効かせる */
@@ -181,9 +164,6 @@ body {
   string-set: chapter-name content();
 }
 
-/* ── APIエントリ (section.level2) ─────────────────────── */
-
-/* シグネチャ・引数表・最初の説明までは同じ段に置く */
 section.level2 > table {
   break-after: avoid;
 }
@@ -200,20 +180,17 @@ h2 {
   color: var(--vs-theme-three-column-mono-signature--accent-color);
 }
 
-/* 参照リンクはシグネチャと同じ等幅で、行中で折らない */
 a {
   font-family: var(--vs-font-family-monospace);
   font-size: 0.9rem;
   white-space: nowrap;
 }
 
-/* エントリ参照に添えるページ番号 */
 a[data-ref='api']::after,
 a[data-ref='api-page']::before {
   content: '（p.' var(--vs-page--call-content) '）';
 }
 
-/* 本文に埋め込むページ参照は地の文の書体を保つ */
 a[data-ref='api-page'] {
   color: inherit;
   font-family: inherit;
@@ -226,8 +203,6 @@ a[data-ref='fig'] {
   font-size: inherit;
 }
 
-/* ── 引数表 ───────────────────────────────────────────── */
-
 table {
   width: 100%;
   line-height: 1.3;
@@ -239,16 +214,13 @@ td:first-child {
   width: 24%;
 }
 
-/* ── コード例 ─────────────────────────────────────────── */
-
 pre {
   background-color: var(--vs-color-background-alt);
   border-radius: 1.4mm;
   break-inside: avoid;
 }
 
-/* ── 図版 (Markdown 画像 → figure > img + figcaption) ────
-   SVG 内のラベル書体は SVG 側に持たせている
+/* SVG 内のラベル書体は SVG 側に持たせている
    (外部 SVG は <img> で読み込まれ親文書の CSS が効かない)。 */
 
 figure > img {

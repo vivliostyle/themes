@@ -1,18 +1,3 @@
-/*
- * 実用ガイドブック (chapter-badge-column-rule)
- * A4縦・2段組の本文面。Noto Sans JP のゴシック本文/見出しに、
- * Barlow Condensed の章番号・料金数字・参照ページ、M PLUS 1p のデータ欄/表を重ね、
- * オレンジ (#ff6600) を章番号バッジ・段間罫・情報ボックス枠・矢印に一貫して差す。
- * 左段: 図版 + 本文 + 番号付き小見出し / 右段: DATA ボックス + コースのフロー + 料金表。
- *
- * 原稿 (VFM) の書き方:
- *   # 章題<span class="subhead">欧文サブ</span>  章番号バッジは自動で付く
- *   ## 小見出し                                  「章-連番」を自動で付ける
- *   ## データ欄 {.data-box}                      枠付きのデータ欄 (表を1つ置く)
- *   ## コース {.course}                          番号付きリストが矢印のフローになる
- *   ## 料金表 {.fee}                             料金表
- *   <p class="ref"><a href="#id" data-ref="page"></a></p>   → P.** の参照
- */
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=M+PLUS+1p:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -44,7 +29,6 @@
     var(--vs-color-background) 90%
   );
 
-  /* Type: ゴシック 9pt / 1.55 */
   --vs-font-family: 'Noto Sans JP', sans-serif;
   --vs-font-family-alt: 'Barlow Condensed', 'Noto Sans JP', sans-serif;
   --vs-font-size: 9pt;
@@ -82,18 +66,16 @@
   --vs--lists-margin-block: 0 0.5rlh;
   --vs--table-border-width: 0;
 
-  /* 「→ P.**」のページ参照 */
   --vs-page--call-content: '→ P.' target-counter(attr(href), page);
 
-  /* Page: A4 縦, やや詰めた余白 */
   --vs-page--size: A4;
   --vs-page--margin-top: 13mm;
   --vs-page--margin-bottom: 14mm;
   --vs-page--margin-left: 14mm;
   --vs-page--margin-right: 14mm;
 
-  /* 柱(running head)・ノンブルは margin box に描画する。書体・色はボックスごとに
-     異なるので、ノンブル側 (Barlow Condensed) を既定にし、柱側は box 別に与える */
+  /* 書体・色はボックスごとに異なるので、ノンブル側 (Barlow Condensed) を既定にし、
+     柱側は box 別に与える */
   --vs-page--mbox-top-left-content: env(pub-title);
   --vs-page--mbox-top-left-font-family: var(--vs-font-family);
   --vs-page--mbox-top-left-font-weight: 700;
@@ -110,7 +92,6 @@
     var(--vs-color-background) 50%
   );
 
-  /* 章番号バッジ (h1) と「章-連番」の小見出し番号 (h2) */
   --vs-section--h1-break-before: page;
   --vs-section--h1-marker-display: block;
   --vs-section--h1-marker-content: counter(vs-counter-sec-h1);
@@ -130,7 +111,6 @@ section > h2:is(.data-box, .course, .fee):first-child::before {
   content: none;
 }
 
-/* ---- 2段組は本文ラッパ (section.level1) に掛け、段間にオレンジ罫 ---- */
 html {
   columns: auto;
 }
@@ -143,7 +123,6 @@ body > section.level1 {
     var(--vs-column-rule-color);
 }
 
-/* ============ 章ヘッダー: オレンジ番号バッジ + 大見出し + 欧文サブ ============ */
 body > section.level1 > h1 {
   column-span: all;
   border-top: 2.2pt solid;
@@ -176,9 +155,6 @@ body > section.level1 > h1::before {
   margin-top: 0.25rlh;
 }
 
-/* ============ 本文 ============ */
-
-/* 左段の番号付き小見出し */
 section.level2 > h2:first-child {
   font-size: 1.65em;
   line-height: 1.25;
@@ -193,7 +169,6 @@ section > h2:first-child::before {
   color: var(--vs-theme-chapter-badge-column-rule--color-accent);
 }
 
-/* ============ 図版 (外部 SVG を img で参照) ============ */
 body > section.level1 > figure img {
   display: block;
   border-radius: 1.2mm;
@@ -205,7 +180,6 @@ figcaption::before {
   color: var(--vs-theme-chapter-badge-column-rule--color-accent);
 }
 
-/* ============ DATA ボックス ============ */
 section:has(> h2.data-box) {
   border-width: 1.5pt;
   border-style: solid;
@@ -218,8 +192,8 @@ section:has(> h2.data-box) {
   break-before: column;
   break-inside: avoid;
 }
-/* 見出しは枠の上辺に食い込むタブ。position:absolute は multicol で
-   段送り前の位置にも描画されてしまうため、負マージンの block で作る */
+/* position:absolute は multicol で段送り前の位置にも描画されてしまうため、
+   負マージンの block で作る */
 section > h2.data-box {
   display: table;
   margin-block: -0.8em 0.5rlh;
@@ -232,7 +206,6 @@ section > h2.data-box {
   padding: 0.25em 0.75em;
   border-radius: 1.2mm;
 }
-/* 見出し行は不要 (アイコン + 説明の2列だけを見せる) */
 section:has(> h2.data-box) thead {
   display: none;
 }
@@ -267,7 +240,6 @@ section:has(> h2.data-box) td img {
   margin-top: 0.15em;
 }
 
-/* ============ 右段の小見出し (コース / 料金表) ============ */
 section > h2:is(.course, .fee) {
   display: flex;
   align-items: center;
@@ -286,7 +258,6 @@ section > h2.course::after {
   transform: translateY(0.1em);
 }
 
-/* ============ コースのフロー ============ */
 section:has(> h2.course) ol {
   display: flex;
   align-items: center;
@@ -321,7 +292,6 @@ section:has(> h2.course) li:not(:last-child)::after {
   font-size: 1.2rem;
 }
 
-/* ============ 料金表 ============ */
 section:has(> h2.fee) table {
   width: 100%;
   border-collapse: collapse;
@@ -368,7 +338,6 @@ section:has(> h2.fee) td:last-child {
   letter-spacing: 0.02em;
 }
 
-/* ============ 右段の解説文 (小級のキャプション体) ============ */
 section:has(> h2:is(.course, .fee)) > p {
   font-family: var(--vs-theme-chapter-badge-column-rule--font-caption);
   font-size: 0.9em;
@@ -377,7 +346,7 @@ section:has(> h2:is(.course, .fee)) > p {
   margin-inline: 0;
 }
 
-/* クロスリファレンス → P.**  (キャプション体より後に置いて詳細度の同点勝ちを取る) */
+/* キャプション体より後に置いて詳細度の同点勝ちを取る */
 body > section.level1 p.ref,
 section.level2 p.ref {
   font-family: var(--vs-font-family-alt);
@@ -391,7 +360,6 @@ section.level2 p.ref {
   margin-inline: 0;
 }
 
-/* ページ参照は地の文と同じ色 */
 a[data-ref='page'] {
   color: inherit;
 }

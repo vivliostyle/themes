@@ -1,13 +1,3 @@
-/*
- * 実用書のデータテーブル型 (band-heading-zebra-table)
- *
- * レター判縦・2 段組・8.4pt/1.45 の実用書本文ページ。
- * ダークグリーンの色ベタ帯に白抜きした番号付き見出し、緑ヘッダー行 + 淡緑ゼブラの
- * レッジャー表、ゼロ基線の棒グラフで構成する。
- * 柱は原稿の <header> を running element として天に流し、ノンブルは小口側下部。
- * 節番号・図表番号は「章番号.連番」形式。章番号は原稿の frontmatter `class: chapter`
- * から base のドキュメントカウンタで数える。
- */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700&family=Zilla+Slab:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/appendix';
@@ -22,7 +12,6 @@
 @import '@vivliostyle/theme-base/math';
 
 :root {
-  /* Theme tokens */
   --vs-theme-band-heading-zebra-table--color-accent: var(
     --vs-color-foreground-alt
   );
@@ -39,13 +28,11 @@
     var(--vs-color-background) 75%
   );
 
-  /* 2 段組。段間に細い縦罫を引き、段は順に埋める */
   --vs-columns: 2;
   --vs-column-fill: auto;
   --vs-column-gap: 8.2mm;
   --vs-column-rule-width: 0.35pt;
 
-  /* Type: slab serif 8.4pt / 1.45 */
   --vs-font-family: 'Roboto Slab', 'Rockwell', serif;
   --vs-font-family-alt: 'Zilla Slab', 'Rockwell', serif;
   --vs-font-size: 8.4pt;
@@ -53,7 +40,6 @@
   --vs-color-foreground: #1c1c1c;
   --vs-color-foreground-alt: #1a472a;
 
-  /* 節番号・図表番号は「章番号.連番」 */
   --vs-crossref-call-counter-prefix: target-counter(
       attr(href),
       vs-counter-chapter
@@ -67,7 +53,6 @@
   --vs--h2-line-height: 1.25;
   --vs--h2-letter-spacing: 0.01em;
   --vs--h2-margin-block: 0.5rlh 0.75rlh;
-  /* 番号付き見出し: 濃緑の色ベタ帯に白抜き */
   --vs--h2-background-color: var(
     --vs-theme-band-heading-zebra-table--color-accent
   );
@@ -75,7 +60,6 @@
   --vs--h2-padding-block: 0.35em 0.4em;
   --vs--h2-padding-inline: 0.65em;
 
-  /* Ledger table: 罫を持たない緑ヘッダー行 + 淡緑ゼブラ */
   --vs--table-border-width: 0;
   --vs--table-font-family: var(--vs-font-family-alt);
   --vs--table-font-variant-numeric: tabular-nums;
@@ -102,18 +86,16 @@
   --vs--ol-padding-inline-start: 5mm;
   --vs--lists-margin-block: 0 0.25rlh;
 
-  /* Page: letter portrait, 柱のぶん天を深くとる */
+  /* 柱のぶん天を深くとる */
   --vs-page--size: letter;
   --vs-page--margin-top: 19mm;
   --vs-page--margin-bottom: 11mm;
   --vs-page--margin-left: 15mm;
   --vs-page--margin-right: 15mm;
 
-  /* 柱: 原稿の <header> を天中央に流し、黒の太め罫で本文と切り離す */
   --vs-page--mbox-top-center-content: element(vs-theme-running-head);
   --vs-page--border-color-top: var(--vs-color-foreground);
   --vs-page--border-width-top: 1pt;
-  /* ノンブルは小口下 (右ページは右下、左ページは左下) */
   --vs-page--mbox-bottom-outside-content: counter(page);
   --vs-page--mbox-bottom-font-size: 1.2em;
   --vs-page--mbox-bottom-font-weight: 500;
@@ -138,7 +120,6 @@
   --vs-math--display-margin-block: 0.25rlh 0.5rlh;
 }
 
-/* 柱は本文から抜き出して天の margin box で使う */
 header {
   position: running(vs-theme-running-head);
   text-align: center;
@@ -149,12 +130,10 @@ header {
   text-transform: uppercase;
 }
 
-/* 図表の番号は本文と同じ太さで立てる */
 :is(figcaption, caption)::before {
   font-weight: 700;
 }
 
-/* 表は表題を上に置き、段幅いっぱいに収める。表題と表は同じ段に留める */
 figure.tbl {
   --vs--figure-align-items: stretch;
   --vs--figure-gap: 0.5rlh;
@@ -166,7 +145,6 @@ figure.tbl > table {
   width: 100%;
 }
 
-/* 図版は段幅より少し狭く、キャプションは図の下 */
 figure:not(.tbl) {
   --vs--figure-item-size-inline: 94%;
 }
@@ -183,7 +161,6 @@ td:first-child:nth-last-child(2) {
   text-align: center;
 }
 
-/* チェックリストなどの番号付きリストは本文と同じ体裁で組む */
 li {
   text-align: justify;
 }
@@ -193,7 +170,6 @@ li::marker {
   font-weight: 600;
 }
 
-/* 参照は本文と地続きに読ませる */
 a:is([data-ref='fig'], [data-ref='tbl'], [data-ref='sec']) {
   --vs--anchor-text-color: inherit;
 }

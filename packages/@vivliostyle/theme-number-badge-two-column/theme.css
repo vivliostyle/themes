@@ -1,21 +1,9 @@
-/*
- * 活動報告書向けテーマ。B5判縦・横組2段。
- * Noto Sans JP のゴシック本文に、青のアクセント
- * (数字バッジ付き節見出し・青縦棒付き大見出し・青二重罫の柱・囲み記事)。
- *
- * 原稿の構成 (VFM):
- *   1 報告 = 1 md。冒頭に `<header class="headline">` (生 HTML の h1 + 署名)、
- *   以降は `## 見出し` で節を切る (節番号 01〜 は theme-base の見出しカウンタで振る)。
- *   記録表は `<div class="record">` + 生 HTML の h3、囲み記事は `<aside class="note">`。
- * 段組は theme-base のルート段組 (--vs-columns) に任せ、本文はページをまたいで流れる。
- */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
 @import '@vivliostyle/theme-base';
 @import '@vivliostyle/theme-base/page';
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  /* テーマ固有 */
   --vs-theme-number-badge-two-column--color-accent: var(
     --vs-color-foreground-alt
   );
@@ -43,24 +31,20 @@
     var(--vs-color-background) 75%
   );
 
-  /* 2段組は本文全体に掛け、段間に細い境界罫を引く */
   --vs-columns: 2;
   --vs-column-fill: auto;
   --vs-column-gap: 11mm;
   --vs-column-rule-width: 0.2mm;
 
-  /* 大見出し (青縦棒付きの特大題字) */
   --vs--h1-font-size: 2.2em;
   --vs--h1-font-weight: 900;
   --vs--h1-line-height: 1.25;
   --vs--h1-margin-block: 0;
 
-  /* 節見出し (青角バッジ + 太字) */
   --vs--h2-font-size: 1.35em;
   --vs--h2-line-height: 1.3;
   --vs--h2-margin-block: 0 0.5rlh;
 
-  /* 小見出し (記録欄・囲み記事) */
   --vs--h3-font-size: 1.1em;
   --vs--h3-line-height: 1.3;
   --vs--h3-margin-block: 0;
@@ -84,7 +68,6 @@
   );
   --vs--figcaption-line-height: 1.3;
 
-  /* 表: 罫は tbody セルの下罫 (淡青) だけ。外枠・段罫は引かない */
   --vs--table-size-inline: 100%;
   --vs--table-line-height: 1.35;
   --vs--table-font-size: 0.85em;
@@ -115,7 +98,6 @@
   --vs-page--mbox-top-vertical-align: top;
   --vs-page--mbox-top-margin-bottom: 0.25rlh;
 
-  /* 柱は左が書名・右が報告の題、ノンブルは地中央。box ごとに書体が異なる */
   --vs-page--mbox-top-left-content: env(pub-title);
   --vs-page--mbox-top-left-font-family: 'Noto Sans JP', sans-serif;
   --vs-page--mbox-top-left-font-weight: 700;
@@ -135,7 +117,6 @@
   --vs-page--mbox-bottom-center-font-weight: 500;
   --vs-page--mbox-bottom-center-font-size: 1.15em;
 
-  /* 節番号は theme-base の見出しカウンタ (md ごとに 01 から) */
   --vs-section--h2-marker-display: inline-block;
   --vs-section--h2-marker-content: counter(
     vs-counter-sec-h2,
@@ -143,8 +124,6 @@
   );
   --vs-section--h2-marker-margin-inline-end: 0.9rem;
 }
-
-/* ---- 大見出し (青縦棒 + 特大題字 + 署名) ---- */
 
 .headline {
   border-left-width: 4.5mm;
@@ -162,12 +141,9 @@
   text-indent: 0;
 }
 
-/* リード文 (大見出し直後の段落) */
 .headline + p {
   margin-block: 0 0.5rlh;
 }
-
-/* ---- 節: 青角バッジ (01〜 自動採番) + 太字見出し ---- */
 
 section {
   margin-top: 0.75rlh;
@@ -204,8 +180,6 @@ section > h2:first-child::before {
   font-weight: 700;
 }
 
-/* ---- 箇条書き ---- */
-
 ul li {
   position: relative;
   line-height: 1.45;
@@ -222,16 +196,12 @@ ul li::before {
   background-color: var(--vs-theme-number-badge-two-column--color-accent);
 }
 
-/* ---- 図版 (外部 SVG) ---- */
-
 figure img {
   display: block;
   border-width: 0.2mm;
   border-style: solid;
   border-color: var(--vs-color-border-alt);
 }
-
-/* ---- 記録表 ---- */
 
 .record {
   margin-top: 0.75rlh;
@@ -252,8 +222,6 @@ figure img {
 tbody td:last-child {
   white-space: nowrap;
 }
-
-/* ---- 囲み記事 (角丸青枠) ---- */
 
 .note {
   margin-top: 0.75rlh;

@@ -1,8 +1,3 @@
-/*
- * example 専用の上書き。theme.css には手を入れない。
- */
-
-/* ---- 扉 ---- */
 body.cover {
   page: cover;
 }
@@ -63,7 +58,6 @@ body.cover {
   text-align: end;
 }
 
-/* ---- もくじ ---- */
 [role='doc-toc'] {
   font-size: 0.88em;
   margin-inline-start: 2mm;
@@ -92,7 +86,6 @@ body.cover {
   margin-inline-start: 5mm;
 }
 
-/* ---- 奥付 ---- */
 .colophon-meta {
   --vs--table-border-width-column: 0;
   --vs--table-border-width-row: 0.15mm;
