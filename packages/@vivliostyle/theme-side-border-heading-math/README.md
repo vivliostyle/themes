@@ -4,39 +4,23 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-side-border-heading-math',
-};
+```css
+@import '@vivliostyle/theme-side-border-heading-math';
 ```
 
 ## カスタマイズ
 
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+`:root` で以下の変数を上書きしてカスタマイズできる。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略。
 
 | 変数                                  | 既定値                             | 説明                                    |
 | ------------------------------------- | ---------------------------------- | --------------------------------------- |
-| `--vs-color-foreground` | `#1a1a1a` | 本文の文字色 |
-| `--vs-color-background` | `#fdfdfb` | 紙面の地色 |
-| `--vs-color-foreground-alt` | `#1e40af` | アクセント色 |
-| `--vs-font-family`                    | `'STIX Two Text', ...`             | 本文書体                                |
-| `--vs-font-family-alt`                | `'Source Serif 4', ...`            | 見出し・定理ラベル・柱の表示書体        |
 | `--vs-theme-side-border-heading-math--accent-color`                   | `--vs-color-foreground-alt` と同じ | 節見出しの縦バー・定理ラベルの群青色    |
 | `--vs-theme-side-border-heading-math--color-foreground-secondary`               | `--vs-color-foreground` × `--vs-color-background` 30% | サイドノート・脚注本文の色              |
-| `--vs-math--font-family`              | `'STIX Two Math', ...`             | 数式の書体                              |
-| `--vs-page--margin-left`              | `42mm`                             | 物理左側 (サイドノート列) の余白        |
-| `--vs-page--margin-right`             | `20mm`                             | 物理右側の余白                          |
-| `--vs-theorem--label`                 | `'Theorem '` (`.lemma` などの種別クラスで `'Lemma '` …) | 定理環境の種別ラベル (言語の差し替え用) |
 | `--vs-theme-side-border-heading-math--proof-label` | `'Proof'`             | 証明のラベル (言語の差し替え用)         |
-| `--vs-crossref-marker-counter-prefix` | `counter(vs-counter-sec-h2) '.'`   | 定理番号・式番号の前に付ける節番号      |
-| `--vs-section--label`                 | `'§'`                              | 節の参照に付けるラベル                  |
 
 ## 原稿の書きかた
 
-- 節番号は theme-base の `--vs-section--*` が付ける (h2 が「1」、h3 が「1.1」)。Markdown の見出しには番号を書かない。
+- 節番号は自動で付く (h2 が「1」、h3 が「1.1」)。Markdown の見出しには番号を書かない。
 - 論題は閉じ `#` を付けた `# 論題 #` で書く (閉じ `#` のない `#` はセクション化して後続をすべて包んでしまうため)。番号を付けたくない後付けの見出し (謝辞・参考文献など) も同じく `## References ##` と書く。こうすると節番号は本文の `##` から 1 で始まる。
 - 柱には `h1` の論題が `string-set` で流れ、ノンブルはサイドノート列と同じ側の地に出る。
 - 標題まわりは `<div class="paper-head">` の中に `h1` / `<p class="byline">` / `<p class="affil">` / `<div class="abstract">` / `<p class="kw">` / `<p class="msc">` を置く。

@@ -4,11 +4,8 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-fine-rule-marginalia',
-};
+```css
+@import '@vivliostyle/theme-fine-rule-marginalia';
 ```
 
 ## 原稿の書き方
@@ -41,18 +38,8 @@ class: chapter
 
 ## カスタマイズ
 
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+`:root` で以下の変数を上書きしてカスタマイズできる。
 
 | 変数                               | 既定値                                                   | 説明                         |
 | ---------------------------------- | -------------------------------------------------------- | ---------------------------- |
-| `--vs-color-foreground` | `#1f1b24` | 本文の文字色 |
-| `--vs-color-background` | `#faf7f0` | 紙面の地色 |
-| `--vs-color-foreground-alt` | `#330066` | アクセント色 |
 | `--vs-theme-fine-rule-marginalia--color-accent`         | `--vs-color-foreground-alt` と同じ | 罫・注記号・相互参照の濃紫   |
-| `--vs-color-border`           | `--vs-color-foreground-alt` × `--vs-color-background` 70% | 挿画の枠の薄紫               |
-| `--vs--heading-font-family`        | `'Zen Old Mincho', ...`                                  | 章題・章番号の書体           |
-| `--vs-font-family-alt`          | `'Zen Kaku Gothic New', ...`                             | 柱・傍注・脚注のゴシック書体 |
-| `--vs-font-family`                 | `'Shippori Mincho', ...`                                 | 本文書体                     |
-| `--vs-section--h1-marker-content`  | `'第' counter(vs-counter-chapter, cjk-ideographic) '章'` | 章番号の表記                 |

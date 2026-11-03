@@ -4,11 +4,8 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-reversed-header-ledger',
-};
+```css
+@import '@vivliostyle/theme-reversed-header-ledger';
 ```
 
 台帳は Markdown の表で書く。1 列目を日付（幅 14%）、2 列目を摘要（38%）、3 列目以降を金額（各 16%）とみなして組版する（最終列は残高として強調される）。行数が版面を越えると表頭を繰り返して次ページへ継続する。
@@ -22,19 +19,10 @@ export default {
 
 ## カスタマイズ
 
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+`:root` で以下の変数を上書きしてカスタマイズできる。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略。
 
 | 変数                                     | 既定値                    | 説明                                 |
 | ---------------------------------------- | ------------------------- | ------------------------------------ |
-| `--vs-color-foreground` | `#1a1a1a` | 本文の文字色 |
-| `--vs-color-background` | `#ffffff` | 紙面の地色 |
-| `--vs-color-foreground-alt` | `#0066cc` | アクセント色 |
 | `--vs-theme-reversed-header-ledger--color-accent`               | `--vs-color-foreground-alt` と同じ | ヘッダー帯・柱罫・強調文字の基調色   |
 | `--vs-theme-reversed-header-ledger--color-accent-deep`          | `--vs-color-foreground-alt` × `--vs-color-foreground` 20% | 発行者ロゴタイプの欧文部分の色       |
-| `--vs-color-background-alt`                 | `--vs-color-foreground-alt` × `--vs-color-background` 90% | 口座情報ボックス・偶数行の淡色地     |
-| `--vs-color-border-alt`          | `--vs-color-foreground-alt` × `--vs-color-background` 65% | 口座情報ボックスの枠線色             |
 | `--vs-theme-reversed-header-ledger--color-foreground-secondary`              | `--vs-color-foreground` × `--vs-color-background` 15% | 日付列とノンブルの文字色             |
-| `--vs-font-family-alt`               | `'IBM Plex Sans JP', ...` | 日付・金額列のタブラー数字書体       |
-| `--vs--table-border-color`               | `--vs-color-foreground-alt` × `--vs-color-background` 85% | 台帳の行罫の色                       |

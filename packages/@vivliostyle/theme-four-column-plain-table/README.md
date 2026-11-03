@@ -4,11 +4,8 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-four-column-plain-table',
-};
+```css
+@import '@vivliostyle/theme-four-column-plain-table';
 ```
 
 ## 原稿の書き方
@@ -18,15 +15,3 @@ export default {
 - 一覧表はふつうの Markdown 表を 1 つ書けばよい。段をまたいで自動的に流れるので、段ごとに表を分けたり「(CONT)」の見出しを繰り返したりする必要はない。
 - 図版は単独行の画像 (`![キャプション](figure.svg)`) で置く。page float として段の地に定着する。
 - 注記は `<div class="note">` で囲む。
-
-## カスタマイズ
-
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-| 変数                     | 既定値                        | 説明                 |
-| ------------------------ | ----------------------------- | -------------------- |
-| `--vs-columns`           | `4`                           | 表を流す段の数       |
-| `--vs-font-family-monospace` | `'JetBrains Mono', ...` | 全編共通の等幅書体 (`--vs-font-family` もこれを参照する) |
-| `--vs-color-foreground`        | `#1a1a1a` | 本文・罫の墨色       |
-| `--vs-color-background`  | `#f7f6f2` | 地色                 |
-| `--vs-border-width` | `0.4pt`                       | 図版枠・NOTE枠の罫幅 |

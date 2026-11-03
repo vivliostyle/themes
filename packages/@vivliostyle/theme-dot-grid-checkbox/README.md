@@ -11,32 +11,15 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-dot-grid-checkbox',
-};
+```css
+@import '@vivliostyle/theme-dot-grid-checkbox';
 ```
 
 ## カスタマイズ
 
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+`:root` で以下の変数を上書きしてカスタマイズできる。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略。
 
 | 変数                                | 既定値             | 説明                                          |
 | ----------------------------------- | ------------------ | --------------------------------------------- |
-| `--vs-color-foreground-alt` | `#34495e` | アクセント色 |
-| `--vs-font-family`                  | `'Noto Sans', ...` | 本文書体                                      |
-| `--vs--heading-font-family`         | `--vs-font-family-alt` と同じ | 見出し・ラベルの表示書体                      |
-| `--vs-color-foreground`                   | `#27313a` | 本文の文字色                                  |
-| `--vs-color-background`             | `#fcfbf7` | 地色 (ドット方眼の紙色)                       |
-| `--vs-font-family-alt`          | `'Inter', ...`     | 見出し・日付・図キャプション・ノンブルの表示書体 |
 | `--vs-theme-dot-grid-checkbox--color-accent`          | `--vs-color-foreground-alt` と同じ | 見出し・チェックボックス・罫のアクセント色    |
 | `--vs-theme-dot-grid-checkbox--color-foreground-secondary`           | `--vs-color-foreground-alt` × `--vs-color-background` 45% | 完了タスク・図キャプション・ノンブルの色      |
-| `--vs--figure-item-size-inline`    | `70mm`             | スケッチ図版の幅 (版面幅を超える場合は版面幅) |
-| `--vs-figure--marker-content` | `'fig. — '`        | `figcaption` の頭に付く標識                   |
-
-## 見開きで組む
-
-ノンブルは小口側の変数 `--vs-page--mbox-bottom-outside-content` で指定しているので、右ページでは右下、左ページでは左下に置かれる。片面で全ページ右下に揃えたい場合は `--vs-page--mbox-bottom-right-content: counter(page)` のように物理位置の変数で上書きする。

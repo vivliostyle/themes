@@ -4,11 +4,8 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-centered-heading-bracket-subhead',
-};
+```css
+@import '@vivliostyle/theme-centered-heading-bracket-subhead';
 ```
 
 ## 原稿の書き方
@@ -40,21 +37,8 @@ class: chapter # base の章カウンタを増やす (柱の「第N章」)
 
 ## カスタマイズ
 
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+`:root` で以下の変数を上書きしてカスタマイズできる。
 
 | 変数 | 既定値 | 説明 |
 | --- | --- | --- |
-| `--vs-color-foreground` | `#1a1a1a` | 本文の文字色 |
 | `--vs-theme-centered-heading-bracket-subhead--font-display` | `'Shippori Mincho B1', ...` | 標題見出し(h1)と副題の表示書体 |
-| `--vs-color-background` | `#fdfcf8` | 地色(生成り) |
-| `--vs-color-background-alt` | `--vs-color-foreground` × `--vs-color-background` 95% | 表ヘッダー行の地色 |
-| `--vs-color-border` | `--vs-color-foreground` × `--vs-color-background` 30% | 罫線色(柱・表・注の区切り) |
-| `--vs-page--mbox-top-center-content` | `'第' counter(vs-counter-chapter) '章　' env(doc-title)` | 柱の内容 |
-| `--vs-section--h1-marker-content` | `counter(vs-counter-sec-h1)` | 標題番号の書式 |
-| `--vs-section--h3-marker-content` | `counter(vs-counter-sec-h3, cjk-ideographic)` | 解説の項番号の書式 |
-| `--vs-endnote--marker-content` | `'(' counter(vs-counter-endnote) ')'` | 注番号の書式 |
-
-章番号・標題番号・ノンブルを途中から起こすには、原稿側 (templates/default/example.css) で
-`--vs-section--root-counter-sec-h1` と `--vs-document-first-page-counter-reset` を指定する。

@@ -4,11 +4,8 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-circled-number-two-column',
-};
+```css
+@import '@vivliostyle/theme-circled-number-two-column';
 ```
 
 ## 原稿の書き方
@@ -20,19 +17,8 @@ export default {
 
 ## カスタマイズ
 
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+`:root` で以下の変数を上書きしてカスタマイズできる。
 
 | 変数                                | 既定値                                             | 説明                                         |
 | ----------------------------------- | -------------------------------------------------- | -------------------------------------------- |
-| `--vs-color-foreground` | `#333333` | 本文の文字色 |
-| `--vs-color-background` | `#ffffff` | 紙面の地色 |
-| `--vs-color-foreground-alt` | `#66cc00` | アクセント色 |
-| `--vs-font-family`                  | `'Noto Sans JP', ...`                              | 本文書体                                     |
-| `--vs-columns`                      | `2`                                                | 段数                                         |
-| `--vs-section--h2-marker-content` | `counter(vs-counter-sec-h2, decimal-leading-zero)` | 品番の体裁                                   |
 | `--vs-theme-circled-number-two-column--color-accent`          | `--vs-color-foreground-alt` と同じ | 丸数字見出し・データバー・表罫のアクセント色 |
-| `--vs-color-border`            | `--vs-color-foreground-alt` × `--vs-color-background` 45% | 段境・行罫の淡いグリーン                     |
-| `--vs--th-background-color`            | `--vs-color-foreground-alt` × `--vs-color-background` 85% | 材料表ヘッダーの地色                         |
-| `--vs--h2-text-color`         | `#1a1a1a` | レシピ見出しの文字色                         |

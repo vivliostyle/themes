@@ -4,11 +4,8 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-vertical-mincho-photo-caption',
-};
+```css
+@import '@vivliostyle/theme-vertical-mincho-photo-caption';
 ```
 
 ## 原稿の組み立て
@@ -37,19 +34,9 @@ md ファイル (ドキュメント) の種別を frontmatter の `class` で指
 
 ## カスタマイズ
 
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+`:root` で以下の変数を上書きしてカスタマイズできる。
 
 | 変数                                    | 既定値                                      | 説明                               |
 | --------------------------------------- | ------------------------------------------- | ---------------------------------- |
-| `--vs-page--size`                       | `127mm 188mm`                               | 判型 (四六判)                      |
-| `--vs-font-family`                      | `'Noto Serif JP', ...`                      | 本文書体                           |
-| `--vs-color-foreground`                       | `#1a1a1a` | 本文・罫の墨色                     |
-| `--vs-color-background`                 | `#f7f5f0` | 生成り地の色                       |
-| `--vs-color-foreground-alt`               | `--vs-color-foreground` × `--vs-color-background` 15% | 注番号・キャプションの色           |
-| `--vs-color-border`                | `--vs-color-foreground` × `--vs-color-background` 60% | 章題下・注の区切り罫の色           |
-| `--vs-color-border-alt`                 | `--vs-color-foreground` × `--vs-color-background` 80% | 図版の枠線の色                     |
-| `--vs-section--h1-marker-content`    | `'第' counter(...) '章　'`                  | 章題に付く章番号                   |
 | `--vs-theme-vertical-mincho-photo-caption--running-head-content`      | `env(pub-title) '　' string(chapter-title)` | 柱の内容                           |
 | `--vs-theme-vertical-mincho-photo-caption--folio-content`             | `counter(page, cjk-decimal)`                | ノンブルの内容                     |

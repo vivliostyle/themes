@@ -13,30 +13,17 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-jupyter-cell-layout',
-};
+```css
+@import '@vivliostyle/theme-jupyter-cell-layout';
 ```
 
 ## カスタマイズ
 
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+`:root` で以下の変数を上書きしてカスタマイズできる。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略。
 
 | 変数                             | 既定値                 | 説明                                    |
 | -------------------------------- | ---------------------- | --------------------------------------- |
-| `--vs-color-foreground` | `#23272b` | 本文の文字色 |
-| `--vs-color-background` | `#fffdf9` | 紙面の地色 |
-| `--vs-color-foreground-alt` | `#f37726` | アクセント色 |
-| `--vs-font-family`               | `'Source Sans 3', ...` | 本文書体                                |
-| `--vs--monospace-font-family`    | `'IBM Plex Mono', ...` | コードセルの書体                        |
 | `--vs-theme-jupyter-cell-layout--color-accent`       | `--vs-color-foreground-alt` と同じ | 章見出し罫・実行番号ガターの Jupyter 橙 |
-| `--vs-color-background-alt`      | `--vs-color-background` と同じ | 説明・数式・結論セルの背景色            |
-| `--vs--pre-background-color`      | `--vs-color-foreground` × `--vs-color-background` 95% | コードセルの背景色                      |
-| `--vs--pre-border-color`      | `--vs-color-foreground` × `--vs-color-background` 90% | コードセル・出力セルの枠線色                      |
 | `--vs-theme-jupyter-cell-layout--color-output-bg`    | `--vs-color-foreground-alt` × `--vs-color-background` 95% | 出力セルの背景色                        |
 | `--vs-theme-jupyter-cell-layout--cell-border-radius` | `0.8mm`                | セルの角丸半径                          |
 
@@ -45,10 +32,3 @@ export default {
 | 変数                                     | 既定値                                     | 説明                                |
 | ---------------------------------------- | ------------------------------------------ | ----------------------------------- |
 | `--vs-theme-jupyter-cell-layout--chapter-counter-style`      | `decimal-leading-zero`                     | 章番号の書式                        |
-| `--vs-crossref-marker-counter-prefix`    | `counter(vs-counter-chapter, …) '.'`       | 節番号・図番号の前に付く章番号      |
-| `--vs-crossref-call-counter-prefix`      | `target-counter(…, vs-counter-chapter, …) '.'` | 節参照・図参照の前に付く章番号  |
-| `--vs-page--mbox-top-left-content`       | `'CHAPTER ' … ' · ' string(chapter-title)` | 柱の内容                            |
-
-節番号は base の `--vs-section--h2-marker-content`、節参照 (`data-ref="sec"`、`data-ref="sec-title"` の番号部分) は `--vs-section--call-counter-content`、図番号は `--vs-figure--marker-content` (語は `--vs-figure--label`)、ノンブルは `--vs-page--mbox-bottom-outside-content` で変更できる。
-
-ノンブルは小口側の変数 `--vs-page--mbox-bottom-outside-content` で指定しているので、右ページでは右下、左ページでは左下に置かれる。片面で全ページ右下に揃えたい場合は `--vs-page--mbox-bottom-right-content: counter(page)` のように物理位置の変数で上書きする。

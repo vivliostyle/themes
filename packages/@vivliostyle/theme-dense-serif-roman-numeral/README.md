@@ -4,38 +4,13 @@ PRL (Physical Review Letters) 風の速報論文テーマ。STIX Two Text の高
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-dense-serif-roman-numeral',
-};
+```css
+@import '@vivliostyle/theme-dense-serif-roman-numeral';
 ```
-
-## カスタマイズ
-
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-| 変数 | 既定値 | 説明 |
-| --- | --- | --- |
-| `--vs-color-background` | `#ffffff` | 紙面の地色 |
-| `--vs-font-family` | `'STIX Two Text', 'Times New Roman', serif` | 本文書体 |
-| `--vs-font-size` | `8.3pt` | 本文サイズ (高密度な誌面) |
-| `--vs-color-foreground` | `#111111` | 本文・罫の墨色 |
-| `--vs-columns` | `2` | 本文の段数 (標題ブロックは段抜き) |
-| `--vs-column-gap` | `6mm` | 段の間隔 |
-| `--vs--h1-font-size` | `1.4em` | 論文タイトルのサイズ |
-| `--vs--h2-font-size` | `0.95em` | ローマ数字センター見出しのサイズ |
-| `--vs-section--counter-style` | `upper-roman` | 節番号のスタイル |
-| `--vs-section--label` | `'Sec.\2009'` | 節参照の前に付く語 |
-| `--vs--p-text-indent` | `1.2em` | 段落先頭の字下げ量 |
-| `--vs--figure-item-size-inline` | `84%` | 図版の幅 |
-| `--vs-equation--label` | `'Eq.\2009'` | 式参照の前に付く語 |
-| `--vs-figure--marker-content` | `'FIG. ' counter(…) '. '` | 図題の先頭に出す図番号 |
-| `--vs-figure--label` | `'Fig.\2009'` | 図参照の前に付く語 |
 
 ## 原稿の書きかた
 
-- 節番号は theme-base の `--vs-section--*` が付ける (h2 が「I.」「II.」)。Markdown の見出しには番号を書かず、大文字化も CSS に任せる。
+- 節番号は自動で付く (h2 が「I.」「II.」)。Markdown の見出しには番号を書かず、大文字化も CSS に任せる。
 - 論題は閉じ `#` を付けた `# 論題 #` で書く (閉じ `#` のない `#` はセクション化して後続をすべて包んでしまうため)。番号を付けたくない後付けの見出し (謝辞など) も同じく `## Acknowledgments ##` と書く。
 - 標題まわりは `<div class="titleblock">` の中に `<p class="masthead">` / `h1` / `<p class="byline">` / `<p class="affil">` / `<p class="received">` / `<div class="abstract">` を置く。このブロックだけが段抜きになり、以降が 2 段に流れる。
 - 別行立ての数式は `<div class="equation" id="eq-id">` で `$$…$$` を包む。式番号は文書を通した連番で、本文からは `<a href="#eq-id" data-ref="eq"></a>` (「Eq. (4)」) で参照する。

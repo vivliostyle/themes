@@ -4,11 +4,8 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-vertical-spanning-title-boxed',
-};
+```css
+@import '@vivliostyle/theme-vertical-spanning-title-boxed';
 ```
 
 ## 原稿の書き方
@@ -54,17 +51,3 @@ lang: ja
 
 ## 中見出し ##
 ```
-
-## カスタマイズ
-
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-| 変数                                    | 既定値                              | 説明                              |
-| --------------------------------------- | ----------------------------------- | --------------------------------- |
-| `--vs-font-family`                      | `'Noto Serif JP', ...`              | 本文・見出しの明朝書体            |
-| `--vs-color-foreground`                       | `#1a1a1a` | 本文・罫の墨色                    |
-| `--vs-color-background`                 | `#f5f2ea` | 黄味がかった地色                  |
-| `--vs--h1-font-size`                    | `2.9em`                              | 大題 (縦組み) の文字サイズ        |
-| `--vs-columns`                   | `2`                                 | 段数 (縦組みなので上下に積まれる) |
-| `--vs-column-gap`                | `6mm`                               | 段間                              |
-| `--vs-footnote--call-content`           | `'＊' counter(vs-counter-footnote)` | 合印の書式                        |

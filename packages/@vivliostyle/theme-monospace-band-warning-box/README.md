@@ -13,28 +13,14 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-monospace-band-warning-box',
-};
+```css
+@import '@vivliostyle/theme-monospace-band-warning-box';
 ```
 
 ## カスタマイズ
 
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+`:root` で以下の変数を上書きしてカスタマイズできる。
 
 | 変数                             | 既定値                  | 説明                               |
 | -------------------------------- | ----------------------- | ---------------------------------- |
-| `--vs-color-background` | `#ffffff` | 紙面の地色 |
-| `--vs-font-family`               | `'JetBrains Mono', ...` | 本文・見出し共通のモノスペース書体 |
-| `--vs-color-foreground`                | `#1a1a1a` | 本文・罫の墨色                     |
-| `--vs--pre-background-color`      | `--vs-color-foreground` × `--vs-color-background` 95% | コードブロックの背景色             |
-| `--vs--pre-border-color`  | `--vs-color-foreground` × `--vs-color-background` 45% | コードブロックの枠線色             |
 | `--vs-theme-monospace-band-warning-box--color-inverse-bg`   | `#000000` | 警告ボックスのヘッダ背景色と枠の色 (ヘッダ文字は `--vs-color-background`) |
-
-付録の採番と参照は base の appendix モジュールに任せている。付録見出しの番号は `--vs-appendix--marker-content`、`data-ref="apx"` の参照文字列は `--vs-appendix--call-content`、番号の書式は `--vs-appendix--counter-style` (既定は `upper-alpha`) で変更できる。
-
-章・節番号の見え方は base の `--vs-section--hN-marker-content`、本文からの節参照 (`data-ref="sec"`) と、もくじの節項目 (`data-ref="sec-title"`) の番号は `--vs-section--call-counter-content`、ノンブルは `--vs-page--mbox-bottom-center-content` で変更できる。

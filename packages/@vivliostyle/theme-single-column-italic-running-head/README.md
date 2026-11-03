@@ -4,11 +4,8 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-single-column-italic-running-head',
-};
+```css
+@import '@vivliostyle/theme-single-column-italic-running-head';
 ```
 
 原稿の書き方:
@@ -21,20 +18,3 @@ export default {
 - 参照は `<a href="ファイル.html#id" data-ref="chapter|sec|fig|tbl"></a>` で、別ファイルへの参照も番号が解決される。VFM は空要素の直後の空白を落とすので、続けて語が来る場合は `&nbsp;` を書く。
 - 注は `<span class="footnote">…</span>` (base の footnote)。呼び出したページの下部に番号付きで組まれる。
 - 目次は `<nav id="toc" role="doc-toc">` の中に `.toc-front` / `.toc-body` / `.toc-back` の 3 つのリストを置く。番号もノンブルもリンク先から引く。
-
-## カスタマイズ
-
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-| 変数                                     | 既定値                            | 説明                                  |
-| ---------------------------------------- | --------------------------------- | ------------------------------------- |
-| `--vs-color-foreground`                  | `#1a1a1a`                         | 本文の文字色                          |
-| `--vs-color-background`                  | `#ffffff`                         | 紙面の地色                            |
-| `--vs-font-family`                       | `'EB Garamond', ...`              | 本文・見出し・柱に共通の書体          |
-| `--vs-page--margin-left` / `-right`      | `30mm` / `20mm`                   | ノド・小口の余白 (片面印刷前提)       |
-| `--vs-page--mbox-top-left-content`       | `env(pub-title)`                  | 柱 (イタリック) の内容                |
-| `--vs-page--border-width-top`            | `0.5pt`                           | 柱の下のヘアライン (版面の上罫)       |
-| `--vs-crossref-marker-counter-prefix`    | `counter(vs-counter-chapter) '.'` | 節番号・図表番号の前に付く章番号      |
-| `--vs-crossref-call-counter-prefix`      | `target-counter(...) '.'`         | 節・図表の参照の番号の前に付く章番号  |
-| `--vs-footnote--area-before-size-inline` | `62%`                             | 注欄の区切り罫の長さ                  |
-| `--vs-toc--ol-indent-size`               | `9mm`                             | 目次の番号欄・字下げ幅                |

@@ -4,11 +4,8 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-spanning-title-two-column',
-};
+```css
+@import '@vivliostyle/theme-spanning-title-two-column';
 ```
 
 ## 原稿の書き方
@@ -32,23 +29,3 @@ export default {
 | 文献   | `<a href="#cite-1" data-ref="cite"></a>`      | [1]   |
 
 図は `![説明](fig.svg){#fig-id}`、表は `<figure class="tbl" id="tbl-id">` に `<figcaption>` と Markdown 表を入れる (キャプションは表の上に出る)。列の揃えは Markdown の桁揃え記法で指定し、右揃えの列は欧文書体で組まれる。別行立ての数式は `$$ … $$` の直後の行に `<a id="eq-N"></a>` を置くと参照できる。参考文献は `<ol class="cite-items">` に `<li id="cite-N">` を並べる。
-
-## カスタマイズ
-
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
-
-| 変数                                 | 既定値                                                | 説明                               |
-| ------------------------------------ | ----------------------------------------------------- | ---------------------------------- |
-| `--vs-color-background`              | `#ffffff`                                             | 紙面の地色                         |
-| `--vs-font-family`                   | `'Noto Serif JP', ...`                                | 本文の明朝書体                     |
-| `--vs--heading-font-family`          | `'Noto Sans JP', ...`                                 | 見出し・柱・表見出しのゴシック書体 |
-| `--vs-font-family-alt`               | `'STIX Two Text', ...`                                | 英題・数値・ノンブルの欧文書体     |
-| `--vs-color-foreground`              | `#1a1a1a`                                             | 本文・罫の墨色                     |
-| `--vs-color-background-alt`          | `--vs-color-foreground` × `--vs-color-background` 95% | 表ヘッダ・擬似コードの淡グレー地   |
-| `--vs-columns`                       | `2`                                                   | 本文の段数                         |
-| `--vs-column-gap`                    | `8mm`                                                 | 段間                               |
-| `--vs-section--h2-marker-content`    | `counter(vs-counter-sec-h2) '.'`                      | 章番号の書式                       |
-| `--vs-section--call-counter-content` | `target-counter(…)`                                   | 本文からの章参照の番号             |
-| `--vs-section--label`                | `'章'` (`:root:lang(ja)`)                             | 本文からの章参照で番号に続ける語   |

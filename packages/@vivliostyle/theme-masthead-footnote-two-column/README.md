@@ -4,11 +4,8 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-masthead-footnote-two-column',
-};
+```css
+@import '@vivliostyle/theme-masthead-footnote-two-column';
 ```
 
 ## 原稿の書き方
@@ -19,24 +16,3 @@ export default {
 - 節番号を付けない見出しは閉じ `#` を付けて `## 参考文献 ##` と書く (セクション化されないので番号が振られない)。
 - 表題は `<p class="caption" id="…">` (番号を付けない表題は `class="caption plain"`)、数式は `<div class="equation" id="…">`。「表1」「(1)」などの番号は原稿に書かない。
 - 参照は `<a href="#id" data-ref="fig|tbl|eq|page"></a>` と書く。`page` は参照先のページ番号を出す。
-
-## カスタマイズ
-
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
-
-| 変数                                  | 既定値                        | 説明                                     |
-| ------------------------------------- | ----------------------------- | ---------------------------------------- |
-| `--vs-color-background` | `#fafaf7` | 紙面の地色 |
-| `--vs-columns`                        | `2`                           | 概要本文の段数                           |
-| `--vs-font-family`                    | `'Noto Serif JP', serif`      | 本文書体                                 |
-| `--vs-font-family-alt`          | `'Noto Sans JP', ...`         | 著者・柱・キャプション等の補助書体       |
-| `--vs-color-foreground`                     | `#161616` | 本文色                                   |
-| `--vs-color-foreground-alt`               | `--vs-color-foreground` × `--vs-color-background` 25% | 著者所属・柱・キャプション等の補助文字色 |
-| `--vs-color-border-alt`              | `--vs-color-foreground` × `--vs-color-background` 55% | 概要・キーワード欄と表の細罫色           |
-| `--vs-color-background-alt`              | `--vs-color-foreground` × `--vs-color-background` 90% | 表ヘッダーの淡色面                       |
-
-## 見開きで組む
-
-ノンブルは小口側の変数 `--vs-page--mbox-bottom-outside-content` で指定しているので、右ページでは右下、左ページでは左下に置かれる。片面で全ページ右下に揃えたい場合は `--vs-page--mbox-bottom-right-content: counter(page)` のように物理位置の変数で上書きする。

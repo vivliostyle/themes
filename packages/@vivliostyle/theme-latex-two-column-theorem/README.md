@@ -4,35 +4,21 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-latex-two-column-theorem',
-};
+```css
+@import '@vivliostyle/theme-latex-two-column-theorem';
 ```
 
 ## カスタマイズ
 
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
+`:root` で以下の変数を上書きしてカスタマイズできる。
 
 | 変数                                                          | 既定値                             | 説明                                                                                            |
 | ------------------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `--vs-font-family`                                            | `'EB Garamond', ...`               | 本文・見出し書体                                                                                |
-| `--vs-math--font-family`                                      | `'STIX Two Math', ...`             | 数式の書体                                                                                      |
-| `--vs-color-foreground` / `--vs-color-border`                 | `#333333`                          | 本文・罫の墨色                                                                                  |
-| `--vs-color-background`                                       | `#fafaf7`                          | 地色                                                                                            |
-| `--vs-columns`                                                | `2`                                | 本文の段数                                                                                      |
-| `--vs-column-gap`                                             | `7mm`                              | 2 段の間隔                                                                                      |
-| `--vs--table-border-width-block-start` / `-block-end`         | `1.1pt`                            | 表の上下太罫の幅                                                                                |
-| `--vs--table-border-width-thead-inner`                        | `0.5pt`                            | ヘッダ下の細罫の幅                                                                              |
-| `--vs-theorem--label`                                         | `'Theorem '`                       | 定理環境の種別ラベル。種別クラスごとに `.theorem.lemma { --vs-theorem--label: … }` で差し替える |
 | `--vs-theme-latex-two-column-theorem--theorem-number-content` | `counter(vs-counter-sec-h2) '.' …` | 定理番号の組み立て (既定は「節.通番」)                                                          |
-| `--vs-theorem--call-content`                                  | `target-counter(…) '.' …`          | 定理の参照に出す番号                                                                            |
-| `--vs-appendix--counter-style`                                | `upper-alpha`                      | 付録番号のスタイル                                                                              |
 
 ## 原稿の書きかた
 
-- 節番号は theme-base の `--vs-section--*` が付ける (h2 が「1.」、h3 が「3.1」)。Markdown の見出しには番号を書かない。
+- 節番号は自動で付く (h2 が「1.」、h3 が「3.1」)。Markdown の見出しには番号を書かない。
 - 論題は閉じ `#` を付けた `# 論題 #` で書く (閉じ `#` のない `#` はセクション化して後続をすべて包んでしまうため)。番号を付けたくない後付けの見出し (謝辞・参考文献など) も同じく `## References ##` と書く。
 - 標題まわりは `<div class="titleblock">` の中に `<p class="jref">` / `h1` / `<p class="byline">` / `<p class="running-author">` / `<p class="affil">` / `<div class="abstract">` / `<p class="kwd">` を置く。このブロックだけが段抜きになり、以降が 2 段に流れる。
 - 柱は原稿から取る。左は `<p class="running-author">` (本文には出ず柱にだけ出る running element)、右は `<p class="jref">` の中に置いた `<span class="journal">誌名</span>`。

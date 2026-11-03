@@ -4,11 +4,8 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-two-column-three-line-table',
-};
+```css
+@import '@vivliostyle/theme-two-column-three-line-table';
 ```
 
 ## 原稿の書き方
@@ -23,24 +20,10 @@ export default {
 
 ## カスタマイズ
 
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+`:root` で以下の変数を上書きしてカスタマイズできる。
 
 | 変数                                      | 既定値                      | 説明                           |
 | ----------------------------------------- | --------------------------- | ------------------------------ |
-| `--vs-color-background` | `#ffffff` | 紙面の地色 |
-| `--vs-color-foreground-alt` | `#2c3e50` | アクセント色 |
 | `--vs-theme-two-column-three-line-table--color-accent`                | `--vs-color-foreground-alt` と同じ | 見出し・表の太罫・柱罫の紺色   |
-| `--vs-color-border`                  | `--vs-color-foreground-alt` × `--vs-color-background` 45% | 表のヘッダ罫・脚注区切り罫の色 |
-| `--vs-color-border-alt`             | `--vs-color-foreground` × `--vs-color-background` 85% | 表の行間の淡い罫の色           |
-| `--vs-math--font-family`                   | `'STIX Two Math', ...`      | MathML 数式の書体              |
-| `--vs-page--mbox-top-left-content`         | `env(pub-title)`            | 天の柱の左に出す誌名・巻号     |
-| `--vs-equation--label`     | `''`        | 数式参照の番号の前に付く語 (既定は付けず「(N)」) |
-| `--vs-table--label`     | `'TABLE '`        | 表番号・表参照の前に付く語 |
-| `--vs-columns` | `2` | 本文の段数 (標題ブロックは段抜き) |
-| `--vs-column-gap` | `6mm` | 段間 |
-| `--vs-font-family`                        | `'Noto Sans', ...`          | 本文書体                       |
-| `--vs-color-foreground`                         | `#1a1a1a` | 本文の文字色                   |
 
 天の柱の右は各原稿の frontmatter `title`、ノンブルは `counter(page)` から生成する。

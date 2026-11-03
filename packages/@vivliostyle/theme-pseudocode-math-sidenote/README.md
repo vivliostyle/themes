@@ -14,39 +14,6 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-pseudocode-math-sidenote',
-};
+```css
+@import '@vivliostyle/theme-pseudocode-math-sidenote';
 ```
-
-## カスタマイズ
-
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
-
-| 変数                          | 既定値                   | 説明                         |
-| ----------------------------- | ------------------------ | ---------------------------- |
-| `--vs-font-family`            | `'STIX Two Text', ...`   | 本文・見出し共通のセリフ書体 |
-| `--vs-font-family-monospace`  | `'Source Code Pro', ...` | 疑似コードの書体             |
-| `--vs-color-foreground`             | `#1a1a1a` | 本文・罫のインク色           |
-| `--vs-color-background`       | `#fafaf7` | 地色                         |
-| `--vs-color-border`           | `--vs-color-foreground` × `--vs-color-background` 55% | 罫の既定色                   |
-| `--vs-color-foreground-alt`     | `--vs-color-foreground` × `--vs-color-background` 55% | サイドノート・行番号の色     |
-
-生成内容の変数:
-
-| 変数                                    | 既定値                                         | 説明                                       |
-| --------------------------------------- | ---------------------------------------------- | ------------------------------------------ |
-| `--vs-crossref-marker-counter-prefix`   | `counter(vs-counter-chapter) '.'`              | 節番号・定理番号に冠する章番号             |
-| `--vs-crossref-call-counter-prefix`     | `target-counter(…) '.'`                        | 節・定理・疑似コードの参照に冠する章番号   |
-| `--vs-theorem--label`                   | `'Theorem '` (`.lemma` では `'Lemma '`)        | 定理環境のラベル。種別クラス側で上書きする |
-| `--vs-theorem--call-content`            | 「4.2」                                        | `data-ref="thm"` の参照文字列              |
-
-疑似コードの番号「4.1-a」と行番号、章末問題の番号「4-1」は theme.css の規則で生成している。
-
-節番号の見え方は base の `--vs-section--h2-marker-*`、節参照の番号は `--vs-section--call-counter-content`、ノンブルは `--vs-page--mbox-bottom-outside-content` で変更できる。
-
-ノンブルは小口側の変数 `--vs-page--mbox-bottom-outside-content` で指定しているので、右ページでは右下、左ページでは左下に置かれる。片面で全ページ右下に揃えたい場合は `--vs-page--mbox-bottom-right-content: counter(page)` のように物理位置の変数で上書きする。

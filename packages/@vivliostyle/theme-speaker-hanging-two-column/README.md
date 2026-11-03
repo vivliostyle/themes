@@ -4,11 +4,8 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-speaker-hanging-two-column',
-};
+```css
+@import '@vivliostyle/theme-speaker-hanging-two-column';
 ```
 
 ## 原稿の書き方
@@ -39,25 +36,9 @@ class: chapter
 
 ## カスタマイズ
 
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+`:root` で以下の変数を上書きしてカスタマイズできる。
 
 | 変数                                                              | 既定値                                                | 説明                                           |
 | ----------------------------------------------------------------- | ----------------------------------------------------- | ---------------------------------------------- |
-| `--vs-color-background`                                           | `#ffffff`                                             | 紙面の地色                                     |
-| `--vs-color-foreground-alt`                                       | `#d4a574`                                             | アクセント色                                   |
-| `--vs-font-family`                                                | `'Noto Sans JP', ...`                                 | 本文書体                                       |
-| `--vs-color-foreground`                                           | `#2b2b2b`                                             | 本文の基本色                                   |
 | `--vs-theme-speaker-hanging-two-column--color-accent`        | `--vs-color-foreground-alt` と同じ                    | 話者名・見出し罫・プルクオートの金茶アクセント |
-| `--vs-color-border`                                               | `--vs-color-foreground` × `--vs-color-background` 75% | コーナー見出しの罫・脚注罫の色                 |
-| `--vs-font-family-alt`                                            | `'Inter', ...`                                        | ノンブル・脚注番号・タイムコードの数字書体     |
-| `--vs-columns`                                                    | `2`                                                   | 本文の段数                                     |
-| `--vs-column-gap`                                                 | `8mm`                                                 | 段間                                           |
 | `--vs-theme-speaker-hanging-two-column--speaker-size-inline` | `3.15em`                                              | 話者ラベルのぶら下げ幅                         |
-| `--vs-page--margin-inside` / `-outside`                           | `15mm` / `17mm`                                       | ノド・小口の余白                               |
-| `--vs-section--h1-marker-content`                                 | `'第' counter(vs-counter-chapter) '回'`               | 回数の表記                                     |
-
-## 見開きで組む
-
-ノンブルは小口側の `--vs-page--mbox-bottom-outside-content`、左右の余白は `--vs-page--margin-inside` / `--vs-page--margin-outside` で指定しているので、右ページと左ページで自動的に入れ替わる。

@@ -4,11 +4,8 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-single-column-double-spaced',
-};
+```css
+@import '@vivliostyle/theme-single-column-double-spaced';
 ```
 
 原稿の書き方:
@@ -18,19 +15,3 @@ export default {
 - 表は `<figure class="tbl" id="id">` に `<figcaption>タイトル</figcaption>` と表を入れる。`Table 1` の番号はカウンタが振り、太字で1行取りになる。
 - 参照は `<a href="#id" data-ref="tbl"></a>` (Table 3)、`<a href="#id" data-ref="sec"></a>` (Section 5.4)、`<a href="#id" data-ref="chapter"></a>` (Chapter 4)。VFM は空要素の直後の空白を落とすので、続けて語が来る場合は `&nbsp;` を書く。
 - 脚注は `<span class="footnote">…</span>` (base の footnote)。番号は自動で振られる。
-
-## カスタマイズ
-
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-| 変数                                     | 既定値                             | 説明                        |
-| ---------------------------------------- | ---------------------------------- | --------------------------- |
-| `--vs-color-foreground`                  | `#111111`                          | 本文の文字色                |
-| `--vs-color-background`                  | `#ffffff`                          | 紙面の地色                  |
-| `--vs-font-family`                       | `'Tinos', ...`                     | 本文書体                    |
-| `--vs-line-height`                       | `2`                                | 本文行送り (ダブルスペース) |
-| `--vs-page--mbox-top-left-content`       | `string(running-head)`             | ランニングヘッド (全大文字) |
-| `--vs-section--counter-style`            | `decimal`                          | 章・節番号の書式            |
-| `--vs-table--marker-content`             | `'Table ' counter(vs-counter-tbl)` | 表番号                      |
-| `--vs-footnote--font-size`               | `0.85rem`                          | 脚注の文字サイズ            |
-| `--vs-footnote--area-before-size-inline` | `50mm`                             | 脚注の区切り罫の長さ        |

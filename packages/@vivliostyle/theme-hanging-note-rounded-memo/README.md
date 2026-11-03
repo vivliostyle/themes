@@ -4,11 +4,8 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-hanging-note-rounded-memo',
-};
+```css
+@import '@vivliostyle/theme-hanging-note-rounded-memo';
 ```
 
 ## 原稿の書き方
@@ -22,19 +19,9 @@ export default {
 
 ## カスタマイズ
 
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+`:root` で以下の変数を上書きしてカスタマイズできる。
 
 | 変数                                   | 既定値                                | 説明                                                |
 | -------------------------------------- | ------------------------------------- | --------------------------------------------------- |
-| `--vs-color-background` | `#ffffff` | 紙面の地色 |
-| `--vs-color-foreground-alt` | `#c05621` | アクセント色 |
-| `--vs-font-family`                     | `'Noto Sans JP', sans-serif`          | 本文書体                                            |
-| `--vs-color-foreground`                      | `#1f2428` | 本文の文字色                                        |
 | `--vs-theme-hanging-note-rounded-memo--color-accent`             | `--vs-color-foreground-alt` と同じ | 見出し罫・警告表示のアクセント色 (バーントオレンジ) |
-| `--vs-color-background-alt`        | `--vs-color-foreground-alt` × `--vs-color-background` 85% | マイナス値のセル・メモの淡色地                      |
-| `--vs-page--border-color-top`               | `--vs-color-foreground` と同じ | 柱の下の太罫の色                                    |
 | `--vs-theme-hanging-note-rounded-memo--remark-marker-size-inline` | `2.55em`                             | 注記のぶら下げ番号の幅                              |
-| `--vs--table-border-color`             | `--vs-color-foreground` × `--vs-color-background` 80% | 表の罫線色                                          |
-| `--vs--th-background-color`            | `--vs-color-foreground` と同じ | 表ヘッダーの地色                                    |

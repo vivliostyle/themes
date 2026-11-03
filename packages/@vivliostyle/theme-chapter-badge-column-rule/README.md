@@ -4,11 +4,8 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-chapter-badge-column-rule',
-};
+```css
+@import '@vivliostyle/theme-chapter-badge-column-rule';
 ```
 
 ## 原稿の書き方
@@ -35,23 +32,9 @@ export default {
 
 ## カスタマイズ
 
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+`:root` で以下の変数を上書きしてカスタマイズできる。
 
 | 変数                               | 既定値                                                      | 説明                                               |
 | ---------------------------------- | ----------------------------------------------------------- | -------------------------------------------------- |
-| `--vs-color-foreground` | `#1f1f1f` | 本文の文字色 |
-| `--vs-color-background` | `#fdfcf8` | 紙面の地色 |
-| `--vs-color-foreground-alt` | `#ff6600` | アクセント色 |
 | `--vs-theme-chapter-badge-column-rule--color-accent`         | `--vs-color-foreground-alt` と同じ | 章番号バッジ・段間罫・情報ボックス枠のアクセント色 |
-| `--vs-font-family-alt`       | `'Barlow Condensed', ...`                                   | 章番号・料金数字・参照ページの書体                 |
 | `--vs-theme-chapter-badge-column-rule--font-caption`         | `'M PLUS 1p', ...`                                          | データ欄・表の書体                                 |
-| `--vs--figcaption-text-color`          | `--vs-color-foreground` × `--vs-color-background` 50% | キャプション・ノンブルの色                         |
-| `--vs-page--call-content` | `'→ P.' target-counter(attr(href), page)`                   | `data-ref="page"` の参照に出る文字列               |
-| `--vs-columns` | `2` | 章ごとに掛ける段数 |
-| `--vs-column-gap` | `8mm` | 段間 |
-| `--vs-column-rule-color` | `--vs-color-foreground-alt` と同じ | 段間罫の色 |
-| `--vs--h1-font-size`               | `3.65em`                                                      | 章題の文字サイズ                                   |
-| `--vs-section--h1-marker-content`  | `counter(vs-counter-sec-h1)`                                | 章番号バッジの内容                                 |
-| `--vs-section--h2-marker-content`  | `counter(vs-counter-sec-h1) '-' counter(vs-counter-sec-h2)` | 小見出し番号の内容                                 |

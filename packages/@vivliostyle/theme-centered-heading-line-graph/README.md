@@ -4,11 +4,8 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-centered-heading-line-graph',
-};
+```css
+@import '@vivliostyle/theme-centered-heading-line-graph';
 ```
 
 原稿の書き方:
@@ -21,20 +18,9 @@ export default {
 
 ## カスタマイズ
 
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+`:root` で以下の変数を上書きしてカスタマイズできる。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略。
 
 | 変数                             | 既定値                  | 説明                                     |
 | -------------------------------- | ----------------------- | ---------------------------------------- |
-| `--vs-color-foreground` | `#1a1a1a` | 本文の文字色 |
-| `--vs-color-background` | `#ffffff` | 紙面の地色 |
-| `--vs-color-foreground-alt` | `#006633` | アクセント色 |
-| `--vs-font-family`               | `'Source Serif 4', ...` | 本文・見出しの書体                       |
 | `--vs-theme-centered-heading-line-graph--color-accent`       | `--vs-color-foreground-alt` と同じ | 見出し番号・表ヘッダー・cross-ref の深緑 |
-| `--vs-color-border-alt`   | `--vs-color-foreground-alt` × `--vs-color-background` 70% | 図版パネルの枠線の色                     |
-| `--vs-color-background-alt`         | `--vs-color-foreground-alt` × `--vs-color-background` 90% | 表のゼブラ地色                           |
 | `--vs-theme-centered-heading-line-graph--color-panel-bg`     | `--vs-color-foreground-alt` × `--vs-color-background` 95% | 図版パネルの地色                         |
-| `--vs-page--border-color-top` | `--vs-color-foreground` × `--vs-color-background` 30% | 柱の下の罫線色                           |
-| `--vs-columns`    | `2`                     | 節ごとに掛ける段数                       |
-| `--vs-column-gap` | `7mm`                   | 段間                                     |

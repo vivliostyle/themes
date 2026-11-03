@@ -4,11 +4,8 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-two-column-verse-number',
-};
+```css
+@import '@vivliostyle/theme-two-column-verse-number';
 ```
 
 ## 原稿の書き方
@@ -28,7 +25,6 @@ title: 静謐の書
 ```
 
 - 柱には「書名　章番号」が出る。書名は `env(doc-title)`、章番号は `vs-counter-sec-h2` から取る。
-- 抜粋を組むときは、章番号の起点を `--vs-section--root-counter-sec-h2` (第7章から始めるなら `6`)、ノンブルの起点を `--vs-document-first-page-counter-reset: page N` で与える。
 - 節番号を付けない段落 (前書き・結びなど) は `{.unnumbered}` を付けた段落にする。
 - 脚注は `<span class="footnote">…</span>`、その中の出典は `<span class="meta">…</span>` で囲む。
 
@@ -47,27 +43,3 @@ title: 静謐の書
 ```
 
 別ファイルを指すときは、ビルド後の HTML 名 (`<md のファイル名>.html`) を href に書く。この巻に収めていない典籍への参照は、これまで通り本文にそのまま書く。
-
-## カスタマイズ
-
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
-
-| 変数 | 既定値 | 説明 |
-| --- | --- | --- |
-| `--vs-font-family` | `'Shippori Mincho', ...` | 本文書体 |
-| `--vs--heading-font-family` | `'Noto Serif JP', ...` | 章題・節番号の書体 |
-| `--vs-font-family-alt` | `'Noto Sans JP', ...` | ノンブル・脚注参照の書体 |
-| `--vs-color-foreground` | `#171613` | 本文の文字色 |
-| `--vs-color-background` | `#f7f4ec` | 地色 |
-| `--vs-color-foreground-alt` | `--vs-color-foreground` × `--vs-color-background` 30% | 柱・脚注の淡色 |
-| `--vs-color-border` | `--vs-color-foreground` × `--vs-color-background` 65% | 段間罫・ヘッダー罫・脚注区切り罫の色 |
-| `--vs-columns` | `2` | 章ごとに掛ける段数 |
-| `--vs-column-gap` | `7mm` | 段間 |
-| `--vs-section--h2-marker-content` | `'第' counter(vs-counter-sec-h2, var(--vs-section--counter-style)) '章'` | 章番号の書式 |
-| `--vs-section--counter-style` | `cjk-ideographic` | 章題見出しの章番号の数字 |
-| `--vs-page--mbox-top-outside-content` | `env(doc-title) counter(vs-counter-sec-h2)` | 柱の内容 |
-| `--vs-counter-style` | `decimal` | 節番号と節参照「章:節」の数字 |
-
-柱とノンブルは小口側の `--vs-page--mbox-top-outside-content` / `--vs-page--mbox-bottom-outside-content` で指定しているので、右ページでは右、左ページでは左に置かれる。片面で右に固定したい場合は `--vs-page--mbox-top-right-content` / `--vs-page--mbox-bottom-right-content` で上書きする。

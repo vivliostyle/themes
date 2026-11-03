@@ -15,28 +15,14 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-ruled-ledger-two-column',
-};
+```css
+@import '@vivliostyle/theme-ruled-ledger-two-column';
 ```
 
 ## カスタマイズ
 
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+`:root` で以下の変数を上書きしてカスタマイズできる。
 
 | 変数                            | 既定値                 | 説明                                 |
 | ------------------------------- | ---------------------- | ------------------------------------ |
-| `--vs-color-foreground-alt` | `#1e5a96` | アクセント色 |
-| `--vs-font-family`              | `'Zilla Slab', ...`    | 本文書体                             |
-| `--vs--heading-font-family`     | `'Roboto Slab', ...`   | 見出し・柱の表示書体                 |
-| `--vs--monospace-font-family`   | `'IBM Plex Mono', ...` | テーブル数値の等幅書体               |
-| `--vs-color-foreground`               | `#1c1c1c` | 本文の文字色                         |
-| `--vs-color-background`         | `#faf7f0` | 地色                                 |
 | `--vs-theme-ruled-ledger-two-column--color-accent`      | `--vs-color-foreground-alt` と同じ | 見出し・柱罫・テーブル外枠のネイビー |
-| `--vs-color-background-alt`        | `--vs-color-foreground-alt` × `--vs-color-background` 95% | テーブルヘッダーの淡青地色           |
-| `--vs-columns`    | `2`                    | 1 記録を流す段数                     |
-| `--vs-column-gap` | `6mm`                  | 段間                                 |

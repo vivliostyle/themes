@@ -4,11 +4,8 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-small-caps-dot-leader',
-};
+```css
+@import '@vivliostyle/theme-small-caps-dot-leader';
 ```
 
 ## 原稿の書き方
@@ -21,19 +18,10 @@ export default {
 
 ## カスタマイズ
 
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+`:root` で以下の変数を上書きしてカスタマイズできる。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略。
 
 | 変数                                                                 | 既定値                                                    | 説明                             |
 | -------------------------------------------------------------------- | --------------------------------------------------------- | -------------------------------- |
-| `--vs-color-foreground`                                              | `#3a3336`                                                 | 本文の文字色                     |
-| `--vs-color-background`                                              | `#fdfbf8`                                                 | 紙面の地色                       |
-| `--vs-color-foreground-alt`                                          | `#d4a8d8`                                                 | アクセント色                     |
-| `--vs-font-family`                                                   | `'Noto Serif JP', serif`                                  | 本文書体                         |
-| `--vs-font-family-alt`                                               | `'Cormorant Garamond', ...`                               | 見出し・品名・引用符・ノンブルの書体 |
 | `--vs-theme-small-caps-dot-leader--color-accent`               | `--vs-color-foreground-alt` と同じ                        | 見出し枠・引用符のアクセント色   |
 | `--vs-theme-small-caps-dot-leader--color-accent-strong`        | `--vs-color-foreground-alt` × `--vs-color-foreground` 20% | 見出し枠の主線・点線リーダーの色 |
-| `--vs-color-background-alt`                                          | `--vs-color-foreground-alt` × `--vs-color-background` 90% | おすすめボックスの地色           |
 | `--vs-theme-small-caps-dot-leader--color-foreground-secondary` | `--vs-color-foreground` × `--vs-color-background` 20%     | 説明文・キャプションの文字色     |
-| `--vs-page--mbox-bottom-text-color`                                  | `--vs-color-foreground-alt` × `--vs-color-foreground` 40% | ノンブルの文字色                 |

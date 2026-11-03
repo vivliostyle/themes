@@ -4,11 +4,8 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-split-body-recommendation-box',
-};
+```css
+@import '@vivliostyle/theme-split-body-recommendation-box';
 ```
 
 ## 原稿の書き方
@@ -63,26 +60,3 @@ title: 恒常性機能障害診療ガイドライン（2026年改訂版） # 柱
 | `<a href="#note-indication-1" data-ref="note"></a>` | 上付きの 1 |
 
 図 (表以外の囲み) には `<figure class="fig">` を付ける。表を含む `<figure>` は自動で表として採番される。注に id を付けるには、リスト項目の先頭に `<a id="…"></a>` を置く (VFM の属性記法 `{#id}` は見出しにしか効かない)。VFM は空のインライン要素の直後の空白を落とすため、参照の後に和文以外が続くときは `&nbsp;` を置く。
-
-## カスタマイズ
-
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
-
-| 変数                                        | 既定値                                                        | 説明                                     |
-| ------------------------------------------- | ------------------------------------------------------------- | ---------------------------------------- |
-| `--vs-color-foreground` | `#1a1a1a` | 本文の文字色 |
-| `--vs-color-background` | `#ffffff` | 紙面の地色 |
-| `--vs-font-family`                          | `'Noto Serif JP', serif`                                      | 本文書体                                 |
-| `--vs-font-family-alt`                     | `'Noto Sans JP', ...`                                         | 見出し・表・キャプション等のゴシック書体 |
-| `--vs-color-border`                    | `--vs-color-foreground` × `--vs-color-background` 25% | 柱下の罫・表罫・注の区切り罫の色         |
-| `--vs-color-background-alt`                    | `--vs-color-foreground` × `--vs-color-background` 90% | 表ヘッダ・推奨ボックスの地色             |
-| `--vs-columns`                              | `2`                                                           | 版面の段数                               |
-| `--vs-page--mbox-top-left-content`          | `env(doc-title)`                                              | 柱に出すガイドライン名                   |
-| `--vs-section--h2-marker-content`           | `counter(vs-counter-sec-h2) '.'`                              | 章番号の書式                             |
-| `--vs-crossref-marker-counter-prefix` | `counter(vs-counter-sec-h2) '-'` | 表番号・図番号の前に付ける章番号 |
-
-章番号・ノンブルを途中から起こすには、原稿側 (templates/default/example.css) で
-`--vs-section--root-counter-sections` / `--vs-section--root-counter-sec-h2` と
-`--vs-document-first-page-counter-reset` を指定する。

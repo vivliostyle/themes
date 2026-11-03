@@ -13,25 +13,14 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-monospace-entry-form',
-};
+```css
+@import '@vivliostyle/theme-monospace-entry-form';
 ```
 
 ## カスタマイズ
 
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。通し番号を途中から起こすには base の `--vs-section--root-counter-sec-h1` に開始値の 1 つ手前を与える。
-
-配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+`:root` で以下の変数を上書きしてカスタマイズできる。
 
 | 変数                                             | 既定値                                                    | 説明                               |
 | ------------------------------------------------ | --------------------------------------------------------- | ---------------------------------- |
-| `--vs-color-foreground-alt`                      | `#27ae60`                                                 | アクセント色                       |
-| `--vs-font-family`                               | `'JetBrains Mono', ...`                                   | 本文書体 (等幅)                    |
-| `--vs-color-foreground`                          | `#1c7a46`                                                 | 記入インクの色                     |
-| `--vs-color-background`                          | `#fbfbf8`                                                 | 地色                               |
 | `--vs-theme-monospace-entry-form--color-accent` | `--vs-color-foreground-alt` と同じ                        | 見出し・罫・表の外枠のアクセント色 |
-| `--vs--th-background-color`                      | `--vs-color-foreground-alt` × `--vs-color-background` 95% | 記録表のヘッダーの淡緑地色         |
-| `--vs-color-border`                              | `--vs-color-foreground` × `--vs-color-background` 70%     | NOTES 記入罫の色                   |

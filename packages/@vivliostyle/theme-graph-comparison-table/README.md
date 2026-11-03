@@ -4,11 +4,8 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-graph-comparison-table',
-};
+```css
+@import '@vivliostyle/theme-graph-comparison-table';
 ```
 
 ## 原稿の書き方
@@ -54,21 +51,9 @@ export default {
 
 ## カスタマイズ
 
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+`:root` で以下の変数を上書きしてカスタマイズできる。
 
 | 変数                                                             | 既定値                                                | 説明                               |
 | ---------------------------------------------------------------- | ----------------------------------------------------- | ---------------------------------- |
-| `--vs-color-background`                                          | `#ffffff`                                             | 紙面の地色                         |
-| `--vs-font-family`                                               | `'Noto Sans JP', sans-serif`                          | 本文の細字ゴシック書体             |
-| `--vs-font-family-monospace`                                     | `'IBM Plex Mono', ...`                                | 数値・軸ラベル・測定条件の等幅書体 |
-| `--vs-color-foreground`                                          | `#1a1a1a`                                             | 本文・罫の墨色、見出しスタンプの地色 |
-| `--vs-color-background-alt`                                      | `--vs-color-foreground` × `--vs-color-background` 90% | 表ヘッダ・1列目の地色              |
-| `--vs--table-row-even-background-color`                          | `--vs-color-foreground` × `--vs-color-background` 95% | 表の縞地 (偶数行)                  |
-| `--vs-color-border-alt`                                          | `--vs-color-foreground` × `--vs-color-background` 60% | 2段組の中央罫の色                  |
-| `--vs-columns`                                                   | `2`                                                   | 解説本文の段数                     |
-| `--vs-column-gap`                                                | `10mm`                                                | 段間                               |
 | `--vs-theme-graph-comparison-table--conditions-size-inline` | `44mm`                                                | 測定条件箱の幅                     |
 | `--vs-theme-graph-comparison-table--conditions-gap`         | `6mm`                                                 | 測定条件箱と表のアキ               |
-| `--vs-figure--marker-content`                                    | `'図' counter(...) '　'`                              | 図番号の書式                       |

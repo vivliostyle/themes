@@ -11,28 +11,6 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-wide-margin-speaker-indent',
-};
+```css
+@import '@vivliostyle/theme-wide-margin-speaker-indent';
 ```
-
-## カスタマイズ
-
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
-
-| 変数                          | 既定値                 | 説明                                   |
-| ----------------------------- | ---------------------- | -------------------------------------- |
-| `--vs-color-background` | `#ffffff` | 紙面の地色 |
-| `--vs-font-family`            | `'Noto Sans JP', ...`  | 本文書体                               |
-| `--vs--monospace-font-family` | `'IBM Plex Mono', ...` | コードブロックの書体                   |
-| `--vs-color-foreground`             | `#1a1a1a` | 本文色                                 |
-| `--vs-color-foreground-alt`     | `--vs-color-foreground` × `--vs-color-background` 35% | 柱・話者以外の地の文・キャプションの色 |
-| `--vs-color-border`      | `--vs-color-foreground` × `--vs-color-background` 15% | プルクオート罫・コード左帯の色         |
-| `--vs-color-background-alt`   | `--vs-color-foreground` × `--vs-color-background` 95% | コードブロックの背景色                 |
-| `--vs-color-border-alt`       | `--vs-color-foreground` × `--vs-color-background` 80% | 柱の下の罫・表の行罫の色               |
-
-章番号の見え方は base の `--vs-section--h1-marker-*`、節参照は `--vs-section--call-content`、柱とノンブルは `--vs-page--mbox-*-content` で変更できる。

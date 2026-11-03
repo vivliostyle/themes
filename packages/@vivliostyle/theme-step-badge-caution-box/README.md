@@ -4,11 +4,8 @@
 
 ## 使い方
 
-```js
-// vivliostyle.config.js
-export default {
-  theme: '@vivliostyle/theme-step-badge-caution-box',
-};
+```css
+@import '@vivliostyle/theme-step-badge-caution-box';
 ```
 
 原稿の書き方:
@@ -21,22 +18,8 @@ export default {
 
 ## カスタマイズ
 
-このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
-
-配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+`:root` で以下の変数を上書きしてカスタマイズできる。
 
 | 変数                                  | 既定値                       | 説明                                       |
 | ------------------------------------- | ---------------------------- | ------------------------------------------ |
-| `--vs-color-foreground` | `#1a1a1a` | 本文の文字色 |
-| `--vs-color-background` | `#ffffff` | 紙面の地色 |
-| `--vs-color-foreground-alt` | `#ff3333` | アクセント色 |
-| `--vs-font-family`                    | `'Noto Sans JP', sans-serif` | 本文・見出しの書体                         |
 | `--vs-theme-step-badge-caution-box--color-accent`            | `--vs-color-foreground-alt` と同じ | 見出しバッジ・STEPバッジ・注意ボックスの赤 |
-| `--vs-color-background-alt`         | `--vs-color-foreground-alt` × `--vs-color-background` 90% | 安全上の注意ボックスの地色                 |
-| `--vs-color-border`              | `--vs-color-foreground` × `--vs-color-background` 60% | ページ上部の区切り罫の色                   |
-| `--vs-column-rule-color`       | `--vs-color-foreground` × `--vs-color-background` 65% | 段間罫の色                                 |
-| `--vs-color-border-alt`         | `--vs-color-foreground` × `--vs-color-background` 80% | 表の行罫の色                               |
-| `--vs--th-text-color`             | `--vs-color-foreground` × `--vs-color-background` 30% | 表見出し行の抑え色                         |
-| `--vs-columns`         | `2`                          | 1ページに掛ける段数                        |
-| `--vs-column-gap`      | `8mm`                        | 段間                                       |
-| `--vs-counter-style`     | `decimal`                    | 実験・安全バッジなどの番号書式                 |
