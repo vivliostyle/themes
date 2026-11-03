@@ -49,7 +49,7 @@
       font-size: ;
       text-combine-upright: var(--vs--sup-text-combine-upright,);
       text-orientation: ;
-      vertical-align: var(--vs--sup-vertical-align,);
+      vertical-align: var(--vs--sup-vertical-align, baseline);
     }
   }
 
