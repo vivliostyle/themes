@@ -1,0 +1,24 @@
+.token.keyword,
+.token.function,
+.token.macro {
+  font-weight: 700;
+}
+
+.token.comment {
+  color: var(--vs-color-foreground-alt);
+}
+
+.token.string,
+.token.char {
+  text-decoration: underline;
+  text-decoration-thickness: 0.3pt;
+  text-underline-offset: 0.2em;
+}
+
+.token.number,
+.token.operator,
+.token.punctuation,
+.token.class-name,
+.token.namespace {
+  color: inherit;
+}
