@@ -1,6 +1,6 @@
 # @vivliostyle/theme-two-column-verse-number
 
-A4判・2段組で章節番号を左段冒頭に配置する聖典本文向けテーマ。柱(奇数ページ右)と脚注により注釈を層状に組み、静けさを保った組版にする。
+2段組で章節番号を左段冒頭に配置する、節番号付き本文向けテーマ。柱(奇数ページ右)と脚注により注釈を層状に組み、静けさを保った組版にする。
 
 ## 使い方
 
@@ -37,13 +37,13 @@ title: 静謐の書
 同じ巻に収めた節を指すときは、参照先の節の頭に空のアンカーを置き、参照側を `data-ref="verse"` の空リンクで書く。「章:節」は参照先のカウンタから解決される (書名は巻をまたぐため原稿に書く)。
 
 ```md
-<!-- 参照先 (bible-02.md) の第9節 -->
+<!-- 参照先 (chapter-02.md) の第9節 -->
 
 <a id="s07-9"></a>割れたる器を捨つるなかれ。…
 
 <!-- 参照元 -->
 
-…とみなす。<span class="meta">cf. 静謐の書 <a href="bible-02.html#s07-9" data-ref="verse"></a></span>
+…とみなす。<span class="meta">cf. 静謐の書 <a href="chapter-02.html#s07-9" data-ref="verse"></a></span>
 ```
 
 別ファイルを指すときは、ビルド後の HTML 名 (`<md のファイル名>.html`) を href に書く。この巻に収めていない典籍への参照は、これまで通り本文にそのまま書く。
@@ -54,22 +54,20 @@ title: 静謐の書
 
 配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
 
-| 変数                                         | 既定値                                                                         | 説明                        |
-| -------------------------------------------- | ------------------------------------------------------------------------------ | --------------------------- |
-| `--vs-font-family`                           | `'Shippori Mincho', ...`                                                       | 本文書体                    |
-| `--vs--heading-font-family`                  | `'Noto Serif JP', ...`                                                         | 章題の書体                  |
-| `--vs-font-family-alt`                      | `'Noto Sans JP', ...`                                                          | 柱・脚注参照の書体          |
-| `--vs-color-foreground`                            | `#171613` | 本文の文字色                |
-| `--vs-color-background`                      | `#f7f4ec` | 地色                        |
-| `--vs-color-foreground-alt`                      | `--vs-color-foreground` × `--vs-color-background` 30% | 柱・脚注の淡色              |
-| `--vs-color-border`                     | `--vs-color-foreground` × `--vs-color-background` 65% | 段間罫・ヘッダー罫の色      |
-| `--vs-section--h2-marker-content`            | `'第' counter(vs-counter-sec-h2, cjk-ideographic) '章'`                        | 章番号の書式                |
-| `--vs-theme-two-column-verse-number--chapter-counter-style`          | `cjk-ideographic`                                                              | 章題見出しの章番号の数字    |
-| `--vs-page--mbox-top-outside-content`                 | `env(doc-title) counter(vs-counter-sec-h2)`                                    | 柱の内容                    |
-| `--vs-theme-two-column-verse-number--verse-marker-content`           | `counter(vs-counter-verse)`                                                    | 節番号の書式                |
-| `--vs-theme-two-column-verse-number--verse-counter-style`            | `decimal`                                                                      | 節番号の数字                |
-| `--vs-theme-two-column-verse-number--verse-marker-font-size`         | `1.06em`                                                                       | 節番号の大きさ              |
-| `--vs-theme-two-column-verse-number--verse-opening-marker-font-size` | `1.72em`                                                                       | 章頭の第1節の節番号の大きさ |
-| `--vs-theme-two-column-verse-number--verse-call-content`             | `target-counter(…, vs-counter-sec-h2) ':' target-counter(…, vs-counter-verse)` | 節参照の書式                |
+| 変数 | 既定値 | 説明 |
+| --- | --- | --- |
+| `--vs-font-family` | `'Shippori Mincho', ...` | 本文書体 |
+| `--vs--heading-font-family` | `'Noto Serif JP', ...` | 章題・節番号の書体 |
+| `--vs-font-family-alt` | `'Noto Sans JP', ...` | ノンブル・脚注参照の書体 |
+| `--vs-color-foreground` | `#171613` | 本文の文字色 |
+| `--vs-color-background` | `#f7f4ec` | 地色 |
+| `--vs-color-foreground-alt` | `--vs-color-foreground` × `--vs-color-background` 30% | 柱・脚注の淡色 |
+| `--vs-color-border` | `--vs-color-foreground` × `--vs-color-background` 65% | 段間罫・ヘッダー罫・脚注区切り罫の色 |
+| `--vs-columns` | `2` | 章ごとに掛ける段数 |
+| `--vs-column-gap` | `7mm` | 段間 |
+| `--vs-section--h2-marker-content` | `'第' counter(vs-counter-sec-h2, var(--vs-section--counter-style)) '章'` | 章番号の書式 |
+| `--vs-section--counter-style` | `cjk-ideographic` | 章題見出しの章番号の数字 |
+| `--vs-page--mbox-top-outside-content` | `env(doc-title) counter(vs-counter-sec-h2)` | 柱の内容 |
+| `--vs-counter-style` | `decimal` | 節番号と節参照「章:節」の数字 |
 
 柱とノンブルは小口側の `--vs-page--mbox-top-outside-content` / `--vs-page--mbox-bottom-outside-content` で指定しているので、右ページでは右、左ページでは左に置かれる。片面で右に固定したい場合は `--vs-page--mbox-top-right-content` / `--vs-page--mbox-bottom-right-content` で上書きする。

@@ -1,6 +1,6 @@
 /*
- * 数式・疑似コード・アルゴリズム解析本 (pseudocode-math-sidenote)
- * B5縦・1段組のアルゴリズム解析教科書。STIX Two Text のセリフ本文を組み、
+ * 数式・疑似コード・傍注の教科書 (pseudocode-math-sidenote)
+ * B5縦・1段組の教科書。STIX Two Text のセリフ本文を組み、
  * 中央のディスプレイ数式 (MathML) と行番号付きの枠なし疑似コードを置く。外側の広い余白に
  * サイドノートと図版スケッチ (外部 SVG) を float で流し込む。インク黒と罫グレーのみ。
  * 1 章 = 1 ファイル (frontmatter に class: chapter) とし、章番号は base の
@@ -12,61 +12,14 @@
 @import '@vivliostyle/theme-base/section';
 @import '@vivliostyle/theme-base/math';
 @import '@vivliostyle/theme-base/sidenote';
-
-/* 疑似コード一覧の枝番は a, b, c … */
-@counter-style vs-theme-code-index {
-  system: alphabetic;
-  symbols: 'a' 'b' 'c' 'd' 'e' 'f' 'g' 'h';
-}
+@import '@vivliostyle/theme-base/theorem';
 
 :root {
-  /* ---- 定理環境 (Theorem / Lemma …) ---- */
-  --vs-theme-pseudocode-math-sidenote--theorem-call-content: target-counter(
-      attr(href),
-      vs-counter-chapter
-    )
-    '.' target-counter(attr(href), vs-counter-thm);
-
-  /* ---- 疑似コード ---- */
-  --vs-theme-pseudocode-math-sidenote--code-counter-style: vs-theme-code-index;
-  --vs-theme-pseudocode-math-sidenote--code-call-content: target-counter(
-      attr(href),
-      vs-counter-chapter
-    )
-    '.' target-counter(attr(href), vs-counter-sec-h2) '-'
-    target-counter(
-      attr(href),
-      vs-counter-code,
-      var(--vs-theme-pseudocode-math-sidenote--code-counter-style)
-    );
-  --vs-theme-pseudocode-math-sidenote--code-line-marker-content: counter(
-    vs-counter-line
-  );
-  --vs-theme-pseudocode-math-sidenote--code-line-call-content: target-counter(
-    attr(href),
-    vs-counter-line
-  );
-
-  /* ---- 章末問題 ---- */
-  --vs-theme-pseudocode-math-sidenote--exercise-marker-content: counter(
-      vs-counter-chapter
-    )
-    '-' counter(vs-counter-exercise) ' ';
-  --vs-theme-pseudocode-math-sidenote--exercise-call-content: target-counter(
-      attr(href),
-      vs-counter-chapter
-    )
-    '-' target-counter(attr(href), vs-counter-exercise);
-
-  /* 柱の見出し。章題は原稿の .runhead から取る */
-  --vs-theme-pseudocode-math-sidenote--runhead-prefix-content: 'Chapter '
-    counter(vs-counter-chapter) ' · ';
-
   /* ---- Typography ---- */
   --vs-font-family: 'STIX Two Text', 'Noto Serif', Georgia, serif;
+  --vs-font-family-monospace: 'Source Code Pro', ui-monospace, monospace;
   --vs-font-size: 10.5pt;
   --vs-line-height: 1.56;
-  --vs-columns: 1;
 
   /* ---- Colors: インク黒と罫グレーのみ ---- */
   --vs-color-foreground: #1a1a1a;
@@ -82,10 +35,15 @@
     var(--vs-color-background) 55%
   );
 
-  --vs--heading-font-family: 'STIX Two Text', 'Noto Serif', Georgia, serif;
+  /* 節・定理・疑似コードの番号はいずれも「章番号.通し番号」 */
+  --vs-crossref-call-counter-prefix: target-counter(
+      attr(href),
+      vs-counter-chapter
+    )
+    '.';
+  --vs-crossref-marker-counter-prefix: counter(vs-counter-chapter) '.';
 
-  --vs--monospace-font-family: 'Source Code Pro', ui-monospace, monospace;
-  --vs--monospace-font-size: 0.92em;
+  --vs--monospace-font-size: 0.9em;
 
   /* ---- Body text ---- */
   --vs--p-margin-block: 0;
@@ -93,21 +51,20 @@
   --vs--p-text-align: justify;
 
   /* ---- Section heading (rule-below) ---- */
-  --vs--h2-font-size: 16pt;
   --vs--h2-font-weight: 600;
   --vs--h2-line-height: 1.25;
   --vs--h2-letter-spacing: 0.01em;
-  --vs--h2-margin-block: 0 3.5mm;
+  --vs--h2-margin-block: 0 0.5rlh;
 
   /* ---- Numbered, borderless pseudocode (本文中の ol は疑似コードのみ) ---- */
   --vs--lists-margin-block: 0;
   --vs--ol-list-style-type: none;
-  --vs--ol-padding-inline-start: 0pt;
+  --vs--ol-padding-inline-start: 0;
 
   /* ---- Marginal figure ---- */
   --vs--figure-display: block;
-  --vs--figcaption-font-size: 8pt;
-  --vs--figcaption-margin-block: 1mm 0;
+  --vs--figcaption-font-size: 0.95em;
+  --vs--figcaption-margin-block: 0.25rlh 0;
   --vs--figcaption-text-align: start;
 
   /* ---- Page: B5・外側 40mm の広いマージナルカラム ---- */
@@ -118,55 +75,66 @@
   --vs-page--margin-right: 40mm;
   /* ノンブルは小口下 (右ページは右下、左ページは左下) */
   --vs-page--mbox-bottom-outside-content: counter(page);
-  --vs-page--mbox-font-family: 'STIX Two Text', Georgia, serif;
-  --vs-page--mbox-font-size: 9pt;
+  --vs-page--mbox-font-size: 0.85em;
 
-  /* 節番号「4.2」は章のドキュメントカウンタ + 見出しカウンタから */
-  --vs-section--h2-marker-content: counter(vs-counter-chapter) '.'
+  --vs-section--h2-marker-content: var(--vs-crossref-marker-counter-prefix)
     counter(vs-counter-sec-h2);
   --vs-section--h2-marker-display: inline;
   --vs-section--h2-marker-margin-inline-end: 0.6em;
   /* 参照は番号だけを出し、「Section」の語は原稿側に置く */
-  --vs-section--call-content: target-counter(attr(href), vs-counter-chapter) '.'
+  --vs-section--call-counter-content: var(--vs-crossref-call-counter-prefix)
     target-counter(attr(href), vs-counter-sec-h2);
+  --vs-section--label: '';
 
   /* ---- Marginalia: 外側 40mm の余白へ float ---- */
   --vs-sidenote--float: right;
   --vs-sidenote--clear: right;
   --vs-sidenote--size-inline: 31mm;
-  --vs-sidenote--margin-block: 0.5mm 2.6mm;
+  --vs-sidenote--margin-block: 0 0.5rlh;
   --vs-sidenote--margin-inline: 0 -19mm;
-  --vs-sidenote--font-size: 8.5pt;
   --vs-sidenote--line-height: 1.4;
   --vs-sidenote--text-color: var(--vs-color-foreground-alt);
   /* 傍注は無採番。ラベルは原稿の .tag で付ける */
   --vs-sidenote--marker-content: none;
   --vs-sidenote--break-inside: auto;
+
+  /* ---- Theorem environment (Theorem / Lemma …) ---- */
+  --vs-theorem--margin-block: 0.5rlh;
+  --vs-theorem--marker-suffix: ' ';
+  --vs-theorem--marker-font-style: normal;
+  --vs-theorem--marker-font-weight: 700;
+  /* 参照は番号だけを出し、「Theorem」の語は原稿側に置く */
+  --vs-theorem--call-content: var(--vs-crossref-call-counter-prefix)
+    target-counter(
+      attr(href),
+      vs-counter-thm,
+      var(--vs-theorem--counter-style, var(--vs-counter-style))
+    );
 }
 
 /* テーマ固有カウンタは文書全体で 1 から。base は body 側に書くので衝突しない */
 :root {
-  counter-reset: vs-counter-thm vs-counter-exercise vs-counter-code;
+  counter-reset: vs-counter-exercise vs-counter-code;
 }
 
 /* ---- 章の見出し (section の外・body 直下) ---- */
 .runhead {
-  margin-block: 0 4.5mm;
-  padding-block-end: 1.6mm;
+  margin-block: 0 0.75rlh;
+  padding-block-end: 0.25rlh;
   border-block-end-width: 0.4pt;
   font-style: italic;
-  font-size: 9pt;
+  font-size: 0.85em;
   letter-spacing: 0.02em;
   text-align: end;
 }
 
 .runhead::before {
-  content: var(--vs-theme-pseudocode-math-sidenote--runhead-prefix-content);
+  content: 'Chapter ' counter(vs-counter-chapter) ' · ';
 }
 
 /* ---- Section heading (rule-below) ---- */
 h2 {
-  padding-block-end: 2mm;
+  padding-block-end: 0.35em;
   border-block-end-width: 0.6pt;
   border-block-end-color: var(--vs-color-foreground);
 }
@@ -174,13 +142,13 @@ h2 {
 /* ---- Body ---- */
 /* 節にならない見出し (閉じ # の Chapter Notes など) の下の段落も本文として組む */
 :is(body, section.level2) > p:not(.runhead) {
-  margin-block: 0 2.4mm;
+  margin-block: 0 0.5rlh;
   text-indent: 1.4em;
 }
 
 /* ディスプレイ数式に添える短い行 (satisfies) は字下げしない */
 :is(body, section.level2) > p.satisfies {
-  margin-block: 0 1mm;
+  margin-block: 0 0.25rlh;
   text-indent: 0;
   text-align: start;
 }
@@ -191,17 +159,6 @@ var {
 }
 
 /* ---- Theorem environment ---- */
-/* ラベルは種別クラス側で与えるので、marker content の組み立ても .theorem 上で行う
-   (:root で組み立てると var() が :root の値で解決されて種別が効かない) */
-.theorem {
-  margin-block: 3.2mm;
-  counter-increment: vs-counter-thm;
-  --vs-theme-pseudocode-math-sidenote--theorem-label: 'Theorem';
-  --vs-theme-pseudocode-math-sidenote--theorem-marker-content: var(
-      --vs-theme-pseudocode-math-sidenote--theorem-label
-    )
-    ' ' counter(vs-counter-chapter) '.' counter(vs-counter-thm) ' ';
-}
 .theorem p {
   font-style: italic;
 }
@@ -210,18 +167,12 @@ var {
 }
 
 .lemma {
-  --vs-theme-pseudocode-math-sidenote--theorem-label: 'Lemma';
-}
-
-.theorem > p:first-child::before {
-  content: var(--vs-theme-pseudocode-math-sidenote--theorem-marker-content);
-  font-style: normal;
-  font-weight: 700;
+  --vs-theorem--label: 'Lemma ';
 }
 
 /* ---- Display equations ---- */
 .eq {
-  margin-block: 2.4mm;
+  margin-block: 0.5rlh;
   text-align: center;
 }
 /* MathML の block 数式は幅いっぱいの箱になるため、fit-content + auto で中央へ寄せる */
@@ -229,12 +180,12 @@ var {
   display: block;
   width: fit-content;
   margin: 0 auto;
-  font-size: 12pt;
+  font-size: 1.15em;
 }
 
 /* ---- Numbered, borderless pseudocode (Markdown の <ol>) ---- */
 .code {
-  margin-block: 3.2mm;
+  margin-block: 0.5rlh;
   counter-increment: vs-counter-code;
 }
 /* 疑似コードの通し番号は節ごとに振り直す */
@@ -243,20 +194,20 @@ section > h2:first-child {
 }
 .code ol {
   counter-reset: vs-counter-line;
-  font-family: var(--vs--monospace-font-family);
-  font-size: 8.5pt;
+  font-family: var(--vs-font-family-monospace);
+  font-size: 0.8em;
   line-height: 1.42;
 }
 .code li {
   counter-increment: vs-counter-line;
-  padding-inline-start: 9mm;
+  padding-inline-start: 3em;
 }
 .code li::before {
-  content: var(--vs-theme-pseudocode-math-sidenote--code-line-marker-content);
+  content: counter(vs-counter-line);
   display: inline-block;
-  width: 6mm;
-  margin-inline-start: -9mm;
-  margin-inline-end: 3mm;
+  width: 2em;
+  margin-inline-start: -3em;
+  margin-inline-end: 1em;
   text-align: end;
   color: var(--vs-color-foreground-alt);
 }
@@ -279,25 +230,24 @@ section:has(> h2.exercises:first-child) > p {
 }
 
 section:has(> h2.exercises:first-child) > p::before {
-  content: var(--vs-theme-pseudocode-math-sidenote--exercise-marker-content);
+  content: counter(vs-counter-chapter) '-' counter(vs-counter-exercise) ' ';
   font-weight: 700;
 }
 
 /* ---- 相互参照 ---- */
-a[data-ref='thm']::before {
-  content: var(--vs-theme-pseudocode-math-sidenote--theorem-call-content);
-}
-
 a[data-ref='code']::before {
-  content: var(--vs-theme-pseudocode-math-sidenote--code-call-content);
+  content: var(--vs-crossref-call-counter-prefix)
+    target-counter(attr(href), vs-counter-sec-h2) '-'
+    target-counter(attr(href), vs-counter-code, lower-alpha);
 }
 
 a[data-ref='line']::before {
-  content: var(--vs-theme-pseudocode-math-sidenote--code-line-call-content);
+  content: target-counter(attr(href), vs-counter-line);
 }
 
 a[data-ref='ex']::before {
-  content: var(--vs-theme-pseudocode-math-sidenote--exercise-call-content);
+  content: target-counter(attr(href), vs-counter-chapter) '-'
+    target-counter(attr(href), vs-counter-exercise);
 }
 
 a:is(
@@ -311,16 +261,16 @@ a:is(
   text-decoration: none;
 }
 
-/* ---- Marginalia: 図版も傍注 (lib/sidenote) と同じ体裁で外余白へ float ---- */
+/* ---- Marginalia: 図版も傍注と同じ体裁で外余白へ float ---- */
 figure {
-  float: right;
-  clear: right;
-  width: 31mm;
-  margin-inline-end: -19mm;
-  margin-block: 0.5mm 2.6mm;
-  font-size: 8.5pt;
-  line-height: 1.4;
-  color: var(--vs-color-foreground-alt);
+  float: var(--vs-sidenote--float);
+  clear: var(--vs-sidenote--clear);
+  width: var(--vs-sidenote--size-inline);
+  margin-block: var(--vs-sidenote--margin-block);
+  margin-inline: var(--vs-sidenote--margin-inline);
+  font-size: var(--vs-sidenote--font-size);
+  line-height: var(--vs-sidenote--line-height);
+  color: var(--vs-sidenote--text-color);
   text-indent: 0;
   text-align: start;
 }
@@ -330,11 +280,10 @@ figure {
   font-style: italic;
   font-weight: 600;
   color: var(--vs-color-foreground);
-  margin-block-end: 0.5mm;
 }
 
-/* 再帰木スケッチ (Markdown 画像 → figure > img + figcaption)。
-   SVG 内部のスタイルは fig-recursion-tree.svg 側に持たせている */
+/* 図版スケッチ (Markdown 画像 → figure > img + figcaption)。
+   SVG 内部のスタイルは SVG 側に持たせている */
 figure img {
   display: block;
   width: 29mm;
@@ -342,5 +291,4 @@ figure img {
 }
 figure figcaption {
   font-style: italic;
-  color: var(--vs-color-foreground-alt);
 }

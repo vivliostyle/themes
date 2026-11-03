@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-three-column-warning-grid",
   "version": "0.0.0",
-  "description": "Safety-first theme for allergy-friendly recipes, prioritizing unambiguous checks over appeal with a three-column grid of ingredient checks, steps and warnings, and nutrition tables",
+  "description": "Safety-first single-sheet theme, prioritizing unambiguous checks over appeal with a three-column grid of check tables, steps and warnings, and full-width data tables",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -50,15 +50,12 @@
         "practical",
         "a4",
         "three-column",
-        "health",
-        "allergen-free",
         "safety-critical",
-        "medical",
         "sans-serif"
       ],
       "i18n": {
         "ja": {
-          "description": "アレルギー対応レシピ向けの安全重視型テーマ。材料チェック・工程・警告枠の3段グリッドと栄養成分表で、料理の魅力より誤読なき安全確認を優先する"
+          "description": "1シートの安全重視型テーマ。チェック表・工程・警告枠の3段グリッドと全幅の数値表で、見た目の魅力より誤読なき安全確認を優先する"
         }
       }
     },

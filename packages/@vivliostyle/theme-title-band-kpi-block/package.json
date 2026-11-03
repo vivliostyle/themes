@@ -1,0 +1,73 @@
+{
+  "name": "@vivliostyle/theme-title-band-kpi-block",
+  "version": "0.0.0",
+  "description": "Two-column theme for data-dense brief reports, with a title band, KPI blocks and tables in tabular figures",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-title-band-kpi-block"
+  },
+  "files": [
+    "*.css",
+    "templates",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Title Band KPI Block",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "report",
+      "topics": [
+        "report",
+        "business",
+        "b5",
+        "two-column",
+        "data-driven",
+        "contemporary",
+        "block-emphasis",
+        "sans-serif",
+        "colorful"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "2段組の速報レポートテーマ。タイトルバンドとKPIブロック、タブラー数字の表で情報密度の高い紙面を組む"
+        }
+      }
+    },
+    "template": {
+      "default": {
+        "name": "Title Band KPI Block sample",
+        "source": "./templates/default"
+      }
+    }
+  }
+}

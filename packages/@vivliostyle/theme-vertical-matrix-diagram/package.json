@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-vertical-matrix-diagram",
   "version": "0.0.0",
-  "description": "Single-column vertical Shinsho theme for business books, flowing horizontal positioning matrices and data tables at the bottom of the page",
+  "description": "Single-column vertical theme, flowing horizontal matrix diagrams and data tables at the bottom of the page",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -49,8 +49,6 @@
       "topics": [
         "bunko-shinsho",
         "shinsho",
-        "business",
-        "strategy",
         "vertical-writing",
         "sans-serif",
         "dense",
@@ -58,7 +56,7 @@
       ],
       "i18n": {
         "ja": {
-          "description": "新書判・縦組み1段のビジネス新書テーマ。横組みのポジショニング・マトリクスとデータ表を紙面下部に回り込ませる"
+          "description": "縦組み1段のテーマ。横組みのマトリクス図とデータ表を紙面下部に回り込ませる"
         }
       }
     },

@@ -1,0 +1,69 @@
+{
+  "name": "@vivliostyle/theme-double-frame-ruled-heading",
+  "version": "0.0.0",
+  "description": "Single-column theme for newsletters, framing the page with double rules and ruled headings",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-double-frame-ruled-heading"
+  },
+  "files": [
+    "*.css",
+    "templates",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Double Frame Ruled Heading",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "magazine",
+      "topics": [
+        "newsletter-community",
+        "a5",
+        "single-column",
+        "elegant",
+        "minimal"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "1段組の会報テーマ。二重飾り罫で版面を囲み、上下罫見出しと写真で静かな品位を組む"
+        }
+      }
+    },
+    "template": {
+      "default": {
+        "name": "Double Frame Ruled Heading sample",
+        "source": "./templates/default"
+      }
+    }
+  }
+}

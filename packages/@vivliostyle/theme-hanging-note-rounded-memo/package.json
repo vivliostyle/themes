@@ -1,0 +1,70 @@
+{
+  "name": "@vivliostyle/theme-hanging-note-rounded-memo",
+  "version": "0.0.0",
+  "description": "Theme for business reports, with solid-header comparison tables, charts, hanging notes and rounded memo boxes",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-hanging-note-rounded-memo"
+  },
+  "files": [
+    "*.css",
+    "templates",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Hanging Note Rounded Memo",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "report",
+      "topics": [
+        "report",
+        "business",
+        "a4",
+        "data-table",
+        "gothic",
+        "practical"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "ビジネスレポートテーマ。ベタヘッダーの対比表とグラフ、ぶら下げ注記、角丸のメモで構成"
+        }
+      }
+    },
+    "template": {
+      "default": {
+        "name": "Hanging Note Rounded Memo sample",
+        "source": "./templates/default"
+      }
+    }
+  }
+}

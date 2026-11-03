@@ -1,0 +1,277 @@
+/*
+ * 製品評価ページ (graph-comparison-table)
+ * 専門誌の製品評価記事。A4 縦・モノクロ・横組み。柱を左右横罫つきで中央上に、
+ * ノンブルを右下に置く。記事は 1 本 = 改ページで始まり、段抜きの記事名と型式スタンプ、
+ * 全幅のグラフ、2 段組の本文 (段中に小さなグラフ)、段抜きの仕様表と等幅の
+ * 「測定条件」箱で構成する。見出し Noto Sans JP Medium・本文 Light、
+ * 数値/軸/表 IBM Plex Mono。
+ *
+ * 原稿は `# 記事名` で 1 記事。図番号は base のカウンタが付けるので原稿には書かない。
+ * 全幅で置くグラフは画像に `.wide` を付ける。柱の誌名は原稿の
+ * <p class="running-title"> から取る。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/math';
+
+:root {
+  --vs-theme-graph-comparison-table--conditions-size-inline: 44mm;
+  --vs-theme-graph-comparison-table--conditions-gap: 6mm;
+
+  --vs-columns: 2;
+  --vs-column-gap: 10mm;
+  /* Type: thin gothic body, 8.5pt / 1.4 */
+  --vs-font-family: 'Noto Sans JP', sans-serif;
+  --vs-font-family-monospace: 'IBM Plex Mono', ui-monospace, monospace;
+  --vs-font-size: 8.5pt;
+  --vs-font-weight: 300;
+  --vs-line-height: 1.4;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-background: #ffffff;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 90%
+  );
+  --vs-color-border: var(--vs-color-foreground);
+  --vs-color-border-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 60%
+  );
+
+  --vs--p-margin-block: 0 0.25rlh;
+  --vs--p-text-indent: 1em;
+
+  --vs--heading-font-weight: 500;
+  --vs--heading-text-align: start;
+  --vs--heading-margin-block: 0;
+
+  /* 記事タイトル */
+  --vs--h1-font-size: 2.25em;
+  --vs--h1-line-height: 1.15;
+  --vs--h1-letter-spacing: 0.01em;
+  --vs--h1-margin-block: 0 0.25rlh;
+  --vs--h1-padding-block: 0 0.25em;
+  --vs--h1-border-width-block-end: 2pt;
+
+  /* 本文の小見出し */
+  --vs--h2-font-size: 1.3em;
+  --vs--h2-letter-spacing: 0.04em;
+  --vs--h2-margin-block: 0.5rlh 0.25rlh;
+  --vs--h2-padding-block: 0 0.25em;
+  --vs--h2-border-width-block-end: 0.8pt;
+
+  --vs--figure-margin-block: 0;
+  --vs--figure-gap: 0.25rlh;
+  --vs--figcaption-font-weight: 500;
+  --vs--figcaption-text-align: center;
+
+  /* 数値・軸ラベル・測定条件は等幅 */
+  --vs--monospace-font-size: 1em;
+  --vs--monospace-line-height: 1.7;
+  --vs--pre-margin-block: 0;
+  --vs--pre-overflow-x: visible;
+  --vs--pre-white-space: pre;
+
+  /* 仕様比較表: 総罫グリッド */
+  --vs--table-font-size: 0.95em;
+  --vs--table-margin-block: 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-table-layout: fixed;
+  --vs--table-text-align: center;
+  --vs--table-cell-padding-block: 0.45em;
+  --vs--table-cell-padding-inline: 0.5em;
+  --vs--table-row-even-background-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 95%
+  );
+  --vs--th-background-color: var(--vs-color-background-alt);
+  --vs--th-font-weight: 500;
+
+  /* Page: A4 portrait, monochrome */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 16mm;
+  --vs-page--margin-bottom: 14mm;
+  --vs-page--margin-left: 15mm;
+  --vs-page--margin-right: 15mm;
+
+  /* 柱: 誌名の左右へ横罫を渡す。ノンブルは右下 */
+  --vs-page--mbox-top-left-content: '';
+  --vs-page--mbox-top-center-content: element(vs-theme-magazine);
+  --vs-page--mbox-top-right-content: '';
+  --vs-page--mbox-bottom-right-content: counter(page);
+  --vs-page--mbox-top-border-color-bottom: var(--vs-color-foreground);
+  --vs-page--mbox-top-border-width-bottom: 0.8pt;
+  /* 罫は誌名の左右へ渡すだけなので誌名の下には引かない */
+  --vs-page--mbox-top-center-border-width-bottom: 0;
+  --vs-page--mbox-top-left-padding-right: 1mm;
+  --vs-page--mbox-top-right-padding-left: 1mm;
+  --vs-page--mbox-top-margin-bottom: 0.5rlh;
+  --vs-page--mbox-top-vertical-align: bottom;
+  --vs-page--mbox-bottom-font-family: var(--vs-font-family-monospace);
+  --vs-page--mbox-bottom-font-size: 1.05em;
+  /* 本文が Light なのに対し、柱・ノンブルは Regular */
+  --vs-page--mbox-font-weight: 400;
+
+  --vs-math--display-margin-block: 0.25rlh;
+
+  /* 記事は改ページで始める */
+  --vs-section--h1-break-before: page;
+}
+
+/* 図番号は「図1　」、本文からの参照は「図1」 */
+:root:lang(ja) {
+  --vs-figure--marker-content: var(--vs-figure--label)
+    counter(
+      vs-counter-fig,
+      var(--vs-figure--counter-style, var(--vs-counter-style))
+    )
+    '\3000';
+}
+
+/* 柱に流す誌名は原稿から取る */
+.running-title {
+  position: running(vs-theme-magazine);
+  font-weight: 400;
+  font-size: 1.1em;
+  letter-spacing: 0.16em;
+  white-space: nowrap;
+  text-indent: 0;
+}
+
+/* ===== 解説本文は2段組。記事名・全幅グラフ・下段は全幅のまま =====
+   段抜きを伴う multicol は段の均し (column-fill: balance) が効かず下段が
+   次ページへ送られるため、2段組は解説本文の <div class="body"> にだけ掛ける。 */
+html {
+  columns: auto;
+}
+
+.body {
+  columns: var(--vs-columns);
+  column-gap: var(--vs-column-gap);
+  column-rule-width: 0.4pt;
+  column-rule-style: solid;
+  column-rule-color: var(--vs-color-border-alt);
+}
+
+/* ===== Masthead / headline ===== */
+.meta {
+  display: flex;
+  align-items: baseline;
+  gap: 3mm;
+  font-family: var(--vs-font-family-monospace);
+  font-size: 1.1em;
+  letter-spacing: 0.03em;
+  text-indent: 0;
+  margin-block: 0 0.75rlh;
+}
+
+.stamp-area {
+  display: inline-block;
+  background-color: var(--vs-color-foreground);
+  color: var(--vs-color-background);
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  padding: 0.25em 0.8em;
+  white-space: nowrap;
+}
+
+.price {
+  font-weight: 500;
+}
+
+/* ===== 図版 (Markdown 画像 → figure > img + figcaption) =====
+   線種・軸ラベルの書式は外部 SVG 側の \3c style> が持つ。 */
+figure img {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+}
+
+/* 全幅グラフは本文へ入る前に置く */
+figure:has(> img.wide) {
+  margin-block-end: 0.75rlh;
+}
+
+/* 段中のグラフ */
+figure:not(:has(> img.wide)) {
+  margin-block: 0.5rlh 0;
+}
+figure:not(:has(> img.wide)) img {
+  max-inline-size: 78mm;
+  margin-inline: auto;
+}
+
+/* リード (解説本文の最初の段落) は字下げなし・1行目だけ太らせる */
+.body > p:first-child {
+  text-indent: 0;
+}
+.body > p:first-child::first-line {
+  font-weight: 400;
+}
+
+/* ===== 記事末尾: 仕様表 + 測定条件箱 ===== */
+.bottom {
+  margin-block-start: 0.75rlh;
+  break-inside: avoid;
+}
+
+.bottom > .conditions {
+  float: inline-end;
+  inline-size: var(--vs-theme-graph-comparison-table--conditions-size-inline);
+  margin-inline-start: var(--vs-theme-graph-comparison-table--conditions-gap);
+}
+
+.bottom > table {
+  inline-size: calc(
+    100% - var(--vs-theme-graph-comparison-table--conditions-size-inline) -
+      var(--vs-theme-graph-comparison-table--conditions-gap)
+  );
+}
+
+/* Markdown の表は本文行が td のみになるため、1列目を見出し列として扱う */
+tbody td:first-child {
+  background-color: var(--vs-color-background-alt);
+  font-family: var(--vs-font-family);
+  font-weight: 400;
+  font-size: 1em;
+  text-align: start;
+  white-space: nowrap;
+}
+tbody td {
+  font-family: var(--vs-font-family-monospace);
+  font-size: 0.95em;
+  letter-spacing: -0.01em;
+}
+thead th:first-child {
+  width: 27%;
+}
+
+/* Conditions box (rounded, monospace) */
+.conditions {
+  border-width: 0.8pt;
+  border-style: solid;
+  border-radius: 2.2mm;
+  padding: 0.5rlh 1em 0.75rlh;
+  break-inside: avoid;
+}
+.conditions h2 {
+  font-weight: 700;
+  font-size: 1.2em;
+  letter-spacing: 0.06em;
+  margin-block: 0 0.5rlh;
+  padding-block: 0;
+  border-block-end-width: 0;
+}

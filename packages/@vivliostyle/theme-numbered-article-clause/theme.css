@@ -1,5 +1,5 @@
 /*
- * 定款・規程（一般社団法人型） (numbered-article-clause)
+ * 定款・規程 (numbered-article-clause)
  * A4判・横書き単一段の法務文書。Noto Serif JP の明朝本文 10.5pt / 行送り 1.5 に、
  * 章「第N章」を中央寄せの明朝見出し、条「第N条（…）」を左寄せ見出しで組み、
  * 項(2,3…／第1項は無番号)と号(一,二,三…)を字下げの階層で示す。柱(現在章名)と
@@ -23,46 +23,10 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  /* ---- 条・項・号のカウンタと参照 ---- */
+  /* ---- 条・項・号の番号の書式 ---- */
   --vs-theme-numbered-article-clause--article-counter-style: decimal;
   --vs-theme-numbered-article-clause--kou-counter-style: decimal;
   --vs-theme-numbered-article-clause--gou-counter-style: cjk-ideographic;
-  --vs-theme-numbered-article-clause--kou-marker-content: counter(
-    vs-counter-kou,
-    var(--vs-theme-numbered-article-clause--kou-counter-style)
-  );
-  --vs-theme-numbered-article-clause--gou-marker-content: counter(
-    vs-counter-gou,
-    var(--vs-theme-numbered-article-clause--gou-counter-style)
-  );
-  --vs-theme-numbered-article-clause--chapter-call-content: '第'
-    target-counter(
-      attr(href),
-      vs-counter-sec-h2,
-      var(--vs-section--counter-style)
-    )
-    '章';
-  --vs-theme-numbered-article-clause--article-call-content: '第'
-    target-counter(
-      attr(href),
-      vs-counter-article,
-      var(--vs-theme-numbered-article-clause--article-counter-style)
-    )
-    '条';
-  --vs-theme-numbered-article-clause--kou-call-content: '第'
-    target-counter(
-      attr(href),
-      vs-counter-kou,
-      var(--vs-theme-numbered-article-clause--kou-counter-style)
-    )
-    '項';
-  --vs-theme-numbered-article-clause--gou-call-content: '第'
-    target-counter(
-      attr(href),
-      vs-counter-gou,
-      var(--vs-theme-numbered-article-clause--gou-counter-style)
-    )
-    '号';
 
   /* Type */
   --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
@@ -76,19 +40,18 @@
     var(--vs-color-background) 25%
   );
   --vs-color-background: #ffffff;
-  --vs-columns: 1;
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 45%
+  );
   --vs-widows-orphans: 2;
 
   /* Paragraphs */
-  --vs--p-margin-block: 0.5em;
-  --vs--p-text-indent: 0;
-  --vs--p-text-align: justify;
+  --vs--p-margin-block: 0.25rlh;
 
   /* Headings: mincho, near-black, weight kept moderate */
-  --vs--heading-font-family:
-    'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
   --vs--heading-font-weight: 600;
-  --vs--heading-text-align: start;
 
   /* Title block (first page) */
   --vs--h1-font-size: 1.9em;
@@ -97,36 +60,31 @@
   --vs--h1-letter-spacing: 0.5em;
   --vs--h1-text-indent: 0.5em;
   /* balance the trailing letter-spacing */
-  --vs--h1-margin-block: 0.6rem 0.8rem;
+  --vs--h1-margin-block: 0.5rlh;
 
   /* Chapter heading 「第N章 …」 */
-  --vs--h2-font-size: 1.42em;
+  --vs--h2-font-size: 1.4em;
   --vs--h2-line-height: 1.35;
   --vs--h2-text-align: center;
   --vs--h2-letter-spacing: 0.12em;
-  --vs--h2-margin-block: 2rem 1.1rem;
+  --vs--h2-margin-block: 1.25rlh 0.75rlh;
   --vs--h2-string-set: chaptitle '第' counter(vs-counter-sec-h2) '章　'
     content();
 
   /* Article heading 「第N条（…）」 */
-  --vs--h3-font-size: 1.08em;
+  --vs--h3-font-size: 1.1em;
   --vs--h3-line-height: 1.4;
-  --vs--h3-margin-block: 1.2rem 0.35rem;
+  --vs--h3-margin-block: 0.75rlh 0.25rlh;
 
   /* 項/号 のリストは独自カウンタで組むため theme の既定インデントを外す */
   --vs--lists-margin-block: 0;
   --vs--lists-margin-inline: 0;
-  --vs--ol-padding-inline-start: 0pt;
+  --vs--ol-padding-inline-start: 0;
 
-  /* 社員名簿の規程表 (thin-ruled, narrow label column) */
+  /* 規程表 (thin-ruled, narrow label column) */
   --vs--table-border-width: 0.4pt;
-  --vs--table-border-color: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 45%
-  );
-  --vs--table-font-size: 10pt;
-  --vs--table-margin-block: 0.9em;
+  --vs--table-font-size: 0.95em;
+  --vs--table-margin-block: 0.5rlh;
   --vs--table-cell-padding-block: 0.5em;
   --vs--table-cell-padding-inline: 0.85em;
   --vs--th-font-weight: 600;
@@ -138,22 +96,12 @@
   --vs-page--margin-left: 20mm;
   --vs-page--margin-right: 20mm;
   --vs-page--border-width-top: 0.5pt;
-  --vs-page--border-color-top: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 45%
-  );
   /* 柱の下罫と本文のアキ。罫の太さぶんを引いて本文位置を保つ */
-  --vs-page--padding-top: calc(1.6mm - var(--vs-page--border-width-top));
-  --vs-page--mbox-font-family:
-    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
-  --vs-page--mbox-font-size: 8.5pt;
+  --vs-page--padding-top: calc(0.25rlh - var(--vs-page--border-width-top));
+  --vs-page--mbox-font-family: var(--vs-font-family-alt);
+  --vs-page--mbox-font-size: 0.8em;
   --vs-page--mbox-font-weight: 400;
-  --vs-page--mbox-text-color: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 25%
-  );
+  --vs-page--mbox-text-color: var(--vs-color-foreground-alt);
   --vs-page--mbox-letter-spacing: 0.08em;
   --vs-page--mbox-top-left-content: string(chaptitle);
   --vs-page--mbox-bottom-center-content: counter(page);
@@ -184,7 +132,6 @@
 .issuer,
 .revision-record {
   text-align: center;
-  margin-block: 0.2rem;
 }
 
 .issuer {
@@ -194,10 +141,10 @@
 
 .revision-record {
   font-family: var(--vs-font-family-alt);
-  font-size: 8.5pt;
+  font-size: 0.8em;
   color: var(--vs-color-foreground-alt);
   letter-spacing: 0.06em;
-  margin-block: 0.4rem 2.2rem;
+  margin-block: 0.25rlh 1.5rlh;
 }
 
 section.level2,
@@ -230,11 +177,14 @@ section > ol > li {
   padding-inline-start: 2.4em;
   text-indent: 0;
   text-align: justify;
-  margin-block: 0.45em 0;
+  margin-block: 0.25rlh 0;
 }
 
 section > ol > li::before {
-  content: var(--vs-theme-numbered-article-clause--kou-marker-content);
+  content: counter(
+    vs-counter-kou,
+    var(--vs-theme-numbered-article-clause--kou-counter-style)
+  );
   position: absolute;
   inset-inline-start: 1em;
   inline-size: 1.4em;
@@ -255,15 +205,15 @@ section > ol > li:first-child::before {
 section > ol li > p {
   margin-block: 0;
   text-align: justify;
+  /* p の text-indent: 0 が li の字下げの継承を上書きするため */
   text-indent: inherit;
-  /* theme の p{text-indent:0} が li の字下げ継承を上書きするため */
 }
 
 /* ==== 号 (items): 一, 二, 三 … , indented one level deeper ==== */
 section > ol ol {
   list-style: none;
   counter-reset: vs-counter-gou;
-  margin-block: 0.35em 0;
+  margin-block: 0.25rlh 0;
   margin-inline: 0;
   padding-inline-start: 1.4em;
 }
@@ -274,11 +224,14 @@ section > ol ol > li {
   padding-inline-start: 2.4em;
   text-indent: 0;
   text-align: justify;
-  margin-block: 0.2em 0;
+  margin-block: 0.25rlh 0;
 }
 
 section > ol ol > li::before {
-  content: var(--vs-theme-numbered-article-clause--gou-marker-content);
+  content: counter(
+    vs-counter-gou,
+    var(--vs-theme-numbered-article-clause--gou-counter-style)
+  );
   position: absolute;
   inset-inline-start: 1em;
   inline-size: 1.4em;
@@ -297,22 +250,46 @@ a:is([data-ref='chap'], [data-ref='art'], [data-ref='kou'], [data-ref='gou']) {
 }
 
 a[data-ref='chap']::before {
-  content: var(--vs-theme-numbered-article-clause--chapter-call-content);
+  content: '第'
+    target-counter(
+      attr(href),
+      vs-counter-sec-h2,
+      var(--vs-section--counter-style)
+    )
+    '章';
 }
 
 a[data-ref='art']::before {
-  content: var(--vs-theme-numbered-article-clause--article-call-content);
+  content: '第'
+    target-counter(
+      attr(href),
+      vs-counter-article,
+      var(--vs-theme-numbered-article-clause--article-counter-style)
+    )
+    '条';
 }
 
 a[data-ref='kou']::before {
-  content: var(--vs-theme-numbered-article-clause--kou-call-content);
+  content: '第'
+    target-counter(
+      attr(href),
+      vs-counter-kou,
+      var(--vs-theme-numbered-article-clause--kou-counter-style)
+    )
+    '項';
 }
 
 a[data-ref='gou']::before {
-  content: var(--vs-theme-numbered-article-clause--gou-call-content);
+  content: '第'
+    target-counter(
+      attr(href),
+      vs-counter-gou,
+      var(--vs-theme-numbered-article-clause--gou-counter-style)
+    )
+    '号';
 }
 
-/* ==== 社員名簿の規程表 ==== */
+/* ==== 規程表 ==== */
 table {
   width: 100%;
 }
@@ -321,7 +298,7 @@ caption {
   caption-side: top;
   text-align: start;
   font-weight: 600;
-  margin-block: 0 0.4rem;
+  margin-block: 0 0.25rlh;
 }
 
 th,

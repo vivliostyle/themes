@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-latex-two-column-theorem",
   "version": "0.0.0",
-  "description": "Two-column A4 theme in black for academic journals in the style of LaTeX, with boxed theorem environments, booktabs-style tables and numbered equations",
+  "description": "Two-column theme for academic journals in the style of LaTeX, with boxed theorem environments, booktabs-style tables and numbered equations",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -50,14 +50,13 @@
         "academic",
         "a4",
         "two-column",
-        "statistics",
         "mathematical",
         "plain-heading",
         "theorem-boxed"
       ],
       "i18n": {
         "ja": {
-          "description": "A4判2段組・墨1色の LaTeX 風学術論文誌テーマ。罫線ボックスの定理環境、booktabs 風の統計表、式番号付き数式を組む"
+          "description": "2段組の LaTeX 風学術論文誌テーマ。罫線ボックスの定理環境、booktabs 風の表、式番号付き数式を組む"
         }
       }
     },

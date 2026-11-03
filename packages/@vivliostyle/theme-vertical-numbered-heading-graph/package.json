@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-vertical-numbered-heading-graph",
   "version": "0.0.0",
-  "description": "Single-column vertical Shinsho theme for academic nonfiction, with numbered section headings and horizontal graphs at the bottom of the page",
+  "description": "Single-column vertical theme for academic nonfiction, with numbered section headings and horizontal graphs at the bottom of the page",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -57,7 +57,7 @@
       ],
       "i18n": {
         "ja": {
-          "description": "新書判・縦組み1段の学術新書テーマ。番号付き節見出しと版面下部の横組みグラフを組む"
+          "description": "縦組み1段の学術教養書テーマ。番号付き節見出しと版面下部の横組みグラフを組む"
         }
       }
     },

@@ -1,5 +1,5 @@
 /*
- * example 専用の追補。theme.css が持つ図表イディオムはポジショニング・マトリクスと
+ * example 専用の追補。theme.css が持つ図表イディオムはマトリクス図と
  * データ表の二つだけなので、章を通して組むのに必要な図版 (入れ子の層図・横棒図・
  * 工程図・四象限の要点図) をここで足す。いずれも theme.css の図表バンドの体裁
  * (aside 内・横組み・0.5pt の黒罫・淡グレーの網) に合わせている。
@@ -12,17 +12,17 @@
   width: var(--vs-theme-vertical-matrix-diagram--aside-size-inline);
 }
 
-/* 市場の三層 (入れ子の帯) */
+/* 入れ子の帯 */
 .layers .stack {
-  font-size: 6.2pt;
+  font-size: 0.7em;
   line-height: 1.25;
 }
 .layers .band {
   border-width: 0.5pt;
-  padding: 1.2mm;
+  padding: 0.55em;
 }
 .layers .band .band {
-  margin-top: 1.2mm;
+  margin-top: 0.55em;
 }
 .layers .band > .head {
   display: block;
@@ -31,18 +31,18 @@
 }
 .layers .band > .note {
   display: block;
-  font-size: 5.4pt;
+  font-size: 0.85em;
 }
 .layers .core {
   background-color: var(--vs-color-background-alt);
 }
 
-/* 参入障壁の高さ (横棒) */
+/* 横棒図 */
 .bars .chart {
   display: flex;
   flex-direction: column;
-  gap: 1.2mm;
-  font-size: 5.8pt;
+  gap: 0.6em;
+  font-size: 0.65em;
   line-height: 1.2;
 }
 .bars .row {
@@ -64,24 +64,24 @@
 .bars .bar::before {
   content: '';
   flex: none;
-  block-size: 2.2mm;
+  block-size: 1.05em;
   inline-size: calc(var(--v) * 0.85%);
   border-width: 0.5pt;
   background-color: var(--vs-color-background-alt);
 }
 .bars .val {
-  font-size: 5.2pt;
+  font-size: 0.9em;
 }
 
 /* 工程図 (縦に連ねた箱と矢印) */
 .flow .chain {
-  font-size: 6pt;
+  font-size: 0.65em;
   line-height: 1.25;
 }
 .flow .step {
   display: block;
   border-width: 0.5pt;
-  padding: 1mm 1.2mm;
+  padding: 0.5em 1.2mm;
 }
 .flow .step.emph {
   background-color: var(--vs-color-background-alt);
@@ -91,14 +91,14 @@
 }
 .flow .desc {
   display: block;
-  font-size: 5.2pt;
+  font-size: 0.9em;
 }
 .flow .arrow {
   display: block;
   text-align: center;
-  font-size: 4.4pt;
+  font-size: 0.75em;
   line-height: 1;
-  padding: 0.7mm 0;
+  padding: 0.45em 0;
 }
 .flow .metrics .colhead,
 .flow .metrics .step {
@@ -106,8 +106,8 @@
   align-items: center;
 }
 .flow .metrics .colhead {
-  font-size: 5pt;
-  padding: 0 1.2mm 0.7mm;
+  font-size: 0.85em;
+  padding: 0 1.2mm 0.4em;
 }
 .flow .metrics .colhead > :first-child,
 .flow .metrics .step > :first-child {
@@ -119,7 +119,7 @@
   text-align: end;
 }
 .flow .metrics .step > :nth-child(n + 2) {
-  font-size: 5.6pt;
+  font-size: 0.95em;
 }
 
 /* 要点の四象限 */
@@ -127,7 +127,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1.2mm;
-  font-size: 5.6pt;
+  font-size: 0.6em;
   line-height: 1.2;
 }
 .quad .cell {
@@ -136,13 +136,13 @@
   flex-direction: column;
   gap: 0.3em;
   border-width: 0.5pt;
-  padding: 1.1mm;
+  padding: 0.6em;
 }
 .quad .head {
   font-weight: 700;
-  font-size: 6.4pt;
+  font-size: 1.2em;
   letter-spacing: 0.06em;
 }
 .quad .note {
-  font-size: 5pt;
+  font-size: 0.95em;
 }

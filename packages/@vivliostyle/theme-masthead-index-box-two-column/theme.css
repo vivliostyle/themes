@@ -23,9 +23,8 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  /* ---- テーマ固有 ---- */
-  --vs-theme-masthead-index-box-two-column--columns: 2;
-  --vs-theme-masthead-index-box-two-column--column-gap: 7mm;
+  --vs-columns: 2;
+  --vs-column-gap: 7mm;
 
   /* Type: serif body, 9.5pt / 1.6, justified with hyphenation */
   --vs-font-family: 'Source Serif 4', 'Noto Serif', Georgia, serif;
@@ -54,27 +53,25 @@
 
   --vs--p-margin-block: 0;
   --vs--p-text-indent: 1em;
-  --vs--p-text-align: justify;
-  --vs--p-hyphens: auto;
 
   /* Headings: serif, near-black */
-  --vs--heading-font-family: 'Source Serif 4', 'Noto Serif', Georgia, serif;
   --vs--heading-font-weight: 600;
   --vs--heading-letter-spacing: 0.005em;
-  --vs--heading-text-align: start;
-  --vs--heading-margin-block: 0 3mm;
-  --vs--heading-break-after: avoid;
+  --vs--heading-margin-block: 0 0.5rlh;
 
   /* Article title (masthead) */
-  --vs--h1-font-size: 25pt;
+  --vs--h1-font-size: 2.65em;
   --vs--h1-line-height: 1.04;
   --vs--h1-text-align: center;
 
   /* Numbered section headings */
-  --vs--h2-font-size: 13pt;
+  --vs--h2-font-size: 1.35em;
   --vs--h2-line-height: 1.15;
-  --vs--h2-margin-block: 4.5mm 3mm;
+  --vs--h2-margin-block: 0.75rlh 0.5rlh;
 
+  --vs--figure-gap: 0.25rlh;
+  --vs--figure-margin-block: 0.75rlh;
+  --vs--figure-item-size-inline: 100%;
   --vs--figcaption-text-color: var(--vs-color-foreground-alt);
   --vs--table-font-family: var(--vs-font-family-alt);
 
@@ -100,7 +97,7 @@
   /* フォリオは小口側の地 (右ページは右下、左ページは左下) */
   --vs-page--mbox-bottom-outside-content: counter(page);
   --vs-page--mbox-bottom-font-family: var(--vs-font-family-alt);
-  --vs-page--mbox-bottom-font-size: 8pt;
+  --vs-page--mbox-bottom-font-size: 0.85em;
   --vs-page--mbox-bottom-letter-spacing: 0.06em;
   --vs-page--mbox-bottom-text-color: var(--vs-color-foreground-alt);
 
@@ -116,12 +113,14 @@
 }
 
 /* ---- 2-column body; masthead, wide blocks & notes span both columns ----
-   VFM 出力は body > (header / section.level2 … / section.footnotes) で
-   article ラッパが無いため、段組は body に掛ける (段抜きを伴う多段組は
-   --vs-columns では組めない)。 */
+   段抜きを伴うため、段組はルートでなく body に掛ける */
+html {
+  columns: 1;
+}
+
 body {
-  columns: var(--vs-theme-masthead-index-box-two-column--columns);
-  column-gap: var(--vs-theme-masthead-index-box-two-column--column-gap);
+  columns: var(--vs-columns);
+  column-gap: var(--vs-column-gap);
   column-fill: auto;
 }
 
@@ -132,7 +131,7 @@ body > [role='doc-endnotes'] {
 
 /* ---- Masthead ---- */
 body > header {
-  margin-block-end: 5mm;
+  margin-block-end: 1rlh;
 }
 
 header p {
@@ -143,35 +142,35 @@ header p {
 header .meta {
   font-family: var(--vs-font-family-alt);
   font-weight: 500;
-  font-size: 7.5pt;
+  font-size: 0.8em;
   text-transform: uppercase;
   letter-spacing: 0.22em;
   text-align: start;
   border-top-width: 1.5pt;
   border-top-style: solid;
   border-top-color: var(--vs-color-foreground);
-  padding-top: 1.8mm;
-  margin-block: 0 3.5mm;
+  padding-top: 0.7em;
+  margin-block: 0 0.75rlh;
 }
 
 /* Kicker (article kind): sans caps, centered, tracked */
 header .subhead {
   font-family: var(--vs-font-family-alt);
   font-weight: 600;
-  font-size: 8pt;
+  font-size: 0.85em;
   text-transform: uppercase;
   letter-spacing: 0.28em;
   text-align: center;
-  margin-block: 0 1.5mm;
+  margin-block: 0 0.25rlh;
 }
 
 /* Deck / standfirst */
 header .lead {
-  font-size: 10.5pt;
+  font-size: 1.1em;
   line-height: 1.42;
   text-align: center;
   max-width: 124mm;
-  margin-block: 0 3mm;
+  margin-block: 0 0.5rlh;
   margin-inline: auto;
 }
 
@@ -179,17 +178,17 @@ header .lead {
 header .byline {
   font-family: var(--vs-font-family-alt);
   font-weight: 700;
-  font-size: 8.5pt;
+  font-size: 0.9em;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   text-align: center;
-  margin-block: 0 1mm;
+  margin-block: 0 0.25rlh;
 }
 
 /* Affiliation: serif italic, muted, centered */
 header .credit {
   font-style: italic;
-  font-size: 10pt;
+  font-size: 1.05em;
   text-align: center;
   color: var(--vs-color-foreground-alt);
 }
@@ -212,22 +211,12 @@ sup {
   break-inside: avoid;
 }
 
-figure {
-  margin-block: 4mm 4.5mm;
-}
-
-figure > img {
-  inline-size: 100%;
-}
-
 /* 図版のキャプションは図の下、細罫を挟んで小さく */
 figure:has(> :is(img, picture)) > figcaption {
-  font-size: 7.5pt;
+  font-size: 0.8em;
   line-height: 1.4;
   text-align: start;
-  text-indent: 0;
-  margin-block: 2mm 0;
-  padding-block-start: 1.6mm;
+  padding-block-start: 0.6em;
   border-block-start-width: 0.5pt;
   border-block-start-style: solid;
   border-block-start-color: var(--vs-color-border-alt);
@@ -239,18 +228,16 @@ figure:has(> :is(img, picture)) > figcaption {
 figure:has(table) > figcaption {
   font-family: var(--vs-font-family-alt);
   font-weight: 600;
-  font-size: 7.5pt;
+  font-size: 0.8em;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  text-indent: 0;
   text-align: start;
-  margin-block: 0 1.6mm;
   break-after: avoid;
 }
 
 figure table {
   inline-size: 100%;
-  font-size: 7.8pt;
+  font-size: 0.8em;
   line-height: 1.3;
   margin-block: 0;
   border-block-start-width: 1.2pt;
@@ -261,8 +248,8 @@ figure table {
 
 figure :is(th, td) {
   border-width: 0;
-  padding-block: 1.1mm;
-  padding-inline: 0 3mm;
+  padding-block: 0.4em;
+  padding-inline: 0 1.1em;
   text-align: start;
   vertical-align: baseline;
 }
@@ -288,31 +275,31 @@ figure tbody tr + tr td {
 .card {
   break-inside: avoid;
   background-color: var(--vs-color-background-alt);
-  padding: 2.8mm 4.5mm 3mm;
-  margin-block: 5mm;
+  padding: 0.5rlh 1.35em;
+  margin-block: 1rlh;
 }
 
 .card .meta {
   font-family: var(--vs-font-family-alt);
   font-weight: 600;
-  font-size: 7.5pt;
+  font-size: 0.8em;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   text-align: center;
   text-indent: 0;
-  margin-block: 0 2mm;
+  margin-block: 0 0.25rlh;
 }
 
 .card ul {
-  font-size: 8pt;
+  font-size: 0.85em;
   line-height: 1.45;
 }
 
 .card p:not(.meta) {
-  font-size: 8pt;
+  font-size: 0.85em;
   line-height: 1.42;
   text-indent: 0;
-  margin-block: 0 1.8mm;
+  margin-block: 0 0.25rlh;
 }
 
 .card p:last-child {
@@ -333,9 +320,9 @@ figure tbody tr + tr td {
 /* ---- 中見出し代わりの引用 ---- */
 blockquote.pull {
   break-inside: avoid;
-  margin-block: 4mm;
+  margin-block: 0.75rlh;
   margin-inline: 0;
-  padding-block: 2.6mm;
+  padding-block: 0.5rlh;
   border-block-width: 1.2pt 0.5pt;
   border-block-style: solid;
   border-block-color: var(--vs-color-foreground);
@@ -343,7 +330,7 @@ blockquote.pull {
 }
 
 blockquote.pull p {
-  font-size: 12pt;
+  font-size: 1.25em;
   line-height: 1.26;
   text-align: start;
   text-indent: 0;
@@ -353,21 +340,21 @@ blockquote.pull p {
 blockquote.pull .attribution {
   font-family: var(--vs-font-family-alt);
   font-weight: 600;
-  font-size: 7.5pt;
+  font-size: 0.8em;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--vs-color-foreground-alt);
-  margin-block-start: 2mm;
+  margin-block-start: 0.25rlh;
 }
 
 /* ---- 巻末注: 全幅・細罫・ぶら下げ番号 ---- */
 :root {
-  --vs-endnote--section-margin-block: 5mm 0;
-  --vs-endnote--section-hr-margin-block: 0 2.6mm;
+  --vs-endnote--section-margin-block: 1rlh 0;
+  --vs-endnote--section-hr-margin-block: 0 0.5rlh;
   --vs-endnote--section-hr-border-width-block-start: 0.5pt;
   --vs-endnote--section-hr-border-color: var(--vs-color-foreground-alt);
   --vs-endnote--section-hr-size-inline: 100%;
-  --vs-endnote--section-font-size: 7.5pt;
+  --vs-endnote--section-font-size: 0.8em;
   --vs-endnote--section-text-color: var(--vs-color-foreground-alt);
   --vs-endnote--section-ol-list-style-type: none;
   --vs-endnote--marker-content: counter(vs-counter-endnote) '. ';
@@ -375,7 +362,7 @@ blockquote.pull .attribution {
   --vs-endnote--marker-font-weight: 500;
   --vs-endnote--marker-text-color: var(--vs-color-foreground);
   --vs-endnote--item-line-height: 1.35;
-  --vs-endnote--item-margin-block: 0 0.8mm;
+  --vs-endnote--item-margin-block: 0 0.3em;
   --vs-endnote--item-padding-inline-start: 2.4em;
   --vs-endnote--item-text-indent: -2.4em;
   --vs-endnote--item-text-align: justify;

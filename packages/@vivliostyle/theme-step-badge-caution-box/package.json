@@ -1,0 +1,71 @@
+{
+  "name": "@vivliostyle/theme-step-badge-caution-box",
+  "version": "0.0.0",
+  "description": "Two-column horizontal theme for high school lab manuals, with STEP badges and safety caution boxes in a sparing accent color",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-step-badge-caution-box"
+  },
+  "files": [
+    "*.css",
+    "templates",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Step Badge Caution Box",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "misc",
+      "topics": [
+        "education",
+        "high-school",
+        "a5",
+        "two-column",
+        "safety-focused",
+        "icon-rich",
+        "warning-system"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "横組み2段の高校向け実験マニュアルテーマ。アクセントカラーを限定使用したSTEPバッジと安全上の注意ボックスが特徴"
+        }
+      }
+    },
+    "template": {
+      "default": {
+        "name": "Step Badge Caution Box sample",
+        "source": "./templates/default"
+      }
+    }
+  }
+}

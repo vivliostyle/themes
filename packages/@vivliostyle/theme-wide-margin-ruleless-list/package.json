@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-wide-margin-ruleless-list",
   "version": "0.0.0",
-  "description": "Single-column A5 theme for specialty coffee shop menus, with wide margins and rule-free price lists making use of white space",
+  "description": "Single-column theme for menus, with wide margins and rule-free price lists making use of white space",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -48,7 +48,7 @@
       "category": "misc",
       "topics": [
         "practical",
-        "cafe",
+        "menu",
         "minimal",
         "sans-serif",
         "a5",
@@ -57,7 +57,7 @@
       ],
       "i18n": {
         "ja": {
-          "description": "A5判・1段組のスペシャルティコーヒー店メニューテーマ。広い余白と罫線のない価格表でホワイトスペースを活かした洗練された世界観を表現する"
+          "description": "1段組のメニューテーマ。広い余白と罫線のない価格表でホワイトスペースを活かした洗練された世界観を表現する"
         }
       }
     },

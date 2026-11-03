@@ -1,5 +1,5 @@
 /*
- * 四六判コンサルティングガイド（単行本風） hanging-heading-dropcap-marginalia
+ * 四六判・単行本風レポート hanging-heading-dropcap-marginalia
  * 四六判 (127×188mm)・明朝・横組み1段。左約1/4 を傍注マージンとする非対称グリッドに
  * ハンギング見出し・3行取りドロップキャップ・ブラウン罫付き傍注・角丸フロー図を配置。
  * クリーム紙 + ダークブラウンアクセントの落ち着いた親書調。
@@ -25,16 +25,18 @@
     var(--vs-color-background) 20%
   );
 
-  /* 傍注帯の幅と本文との間隔。両者の和だけ本文を版面の内側へ寄せる */
-  --vs-theme-hanging-heading-dropcap-marginalia--sidenote-size-inline: 24mm;
-  --vs-theme-hanging-heading-dropcap-marginalia--sidenote-gap: 4mm;
+  /* 傍注帯の幅に本文との間隔を足した量。この分だけ本文を版面の内側へ寄せる */
   --vs-theme-hanging-heading-dropcap-marginalia--sidenote-gutter: calc(
-    var(--vs-theme-hanging-heading-dropcap-marginalia--sidenote-size-inline) +
-      var(--vs-theme-hanging-heading-dropcap-marginalia--sidenote-gap)
+    var(--vs-sidenote--size-inline) + 4mm
   );
-  /* 見出しが傍注帯へ食い込む量 */
-  --vs-theme-hanging-heading-dropcap-marginalia--heading-hang-size-inline: 10mm;
 
+  /* 図表番号は和文組版の「図2-1　」「表2-1　」形式 */
+  --vs-crossref-call-counter-prefix: target-counter(
+      attr(href),
+      vs-counter-chapter
+    )
+    '-';
+  --vs-crossref-marker-counter-prefix: counter(vs-counter-chapter) '-';
   --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
   --vs-font-size: 8.4pt;
   --vs-line-height: 1.45;
@@ -46,32 +48,28 @@
     var(--vs-color-background) 45%
   );
   --vs-color-background: #faf7f2;
-  --vs-columns: 1;
 
   /* 字下げ1字・段落間ベタ (単行本流) */
   --vs--p-margin-block: 0;
   --vs--p-text-indent: 1em;
-  --vs--p-text-align: justify;
 
-  --vs--heading-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
   --vs--heading-text-color: var(
     --vs-theme-hanging-heading-dropcap-marginalia--color-accent
   );
-  --vs--heading-break-after: avoid;
 
-  --vs--h1-font-size: 13pt;
+  --vs--h1-font-size: 1.55em;
   --vs--h1-font-weight: 500;
   --vs--h1-line-height: 1.3;
   --vs--h1-letter-spacing: 0.06em;
-  --vs--h1-margin-block: 1.5mm;
+  --vs--h1-margin-block: 0.25rlh;
   /* 章題は柱へ流す */
   --vs--h1-string-set: chapter-title content();
 
-  --vs--h2-font-size: 10.5pt;
+  --vs--h2-font-size: 1.25em;
   --vs--h2-font-weight: 500;
   --vs--h2-line-height: 1.4;
   --vs--h2-letter-spacing: 0.05em;
-  --vs--h2-margin-block: 7mm 3.5mm;
+  --vs--h2-margin-block: 1.75rlh 0.75rlh;
 
   --vs--sup-font-size: 0.55em;
   --vs--sup-text-color: var(
@@ -79,51 +77,47 @@
   );
 
   /* クロスリファレンス（→第3章参照） */
-  --vs--anchor-text-color: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 20%
+  --vs--anchor-text-color: var(
+    --vs-theme-hanging-heading-dropcap-marginalia--color-accent
   );
   --vs--anchor-text-decoration: none;
 
-  --vs--figure-margin-block: 2mm 1mm;
+  --vs--figure-margin-block: 0.5rlh 0.25rlh;
+  --vs--figure-gap: 0.25rlh;
   --vs--figure-item-size-inline: 80%;
 
-  --vs--figcaption-font-size: 7pt;
+  --vs--figcaption-font-size: 0.85em;
   --vs--figcaption-text-align: center;
-  --vs--figcaption-margin-block: 1.2mm 0;
   --vs--figcaption-letter-spacing: 0.08em;
   --vs--figcaption-text-color: var(
     --vs-theme-hanging-heading-dropcap-marginalia--color-accent
   );
 
-  /* 表: 本文と同じ明朝で、天地と項目名の下だけに罫を引く */
-  --vs--table-font-family: var(--vs-font-family);
-  --vs--table-font-size: 7pt;
+  /* 表: 天地と項目名の下だけに罫を引く */
+  --vs--table-font-size: 0.85em;
   --vs--table-font-variant-numeric: tabular-nums;
   --vs--table-line-height: 1.4;
   --vs--table-letter-spacing: 0.01em;
   --vs--table-size-inline: 100%;
-  --vs--table-margin-block: 0 3mm;
+  --vs--table-margin-block: 0 0.75rlh;
   --vs--table-border-color: var(
     --vs-theme-hanging-heading-dropcap-marginalia--color-accent
   );
-  --vs--table-border-style: solid;
   --vs--table-border-width: 0;
   --vs--table-border-width-block-start: 0.6pt;
   --vs--table-border-width-block-end: 0.6pt;
   --vs--table-border-width-thead-inner: 0.3pt;
-  --vs--table-cell-padding-block: 0.9mm;
-  --vs--table-cell-padding-inline: 1.2mm;
+  --vs--table-cell-padding-block: 0.35em;
+  --vs--table-cell-padding-inline: 0.5em;
   --vs--table-cell-vertical-align: top;
   --vs--th-font-weight: 500;
   --vs--th-text-color: var(
     --vs-theme-hanging-heading-dropcap-marginalia--color-accent
   );
 
-  --vs--lists-margin-block: 3mm;
+  --vs--lists-margin-block: 0.75rlh;
   --vs--lists-text-align: justify;
-  --vs--li-margin-block: 0 0.8mm;
+  --vs--li-margin-block: 0 0.25em;
 
   --vs-page--size: 127mm 188mm;
   --vs-page--margin-top: 12mm;
@@ -136,7 +130,7 @@
   --vs-page--mbox-top-inside-content: '第' counter(vs-counter-chapter) '章　'
     string(chapter-title);
   --vs-page--mbox-bottom-outside-content: counter(page);
-  --vs-page--mbox-top-font-size: 7pt;
+  --vs-page--mbox-top-font-size: 0.85em;
   --vs-page--mbox-top-letter-spacing: 0.14em;
   --vs-page--mbox-top-text-color: var(--vs-color-foreground-alt);
   /* 柱の下の細罫は版面の上罫として引く */
@@ -146,7 +140,6 @@
     var(--vs-color-background) 65%
   );
   --vs-page--border-width-top: 0.4pt;
-  --vs-page--mbox-bottom-font-size: 8.5pt;
   --vs-page--mbox-bottom-text-color: color-mix(
     in oklab,
     var(--vs-color-foreground),
@@ -161,32 +154,34 @@
     counter(vs-counter-sec-h2) '　';
   --vs-section--marker-margin-inline-end: 0;
 
+  --vs-figure--marker-content: var(--vs-figure--label)
+    var(--vs-crossref-marker-counter-prefix, '')
+    counter(
+      vs-counter-fig,
+      var(--vs-figure--counter-style, var(--vs-counter-style))
+    )
+    '　';
+  --vs-table--marker-content: var(--vs-table--label)
+    var(--vs-crossref-marker-counter-prefix, '')
+    counter(
+      vs-counter-tbl,
+      var(--vs-table--counter-style, var(--vs-counter-style))
+    )
+    '　';
+
   /* 傍注: 左の傍注帯へ引き出して参照箇所の脇に浮かせる。合印は原稿の <sup>※</sup> */
   --vs-sidenote--float: inline-start;
   --vs-sidenote--clear: inline-start;
-  --vs-sidenote--size-inline: var(
-    --vs-theme-hanging-heading-dropcap-marginalia--sidenote-size-inline
-  );
+  --vs-sidenote--size-inline: 24mm;
   --vs-sidenote--margin-inline: calc(
       -1 * var(--vs-theme-hanging-heading-dropcap-marginalia--sidenote-gutter)
     )
     0;
-  --vs-sidenote--margin-block: 0 6mm;
-  --vs-sidenote--font-size: 7pt;
+  --vs-sidenote--margin-block: 0 1.5rlh;
+  /* 傍注帯の幅に 1 行 9 字が収まる大きさ */
+  --vs-sidenote--font-size: 0.83em;
   --vs-sidenote--line-height: 1.62;
   --vs-sidenote--text-color: var(--vs-color-foreground-alt);
-}
-
-/* 図表番号は和文組版の「図2-1　」「表2-1　」形式 */
-:root:lang(ja) {
-  --vs-figure--marker-content: '図' counter(vs-counter-chapter) '-'
-    counter(vs-counter-fig) '　';
-  --vs-table--marker-content: '表' counter(vs-counter-chapter) '-'
-    counter(vs-counter-tbl) '　';
-  --vs-figure--call-content: '図' target-counter(attr(href), vs-counter-chapter)
-    '-' target-counter(attr(href), vs-counter-fig);
-  --vs-table--call-content: '表' target-counter(attr(href), vs-counter-chapter)
-    '-' target-counter(attr(href), vs-counter-tbl);
 }
 
 /* 版面の左 1/4 を傍注帯として空け、本文をその分だけ内側へ寄せる */
@@ -198,12 +193,7 @@ body {
 
 /* ハンギング見出しは傍注帯へ食い込ませ、傍注と縦に重ねない */
 :is(h1, h2) {
-  margin-inline-start: calc(
-    -1 *
-      var(
-        --vs-theme-hanging-heading-dropcap-marginalia--heading-hang-size-inline
-      )
-  );
+  margin-inline-start: -10mm;
   clear: inline-start;
 }
 
@@ -217,17 +207,12 @@ body {
   border-block-start-color: var(
     --vs-theme-hanging-heading-dropcap-marginalia--color-accent
   );
-  margin-block-end: 1.6mm;
+  margin-block-end: 0.25rlh;
 }
 
 .sidenote p {
   text-indent: 0;
   text-align: start;
-}
-
-/* 冒頭の「用語解説：」「参考資料：」ラベル */
-.sidenote > p:first-of-type {
-  margin-block-end: 0.6mm;
 }
 
 .sidenote dl,
@@ -236,7 +221,6 @@ body {
 }
 
 .sidenote dt {
-  margin-block-end: 0.4mm;
   font-weight: 400;
 }
 
@@ -251,19 +235,18 @@ section > h1:first-child + p {
 
 section > h1:first-child + p::first-letter {
   float: inline-start;
-  font-size: 38pt;
+  font-size: 4.5em;
   line-height: 1;
   font-weight: 500;
   color: var(--vs-theme-hanging-heading-dropcap-marginalia--color-accent);
-  margin: 1mm 2.2mm 0 0;
+  margin: 0.25rlh 2.2mm 0 0;
 }
 
-/* 表題は図版キャプションと同じ調子で、表の直前に置く */
+/* 表題は図版キャプションと同じ調子で、表の直前に左寄せで置く */
 figure.tbl {
+  --vs--figure-align-items: stretch;
+  --vs--figure-margin-block: 1.25rlh 0.25rlh;
   --vs--figcaption-text-align: start;
-  --vs--figcaption-margin-block: 3mm 1.2mm;
-
-  display: block;
 }
 
 /* 項目名の列は 82mm の版面では折り返しやすい。列見出しの語は割らない */

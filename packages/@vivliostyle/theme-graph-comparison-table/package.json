@@ -1,0 +1,70 @@
+{
+  "name": "@vivliostyle/theme-graph-comparison-table",
+  "version": "0.0.0",
+  "description": "Two-column theme for product review magazines, putting graphs and specification tables first",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-graph-comparison-table"
+  },
+  "files": [
+    "*.css",
+    "templates",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Graph Comparison Table",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "magazine",
+      "topics": [
+        "magazine",
+        "a4",
+        "two-column",
+        "monochrome",
+        "technical",
+        "data-grid"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "2段組の製品レビュー誌テーマ。グラフと仕様比較表でデータ視認性を優先した紙面"
+        }
+      }
+    },
+    "template": {
+      "default": {
+        "name": "Graph Comparison Table sample",
+        "source": "./templates/default"
+      }
+    }
+  }
+}

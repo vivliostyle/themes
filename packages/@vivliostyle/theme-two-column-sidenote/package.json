@@ -1,0 +1,71 @@
+{
+  "name": "@vivliostyle/theme-two-column-sidenote",
+  "version": "0.0.0",
+  "description": "Two-column theme for extended conference abstracts, with numbered Inter headings, an accent color, sidenotes, and figures and pseudocode across the columns",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-two-column-sidenote"
+  },
+  "files": [
+    "*.css",
+    "templates",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Two Column Sidenote",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "journal",
+      "topics": [
+        "academic",
+        "international-conference",
+        "a4",
+        "two-column",
+        "sans-serif",
+        "sidenotes",
+        "figures"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "2段組の学会拡張アブストラクト向けテーマ。Inter の番号見出しとアクセントカラー、サイドノート、段抜きの図表・疑似コードに対応"
+        }
+      }
+    },
+    "template": {
+      "default": {
+        "name": "Two Column Sidenote sample",
+        "source": "./templates/default"
+      }
+    }
+  }
+}

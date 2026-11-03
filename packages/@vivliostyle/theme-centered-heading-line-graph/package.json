@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-centered-heading-line-graph",
   "version": "0.0.0",
-  "description": "Two-column A4 theme for English microeconomics textbooks, with centered numbered headings and many tables, line graphs and supply-demand diagrams",
+  "description": "Two-column theme for English textbooks, with centered numbered headings and many tables and line graphs",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -48,7 +48,6 @@
       "category": "misc",
       "topics": [
         "education",
-        "economics",
         "data-driven",
         "graph-heavy",
         "two-column",
@@ -58,7 +57,7 @@
       ],
       "i18n": {
         "ja": {
-          "description": "A4判縦2段組の英語ミクロ経済学教科書テーマ。センタリング番号付き見出しと表・折れ線グラフ・需給曲線図を多用する"
+          "description": "2段組の英文教科書テーマ。センタリング番号付き見出しと表・折れ線グラフを多用する"
         }
       }
     },

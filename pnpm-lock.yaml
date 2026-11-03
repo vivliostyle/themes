@@ -158,7 +158,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-all-mono-black-band-warning:
+  packages/@vivliostyle/theme-monospace-band-warning-box:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -204,7 +204,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-blue-header-ledger:
+  packages/@vivliostyle/theme-reversed-header-ledger:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -213,7 +213,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-blue-number-badge-two-column:
+  packages/@vivliostyle/theme-number-badge-two-column:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -222,7 +222,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-blue-side-border-two-column:
+  packages/@vivliostyle/theme-side-border-two-column:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -231,7 +231,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-brown-double-frame-cream:
+  packages/@vivliostyle/theme-double-frame-ruled-heading:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -267,7 +267,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-dense-mono-two-column:
+  packages/@vivliostyle/theme-dense-grid-table-two-column:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -345,7 +345,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-gold-speaker-hanging-two-column:
+  packages/@vivliostyle/theme-speaker-hanging-two-column:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -354,7 +354,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-green-circled-number-two-column:
+  packages/@vivliostyle/theme-circled-number-two-column:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -363,7 +363,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-green-heading-zebra-table:
+  packages/@vivliostyle/theme-band-heading-zebra-table:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -435,7 +435,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-lilac-small-caps-dot-leader:
+  packages/@vivliostyle/theme-small-caps-dot-leader:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -471,7 +471,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-mono-graph-comparison-table:
+  packages/@vivliostyle/theme-graph-comparison-table:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -480,7 +480,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-mono-green-entry-form:
+  packages/@vivliostyle/theme-monospace-entry-form:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -507,7 +507,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-monotone-one-record-page:
+  packages/@vivliostyle/theme-one-record-page:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -516,7 +516,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-navy-band-kpi-block:
+  packages/@vivliostyle/theme-title-band-kpi-block:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -525,7 +525,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-navy-ruled-ledger-two-column:
+  packages/@vivliostyle/theme-ruled-ledger-two-column:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -552,7 +552,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-orange-badge-column-rule:
+  packages/@vivliostyle/theme-chapter-badge-column-rule:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -561,7 +561,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-orange-black-header-table:
+  packages/@vivliostyle/theme-hanging-note-rounded-memo:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -588,7 +588,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-purple-rule-marginalia:
+  packages/@vivliostyle/theme-fine-rule-marginalia:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -597,7 +597,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-red-band-grid-table:
+  packages/@vivliostyle/theme-title-band-grid-table:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -606,7 +606,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-red-step-badge-caution-box:
+  packages/@vivliostyle/theme-step-badge-caution-box:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -615,7 +615,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-rose-band-dropcap-profile:
+  packages/@vivliostyle/theme-title-band-dropcap-profile:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -651,7 +651,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-single-column-mono-chapter:
+  packages/@vivliostyle/theme-single-column-italic-running-head:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -660,7 +660,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-slate-blue-two-column:
+  packages/@vivliostyle/theme-archivo-heading-two-column:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -678,7 +678,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-spanning-title-two-column-mono:
+  packages/@vivliostyle/theme-spanning-title-two-column:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -732,7 +732,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-three-column-red-frame:
+  packages/@vivliostyle/theme-three-column-title-bar-frame:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -750,7 +750,7 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
-  packages/@vivliostyle/theme-two-column-blue-sidenote:
+  packages/@vivliostyle/theme-two-column-sidenote:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'

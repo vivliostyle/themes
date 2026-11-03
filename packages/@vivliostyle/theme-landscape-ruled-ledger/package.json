@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-landscape-ruled-ledger",
   "version": "0.0.0",
-  "description": "Horizontal B5 theme for cash books, with full-width ruled tables of date, description, income, expense and balance in three weights of rules",
+  "description": "Horizontal theme for ledgers, with full-width ruled tables of date, description and amount columns in three weights of rules",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -48,7 +48,7 @@
       "category": "misc",
       "topics": [
         "forms",
-        "cash",
+        "ledger",
         "daily",
         "b5",
         "business",
@@ -57,7 +57,7 @@
       ],
       "i18n": {
         "ja": {
-          "description": "B5判横書きの現金出納帳テーマ。日付・摘要・収入・支出・残高の全幅罫組み表を3階調の罫で構成する"
+          "description": "横書きの帳簿テーマ。日付・摘要・金額欄の全幅罫組み表を3階調の罫で構成する"
         }
       }
     },

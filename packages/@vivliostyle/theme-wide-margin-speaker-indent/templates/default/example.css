@@ -9,26 +9,25 @@
 h2 {
   display: flex;
   align-items: baseline;
-  gap: 2.6mm;
+  gap: 0.7em;
   --vs--h2-font-size: 1.08em;
   --vs--h2-font-weight: 700;
   --vs--h2-letter-spacing: 0.06em;
   --vs--h2-line-height: 1.4;
-  --vs--h2-margin-block: 2em 0.9em;
-  --vs--h2-break-after: avoid;
+  --vs--h2-margin-block: 1.5rlh 0.75rlh;
 }
 
 h2::before {
   content: '';
   flex: 0 0 auto;
-  width: 2.2mm;
-  height: 2.2mm;
+  width: 0.6em;
+  height: 0.6em;
   background-color: var(--vs-color-border);
 }
 
 /* 章の頭に置く日付と舞台のクレジット */
 .chapter-lead {
-  margin-block: -0.4em 1.6em;
+  margin-block: -0.25rlh 1rlh;
   font-size: 0.82em;
   font-weight: 400;
   letter-spacing: 0.08em;
@@ -41,17 +40,17 @@ h2::before {
    対談の流れから一段引いた資料として見せる */
 ul,
 ol {
-  --vs--lists-margin-block: 0.9em;
+  --vs--lists-margin-block: 0.5rlh;
   --vs--lists-margin-inline: 20mm 3mm;
   --vs--lists-padding-inline-start: 6mm;
 }
 
 li {
-  --vs--li-margin-block: 0 0.35em;
+  --vs--li-margin-block: 0 0.25rlh;
 }
 
 .inset {
-  margin-block: 1.1em;
+  margin-block: 0.75rlh;
   margin-inline: 20mm 3mm;
   break-inside: avoid;
 }
@@ -65,13 +64,9 @@ li {
   --vs--table-border-width-column: 0;
   --vs--table-border-width-row: 0.4pt;
   --vs--table-border-style-row: solid;
-  --vs--table-border-color-row: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 80%
-  );
-  --vs--table-cell-padding-block: 1.1mm;
-  --vs--table-cell-padding-inline: 0 3mm;
+  --vs--table-border-color-row: var(--vs-color-border-alt);
+  --vs--table-cell-padding-block: 0.35em;
+  --vs--table-cell-padding-inline: 0 1em;
   --vs--table-cell-vertical-align: baseline;
   --vs--th-background-color: transparent;
   --vs--th-text-align: start;
@@ -94,13 +89,13 @@ body.cover {
   --vs--h1-font-size: 3.6em;
   --vs--h1-letter-spacing: 0.14em;
   --vs--h1-line-height: 1.1;
-  --vs--h1-margin-block: 52mm 0;
+  --vs--h1-margin-block: 10.25rlh 0;
   --vs--h1-text-align: center;
 }
 
 .cover-sub {
-  margin-block: 4mm 0;
-  padding-block: 3.4mm 0;
+  margin-block: 0.75rlh 0;
+  padding-block: 0.75rlh 0;
   border-block-start-width: 0.6pt;
   border-block-start-style: solid;
   border-block-start-color: var(--vs-color-border);
@@ -112,7 +107,7 @@ body.cover {
 }
 
 .cover-lead {
-  margin-block: 2.6mm 0;
+  margin-block: 0.5rlh 0;
   font-size: 0.95em;
   letter-spacing: 0.16em;
   color: var(--vs-color-foreground-alt);
@@ -121,9 +116,9 @@ body.cover {
 }
 
 .cover-toc {
-  margin-block: 46mm 0;
+  margin-block: 9.25rlh 0;
   margin-inline: 34mm;
-  padding-block: 3mm 3.4mm;
+  padding-block: 0.5rlh 0.75rlh;
   border-block-start-width: 0.6pt;
   border-block-start-style: solid;
   border-block-start-color: var(--vs-color-border);
@@ -133,7 +128,7 @@ body.cover {
 }
 
 .cover-toc p {
-  margin-block: 0 1.2mm;
+  margin-block: 0 0.25rlh;
   font-size: 0.9em;
   letter-spacing: 0.04em;
   text-align: center;
@@ -144,7 +139,7 @@ body.cover {
 }
 
 .cover-imprint {
-  margin-block: 32mm 0;
+  margin-block: 6.25rlh 0;
   font-size: 0.88em;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -175,7 +170,7 @@ body.cover {
 }
 
 [role='doc-toc'] li.toc-chapter {
-  margin-block-start: 3.4mm;
+  margin-block-start: 0.75rlh;
   font-weight: 700;
 }
 
@@ -190,16 +185,12 @@ body.cover {
 }
 
 .toc-note {
-  margin-block: 8mm 0;
+  margin-block: 1.5rlh 0;
   margin-inline: 6mm 3mm;
-  padding-block-start: 2.4mm;
+  padding-block-start: 0.5rlh;
   border-block-start-width: 0.5pt;
   border-block-start-style: solid;
-  border-block-start-color: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 80%
-  );
+  border-block-start-color: var(--vs-color-border-alt);
   font-size: 0.9em;
   color: var(--vs-color-foreground-alt);
 }
@@ -215,13 +206,9 @@ body.cover {
   --vs--table-border-width-column: 0;
   --vs--table-border-width-row: 0.4pt;
   --vs--table-border-style-row: solid;
-  --vs--table-border-color-row: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 80%
-  );
-  --vs--table-cell-padding-block: 1.4mm;
-  --vs--table-cell-padding-inline: 0 4mm;
+  --vs--table-border-color-row: var(--vs-color-border-alt);
+  --vs--table-cell-padding-block: 0.45em;
+  --vs--table-cell-padding-inline: 0 1.25em;
   --vs--table-cell-vertical-align: baseline;
   --vs--th-background-color: transparent;
   --vs--th-text-align: start;
@@ -238,15 +225,11 @@ body.cover {
 .colophon-meta tr:last-child {
   border-block-end-width: 0.4pt;
   border-block-end-style: solid;
-  border-block-end-color: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 80%
-  );
+  border-block-end-color: var(--vs-color-border-alt);
 }
 
 .colophon-note {
-  margin-block: 8mm 0;
+  margin-block: 1.5rlh 0;
   font-size: 0.9em;
   color: var(--vs-color-foreground-alt);
 }

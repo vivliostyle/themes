@@ -1,0 +1,5 @@
+:root {
+  --vs-theme-three-column-title-bar-frame--entry-marker-size-inline: 9.4mm;
+  --vs-section--h2-marker-content: 'P-' counter(vs-counter-sec-h2);
+  --vs-section--root-counter-sec-h2: 100;
+}

@@ -1,6 +1,6 @@
 # @vivliostyle/theme-wide-margin-speaker-indent
 
-A4判・1段組の技術同人誌向けテーマ。対談形式のページを話者名のぶら下げインデントで組み、上下細罫のプルクオートやコードブロックを差し込める。
+1段組の技術同人誌向けテーマ。対談形式のページを話者名のぶら下げインデントで組み、上下細罫のプルクオートやコードブロックを差し込める。
 
 ## 原稿の書き方
 
@@ -33,12 +33,6 @@ export default {
 | `--vs-color-foreground-alt`     | `--vs-color-foreground` × `--vs-color-background` 35% | 柱・話者以外の地の文・キャプションの色 |
 | `--vs-color-border`      | `--vs-color-foreground` × `--vs-color-background` 15% | プルクオート罫・コード左帯の色         |
 | `--vs-color-background-alt`   | `--vs-color-foreground` × `--vs-color-background` 95% | コードブロックの背景色                 |
-
-生成内容の変数:
-
-| 変数                                   | 既定値                                                                        | 説明                               |
-| -------------------------------------- | ----------------------------------------------------------------------------- | ---------------------------------- |
-| `--vs-theme-wide-margin-speaker-indent--chapter-call-content`     | `target-counter(attr(href), vs-counter-chapter) '　' target-text(attr(href))` | `data-ref="chap"` の参照文字列     |
-| `--vs-theme-wide-margin-speaker-indent--chapter-num-call-content` | `target-counter(attr(href), vs-counter-chapter)`                              | `data-ref="chap-num"` の参照文字列 |
+| `--vs-color-border-alt`       | `--vs-color-foreground` × `--vs-color-background` 80% | 柱の下の罫・表の行罫の色               |
 
 章番号の見え方は base の `--vs-section--h1-marker-*`、節参照は `--vs-section--call-content`、柱とノンブルは `--vs-page--mbox-*-content` で変更できる。

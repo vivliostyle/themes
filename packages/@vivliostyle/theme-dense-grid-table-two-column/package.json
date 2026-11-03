@@ -1,0 +1,70 @@
+{
+  "name": "@vivliostyle/theme-dense-grid-table-two-column",
+  "version": "0.0.0",
+  "description": "Dense two-column theme for formal reports, with a ruled running head, a column rule and fully ruled tables",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-dense-grid-table-two-column"
+  },
+  "files": [
+    "*.css",
+    "templates",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Dense Grid Table Two Column",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "report",
+      "topics": [
+        "report",
+        "a4",
+        "two-column",
+        "formal",
+        "serif",
+        "dense"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "公的書類らしい硬い体裁の、2段組の高密度報告書テーマ"
+        }
+      }
+    },
+    "template": {
+      "default": {
+        "name": "Dense Grid Table Two Column sample",
+        "source": "./templates/default"
+      }
+    }
+  }
+}

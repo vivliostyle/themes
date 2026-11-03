@@ -1,9 +1,9 @@
 /*
- * 植物ビジュアル用語集 (three-column-index-tab-figure)
- * A4縦・三段組の植物図譜。Noto Serif JP の明朝で見出し語と本文を組み、
- * 学名は Source Serif 4 のイタリック、分類記号・柱・ノンブルは Noto Sans JP。
- * 在来種は緑ベタ円、外来種は緑枠白抜き円で識別し、段間の極細縦罫と天の柱罫で
- * 階層を示す。図版は模式図の SVG を見出し語ごとに添える。
+ * ビジュアル用語集 (three-column-index-tab-figure)
+ * A4縦・三段組の図譜。Noto Serif JP の明朝で見出し語と本文を組み、
+ * 見出し語直下の欧文は Source Serif 4 のイタリック、分類記号・柱・ノンブルは Noto Sans JP。
+ * 見出し語の種別は緑ベタ円 (.native) と緑枠白抜き円 (.foreign) で識別し、
+ * 段間の極細縦罫と天の柱罫で階層を示す。図版は SVG を見出し語ごとに添える。
  *
  * 見出し語 1 件 = 1 section (`.entries > section`)。図版をもつ項目には図番号、
  * もたない項目には章内の通し番号を、見出し語行のバッジに続けて生成する。
@@ -27,8 +27,6 @@
     var(--vs-color-foreground),
     var(--vs-color-background) 30%
   );
-  --vs-theme-three-column-index-tab-figure--font-latin:
-    'Source Serif 4', 'Times New Roman', serif;
   --vs-theme-three-column-index-tab-figure--color-accent: var(
     --vs-color-foreground-alt
   );
@@ -36,15 +34,6 @@
     in oklab,
     var(--vs-color-foreground-alt),
     var(--vs-color-foreground) 50%
-  );
-  --vs-theme-three-column-index-tab-figure--color-alt: #b98b35;
-  --vs-theme-three-column-index-tab-figure--color-on-accent: var(
-    --vs-color-background
-  );
-  --vs-theme-three-column-index-tab-figure--fig-marker-content: 'Fig. '
-    counter(vs-counter-fig);
-  --vs-theme-three-column-index-tab-figure--entry-marker-content: counter(
-    vs-counter-entry
   );
 
   /* Type */
@@ -60,7 +49,8 @@
     var(--vs-color-foreground),
     var(--vs-color-background) 95%
   );
-  --vs-columns: 1;
+  --vs-columns: 3;
+  --vs-column-gap: 7mm;
 
   /* 罫線の既定はヘアラインの淡緑 (天の柱罫だけ本文色を明示指定する) */
   --vs-color-border: color-mix(
@@ -71,22 +61,18 @@
 
   /* Paragraphs: flush, justified */
   --vs--p-margin-block: 0;
-  --vs--p-text-indent: 0;
-  --vs--p-text-align: justify;
 
   /* Headings: plain mincho, wide tracking */
-  --vs--heading-font-family: 'Noto Serif JP', serif;
   --vs--heading-font-weight: 600;
   --vs--heading-text-align: start;
-  --vs--heading-margin-block: 0 0;
+  --vs--heading-margin-block: 0;
 
   /* 柱 (誌名 + 章名) */
-  --vs--h1-font-size: 10.5pt;
-  --vs--h1-margin-block: 0 3mm;
+  --vs--h1-font-size: 1.3em;
+  --vs--h1-margin-block: 0 0.75rlh;
   --vs--h1-border-width-block-end: 0.9pt;
-  --vs--h1-border-style-block-end: solid;
   --vs--h1-border-color-block-end: var(--vs-color-foreground);
-  --vs--h1-padding-block: 0 1.6mm;
+  --vs--h1-padding-block: 0 0.45em;
 
   /* 見出し語 */
   --vs--h2-font-size: 1.55em;
@@ -98,7 +84,7 @@
 
   /* Figures: flush-left plates, no theme gutter */
   --vs--figure-align-items: flex-start;
-  --vs--figure-margin-block: 1.6mm 1.4mm;
+  --vs--figure-margin-block: 0.25rlh;
   --vs--figure-item-size-inline: 100%;
   /* Markdown 画像が自動生成する空の figcaption はこの用語集では使わない */
   --vs--figcaption-display: none;
@@ -109,7 +95,6 @@
 
   /* 索引タブの ol は装飾を自前で持つのでリストの既定を全て落とす */
   --vs--lists-margin-block: 0;
-  --vs--lists-margin-inline: 0;
   --vs--ol-list-style-type: none;
   --vs--ol-padding-inline-start: 0px;
 
@@ -119,38 +104,41 @@
   --vs-page--margin-bottom: 16mm;
   --vs-page--margin-left: 14mm;
   --vs-page--margin-right: 16mm;
-  --vs-page--mbox-font-family: 'Noto Sans JP', sans-serif;
-  --vs-page--mbox-font-size: 7.5pt;
+  --vs-page--mbox-font-family: var(--vs-font-family-alt);
+  --vs-page--mbox-font-size: 0.95em;
   --vs-page--mbox-font-weight: 500;
-  --vs-page--mbox-text-color: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 30%
+  --vs-page--mbox-text-color: var(
+    --vs-theme-three-column-index-tab-figure--color-foreground-secondary
   );
   --vs-page--mbox-letter-spacing: 0.08em;
   --vs-page--mbox-bottom-center-content: counter(page);
   --vs-page--mbox-right-top-content: element(index-tabs);
 
+  /* 図番号は見出し語行のバッジに続けて出すので、区切りの ': ' を付けない */
+  --vs-figure--marker-content: var(--vs-figure--label)
+    var(--vs-crossref-marker-counter-prefix, '')
+    counter(
+      vs-counter-fig,
+      var(--vs-figure--counter-style, var(--vs-counter-style))
+    );
+
   counter-reset: vs-counter-entry;
+}
+
+/* 和文でも図番号は欧文の「Fig.」で組む */
+:root,
+:root:lang(ja) {
+  --vs-figure--label: 'Fig. ';
 }
 
 /* 章立ての原稿 (frontmatter の class: chapter) では図番号に章番号を冠する */
 html.chapter {
-  --vs-theme-three-column-index-tab-figure--fig-marker-content: 'Fig. '
-    counter(vs-counter-chapter) '-' counter(vs-counter-fig);
-}
-
-/* 図番号は base の既定 (図N:) ではなく見出し語行と同じ書式で参照する */
-:root,
-:root:lang(ja) {
-  --vs-figure--call-content: 'Fig. ' target-counter(attr(href), vs-counter-fig);
-}
-
-html.chapter,
-html.chapter:lang(ja) {
-  --vs-figure--call-content: 'Fig. '
-    target-counter(attr(href), vs-counter-chapter) '-'
-    target-counter(attr(href), vs-counter-fig);
+  --vs-crossref-call-counter-prefix: target-counter(
+      attr(href),
+      vs-counter-chapter
+    )
+    '-';
+  --vs-crossref-marker-counter-prefix: counter(vs-counter-chapter) '-';
 }
 
 /* Header band: publication name + chapter, thin rule below */
@@ -174,10 +162,14 @@ body > section.level1 > h1 > .chap {
   letter-spacing: 0.12em;
 }
 
+html {
+  columns: auto;
+}
+
 /* Three-column body with hairline column rules */
 .entries {
-  columns: 3;
-  column-gap: 7mm;
+  columns: var(--vs-columns);
+  column-gap: var(--vs-column-gap);
   column-rule-width: 0.4pt;
   column-rule-style: solid;
   column-rule-color: var(--vs-color-border);
@@ -187,8 +179,8 @@ body > section.level1 > h1 > .chap {
 /* One dictionary entry */
 .entries > section {
   break-inside: avoid;
-  margin-block-end: 4.5mm;
-  padding-block-end: 3.5mm;
+  margin-block-end: 1rlh;
+  padding-block-end: 0.75rlh;
   border-block-end-width: 0.4pt;
   border-block-end-style: solid;
 }
@@ -219,11 +211,11 @@ body > section.level1 > h1 > .chap {
 }
 
 .entries > section > h2 small:has(b)::after {
-  content: var(--vs-theme-three-column-index-tab-figure--entry-marker-content);
+  content: counter(vs-counter-entry);
 }
 
 .entries > section:has(> figure) > h2 small:has(b)::after {
-  content: var(--vs-theme-three-column-index-tab-figure--fig-marker-content);
+  content: var(--vs-figure--marker-content);
 }
 
 .entries .hw::before {
@@ -251,7 +243,7 @@ body > section.level1 > h1 > .chap {
   border-color: var(--vs-theme-three-column-index-tab-figure--color-accent);
 }
 
-/* right cluster: [在来/外来] badge + Fig no. */
+/* right cluster: badge + Fig no. */
 .entries > section > h2 small {
   flex: none;
   font-weight: 400;
@@ -279,17 +271,16 @@ body > section.level1 > h1 > .chap {
   color: var(--vs-color-foreground);
 }
 
-/* Scientific name (Latin italic) directly under headword */
+/* Latin italic line directly under headword */
 .entries > section > h2 + p {
-  font-family: var(--vs-theme-three-column-index-tab-figure--font-latin);
+  font-family: 'Source Serif 4', 'Times New Roman', serif;
   font-style: italic;
-  font-size: 7.5pt;
+  font-size: 0.95em;
   color: var(--vs-theme-three-column-index-tab-figure--color-accent-dark);
   letter-spacing: 0.01em;
-  margin-block: 0.6mm 0;
 }
 
-/* Botanical figure placeholder */
+/* Entry figure */
 .entries > section > figure img {
   display: block;
   max-width: 42mm;
@@ -303,13 +294,13 @@ body > section.level1 > h1 > .chap {
   justify-content: space-between;
   gap: 0.6em;
   font-family: var(--vs-font-family-alt);
-  font-size: 6.8pt;
+  font-size: 0.85em;
   font-weight: 500;
   color: var(
     --vs-theme-three-column-index-tab-figure--color-foreground-secondary
   );
   letter-spacing: 0.02em;
-  margin-block: 1.6mm 0;
+  margin-block: 0.25rlh 0;
   text-align: start;
 }
 
@@ -324,7 +315,7 @@ body > section.level1 > h1 > .chap {
 
 .entries > section > p:has(> .st) b.alt {
   font-weight: 700;
-  color: var(--vs-theme-three-column-index-tab-figure--color-alt);
+  color: #b98b35;
 }
 
 .entries > section > p:has(> .st) a {
@@ -333,7 +324,7 @@ body > section.level1 > h1 > .chap {
   white-space: nowrap;
 }
 
-/* Alphabetic index tabs in the outer margin。
+/* Index tabs in the outer margin。
    running element にすることで、節が何ページに渡っても小口にタブが立つ */
 nav.sidebar {
   position: running(index-tabs);
@@ -342,13 +333,13 @@ nav.sidebar {
 
 nav.sidebar li {
   font-family: var(--vs-font-family-alt);
-  font-size: 8pt;
+  font-size: 1rem;
   font-weight: 500;
   text-align: center;
   color: var(
     --vs-theme-three-column-index-tab-figure--color-foreground-secondary
   );
-  padding-block: 1.6mm;
+  padding-block: 0.55em;
   border-width: 0.5pt;
   border-style: solid;
   border-inline-end-width: 0;
@@ -362,7 +353,7 @@ nav.sidebar li:last-child {
 
 nav.sidebar li[aria-current] {
   background-color: var(--vs-theme-three-column-index-tab-figure--color-accent);
-  color: var(--vs-theme-three-column-index-tab-figure--color-on-accent);
+  color: var(--vs-color-background);
   border-color: var(
     --vs-theme-three-column-index-tab-figure--color-accent-dark
   );

@@ -1,6 +1,6 @@
 # @vivliostyle/theme-latex-two-column-theorem
 
-A4判2段組・墨1色の学術論文誌テーマ。LaTeX 風の番号付き見出し、罫線ボックスの定理環境、段の右端に式番号を置くディスプレイ数式、booktabs 風の統計表、ページ下部の脚注を組む。節番号・定理番号・式番号・表番号・引用番号はすべてカウンタが付ける。
+2段組の学術論文誌テーマ。LaTeX 風の番号付き見出し、罫線ボックスの定理環境、段の右端に式番号を置くディスプレイ数式、booktabs 風の表、ページ下部の脚注を組む。節番号・定理番号・式番号・表番号・引用番号はすべてカウンタが付ける。
 
 ## 使い方
 
@@ -15,22 +15,20 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
-| 変数                                                    | 既定値                             | 説明                                    |
-| ------------------------------------------------------- | ---------------------------------- | --------------------------------------- |
-| `--vs-font-family`                                      | `'EB Garamond', ...`               | 本文書体                                |
-| `--vs--heading-font-family`                             | `'EB Garamond', ...`               | 見出し書体                              |
-| `--vs-math--font-family`                                 | `'STIX Two Math', ...`             | 数式の書体                              |
-| `--vs-color-foreground` / `--vs-color-border`                 | `#333333` | 本文・罫の墨色                          |
-| `--vs-color-background` / `--vs-page--background-color` | `#fafaf7` | 地色                                    |
-| `--vs-column-gap`                                       | `7mm`                              | 2 段の間隔                              |
-| `--vs--table-border-color`                              | `--vs-color-foreground` と同じ | booktabs 風の表罫の色                   |
-| `--vs--table-border-width-block-start` / `-block-end`   | `1.1pt`                            | 表の上下太罫の幅                        |
-| `--vs--table-border-width-thead-inner`                  | `0.5pt`                            | ヘッダ下の細罫の幅                      |
-| `--vs-theme-latex-two-column-theorem--theorem-label-*`                           | `'Theorem'` / `'Lemma'` …          | 定理環境の種別ラベル (言語の差し替え用) |
-| `--vs-theme-latex-two-column-theorem--theorem-number-content`                    | `counter(vs-counter-sec-h2) '.' …` | 定理番号の組み立て (既定は「節.通番」)  |
-| `--vs-theme-latex-two-column-theorem--equation-marker-content`                   | `'(' counter(…) ')'`               | 段の右端に出す式番号                    |
-| `--vs-theme-latex-two-column-theorem--appendix-counter-style`                    | `upper-alpha`                      | 付録番号のスタイル                      |
-| `--vs-theme-latex-two-column-theorem--proof-qed-content`                         | `'\2003\25A1'`                     | 証明の末尾に出す記号                    |
+| 変数                                                          | 既定値                             | 説明                                                                                            |
+| ------------------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `--vs-font-family`                                            | `'EB Garamond', ...`               | 本文・見出し書体                                                                                |
+| `--vs-math--font-family`                                      | `'STIX Two Math', ...`             | 数式の書体                                                                                      |
+| `--vs-color-foreground` / `--vs-color-border`                 | `#333333`                          | 本文・罫の墨色                                                                                  |
+| `--vs-color-background`                                       | `#fafaf7`                          | 地色                                                                                            |
+| `--vs-columns`                                                | `2`                                | 本文の段数                                                                                      |
+| `--vs-column-gap`                                             | `7mm`                              | 2 段の間隔                                                                                      |
+| `--vs--table-border-width-block-start` / `-block-end`         | `1.1pt`                            | 表の上下太罫の幅                                                                                |
+| `--vs--table-border-width-thead-inner`                        | `0.5pt`                            | ヘッダ下の細罫の幅                                                                              |
+| `--vs-theorem--label`                                         | `'Theorem '`                       | 定理環境の種別ラベル。種別クラスごとに `.theorem.lemma { --vs-theorem--label: … }` で差し替える |
+| `--vs-theme-latex-two-column-theorem--theorem-number-content` | `counter(vs-counter-sec-h2) '.' …` | 定理番号の組み立て (既定は「節.通番」)                                                          |
+| `--vs-theorem--call-content`                                  | `target-counter(…) '.' …`          | 定理の参照に出す番号                                                                            |
+| `--vs-appendix--counter-style`                                | `upper-alpha`                      | 付録番号のスタイル                                                                              |
 
 ## 原稿の書きかた
 

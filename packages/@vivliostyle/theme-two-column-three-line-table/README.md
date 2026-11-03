@@ -1,6 +1,6 @@
 # @vivliostyle/theme-two-column-three-line-table
 
-B5判・英語横組み2段組の国際学術論文集テーマ。番号付き見出し、右端に番号を振るディスプレイ数式、三線罫のデータ表、段下脚注を密に組む。
+英語横組み2段組の国際学術論文集テーマ。番号付き見出し、右端に番号を振るディスプレイ数式、三線罫のデータ表、段下脚注を密に組む。
 
 ## 使い方
 
@@ -35,10 +35,11 @@ export default {
 | `--vs-color-border`                  | `--vs-color-foreground-alt` × `--vs-color-background` 45% | 表のヘッダ罫・脚注区切り罫の色 |
 | `--vs-color-border-alt`             | `--vs-color-foreground` × `--vs-color-background` 85% | 表の行間の淡い罫の色           |
 | `--vs-math--font-family`                   | `'STIX Two Math', ...`      | MathML 数式の書体              |
-| `--vs-theme-two-column-three-line-table--running-publication`         | `env(pub-title)`            | 天の柱の左に出す誌名・巻号     |
-| `--vs-theme-two-column-three-line-table--equation-marker-content`     | `'(' counter(…) ')'`        | 数式番号の表記                 |
-| `--vs-theme-two-column-three-line-table--equation-call-content`       | `'(' target-counter(…) ')'` | 数式参照の表記                 |
-| `--vs-theme-two-column-three-line-table--equation-marker-size-inline` | `6mm`                       | 数式番号のために右に空ける幅   |
+| `--vs-page--mbox-top-left-content`         | `env(pub-title)`            | 天の柱の左に出す誌名・巻号     |
+| `--vs-equation--label`     | `''`        | 数式参照の番号の前に付く語 (既定は付けず「(N)」) |
+| `--vs-table--label`     | `'TABLE '`        | 表番号・表参照の前に付く語 |
+| `--vs-columns` | `2` | 本文の段数 (標題ブロックは段抜き) |
+| `--vs-column-gap` | `6mm` | 段間 |
 | `--vs-font-family`                        | `'Noto Sans', ...`          | 本文書体                       |
 | `--vs-color-foreground`                         | `#1a1a1a` | 本文の文字色                   |
 

@@ -1,6 +1,6 @@
 # @vivliostyle/theme-serif-line-numbered-code
 
-A4判1段組のプログラミング言語学術誌テーマ。STIX Two Text のセリフ本文に Source Sans 3 の簡潔な見出し、IBM Plex Mono のコードブロックを組み合わせ、水平罫のみの表と柱・脚注で論証を構成する。節番号・図表番号・式番号・リスティング番号はすべてカウンタが付ける。
+1段組の学術誌テーマ。STIX Two Text のセリフ本文に Source Sans 3 の簡潔な見出し、IBM Plex Mono のコードブロックを組み合わせ、水平罫のみの表と柱・脚注で論証を構成する。節番号・図表番号・式番号・リスティング番号はすべてカウンタが付ける。
 
 ## 使い方
 
@@ -30,10 +30,7 @@ export default {
 | `--vs-color-background-alt`           | `--vs-color-foreground-alt` × `--vs-color-background` 95% | コードブロックの地色                     |
 | `--vs-font-family-alt`          | `'Source Sans 3', ...`                 | 見出し・柱・キャプションの表示書体       |
 | `--vs--table-border-color`            | `--vs-theme-serif-line-numbered-code--accent-color`                    | 表罫の色 (水平罫のみ)                    |
-| `--vs-theme-serif-line-numbered-code--equation-marker-content` | `'(' counter(vs-counter-eq) ')'` | 別行立て数式の右端に出す式番号           |
-| `--vs-theme-serif-line-numbered-code--equation-call-content`   | `'(' target-counter(…) ')'`            | 本文から式を参照したときの表示           |
-| `--vs-theme-serif-line-numbered-code--listing-marker-content`  | `'Listing ' counter(…) ': '`           | リスティングのキャプション先頭の番号     |
-| `--vs-theme-serif-line-numbered-code--listing-call-content`    | `'Listing ' target-counter(…)`         | 本文からリスティングを参照したときの表示 |
+| `--vs-equation--label` | `''` | 式参照の番号の前に付く語 (既定は付けず、原稿に「Equation」と書く) |
 
 ## 原稿の書きかた
 

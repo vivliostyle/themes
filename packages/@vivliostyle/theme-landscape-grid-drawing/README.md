@@ -1,6 +1,6 @@
 # @vivliostyle/theme-landscape-grid-drawing
 
-B4横判の建築展図録テーマ。上半分は5mm方眼の上に平面図・立面図・断面図を規則配置し、下半分に作品番号付きの見出しと解説文、小口側に仕様表を約2:1で組む技術図面レイアウト。
+横向きの展覧会図録テーマ。上半分は5mm方眼の上に平面図・立面図・断面図を規則配置し、下半分に作品番号付きの見出しと解説文、小口側に仕様表を約2:1で組む技術図面レイアウト。
 
 ## 使い方
 
@@ -25,23 +25,17 @@ export default {
 
 配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
 
-| 変数                                | 既定値                | 説明                             |
-| ----------------------------------- | --------------------- | -------------------------------- |
-| `--vs-color-foreground` | `#202020` | 本文の文字色 |
-| `--vs-font-family-monospace`          | `'Roboto Mono', ...`  | 図面注記・仕様表の数値の等幅書体 |
-| `--vs-color-foreground-alt`           | `--vs-color-foreground` × `--vs-color-background` 30% | 解説文・表見出しの控えめな文字色 |
-| `--vs--h1-border-color-inline-start`          | `--vs-color-foreground` × `--vs-color-background` 80% | 見出し左の色帯                   |
-| `--vs-color-border`            | `--vs-color-foreground` × `--vs-color-background` 90% | 方眼線・表罫の淡い色             |
-| `--vs-color-background-alt`       | `--vs-color-foreground` × `--vs-color-background` 95% | 仕様表1列目の淡い地色            |
-| `--vs-theme-landscape-grid-drawing--grid-pitch`            | `5mm`                 | 図面の方眼の目                   |
-| `--vs-theme-landscape-grid-drawing--plan-size-inline`      | `136mm`               | 平面図の版面上の幅               |
-| `--vs-theme-landscape-grid-drawing--elevation-size-inline` | `107mm`               | 立面図の版面上の幅               |
-| `--vs-theme-landscape-grid-drawing--section-size-inline`   | `118mm`               | 断面図の版面上の幅               |
-| `--vs-theme-landscape-grid-drawing--drawing-gap`           | `8mm`                 | 平面図と右側の図版とのアキ       |
-| `--vs-theme-landscape-grid-drawing--spec-size-inline`      | `105mm`               | 仕様表パネルの幅                 |
-| `--vs-theme-landscape-grid-drawing--spec-gap`              | `14mm`                | 解説と仕様表パネルのアキ         |
-| `--vs-theme-landscape-grid-drawing--work-call-content`     | `target-counter(…)`   | 作品番号の参照の表記             |
-| `--vs-font-family`                  | `'Noto Sans JP', ...` | 本文書体                         |
-| `--vs-color-background`             | `#fafaf8` | 地色                             |
+| 変数                                                  | 既定値                                                | 説明                             |
+| ----------------------------------------------------- | ----------------------------------------------------- | -------------------------------- |
+| `--vs-font-family`                                    | `'Noto Sans JP', ...`                                 | 本文・見出しの書体               |
+| `--vs-font-family-monospace`                          | `'Roboto Mono', ...`                                  | 作品番号・仕様表の数値の等幅書体 |
+| `--vs-color-foreground`                               | `#202020`                                             | 本文の文字色                     |
+| `--vs-color-background`                               | `#fafaf8`                                             | 地色                             |
+| `--vs-color-foreground-alt`                           | `--vs-color-foreground` × `--vs-color-background` 30% | 解説文・表見出しの控えめな文字色 |
+| `--vs--h1-border-color-inline-start`                  | `--vs-color-foreground` × `--vs-color-background` 80% | 見出し左の色帯                   |
+| `--vs-color-border`                                   | `--vs-color-foreground` × `--vs-color-background` 90% | 方眼線・表罫の淡い色             |
+| `--vs-color-background-alt`                           | `--vs-color-foreground` × `--vs-color-background` 95% | 仕様表1列目の淡い地色            |
+| `--vs-theme-landscape-grid-drawing--grid-pitch`       | `5mm`                                                 | 図面の方眼の目                   |
+| `--vs-theme-landscape-grid-drawing--spec-size-inline` | `105mm`                                               | 仕様表パネルの幅                 |
 
 ノンブルは `counter(page)` から生成し、小口下に3桁で入れる。判型 (B4横) は `--vs-page--size: 364mm 257mm` で指定している。

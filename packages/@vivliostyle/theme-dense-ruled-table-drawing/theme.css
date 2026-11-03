@@ -1,11 +1,10 @@
 /*
- * ボタン電池データシート (dense-ruled-table-drawing)
+ * 製品データシート (dense-ruled-table-drawing)
  * A6 縦・完全モノクロ・1段組のポケットサイズ仕様書。Inter の見出し/本文、
- * IBM Plex Mono の数値・型番・寸法。外形寸法図・電気特性の罫線表
- * (ヘッダ 10% グレー)・放電特性の semilog グラフを高密度に積み、
- * 脚部の @page margin box に社名・ノンブル・管理番号を置く。社名と管理番号は
- * 原稿の .headline / .docref から取る。節番号・図番号は base のカウンタが振る。
- * 高密度紙面のため、縦の間隔は rlh でなく mm でチューニングしている。
+ * IBM Plex Mono の数値・型番・寸法。外形寸法図・罫線表 (ヘッダ 10% グレー)・
+ * グラフを高密度に積み、脚部の @page margin box に社名・ノンブル・管理番号を置く。
+ * 社名と管理番号は原稿の .headline / .docref から取る。節番号・図番号は base の
+ * カウンタが振る。
  */
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;600&display=swap');
 @import '@vivliostyle/theme-base';
@@ -20,10 +19,6 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  /* 図版の版面幅: 線図は寸法線が読める大きさで足り、グラフは軸目盛のぶん広くとる */
-  --vs-theme-dense-ruled-table-drawing--fig-drawing-size-inline: 72mm;
-  --vs-theme-dense-ruled-table-drawing--fig-chart-size-inline: 95mm;
-
   /* Type: dense 7pt Inter body, monospaced data */
   --vs-font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   --vs-font-size: 7pt;
@@ -37,23 +32,17 @@
   --vs--p-margin-block: 0;
   --vs--p-text-align: start;
 
-  --vs--heading-font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-  --vs--heading-text-align: start;
-  --vs--heading-margin-block: 1.3mm 0.5mm;
-  --vs--h2-font-size: 9pt;
-  --vs--h2-font-weight: 700;
+  --vs--heading-margin-block: 0.5rlh 0.25rlh;
+  --vs--h2-font-size: 1.3em;
   --vs--h2-line-height: 1.12;
 
   /* Drawings are packed tight between the sections */
-  --vs--figure-display: block;
-  --vs--figure-margin-block: 0.3mm;
+  --vs--figure-margin-block: 0.25rlh;
+  --vs--figure-gap: 0.25rlh;
   --vs--figure-item-size-inline: 100%;
   --vs--figure-text-align: center;
-  --vs--figcaption-font-size: 6pt;
-  --vs--figcaption-line-height: 1.24;
-  --vs--figcaption-margin-block: 0.4mm 0;
+  --vs--figcaption-font-size: 0.85em;
   --vs--figcaption-text-align: center;
-  --vs--figcaption-text-color: var(--vs-color-foreground);
 
   /* Tables: full thin grid, shaded head, tabular values.
      行数の読めない仕様表がページ末で大きな空きを作らないよう分割を許す */
@@ -61,11 +50,11 @@
   --vs--table-table-layout: auto;
   --vs--table-break-inside: auto;
   --vs--table-border-width: 0.6pt;
-  --vs--table-font-size: 6.5pt;
-  --vs--table-margin-block: 0.3mm 0;
+  --vs--table-font-size: 0.9em;
+  --vs--table-margin-block: 0.25rlh 0;
   --vs--table-margin-inline: 0;
-  --vs--table-cell-padding-block: 0.65mm;
-  --vs--table-cell-padding-inline: 2mm;
+  --vs--table-cell-padding-block: 0.3em;
+  --vs--table-cell-padding-inline: 0.9em;
   --vs--table-cell-vertical-align: middle;
   --vs--table-cell-line-height: 1.2;
   --vs--th-font-weight: 600;
@@ -91,32 +80,30 @@
   --vs-page--margin-right: 5mm;
   --vs-page--border-width-bottom: 0.8pt;
   --vs-page--border-color-bottom: var(--vs-color-foreground);
-  --vs-page--mbox-bottom-padding-top: 1mm;
+  --vs-page--mbox-bottom-padding-top: 0.25rlh;
   --vs-page--mbox-font-family: 'Inter', sans-serif;
-  --vs-page--mbox-font-size: 6.4pt;
+  --vs-page--mbox-font-size: 0.9em;
   --vs-page--mbox-bottom-left-content: string(brand);
   --vs-page--mbox-bottom-center-content: counter(page) ' / ' counter(pages);
   --vs-page--mbox-bottom-right-content: string(docref);
 
   /* 節番号と、本文からの節参照 */
   --vs-section--marker-display: inline;
-  --vs-section--marker-margin-inline-end: 1ch;
-  --vs-section--call-content: 'section '
-    target-counters(
-      attr(href),
-      vs-counter-sections,
-      var(--vs-section--counter-delimiter),
-      var(--vs-section--counter-style)
-    );
+  --vs-section--label: 'section ';
+
+  --vs-figure--marker-content: var(--vs-figure--label)
+    var(--vs-crossref-marker-counter-prefix, '')
+    counter(
+      vs-counter-fig,
+      var(--vs-figure--counter-style, var(--vs-counter-style))
+    )
+    '\00a0\00a0';
 }
 
-/* 図番号は接頭辞だけの短い形にする。base は :root:lang(ja) 側にも既定値を持つ */
+/* 図のラベルは短い形にする。base は :root:lang(ja) 側にもラベルの既定値を持つ */
 :root,
 :root:lang(ja) {
-  --vs-figure--marker-content: 'Fig. '
-    counter(vs-counter-fig, var(--vs-counter-style)) '\00a0\00a0';
-  --vs-figure--call-content: 'Fig. '
-    target-counter(attr(href), vs-counter-fig, var(--vs-counter-style));
+  --vs-figure--label: 'Fig. ';
 }
 
 /* Masthead: wordmark left, product designation right, over a rule */
@@ -126,18 +113,18 @@ header {
   align-items: baseline;
   border-bottom-width: 0.9pt;
   border-bottom-color: var(--vs-color-border);
-  padding-bottom: 1mm;
-  margin-bottom: 1.4mm;
+  padding-bottom: 0.4em;
+  margin-bottom: 0.5rlh;
 }
 
 header .headline {
-  font-size: 10.5pt;
+  font-size: 1.5em;
   font-weight: 600;
   letter-spacing: -0.01em;
 }
 
 header .meta {
-  font-size: 7.8pt;
+  font-size: 1.1em;
   font-weight: 600;
 }
 
@@ -159,10 +146,6 @@ header .meta {
   white-space: nowrap;
 }
 
-body > section.level2:first-of-type > h2 {
-  margin-top: 0.4mm;
-}
-
 /* Technical line drawings and the graphs.
    Type inside the drawings is styled in the SVG files themselves — an
    external SVG is loaded as an image and sees none of this stylesheet. */
@@ -173,16 +156,9 @@ figure.fig img {
   max-inline-size: 100%;
 }
 
+/* 線図は寸法線が読める大きさで足りる。グラフは軸目盛のぶん版面幅いっぱいにとる */
 figure.drawing img {
-  max-inline-size: var(
-    --vs-theme-dense-ruled-table-drawing--fig-drawing-size-inline
-  );
-}
-
-figure.chart img {
-  max-inline-size: var(
-    --vs-theme-dense-ruled-table-drawing--fig-chart-size-inline
-  );
+  max-inline-size: 72mm;
 }
 
 /* 参照は本文と同じ字面で組む */
@@ -192,8 +168,8 @@ a:is([data-ref='fig'], [data-ref='sec']) {
 
 /* 節の地の文は表・図に添える注記として本文より一段落とす */
 section.level2 > p {
-  margin: 0.6mm 0 0;
-  font-size: 6.2pt;
+  margin: 0.25rlh 0 0;
+  font-size: 0.9em;
   line-height: 1.26;
 }
 
@@ -224,13 +200,13 @@ tr {
 
 /* English safety statement at the foot of the sheet */
 .warning {
-  margin: 1.4mm 0 0;
-  font-size: 6pt;
+  margin: 0.5rlh 0 0;
+  font-size: 0.85em;
   line-height: 1.24;
 }
 
 .warning p {
-  margin: 0 0 0.4mm;
+  margin: 0 0 0.25rlh;
 }
 
 .warning strong {

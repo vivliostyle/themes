@@ -1,6 +1,6 @@
 # @vivliostyle/theme-mono-hanging-number-sidenote
 
-A4判・全面モノスペースの大学教科書 (情報科学・プログラミング系) 向けテーマ。ハンギングの節番号見出しと、小口側の帯へ float で流す番号付き傍注が特徴。
+全面モノスペースの大学教科書向けテーマ。ハンギングの節番号見出しと、小口側の帯へ float で流す番号付き傍注が特徴。
 
 ## 使い方
 
@@ -16,7 +16,7 @@ export default {
 - 1 章 = 1 ファイルとし、frontmatter に `class: chapter` を書く。章番号 (`Chapter N`、節番号の頭、柱) は base のドキュメントカウンタ `vs-counter-chapter` から採る。
 - 章題は `# 章題`、節は `## 節題 {#id}`。番号を付けない見出し (章末問題など) は `## 見出し ##` と閉じ `#` を付ける。
 - 傍注は `<aside class="sidenote" id="sn-1">`、本文中の参照は `<a href="#sn-1" data-ref="sidenote"></a>`。番号は両方ともカウンタから振られる。
-- 節の参照は `<a href="#id" data-ref="sec"></a>` (`§4.2` のように出る)。VFM は空要素の直後の空白を落とすので、続けて語が来る場合は `&nbsp;` を書く。
+- 節の参照は `<a href="#id" data-ref="sec"></a>` (`§4.2` のように出る。`§` は `--vs-section--label`、番号は `--vs-section--call-counter-content`)。VFM は空要素の直後の空白を落とすので、続けて語が来る場合は `&nbsp;` を書く。
 
 ## カスタマイズ
 
@@ -37,8 +37,8 @@ export default {
 | `--vs-theme-mono-hanging-number-sidenote--section-hang-size-inline`  | `14mm`                              | 節番号をハングさせる幅               |
 | `--vs-theme-mono-hanging-number-sidenote--sidenote-band-size-inline` | `46mm`                              | 小口側に空ける傍注の帯の幅           |
 | `--vs-sidenote--size-inline`            | `34mm`                              | 傍注そのものの幅                     |
-| `--vs-sidenote--font-size`              | `6.8pt`                             | 傍注の文字サイズ                     |
-| `--vs-theme-mono-hanging-number-sidenote--sidenote-marker-content`   | `counter(vs-counter-sidenote) '. '` | 傍注の頭に付く番号                   |
+| `--vs-sidenote--font-size`              | `0.75em`                            | 傍注の文字サイズ                     |
+| `--vs-sidenote--marker-content`         | `counter(vs-counter-sidenote, …) '. '` | 傍注の最初の段落の頭に付く番号       |
 | `--vs-sidenote--call-content`           | `target-counter(...)`               | 本文中の傍注参照 (肩付き番号) の内容 |
 | `--vs-sidenote--call-font-size`         | `0.7em`                             | 傍注参照の文字サイズ                 |
 

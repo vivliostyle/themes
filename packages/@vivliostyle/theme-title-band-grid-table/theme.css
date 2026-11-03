@@ -1,0 +1,354 @@
+/*
+ * ご利用明細書 (title-band-grid-table)
+ * A4縦・横組みの実務帳票。Noto Sans JP のゴシックのみで構成し、赤を
+ * タイトル帯・header-rule・請求概要の太枠・区分見出しの帯に限定して使う。
+ * 上部は 赤ベタ帯タイトル+柱風の赤細罫 / 左に会員情報・右に赤太枠の請求概要ボックス。
+ * 本文は3段の段組で、各段に赤帯の区分見出し+利用日/ご利用先/金額の格子表を置き、
+ * 太罫の小計行で締める。明細が版面に収まらないときは表頭を繰り返して段・ページへ
+ * 流れ続ける。末尾にグレー枠の囲み注記、下部中央にノンブル - 1 -。
+ * 金額は tabular-nums の右揃えで桁を揃える。
+ * DOM は VFM 出力に合わせ、明細表は Markdown の table、小計は tbody の最終行で表現する。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+:root {
+  --vs-theme-title-band-grid-table--color-accent: var(
+    --vs-color-foreground-alt
+  );
+
+  --vs-font-family:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --vs-font-size: 9pt;
+  --vs-line-height: 1.5;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-foreground-alt: #cc0000;
+  --vs-color-background: #ffffff;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 90%
+  );
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 60%
+  );
+  --vs-color-border-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 80%
+  );
+  /* 段組は明細 (.cols) にだけ掛ける */
+  --vs-columns: 3;
+  --vs-column-gap: 4mm;
+
+  --vs--heading-margin-block: 0;
+
+  --vs--h1-font-size: 1.8em;
+  --vs--h1-font-weight: 900;
+  --vs--h1-letter-spacing: 0.06em;
+  --vs--h1-line-height: 1.2;
+
+  --vs--h2-font-size: 0.95em;
+  --vs--h2-letter-spacing: 0.05em;
+  --vs--h2-line-height: 1.3;
+
+  --vs--p-margin-block: 0;
+  --vs--p-text-align: start;
+
+  --vs--lists-margin-block: 0;
+  --vs--lists-margin-inline: 0;
+  --vs--dd-margin-inline-start: 0;
+
+  --vs--table-margin-block: 0;
+  --vs--table-margin-inline: 0;
+  --vs--table-border-width: 0;
+
+  --vs-page--size: A4;
+  --vs-page--margin-top: 12mm;
+  --vs-page--margin-bottom: 12mm;
+  --vs-page--margin-left: 15mm;
+  --vs-page--margin-right: 15mm;
+
+  /* 区分見出しは「1.」からの通し番号 */
+  --vs-section--h2-marker-display: inline;
+  --vs-section--h2-marker-content: counter(vs-counter-sec-h2) '. ';
+  --vs-section--h2-marker-margin-inline-end: 0;
+
+  --vs-page--mbox-bottom-center-content: '- ' counter(page) ' -';
+}
+
+html {
+  columns: auto;
+}
+
+/* ---- 赤ベタのタイトル帯 ---- */
+h1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 6mm;
+  background-color: var(--vs-theme-title-band-grid-table--color-accent);
+  color: var(--vs-color-background);
+  padding: 0.6em 5mm;
+}
+
+h1 .meta {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* ---- 柱風の赤細罫 + センター小タイトル (header-rule) ---- */
+.subhead {
+  display: flex;
+  align-items: center;
+  gap: 3.5mm;
+  margin-block-start: 0.75rlh;
+  color: var(--vs-theme-title-band-grid-table--color-accent);
+  font-size: 0.85em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.subhead::before,
+.subhead::after {
+  content: '';
+  flex: 1 1 0;
+  border-block-start-width: 0.5mm;
+  border-block-start-style: solid;
+  border-block-start-color: var(--vs-theme-title-band-grid-table--color-accent);
+}
+
+/* ---- 会員情報 (左) + 請求概要ボックス (右) ---- */
+.frontmatter {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8mm;
+  margin-block-start: 1rlh;
+}
+
+address {
+  font-style: normal;
+}
+
+address .headline {
+  font-size: 1.65em;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+}
+
+address p:nth-child(2) {
+  font-size: 1.15em;
+  font-weight: 500;
+  margin-block-start: 0.75rlh;
+}
+
+address .meta {
+  font-size: 1.1em;
+  letter-spacing: 0.08em;
+  margin-block-start: 0.75rlh;
+}
+
+.stat-block {
+  flex: 0 0 82mm;
+  border-width: 0.9mm;
+  border-style: solid;
+  border-color: var(--vs-theme-title-band-grid-table--color-accent);
+  border-radius: 1.6mm;
+  padding: 0.3em 4.5mm;
+}
+
+.stat-block > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4mm;
+  padding: 0.7em 0;
+}
+
+.stat-block > div:first-child {
+  border-block-end-width: 0.3mm;
+  border-block-end-style: solid;
+  border-block-end-color: var(--vs-theme-title-band-grid-table--color-accent);
+}
+
+.stat-block dt {
+  font-size: 1.05em;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.stat-block dd {
+  font-weight: 700;
+  font-size: 1.35em;
+}
+
+.stat-block > div:first-child dd {
+  font-size: 2.1em;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+}
+
+/* ---- 明細の段組 ---- */
+.cols {
+  columns: var(--vs-columns);
+  column-gap: var(--vs-column-gap);
+  margin-block-start: 1.25rlh;
+}
+
+/* 区分ごとに段を改める。段に収まらない明細はそのまま次の段・次ページへ流れる */
+.col + .col {
+  break-before: column;
+}
+
+/* 段見出し: 赤ベタ帯 (block-bg) */
+.col h2 {
+  background-color: var(--vs-theme-title-band-grid-table--color-accent);
+  color: var(--vs-color-background);
+  padding: 0.55em 2.6mm;
+}
+
+/* ---- 明細表 ---- */
+.col table {
+  --vs--table-border-color: var(--vs-color-border-alt);
+  --vs--table-border-color-outer: var(--vs-color-border);
+  --vs--table-border-width-outer: 0.35mm;
+  --vs--table-border-width-cell: 0.15mm;
+  --vs--table-cell-padding-block: 0.4em;
+  --vs--table-cell-padding-inline: 1.5mm;
+  --vs--table-font-size: 0.7em;
+  --vs--th-font-size: 1.05em;
+  --vs--table-break-inside: auto;
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* 段・ページをまたいだ先でも表頭を繰り返す */
+.col thead {
+  display: table-header-group;
+}
+
+.col tbody tr {
+  break-inside: avoid;
+}
+
+.col th,
+.col td {
+  line-height: 1.35;
+}
+
+.col thead th {
+  background-color: var(--vs-color-background-alt);
+  border-block-end-width: 0.15mm;
+  border-block-end-color: var(--vs-color-border);
+  white-space: nowrap;
+}
+
+.col th:first-child,
+.col td:first-child {
+  width: 10mm;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.col th:nth-child(3),
+.col td:nth-child(3) {
+  width: 15mm;
+  white-space: nowrap;
+}
+
+/* 段が狭いため、摘要列だけ字面を詰めて折り返しを減らす */
+.col td:nth-child(2) {
+  font-size: 0.9em;
+  letter-spacing: -0.02em;
+  padding-inline: 0.8mm;
+}
+
+/* 金額列: tabular-nums の右揃えで桁を揃える */
+.price,
+.col td:nth-child(3) {
+  font-variant-numeric: tabular-nums;
+}
+
+.col td:nth-child(3) {
+  text-align: right;
+}
+
+/* 小計行 (Markdown 表の最終行): 太字・太罫で締め、日付欄との縦罫を消して2列分に見せる */
+.col tbody tr:last-child td {
+  border-block-start-width: 0.45mm;
+  border-block-start-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 20%
+  );
+  font-size: 1.2em;
+  font-weight: 700;
+  padding-block: 0.5em;
+  padding-inline: 1.5mm;
+}
+
+.col tbody tr:last-child td:first-child {
+  border-inline-end-style: hidden;
+}
+
+.col tbody tr:last-child td:nth-child(2) {
+  font-size: 1.2em;
+  letter-spacing: 0.3em;
+  text-align: center;
+  text-indent: 0.3em;
+}
+
+/* ---- 囲み注記 (boxed-note) ---- */
+.note {
+  inline-size: 106mm;
+  margin-inline-start: auto;
+  margin-block-start: 1.25rlh;
+  border-width: 0.35mm;
+  border-style: solid;
+  border-color: var(--vs-color-border);
+  padding: 0.75em 3mm 1em;
+  break-inside: avoid;
+}
+
+.note table {
+  --vs--table-border-color: var(--vs-color-border);
+  --vs--table-border-width-outer: 0.15mm;
+  --vs--table-border-width-cell: 0.15mm;
+  --vs--table-cell-padding-block: 0.4em;
+  --vs--table-cell-padding-inline: 2mm;
+  --vs--table-text-align: center;
+  --vs--table-font-size: 1.05em;
+  --vs--th-font-size: 0.75em;
+  width: 100%;
+}
+
+.note .caption {
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-block-end: 0.5rlh;
+}
+
+.note th {
+  background-color: var(--vs-color-background-alt);
+}
+
+.note td {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}

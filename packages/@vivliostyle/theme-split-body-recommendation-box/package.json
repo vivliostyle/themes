@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-split-body-recommendation-box",
   "version": "0.0.0",
-  "description": "One-page A4 theme for the inner pages of clinical guidelines, with text and footnotes on the left and tables and recommendation boxes on the right, in black",
+  "description": "One-page theme for the inner pages of guidelines, with text and footnotes on the left and tables and recommendation boxes on the right",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,18 +47,16 @@
       "style": "theme.css",
       "category": "report",
       "topics": [
-        "medical-health",
-        "clinical-guideline",
+        "guideline",
         "a4",
         "two-column",
         "formal",
         "serif",
-        "technical",
-        "medical"
+        "technical"
       ],
       "i18n": {
         "ja": {
-          "description": "A4判1ページ完結の診療ガイドライン中間ページ向けテーマ。左に本文と脚注、右に表と推奨ボックスを配置し墨一色で情報階層を組む"
+          "description": "1ページ完結のガイドライン中間ページ向けテーマ。左に本文と脚注、右に表と推奨ボックスを配置して情報階層を組む"
         }
       }
     },

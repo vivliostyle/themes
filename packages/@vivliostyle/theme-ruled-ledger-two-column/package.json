@@ -1,0 +1,71 @@
+{
+  "name": "@vivliostyle/theme-ruled-ledger-two-column",
+  "version": "0.0.0",
+  "description": "Two-column theme for logbooks, with numbered headings and ruled ledger tables for time-slotted records",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-ruled-ledger-two-column"
+  },
+  "files": [
+    "*.css",
+    "templates",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Ruled Ledger Two Column",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "misc",
+      "topics": [
+        "forms",
+        "logbook",
+        "ledger",
+        "two-column",
+        "table-format",
+        "slab-serif",
+        "formal"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "左右2段の日誌テーマ。番号付き見出しと罫囲みのレジャー式テーブルで時間帯ごとの記録を刻む"
+        }
+      }
+    },
+    "template": {
+      "default": {
+        "name": "Ruled Ledger Two Column sample",
+        "source": "./templates/default"
+      }
+    }
+  }
+}

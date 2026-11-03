@@ -1,0 +1,7 @@
+/*
+ * example 専用の上書き。theme.css には手を入れない。
+ */
+
+:root {
+  --vs-document-first-page-counter-reset: vs-counter-chapter 3;
+}

@@ -1,8 +1,8 @@
 /**
- * 建築展図録 (theme-landscape-grid-drawing)
- * 建築展図録のプロジェクト解説ページ。B4横判を上下に二分し、上半分は
+ * 展覧会図録 (theme-landscape-grid-drawing)
+ * 図録の作品解説ページ。B4横判を上下に二分し、上半分は
  * 淡い5mm方眼の上に平面図・立面図・断面図の線画(外部SVG)を規則配置、
- * 下半分は作品番号付き見出し+設計者の解説と仕様表を約2:1で分節する。
+ * 下半分は作品番号付き見出し+解説と仕様表を約2:1で分節する。
  * Noto Sans JP の端正な見出し/本文、Roboto Mono の数値・図面注記、抑えたグレー
  * スケールで技術資料の客観性と展示図録の静けさを両立させる。
  * VFM 出力に合わせ、図版は Markdown 画像 (figure > img)、解説は段落、
@@ -17,22 +17,8 @@
   /* 図面の方眼の目 */
   --vs-theme-landscape-grid-drawing--grid-pitch: 5mm;
 
-  /* 図版の版面上の幅。図種ごとに縮尺が異なるため個別に持つ */
-  --vs-theme-landscape-grid-drawing--plan-size-inline: 136mm;
-  --vs-theme-landscape-grid-drawing--elevation-size-inline: 107mm;
-  --vs-theme-landscape-grid-drawing--section-size-inline: 118mm;
-  --vs-theme-landscape-grid-drawing--drawing-gap: 8mm;
-
-  /* 仕様表パネルの幅と、解説とのアキ */
+  /* 仕様表パネルの幅 */
   --vs-theme-landscape-grid-drawing--spec-size-inline: 105mm;
-  --vs-theme-landscape-grid-drawing--spec-gap: 14mm;
-
-  /* 出品目録などから作品番号を引く <a href="…#id" data-ref="work"></a> */
-  --vs-theme-landscape-grid-drawing--work-call-content: target-counter(
-    attr(href),
-    vs-counter-chapter,
-    decimal-leading-zero
-  );
 
   /* Type: Noto Sans JP 9pt、地色は薄い紙白、既定の文字色は濃いグレー */
   --vs-font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
@@ -57,58 +43,49 @@
     var(--vs-color-background) 90%
   );
 
-  --vs--p-margin-block: 0 calc(0.6 * var(--vs-spacing-rlh));
-  --vs--p-text-align: justify;
+  --vs--p-margin-block: 0 0.5rlh;
 
-  /* Headings: 本文と同じ Noto Sans JP。作品番号付き大見出しと仕様表の小見出し */
-  --vs--heading-font-family:
-    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  /* Headings: 作品番号付き大見出しと仕様表の小見出し */
   --vs--heading-margin-block: 0;
-  --vs--h1-font-size: 17pt;
-  --vs--h1-font-weight: 700;
+  --vs--h1-font-size: 1.9em;
   --vs--h1-line-height: 1.2;
   --vs--h1-letter-spacing: 0.04em;
-  --vs--h1-margin-block: 0 5mm;
+  --vs--h1-margin-block: 0 1rlh;
   --vs--h1-border-width-inline-start: 1.5mm;
-  --vs--h1-border-style-inline-start: solid;
   --vs--h1-border-color-inline-start: color-mix(
     in oklab,
     var(--vs-color-foreground),
     var(--vs-color-background) 80%
   );
   --vs--h1-padding-inline: 3.5mm 0;
-  --vs--h2-font-size: 10.5pt;
-  --vs--h2-font-weight: 700;
+  --vs--h2-font-size: 1.15em;
   --vs--h2-letter-spacing: 0.06em;
-  --vs--h2-margin-block: 0 2.5mm;
+  --vs--h2-margin-block: 0 0.5rlh;
 
   /* 図版は方眼の上に置くので base の flex/余白を殺して素の block に戻す */
   --vs--figure-display: block;
   --vs--figure-margin-block: 0;
-  --vs--figure-margin-inline: 0;
   --vs--figcaption-display: none;
 
-  /* Zone divider — a single thin rule */
+  /* Zone divider: a single thin rule */
   --vs--hr-border-color: var(--vs-color-foreground-alt);
   --vs--hr-border-width-block-start: 0.5px;
-  --vs--hr-margin-block: 5mm;
-  --vs--hr-margin-inline: 0;
+  --vs--hr-margin-block: 1rlh;
 
   /* Spec table */
   --vs--table-border-width: 0;
   --vs--table-border-width-block-start: 0.8px;
-  --vs--table-border-color-block-start: var(--vs-color-border);
   --vs--table-border-width-block-end: 0.8px;
-  --vs--table-border-color-block-end: var(--vs-color-border);
+  --vs--table-border-width-row: 0.6px;
   --vs--table-border-width-thead-inner: 0.8px;
   --vs--table-border-color-thead-inner: var(--vs-color-foreground-alt);
   --vs--table-size-inline: 100%;
-  --vs--table-font-size: 8.5pt;
+  --vs--table-font-size: 0.95em;
   --vs--table-margin-block: 0;
   --vs--table-margin-inline: 0;
-  --vs--table-cell-padding-block: 0.9mm;
-  --vs--table-cell-padding-inline: 2.2mm;
-  --vs--th-font-size: 7pt;
+  --vs--table-cell-padding-block: 0.3em;
+  --vs--table-cell-padding-inline: 0.75em;
+  --vs--th-font-size: 0.8rem;
   --vs--th-font-weight: 500;
   --vs--th-text-align: start;
   --vs--th-text-color: var(--vs-color-foreground-alt);
@@ -133,9 +110,8 @@
   --vs-page--mbox-bottom-right-content: '0' counter(page, decimal-leading-zero);
   --vs-page--mbox-font-family: 'Roboto', 'Noto Sans JP', sans-serif;
   --vs-page--mbox-font-weight: 500;
-  --vs-page--mbox-font-size: 10pt;
+  --vs-page--mbox-font-size: 1.1em;
   --vs-page--mbox-letter-spacing: 0.12em;
-  --vs-page--mbox-text-color: var(--vs-color-foreground);
 }
 
 section > h1:first-child::before {
@@ -143,24 +119,23 @@ section > h1:first-child::before {
   font-weight: 500;
 }
 
-/* 作品番号の参照。base の a 既定 (下線・アクセント色) は番号には要らない */
+/* 作品番号の参照。番号は周りの文字色のまま等幅で出す */
 a[data-ref='work'] {
-  --vs--anchor-text-decoration: none;
   color: inherit;
   font-family: var(--vs-font-family-monospace);
 }
 
 a[data-ref='work']::before {
-  content: var(--vs-theme-landscape-grid-drawing--work-call-content);
+  content: target-counter(attr(href), vs-counter-chapter, decimal-leading-zero);
 }
 
 /* ==================================================================== */
-/*  UPPER ZONE — DRAWINGS on a 5mm engineering grid                      */
+/*  UPPER ZONE: DRAWINGS on a 5mm engineering grid                       */
 /* ==================================================================== */
 .drawings {
   /* 平面図の回り込みを内側に閉じ込め、方眼の地が図版全体を覆うようにする */
   display: flow-root;
-  padding: 4mm 3mm;
+  padding: 0.75rlh 3mm;
   background-color: var(--vs-color-background);
   background-image:
     repeating-linear-gradient(
@@ -187,24 +162,25 @@ a[data-ref='work']::before {
 
 .drawings figure:has(> img.plan) {
   float: inline-start;
-  margin-inline-end: var(--vs-theme-landscape-grid-drawing--drawing-gap);
+  margin-inline-end: 8mm;
 }
 
 .drawings img {
   vertical-align: top;
 }
 
+/* 図版の版面上の幅。図種ごとに縮尺が異なるため個別に持つ */
 .drawings img.plan {
-  inline-size: var(--vs-theme-landscape-grid-drawing--plan-size-inline);
+  inline-size: 136mm;
 }
 
 .drawings img.elevation {
-  inline-size: var(--vs-theme-landscape-grid-drawing--elevation-size-inline);
+  inline-size: 107mm;
 }
 
 .drawings img.section {
-  inline-size: var(--vs-theme-landscape-grid-drawing--section-size-inline);
-  margin-block-start: 4mm;
+  inline-size: 118mm;
+  margin-block-start: 0.75rlh;
 }
 
 hr {
@@ -212,7 +188,7 @@ hr {
 }
 
 /* ==================================================================== */
-/*  LOWER ZONE — COMMENTARY + SPEC TABLE (≈2:1)                          */
+/*  LOWER ZONE: COMMENTARY + SPEC TABLE (≈2:1)                           */
 /*  VFM: aside.spec = 仕様表 / section.level1 または body 直下 = 解説        */
 /* ==================================================================== */
 /* 解説は仕様表パネルのぶんを空けた版面で通す。回り込みに任せるとパネルより下の行だけ
@@ -220,8 +196,7 @@ hr {
    で書くため section に包まれず、body 直下に並ぶ */
 body > :is(section.level1, h1, p) {
   padding-inline-end: calc(
-    var(--vs-theme-landscape-grid-drawing--spec-size-inline) +
-      var(--vs-theme-landscape-grid-drawing--spec-gap)
+    var(--vs-theme-landscape-grid-drawing--spec-size-inline) + 14mm
   );
 }
 
@@ -229,23 +204,14 @@ body > :is(section.level1, h1, p) {
   color: var(--vs-color-foreground-alt);
 }
 
-/* 仕様表パネル — 小口側に置く */
+/* 仕様表パネル: 小口側に置く */
 aside.spec {
   float: inline-end;
   inline-size: var(--vs-theme-landscape-grid-drawing--spec-size-inline);
 }
 
-/* ヘッダ罫の直下にもう一段細い罫を重ねる意匠のため row 境界は直書きする
-   (base の table-border-width-row は非最終行の border-block-end で、
-   本デザインは全行の border-block-start に罫を置く点が異なる) */
 aside.spec thead th {
   letter-spacing: 0.14em;
-}
-
-aside.spec tbody tr {
-  border-block-start-width: 0.6px;
-  border-block-start-style: solid;
-  border-block-start-color: var(--vs-color-border);
 }
 
 /* 1列目の強調とマスキング罫 (罫色を地色に揃えて列区切りを視覚的に消す) は

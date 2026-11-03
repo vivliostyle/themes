@@ -1,6 +1,6 @@
 # @vivliostyle/theme-side-border-heading-math
 
-A4判1段組の高等数学ジャーナル向け (Elsevier / Advances in Mathematics 風)。節見出しの左に太い群青の縦バー、外余白のサイドノート、中央揃えの別行立て数式、番号をぶら下げた参考文献を配置する。節番号・定理番号・式番号・サイドノートの符号・引用番号はすべてカウンタが付ける。
+1段組の学術誌論文向け (Elsevier / Advances in Mathematics 風)。節見出しの左に太い縦バー、外余白のサイドノート、中央揃えの別行立て数式、番号をぶら下げた参考文献を配置する。節番号・定理番号・式番号・サイドノートの符号・引用番号はすべてカウンタが付ける。
 
 ## 使い方
 
@@ -23,17 +23,16 @@ export default {
 | `--vs-color-background` | `#fdfdfb` | 紙面の地色 |
 | `--vs-color-foreground-alt` | `#1e40af` | アクセント色 |
 | `--vs-font-family`                    | `'STIX Two Text', ...`             | 本文書体                                |
-| `--vs--heading-font-family`           | `'Source Serif 4', ...`            | 見出し・定理ラベル・柱の表示書体        |
+| `--vs-font-family-alt`                | `'Source Serif 4', ...`            | 見出し・定理ラベル・柱の表示書体        |
 | `--vs-theme-side-border-heading-math--accent-color`                   | `--vs-color-foreground-alt` と同じ | 節見出しの縦バー・定理ラベルの群青色    |
 | `--vs-theme-side-border-heading-math--color-foreground-secondary`               | `--vs-color-foreground` × `--vs-color-background` 30% | サイドノート・脚注本文の色              |
 | `--vs-math--font-family`              | `'STIX Two Math', ...`             | 数式の書体                              |
-| `--vs-page--margin-inner`             | `42mm`                             | 物理左側 (サイドノート列) の余白        |
-| `--vs-page--margin-outer`             | `20mm`                             | 物理右側の余白                          |
-| `--vs-theme-side-border-heading-math--theorem-label-*`         | `'Theorem'` / `'Lemma'` …          | 定理環境の種別ラベル (言語の差し替え用) |
-| `--vs-theme-side-border-heading-math--theorem-number-content`  | `counter(vs-counter-sec-h2) '.' …` | 定理番号の組み立て (既定は「節.通番」)  |
-| `--vs-theme-side-border-heading-math--equation-marker-content` | `'(' … ')'`                        | 別行立て数式の右端に出す式番号          |
-| `--vs-theme-side-border-heading-math--sidenote-marker-content` | `'(' counter(…, lower-alpha) ')'`  | サイドノートの符号                      |
-| `--vs-theme-side-border-heading-math--proof-qed-content`       | `'\2003\25A1'`                     | 証明の末尾に出す記号                    |
+| `--vs-page--margin-left`              | `42mm`                             | 物理左側 (サイドノート列) の余白        |
+| `--vs-page--margin-right`             | `20mm`                             | 物理右側の余白                          |
+| `--vs-theorem--label`                 | `'Theorem '` (`.lemma` などの種別クラスで `'Lemma '` …) | 定理環境の種別ラベル (言語の差し替え用) |
+| `--vs-theme-side-border-heading-math--proof-label` | `'Proof'`             | 証明のラベル (言語の差し替え用)         |
+| `--vs-crossref-marker-counter-prefix` | `counter(vs-counter-sec-h2) '.'`   | 定理番号・式番号の前に付ける節番号      |
+| `--vs-section--label`                 | `'§'`                              | 節の参照に付けるラベル                  |
 
 ## 原稿の書きかた
 

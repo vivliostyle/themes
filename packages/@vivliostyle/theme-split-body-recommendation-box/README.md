@@ -1,6 +1,6 @@
 # @vivliostyle/theme-split-body-recommendation-box
 
-A4判・横書き2段組の診療ガイドライン本編向けテーマ。節ごとに改ページし、左段に本文と節末の注、右段に表と推奨ボックスを配置して、墨一色の階調で情報階層を表現する。
+横書き2段組のガイドライン本編向けテーマ。節ごとに改ページし、左段に本文と節末の注、右段に表と推奨ボックスを配置して、濃淡の階調で情報階層を表現する。
 
 ## 使い方
 
@@ -75,19 +75,14 @@ title: 恒常性機能障害診療ガイドライン（2026年改訂版） # 柱
 | `--vs-color-foreground` | `#1a1a1a` | 本文の文字色 |
 | `--vs-color-background` | `#ffffff` | 紙面の地色 |
 | `--vs-font-family`                          | `'Noto Serif JP', serif`                                      | 本文書体                                 |
-| `--vs--heading-font-family`                 | `'Noto Sans JP', ...`                                         | 見出しの表示書体                         |
-| `--vs-font-family-alt`                     | `'Noto Sans JP', ...`                                         | 表・キャプション等のゴシック書体         |
+| `--vs-font-family-alt`                     | `'Noto Sans JP', ...`                                         | 見出し・表・キャプション等のゴシック書体 |
 | `--vs-color-border`                    | `--vs-color-foreground` × `--vs-color-background` 25% | 柱下の罫・表罫・注の区切り罫の色         |
 | `--vs-color-background-alt`                    | `--vs-color-foreground` × `--vs-color-background` 90% | 表ヘッダ・推奨ボックスの地色             |
 | `--vs-columns`                              | `2`                                                           | 版面の段数                               |
 | `--vs-page--mbox-top-left-content`          | `env(doc-title)`                                              | 柱に出すガイドライン名                   |
 | `--vs-section--h2-marker-content`           | `counter(vs-counter-sec-h2) '.'`                              | 章番号の書式                             |
-| `--vs-table--marker-content`         | `'表' counter(vs-counter-sec-h2) '-' counter(vs-counter-tbl)` | 表番号の書式 (`:root:lang(ja)` で上書き) |
-| `--vs-figure--marker-content`         | `'図' counter(vs-counter-sec-h2) '-' counter(vs-counter-fig)` | 図番号の書式 (`:root:lang(ja)` で上書き) |
-| `--vs-theme-split-body-recommendation-box--recommendation-marker-content` | `'推奨 ' counters(vs-counter-sections, '-')`                  | 推奨ボックスの番号の書式                 |
-| `--vs-theme-split-body-recommendation-box--note-marker-content`           | `counter(vs-counter-note)`                                    | 注番号の書式                             |
-| `--vs-theme-split-body-recommendation-box--note-call-content`             | `target-counter(…, vs-counter-note)`                          | 注の合印の書式                           |
+| `--vs-crossref-marker-counter-prefix` | `counter(vs-counter-sec-h2) '-'` | 表番号・図番号の前に付ける章番号 |
 
-章番号・ノンブルを途中から起こすには、原稿側 (example/example.css) で
+章番号・ノンブルを途中から起こすには、原稿側 (templates/default/example.css) で
 `--vs-section--root-counter-sections` / `--vs-section--root-counter-sec-h2` と
 `--vs-document-first-page-counter-reset` を指定する。

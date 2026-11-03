@@ -1,0 +1,72 @@
+{
+  "name": "@vivliostyle/theme-single-column-italic-running-head",
+  "version": "0.0.0",
+  "description": "Single-column theme for doctoral theses in the Cambridge style",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-single-column-italic-running-head"
+  },
+  "files": [
+    "*.css",
+    "templates",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Single Column Italic Running Head",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "journal",
+      "topics": [
+        "academic",
+        "uk-academic",
+        "serif",
+        "a4",
+        "single-column",
+        "formal",
+        "elegant",
+        "endnotes"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "英国ケンブリッジ式・1段組の博士論文本文テーマ"
+        }
+      }
+    },
+    "template": {
+      "default": {
+        "name": "Single Column Italic Running Head sample",
+        "source": "./templates/default"
+      }
+    }
+  }
+}

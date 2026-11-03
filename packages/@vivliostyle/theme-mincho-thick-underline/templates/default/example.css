@@ -6,7 +6,7 @@
 /* 5 ブロックの系統図は theme.css の枠幅では版面に収まらないため詰める */
 .steps.compact {
   --vs-theme-mincho-thick-underline--steps-min-size-inline: 21mm;
-  font-size: 9.5pt;
+  font-size: 0.95em;
 }
 
 .steps.compact > div {

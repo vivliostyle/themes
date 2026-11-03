@@ -2,7 +2,6 @@
  * example 専用の上書き。theme.css には手を入れない。
  */
 
-/* この抜粋は第4章・79ページから始まる */
 :root {
   --vs-document-first-page-counter-reset: page 78 vs-counter-chapter 3;
 }
@@ -12,7 +11,6 @@
    セル内の上下のアキは MathJax 自前の 1em マージンに任せる */
 span.math.inline {
   display: inline;
-  font-size: inherit;
   gap: normal;
 }
 

@@ -1,0 +1,58 @@
+# @vivliostyle/theme-fine-rule-marginalia
+
+横組1段のエッセイ向けテーマ。Shippori Mincho の随筆本文に細罫・小口の傍注・線描挿画・版面下部の脚注を重ねる。
+
+## 使い方
+
+```js
+// vivliostyle.config.js
+export default {
+  theme: '@vivliostyle/theme-fine-rule-marginalia',
+};
+```
+
+## 原稿の書き方
+
+1 章 = 1 ファイル。frontmatter に `class: chapter` を書くと、その章に「第一章」「第二章」…が自動で付く。
+
+```md
+---
+title: '書名 — 章題'
+lang: ja
+class: chapter
+---
+
+# 章題 {#chap-id}
+
+<aside class="sidebar">
+
+小口に流れる傍注。
+
+</aside>
+
+本文<span class="footnote">版面下部に送られる脚注。</span>。
+
+他章への参照は<a href="chap-04.html#chap-id" data-ref="chap"></a>のように書く。
+```
+
+- 章番号は原稿に書かない。番号を付けない章 (あとがき等) は frontmatter の `class` から `chapter` を外し、見出しを `# あとがき #` と閉じ `#` 付きで書く。
+- 柱には `#` の章題がそのまま流れる。
+- `data-ref="chap"` の参照は「→第N章」に展開される。参照の直後に語が続くときは、VFM が空インライン要素直後の空白を落とすので `&nbsp;` を置く (句読点が続くときは不要)。
+
+## カスタマイズ
+
+このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
+
+配色は `--vs-color-foreground`（文字色）・`--vs-color-background`（地色）・`--vs-color-foreground-alt`（アクセント色）の 3 色から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
+
+| 変数                               | 既定値                                                   | 説明                         |
+| ---------------------------------- | -------------------------------------------------------- | ---------------------------- |
+| `--vs-color-foreground` | `#1f1b24` | 本文の文字色 |
+| `--vs-color-background` | `#faf7f0` | 紙面の地色 |
+| `--vs-color-foreground-alt` | `#330066` | アクセント色 |
+| `--vs-theme-fine-rule-marginalia--color-accent`         | `--vs-color-foreground-alt` と同じ | 罫・注記号・相互参照の濃紫   |
+| `--vs-color-border`           | `--vs-color-foreground-alt` × `--vs-color-background` 70% | 挿画の枠の薄紫               |
+| `--vs--heading-font-family`        | `'Zen Old Mincho', ...`                                  | 章題・章番号の書体           |
+| `--vs-font-family-alt`          | `'Zen Kaku Gothic New', ...`                             | 柱・傍注・脚注のゴシック書体 |
+| `--vs-font-family`                 | `'Shippori Mincho', ...`                                 | 本文書体                     |
+| `--vs-section--h1-marker-content`  | `'第' counter(vs-counter-chapter, cjk-ideographic) '章'` | 章番号の表記                 |

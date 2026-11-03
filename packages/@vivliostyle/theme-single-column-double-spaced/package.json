@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-single-column-double-spaced",
   "version": "0.0.0",
-  "description": "Single-column, double-spaced letter theme for theses following the APA 7th edition style",
+  "description": "Single-column, double-spaced theme for theses following the APA 7th edition style",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -57,7 +57,7 @@
       ],
       "i18n": {
         "ja": {
-          "description": "北米APA論文様式第7版準拠のLetter判1段組・ダブルスペース学位論文本文テーマ"
+          "description": "北米APA論文様式第7版準拠の1段組・ダブルスペース学位論文本文テーマ"
         }
       }
     },

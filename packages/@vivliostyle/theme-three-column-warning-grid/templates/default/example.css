@@ -8,8 +8,7 @@
     target-counter(attr(href), vs-counter-sec-h1);
 }
 
-/* 付録の管理シートはレシピと別系列 (A1, A2 …) で番号を振る */
+/* 付録の管理シートは本編と別系列 (A1, A2 …) で番号を振る */
 html.reference {
-  --vs-theme-three-column-warning-grid--sheet-marker-content: 'A'
-    counter(vs-counter-sec-h1);
+  --vs-section--h1-marker-content: 'A' counter(vs-counter-sec-h1);
 }

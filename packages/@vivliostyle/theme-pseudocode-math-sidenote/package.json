@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-pseudocode-math-sidenote",
   "version": "0.0.0",
-  "description": "Single-column B5 theme for textbooks on algorithm analysis, with display math, line-numbered pseudocode and marginal sidenotes",
+  "description": "Single-column theme for textbooks, with display math, line-numbered pseudocode and marginal sidenotes",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -48,7 +48,7 @@
       "category": "misc",
       "topics": [
         "technical",
-        "algorithm",
+        "sidenotes",
         "math",
         "code-heavy",
         "formal",
@@ -57,7 +57,7 @@
       ],
       "i18n": {
         "ja": {
-          "description": "B5判・1段組のアルゴリズム解析教科書テーマ。ディスプレイ数式と行番号付き疑似コード、マージナルなサイドノートを組む"
+          "description": "1段組の教科書テーマ。ディスプレイ数式と行番号付き疑似コード、マージナルなサイドノートを組む"
         }
       }
     },

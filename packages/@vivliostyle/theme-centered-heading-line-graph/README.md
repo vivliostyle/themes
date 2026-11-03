@@ -1,6 +1,6 @@
 # @vivliostyle/theme-centered-heading-line-graph
 
-A4判縦・2段組の英語ミクロ経済学教科書向けテーマ。中央揃えの番号付き見出し、緑ヘッダーの需給表、折れ線グラフ・需給曲線図といったデータ多用の紙面を組む。
+2段組の英文教科書向けテーマ。中央揃えの番号付き見出し、色付きヘッダーの表、折れ線グラフといったデータ多用の紙面を組む。
 
 ## 使い方
 
@@ -28,15 +28,13 @@ export default {
 | 変数                             | 既定値                  | 説明                                     |
 | -------------------------------- | ----------------------- | ---------------------------------------- |
 | `--vs-color-foreground` | `#1a1a1a` | 本文の文字色 |
-| `--vs-color-background` | `#fdfdf8` | 紙面の地色 |
+| `--vs-color-background` | `#ffffff` | 紙面の地色 |
 | `--vs-color-foreground-alt` | `#006633` | アクセント色 |
 | `--vs-font-family`               | `'Source Serif 4', ...` | 本文・見出しの書体                       |
-| `--vs-theme-centered-heading-line-graph--font-caption`       | `'PT Serif', ...`       | キャプション・柱・ノンブルの書体         |
 | `--vs-theme-centered-heading-line-graph--color-accent`       | `--vs-color-foreground-alt` と同じ | 見出し番号・表ヘッダー・cross-ref の深緑 |
-| `--vs--table-border-color-outer`         | `--vs-color-foreground-alt` × `--vs-color-background` 45% | 表の外枠の罫線色                         |
-| `--vs-color-border-alt`   | `--vs-color-foreground-alt` × `--vs-color-background` 70% | 表の行罫の色                             |
+| `--vs-color-border-alt`   | `--vs-color-foreground-alt` × `--vs-color-background` 70% | 図版パネルの枠線の色                     |
 | `--vs-color-background-alt`         | `--vs-color-foreground-alt` × `--vs-color-background` 90% | 表のゼブラ地色                           |
 | `--vs-theme-centered-heading-line-graph--color-panel-bg`     | `--vs-color-foreground-alt` × `--vs-color-background` 95% | 図版パネルの地色                         |
 | `--vs-page--border-color-top` | `--vs-color-foreground` × `--vs-color-background` 30% | 柱の下の罫線色                           |
-| `--vs-theme-centered-heading-line-graph--section-columns`    | `2`                     | 節ごとに掛ける段数                       |
-| `--vs-theme-centered-heading-line-graph--section-column-gap` | `7mm`                   | 段間                                     |
+| `--vs-columns`    | `2`                     | 節ごとに掛ける段数                       |
+| `--vs-column-gap` | `7mm`                   | 段間                                     |

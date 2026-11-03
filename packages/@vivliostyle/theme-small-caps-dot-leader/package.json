@@ -1,0 +1,70 @@
+{
+  "name": "@vivliostyle/theme-small-caps-dot-leader",
+  "version": "0.0.0",
+  "description": "Single-column theme for menus, with fine rules, small caps and dot-leader price lists",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-small-caps-dot-leader"
+  },
+  "files": [
+    "*.css",
+    "templates",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Small Caps Dot Leader",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "misc",
+      "topics": [
+        "practical",
+        "menu",
+        "colorful",
+        "elegant",
+        "light",
+        "a5"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "1段組のメニューテーマ。細罫と欧文スモールキャップ、点線リーダーの品目表で華やかな紙面を組む"
+        }
+      }
+    },
+    "template": {
+      "default": {
+        "name": "Small Caps Dot Leader sample",
+        "source": "./templates/default"
+      }
+    }
+  }
+}

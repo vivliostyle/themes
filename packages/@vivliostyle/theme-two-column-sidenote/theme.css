@@ -1,0 +1,394 @@
+/*
+ * 学会の拡張アブストラクト (extended abstract) 向けテーマ。
+ * A4縦・左右2段の高密度なレイアウト。Inter のプレーンな番号付き見出しと
+ * 20pt級のタイトル、Source Sans 3 の本文、IBM Plex Sans の極小サイドノート/表内数値、
+ * IBM Plex Mono の短い疑似コードを組み合わせる。青は番号・短い水平罫・図中の主系列・
+ * サイドノートのマーカーに限定し、淡青は表ヘッダーと注目領域、オレンジは図中の
+ * 第二系列にのみ用いる。マストヘッドと段抜きの表・疑似コードは column-span: all、
+ * 段抜きの図はページ天に送るページフロート。
+ *
+ * VFM 出力の DOM:
+ *   body > p.eyebrow
+ *        > section.level1 > (h1, p.byline, p.meta, hr, section.level2 …)
+ * 段組は section.level1 に掛ける。
+ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/math';
+@import '@vivliostyle/theme-base/sidenote';
+
+:root {
+  /* ---- テーマ固有の値 (theme-base に対応する変数が無いもの) ---------------- */
+  --vs-theme-two-column-sidenote--color-foreground-secondary: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 40%
+  );
+  --vs-theme-two-column-sidenote--color-accent: var(--vs-color-foreground-alt);
+  --vs-theme-two-column-sidenote--figure-full-width-size-inline: 100%;
+
+  /* ---- Type --------------------------------------------------------------- */
+  --vs-font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  --vs-font-family-alt: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --vs-font-family-monospace: 'IBM Plex Mono', ui-monospace, monospace;
+  --vs-font-size: 10pt;
+  --vs-line-height: 1.3;
+  --vs-color-foreground: #20252b;
+  --vs-color-foreground-alt: #0066cc;
+  --vs-color-background: #ffffff;
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 90%
+  );
+  --vs-columns: 2;
+  --vs-column-fill: auto;
+  --vs-column-gap: 6mm;
+  --vs-widows-orphans: 2;
+  --vs-hyphens: none;
+
+  /* Paragraphs: no indent, small block gap */
+  --vs--p-margin-block: 0 0.5rlh;
+  --vs--p-text-indent: 0;
+  --vs--p-text-align: justify;
+
+  /* Headings: Inter, plain; uppercase handled per-element */
+  --vs--heading-font-family: var(--vs-font-family-alt);
+  --vs--heading-font-weight: 600;
+  --vs--heading-margin-block: 0.25rlh;
+
+  --vs--h1-font-size: 2.15em;
+  --vs--h1-font-weight: 700;
+  --vs--h1-letter-spacing: -0.01em;
+  --vs--h1-line-height: 1.02;
+  --vs--h1-margin-block: 0 0.5rlh;
+
+  --vs--h2-font-size: 1.05em;
+  --vs--h2-letter-spacing: 0.02em;
+  --vs--h2-line-height: 1.1;
+
+  --vs--h3-font-size: 0.95em;
+
+  /* Short blue rule under the masthead (hr は本文中に1本だけ) */
+  --vs--hr-border-color: var(--vs-color-foreground-alt);
+  --vs--hr-border-width-block-start: 2.5px;
+  --vs--hr-margin-block: 0 0.5rlh;
+  --vs--hr-margin-inline: 0;
+  --vs--hr-size-inline: 46%;
+
+  /* Pseudocode (```text フェンス) */
+  --vs--monospace-line-height: 1.4;
+  --vs--pre-font-size: 0.8em;
+  --vs--pre-margin-block: 0.25rlh 0.5rlh;
+  --vs--pre-padding-block: 0.4rem;
+  --vs--pre-padding-inline: 0.6rem;
+  --vs--pre-background-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 95%
+  );
+  --vs--pre-border-color-inline-start: var(
+    --vs-theme-two-column-sidenote--color-accent
+  );
+  --vs--pre-border-width-inline-start: 2px;
+  --vs--pre-break-inside: avoid;
+  /* pre を multicol/flex 内で潰さない */
+  --vs--pre-overflow-x: visible;
+
+  /* Figures: full column width */
+  --vs--figure-align-items: stretch;
+  --vs--figure-gap: 0.25rlh;
+  --vs--figure-item-size-inline: 100%;
+  --vs--figure-margin-block: 0.5rlh;
+  --vs--figcaption-font-size: 0.8em;
+  --vs--figcaption-text-align: start;
+
+  /* Tables: ink frame + light row rules, sans header on tint */
+  --vs--table-font-size: 0.8em;
+  --vs--table-size-inline: 100%;
+  --vs--table-font-family: 'IBM Plex Sans', 'Source Sans 3', sans-serif;
+  --vs--table-font-variant-numeric: tabular-nums;
+  --vs--table-border-color: var(--vs-color-foreground);
+  --vs--table-border-color-row: var(--vs-color-border);
+  --vs--table-border-width: 0;
+  --vs--table-border-width-block-start: 1px;
+  --vs--table-border-width-block-end: 1px;
+  --vs--table-border-width-row: 0.75px;
+  --vs--table-border-width-thead-inner: 1px;
+  --vs--table-cell-padding-block: 0.26rem;
+  --vs--table-cell-padding-inline: 0.5rem;
+  --vs--th-font-family: var(--vs-font-family-alt);
+  --vs--th-font-weight: 600;
+  --vs--th-text-align: start;
+  --vs--th-background-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 85%
+  );
+
+  /* ---- Page: A4, tight symmetric margins, folio only ---------------------- */
+  --vs-page--size: A4;
+  --vs-page--margin-top: 17mm;
+  --vs-page--margin-bottom: 17mm;
+  --vs-page--margin-left: 15mm;
+  --vs-page--margin-right: 15mm;
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-font-family: 'IBM Plex Sans', sans-serif;
+  --vs-page--mbox-font-size: 0.8em;
+  --vs-page--mbox-text-color: var(
+    --vs-theme-two-column-sidenote--color-foreground-secondary
+  );
+
+  /* ---- Math ---------------------------------------------------------------- */
+  --vs-math--display-margin-block: 0.5rlh;
+
+  /* ---- Sidenotes: 段の左肩に浮かせ、番号だけを大きく立てる ------------------ */
+  --vs-sidenote--float: inline-start;
+  --vs-sidenote--clear: none;
+  --vs-sidenote--size-inline: 24mm;
+  --vs-sidenote--margin-block: 0 0.25rlh;
+  --vs-sidenote--margin-inline: 0 3mm;
+  --vs-sidenote--padding-inline: 2mm 0;
+  --vs-sidenote--font-family: 'IBM Plex Sans', 'Source Sans 3', sans-serif;
+  --vs-sidenote--font-size: 0.75em;
+  --vs-sidenote--line-height: 1.35;
+  --vs-sidenote--text-color: var(
+    --vs-theme-two-column-sidenote--color-foreground-secondary
+  );
+  --vs-sidenote--marker-content: counter(vs-counter-sidenote);
+  --vs-sidenote--marker-font-family: var(--vs-font-family-alt);
+  --vs-sidenote--marker-font-size: 2em;
+  --vs-sidenote--marker-font-weight: 700;
+  --vs-sidenote--marker-text-color: var(
+    --vs-theme-two-column-sidenote--color-accent
+  );
+
+  /* ---- Cross references ---------------------------------------------------- */
+  /* 図表番号は alt/キャプションに書けないので base のカウンタで採番する */
+  --vs-figure--label: 'Fig. ';
+  --vs-figure--marker-content: var(--vs-figure--label)
+    var(--vs-crossref-marker-counter-prefix, '')
+    counter(
+      vs-counter-fig,
+      var(--vs-figure--counter-style, var(--vs-counter-style))
+    )
+    ' ';
+  --vs-table--marker-content: var(--vs-table--label)
+    var(--vs-crossref-marker-counter-prefix, '')
+    counter(
+      vs-counter-tbl,
+      var(--vs-table--counter-style, var(--vs-counter-style))
+    )
+    ' ';
+
+  /* ---- Section numbering ---------------------------------------------------- */
+  --vs-section--marker-display: inline;
+  --vs-section--h1-marker-display: none;
+  --vs-section--h2-marker-margin-inline-end: 0.5ch;
+}
+
+/* h1 は論文の標題であって第1節ではない。base は h1 のセクションでも
+   vs-counter-sections を進めるため、そのままだと節番号が "1.2" のように
+   1段深くなる。h1 の階層だけ通し番号から外す */
+section:has(> h1:first-child) {
+  counter-increment: vs-counter-sec-h1;
+}
+
+section:has(h1:first-child) > section:has(> h2:first-child):first-of-type {
+  counter-reset: vs-counter-sec-h3;
+}
+
+section > h2:first-child::before {
+  color: var(--vs-theme-two-column-sidenote--color-accent);
+  font-size: 1.4em;
+  font-weight: 700;
+}
+
+/* ---- 2段組は section.level1 (本文を包む要素) に掛ける --------------------- */
+html {
+  columns: auto;
+}
+
+body > section.level1 {
+  columns: var(--vs-columns);
+  column-gap: var(--vs-column-gap);
+  column-fill: var(--vs-column-fill);
+}
+
+/* ---- Page-spanning masthead ---------------------------------------------- */
+.eyebrow {
+  font-family: var(--vs-font-family-alt);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--vs-theme-two-column-sidenote--color-accent);
+  margin-block: 0 0.5rlh;
+}
+
+section.level1 > h1,
+section.level1 > .byline,
+section.level1 > .meta,
+section.level1 > hr {
+  column-span: all;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+h1 .subhead {
+  display: block;
+  font-size: 0.9em;
+}
+
+.byline {
+  font-size: 0.9em;
+  text-align: start;
+  margin-block: 0 0.25rlh;
+}
+
+section.level1 > .meta {
+  font-size: 0.8em;
+  color: var(--vs-theme-two-column-sidenote--color-foreground-secondary);
+  margin-block: 0 0.5rlh;
+}
+
+h2 {
+  text-transform: uppercase;
+}
+
+/* ---- Front matter (abstract / concepts / keywords) ----------------------- */
+.abstract {
+  font-size: 0.95em;
+  line-height: 1.32;
+  margin-block: 0 0.25rlh;
+}
+
+.concepts,
+.keywords {
+  color: var(--vs-theme-two-column-sidenote--color-foreground-secondary);
+  font-size: 0.8em;
+  line-height: 1.32;
+  margin-block: 0 0.25rlh;
+}
+
+.abstract > b:first-child,
+.concepts > b:first-child,
+.keywords > b:first-child {
+  color: var(--vs-theme-two-column-sidenote--color-accent);
+  font-family: var(--vs-font-family-alt);
+  font-size: 0.85em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-inline-end: 0.6ch;
+  text-transform: uppercase;
+}
+
+/* ---- Sidenotes (base の sidenote 変数に無いぶんの装飾) -------------------- */
+.sidenote {
+  border-inline-start-width: 1.5px;
+  border-inline-start-style: solid;
+  border-inline-start-color: var(--vs-color-border);
+  font-weight: 500;
+}
+
+/* 番号は本文に流し込まず、見出しとして1行に立てる */
+.sidenote::before {
+  display: block;
+  line-height: 1;
+  margin-block-end: 0.25rem;
+}
+
+.sidenote p {
+  margin-block: 0;
+  text-align: start;
+}
+
+/* ---- Figures (Markdown 画像 → class の付かない figure) -------------------- */
+figure > img {
+  display: block;
+  block-size: auto;
+}
+
+figcaption {
+  line-height: 1.3;
+  color: var(--vs-theme-two-column-sidenote--color-foreground-secondary);
+}
+
+/* 採番自体は base の figure/table モジュール。書体・色だけ design 側で当てる */
+figure > figcaption::before {
+  font-family: var(--vs-font-family-alt);
+  font-weight: 600;
+  color: var(--vs-color-foreground);
+}
+
+/* 表は figure.tbl で包む。flex のままだと表が段・ページをまたげない */
+figure.tbl {
+  display: block;
+  break-inside: auto;
+}
+
+figure.tbl > figcaption {
+  break-after: avoid;
+  color: var(--vs-color-foreground);
+  font-family: var(--vs-font-family-alt);
+  font-size: 0.85em;
+  font-weight: 600;
+  line-height: 1.25;
+  margin-block: 0.25rlh;
+}
+
+/* ---- 段抜き (VFM は画像の class を <img> 側に付ける) ---------------------- */
+/* 段抜きの図は組版位置に空きが無いと column-span では脱落するため、
+   ページ天に送るページフロートで置く */
+figure:has(> img.full-width) {
+  float: top;
+  float-reference: page;
+}
+
+figure:has(> img.full-width),
+.wide-table,
+.wide-code {
+  break-inside: avoid;
+  column-span: all;
+  margin-block: 0.5rlh 0.25rlh;
+}
+
+figure > img.full-width {
+  inline-size: var(
+    --vs-theme-two-column-sidenote--figure-full-width-size-inline
+  );
+  margin-inline: auto;
+}
+
+.wide-code > pre {
+  margin-block: 0;
+}
+
+/* ---- Math ------------------------------------------------------------ */
+.math.display {
+  font-size: 0.95em;
+}
+
+.math.inline {
+  font-size: 0.9em;
+}
+
+/* ---- References ----------------------------------------------------- */
+:root {
+  --vs-citation--items-text-color: var(
+    --vs-theme-two-column-sidenote--color-foreground-secondary
+  );
+  --vs-citation--items-font-size: 0.8em;
+  --vs-citation--items-line-height: 1.35;
+  --vs-citation--items-margin-block: 0.25rlh 0;
+}

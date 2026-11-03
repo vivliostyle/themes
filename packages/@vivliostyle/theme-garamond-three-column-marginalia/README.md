@@ -1,6 +1,6 @@
 # @vivliostyle/theme-garamond-three-column-marginalia
 
-A4縦・3段組の学史アンソロジー (大学や学会の記念誌) 向けテーマ。EB Garamond のオールドスタイル・セリフ本文に、Libre Caslon Text の番号付き見出し、小口側の傍注、横罫主体のデータ表、脚注を密に組む。
+3段組の記念誌・アンソロジー向けテーマ。EB Garamond のオールドスタイル・セリフ本文に、Libre Caslon Text の番号付き見出し、小口側の傍注、横罫主体のデータ表、脚注を密に組む。
 
 ## 使い方
 
@@ -48,20 +48,21 @@ VFM は空のインライン要素の直後の空白を落とすので、参照�
 
 配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
 
-| 変数                                    | 既定値                         | 説明                                             |
-| --------------------------------------- | ------------------------------ | ------------------------------------------------ |
-| `--vs-font-family`                      | `'EB Garamond', ...`           | 本文書体                                         |
-| `--vs--heading-font-family`             | `'Libre Caslon Text', ...`     | 見出しの書体                                     |
-| `--vs-color-foreground`                       | `#1a1a1a` | 本文・罫の墨色                                   |
-| `--vs-color-background`                 | `#f7f4ec` | クリーム紙の地色                                 |
-| `--vs-theme-garamond-three-column-marginalia--font-display`              | `'Libre Caslon Text', ...`     | 表題行の書体                                     |
-| `--vs-font-family-alt`                 | `'Archivo', ...`               | 柱・ノンブル・図表キャプションの書体             |
-| `--vs--th-background-color`            | `--vs-color-foreground` × `--vs-color-background` 55% | 表ヘッダーの地色                                 |
-| `--vs--table-border-color`                | `--vs-color-foreground` × `--vs-color-background` 80% | 表の行罫の色                                     |
-| `--vs-theme-garamond-three-column-marginalia--running-head-content`      | `env(pub-title)`               | 柱 (中央) の内容。章・付録では章題・付録名になる |
-| `--vs-section--h1-marker-content`    | `'Chapter ' counter(...)`      | 章標 (h1 の前) の内容                            |
-| `--vs-theme-garamond-three-column-marginalia--appendix-marker-content`   | `'Appendix ' counter(...)`     | 付録の表題 (h1 の前) の内容                      |
-| `--vs-theme-garamond-three-column-marginalia--chapter-call-content`      | `target-counter(...)`          | `data-ref="chapter"` の参照文字列                |
-| `--vs-theme-garamond-three-column-marginalia--appendix-call-content`     | `target-counter(...)`          | `data-ref="appendix"` の参照文字列               |
-| `--vs-theme-garamond-three-column-marginalia--appendix-fig-call-content` | `'Fig. ' target-counter(...)`  | `data-ref="fig-appendix"` の参照文字列           |
-| `--vs-theme-garamond-three-column-marginalia--appendix-tbl-call-content` | `'Table ' target-counter(...)` | `data-ref="tbl-appendix"` の参照文字列           |
+| 変数                                                  | 既定値                                                | 説明                                                                                                   |
+| ----------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `--vs-font-family`                                    | `'EB Garamond', ...`                                  | 本文書体                                                                                               |
+| `--vs--heading-font-family`                           | `'Libre Caslon Text', ...`                            | 見出し・表のキャプション・表題行の書体                                                                 |
+| `--vs-font-family-alt`                                | `'Archivo', ...`                                      | 柱・ノンブル・図のキャプション・表ヘッダーの書体                                                       |
+| `--vs-color-foreground`                               | `#1a1a1a`                                             | 本文・罫の墨色                                                                                         |
+| `--vs-color-background`                               | `#f7f4ec`                                             | クリーム紙の地色                                                                                       |
+| `--vs--th-background-color`                           | `--vs-color-foreground` × `--vs-color-background` 55% | 表ヘッダーの地色                                                                                       |
+| `--vs--table-border-color`                            | `--vs-color-foreground` × `--vs-color-background` 80% | 表の行罫の色                                                                                           |
+| `--vs-columns`                                        | `3`                                                   | 本文の段数                                                                                             |
+| `--vs-column-gap`                                     | `7mm`                                                 | 段間                                                                                                   |
+| `--vs-crossref-marker-counter-prefix`                 | `counter(vs-counter-chapter) '.'`                     | 節番号・図表番号の前に付く章番号 (付録では付録記号)                                                    |
+| `--vs-crossref-call-counter-prefix`                   | `target-counter(...) '.'`                             | 節・図表の参照の前に付く章番号                                                                         |
+| `--vs-figure--label` / `--vs-table--label`            | `'Fig. '` / `'Table '`                                | 図表番号と参照のラベル                                                                                 |
+| `--vs-page--mbox-top-center-content`                  | `env(pub-title)`                                      | 柱 (中央) の内容。`@page chapter-document` と `@page appendix-document` で章題・付録名に差し替えている |
+| `--vs-section--h1-marker-content`                     | `'Chapter ' counter(...)`                             | 章標 (h1 の前) の内容                                                                                  |
+| `--vs-appendix--marker-content`                       | `'Appendix ' counter(...)`                            | 付録の表題 (h1 の前) の内容                                                                            |
+| `--vs-appendix--call-content`                         | `target-counter(...)`                                 | `data-ref="appendix"` の参照文字列                                                                     |

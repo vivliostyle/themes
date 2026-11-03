@@ -1,6 +1,6 @@
 # @vivliostyle/theme-issue-number-heading-rule
 
-メールマガジンを書籍にまとめた合本向けの新書判テーマ。中央寄せの号数見出しと連番付き小見出し、版面全幅の柱罫を横組み1段で組む。
+メールマガジンを書籍にまとめた合本向けのテーマ。中央寄せの号数見出しと連番付き小見出し、版面全幅の柱罫を横組み1段で組む。
 
 ## 使い方
 
@@ -42,15 +42,12 @@ class: chapter
 
 | 変数                                | 既定値                                             | 説明                           |
 | ----------------------------------- | -------------------------------------------------- | ------------------------------ |
-| `--vs-font-family`                  | `'Noto Serif JP', ...`                             | 本文書体                       |
-| `--vs--heading-font-family`         | `'Noto Serif JP', ...`                             | 見出し (号数・小見出し) の書体 |
+| `--vs-font-family`                  | `'Noto Serif JP', ...`                             | 本文・見出しの書体             |
 | `--vs-color-foreground`                   | `#1a1a1a` | 本文・柱・罫の基本色           |
 | `--vs-color-background`             | `#fcfbf7` | 地色                           |
-| `--vs--h2-font-size`                | `12pt`                                             | 号数見出しの文字サイズ         |
-| `--vs--h3-font-size`                | `9.2pt`                                            | 連番付き小見出しの文字サイズ   |
+| `--vs--h2-font-size`                | `1.6em`                                            | 号数見出しの文字サイズ         |
+| `--vs--h3-font-size`                | `1.2em`                                            | 連番付き小見出しの文字サイズ   |
 | `--vs-section--h2-marker-content`   | `'第' counter(vs-counter-chapter) '号'`            | 号数の表記                     |
-| `--vs-theme-issue-number-heading-rule--issueref-call-content` | `'第' target-counter(...) '号'`                    | `data-ref="issue"` の参照文字  |
-| `--vs-theme-issue-number-heading-rule--issue-entry-content`   | `'第' target-counter(...) '号　' target-text(...)` | 扉の号一覧の1行                |
 
 ## 見開きで組む
 

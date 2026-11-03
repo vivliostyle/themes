@@ -1,6 +1,6 @@
 # @vivliostyle/theme-dense-serif-roman-numeral
 
-PRL (Physical Review Letters) 風のレター判・墨一色の物理速報論文テーマ。STIX Two Text の高密度セリフ2段組に、中央揃えの標題ブロック、ローマ数字のセンター見出し、段の右端に式番号を置くディスプレイ数式、モノクロ図版を組む。節番号・式番号・図番号・引用番号はすべてカウンタが付ける。
+PRL (Physical Review Letters) 風の速報論文テーマ。STIX Two Text の高密度セリフ2段組に、中央揃えの標題ブロック、ローマ数字のセンター見出し、段の右端に式番号を置くディスプレイ数式、図版を組む。節番号・式番号・図番号・引用番号はすべてカウンタが付ける。
 
 ## 使い方
 
@@ -15,20 +15,23 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
-| 変数                                  | 既定値                                      | 説明                             |
-| ------------------------------------- | ------------------------------------------- | -------------------------------- |
+| 変数 | 既定値 | 説明 |
+| --- | --- | --- |
 | `--vs-color-background` | `#ffffff` | 紙面の地色 |
-| `--vs-font-family`                    | `'STIX Two Text', 'Times New Roman', serif` | 本文書体                         |
-| `--vs-font-size`                      | `8.3pt`                                     | 本文サイズ (高密度な誌面)        |
-| `--vs-color-foreground`                     | `#111111` | 本文・罫の墨色                   |
-| `--vs-column-gap`                     | `6mm`                                       | 2 段の間隔                       |
-| `--vs--h1-font-size`                  | `11.8pt`                                    | 論文タイトルのサイズ             |
-| `--vs--h2-font-size`                  | `8pt`                                       | ローマ数字センター見出しのサイズ |
-| `--vs-section--counter-style`         | `upper-roman`                               | 節番号のスタイル                 |
-| `--vs--p-text-indent`                 | `3.5mm`                                     | 段落先頭の字下げ量               |
-| `--vs--figure-item-size-inline`       | `84%`                                       | 図版の幅                         |
-| `--vs-theme-dense-serif-roman-numeral--equation-marker-content` | `'(' counter(…) ')'`                        | 段の右端に出す式番号             |
-| `--vs-figure--marker-content`   | `'FIG. ' counter(…) '. '`                   | 図題の先頭に出す図番号           |
+| `--vs-font-family` | `'STIX Two Text', 'Times New Roman', serif` | 本文書体 |
+| `--vs-font-size` | `8.3pt` | 本文サイズ (高密度な誌面) |
+| `--vs-color-foreground` | `#111111` | 本文・罫の墨色 |
+| `--vs-columns` | `2` | 本文の段数 (標題ブロックは段抜き) |
+| `--vs-column-gap` | `6mm` | 段の間隔 |
+| `--vs--h1-font-size` | `1.4em` | 論文タイトルのサイズ |
+| `--vs--h2-font-size` | `0.95em` | ローマ数字センター見出しのサイズ |
+| `--vs-section--counter-style` | `upper-roman` | 節番号のスタイル |
+| `--vs-section--label` | `'Sec.\2009'` | 節参照の前に付く語 |
+| `--vs--p-text-indent` | `1.2em` | 段落先頭の字下げ量 |
+| `--vs--figure-item-size-inline` | `84%` | 図版の幅 |
+| `--vs-equation--label` | `'Eq.\2009'` | 式参照の前に付く語 |
+| `--vs-figure--marker-content` | `'FIG. ' counter(…) '. '` | 図題の先頭に出す図番号 |
+| `--vs-figure--label` | `'Fig.\2009'` | 図参照の前に付く語 |
 
 ## 原稿の書きかた
 

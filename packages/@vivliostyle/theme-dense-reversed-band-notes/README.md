@@ -1,6 +1,6 @@
 # @vivliostyle/theme-dense-reversed-band-notes
 
-A4判・高密度な横書き2段組の学術批評誌テーマ。段を横断する白抜きの章見出し帯、番号付き節見出し、巻末の全幅3段組み注釈欄を組む。
+高密度な横書き2段組の学術批評誌テーマ。段を横断する白抜きの章見出し帯、番号付き節見出し、巻末の全幅3段組み注釈欄を組む。
 
 ## 使い方
 
@@ -34,9 +34,10 @@ export default {
 | `--vs--blockquote-text-color`          | `--vs-color-foreground` × `--vs-color-background` 15% | 引用文の文字色                               |
 | `--vs-font-family-alt`           | `'IBM Plex Sans', ...` | 節番号・参照番号・注番号の欧文書体           |
 | `--vs-theme-dense-reversed-band-notes--running-publication`  | `env(doc-title)`       | 地の柱に出す誌名。誌名がある場合は上書きする |
-| `--vs-theme-dense-reversed-band-notes--endnote-call-content` | `'［→注' ... '］'`     | 巻末注への相互参照の表記                     |
 | `--vs-font-family`                 | `'Noto Sans JP', ...`  | 本文書体                                     |
 | `--vs-color-foreground`                  | `#202326` | 本文の文字色                                 |
 | `--vs-color-background`            | `#f7f5ef` | 地色                                         |
+| `--vs-columns`                     | `2`       | 本文の段数                                   |
+| `--vs-column-gap`                  | `7mm`     | 段間                                         |
 
 地の柱 (誌名とノンブル) は小口側の `--vs-page--mbox-bottom-outside-content` で指定しているので、右ページでは右下、左ページでは左下に置かれる。片面で右下に固定したい場合は `--vs-page--mbox-bottom-right-content` で上書きする。

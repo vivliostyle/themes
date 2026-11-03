@@ -1,10 +1,10 @@
 /*
- * 児童冒険小説・画像重視版 (bleed-illustration-chapter-opener)
- * 章扉を兼ねた本文ページ。A4縦。天・左右へ裁ち落とした木炭調モノクロームの物語挿絵を
- * 上部に敷き、その霧の余白へ League Spartan の特大章題を重ねる。下半分は Atkinson
- * Hyperlegible を 11pt / 行送り 1.75 でゆったり組んだ2段組の読み物とし、章頭を
- * ドロップキャップ、本文中に小さな輪郭画の挿絵を差し込む。色は温かな紙色と数段階の
- * グレーのみで彩色アクセントは持たない。
+ * 児童小説・画像重視版 (bleed-illustration-chapter-opener)
+ * 章扉を兼ねた本文ページ。A4縦。天・左右へ裁ち落とした挿絵を上部に敷き、
+ * そこへ League Spartan の特大章題を重ねる。下半分は Atkinson Hyperlegible を
+ * 11pt / 行送り 1.75 でゆったり組んだ2段組の読み物とし、章頭をドロップキャップ、
+ * 本文中に小さな挿絵を差し込む。色は温かな紙色と数段階のグレーのみで
+ * 彩色アクセントは持たない。
  *
  * 原稿は `# 章題` 1つで1章。章番号は base のセクションカウンタから生成するので、
  * 見出しに番号を書かない。挿絵は章題の直後の <header class="bleed"> に置く。
@@ -24,30 +24,22 @@
 }
 
 :root {
-  --vs-theme-bleed-illustration-chapter-opener--font-display:
-    'League Spartan', 'Arial Narrow', sans-serif;
-  --vs-theme-bleed-illustration-chapter-opener--color-ink-strong: #17191b;
-  --vs-theme-bleed-illustration-chapter-opener--color-rule: color-mix(
+  --vs-theme-bleed-illustration-chapter-opener--color-ink-strong: color-mix(
     in oklab,
     var(--vs-color-foreground),
-    var(--vs-color-background) 65%
+    #000 20%
   );
 
-  /* 章扉の帯と、そこへ重ねる章題の位置 */
+  /* 章扉の裁ち落とし帯。章題はこの高さの 40% の位置へ重ねる */
   --vs-theme-bleed-illustration-chapter-opener--chapter-band-height: 135mm;
-  --vs-theme-bleed-illustration-chapter-opener--chapter-title-inset-block-start: calc(
-    var(--vs-theme-bleed-illustration-chapter-opener--chapter-band-height) *
-      0.4 - var(--vs-theme-bleed-illustration-chapter-opener--page-margin-top)
-  );
-  --vs-theme-bleed-illustration-chapter-opener--chapter-title-inset-inline-start: 28%;
-  --vs-theme-bleed-illustration-chapter-opener--chapter-columns: 2;
-  --vs-theme-bleed-illustration-chapter-opener--chapter-column-gap: 8mm;
 
   --vs-color-foreground-alt: color-mix(
     in oklab,
     var(--vs-color-foreground),
     var(--vs-color-background) 40%
   );
+  --vs-columns: 2;
+  --vs-column-gap: 8mm;
 
   /* Type: 児童向けに大きめ・広い行間の sans */
   --vs-font-family:
@@ -64,10 +56,10 @@
   --vs--p-text-align: start;
   --vs--p-hyphens: manual; /* 児童書なので分綴しない */
 
-  --vs--figure-margin-block: 1.5mm 3mm;
+  --vs--figure-margin-block: 0.25rlh 0.5rlh;
+  --vs--figure-gap: 0.25rlh;
 
-  --vs--figcaption-font-size: 8.5pt;
-  --vs--figcaption-margin-block: 0.4rem 0;
+  --vs--figcaption-font-size: 0.75em;
   --vs--figcaption-text-align: center;
 
   /* Headings: 章題は特大の League Spartan */
@@ -78,7 +70,10 @@
   --vs--h1-letter-spacing: 0.005em;
   --vs--h1-line-height: 0.92;
   --vs--h1-margin-block: 0;
-  --vs--h1-margin-inline: 0;
+  --vs--h1-margin-inline: 28% 0;
+  --vs--h1-text-color: var(
+    --vs-theme-bleed-illustration-chapter-opener--color-ink-strong
+  );
   --vs--h1-text-transform: uppercase;
 
   --vs-page--size: A4;
@@ -87,15 +82,11 @@
   --vs-page--margin-left: 19mm;
   --vs-page--margin-right: 19mm;
   --vs-page--mbox-bottom-center-content: counter(page);
-  --vs-page--mbox-font-family: 'Noto Sans', sans-serif;
-  --vs-page--mbox-font-size: 9pt;
+  --vs-page--mbox-font-family: var(--vs-font-family-alt);
+  --vs-page--mbox-font-size: 0.8em;
   --vs-page--mbox-font-weight: 500;
   --vs-page--mbox-letter-spacing: 0.1em;
-  --vs-page--mbox-text-color: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 40%
-  );
+  --vs-page--mbox-text-color: var(--vs-color-foreground-alt);
 
   /* 章番号は章題の上に小さく置く */
   --vs-section--counter-style: vs-theme-chapter-word;
@@ -106,12 +97,14 @@
   --vs-section--h1-break-before: page;
 }
 
+html {
+  columns: auto;
+}
+
 /* 章ごとに2段組。章題と裁ち落とし帯だけが段抜きになる */
 section:has(> h1:first-child) {
-  columns: var(--vs-theme-bleed-illustration-chapter-opener--chapter-columns);
-  column-gap: var(
-    --vs-theme-bleed-illustration-chapter-opener--chapter-column-gap
-  );
+  columns: var(--vs-columns);
+  column-gap: var(--vs-column-gap);
 }
 
 /* ------- 章扉ヘッダー: 天・左右へ裁ち落とした挿絵 + 重ねた特大章題 ------- */
@@ -126,19 +119,15 @@ section > h1:first-child {
   height: 0;
   overflow: visible;
   column-span: all;
-  inset-block-start: var(
-    --vs-theme-bleed-illustration-chapter-opener--chapter-title-inset-block-start
+  inset-block-start: calc(
+    var(--vs-theme-bleed-illustration-chapter-opener--chapter-band-height) *
+      0.4 - var(--vs-page--margin-top)
   );
-  margin-inline-start: var(
-    --vs-theme-bleed-illustration-chapter-opener--chapter-title-inset-inline-start
-  );
-  color: var(--vs-theme-bleed-illustration-chapter-opener--color-ink-strong);
 }
 
 section > h1:first-child::before {
-  margin-block-end: 2mm;
-  font-family: var(--vs-theme-bleed-illustration-chapter-opener--font-display);
-  font-size: var(--vs-font-size);
+  margin-block-end: 0.25rlh;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.36em;
 }
@@ -150,24 +139,22 @@ header.bleed {
   height: var(
     --vs-theme-bleed-illustration-chapter-opener--chapter-band-height
   );
-  margin-block-start: calc(
-    -1 * var(--vs-theme-bleed-illustration-chapter-opener--page-margin-top)
-  );
+  margin-block-start: calc(-1 * var(--vs-page--margin-top));
   margin-inline: calc(-1 * var(--vs-page--margin-left));
-  margin-block-end: 8mm;
+  margin-block-end: 1.25rlh;
   overflow: hidden; /* 挿絵を帯の寸法へ切り抜く */
 }
 
-/* ランニングヘッド: 霧の余白の最上部中央に控えめに置く */
+/* ランニングヘッド: 帯の最上部中央に控えめに置く */
 header.bleed::before {
   content: env(doc-title);
   position: absolute;
-  top: 8mm;
+  top: 1.25rlh;
   left: 0;
   right: 0;
   text-align: center;
   font-family: var(--vs-font-family-alt);
-  font-size: 9pt;
+  font-size: 0.8em;
   font-weight: 500;
   letter-spacing: 0.34em;
   text-transform: uppercase;
@@ -211,7 +198,7 @@ section > p:first-of-type::first-letter {
   color: var(--vs-theme-bleed-illustration-chapter-opener--color-ink-strong);
 }
 
-/* ------- 段に食い込む小さな輪郭画の挿絵 ------- */
+/* ------- 段に差し込む小さな挿絵 ------- */
 section > figure img {
   display: block;
   width: 78%;
@@ -226,12 +213,19 @@ section > figure figcaption {
   letter-spacing: 0.02em;
 }
 
+section > figure figcaption::before,
+section > figure figcaption::after {
+  color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 65%
+  );
+}
+
 section > figure figcaption::before {
   content: '•\00a0\00a0';
-  color: var(--vs-theme-bleed-illustration-chapter-opener--color-rule);
 }
 
 section > figure figcaption::after {
   content: '\00a0\00a0•';
-  color: var(--vs-theme-bleed-illustration-chapter-opener--color-rule);
 }

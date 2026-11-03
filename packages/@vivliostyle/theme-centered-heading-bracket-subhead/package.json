@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-centered-heading-bracket-subhead",
   "version": "0.0.0",
-  "description": "Single-column B5 theme for commentaries on civil cases, with centered case-name headings, bracketed subheadings and ruled tables of the issues",
+  "description": "Single-column theme for case commentaries, with centered numbered headings, bracketed subheadings and ruled tables",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -47,7 +47,6 @@
       "style": "theme.css",
       "category": "report",
       "topics": [
-        "legal",
         "b5",
         "single-column",
         "serif",
@@ -56,7 +55,7 @@
       ],
       "i18n": {
         "ja": {
-          "description": "B5判・単段の民事判例解説テーマ。中央寄せの事件名見出しと隅付き小見出し、争点整理の罫線表で組む"
+          "description": "単段の事例解説集テーマ。中央寄せの番号付き見出しと隅付き小見出し、罫線表で組む"
         }
       }
     },

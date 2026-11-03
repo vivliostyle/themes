@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-dense-reversed-band-notes",
   "version": "0.0.0",
-  "description": "Dense two-column A4 theme for academic review journals, with reversed chapter bands across the columns and a full-width three-column notes area",
+  "description": "Dense two-column theme for academic review journals, with reversed chapter bands across the columns and a full-width three-column notes area",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -53,11 +53,11 @@
         "a4",
         "dense",
         "two-column",
-        "philosophy"
+        "endnotes"
       ],
       "i18n": {
         "ja": {
-          "description": "A4判・高密度2段組の学術批評誌テーマ。段抜きの白抜き章見出し帯と3段組の全幅注釈欄を持つ"
+          "description": "高密度2段組の学術批評誌テーマ。段抜きの白抜き章見出し帯と3段組の全幅注釈欄を持つ"
         }
       }
     },

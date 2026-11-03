@@ -1,5 +1,5 @@
 /*
- * 高等数学ジャーナル (Elsevier / Advances in Mathematics 風、A4縦・1段組)。
+ * 学術誌論文 (Elsevier / Advances in Mathematics 風、A4縦・1段組)。
  * STIX Two Text のセリフ本文に、番号付き見出しの左へ太い群青バーを添えた節見出し、
  * スモールキャップラベル+斜体本文の定理環境、中央揃えの別行立て数式+右端の式番号、
  * 外(左)余白のサイドノート、地に区切り罫付きの脚注を配置する。
@@ -32,52 +32,16 @@
     --vs-color-foreground-alt
   );
 
-  /* 定理環境: ラベルは種別ごとの変数で差し替える */
-  --vs-theme-side-border-heading-math--theorem-label-theorem: 'Theorem';
-  --vs-theme-side-border-heading-math--theorem-label-lemma: 'Lemma';
-  --vs-theme-side-border-heading-math--theorem-label-proposition: 'Proposition';
-  --vs-theme-side-border-heading-math--theorem-label-corollary: 'Corollary';
-  --vs-theme-side-border-heading-math--theorem-label-definition: 'Definition';
-  --vs-theme-side-border-heading-math--theorem-label-example: 'Example';
-  --vs-theme-side-border-heading-math--theorem-label-remark: 'Remark';
-  --vs-theme-side-border-heading-math--theorem-label-question: 'Question';
-  --vs-theme-side-border-heading-math--theorem-label-proof: 'Proof';
-  --vs-theme-side-border-heading-math--theorem-number-content: counter(
-      vs-counter-sec-h2
-    )
-    '.' counter(vs-counter-thm);
-  --vs-theme-side-border-heading-math--theorem-call-content: target-counter(
-      attr(href),
-      vs-counter-sec-h2
-    )
-    '.' target-counter(attr(href), vs-counter-thm);
-  --vs-theme-side-border-heading-math--proof-marker-content: var(
-      --vs-theme-side-border-heading-math--theorem-label-proof
-    )
-    '.';
-  --vs-theme-side-border-heading-math--proof-marker-content-of: var(
-      --vs-theme-side-border-heading-math--theorem-label-proof
-    )
-    ' of ';
-  --vs-theme-side-border-heading-math--proof-qed-content: '\2003\25A1';
-
-  /* サイドノートの符号は文書を通した小文字アルファベット */
-  --vs-theme-side-border-heading-math--sidenote-marker-content: '('
-    counter(vs-counter-sidenote, lower-alpha) ')';
-
-  /* 引用番号だけを出す参照 (「[1, ch. 4]」のように所在を添える書き方のため) */
-  --vs-theme-side-border-heading-math--cite-number-call-content: target-counter(
-    attr(href),
-    vs-counter-cite
-  );
+  /* 証明のラベル (言語の差し替え用) */
+  --vs-theme-side-border-heading-math--proof-label: 'Proof';
 
   /* Type */
   --vs-font-family: 'STIX Two Text', 'Times New Roman', serif;
+  --vs-font-family-alt: 'Source Serif 4', 'STIX Two Text', serif;
   --vs-font-size: 10.5pt;
   --vs-line-height: 1.6;
   --vs-color-foreground: #1a1a1a;
   --vs-color-background: #fdfdfb;
-  --vs-columns: 1;
   --vs-widows-orphans: 2;
 
   --vs-color-foreground-alt: #1e40af;
@@ -101,22 +65,18 @@
   --vs--p-margin-block: 0;
   --vs--p-text-indent: 1.3em;
   --vs--p-first-text-indent: 0;
-  --vs--p-text-align: justify;
 
   /* Headings */
-  --vs--heading-font-family: 'Source Serif 4', 'STIX Two Text', serif;
-  --vs--heading-font-weight: 700;
-  --vs--heading-text-align: start;
+  --vs--heading-font-family: var(--vs-font-family-alt);
 
   /* 論題を柱に流す */
   --vs--h1-string-set: article-title content();
 
-  /* 節見出し。前後の空きは組版のチューニング値なので rlh 倍数にしない */
+  /* 節見出し */
   --vs--h2-font-size: 1.32em;
   --vs--h2-line-height: 1.2;
   --vs--h2-letter-spacing: 0.005em;
-  --vs--h2-margin-block: 1.5rem 0.6rem;
-  --vs--h2-margin-inline: 0;
+  --vs--h2-margin-block: 1rlh 0.5rlh;
   --vs--h2-padding-inline: 4mm 0;
   --vs--h2-border-width-inline-start: 4pt;
   --vs--h2-border-color-inline-start: var(
@@ -128,7 +88,7 @@
   --vs--h3-font-weight: 600;
   --vs--h3-letter-spacing: 0.005em;
   --vs--h3-line-height: 1.25;
-  --vs--h3-margin-block: 1.15rem 0.35rem;
+  --vs--h3-margin-block: 0.75rlh 0.25rlh;
 
   /* Page: A4縦。左(外)余白を広く取りサイドノート列にする */
   --vs-page--size: A4;
@@ -143,28 +103,26 @@
   --vs-page--mbox-top-center-text-transform: uppercase;
   --vs-page--mbox-top-center-padding-left: 18mm;
   --vs-page--mbox-top-center-padding-right: 18mm;
-  --vs-page--mbox-top-font-family: var(--vs--heading-font-family);
-  --vs-page--mbox-top-font-size: 8.5pt;
+  --vs-page--mbox-font-family: var(--vs-font-family-alt);
+  --vs-page--mbox-top-font-size: 0.8em;
   --vs-page--mbox-top-font-weight: 400;
   --vs-page--mbox-top-letter-spacing: 0.08em;
-  --vs-page--mbox-top-padding-bottom: 2.2mm;
-  --vs-page--mbox-top-text-color: var(--vs-color-foreground);
+  --vs-page--mbox-top-padding-bottom: 0.25rlh;
   --vs-page--border-width-top: var(--vs--hr-border-width-block-start);
   --vs-page--border-color-top: var(--vs--hr-border-color);
-  --vs-page--mbox-bottom-font-family: var(--vs--heading-font-family);
-  --vs-page--mbox-bottom-font-size: 9.5pt;
+  --vs-page--mbox-bottom-font-size: 0.9em;
   --vs-page--mbox-bottom-letter-spacing: 0.02em;
-  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
 
   /* 節番号は常用数字。h2 が「1」、h3 が「1.1」 */
   --vs-section--marker-display: inline;
   --vs-section--h1-marker-display: none;
   --vs-section--marker-margin-inline-end: 0.55em;
+  /* 節の参照は「§2.1」 */
+  --vs-section--label: '§';
 
   /* 別行立て数式: 番号は「節.通番」、参照はラベルなしの '(N.M)' */
-  --vs-equation--call-content: '(' var(--vs-crossref-call-counter-prefix)
-    target-counter(attr(href), vs-counter-eq) ')';
-  --vs-equation--margin-block: 1.15rem;
+  --vs-equation--label: '';
+  --vs-equation--margin-block: 0.75rlh;
   --vs-equation--marker-font-size: 0.95em;
   --vs-citation--marker-inset-inline-start: -6.5mm;
 
@@ -174,8 +132,8 @@
   --vs-sidenote--break-inside: auto;
   --vs-sidenote--size-inline: 30mm;
   --vs-sidenote--margin-inline: -38mm 0;
-  --vs-sidenote--margin-block: 0.6mm 3mm;
-  --vs-sidenote--font-size: 8.3pt;
+  --vs-sidenote--margin-block: 0 0.5rlh;
+  --vs-sidenote--font-size: 0.8em;
   --vs-sidenote--line-height: 1.42;
   --vs-sidenote--text-color: var(
     --vs-theme-side-border-heading-math--color-foreground-secondary
@@ -184,25 +142,36 @@
   --vs-sidenote--marker-content: none;
 
   /* Footnotes: 上付き番号(アスタリスクなし) */
-  --vs-footnote--font-size: 8.5pt;
+  --vs-footnote--font-size: 0.8em;
   --vs-footnote--text-color: var(
     --vs-theme-side-border-heading-math--color-foreground-secondary
   );
   --vs-footnote--line-height: 1.4;
   --vs-footnote--call-content: counter(
     vs-counter-footnote,
-    var(--vs-footnote--counter-style)
+    var(--vs-footnote--counter-style, var(--vs-counter-style))
   );
   --vs-footnote--marker-content: counter(
       vs-counter-footnote,
-      var(--vs-footnote--counter-style)
+      var(--vs-footnote--counter-style, var(--vs-counter-style))
     )
     '\2002';
   --vs-footnote--text-indent: 0;
   --vs-footnote--area-before-margin-inline: 0 66%;
-  --vs-footnote--area-before-margin-block: 0.4rem 0.35rem;
+  --vs-footnote--area-before-margin-block: 0.25rlh;
 
   --vs-math--display-margin-block: 0;
+
+  /* 定理環境の見出しは「Lemma 2.3.」 */
+  --vs-theorem--marker-suffix: '.';
+
+  /* 参考文献: 番号をぶら下げた小さな組み */
+  --vs-citation--items-font-size: 0.86em;
+  --vs-citation--items-hyphens: auto;
+  --vs-citation--items-line-height: 1.35;
+  --vs-citation--items-padding-inline-start: 6.5mm;
+  --vs-citation--item-margin-block: 0 0.3em;
+  --vs-citation--item-text-align: start;
 }
 
 /* base の --vs-document-root-counter-reset は原稿側のフックなので、
@@ -228,8 +197,8 @@ section > h2:first-child {
   border-block-end-color: var(--vs--hr-border-color);
   border-block-end-style: solid;
   border-block-end-width: var(--vs--hr-border-width-block-start);
-  margin-block-end: 1.4rem;
-  padding-block-end: 1rem;
+  margin-block-end: 1rlh;
+  padding-block-end: 0.75rlh;
 }
 
 .paper-head h1 {
@@ -237,12 +206,12 @@ section > h2:first-child {
   font-weight: 700;
   letter-spacing: 0.002em;
   line-height: 1.22;
-  margin-block: 0 0.9rem;
+  margin-block: 0 0.5rlh;
 }
 
 .paper-head .byline {
   font-size: 1.02em;
-  margin-block: 0 0.25rem;
+  margin-block: 0 0.25rlh;
   text-indent: 0;
 }
 
@@ -251,7 +220,7 @@ section > h2:first-child {
   font-size: 0.82em;
   font-style: italic;
   line-height: 1.4;
-  margin-block: 0 0.9rem;
+  margin-block: 0 0.5rlh;
   text-indent: 0;
 }
 
@@ -261,7 +230,7 @@ section > h2:first-child {
   border-block-start-width: var(--vs--hr-border-width-block-start);
   font-size: 0.92em;
   line-height: 1.45;
-  padding-block-start: 0.7rem;
+  padding-block-start: 0.5rlh;
 }
 
 .paper-head .abstract p {
@@ -272,7 +241,7 @@ section > h2:first-child {
 .paper-head .msc {
   font-size: 0.82em;
   line-height: 1.4;
-  margin-block: 0.55rem 0;
+  margin-block: 0.25rlh 0;
   text-indent: 0;
 }
 
@@ -288,69 +257,44 @@ section > h2:first-child {
    閉じ `#` で書くと section に包まれず body 直下に置かれる。
    節見出しの群青バーの左に入る番号分の余白だけを詰める */
 body > h2 {
-  margin-block-start: 1.9rem;
+  margin-block-start: 1.25rlh;
 }
 
 /* ---- 定理環境 ----
-   ラベルを含む content は種別クラスが決まる .theorem 上で組み立てる。
-   :root で組み立てると、そこで未定義の --vs-theme-side-border-heading-math--theorem-label が
-   置換され content 全体が無効になる */
+   theme-base の theorem モジュールは複数段落の定理でラベルを独立した行に立てるので
+   読み込まず、ラベル (--vs-theorem--label) と区切り (--vs-theorem--marker-suffix) の
+   変数だけを使う */
 .theorem {
   counter-increment: vs-counter-thm;
-  margin-block: 1.05rem;
-  --vs-theme-side-border-heading-math--theorem-label: var(
-    --vs-theme-side-border-heading-math--theorem-label-theorem
-  );
-  --vs-theme-side-border-heading-math--theorem-marker-content: var(
-      --vs-theme-side-border-heading-math--theorem-label
-    )
-    ' ' var(--vs-theme-side-border-heading-math--theorem-number-content) '.';
-  --vs-theme-side-border-heading-math--theorem-marker-content-named: var(
-      --vs-theme-side-border-heading-math--theorem-label
-    )
-    ' ' var(--vs-theme-side-border-heading-math--theorem-number-content);
+  margin-block: 0.5rlh;
 }
 
 .theorem.lemma {
-  --vs-theme-side-border-heading-math--theorem-label: var(
-    --vs-theme-side-border-heading-math--theorem-label-lemma
-  );
+  --vs-theorem--label: 'Lemma ';
 }
 
 .theorem.proposition {
-  --vs-theme-side-border-heading-math--theorem-label: var(
-    --vs-theme-side-border-heading-math--theorem-label-proposition
-  );
+  --vs-theorem--label: 'Proposition ';
 }
 
 .theorem.corollary {
-  --vs-theme-side-border-heading-math--theorem-label: var(
-    --vs-theme-side-border-heading-math--theorem-label-corollary
-  );
+  --vs-theorem--label: 'Corollary ';
 }
 
 .theorem.definition {
-  --vs-theme-side-border-heading-math--theorem-label: var(
-    --vs-theme-side-border-heading-math--theorem-label-definition
-  );
+  --vs-theorem--label: 'Definition ';
 }
 
 .theorem.example {
-  --vs-theme-side-border-heading-math--theorem-label: var(
-    --vs-theme-side-border-heading-math--theorem-label-example
-  );
+  --vs-theorem--label: 'Example ';
 }
 
 .theorem.remark {
-  --vs-theme-side-border-heading-math--theorem-label: var(
-    --vs-theme-side-border-heading-math--theorem-label-remark
-  );
+  --vs-theorem--label: 'Remark ';
 }
 
 .theorem.question {
-  --vs-theme-side-border-heading-math--theorem-label: var(
-    --vs-theme-side-border-heading-math--theorem-label-question
-  );
+  --vs-theorem--label: 'Question ';
 }
 
 /* 主張は斜体、定義・例・注意・問題は立体で組む */
@@ -364,14 +308,13 @@ body > h2 {
 }
 
 .theorem > p:first-child::before {
-  content: var(--vs-theme-side-border-heading-math--theorem-marker-content);
+  content: var(--vs-theorem--label) var(--vs-crossref-marker-counter-prefix)
+    counter(vs-counter-thm) var(--vs-theorem--marker-suffix);
 }
 
 /* 名前付きの環境は番号の後ろに名前が入るので、区切りの句点は名前の後ろへ回す */
-.theorem > p:first-child:has(> .thmname:first-child)::before {
-  content: var(
-    --vs-theme-side-border-heading-math--theorem-marker-content-named
-  );
+.theorem > p:first-child:has(> .thmname:first-child) {
+  --vs-theorem--marker-suffix: '';
 }
 
 .thmname::after {
@@ -383,7 +326,7 @@ body > h2 {
 .thmname,
 .hypotheses strong:first-child {
   color: var(--vs-theme-side-border-heading-math--accent-color);
-  font-family: var(--vs--heading-font-family);
+  font-family: var(--vs-font-family-alt);
   font-style: normal;
   font-variant: small-caps;
   font-weight: 600;
@@ -403,7 +346,7 @@ body > h2 {
 
 /* 番号を持たない仮定の並び */
 .hypotheses {
-  margin-block: 1.05rem;
+  margin-block: 0.5rlh;
 }
 
 .hypotheses p {
@@ -412,7 +355,7 @@ body > h2 {
 
 /* ---- 証明 ---- */
 .proof {
-  margin-block: 1.05rem;
+  margin-block: 0.5rlh;
 }
 
 .proof > p {
@@ -425,14 +368,14 @@ body > h2 {
 }
 
 .proof > p:first-child::before {
-  content: var(--vs-theme-side-border-heading-math--proof-marker-content);
+  content: var(--vs-theme-side-border-heading-math--proof-label) '.';
   font-style: italic;
   margin-inline-end: 0.4em;
 }
 
 /* 対象を明示する証明は「Proof of 〜.」。区切りの句点は対象の後ろへ回す */
 .proof > p:first-child:has(> .proofof:first-child)::before {
-  content: var(--vs-theme-side-border-heading-math--proof-marker-content-of);
+  content: var(--vs-theme-side-border-heading-math--proof-label) ' of ';
   margin-inline-end: 0;
 }
 
@@ -450,15 +393,18 @@ body > h2 {
 }
 
 .proof.qed > p:last-child::after {
-  content: var(--vs-theme-side-border-heading-math--proof-qed-content);
+  content: '\2003\25A1';
 }
 
+/* 定理の参照は番号だけを出し、種別名は本文側に書く */
 a[data-ref='thm']::before {
-  content: var(--vs-theme-side-border-heading-math--theorem-call-content);
+  content: var(--vs-crossref-call-counter-prefix)
+    target-counter(attr(href), vs-counter-thm);
 }
 
+/* 引用番号だけを出す参照 (「[1, ch. 4]」のように所在を添える書き方のため) */
 a[data-ref='citenum']::before {
-  content: var(--vs-theme-side-border-heading-math--cite-number-call-content);
+  content: target-counter(attr(href), vs-counter-cite);
 }
 
 /* 印刷面では参照も地の文と同じ色で組む。base の a の既定を打ち消す。
@@ -494,8 +440,9 @@ a:is(
   text-align: start;
 }
 
+/* サイドノートの符号は文書を通した小文字アルファベット */
 .sidenote > p:first-child::before {
-  content: var(--vs-theme-side-border-heading-math--sidenote-marker-content);
+  content: '(' counter(vs-counter-sidenote, lower-alpha) ')';
   color: var(--vs-color-foreground);
   font-style: italic;
   margin-inline-end: 0.3em;
@@ -506,16 +453,7 @@ a:is(
   text-indent: var(--vs--p-text-indent);
 }
 
-/* ---- 参考文献: 番号をぶら下げた小さな組み ---- */
-:root {
-  --vs-citation--items-font-size: 0.86em;
-  --vs-citation--items-hyphens: auto;
-  --vs-citation--items-line-height: 1.35;
-  --vs-citation--items-padding-inline-start: 6.5mm;
-  --vs-citation--item-margin-block: 0 0.28rem;
-  --vs-citation--item-text-align: start;
-}
-
+/* ---- 参考文献 ---- */
 ol.cite-items > li > p {
   margin-block: 0;
   text-indent: 0;

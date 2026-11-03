@@ -1,6 +1,6 @@
 # @vivliostyle/theme-hanging-heading-dropcap-marginalia
 
-四六判 (127×188mm) の単行本風コンサルティングガイド向けテーマ。ハンギング見出しと3行取りドロップキャップ、ブラウン罫付きの傍注を配した非対称2カラムのレイアウトで、落ち着いたクリーム紙の親書調に仕上げる。
+単行本風レポート向けテーマ。ハンギング見出しと3行取りドロップキャップ、罫付きの傍注を配した非対称2カラムのレイアウトで、落ち着いた親書調に仕上げる。
 
 ## 使い方
 
@@ -35,10 +35,10 @@ export default {
 | `--vs-theme-hanging-heading-dropcap-marginalia--color-accent`             | `--vs-color-foreground` × `--vs-color-background` 20% | 見出し・ドロップキャップ・傍注罫のアクセント色 |
 | `--vs-color-foreground-alt`              | `--vs-color-foreground` × `--vs-color-background` 45% | 傍注の文字色・柱の色                           |
 | `--vs-page--border-color-top`               | `--vs-color-foreground` × `--vs-color-background` 65% | 柱の下の罫の色                                 |
-| `--vs-theme-hanging-heading-dropcap-marginalia--sidenote-size-inline`     | `24mm`                 | 傍注帯の幅                                     |
-| `--vs-theme-hanging-heading-dropcap-marginalia--sidenote-gap`             | `4mm`                  | 傍注帯と本文の間隔                             |
-| `--vs-theme-hanging-heading-dropcap-marginalia--heading-hang-size-inline` | `10mm`                 | ハンギング見出しの突き出し量                   |
+| `--vs-sidenote--size-inline` | `24mm` | 傍注帯の幅 |
+| `--vs-theme-hanging-heading-dropcap-marginalia--sidenote-gutter` | `calc(var(--vs-sidenote--size-inline) + 4mm)` | 傍注帯の幅と本文との間隔の和 (本文を内側へ寄せる量) |
 | `--vs--figure-item-size-inline`        | `80%`                  | フロー図の幅                                   |
+| `--vs-crossref-marker-counter-prefix` | `counter(vs-counter-chapter) '-'` | 図表番号の前に付く章番号 (「図2-1」) |
 
 ## 見開きで組む
 

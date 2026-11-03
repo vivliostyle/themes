@@ -1,0 +1,70 @@
+{
+  "name": "@vivliostyle/theme-reversed-header-ledger",
+  "version": "0.0.0",
+  "description": "Single-column theme for account statements, with ledgers under reversed headers and tabular figures aligned by digit",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-reversed-header-ledger"
+  },
+  "files": [
+    "*.css",
+    "templates",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Reversed Header Ledger",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "misc",
+      "topics": [
+        "business",
+        "transaction",
+        "dense",
+        "gothic",
+        "single-column",
+        "a5"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "単段の取引明細書テーマ。ベタ白抜きヘッダーの台帳とタブラー数字で桁を揃える"
+        }
+      }
+    },
+    "template": {
+      "default": {
+        "name": "Reversed Header Ledger sample",
+        "source": "./templates/default"
+      }
+    }
+  }
+}

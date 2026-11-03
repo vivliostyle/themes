@@ -1,8 +1,8 @@
 /*
- * 古語辞典 縦組み高密度版 (vertical-three-column-thumb-index)
- * A5判・縦組み・上中下3段の古語辞典紙面。紙面を水平罫で3つの帯に分割し、
+ * 辞典 縦組み高密度版 (vertical-three-column-thumb-index)
+ * A5判・縦組み・上中下3段の辞典紙面。紙面を水平罫で3つの帯に分割し、
  * 各帯の中で 7pt 明朝の縦書き行が右から左へ流れる。太字ゴシックの見出し語
- * +【漢字表記】+〔品詞〕→ 語義①②③ → 古典用例。
+ * +【漢字表記】+〔品詞〕→ 語義①②③ → 用例。
  * 天の柱にはそのページの見出し語の範囲、小口に黒ベタのツメ見出し、
  * 地の小口側にノンブルを置く。墨1色 (#1a1a1a)、辞典用紙の地色 (#f7f5ef)。
  *
@@ -17,11 +17,11 @@
 
 /* 凡例など前付のページは見出し語をもたないので、柱にはその節の題を出す */
 @page preface {
-  --vs-page--mbox-top-right-content: string(vs-kogo-section);
+  --vs-page--mbox-top-right-content: string(vs-theme-section);
 }
 
 /* 語義番号。fixed の範囲を超えたら decimal に落ちる */
-@counter-style vs-kogo-sense {
+@counter-style vs-theme-sense {
   system: fixed;
   symbols: '①' '②' '③' '④' '⑤' '⑥' '⑦' '⑧' '⑨' '⑩';
   suffix: '';
@@ -45,49 +45,41 @@
   --vs-border-width: 0.4pt;
 
   --vs--p-margin-block: 0;
-  --vs--p-text-indent: 0;
   --vs--p-text-align: start;
 
   /* 前付の節題 (凡例の各項) は算用数字ではなく漢数字で数える */
-  --vs--h1-string-set: vs-kogo-section content();
+  --vs--h1-string-set: vs-theme-section content();
   --vs--h1-font-family: var(--vs-font-family-alt);
-  --vs--h1-font-size: 9pt;
-  --vs--h1-margin-block: 0 1.4mm;
-  --vs--h1-text-align: start;
+  --vs--h1-font-size: 1.3em;
+  --vs--h1-margin-block: 0 0.5rlh;
 
   /* 見出し語行: 太字ゴシックのかな見出し +【漢字表記】+〔品詞〕 */
   --vs--h2-font-family: var(--vs-font-family-alt);
-  --vs--h2-font-size: 7pt;
-  --vs--h2-font-weight: 700;
-  --vs--h2-letter-spacing: 0;
-  --vs--h2-line-height: 1.2;
+  --vs--h2-font-size: 1em;
   --vs--h2-margin-block: 0;
   --vs--h2-margin-inline: 0;
-  --vs--h2-text-align: start;
-
-  --vs--rt-font-size: 3.5pt;
 
   --vs-page--size: A5;
   --vs-page--margin-top: 12mm;
   --vs-page--margin-bottom: 10mm;
   --vs-page--margin-left: 10mm;
   --vs-page--margin-right: 10mm;
-  --vs-page--mbox-bottom-padding-bottom: 1mm;
+  --vs-page--mbox-bottom-padding-bottom: 0.25rlh;
   --vs-page--mbox-bottom-vertical-align: top;
-  --vs-page--mbox-top-padding-bottom: 1.2mm;
+  --vs-page--mbox-top-padding-bottom: 0.5rlh;
   --vs-page--mbox-top-vertical-align: bottom;
   --vs-page--mbox-right-top-padding-bottom: 139mm;
 
   /* 柱はそのページの最初と最後の見出し語、ツメ見出しは running element */
   --vs-page--mbox-font-family: 'Noto Serif JP', serif;
-  --vs-page--mbox-top-font-size: 7.5pt;
+  --vs-page--mbox-top-font-size: 1.05em;
   --vs-page--mbox-top-font-weight: 500;
   --vs-page--mbox-top-letter-spacing: 0.06em;
-  --vs-page--mbox-bottom-font-size: 9.5pt;
-  --vs-page--mbox-top-right-content: string(vs-kogo-headword, first) ' ― '
-    string(vs-kogo-headword, last);
+  --vs-page--mbox-bottom-font-size: 1.35em;
+  --vs-page--mbox-top-right-content: string(vs-theme-headword, first) ' ― '
+    string(vs-theme-headword, last);
   --vs-page--mbox-bottom-right-content: counter(page);
-  --vs-page--mbox-right-top-content: element(vs-kogo-thumb);
+  --vs-page--mbox-right-top-content: element(vs-theme-thumb);
 
   counter-reset: vs-counter-sense;
 }
@@ -105,28 +97,28 @@ body {
   border-inline-start-style: solid;
   border-inline-start-width: var(--vs-border-width);
   border-inline-start-color: var(--vs-color-border);
-  padding-inline-start: 2.4mm;
+  padding-inline-start: 1em;
 }
 
 /* ---- 辞書項目 (section.level2 = 1項目) ---- */
 
 /* 項目間はわずかな行間で区切る (帯内は右から左へ密に詰める) */
 section + section {
-  margin-block-start: 0.9mm;
+  margin-block-start: 0.25rlh;
 }
 
 h2 strong {
   font-family: var(--vs-font-family-alt);
   font-weight: 700;
-  font-size: 8pt;
+  font-size: 1.15em;
   letter-spacing: 0.02em;
-  string-set: vs-kogo-headword content();
+  string-set: vs-theme-headword content();
 }
 
 h2 .meta {
   font-family: var(--vs-font-family);
   font-weight: 500;
-  font-size: 6pt;
+  font-size: 0.85em;
 }
 
 /* 語義の区分。番号は原稿に書かず空の .sense から起こす */
@@ -139,23 +131,23 @@ section > h2:first-child {
 }
 
 .sense::before {
-  content: counter(vs-counter-sense, vs-kogo-sense);
+  content: counter(vs-counter-sense, vs-theme-sense);
 }
 
-/* 出典名『万葉集』等 */
+/* 用例の出典名 */
 cite {
   font-style: normal;
-  font-size: 6.5pt;
+  font-size: 0.95em;
 }
 
 .tcy {
   text-combine-upright: all;
-  font-size: 6.5pt;
+  font-size: 0.95em;
 }
 
 /* 小口のツメ見出し。running element にして、部の続くかぎり全ページに立てる */
 nav.bleed {
-  position: running(vs-kogo-thumb);
+  position: running(vs-theme-thumb);
   margin-inline-start: auto;
   width: 6.5mm;
   height: 15mm;
@@ -166,5 +158,5 @@ nav.bleed {
   justify-content: center;
   font-family: var(--vs-font-family-alt);
   font-weight: 700;
-  font-size: 9.5pt;
+  font-size: 1.35rem;
 }

@@ -1,6 +1,6 @@
 # @vivliostyle/theme-wide-margin-ruleless-list
 
-A5判・1段組のスペシャルティコーヒー店メニュー向けテーマ。広い余白と罫線のない価格表で、ホワイトスペースを活かした洗練された世界観を表現する。
+1段組のメニュー向けテーマ。広い余白と罫線のない価格表で、ホワイトスペースを活かした洗練された世界観を表現する。
 
 ## 使い方
 
@@ -30,7 +30,7 @@ export default {
 | `--vs-color-background` | `#faf9f6` | 紙面の地色 |
 | `--vs-color-foreground-alt` | `#d4a574` | アクセント色 |
 | `--vs-font-family-alt`     | `'Inter', ...`     | 見出し・バイラインの表示書体 |
+| `--vs--heading-font-family`     | `--vs-font-family-alt` と同じ | 見出しの書体 |
 | `--vs-font-family`             | `'Noto Sans', ...` | 本文書体                     |
 | `--vs--h2-border-color-block-end`     | `--vs-color-foreground-alt` と同じ | 見出し下罫のアクセント色     |
 | `--vs--table-border-color-block-end` | `--vs-color-foreground-alt` × `--vs-color-background` 60% | セクション区切りの極細罫の色 |
-| `--vs-theme-wide-margin-ruleless-list--color-foreground-secondary`      | `--vs-color-foreground` × `--vs-color-background` 50% | フッター注記の文字色         |

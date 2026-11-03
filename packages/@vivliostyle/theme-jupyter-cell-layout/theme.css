@@ -1,6 +1,6 @@
 /*
- * 機械学習ノートブック コード埋め込み説明型 (jupyter-cell-layout)
- * B5縦・横組み・1段。Jupyter Notebook のセル構造を模した ML 実験章。
+ * ノートブック コード埋め込み説明型 (jupyter-cell-layout)
+ * B5縦・横組み・1段。Jupyter Notebook のセル構造を模した章。
  * 白地 + Jupyter 橙 (#f37726)。コード fence の figure/figcaption を
  * 「実行番号ラベル + セル本体」に、段落・表・図・リストをそのままセルとして扱う。
  * 1 章 = 1 ファイル (frontmatter に class: chapter) とし、章番号は base の
@@ -26,44 +26,14 @@
     var(--vs-color-background) 40%
   );
   --vs-theme-jupyter-cell-layout--chapter-counter-style: decimal-leading-zero;
-  --vs-theme-jupyter-cell-layout--section-title-call-content: var(
-      --vs-section--call-content
-    )
-    ' ' target-text(attr(href));
-
-  /* 章表題の見出しは章番号だけを付ける */
-  --vs-theme-jupyter-cell-layout--chapter-marker-content: counter(
-    vs-counter-chapter,
-    var(--vs-theme-jupyter-cell-layout--chapter-counter-style)
-  );
-
-  /* 実行番号ラベル「In [3]:」の [3]: の部分 */
-  --vs-theme-jupyter-cell-layout--cell-number-content: ' ['
-    counter(vs-counter-cell) ']:';
 
   /* ---- テーマ固有 ---- */
   --vs-theme-jupyter-cell-layout--color-accent: var(--vs-color-foreground-alt);
-  --vs-theme-jupyter-cell-layout--color-code-bg: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 95%
-  );
-  --vs-theme-jupyter-cell-layout--color-code-rule: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 90%
-  );
   --vs-theme-jupyter-cell-layout--color-output-bg: color-mix(
     in oklab,
     var(--vs-color-foreground-alt),
     var(--vs-color-background) 95%
   );
-  --vs-theme-jupyter-cell-layout--color-output-rule: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 90%
-  );
-  --vs-theme-jupyter-cell-layout--color-note-bg: var(--vs-color-background);
   --vs-theme-jupyter-cell-layout--color-token-keyword: #2a63b8;
   --vs-theme-jupyter-cell-layout--color-token-string: color-mix(
     in oklab,
@@ -93,26 +63,52 @@
     var(--vs-color-background) 80%
   );
   --vs-border-width: 0.4pt;
+  /* 図・表・節の番号は「章番号.通し番号」 */
+  --vs-crossref-call-counter-prefix: target-counter(
+      attr(href),
+      vs-counter-chapter,
+      var(--vs-theme-jupyter-cell-layout--chapter-counter-style)
+    )
+    '.';
+  --vs-crossref-marker-counter-prefix: counter(
+      vs-counter-chapter,
+      var(--vs-theme-jupyter-cell-layout--chapter-counter-style)
+    )
+    '.';
 
   /* ---- theme-base 要素変数 ---- */
   --vs--monospace-font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  --vs--heading-font-family: 'Source Sans 3', 'Helvetica Neue', sans-serif;
 
-  --vs--h2-font-size: 15pt;
-  --vs--h2-font-weight: 700;
+  --vs--h2-font-size: 1.75em;
   --vs--h2-line-height: 1.1;
   --vs--h2-letter-spacing: -0.01em;
-  --vs--h2-margin-block: 0 3mm;
-  --vs--h2-break-after: avoid;
+  --vs--h2-margin-block: 0 0.75rlh;
 
   --vs--p-margin-block: 0;
-  --vs--p-text-indent: 0;
   --vs--p-text-align: start;
 
+  /* コードセルの本体 */
+  --vs--pre-background-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 95%
+  );
+  --vs--pre-border-width: var(--vs-border-width);
+  --vs--pre-border-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 90%
+  );
+  --vs--pre-border-radius: var(
+    --vs-theme-jupyter-cell-layout--cell-border-radius
+  );
   --vs--pre-margin-block: 0;
   --vs--pre-overflow-x: visible;
+  --vs--pre-padding-block: 0.6em;
+  --vs--pre-padding-inline: 3.6mm;
 
   --vs--figure-align-items: flex-start;
+  --vs--figure-gap: 0.25rlh;
   --vs--figure-margin-block: 0;
   --vs--figure-margin-inline: 0;
 
@@ -123,6 +119,7 @@
 
   --vs--table-margin-block: 0;
   --vs--table-margin-inline: 0;
+  --vs--table-border-width: 0;
 
   /* ---- Page ---- */
   --vs-page--size: 182mm 257mm;
@@ -140,52 +137,39 @@
     ' · ' string(chapter-title);
   --vs-page--mbox-top-left-text-transform: uppercase;
   --vs-page--mbox-top-font-family: 'Source Sans 3', sans-serif;
-  --vs-page--mbox-top-font-size: 6.8pt;
+  --vs-page--mbox-top-font-size: 0.8em;
   --vs-page--mbox-top-font-weight: 600;
   --vs-page--mbox-top-letter-spacing: 0.14em;
-  --vs-page--mbox-top-padding-bottom: 1.6mm;
-  --vs-page--mbox-top-text-color: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 40%
+  --vs-page--mbox-top-padding-bottom: 0.25rlh;
+  --vs-page--mbox-top-text-color: var(
+    --vs-theme-jupyter-cell-layout--color-foreground-secondary
   );
   --vs-page--mbox-top-vertical-align: bottom;
   /* ノンブルは小口下 (右ページは右下、左ページは左下) */
   --vs-page--mbox-bottom-outside-content: counter(page);
   --vs-page--mbox-bottom-font-family: 'IBM Plex Mono', monospace;
-  --vs-page--mbox-bottom-font-size: 8pt;
-  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
+  --vs-page--mbox-bottom-font-size: 0.95em;
 
   /* 章番号は 2 桁ゼロ詰め。節番号は「04.3」 */
-  --vs-section--h2-marker-content: counter(
-      vs-counter-chapter,
-      var(--vs-theme-jupyter-cell-layout--chapter-counter-style)
-    )
-    '.' counter(vs-counter-sec-h2);
+  --vs-section--h2-marker-content: var(--vs-crossref-marker-counter-prefix)
+    counter(vs-counter-sec-h2);
   --vs-section--h2-marker-display: inline;
   --vs-section--h2-marker-margin-inline-end: 0;
-  --vs-section--call-content: target-counter(
-      attr(href),
-      vs-counter-chapter,
-      var(--vs-theme-jupyter-cell-layout--chapter-counter-style)
-    )
-    '.' target-counter(attr(href), vs-counter-sec-h2);
+  /* 節参照は番号だけを出す */
+  --vs-section--label: '';
+  --vs-section--call-counter-content: var(--vs-crossref-call-counter-prefix)
+    target-counter(attr(href), vs-counter-sec-h2);
 
   /* 図番号は「Fig. 04.2 — 」。コードのキャプションには番号を付けない */
   --vs-listing--marker-display: none;
-  --vs-figure--marker-content: 'Fig. '
+  --vs-figure--label: 'Fig. ';
+  --vs-figure--marker-content: var(--vs-figure--label)
+    var(--vs-crossref-marker-counter-prefix, '')
     counter(
-      vs-counter-chapter,
-      var(--vs-theme-jupyter-cell-layout--chapter-counter-style)
+      vs-counter-fig,
+      var(--vs-figure--counter-style, var(--vs-counter-style))
     )
-    '.' counter(vs-counter-fig) ' — ';
-  --vs-figure--call-content: 'Fig. '
-    target-counter(
-      attr(href),
-      vs-counter-chapter,
-      var(--vs-theme-jupyter-cell-layout--chapter-counter-style)
-    )
-    '.' target-counter(attr(href), vs-counter-fig);
+    ' — ';
 }
 
 /* ---- セルの積み ---- */
@@ -198,7 +182,7 @@ body > section.level2 > * {
 }
 
 body > section.level2 > * + * {
-  margin-block-start: 1.4mm;
+  margin-block-start: 0.25rlh;
 }
 
 /* 入力セルと出力セルはノートブックでは一組なので、間で改ページさせない */
@@ -211,7 +195,7 @@ h2 {
   display: flex;
   align-items: baseline;
   gap: 7mm;
-  padding-top: 4mm;
+  padding-top: 0.75em;
   border-top-width: 0.7pt;
   border-top-style: solid;
   border-top-color: var(--vs-theme-jupyter-cell-layout--color-accent);
@@ -231,12 +215,15 @@ section:has(> h2.chapter-title:first-child) {
 }
 
 section > h2.chapter-title:first-child::before {
-  content: var(--vs-theme-jupyter-cell-layout--chapter-marker-content);
+  content: counter(
+    vs-counter-chapter,
+    var(--vs-theme-jupyter-cell-layout--chapter-counter-style)
+  );
 }
 
 /* ---- 相互参照 ---- */
 a[data-ref='sec-title']::before {
-  content: var(--vs-theme-jupyter-cell-layout--section-title-call-content);
+  content: var(--vs-section--call-counter-content) ' ' target-text(attr(href));
 }
 
 a:is([data-ref='sec'], [data-ref='sec-title'], [data-ref='fig']) {
@@ -246,13 +233,13 @@ a:is([data-ref='sec'], [data-ref='sec-title'], [data-ref='fig']) {
 
 /* ---- 説明セル (通常段落) ---- */
 section.level2 > p {
-  padding: 2mm 3.6mm;
+  padding: 0.7em 3.6mm;
   border-width: var(--vs-border-width);
   border-style: solid;
   border-color: var(--vs-color-border);
   border-radius: var(--vs-theme-jupyter-cell-layout--cell-border-radius);
   background-color: var(--vs-color-background-alt);
-  font-size: 7.9pt;
+  font-size: 0.95em;
   line-height: 1.45;
 }
 section.level2 > p sub {
@@ -275,43 +262,37 @@ figure[class*='language-']:not(.language-text) {
   counter-increment: vs-counter-cell;
 }
 
+/* 実行番号ラベル「In [3]:」の [3]: の部分 */
 figure[class*='language-'] > figcaption::after {
-  content: var(--vs-theme-jupyter-cell-layout--cell-number-content);
+  content: ' [' counter(vs-counter-cell) ']:';
 }
 figure[class*='language-'] > figcaption {
   flex: 0 0 14mm;
   border-left-width: var(--vs-theme-jupyter-cell-layout--cell-gutter-width);
   border-left-style: solid;
   border-left-color: var(--vs-theme-jupyter-cell-layout--color-accent);
-  padding: 0.4mm 1.6mm 0 1.6mm;
+  padding: 1em 1.6mm 0 1.6mm;
   font-family: var(--vs--monospace-font-family);
-  font-size: 6.6pt;
+  font-size: 0.8em;
   font-weight: 500;
   color: var(--vs-theme-jupyter-cell-layout--color-accent);
   letter-spacing: -0.02em;
   white-space: nowrap;
   text-align: start;
 }
-/* padding-inline は theme の `figure > :not(picture, figcaption)` (--vs--figure-item-padding-inline)
-   に負けるため、--vs--pre-padding-inline ではなくこのセレクタで指定する */
 figure[class*='language-'] > pre {
   flex: 1 1 0;
   min-width: 0;
-  padding: 1.8mm 3.6mm;
-  border-width: var(--vs-border-width);
-  border-style: solid;
-  border-color: var(--vs-theme-jupyter-cell-layout--color-code-rule);
-  border-radius: var(--vs-theme-jupyter-cell-layout--cell-border-radius);
-  background-color: var(--vs-theme-jupyter-cell-layout--color-code-bg);
 }
 figure[class*='language-'] > pre code {
-  font-size: 5.7pt;
+  font-size: 0.65rem;
   line-height: 1.18;
   background: none;
 }
 figure.language-text > pre {
-  background-color: var(--vs-theme-jupyter-cell-layout--color-output-bg);
-  border-color: var(--vs-theme-jupyter-cell-layout--color-output-rule);
+  --vs--pre-background-color: var(
+    --vs-theme-jupyter-cell-layout--color-output-bg
+  );
 }
 
 /* Prism トークン (theme-base の prism partial は使わず最小限だけ着色) */
@@ -339,12 +320,12 @@ figure.language-text > pre {
   border-color: var(--vs-color-border);
   border-radius: var(--vs-theme-jupyter-cell-layout--cell-border-radius);
   background-color: var(--vs-color-background-alt);
-  padding: 2.4mm 3mm;
+  padding: 0.8em 3mm;
 }
 /* VFM のディスプレイ数式 (MathML) は手組みの .math と同じ大きさでセル中央に置く */
 .math-cell > math[display='block'] {
   margin-block: 1em;
-  font-size: 10pt;
+  font-size: 1.2em;
 }
 .math {
   display: flex;
@@ -352,7 +333,6 @@ figure.language-text > pre {
   align-items: center;
   gap: 4.5mm;
   font-family: var(--vs-font-family-alt);
-  font-size: 8.6pt;
 }
 .math var,
 .math .expr {
@@ -412,7 +392,7 @@ figure.language-text > pre {
   font-family: var(--vs-font-family-alt);
 }
 
-/* ---- METRICS 表 ---- */
+/* ---- 表 ---- */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -423,7 +403,7 @@ table {
   background-color: var(--vs-color-background-alt);
 }
 thead th {
-  font-size: 6.2pt;
+  font-size: 0.75em;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -431,15 +411,15 @@ thead th {
   border-bottom-width: 0.7pt;
   border-bottom-style: solid;
   border-bottom-color: var(--vs-color-foreground);
-  padding: 1.2mm 2mm 0.8mm;
+  padding: 0.55em 2mm 0.35em;
 }
 thead th:first-child {
   text-align: start;
 }
 tbody td {
-  font-size: 7pt;
+  font-size: 0.8em;
   text-align: center;
-  padding: 0.7mm 2mm;
+  padding: 0.3em 2mm;
   border-left-width: var(--vs-border-width);
   border-left-style: dotted;
   border-left-color: var(--vs-color-border);
@@ -447,21 +427,21 @@ tbody td {
 tbody td:first-child {
   text-align: start;
   font-family: var(--vs--monospace-font-family);
-  font-size: 6.6pt;
+  font-size: 0.75em;
   border-left: none;
 }
 tbody tr:last-child td {
-  padding-bottom: 1.6mm;
+  padding-bottom: 0.65em;
 }
 tbody strong {
   color: var(--vs-theme-jupyter-cell-layout--color-accent);
 }
 
 /* ---- チャート (Markdown 画像 → figure > img + figcaption) ----
-   SVG 内部のスタイルは fig-drift.svg 側に持たせている (外部 SVG は
+   SVG 内部のスタイルは SVG ファイル側に持たせる (外部 SVG は
    <img> で読み込まれるため親文書の CSS が効かない)。 */
 figure:not([class]) {
-  padding: 2mm 3.6mm 1.4mm;
+  padding: 0.65em 3.6mm 0.45em;
   border-width: var(--vs-border-width);
   border-style: solid;
   border-color: var(--vs-color-border);
@@ -473,8 +453,7 @@ figure:not([class]) img {
   display: block;
 }
 figure:not([class]) figcaption {
-  margin-top: 1mm;
-  font-size: 6.2pt;
+  font-size: 0.75em;
   line-height: 1.35;
   color: var(--vs-theme-jupyter-cell-layout--color-foreground-secondary);
   text-align: start;
@@ -484,7 +463,7 @@ figure:not([class]) figcaption {
 .concl {
   display: flex;
   gap: 5mm;
-  padding: 2.8mm 3.6mm;
+  padding: 0.95em 3.6mm;
   border-width: var(--vs-border-width);
   border-style: solid;
   border-color: var(--vs-color-border);
@@ -501,16 +480,16 @@ figure:not([class]) figcaption {
   border-right-color: var(--vs-color-border);
 }
 .concl li {
-  font-size: 7.2pt;
+  font-size: 0.85em;
   line-height: 1.35;
-  margin-bottom: 1.2mm;
+  margin-bottom: 0.25rlh;
 }
 .concl li::marker {
   color: var(--vs-theme-jupyter-cell-layout--color-accent);
 }
 .concl blockquote {
   flex: 0 0 42%;
-  padding: 2.4mm 3mm;
+  padding: 0.8em 3mm;
   border-width: var(--vs-border-width);
   border-style: solid;
   border-color: var(--vs-color-border);
@@ -518,16 +497,12 @@ figure:not([class]) figcaption {
   border-left-color: var(--vs-theme-jupyter-cell-layout--color-accent);
   border-radius: 0.6mm;
   align-self: flex-start;
-  background-color: var(--vs-theme-jupyter-cell-layout--color-note-bg);
+  background-color: var(--vs-color-background);
 }
 .concl blockquote p {
-  font-size: 7pt;
+  font-size: 0.8em;
   line-height: 1.45;
 }
 .concl blockquote code {
-  font-size: 6.4pt;
-}
-
-:root {
-  --vs--table-border-width: 0;
+  font-size: 0.75rem;
 }

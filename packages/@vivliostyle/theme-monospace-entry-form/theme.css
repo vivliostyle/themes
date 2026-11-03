@@ -1,0 +1,200 @@
+/*
+ * 記録帳 (monospace-entry-form)
+ * スリム手帳判(105×173mm)の記録フォーム。等幅組みで緑1色(アクセント
+ * #27ae60 + 濃緑の記入インク)に統一し、記入下線・淡緑ヘッダーの記録表・
+ * 記入欄・グレー罫の NOTES を1ページに収める。
+ * 1 記録 = h1 で始まる section.level1 = 1 ページで、通し番号は h1 の
+ * セクションカウンタから振る。用紙の中の欄と NOTES は section.level2、
+ * 記録表は Markdown の table。
+ */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+
+/* 記録番号は 3 桁ゼロ詰め */
+@counter-style vs-theme--sheet-number {
+  system: extends decimal;
+  pad: 3 '0';
+}
+
+:root {
+  --vs-theme-monospace-entry-form--color-accent: var(--vs-color-foreground-alt);
+
+  --vs-font-family: 'JetBrains Mono', 'Noto Sans JP', ui-monospace, monospace;
+  --vs-font-size: 8pt;
+  --vs-line-height: 1.5;
+  --vs-color-foreground: #1c7a46;
+  --vs-color-foreground-alt: #27ae60;
+  --vs-color-background: #fbfbf8;
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 70%
+  );
+
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 0;
+  --vs--p-text-align: start;
+
+  /* ヘッダ: 用紙名 + No. */
+  --vs--h1-font-size: 1.5em;
+  --vs--h1-line-height: 1.2;
+  --vs--h1-letter-spacing: 0.14em;
+  --vs--h1-margin-block: 0 0.75rlh;
+  --vs--h1-text-color: var(--vs-theme-monospace-entry-form--color-accent);
+  --vs--h1-border-width-block-end: 1.6pt;
+  --vs--h1-border-style-block-end: solid;
+  --vs--h1-border-color-block-end: var(
+    --vs-theme-monospace-entry-form--color-accent
+  );
+  --vs--h1-padding-block: 0 0.35em;
+
+  /* 用紙の中の欄の見出し */
+  --vs--h2-font-size: 1.05em;
+  --vs--h2-letter-spacing: 0.08em;
+  --vs--h2-margin-block: 0 0.25rlh;
+  --vs--h2-text-color: var(--vs-theme-monospace-entry-form--color-accent);
+
+  /* 記入欄 (dl) と NOTES 罫 (ul) は装飾を自前で持つのでリストの既定を落とす */
+  --vs--lists-margin-block: 0;
+  --vs--dd-margin-inline-start: 0;
+  --vs--ul-padding-inline-start: 0px;
+
+  /* 記録表: 外枠 0.9pt / セル罫 0.4pt の緑罫。
+     欄幅は原稿の記入内容に合わせて自動で決める */
+  --vs--table-table-layout: auto;
+  --vs--table-size-inline: 100%;
+  --vs--table-border-width: 0;
+  --vs--table-border-color: var(--vs-color-foreground-alt);
+  --vs--table-border-width-outer: 0.9pt;
+  --vs--table-border-width-cell: 0.4pt;
+  --vs--table-margin-block: 0.25rlh 0.75rlh;
+  --vs--table-margin-inline: 0;
+  --vs--table-cell-padding-block: 0.25em;
+  --vs--table-cell-padding-inline: 0.7em;
+  --vs--th-font-weight: 500;
+  --vs--th-background-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 95%
+  );
+  --vs--th-text-color: var(--vs-theme-monospace-entry-form--color-accent);
+
+  --vs-page--size: 105mm 173mm;
+  --vs-page--margin-top: 8mm;
+  --vs-page--margin-bottom: 8mm;
+  --vs-page--margin-left: 8mm;
+  --vs-page--margin-right: 8mm;
+
+  /* ノンブル */
+  --vs-page--mbox-bottom-center-content: counter(page);
+
+  /* 記録用紙は 1 枚 = 1 ページ */
+  --vs-section--h1-break-before: page;
+}
+
+/* ---- ヘッダ: 用紙名を左、記録番号を右に振り分ける ---- */
+h1 {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+section > h1:first-child:not(:has(.no))::after {
+  content: 'No. ' counter(vs-counter-sec-h1, vs-theme--sheet-number);
+}
+
+h1 .no,
+section > h1:first-child::after {
+  font-size: 0.75em;
+  line-height: 1.5;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+/* 原稿が見出しに番号を書き入れた用紙 (総括・記入例など) は
+   記録の通し番号を消費しない */
+section:has(> h1:first-child:has(.no)) {
+  counter-increment: none;
+}
+
+/* 他の用紙の番号を引く参照 */
+a[data-ref='sheet'] {
+  color: inherit;
+  text-decoration: none;
+}
+
+a[data-ref='sheet']::before {
+  content: target-counter(
+    attr(href),
+    vs-counter-sec-h1,
+    vs-theme--sheet-number
+  );
+}
+
+/* ---- 記入欄: ラベル + 下線 (flex 1行) ---- */
+.field {
+  margin-block-end: 0.25rlh;
+}
+/* 記入値が 1 行に収まらないときは折り返して伸ばす。stretch にしておくと
+   同じ行の記入罫が伸びたほうの下端で揃う */
+.field dl {
+  display: flex;
+  align-items: stretch;
+  margin-block-end: 0.5rlh;
+}
+/* ラベル幅を固定して行をまたいだ記入欄の列位置を揃える */
+.field dt {
+  flex: 0 0 13mm;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--vs-theme-monospace-entry-form--color-accent);
+}
+/* 記入値は本文より一段小さく組み、記入欄の幅を稼ぐ */
+.field dd {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0 0.25em 0.2em;
+  border-bottom-width: 0.4pt;
+  border-bottom-style: solid;
+  border-bottom-color: var(--vs-theme-monospace-entry-form--color-accent);
+  font-size: 0.85em;
+}
+/* 1 行に 2 組並べるときの 2 つめのラベル */
+.field dd + dt {
+  flex-basis: 17mm;
+  padding-left: 2.5mm;
+}
+
+/* ---- 記録表 (Markdown の table) ---- */
+th,
+td {
+  white-space: nowrap;
+}
+thead th {
+  letter-spacing: 0.05em;
+}
+/* 欄の寄せは原稿の桁揃え指定 (:--- / :-: / ---:) に従う */
+tbody td[align='right'] {
+  padding-inline-end: 3.5mm;
+}
+
+/* ---- NOTES 罫線: 段落・箇条書き・空罫をすべて記入罫として扱う ---- */
+h2.notes {
+  margin-block-start: 0.25rlh;
+}
+h2.notes ~ p,
+h2.notes ~ ul li {
+  padding: 0.1em 0.35em;
+  border-bottom-width: 0.3pt;
+  border-bottom-style: solid;
+  border-bottom-color: var(--vs-color-border);
+}
+/* 罫線を版面幅いっぱいに引くため、マーカーは li の内側に置く */
+h2.notes ~ ul {
+  list-style-position: inside;
+}
+h2.notes ~ ul li::marker {
+  color: var(--vs-theme-monospace-entry-form--color-accent);
+}

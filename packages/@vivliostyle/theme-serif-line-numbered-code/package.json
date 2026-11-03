@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-serif-line-numbered-code",
   "version": "0.0.0",
-  "description": "Single-column A4 theme for programming language journals, with serif text, left-aligned headings, line-numbered code blocks and tables with horizontal rules only",
+  "description": "Single-column theme for academic journals, with serif text, left-aligned headings, line-numbered code blocks and tables with horizontal rules only",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -57,7 +57,7 @@
       ],
       "i18n": {
         "ja": {
-          "description": "A4判1段組のプログラミング言語学術誌テーマ。セリフ本文と左揃え見出し、行番号付きコードブロック、水平罫のみの表で論証を組む"
+          "description": "1段組の学術誌テーマ。セリフ本文と左揃え見出し、行番号付きコードブロック、水平罫のみの表で論証を組む"
         }
       }
     },

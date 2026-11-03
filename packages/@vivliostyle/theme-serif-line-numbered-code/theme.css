@@ -1,5 +1,5 @@
 /**
- * プログラミング言語系の学術誌 (ACM TOPLAS 風) のテーマ。
+ * 学術誌 (ACM TOPLAS 風) のテーマ。
  * A4判1段組。STIX Two Text のセリフ本文に、Source Sans 3 の簡潔な左揃え見出し、
  * IBM Plex Mono の行番号付きコードブロック、水平罫のみの表、脚注を
  * 一続きの論証として配置する。濃紺は節番号・罫線・参照記号・コード左罫に限定する。
@@ -47,7 +47,6 @@
   --vs-font-size: 10pt;
   --vs-line-height: 1.5;
   --vs-color-foreground: #17171b;
-  --vs-columns: 1;
   --vs-widows-orphans: 2;
 
   --vs--figcaption-text-color: var(
@@ -59,16 +58,14 @@
   /* Paragraphs: indented continuation, no inter-paragraph space */
   --vs--p-margin-block: 0;
   --vs--p-text-indent: 1.3em;
-  --vs--p-text-align: justify;
 
   /* Headings: sans-serif, left aligned. h2/h3 は濃紺 */
   --vs--heading-font-family: var(--vs-font-family-alt);
   --vs--heading-font-weight: 600;
-  --vs--heading-text-align: start;
-  --vs--heading-margin-block: 1.4rem 0.5rem;
+  --vs--heading-margin-block: 1rlh 0.25rlh;
   --vs--h1-font-size: 1.7em;
   --vs--h1-line-height: 1.15;
-  --vs--h1-margin-block: 0 0.4rem;
+  --vs--h1-margin-block: 0 0.25rlh;
   --vs--h2-font-size: 1.28em;
   --vs--h2-line-height: 1.2;
   --vs--h2-text-color: var(--vs-theme-serif-line-numbered-code--accent-color);
@@ -88,8 +85,8 @@
   /* Monospace / code block: 低彩度の地に濃紺の左罫 */
   --vs--monospace-font-family: 'IBM Plex Mono', ui-monospace, monospace;
   --vs--monospace-line-height: 1.42;
-  --vs--pre-font-size: 8.4pt;
-  --vs--pre-margin-block: 0.9rem;
+  --vs--pre-font-size: 0.85em;
+  --vs--pre-margin-block: 0.5rlh;
   --vs--pre-padding-block: 0.6rem;
   --vs--pre-padding-inline: 0.9rem;
   --vs--pre-background-color: var(--vs-color-background-alt);
@@ -104,8 +101,8 @@
   --vs--pre-break-inside: avoid;
 
   /* Tables: horizontal rules only, navy top/bottom */
-  --vs--table-font-size: 8.8pt;
-  --vs--table-margin-block: 0 0.9rem;
+  --vs--table-font-size: 0.9em;
+  --vs--table-margin-block: 0 0.5rlh;
   --vs--table-size-inline: 100%;
   --vs--table-border-color: var(
     --vs-theme-serif-line-numbered-code--accent-color
@@ -120,14 +117,15 @@
   --vs--table-cell-padding-block: 0.3rem;
   --vs--table-cell-padding-inline: 0.6rem 1.1rem;
 
-  /* Figures */
+  /* Figures: Vivliostyle は flex コンテナの内側で改ページしないので、長い表を
+     ページ送りできるよう block のまま組み、図とキャプションの間はキャプションの
+     マージンで空ける */
   --vs--figure-display: block;
-  --vs--figure-margin-block: 0.9rem;
-  --vs--figure-break-inside: avoid;
+  --vs--figure-margin-block: 0.5rlh;
   --vs--figure-item-size-inline: 82%;
-  --vs--figcaption-font-size: 8.8pt;
+  --vs--figcaption-font-size: 0.9em;
   --vs--figcaption-text-align: start;
-  --vs--figcaption-margin-block: 0.5rem 0;
+  --vs--figcaption-margin-block: 0.25rlh 0;
   --vs--figcaption-line-height: 1.35;
 
   /* 図表・リスティングの番号は表示書体で組む */
@@ -136,13 +134,13 @@
   /* 参考文献リスト */
   --vs--ol-padding-inline-start: 1.6em;
   --vs--lists-margin-block: 0;
-  --vs--li-font-size: 8.6pt;
+  --vs--li-font-size: 0.85em;
   --vs--li-line-height: 1.4;
   --vs--li-margin-block: 0.15rem;
 
   /* 式参照はラベルなしの '(N)' */
-  --vs-equation--call-content: '(' target-counter(attr(href), vs-counter-eq) ')';
-  --vs-equation--margin-block: 0.7rem;
+  --vs-equation--label: '';
+  --vs-equation--margin-block: 0.5rlh;
   --vs-equation--item-text-align: inherit;
 
   /* Page */
@@ -158,10 +156,10 @@
   --vs-page--mbox-top-left-text-transform: uppercase;
   --vs-page--mbox-top-right-text-transform: uppercase;
   --vs-page--mbox-top-font-family: var(--vs-font-family-alt);
-  --vs-page--mbox-top-font-size: 8pt;
+  --vs-page--mbox-top-font-size: 0.8em;
   --vs-page--mbox-top-font-weight: 500;
   --vs-page--mbox-top-letter-spacing: 0.04em;
-  --vs-page--mbox-top-padding-bottom: 2mm;
+  --vs-page--mbox-top-padding-bottom: 0.5rlh;
   --vs-page--mbox-top-text-color: var(
     --vs-theme-serif-line-numbered-code--color-foreground-secondary
   );
@@ -169,7 +167,7 @@
   /* ノンブルは小口側の地 (右ページは右下、左ページは左下) */
   --vs-page--mbox-bottom-outside-content: counter(page);
   --vs-page--mbox-bottom-font-family: var(--vs-font-family-alt);
-  --vs-page--mbox-bottom-font-size: 8pt;
+  --vs-page--mbox-bottom-font-size: 0.8em;
   --vs-page--mbox-bottom-font-weight: 500;
   --vs-page--mbox-bottom-text-color: var(
     --vs-theme-serif-line-numbered-code--color-foreground-secondary
@@ -178,22 +176,10 @@
   /* 節番号: h2 が「1.」、h3 が「1.1」。論題の h1 には番号を付けない */
   --vs-section--marker-display: inline;
   --vs-section--h1-marker-display: none;
-  --vs-section--h2-marker-content: counters(
-      vs-counter-sections,
-      var(--vs-section--counter-delimiter),
-      var(--vs-section--counter-style)
-    )
-    '.';
-  --vs-section--call-content: 'Section '
-    target-counters(
-      attr(href),
-      vs-counter-sections,
-      var(--vs-section--counter-delimiter),
-      var(--vs-section--counter-style)
-    );
+  --vs-section--h2-marker-content: var(--vs-section--marker-counter-content) '.';
 
   /* Footnotes at page bottom */
-  --vs-footnote--font-size: 8pt;
+  --vs-footnote--font-size: 0.8em;
   --vs-footnote--text-color: var(
     --vs-theme-serif-line-numbered-code--color-foreground-secondary
   );
@@ -213,9 +199,9 @@
 .masthead {
   color: var(--vs-theme-serif-line-numbered-code--color-foreground-secondary);
   font-family: var(--vs-font-family-alt);
-  font-size: 8.5pt;
+  font-size: 0.85em;
   letter-spacing: 0.02em;
-  margin-block: 0 1.2rem;
+  margin-block: 0 0.75rlh;
   text-align: start;
   text-indent: 0;
 }
@@ -227,14 +213,14 @@
 
 .byline {
   font-family: var(--vs-font-family-alt);
-  font-size: 10.5pt;
+  font-size: 1.05em;
   text-align: center;
-  margin-block: 0.6rem 0.2rem;
+  margin-block: 0.5rlh 0.2rem;
 }
 
 .meta {
   font-family: var(--vs-font-family-alt);
-  font-size: 8.5pt;
+  font-size: 0.85em;
   color: var(--vs-theme-serif-line-numbered-code--color-foreground-secondary);
   text-align: center;
   margin-block: 0.2rem;
@@ -263,13 +249,13 @@ li > p:first-child {
   font-size: 1.02em;
   text-align: center;
   color: inherit;
-  margin-block: 1rem 0.3rem;
+  margin-block: 0.75rlh 0.25rlh;
 }
 
 .abstract > p {
-  font-size: 9.4pt;
+  font-size: 0.95em;
   line-height: 1.45;
-  margin-block: 0.8rem;
+  margin-block: 0.5rlh;
   padding-inline: 1.4em;
   text-align: justify;
   text-indent: 0;
@@ -298,7 +284,7 @@ body > h2 {
 
 /* MathML を直書きした原稿のための別行立て */
 :root {
-  --vs-math--display-margin-block: 0.6rem;
+  --vs-math--display-margin-block: 0.5rlh;
   --vs-math--display-text-align: center;
 }
 

@@ -4,7 +4,7 @@
 
 /* 天の柱の左に出す誌名・巻号 */
 :root {
-  --vs-theme-two-column-three-line-table--running-publication: 'Transactions of the Meridian Society for Computational Inference, Vol. 12, No. 3, 2026';
+  --vs-page--mbox-top-left-content: 'Transactions of the Meridian Society for Computational Inference, Vol. 12, No. 3, 2026';
 }
 
 /* MathJax は x ハイトを合わせるため既定で 116.7% を掛ける。theme.css は数式を本文と

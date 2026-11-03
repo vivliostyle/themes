@@ -1,5 +1,5 @@
 /*
- * 自分史・回想録（縦組版） — 四六判 (127×188mm)・縦組み1段。
+ * 自分史・回想録（縦組版）向けテーマ。四六判 (127×188mm)・縦組み1段。
  * Noto Serif JP の明朝を 9pt / 行送り 1.9 で組み、右肩の章題の下に細い横罫を添える。
  * 版面下端にモノクロ写真と縦組みキャプション、章末に細罫で区切った注、
  * 天の柱と小口下の漢数字ノンブルを置く。墨一色・生成り地。
@@ -19,21 +19,12 @@
 @import '@vivliostyle/theme-base/toc';
 
 :root {
-  --vs-theme-vertical-mincho-photo-caption--color-photo-frame: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 80%
-  );
-
-  --vs-theme-vertical-mincho-photo-caption--chapter-toc-content: '第'
-    target-counter(attr(href), vs-counter-chapter, cjk-ideographic) '章\3000';
   --vs-theme-vertical-mincho-photo-caption--running-head-content: env(pub-title)
     '\3000' string(chapter-title);
   --vs-theme-vertical-mincho-photo-caption--folio-content: counter(
     page,
     cjk-decimal
   );
-  --vs-theme-vertical-mincho-photo-caption--chapter-title-size-inline: 80mm;
 
   --vs-writing-mode: vertical-rl;
   --vs-font-family:
@@ -41,7 +32,6 @@
     serif;
   --vs-font-size: 9pt;
   --vs-line-height: 1.9;
-  --vs-letter-spacing: 0;
   --vs-text-align: justify;
   --vs-color-foreground: #1a1a1a;
   --vs-color-foreground-alt: color-mix(
@@ -55,21 +45,21 @@
     var(--vs-color-foreground),
     var(--vs-color-background) 60%
   );
-  --vs-columns: 1;
-
-  --vs--heading-font-family:
-    'Noto Serif JP', 'Shippori Mincho', 'Hiragino Mincho ProN', 'Yu Mincho',
-    serif;
+  --vs-color-border-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 80%
+  );
 
   /* 章題: 右肩から縦一行 */
-  --vs--h1-font-size: 16pt;
+  --vs--h1-font-size: 1.8em;
   --vs--h1-font-weight: 500;
   --vs--h1-letter-spacing: 0.04em;
   --vs--h1-line-height: 1.3;
-  --vs--h1-margin-block: 0 4mm;
+  --vs--h1-margin-block: 0 0.75rlh;
   --vs--h1-margin-inline: 0;
   --vs--h1-text-align: start;
-  --vs--h1-padding-block: 0 2mm;
+  --vs--h1-padding-block: 0 0.35em;
   --vs--h1-border-width-block-end: 0.4pt;
   --vs--h1-border-style-block-end: solid;
   --vs--h1-border-color-block-end: var(--vs-color-border);
@@ -77,17 +67,16 @@
 
   --vs--p-margin-block: 0;
   --vs--p-margin-inline: 0;
-  --vs--p-text-align: justify;
   --vs--p-text-indent: 1em;
 
-  --vs--figure-margin-block: 2mm 3.5mm;
-  --vs--figure-margin-inline: 4mm 0;
+  --vs--figure-margin-block: 0.25rlh 0.5rlh;
+  --vs--figure-margin-inline: 1.25em 0;
 
-  --vs--figcaption-font-size: 6.8pt;
-  --vs--figcaption-margin-block: 2.2mm 0;
+  --vs--figcaption-font-size: 0.75em;
+  /* figure は display: block で組むので、写真との間は gap ではなく margin で取る */
+  --vs--figcaption-margin-block: 0.25rlh 0;
   --vs--figcaption-margin-inline: 0;
   --vs--figcaption-text-align: start;
-  --vs--figcaption-text-indent: 0;
 
   --vs-page--size: 127mm 188mm;
   --vs-page--margin-top: 18mm;
@@ -97,12 +86,12 @@
 
   /* 柱 (天) は横組み、ノンブル (地) は縦組み */
   --vs-page--mbox-top-left-font-family: var(--vs-font-family);
-  --vs-page--mbox-top-left-font-size: 8pt;
+  --vs-page--mbox-top-left-font-size: 0.9em;
   --vs-page--mbox-top-left-text-color: var(--vs-color-foreground-alt);
   --vs-page--mbox-top-left-letter-spacing: 0.08em;
   --vs-page--mbox-top-left-writing-mode: horizontal-tb;
   --vs-page--mbox-bottom-left-font-family: var(--vs-font-family);
-  --vs-page--mbox-bottom-left-font-size: 9.5pt;
+  --vs-page--mbox-bottom-left-font-size: 1.05em;
   --vs-page--mbox-bottom-left-text-color: var(--vs-color-foreground-alt);
   --vs-page--mbox-bottom-left-letter-spacing: 0.12em;
   --vs-page--mbox-bottom-left-writing-mode: vertical-rl;
@@ -116,10 +105,10 @@
   --vs-endnote--section-ol-list-style-type: none;
   --vs-endnote--section-ol-margin-block: 0;
   --vs-endnote--section-ol-padding-inline-start: 0;
-  --vs-endnote--section-margin-block: 4mm 0;
+  --vs-endnote--section-margin-block: 0.75rlh 0;
   --vs-endnote--section-margin-inline: auto 0;
-  --vs-endnote--section-padding-inline: 2.5mm 0;
-  --vs-endnote--section-font-size: 6.8pt;
+  --vs-endnote--section-padding-inline: 0.8em 0;
+  --vs-endnote--section-font-size: 0.75em;
   --vs-endnote--section-line-height: 1.55;
   --vs-endnote--section-letter-spacing: 0.01em;
   --vs-endnote--section-text-color: var(--vs-color-foreground-alt);
@@ -130,9 +119,8 @@
   /* 本文中の注番号は肩付きにせず行中に置く */
   --vs-endnote--call-sup-vertical-align: baseline;
   --vs-endnote--call-margin-inline: 0.15em;
-  --vs-endnote--item-font-size: 6.8pt;
   --vs-endnote--item-line-height: 1.5;
-  --vs-endnote--item-margin-block: 0 1.4mm;
+  --vs-endnote--item-margin-block: 0 0.25rlh;
   --vs-endnote--item-text-align: start;
   --vs-endnote--item-text-indent: 0;
   /* 注番号は縦中横 */
@@ -189,9 +177,7 @@ body.title-page {
 
 /* 章題の行長 (見出し用の inline-size 変数はないため直書き) */
 h1 {
-  inline-size: var(
-    --vs-theme-vertical-mincho-photo-caption--chapter-title-size-inline
-  );
+  inline-size: 80mm;
 }
 
 .tcy {
@@ -211,13 +197,11 @@ figure {
 
 figure img {
   display: block;
-  width: 34mm;
+  width: 5.75rlh;
   height: auto;
   border-width: 0.3pt;
   border-style: solid;
-  border-color: var(
-    --vs-theme-vertical-mincho-photo-caption--color-photo-frame
-  );
+  border-color: var(--vs-color-border-alt);
 }
 
 figcaption {
@@ -240,26 +224,26 @@ figcaption {
  */
 .title-page h1 {
   inline-size: auto;
-  margin-block: 16mm 14mm;
+  margin-block: 2.75rlh 2.25rlh;
   margin-inline: 28mm 0;
   padding-block: 0;
   border-block-end-style: none;
-  font-size: 22pt;
+  font-size: 2.45em;
   letter-spacing: 0.22em;
 }
 
 .title-page p {
   inline-size: 58mm;
-  margin-block: 0 5mm;
+  margin-block: 0 0.75rlh;
   margin-inline: auto 0;
   text-indent: 0;
-  font-size: 10pt;
+  font-size: 1.1em;
   letter-spacing: 0.2em;
 }
 
 .title-page p:last-of-type {
   inline-size: 44mm;
-  font-size: 8pt;
+  font-size: 0.9em;
   color: var(--vs-color-foreground-alt);
 }
 
@@ -273,7 +257,7 @@ figcaption {
 }
 
 :is(#toc, [role='doc-toc']) li {
-  margin-block: 0 4mm;
+  margin-block: 0 0.75rlh;
   padding-inline: 0;
   letter-spacing: 0.06em;
 }
@@ -283,5 +267,6 @@ figcaption {
 }
 
 :is(#toc, [role='doc-toc']) a[data-ref='chapter']::before {
-  content: var(--vs-theme-vertical-mincho-photo-caption--chapter-toc-content);
+  content: '第' target-counter(attr(href), vs-counter-chapter, cjk-ideographic)
+    '章\3000';
 }

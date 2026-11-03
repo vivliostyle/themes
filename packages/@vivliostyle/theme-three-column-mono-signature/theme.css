@@ -16,30 +16,16 @@
 @import '@vivliostyle/theme-base/page';
 @import '@vivliostyle/theme-base/section';
 
-/* 章柱は紙の小口端に密着させる。左右ページで柱が内側に来ないよう、
-   ノド/小口ではなく物理左右で余白を決める。 */
 :root {
-  /* エントリ参照に添えるページ番号 */
-  --vs-theme-three-column-mono-signature--color-foreground-secondary: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 20%
-  );
-  --vs-theme-three-column-mono-signature--api-page-call-content: '（p.'
-    target-counter(attr(href), page) '）';
-
   /* ---- テーマ固有 ---- */
   --vs-theme-three-column-mono-signature--accent-color: var(
     --vs-color-foreground-alt
   );
-  --vs-theme-three-column-mono-signature--color-rule-strong: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 60%
-  );
 
   /* ---- theme-base メタ変数 ---- */
   --vs-font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  --vs-font-family-monospace:
+    'Roboto Mono', 'Noto Sans JP', ui-monospace, monospace;
   --vs-font-size: 7.5pt;
   --vs-line-height: 1.4;
   --vs-color-foreground: #1f1f1f;
@@ -59,36 +45,31 @@
   --vs-columns: 3;
   --vs-column-gap: 2.5mm;
   --vs-column-rule-width: 0.4pt;
-  --vs-column-rule-style: solid;
-  --vs-column-rule-color: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 85%
-  );
 
   --vs-color-foreground-alt: #0066cc;
 
+  /* 図番号は「図<章>-<連番>」 */
+  --vs-crossref-call-counter-prefix: target-counter(
+      attr(href),
+      vs-counter-chapter
+    )
+    '-';
+  --vs-crossref-marker-counter-prefix: counter(vs-counter-chapter) '-';
+
   /* ---- theme-base 要素変数 ---- */
-  --vs--monospace-font-family:
-    'Roboto Mono', 'Noto Sans JP', ui-monospace, monospace;
-
-  --vs--heading-font-family:
-    'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
-  --vs--heading-text-align: start;
-
-  --vs--h1-font-size: 8.5pt;
+  --vs--h1-font-size: 1.15em;
   --vs--h1-font-weight: 400;
   --vs--h1-letter-spacing: 0.02em;
   --vs--h1-margin-block: 0;
 
-  --vs--h2-font-family: 'Roboto Mono', 'Noto Sans JP', ui-monospace, monospace;
-  --vs--h2-font-size: 7.6pt;
+  --vs--h2-font-family: var(--vs-font-family-monospace);
+  --vs--h2-font-size: 1em;
   --vs--h2-font-weight: 500;
   --vs--h2-line-height: 1.25;
   --vs--h2-letter-spacing: -0.02em;
-  --vs--h2-margin-block: 0 1.3mm;
+  --vs--h2-margin-block: 0 0.25rlh;
 
-  --vs--p-margin-block: 0 1.1mm;
+  --vs--p-margin-block: 0 0.25rlh;
   --vs--p-text-indent: 0;
   /* 段幅が狭いため justify だと字間が大きく間延びする */
   --vs--p-text-align: start;
@@ -96,34 +77,45 @@
   --vs--anchor-text-color: var(--vs-color-foreground-alt);
   --vs--anchor-text-decoration: none;
 
-  --vs--table-font-size: 6.4pt;
-  --vs--table-margin-block: 0 1.8mm;
+  --vs--table-font-size: 0.85em;
+  --vs--table-margin-block: 0 0.5rlh;
   --vs--table-margin-inline: 0;
   --vs--table-text-align: start;
   --vs--table-border-width: 0;
+  --vs--table-border-color-outer: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 60%
+  );
   --vs--table-border-width-block-start: 0.6pt;
   --vs--table-border-width-block-end: 0.6pt;
   --vs--table-border-width-cell: 0.4pt;
-  --vs--table-cell-padding-block: 0.6mm;
-  --vs--table-cell-padding-inline: 1.2mm;
+  --vs--table-cell-padding-block: 0.25em;
+  --vs--table-cell-padding-inline: 0.55em;
+  --vs--table-cell-vertical-align: top;
   --vs--th-font-weight: 400;
+  --vs--th-text-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 20%
+  );
 
-  --vs--pre-font-size: 5.8pt;
-  --vs--pre-margin-block: 0.4mm 0;
-  --vs--pre-padding-block: 1.6mm;
-  --vs--pre-padding-inline: 1.6mm;
+  --vs--pre-font-size: 0.75em;
+  --vs--pre-margin-block: 0;
+  --vs--pre-padding-block: 0.8em;
+  --vs--pre-padding-inline: 0.8em;
   --vs--pre-word-break: normal;
 
   --vs--figure-display: block;
-  --vs--figure-margin-block: 1.8mm;
-  /* 既定の figure-item-padding-inline (0) では画像が意図より大きくなるため、
-     width: 100% の基準として想定していた旧既定値 (min(2ch, 5vw)) を明示する */
-  --vs--figure-item-padding-inline: min(2ch, 5vw);
+  --vs--figure-margin-block: 0.5rlh;
+  --vs--figure-item-padding-inline: var(--vs-spacing-inline-indent);
 
-  --vs--figcaption-font-size: 7pt;
-  --vs--figcaption-margin-block: 1.2mm 0;
+  --vs--figcaption-font-size: 0.95em;
+  --vs--figcaption-margin-block: 0.25rlh 0;
   --vs--figcaption-text-align: center;
 
+  /* 章柱は紙の小口端に密着させる。左右ページで柱が内側に来ないよう、
+     ノド/小口ではなく物理左右で余白を決める。 */
   --vs-page--size: 210mm 257mm;
   --vs-page--margin-top: 16mm;
   --vs-page--margin-bottom: 10mm;
@@ -137,7 +129,7 @@
   /* 柱 (書名 ─ 章題) とノンブル */
   --vs-page--mbox-top-left-content: env(doc-title);
   --vs-page--mbox-top-right-content: counter(page);
-  --vs-page--mbox-top-font-size: 8.5pt;
+  --vs-page--mbox-top-font-size: 1.15em;
   --vs-page--mbox-top-letter-spacing: 0.02em;
   --vs-page--mbox-top-text-color: color-mix(
     in oklab,
@@ -145,7 +137,7 @@
     var(--vs-color-background) 15%
   );
   /* ノンブルは柱より大きく置く */
-  --vs-page--mbox-top-right-font-size: 10pt;
+  --vs-page--mbox-top-right-font-size: 1.35em;
   --vs-page--mbox-top-right-font-weight: 500;
   --vs-page--mbox-top-right-text-color: var(--vs-color-foreground);
 
@@ -155,29 +147,23 @@
   --vs-page--mbox-right-background-color: var(
     --vs-theme-three-column-mono-signature--accent-color
   );
-  --vs-page--mbox-right-font-size: 10pt;
+  --vs-page--mbox-right-font-size: 1.35em;
   --vs-page--mbox-right-font-weight: 700;
   --vs-page--mbox-right-letter-spacing: 0.16em;
   /* 縦書きなので inline 方向 = 天地。帯の丈を決める */
   --vs-page--mbox-right-size-inline: 82mm;
   --vs-page--mbox-right-text-color: var(--vs-color-background);
   --vs-page--mbox-right-writing-mode: vertical-rl;
-  --vs-page--mbox-top-inner-padding-top: 14mm;
+  --vs-page--mbox-top-inner-padding-top: 3.75rlh;
 
-  /* 図番号は「図<章>-<連番>」 */
-  --vs-figure--marker-content: 'Fig. ' counter(vs-counter-chapter) '-'
-    counter(vs-counter-fig) '  ';
-  --vs-figure--call-content: 'Fig. '
-    target-counter(attr(href), vs-counter-chapter) '-'
-    target-counter(attr(href), vs-counter-fig);
-}
-
-/* base は和文の図表マーカーを :root:lang(ja) で定義しているため同じ詳細度で上書きする */
-:root:lang(ja) {
-  --vs-figure--marker-content: '図' counter(vs-counter-chapter) '-'
-    counter(vs-counter-fig) '　';
-  --vs-figure--call-content: '図' target-counter(attr(href), vs-counter-chapter)
-    '-' target-counter(attr(href), vs-counter-fig);
+  --vs-figure--label: 'Fig. ';
+  --vs-figure--marker-content: var(--vs-figure--label)
+    var(--vs-crossref-marker-counter-prefix, '')
+    counter(
+      vs-counter-fig,
+      var(--vs-figure--counter-style, var(--vs-counter-style))
+    )
+    '　';
 }
 
 /* ── 版面 ─────────────────────────────────────────────── */
@@ -203,8 +189,8 @@ section.level2 > table {
 }
 
 section.level2 + section.level2 {
-  margin-top: 2.1mm;
-  padding-top: 2.1mm;
+  margin-top: 0.5rlh;
+  padding-top: 0.5rlh;
   border-top-width: 0.4pt;
   border-top-style: solid;
   border-top-color: var(--vs-color-border);
@@ -216,13 +202,15 @@ h2 {
 
 /* 参照リンクはシグネチャと同じ等幅で、行中で折らない */
 a {
-  font-family: var(--vs--monospace-font-family);
-  font-size: 6.6pt;
+  font-family: var(--vs-font-family-monospace);
+  font-size: 0.9rem;
   white-space: nowrap;
 }
 
-a[data-ref='api']::after {
-  content: var(--vs-theme-three-column-mono-signature--api-page-call-content);
+/* エントリ参照に添えるページ番号 */
+a[data-ref='api']::after,
+a[data-ref='api-page']::before {
+  content: '（p.' var(--vs-page--call-content) '）';
 }
 
 /* 本文に埋め込むページ参照は地の文の書体を保つ */
@@ -230,10 +218,6 @@ a[data-ref='api-page'] {
   color: inherit;
   font-family: inherit;
   font-size: inherit;
-}
-
-a[data-ref='api-page']::before {
-  content: var(--vs-theme-three-column-mono-signature--api-page-call-content);
 }
 
 a[data-ref='fig'] {
@@ -248,23 +232,6 @@ table {
   width: 100%;
   line-height: 1.3;
   table-layout: fixed;
-  border-top-color: var(
-    --vs-theme-three-column-mono-signature--color-rule-strong
-  );
-  border-bottom-color: var(
-    --vs-theme-three-column-mono-signature--color-rule-strong
-  );
-}
-
-th,
-td {
-  vertical-align: top;
-}
-
-th {
-  color: var(
-    --vs-theme-three-column-mono-signature--color-foreground-secondary
-  );
 }
 
 th:first-child,
@@ -281,7 +248,7 @@ pre {
 }
 
 /* ── 図版 (Markdown 画像 → figure > img + figcaption) ────
-   SVG 内のラベル書体は fig-orikaeshi.svg 側に持たせている
+   SVG 内のラベル書体は SVG 側に持たせている
    (外部 SVG は <img> で読み込まれ親文書の CSS が効かない)。 */
 
 figure > img {

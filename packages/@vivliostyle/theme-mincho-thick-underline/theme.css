@@ -23,34 +23,29 @@
 
 :root {
   /* ---- テーマ固有 (theme-base に対応する変数が無いもの) ---- */
-  --vs-theme-mincho-thick-underline--running-rule-width: 0.4pt;
   --vs-theme-mincho-thick-underline--steps-min-size-inline: 27mm;
 
   --vs-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
   --vs-font-size: 10pt;
   --vs-line-height: 1.8;
-  --vs-spacing-rlh: 1.8rem;
   --vs-color-foreground: #1a1a1a;
   --vs-color-background: #f7f5f0;
   --vs-color-border: var(--vs-color-foreground);
 
   --vs--h1-string-set: running-title content();
-  --vs--h1-font-size: 16pt;
-  --vs--h1-font-weight: 700;
+  --vs--h1-font-size: 1.6em;
   --vs--h1-line-height: 1.5;
-  --vs--h1-margin-block: 0 3.5mm;
+  --vs--h1-margin-block: 0 0.5rlh;
   --vs--h1-text-align: center;
-  --vs--heading-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
   --vs--heading-line-height: 1.4;
-  --vs--h2-font-size: 14pt;
-  --vs--h2-margin-block: 8mm 5mm;
+  --vs--h2-font-size: 1.4em;
+  --vs--h2-margin-block: 1.25rlh 0.75rlh;
   --vs--h2-border-width-block-end: 1.4pt;
-  --vs--h2-padding-block: 0 1.2mm;
-  --vs--h3-font-size: 12pt;
-  --vs--h3-margin-block: 6mm 3mm;
+  --vs--h2-padding-block: 0 0.25em;
+  --vs--h3-font-size: 1.2em;
+  --vs--h3-margin-block: 1rlh 0.5rlh;
 
   --vs--p-margin-block: 0;
-  --vs--p-text-align: justify;
   --vs--p-text-indent: 1em;
 
   --vs--sup-font-size: 0.6em;
@@ -59,15 +54,19 @@
 
   --vs--anchor-text-decoration: none;
 
-  --vs--figure-display: block;
-  --vs--figure-margin-block: 6mm 4mm;
-  --vs--figcaption-font-size: 9.5pt;
-  --vs--figcaption-margin-block: 3.5mm 0;
+  --vs--figure-margin-block: 1rlh 0.75rlh;
+  --vs--figure-gap: 0.5rlh;
+  --vs--figcaption-font-size: 0.95em;
   --vs--figcaption-text-align: center;
 
   --vs--table-border-width: 0;
 
-  --vs-equation--margin-block: 3mm;
+  --vs-citation--items-font-size: 0.9em;
+  --vs-citation--items-line-height: 1.7;
+  --vs-citation--items-padding-inline-start: 7mm;
+  --vs-citation--item-text-align: start;
+
+  --vs-equation--margin-block: 0.5rlh;
   --vs-equation--item-text-align: inherit;
   --vs-equation--marker-margin-inline: 3mm 0;
 
@@ -76,70 +75,49 @@
   --vs-page--margin-bottom: 25mm;
   --vs-page--margin-left: 22.5mm;
   --vs-page--margin-right: 22.5mm;
-  --vs-page--border-width-top: var(
-    --vs-theme-mincho-thick-underline--running-rule-width
-  );
-  --vs-page--border-color-top: var(--vs-color-foreground);
-  /* 柱の下罫 (版面の上罫) と本文のアキ。罫の太さぶんを引いて本文位置を保つ */
-  --vs-page--padding-top: calc(
-    6.5mm - var(--vs-theme-mincho-thick-underline--running-rule-width)
-  );
+  /* 柱の下罫は版面の上罫として引く */
+  --vs-page--border-width-top: 0.4pt;
+  --vs-page--padding-top: 1rlh;
   /* 柱には原稿の題名を流す */
   --vs-page--mbox-top-right-content: string(running-title);
   --vs-page--mbox-bottom-right-content: '− ' counter(page) ' −';
-  --vs-page--mbox-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
-  --vs-page--mbox-text-color: var(--vs-color-foreground);
-  --vs-page--mbox-top-font-size: 9pt;
-  --vs-page--mbox-bottom-font-size: 9.5pt;
+  --vs-page--mbox-top-font-size: 0.9em;
+  --vs-page--mbox-bottom-font-size: 0.95em;
 
   /* ---- 章・節番号 (h2 が「1.」、h3 が「2.1」) ---- */
   --vs-section--marker-display: inline;
-  --vs-section--h2-marker-content: counters(
-      vs-counter-sections,
-      var(--vs-section--counter-delimiter),
-      var(--vs-section--counter-style)
-    )
-    '.';
-  /* 「章」「節」は本文側に書くので、参照は番号だけを出す */
-  --vs-section--call-content: target-counters(
-    attr(href),
-    vs-counter-sections,
-    var(--vs-section--counter-delimiter),
-    var(--vs-section--counter-style)
-  );
+  --vs-section--h2-marker-content: var(--vs-section--marker-counter-content) '.';
 
   /* ---- 巻末注 ---- */
-  --vs-endnote--section-margin-block: 6mm 0;
+  --vs-endnote--section-margin-block: 1rlh 0;
   --vs-endnote--section-hr-border-width-block-start: 0.5pt;
-  --vs-endnote--section-hr-margin-block: 0 1.8mm;
+  --vs-endnote--section-hr-margin-block: 0 0.25rlh;
   --vs-endnote--section-hr-size-inline: 42mm;
   --vs-endnote--section-ol-list-style-type: none;
   --vs-endnote--section-ol-list-style-position: outside;
-  --vs-endnote--item-font-size: 8.5pt;
+  --vs-endnote--item-font-size: 0.85em;
   --vs-endnote--item-line-height: 1.75;
   --vs-endnote--item-text-align: start;
   --vs-endnote--marker-content: '*' counter(vs-counter-endnote) ' ';
 }
 
+/* 「章」「節」は本文側に書くので、参照は番号だけを出す */
+:root,
+:root:lang(ja) {
+  --vs-section--call-content: var(--vs-section--call-counter-content);
+}
+
 /* 和文の図表番号は「図1　」「表1　」 */
 :root:lang(ja) {
-  --vs-figure--marker-content: '図' counter(vs-counter-fig) '　';
-  --vs-table--marker-content: '表' counter(vs-counter-tbl) '　';
-  --vs-figure--call-content: '図' target-counter(attr(href), vs-counter-fig);
-  --vs-table--call-content: '表' target-counter(attr(href), vs-counter-tbl);
-}
-
-:is(h1, h2, h3) {
-  break-after: avoid;
-}
-
-figure {
-  break-inside: avoid;
+  --vs-figure--marker-content: var(--vs-figure--label) counter(vs-counter-fig)
+    '　';
+  --vs-table--marker-content: var(--vs-table--label) counter(vs-counter-tbl)
+    '　';
 }
 
 /* ── 標題ブロック ── */
 .titleblock {
-  margin-block-end: 6mm;
+  margin-block-end: 1rlh;
 }
 
 .titleblock p,
@@ -149,37 +127,37 @@ figure {
 }
 
 .venue {
-  font-size: 9pt;
-  margin-block-end: 5mm;
+  font-size: 0.9em;
+  margin-block-end: 0.75rlh;
 }
 
 .subtitle {
-  font-size: 10.5pt;
+  font-size: 1.05em;
 }
 
 .byline {
-  font-size: 11.5pt;
-  margin-block-start: 5mm;
+  font-size: 1.15em;
+  margin-block-start: 0.75rlh;
 }
 
 .affil {
-  font-size: 9pt;
-  margin-block-start: 1.5mm;
+  font-size: 0.9em;
+  margin-block-start: 0.25rlh;
 }
 
 .abstract {
-  margin-block-end: 8mm;
+  margin-block-end: 1.25rlh;
   margin-inline: 12mm;
 }
 
 .abstract p {
   --vs--p-text-align: justify;
-  font-size: 9.5pt;
+  font-size: 0.95em;
   line-height: 1.75;
 }
 
 .keywords {
-  margin-block-start: 3mm;
+  margin-block-start: 0.5rlh;
 }
 
 /* ── ブロック図 (枠 div + 矢印) ── */
@@ -193,29 +171,26 @@ figure {
 .steps > div {
   border-width: 1pt;
   min-width: var(--vs-theme-mincho-thick-underline--steps-min-size-inline);
-  padding: 2.2mm 3mm;
+  padding: 0.6em 3mm;
   text-align: center;
   line-height: 1.3;
 }
 
 .steps > span {
-  font-size: 13pt;
+  font-size: 1.3em;
   font-weight: 700;
 }
 
 /* ── 上下太罫 + ヘッダ下細罫のみの学術表 (縦罫なし) ── */
 figure.tbl {
-  --vs--figure-margin-block: 2mm 5mm;
-  --vs--figcaption-margin-block: 0 2mm;
-  /* basic.css の `figure table` セレクタは --vs--table-margin-* より詳細度が高いため
-     figure 内の表は --vs--figure-table-margin-* 側で中央寄せする */
-  --vs--figure-table-margin-inline: auto;
+  --vs--figure-margin-block: 0.25rlh 0.75rlh;
+  --vs--figure-gap: 0.25rlh;
 
-  --vs--table-font-size: 9.5pt;
+  --vs--table-font-size: 0.95em;
   --vs--table-text-align: center;
   --vs--table-line-height: 1.5;
   --vs--th-font-weight: 400;
-  --vs--table-cell-padding-block: 1.6mm;
+  --vs--table-cell-padding-block: 0.5em;
   --vs--table-cell-padding-inline: 9mm;
   --vs--table-border-width-block-start: 1.2pt;
   --vs--table-border-width-block-end: 1.2pt;
@@ -246,13 +221,6 @@ figure.tbl {
 }
 
 /* ── 参考文献: 番号をぶら下げた小さな組み ── */
-:root {
-  --vs-citation--items-font-size: 9pt;
-  --vs-citation--items-line-height: 1.7;
-  --vs-citation--items-padding-inline-start: 7mm;
-  --vs-citation--item-text-align: start;
-}
-
 ol.cite-items > li {
   break-inside: avoid;
 }

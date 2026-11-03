@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-three-column-mono-signature",
   "version": "0.0.0",
-  "description": "Three-column AB-size theme for API references, with monospaced signatures, argument tables and code examples on light blue as one entry, and vertical chapter heads on the fore edge",
+  "description": "Three-column theme for API references, with monospaced signatures, argument tables and tinted code examples as one entry, and vertical chapter heads on the fore edge",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -56,7 +56,7 @@
       ],
       "i18n": {
         "ja": {
-          "description": "AB判・3段組のAPIリファレンステーマ。等幅シグネチャ・引数表・淡青地コード例を1エントリとし、小口に縦書きの章柱を置く"
+          "description": "3段組のAPIリファレンステーマ。等幅シグネチャ・引数表・淡色地コード例を1エントリとし、小口に縦書きの章柱を置く"
         }
       }
     },

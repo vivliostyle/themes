@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-issue-number-heading-rule",
   "version": "0.0.0",
-  "description": "Single-column horizontal Shinsho theme for collected email newsletters, with issue-number headings, numbered subheadings and ruled running heads",
+  "description": "Single-column horizontal theme for collected email newsletters, with issue-number headings, numbered subheadings and ruled running heads",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -56,7 +56,7 @@
       ],
       "i18n": {
         "ja": {
-          "description": "メールマガジンの合本向け新書判テーマ。号数見出しと連番付き小見出し、柱罫を組む横組み1段の紙面"
+          "description": "メールマガジンの合本向けテーマ。号数見出しと連番付き小見出し、柱罫を組む横組み1段の紙面"
         }
       }
     },

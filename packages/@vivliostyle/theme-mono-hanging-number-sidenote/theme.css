@@ -1,5 +1,5 @@
 /*
- * 大学教科書 (情報科学・プログラミング系) 向けテーマ
+ * 大学教科書向けテーマ
  * A4判1段組・全面モノスペース。墨一色・白地でミニマルに組み、節番号は版面の
  * 外へハンギングし、番号付きの傍注は小口側に確保した帯へ float で流す。
  * 章番号は base のドキュメントカウンタ (vs-counter-chapter) から採るので、
@@ -30,10 +30,6 @@
   /* 版面: 本文の外に節番号のハングと傍注の帯を確保する */
   --vs-theme-mono-hanging-number-sidenote--section-hang-size-inline: 14mm;
   --vs-theme-mono-hanging-number-sidenote--sidenote-band-size-inline: 46mm;
-  --vs-theme-mono-hanging-number-sidenote--sidenote-marker-content: counter(
-      vs-counter-sidenote
-    )
-    '. ';
 
   /* Type: monospace throughout (本文・見出しとも同一スタック) */
   --vs-font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
@@ -58,37 +54,31 @@
     var(--vs-color-foreground),
     var(--vs-color-background) 15%
   );
-  --vs-columns: 1;
 
   /* 段落頭の1行だけがページ末に残るのは避ける。逆に段落末の1行送りまで禁じると、
      傍注 (float) とその段落がまとめて次ページへ送られて版面下部が大きく空く */
   --vs-orphans: 2;
   --vs-widows: 1;
 
-  --vs--heading-font-family:
-    'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
-
   /* Paragraphs: flush left, ragged right, small vertical gap */
-  --vs--p-margin-block: 0 3mm;
-  --vs--p-text-indent: 0;
+  --vs--p-margin-block: 0 0.75rlh;
   --vs--p-text-align: start;
 
   /* 章扉: 章番号は見出しの marker、章題は h1 */
-  --vs--h1-font-size: 19pt;
+  --vs--h1-font-size: 2.1em;
   --vs--h1-font-weight: 600;
   --vs--h1-line-height: 1.15;
-  --vs--h1-margin-block: 0 3mm;
-  --vs--h1-padding-block: 0 3mm;
+  --vs--h1-margin-block: 0 0.75rlh;
+  --vs--h1-padding-block: 0 0.45em;
   --vs--h1-border-width-block-end: 0.8pt;
   --vs--h1-border-color-block-end: var(--vs-color-border);
 
   /* ハンギング節番号つき見出し */
-  --vs--h2-font-size: 13pt;
+  --vs--h2-font-size: 1.45em;
   --vs--h2-font-weight: 600;
   --vs--h2-line-height: 1.25;
   --vs--h2-letter-spacing: 0.01em;
-  --vs--h2-text-align: start;
-  --vs--h2-margin-block: 0 5mm;
+  --vs--h2-margin-block: 0 1rlh;
   --vs--h2-margin-inline: calc(
       -1 *
         var(--vs-theme-mono-hanging-number-sidenote--section-hang-size-inline)
@@ -96,8 +86,8 @@
     0;
 
   /* プルクオート */
-  --vs--blockquote-font-size: 10.5pt;
-  --vs--blockquote-margin-block: 3mm;
+  --vs--blockquote-font-size: 1.15em;
+  --vs--blockquote-margin-block: 0.75rlh;
   --vs--blockquote-margin-inline: 0;
 
   --vs--sup-font-size: 0.7em;
@@ -123,19 +113,16 @@
   --vs-sidenote--float: outside;
   --vs-sidenote--clear: outside;
   --vs-sidenote--size-inline: 34mm;
-  --vs-sidenote--margin-block: 1mm 6mm;
+  --vs-sidenote--margin-block: 0.25rlh 1.25rlh;
   --vs-sidenote--margin-inline: 0;
-  --vs-sidenote--font-size: 6.8pt;
+  --vs-sidenote--font-size: 0.75em;
   --vs-sidenote--line-height: 1.4;
   --vs-sidenote--break-inside: auto;
-  /* 番号は最初の段落の行頭へぶら下げたいので、独立した行になる lib の
-     marker (.sidenote::before) は使わず p:first-child::before に置く */
-  --vs-sidenote--marker-content: none;
   --vs-sidenote--call-font-size: 0.7em;
 
   /* 数式 (lib/math) */
   --vs-math--font-size: 0.95em;
-  --vs-math--display-margin-block: 3mm;
+  --vs-math--display-margin-block: 0.75rlh;
 
   /* 見出し番号・節参照はいずれも「章番号.節番号」 */
   --vs-section--marker-display: inline;
@@ -147,12 +134,13 @@
     counter(vs-counter-sec-h2);
   --vs-section--h3-marker-content: counter(vs-counter-chapter) '.'
     counter(vs-counter-sec-h2) '.' counter(vs-counter-sec-h3);
-  --vs-section--call-content: '\A7' counter(vs-counter-chapter) '.'
+  --vs-section--label: '\A7';
+  --vs-section--call-counter-content: counter(vs-counter-chapter) '.'
     target-counter(attr(href), vs-counter-sec-h2);
 
   /* Running heads / folio */
   --vs-page--mbox-font-family: 'IBM Plex Mono', monospace;
-  --vs-page--mbox-font-size: 8pt;
+  --vs-page--mbox-font-size: 0.9em;
   --vs-page--mbox-letter-spacing: 0.02em;
   --vs-page--mbox-top-left-content: 'Chapter ' counter(vs-counter-chapter) ' · '
     string(chapter-title);
@@ -160,9 +148,9 @@
   --vs-page--mbox-top-right-content: string(section-title, start);
   /* ノンブルは小口下 (右ページは右下、左ページは左下) */
   --vs-page--mbox-bottom-outside-content: counter(page);
-  --vs-page--mbox-bottom-padding-top: 4mm;
+  --vs-page--mbox-bottom-padding-top: 1rlh;
   --vs-page--mbox-bottom-vertical-align: top;
-  --vs-page--mbox-top-padding-bottom: 4mm;
+  --vs-page--mbox-top-padding-bottom: 1rlh;
   --vs-page--mbox-top-vertical-align: bottom;
 }
 
@@ -185,34 +173,33 @@ section > h2:first-child::before {
 /* 直前の傍注が残った位置に見出しが来ると、本文が帯へ押し出される */
 h2 {
   clear: both;
-  break-after: avoid;
 }
 
 /* 見出しの上の空きは節と節の間にだけ要る (章扉の直後には要らない)。
    節を作らない見出し (番号を付けない章末問題など) は兄弟の後ろに直に並ぶ */
 section:has(> h2:first-child) + section:has(> h2:first-child),
 * + h2 {
-  margin-block-start: 8mm;
+  margin-block-start: 1.75rlh;
 }
 
 /* ---- 章扉 ---- */
 section > h1:first-child::before {
-  margin-block-end: 1.5mm;
+  margin-block-end: 0.25rlh;
   color: var(--vs-color-foreground-alt);
-  font-size: 8pt;
+  font-size: 0.9rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
 }
 
 .chapter-lead {
-  margin-block: 0 4mm;
-  font-size: 9.5pt;
+  margin-block: 0 1rlh;
+  font-size: 1.05em;
   line-height: 1.45;
 }
 
 .chapter-toc {
-  margin-block: 0 7mm;
-  padding-block: 2.4mm;
+  margin-block: 0 1.5rlh;
+  padding-block: 0.75em;
   border-block-style: solid;
   border-block-width: 0.4pt;
   border-block-color: var(--vs-color-border);
@@ -221,19 +208,19 @@ section > h1:first-child::before {
 .chapter-toc ul {
   margin-block: 0;
   padding-inline-start: 0;
-  font-size: 8.2pt;
+  font-size: 0.9em;
   line-height: 1.5;
   list-style: none;
 }
 
 /* 章内の節見出しを番号つきで並べる (項目は空リンクだけを書く) */
 .chapter-toc a[data-ref='sec'] {
-  --vs-section--call-content: counter(vs-counter-chapter) '.'
-    target-counter(attr(href), vs-counter-sec-h2) ' ' target-text(attr(href));
+  --vs-section--call-content: var(--vs-section--call-counter-content) ' '
+    target-text(attr(href));
 }
 
 /* ---- コードブロック ----
-   VFM のコードフェンスは <pre class="language-rust"><code> を出す。
+   VFM のコードフェンスは <pre class="language-*"><code> を出す。
    行番号は同じ行送りの生 HTML ガター (.lineno) を横に並べて作る。
    flex コンテナは分割できないので、1ページに収まる長さの引用に使うこと。 */
 .code {
@@ -242,11 +229,11 @@ section > h1:first-child::before {
   break-inside: avoid;
   /* JetBrains Mono の合字で -> == が矢印記号になるのを抑える */
   font-variant-ligatures: none;
-  margin-block: 2.4mm 3mm;
-  padding: 1.8mm 3mm;
+  margin-block: 0.5rlh 0.75rlh;
+  padding: 0.7em 3mm;
   background-color: var(--vs-color-background-alt);
   font-family: var(--vs-font-family-monospace);
-  font-size: 7.4pt;
+  font-size: 0.8em;
   line-height: 1.35;
 }
 
@@ -277,7 +264,7 @@ section > h1:first-child::before {
 .token.char {
   text-decoration: underline;
   text-decoration-thickness: 0.3pt;
-  text-underline-offset: 1.6pt;
+  text-underline-offset: 0.2em;
 }
 
 .token.number,
@@ -291,7 +278,7 @@ section > h1:first-child::before {
 /* ---- プルクオート ---- */
 blockquote {
   break-inside: avoid;
-  padding-block: 2.8mm;
+  padding-block: 0.75em;
   border-block-style: solid;
   border-block-width: 0.4pt;
   border-block-color: var(--vs-color-border);
@@ -312,7 +299,7 @@ blockquote p {
 }
 
 .sidenote p {
-  margin-block: 0 1.2mm;
+  margin-block: 0 0.25rlh;
   padding-inline-start: 5mm;
   text-align: start;
 }
@@ -321,19 +308,19 @@ blockquote p {
   text-indent: -5mm;
 }
 
+/* 番号は最初の段落の行頭へぶら下げたいので、独立した行になる base の
+   marker (.sidenote::before) は使わず p:first-child::before に置く */
+.sidenote::before {
+  content: none;
+}
+
 .sidenote p:first-child::before {
-  content: var(
-    --vs-theme-mono-hanging-number-sidenote--sidenote-marker-content
-  );
+  content: var(--vs-sidenote--marker-content);
 }
 
 .sidenote strong {
   font-weight: 600;
   letter-spacing: 0.01em;
-}
-
-.sidenote code {
-  font-size: 6.6pt;
 }
 
 /* 本文中の傍注参照 (肩付き番号)。base の a の既定は打ち消す */
@@ -346,11 +333,11 @@ a[data-ref='sidenote'] {
 .exercises ol {
   margin-block: 0;
   padding-inline-start: 9mm;
-  font-size: 8.4pt;
+  font-size: 0.95em;
   line-height: 1.45;
 }
 
 .exercises li {
-  margin-block-end: 1.8mm;
+  margin-block-end: 0.5rlh;
   break-inside: avoid;
 }

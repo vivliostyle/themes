@@ -1,8 +1,8 @@
 /*
- * ポケット野鳥図鑑 (vertical-line-drawing-spec-table)
- * 新書判 (105mm×173mm)・墨一色のハンディ図鑑。1種を1ページに起こし、Noto Sans JP の
- * ゴシック本文に通し番号付きの種見出しと欧文学名 (Noto Sans 斜体) を組む。
- * 種の線画は左に回り込ませて右に識別スペック表を流し、その下は BIZ UDPGothic の
+ * ポケット図鑑 (vertical-line-drawing-spec-table)
+ * 新書判 (105mm×173mm)・墨一色のハンディ図鑑。1項目を1ページに起こし、Noto Sans JP の
+ * ゴシック本文に通し番号付きの項目見出しと欧文学名 (Noto Sans 斜体) を組む。
+ * 線画は左に回り込ませて右に識別スペック表を流し、その下は BIZ UDPGothic の
  * 「観察メモ」傍注に本文を回り込ませながら丸数字の節見出しで解説を続ける。
  */
 @import url('https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Noto+Sans:ital,wght@0,400;1,400&family=Noto+Sans+JP:wght@400;500;700&display=swap');
@@ -19,18 +19,6 @@
 }
 
 :root {
-  /* 学名の欧文書体。--vs-* に対応物が無いためテーマ変数 */
-  --vs-theme-vertical-line-drawing-spec-table--font-latin:
-    'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
-
-  /* 種の線画の幅と、その右に流す識別スペック表との間隔 */
-  --vs-theme-vertical-line-drawing-spec-table--plate-size-inline: 37mm;
-  --vs-theme-vertical-line-drawing-spec-table--plate-margin-inline-end: 3.5mm;
-
-  /* 観察メモ傍注の幅と、本文との間隔 */
-  --vs-theme-vertical-line-drawing-spec-table--note-size-inline: 20mm;
-  --vs-theme-vertical-line-drawing-spec-table--note-margin-inline-end: 4mm;
-
   --vs-font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
   /* 傍注の第2書体 */
   --vs-font-family-alt: 'BIZ UDPGothic', 'Noto Sans JP', sans-serif;
@@ -38,40 +26,35 @@
   --vs-line-height: 1.4;
   --vs-color-foreground: #1c1c1c;
   --vs-color-background: #f6f4ee;
-  --vs-columns: 1;
   --vs-widows-orphans: 2;
 
   --vs--p-hyphens: none;
   --vs--p-margin-block: 0;
   --vs--p-text-indent: 1em;
-  --vs--p-text-align: justify;
 
-  --vs--heading-font-family:
-    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
-  --vs--heading-font-weight: 700;
   --vs--heading-text-align: start;
 
-  /* 種見出し */
-  --vs--h1-font-size: 18pt;
+  /* 項目見出し */
+  --vs--h1-font-size: 2.4em;
   --vs--h1-letter-spacing: 0.01em;
   --vs--h1-line-height: 1.05;
-  --vs--h1-margin-block: 0 2mm;
+  --vs--h1-margin-block: 0 0.5rlh;
 
   /* 節見出し */
-  --vs--h2-font-size: 8pt;
+  --vs--h2-font-size: 1.05em;
   --vs--h2-line-height: 1.2;
-  --vs--h2-margin-block: 0 0.4mm;
+  --vs--h2-margin-block: 0;
 
   --vs--figure-margin-block: 0;
   --vs--figcaption-display: none;
 
   /* 識別スペック表: 罫線を持たない密なリスト組み */
   --vs--table-border-width: 0;
-  --vs--table-font-size: 6.1pt;
+  --vs--table-font-size: 0.8em;
   --vs--table-margin-block: 0;
   --vs--table-margin-inline: 0;
   --vs--table-line-height: 1.24;
-  --vs--table-cell-padding-block: 0 0.35mm;
+  --vs--table-cell-padding-block: 0 0.15em;
   --vs--table-cell-padding-inline: 0;
   --vs--td-text-align: start;
   --vs--td-vertical-align: top;
@@ -83,10 +66,10 @@
   --vs-page--margin-right: 9mm;
   --vs-page--border-width-top: 0.5pt;
   --vs-page--border-color-top: var(--vs-color-foreground);
-  --vs-page--mbox-top-padding-bottom: 1.6mm;
+  --vs-page--mbox-top-padding-bottom: 0.5rlh;
   --vs-page--mbox-top-vertical-align: bottom;
 
-  /* 種見出し「通し番号 + 和名 + 学名」。1種で1ページを起こす */
+  /* 項目見出し「通し番号 + 名称 + 学名」。1項目で1ページを起こす */
   --vs-section--h1-break-before: page;
   --vs-section--h1-marker-content: counter(vs-counter-sec-h1);
   --vs-section--h1-marker-display: inline;
@@ -103,35 +86,28 @@
   /* 柱は原稿のタイトル、地の中央にノンブル */
   --vs-page--mbox-top-left-content: env(doc-title);
   --vs-page--mbox-bottom-center-content: counter(page);
-  --vs-page--mbox-font-family: 'Noto Sans JP', sans-serif;
-  --vs-page--mbox-text-color: var(--vs-color-foreground);
-  --vs-page--mbox-top-font-size: 8pt;
+  --vs-page--mbox-font-family: var(--vs-font-family);
+  --vs-page--mbox-top-font-size: 1.05em;
   --vs-page--mbox-top-font-weight: 500;
-  --vs-page--mbox-bottom-font-size: 8.5pt;
+  --vs-page--mbox-bottom-font-size: 1.15em;
 }
 
 h1 .latin {
-  font-family: var(--vs-theme-vertical-line-drawing-spec-table--font-latin);
+  font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
   font-style: italic;
   font-weight: 400;
-  font-size: 11pt;
+  font-size: 0.6em;
   letter-spacing: 0;
   margin-inline-start: 0.35em;
 }
 
-/* 種の線画。右の識別スペック表を回り込ませる */
+/* 線画。右の識別スペック表を回り込ませる */
 figure {
-  --vs--figure-item-size-inline: var(
-    --vs-theme-vertical-line-drawing-spec-table--plate-size-inline
-  );
+  --vs--figure-item-size-inline: 100%;
   float: inline-start;
-  inline-size: var(
-    --vs-theme-vertical-line-drawing-spec-table--plate-size-inline
-  );
-  margin-inline-end: var(
-    --vs-theme-vertical-line-drawing-spec-table--plate-margin-inline-end
-  );
-  margin-block-end: 2.4mm;
+  inline-size: 37mm;
+  margin-inline-end: 3.5mm;
+  margin-block-end: 0.75rlh;
 }
 
 figure img {
@@ -166,15 +142,11 @@ aside.note {
   --vs--p-text-align: start;
   float: inline-start;
   clear: inline-start;
-  inline-size: var(
-    --vs-theme-vertical-line-drawing-spec-table--note-size-inline
-  );
-  margin-inline-end: var(
-    --vs-theme-vertical-line-drawing-spec-table--note-margin-inline-end
-  );
-  margin-block-end: 2.6mm;
+  inline-size: 20mm;
+  margin-inline-end: 4mm;
+  margin-block-end: 0.75rlh;
   font-family: var(--vs-font-family-alt);
-  font-size: 5.5pt;
+  font-size: 0.75em;
   line-height: 1.42;
   break-inside: avoid;
 }
@@ -182,14 +154,13 @@ aside.note {
 /* 傍注の1段落目 (**観察メモ**) が小見出しになる */
 aside.note > p:first-child {
   font-weight: 700;
-  margin-block-end: 0.5mm;
 }
 
 section:has(> h2:first-child) {
-  --vs--p-font-size: 6.6pt;
+  --vs--p-font-size: 0.9em;
   --vs--p-line-height: 1.3;
 }
 
 section:has(> h2:first-child) + section:has(> h2:first-child) {
-  margin-block-start: 1mm;
+  margin-block-start: 0.25rlh;
 }

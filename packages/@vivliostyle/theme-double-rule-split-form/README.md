@@ -1,6 +1,6 @@
 # @vivliostyle/theme-double-rule-split-form
 
-A4判縦・墨1色の複合帳票テーマ。上半分に伝票(表題・宛名・金額ボックス・収入印紙枠・角印)、下半分に明細(明細表・小計/消費税/合計)を収め、中央の太い二重罫で1ページに2帳票を分割する。
+複合帳票テーマ。上半分に伝票(表題・宛名・金額ボックス・収入印紙枠・角印)、下半分に明細(明細表・小計/消費税/合計)を収め、中央の太い二重罫で1ページに2帳票を分割する。
 
 ## 使い方
 
@@ -35,12 +35,5 @@ export default {
 | `--vs-font-family`                     | `'Noto Sans JP', sans-serif` | 本文・表題の書体                   |
 | `--vs-color-foreground`                      | `#1a1a1a` | 本文の墨色                         |
 | `--vs-color-border`                    | `--vs-color-foreground` と同じ | 外枠・仕切り罫・金額ボックスの罫色 |
-| `--vs-theme-double-rule-split-form--upper-form-block-size`    | `131mm`                      | 上半分（伝票部）の高さ             |
-| `--vs-theme-double-rule-split-form--divider-gap`              | `1.3mm`                      | 中央の二重罫のアキ                 |
-| `--vs-theme-double-rule-split-form--row-block-size`           | `10mm`                       | 明細表の記入行の高さ               |
-| `--vs-theme-double-rule-split-form--item-width`               | `37%`                        | 品名欄の幅                         |
-| `--vs-theme-double-rule-split-form--quantity-width`           | `16%`                        | 数量欄の幅                         |
-| `--vs-theme-double-rule-split-form--unit-price-width`         | `22%`                        | 単価欄の幅                         |
-| `--vs-theme-double-rule-split-form--amount-width`             | `25%`                        | 金額欄の幅                         |
 | `--vs--table-border-width-outer`       | `0.5mm`                      | 明細表の外枠幅                     |
 | `--vs--table-border-width-thead-inner` | `0.45mm`                     | 明細表の表頭下罫幅                 |

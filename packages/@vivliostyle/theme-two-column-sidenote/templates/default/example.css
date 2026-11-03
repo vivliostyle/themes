@@ -1,0 +1,5 @@
+/* 段抜きの図は横長で、段幅いっぱいに引き伸ばすと版面の下端をはみ出すため、
+   幅で高さを詰める */
+:root {
+  --vs-theme-two-column-sidenote--figure-full-width-size-inline: 87%;
+}

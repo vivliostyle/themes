@@ -15,23 +15,12 @@
 @import '@vivliostyle/theme-base/toc';
 
 :root {
-  --vs-theme-wide-margin-speaker-indent--chapter-call-content: target-counter(
-      attr(href),
-      vs-counter-chapter
-    )
-    '　' target-text(attr(href));
-  --vs-theme-wide-margin-speaker-indent--chapter-num-call-content: target-counter(
-    attr(href),
-    vs-counter-chapter
-  );
-
   /* Type: サンセリフ本文 9.5pt / 行送り 1.5 */
   --vs-font-family:
     'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
   --vs-font-size: 9.5pt;
   --vs-line-height: 1.5;
   --vs-letter-spacing: 0.01em;
-  --vs-columns: 1;
   --vs-color-foreground: #1a1a1a;
   --vs-color-foreground-alt: color-mix(
     in oklab,
@@ -49,24 +38,25 @@
     var(--vs-color-foreground),
     var(--vs-color-background) 15%
   );
+  --vs-color-border-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 80%
+  );
 
   --vs--monospace-font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  --vs--heading-font-family:
-    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
 
-  --vs--p-margin-block: 0.85em;
-  --vs--p-text-indent: 0;
-  --vs--p-text-align: justify;
+  --vs--p-margin-block: 0.5rlh;
 
   /* 番号付き章見出し: Black でひときわ大きく */
   --vs--h1-font-size: 1.75em;
   --vs--h1-font-weight: 900;
   --vs--h1-letter-spacing: 0.02em;
   --vs--h1-line-height: 1.3;
-  --vs--h1-margin-block: 0.2em 0.8em;
+  --vs--h1-margin-block: 0.25rlh 1rlh;
 
   /* プルクオートは版面幅いっぱいに引く */
-  --vs--blockquote-margin-block: 1.3em;
+  --vs--blockquote-margin-block: 0.75rlh;
   --vs--blockquote-margin-inline: 0;
 
   /* figure 内の pre は flex アイテムになり、overflow:auto だと中身が消える */
@@ -78,30 +68,27 @@
   --vs-page--margin-left: 22.5mm;
   --vs-page--margin-right: 22.5mm;
   --vs-page--border-width-top: 0.5pt;
-  --vs-page--border-color-top: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 80%
-  );
+  --vs-page--border-color-top: var(--vs-color-border-alt);
 
   /* 柱は各ファイルの frontmatter の title、ノンブルは通し番号 */
   --vs-page--mbox-top-left-content: env(doc-title);
   --vs-page--mbox-bottom-center-content: counter(page);
   --vs-page--mbox-font-family: 'Noto Sans JP', sans-serif;
-  --vs-page--mbox-font-size: 8pt;
+  --vs-page--mbox-font-size: 0.85em;
   --vs-page--mbox-font-weight: 300;
   --vs-page--mbox-letter-spacing: 0.04em;
-  --vs-page--mbox-text-color: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 35%
-  );
+  --vs-page--mbox-text-color: var(--vs-color-foreground-alt);
 
   /* 章番号は章ドキュメントの h1 にだけ付ける */
   --vs-section--h1-marker-content: counter(vs-counter-chapter);
   --vs-section--h1-marker-display: none;
   --vs-section--h1-marker-margin-inline-end: 1em;
-  /* 節は採番しないので、節参照は見出し名で示す */
+}
+
+/* 節は採番しないので、節参照は見出し名で示す。base は日本語文書向けの
+   call-content を :root:lang(ja) に持つので、そちらも上書きする */
+:root,
+:root:lang(ja) {
   --vs-section--call-content: target-text(attr(href));
 }
 
@@ -116,12 +103,13 @@ body.chapter {
 
 /* 章参照 (もくじ・表紙の目次): 章番号 + 章題を原稿から取る */
 a[data-ref='chap']::before {
-  content: var(--vs-theme-wide-margin-speaker-indent--chapter-call-content);
+  content: target-counter(attr(href), vs-counter-chapter) '　'
+    target-text(attr(href));
 }
 
 /* 一覧表などで章番号だけを引くとき */
 a[data-ref='chap-num']::before {
-  content: var(--vs-theme-wide-margin-speaker-indent--chapter-num-call-content);
+  content: target-counter(attr(href), vs-counter-chapter);
 }
 
 a:is([data-ref='chap'], [data-ref='chap-num'], [data-ref='sec']) {
@@ -135,7 +123,7 @@ a:is([data-ref='chap'], [data-ref='chap-num'], [data-ref='sec']) {
 }
 
 .dialogue p {
-  margin: 0 0 0.6em;
+  margin: 0 0 0.5rlh;
   padding-left: 20mm;
   text-indent: -20mm;
   text-align: justify;
@@ -157,7 +145,7 @@ a:is([data-ref='chap'], [data-ref='chap-num'], [data-ref='sec']) {
 
 /* 地の文 (編集部注): 字下げしたグレーの解説段落 */
 .note {
-  margin-block: 1em;
+  margin-block: 0.75rlh;
   margin-inline: 6mm 3mm;
 }
 
@@ -201,17 +189,13 @@ blockquote p::after {
 
 /* コード: ```yaml title="…" → figure.language-yaml > figcaption + pre */
 figure[class*='language-'] {
-  display: flex;
-  flex-direction: column;
   align-items: stretch;
-  break-inside: avoid;
-  margin: 0.85em 0 0.95em;
+  gap: 0.25rlh;
+  margin-block: 0.5rlh 0.75rlh;
   margin-inline: 20mm 3mm;
-  gap: 0;
 }
 
 figure[class*='language-'] > figcaption {
-  margin: 0 0 1.2mm;
   font-size: 0.78em;
   font-weight: 700;
   letter-spacing: 0.03em;
@@ -221,7 +205,7 @@ figure[class*='language-'] > figcaption {
 
 figure[class*='language-'] > pre {
   margin: 0;
-  padding: 2mm 4mm;
+  padding: 0.6em 1.2em;
   background-color: var(--vs-color-background-alt);
   border-left-width: 0.8mm;
   border-left-style: solid;
@@ -229,7 +213,7 @@ figure[class*='language-'] > pre {
 }
 
 figure[class*='language-'] > pre code {
-  font-size: 7.8pt;
+  font-size: 0.8em;
   line-height: 1.45;
   background-color: transparent;
 }

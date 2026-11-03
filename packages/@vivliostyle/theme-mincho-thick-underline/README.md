@@ -1,6 +1,6 @@
 # @vivliostyle/theme-mincho-thick-underline
 
-A4縦・明朝1段組の国内研究会配布資料向けテーマ。右寄せの柱と細下罫、太下罫付きの章見出し、上下太罫の学術表、巻末の注を組む。
+明朝1段組の国内研究会配布資料向けテーマ。右寄せの柱と細下罫、太下罫付きの章見出し、上下太罫の学術表、巻末の注を組む。
 
 ## 使い方
 
@@ -20,15 +20,13 @@ export default {
 | `--vs-font-family`                          | `'Noto Serif JP', ...`                 | 本文書体                       |
 | `--vs-color-foreground`                           | `#1a1a1a` | 本文・罫の墨色                 |
 | `--vs-color-background`                     | `#f7f5f0` | 地色                           |
-| `--vs--h2-font-size`                        | `14pt`                                 | 章見出しの文字サイズ           |
+| `--vs--h2-font-size`                        | `1.4em`                                | 章見出しの文字サイズ           |
 | `--vs--p-text-indent`                       | `1em`                                  | 段落先頭の字下げ量             |
-| `--vs-page--border-color-top`            | `var(--vs-color-foreground)`                 | 柱の下罫の色                   |
-| `--vs-theme-mincho-thick-underline--running-rule-width`            | `0.4pt`                                | 柱の下罫の太さ                 |
-| `--vs-theme-mincho-thick-underline--running-rule-margin-block-end` | `6.5mm`                                | 柱の下罫から版面までの空き     |
-| `--vs-theme-mincho-thick-underline--steps-min-size-inline`         | `27mm`                                 | ブロック図の枠 1 個の最小幅    |
-| `--vs-theme-mincho-thick-underline--equation-marker-content`       | `'(' counter(vs-counter-eq) ')'` | 数式の右端に出す式番号         |
-| `--vs-theme-mincho-thick-underline--equation-call-content`         | `'式(' target-counter(…) ')'`          | 本文から式を参照したときの表示 |
-| `--vs-theme-mincho-thick-underline--endnote-marker-content`        | `'*' counter(vs-counter-endnote) ' '`  | 巻末注の番号                   |
+| `--vs-color-border`                         | `--vs-color-foreground` と同じ         | 柱の下罫・見出し罫・表罫の色   |
+| `--vs-page--border-width-top`               | `0.4pt`                                | 柱の下罫の太さ                 |
+| `--vs-page--padding-top`                    | `1rlh`                                 | 柱の下罫から本文までの空き     |
+| `--vs-theme-mincho-thick-underline--steps-min-size-inline` | `27mm`                  | ブロック図の枠 1 個の最小幅    |
+| `--vs-endnote--marker-content`              | `'*' counter(vs-counter-endnote) ' '`  | 巻末注の番号                   |
 
 ## 原稿の書きかた
 

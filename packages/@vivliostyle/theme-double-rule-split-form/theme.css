@@ -20,23 +20,12 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  /* 帳票の寸法 */
-  --vs-theme-double-rule-split-form--upper-form-block-size: 131mm;
-  --vs-theme-double-rule-split-form--divider-gap: 1.3mm;
-  --vs-theme-double-rule-split-form--row-block-size: 10mm;
-  --vs-theme-double-rule-split-form--item-width: 37%;
-  --vs-theme-double-rule-split-form--quantity-width: 16%;
-  --vs-theme-double-rule-split-form--unit-price-width: 22%;
-  --vs-theme-double-rule-split-form--amount-width: 25%;
-
   --vs-font-family: 'Noto Sans JP', sans-serif;
   --vs-font-size: 9pt;
   --vs-line-height: 1.5;
   --vs-color-foreground: #1a1a1a;
   --vs-color-border: var(--vs-color-foreground);
-  --vs-columns: 1;
 
-  --vs--heading-font-family: 'Noto Sans JP', sans-serif;
   --vs--h1-font-weight: 400;
   --vs--h1-margin-block: 0;
 
@@ -44,16 +33,16 @@
 
   --vs--figure-margin-block: 0;
 
-  --vs--table-font-size: 10.5pt;
-  --vs--table-margin-block: 5.5mm 0;
+  --vs--table-font-size: 1.15em;
+  --vs--table-margin-block: 1.25rlh 0;
   --vs--table-margin-inline: 0;
   --vs--table-border-width: 0;
   --vs--table-border-width-outer: 0.5mm;
   --vs--table-border-width-cell: 0.25mm;
   --vs--table-border-width-thead-inner: 0.45mm;
   --vs--table-break-inside: auto;
-  --vs--table-cell-padding-block: 2.2mm;
-  --vs--table-cell-padding-inline: 3mm;
+  --vs--table-cell-padding-block: 0.6em;
+  --vs--table-cell-padding-inline: 0.8em;
 
   --vs-page--size: A4;
   --vs-page--margin-top: 15mm;
@@ -62,24 +51,23 @@
   --vs-page--margin-right: 17.5mm;
   /* 全面フレーム: 版面いっぱいの枠なのでページ側に持たせる */
   --vs-page--border-width: 0.5mm;
-  --vs-page--border-color: var(--vs-color-border);
 }
 
 body > section.level1 {
-  padding: 6mm 9mm 7mm;
+  padding: 1.25rlh 9mm 1.5rlh;
 }
 
-/* 上部の帳票は様式として高さを固定し、発行者欄を地に寄せる */
+/* 上部の帳票は様式として高さを固定し、発行者欄を地に寄せる。高さは版面のほぼ半分 */
 body > section.level1:not(:last-of-type) {
   display: flex;
   flex-direction: column;
-  block-size: var(--vs-theme-double-rule-split-form--upper-form-block-size);
+  block-size: 131mm;
   border-block-end-width: 0.8mm;
 }
 
 /* 中央の二重罫。上下 0.8mm の罫とのアキで一本の帯に見せる */
 body > section.level1 + section.level1 {
-  margin-block-start: var(--vs-theme-double-rule-split-form--divider-gap);
+  margin-block-start: 1.3mm;
   border-block-start-width: 0.8mm;
 }
 
@@ -99,21 +87,21 @@ body > section.level1 > h1::before {
 
 h1 .ttl {
   flex: 0 0 auto;
-  font-size: 27pt;
+  font-size: 3rem;
   font-weight: 700;
   letter-spacing: 0.5em;
   text-indent: 0.5em;
   line-height: 1.2;
-  padding: 0 3mm 1.2mm;
+  padding: 0 0.3em 0.15em;
   border-bottom-width: 0.8mm;
   text-align: center;
 }
 
 h1 .meta {
   flex: 1 1 0;
-  margin-bottom: 0.5mm;
+  margin-bottom: 0.15em;
   text-align: right;
-  font-size: 10pt;
+  font-size: 1.1rem;
   font-weight: 400;
   line-height: 1.8;
   letter-spacing: 0;
@@ -131,18 +119,18 @@ a[data-ref='doc']::before {
 
 /* ---- 伝票部: 宛名 ---- */
 .addressee {
-  margin-block: 8mm 0;
-  padding: 0 2mm 1.5mm;
+  margin-block: 1.75rlh 0;
+  padding: 0 0.4em 0.3em;
   width: 56%;
   border-bottom-width: 0.4mm;
-  font-size: 15pt;
+  font-size: 1.65em;
   font-weight: 500;
   letter-spacing: 0.08em;
 }
 
 .addressee span {
-  font-size: 12pt;
-  margin-left: 1mm;
+  font-size: 0.8em;
+  margin-left: 0.25em;
 }
 
 /* ---- 伝票部: 太枠の金額ボックス ---- */
@@ -150,15 +138,15 @@ a[data-ref='doc']::before {
   display: flex;
   align-items: center;
   width: 84%;
-  margin-block: 6mm 4.5mm;
+  margin-block: 1.25rlh 1rlh;
   margin-inline: auto;
-  padding: 3mm 6mm;
+  padding: 1em 2em;
   border-width: 0.8mm;
 }
 
 .amount > span {
   flex: 0 0 auto;
-  font-size: 13pt;
+  font-size: 1.45em;
   font-weight: 500;
   letter-spacing: 0.4em;
 }
@@ -166,7 +154,7 @@ a[data-ref='doc']::before {
 .amount > strong {
   flex: 1 1 auto;
   text-align: center;
-  font-size: 37pt;
+  font-size: 4.1em;
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: 0.01em;
@@ -175,7 +163,7 @@ a[data-ref='doc']::before {
 /* ---- 伝票部: 但し書き・件名 ---- */
 .statement {
   text-align: center;
-  font-size: 11pt;
+  font-size: 1.2em;
   line-height: 1.85;
 }
 
@@ -192,12 +180,12 @@ body > section.level1 > footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2.5mm;
+  gap: 0.75em;
   width: 29mm;
   height: 33mm;
   border-width: 0.35mm;
   border-style: dashed;
-  font-size: 9.5pt;
+  font-size: 1.05em;
   letter-spacing: 0.05em;
 }
 
@@ -205,11 +193,11 @@ body > section.level1 > footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 7.5mm;
-  height: 7.5mm;
+  width: 2.5em;
+  height: 2.5em;
   border-width: 0.3mm;
   border-radius: 50%;
-  font-size: 8.5pt;
+  font-size: 0.9em;
 }
 
 .signature {
@@ -220,14 +208,14 @@ body > section.level1 > footer {
 
 .signature address {
   font-style: normal;
-  font-size: 9.5pt;
+  font-size: 1.05em;
   line-height: 1.65;
 }
 
 .signature address strong {
   display: block;
-  margin-bottom: 1.2mm;
-  font-size: 14.5pt;
+  margin-bottom: 0.25rlh;
+  font-size: 1.6rem;
   font-weight: 700;
   letter-spacing: 0.06em;
 }
@@ -248,7 +236,7 @@ table {
 th,
 td {
   /* 空欄の記入行も記入済み行と同じ高さで並べる */
-  height: var(--vs-theme-double-rule-split-form--row-block-size);
+  height: 2.7em;
   vertical-align: middle;
 }
 
@@ -262,16 +250,16 @@ tbody tr {
 }
 
 thead th:first-child {
-  width: var(--vs-theme-double-rule-split-form--item-width);
+  width: 37%;
 }
 thead th:nth-child(2) {
-  width: var(--vs-theme-double-rule-split-form--quantity-width);
+  width: 16%;
 }
 thead th:nth-child(3) {
-  width: var(--vs-theme-double-rule-split-form--unit-price-width);
+  width: 22%;
 }
 thead th:nth-child(4) {
-  width: var(--vs-theme-double-rule-split-form--amount-width);
+  width: 25%;
 }
 
 tbody td:nth-child(2) {
@@ -309,6 +297,6 @@ tbody tr:nth-last-child(1) td:first-child {
 
 tbody tr:last-child td:nth-child(n + 2) {
   border-top-width: 0.5mm;
-  font-size: 13pt;
+  font-size: 1.25em;
   font-weight: 700;
 }

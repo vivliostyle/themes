@@ -1,6 +1,6 @@
 # @vivliostyle/theme-numbered-article-clause
 
-A4判・単段の定款テーマ。明朝体の条文を「第N章」「第N条」の番号付き見出しで組み、項・号を字下げの階層で示す。柱に現在章名、下中央にノンブルを添えた端正な法務文書。
+単段の定款・規程テーマ。明朝体の条文を「第N章」「第N条」の番号付き見出しで組み、項・号を字下げの階層で示す。柱に現在章名、下中央にノンブルを添えた端正な法務文書。
 
 ## 使い方
 
@@ -51,20 +51,13 @@ export default {
 | `--vs-color-foreground` | `#171717` | 本文の文字色 |
 | `--vs-color-background` | `#ffffff` | 紙面の地色 |
 | `--vs-font-family`                   | `'Noto Serif JP', ...`                            | 本文書体                       |
-| `--vs--heading-font-family`          | `'Noto Serif JP', ...`                            | 章・条見出しの書体             |
-| `--vs-color-foreground-alt`            | `--vs-color-foreground` × `--vs-color-background` 25% | 発行主体・改定履歴・柱の濃灰色 |
-| `--vs--table-border-color`           | `--vs-color-foreground` × `--vs-color-background` 45% | 社員名簿等の規程表の罫線色     |
+| `--vs-color-foreground-alt`            | `--vs-color-foreground` × `--vs-color-background` 25% | 改定履歴・柱の濃灰色           |
+| `--vs-color-border`                  | `--vs-color-foreground` × `--vs-color-background` 45% | 規程表と柱の下罫の色           |
 | `--vs-page--mbox-top-left-content`   | `string(chaptitle)`                               | 柱に表示する現在章名           |
 | `--vs-section--h2-marker-content`    | `'第' counter(vs-counter-sec-h2) '章'`            | 章番号の書式                   |
 | `--vs-section--h3-marker-content` | `'第' counter(vs-counter-article) '条'`           | 条番号の書式                   |
-| `--vs-theme-numbered-article-clause--kou-marker-content`     | `counter(vs-counter-kou)`                         | 項番号の書式                   |
-| `--vs-theme-numbered-article-clause--gou-marker-content`     | `counter(vs-counter-gou, cjk-ideographic)`        | 号番号の書式                   |
-| `--vs-theme-numbered-article-clause--article-counter-style`  | `decimal`                                         | 条番号のカウンタスタイル       |
-| `--vs-theme-numbered-article-clause--kou-counter-style`      | `decimal`                                         | 項番号のカウンタスタイル       |
-| `--vs-theme-numbered-article-clause--gou-counter-style`      | `cjk-ideographic`                                 | 号番号のカウンタスタイル       |
-| `--vs-theme-numbered-article-clause--chapter-call-content`   | `'第' target-counter(…, vs-counter-sec-h2) '章'`  | 章参照の書式                   |
-| `--vs-theme-numbered-article-clause--article-call-content`   | `'第' target-counter(…, vs-counter-article) '条'` | 条参照の書式                   |
-| `--vs-theme-numbered-article-clause--kou-call-content`       | `'第' target-counter(…, vs-counter-kou) '項'`     | 項参照の書式                   |
-| `--vs-theme-numbered-article-clause--gou-call-content`       | `'第' target-counter(…, vs-counter-gou) '号'`     | 号参照の書式                   |
+| `--vs-theme-numbered-article-clause--article-counter-style`  | `decimal`                                         | 条番号とその参照のカウンタスタイル |
+| `--vs-theme-numbered-article-clause--kou-counter-style`      | `decimal`                                         | 項番号とその参照のカウンタスタイル |
+| `--vs-theme-numbered-article-clause--gou-counter-style`      | `cjk-ideographic`                                 | 号番号とその参照のカウンタスタイル |
 
 表題直下の発行主体・制定改定履歴は `.issuer` / `.revision-record` を付けた段落として書く。

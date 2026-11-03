@@ -33,49 +33,46 @@
   );
 
   --vs-theme-dot-grid-checkbox--color-accent: var(--vs-color-foreground-alt);
-  --vs-theme-dot-grid-checkbox--sketch-size-inline: 70mm;
 
   --vs-font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
   --vs-font-family-alt: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   --vs-font-size: 9pt;
   --vs-line-height: 1.5;
-  --vs-columns: 1;
   --vs-color-foreground: #27313a;
   --vs-color-foreground-alt: #34495e;
   --vs-color-background: #fcfbf7;
 
   --vs--p-margin-block: 0;
-  --vs--p-text-indent: 0;
   --vs--p-text-align: start;
 
-  --vs--heading-font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --vs--heading-font-family: var(--vs-font-family-alt);
   --vs--heading-font-weight: 500;
-  --vs--heading-text-align: start;
   --vs--heading-margin-block: 0;
 
   /* Masthead: 媒体名 */
-  --vs--h1-font-size: 14pt;
+  --vs--h1-font-size: 1.55em;
   --vs--h1-font-weight: 600;
   --vs--h1-letter-spacing: 0.13em;
   --vs--h1-line-height: 1.1;
-  --vs--h1-margin-block: 0 6mm;
+  --vs--h1-margin-block: 0 1.25rlh;
 
   /* Section labels: 英大文字・広トラッキング */
-  --vs--h2-font-size: 8.5pt;
+  --vs--h2-font-size: 0.95em;
   --vs--h2-letter-spacing: 0.3em;
-  --vs--h2-margin-block: 0 3.5mm;
+  --vs--h2-margin-block: 0 0.75rlh;
 
   /* Lists: マーカーは自前で描くので既定のマーカー・字下げを解除する */
   --vs--lists-margin-block: 0;
   --vs--lists-margin-inline: 0;
   --vs--ul-list-style-type: none;
-  --vs--ul-padding-inline-start: 0mm;
+  --vs--ul-padding-inline-start: 0;
 
   /* Sketch: 製図調の図版を外側寄せに置く */
-  --vs--figure-display: block;
-  --vs--figure-margin-block: 3mm 0;
-  --vs--figcaption-font-size: 7pt;
-  --vs--figcaption-margin-block: 2mm 0;
+  --vs--figure-align-items: end;
+  --vs--figure-gap: 0.5rlh;
+  --vs--figure-item-size-inline: 70mm;
+  --vs--figure-margin-block: 0.75rlh 0;
+  --vs--figcaption-font-size: 0.8em;
   --vs--figcaption-text-align: end;
 
   --vs-page--size: A5;
@@ -98,19 +95,15 @@
   /* ノンブルは小口下 (右ページは右下、左ページは左下) */
   --vs-page--mbox-bottom-outside-content: counter(page);
   --vs-page--mbox-bottom-font-family: var(--vs-font-family-alt);
-  --vs-page--mbox-bottom-font-size: 7pt;
+  --vs-page--mbox-bottom-font-size: 0.8em;
   --vs-page--mbox-bottom-text-color: var(
     --vs-theme-dot-grid-checkbox--color-foreground-secondary
   );
 
   /* Index: 項目の字下げをせず、他のリストと同じ左端に揃える */
   --vs-toc--ol-indent-size: 0;
-}
 
-/* 手帳のスケッチは通し番号ではなく "fig." の標識だけを持つ。
-   :lang(ja) 側の既定値に詳細度で負けないよう両方に書く */
-:root,
-:root:lang(ja) {
+  /* スケッチは通し番号ではなく "fig." の標識だけを持つ */
   --vs-figure--marker-content: 'fig. — ';
 }
 
@@ -118,7 +111,7 @@
    (絶対配置だとページ分割時に位置が定まらない) */
 .meta {
   float: inline-end;
-  margin-block-start: 1.2mm;
+  margin-block-start: 0.25rlh;
 }
 
 h1 {
@@ -132,19 +125,19 @@ h1::after {
   width: 30mm;
   height: 1.1pt;
   background-color: var(--vs-theme-dot-grid-checkbox--color-accent);
-  margin-top: 3.4mm;
+  margin-top: 0.75rlh;
 }
 
 .meta time {
   font-family: var(--vs-font-family-alt);
   font-weight: 500;
-  font-size: 10pt;
+  font-size: 1.1em;
   letter-spacing: 0.24em;
   color: var(--vs-theme-dot-grid-checkbox--color-accent);
 }
 
 section.level2 {
-  margin-block: 6mm 0;
+  margin-block: 1.25rlh 0;
 }
 
 h2 {
@@ -154,21 +147,21 @@ h2 {
 
 /* Tasks: 角チェックボックス付きリスト (Markdown のタスクリスト) */
 li.task-list-item {
-  margin-block: 1.4mm;
+  margin-block: 0.25rlh;
   line-height: 1.4;
 }
 
 li.task-list-item input[type='checkbox'] {
   appearance: none;
   -webkit-appearance: none;
-  inline-size: 3mm;
-  block-size: 3mm;
+  inline-size: 0.95rem;
+  block-size: 0.95rem;
   border-width: 1px;
   border-style: solid;
   border-color: var(--vs-theme-dot-grid-checkbox--color-accent);
-  margin: 0 2mm 0 0;
+  margin: 0 0.65rem 0 0;
   padding: 0;
-  vertical-align: -0.4mm;
+  vertical-align: -0.15rem;
   background-color: transparent;
 }
 
@@ -188,8 +181,8 @@ li.task-list-item del {
 /* Notes: 小さな丸印の箇条書き */
 section.level2 ul:not(.contains-task-list) li {
   position: relative;
-  padding-inline-start: 5mm;
-  margin-block: 1.9mm;
+  padding-inline-start: 1.6em;
+  margin-block: 0.5rlh;
   line-height: 1.4;
 }
 
@@ -198,15 +191,15 @@ section.level2 ul:not(.contains-task-list) li::before {
   position: absolute;
   inset-inline-start: 0;
   top: 0.62em;
-  inline-size: 1.1mm;
-  block-size: 1.1mm;
+  inline-size: 0.35em;
+  block-size: 0.35em;
   border-radius: 50%;
   background-color: var(--vs-color-foreground);
 }
 
 /* Index: 見出しとノンブルを点リーダでつなぐ。ページ番号は target-counter 任せ */
 [role='doc-toc'] li {
-  margin-block: 1.9mm;
+  margin-block: 0.5rlh;
   line-height: 1.4;
 }
 
@@ -217,13 +210,6 @@ section.level2 ul:not(.contains-task-list) li::before {
 [role='doc-toc'] li > a::after {
   font-family: var(--vs-font-family-alt);
   color: var(--vs-theme-dot-grid-checkbox--color-accent);
-}
-
-figure img {
-  display: block;
-  inline-size: min(100%, var(--vs-theme-dot-grid-checkbox--sketch-size-inline));
-  height: auto;
-  margin-inline-start: auto;
 }
 
 figcaption {

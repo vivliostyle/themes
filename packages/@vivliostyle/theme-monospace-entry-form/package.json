@@ -1,0 +1,69 @@
+{
+  "name": "@vivliostyle/theme-monospace-entry-form",
+  "version": "0.0.0",
+  "description": "Log form theme for planners, fitting monospaced entry fields, record tables and ruled notes on a spread",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-monospace-entry-form"
+  },
+  "files": [
+    "*.css",
+    "templates",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Monospace Entry Form",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "misc",
+      "topics": [
+        "forms",
+        "dense",
+        "data-recording",
+        "monospace",
+        "table-format"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "手帳向けの記録フォームテーマ。等幅組みで記入欄・記録表・NOTES 罫を1見開きに収める"
+        }
+      }
+    },
+    "template": {
+      "default": {
+        "name": "Monospace Entry Form sample",
+        "source": "./templates/default"
+      }
+    }
+  }
+}

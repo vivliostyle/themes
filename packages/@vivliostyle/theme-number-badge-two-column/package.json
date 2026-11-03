@@ -1,0 +1,72 @@
+{
+  "name": "@vivliostyle/theme-number-badge-two-column",
+  "version": "0.0.0",
+  "description": "Two-column theme for annual activity reports, with numbered badge headings, boxed articles and tables in an accent color",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-number-badge-two-column"
+  },
+  "files": [
+    "*.css",
+    "templates",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Number Badge Two Column",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "report",
+      "topics": [
+        "yearbook-anthology",
+        "report",
+        "b5",
+        "two-column",
+        "photo-centric",
+        "colorful",
+        "numbered",
+        "youthful"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "横組2段の年間活動報告書テーマ。アクセントカラーで数字バッジ見出し・囲み記事・表を組む"
+        }
+      }
+    },
+    "template": {
+      "default": {
+        "name": "Number Badge Two Column sample",
+        "source": "./templates/default"
+      }
+    }
+  }
+}

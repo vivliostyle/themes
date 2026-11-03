@@ -2,8 +2,8 @@
  * 学会論文概要集 (masthead-footnote-two-column)
  * A5判・精密2段組の学会予稿ページ。Noto Serif JP の本文/題目/番号付き見出しに、
  * Noto Sans JP の著者・所属・キーワード・柱・キャプションを組み合わせる。
- * 装飾色を排し #161616 の本文と #4A4A4A の補助文字、#8C8C8C の細罫、#E6E6E2 の淡色面
- * のみで、全幅マストヘッド + 概要 + 2段組本文 + 図表 + 脚注 + 参考文献 + 索引語を高密度に収める。
+ * 装飾色を排し、本文色と、それを地色に混ぜた補助文字・細罫・淡色面のみで、
+ * 全幅マストヘッド + 概要 + 2段組本文 + 図表 + 脚注 + 参考文献 + 索引語を高密度に収める。
  *
  * DOM は VFM 出力:
  *   body > section.level1 (= 概要 1 件。2段組コンテナ)
@@ -51,60 +51,60 @@
   );
   --vs-widows-orphans: 2;
 
+  /* 段組は概要ごとに掛ける */
+  --vs-columns: 2;
+  --vs-column-fill: auto;
+  --vs-column-gap: 5mm;
+
   --vs--table-font-family: var(--vs-font-family-alt);
 
   /* Paragraphs: 1em first-line indent, no inter-paragraph gap */
   --vs--p-margin-block: 0;
   --vs--p-text-indent: 1em;
-  --vs--p-text-align: justify;
 
-  --vs--heading-font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
   --vs--heading-font-weight: 600;
-  --vs--heading-text-align: start;
-  --vs--heading-margin-block: 0.85rem 0.3rem;
+  --vs--heading-margin-block: 0.75rlh 0.25rlh;
 
   /* Title */
-  --vs--h1-font-size: 13pt;
+  --vs--h1-font-size: 1.85em;
   --vs--h1-font-weight: 700;
   --vs--h1-line-height: 1.3;
   --vs--h1-text-align: center;
-  --vs--h1-margin-block: 0 0.5rem;
+  --vs--h1-margin-block: 0 0.5rlh;
 
   /* Numbered section headings */
-  --vs--h2-font-size: 8pt;
+  --vs--h2-font-size: 1.15em;
   --vs--h2-line-height: 1.25;
-  --vs--h2-margin-block: 0.55rem 0.2rem;
+  --vs--h2-margin-block: 0.5rlh 0.25rlh;
 
   /* Figures: kept whole, sans caption */
-  --vs--figure-margin-block: 0.5rem;
-  --vs--figcaption-font-size: 6.2pt;
+  --vs--figure-margin-block: 0.5rlh;
+  --vs--figure-gap: 0.25rlh;
+  --vs--figcaption-font-family: var(--vs-font-family-alt);
+  --vs--figcaption-font-size: 0.9em;
   --vs--figcaption-text-align: center;
-  --vs--figcaption-margin-block: 0.3rem 0;
+  --vs--figcaption-text-color: var(--vs-color-foreground-alt);
 
   /* Tables: thin full grid, gray header fill */
-  --vs--table-font-size: 6.2pt;
-  --vs--table-border-color: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 55%
-  );
+  --vs--table-font-size: 0.9em;
+  --vs--table-border-color: var(--vs-color-border-alt);
   --vs--table-border-width: 0.5px;
-  --vs--table-cell-padding-block: 0.2rem;
-  --vs--table-cell-padding-inline: 0.3rem;
+  --vs--table-cell-padding-block: 0.2em;
+  --vs--table-cell-padding-inline: 0.35em;
   --vs--th-text-align: center;
   --vs--th-font-weight: 500;
   --vs--td-text-align: center;
 
   /* References: hanging numbers, tight leading */
-  --vs--lists-margin-block: 0.2rem;
+  --vs--lists-margin-block: 0.25rlh;
   --vs--ol-padding-inline-start: 1.7em;
   --vs--ol-text-align: justify;
 
-  --vs-equation--margin-block: 0.45rem;
+  --vs-equation--margin-block: 0.25rlh;
   --vs-equation--item-text-align: inherit;
   --vs-equation--marker-font-size: 0.82em;
   --vs-equation--marker-font-family: var(--vs-font-family-alt);
-  --vs-math--display-margin-block: 0.45rem;
+  --vs-math--display-margin-block: 0.25rlh;
 
   /* Page: A5 portrait, tight even margins。柱は誌名と部名、ノンブルは小口下 */
   --vs-page--size: A5;
@@ -112,13 +112,9 @@
   --vs-page--margin-bottom: 10.5mm;
   --vs-page--margin-left: 10mm;
   --vs-page--margin-right: 10mm;
-  --vs-page--mbox-font-family: 'Noto Sans JP', sans-serif;
-  --vs-page--mbox-font-size: 6.8pt;
-  --vs-page--mbox-text-color: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 25%
-  );
+  --vs-page--mbox-font-family: var(--vs-font-family-alt);
+  --vs-page--mbox-font-size: 0.95em;
+  --vs-page--mbox-text-color: var(--vs-color-foreground-alt);
   --vs-page--mbox-letter-spacing: 0.01em;
   --vs-page--mbox-top-left-content: env(pub-title);
   --vs-page--mbox-top-right-content: env(doc-title);
@@ -134,30 +130,29 @@
   --vs-section--h2-marker-margin-inline-end: 0.5ch;
 
   /* Footnotes at column/page bottom */
-  --vs-footnote--font-size: 6pt;
-  --vs-footnote--text-color: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 25%
-  );
+  --vs-footnote--font-size: 0.85em;
+  --vs-footnote--text-color: var(--vs-color-foreground-alt);
   --vs-footnote--line-height: 1.35;
   --vs-footnote--marker-content: '*' counter(vs-counter-footnote) '\2003';
-  --vs-footnote--area-margin-block: 0.5rem 0;
-  --vs-footnote--area-before-margin-block: 0 0.3rem;
+  --vs-footnote--area-margin-block: 0.5rlh 0;
+  --vs-footnote--area-before-margin-block: 0 0.25rlh;
+
+  /* 図表番号は概要ごとの通し番号。キャプションは「図1　」の形で組む */
+  --vs-figure--marker-content: var(--vs-figure--label) counter(vs-counter-fig)
+    '\3000';
+  --vs-table--marker-content: var(--vs-table--label) counter(vs-counter-tbl)
+    '\3000';
 }
 
-/* 図表番号は概要ごとの通し番号。キャプションは「図1　」の形で組む */
-:root,
-:root:lang(ja) {
-  --vs-figure--marker-content: '図' counter(vs-counter-fig) '\3000';
-  --vs-table--marker-content: '表' counter(vs-counter-tbl) '\3000';
+/* ---- 2-column body; masthead spans both columns ---- */
+html {
+  columns: auto;
 }
 
-/* ---- 2-column body; masthead spans both columns (段抜きを伴うため直書き) ---- */
 body > section.level1 {
-  columns: 2;
-  column-gap: 5mm;
-  column-fill: auto;
+  columns: var(--vs-columns);
+  column-gap: var(--vs-column-gap);
+  column-fill: var(--vs-column-fill);
 }
 
 /* 図表・式・脚注の番号は概要ごとに数え直す。base は section 側に counter-reset を
@@ -179,12 +174,12 @@ body
 h1 .paper-id {
   display: block;
   font-family: var(--vs-font-family-alt);
-  font-size: 7pt;
+  font-size: 1rem;
   font-weight: 500;
   text-align: start;
   letter-spacing: 0.06em;
   line-height: 1.2;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5rlh;
 }
 
 /* Masthead lines (著者 / 所属 / 連絡先 / 開催情報 / 概要 / キーワード) */
@@ -192,12 +187,11 @@ body
   > section.level1
   > p:is(.authors, .affiliations, .contact, .venue, .abstract, .keywords) {
   font-family: var(--vs-font-family-alt);
-  font-size: 6.6pt;
+  font-size: 0.95em;
   color: var(--vs-color-foreground-alt);
   text-align: center;
   text-indent: 0;
   line-height: 1.45;
-  margin-block: 0.12rem;
 }
 
 body > section.level1 > p:is(.authors, .affiliations) sup {
@@ -208,21 +202,21 @@ body > section.level1 > p:is(.authors, .affiliations) sup {
 /* 著者名 */
 body > section.level1 > p.authors {
   font-weight: 500;
-  font-size: 8pt;
+  font-size: 1.15em;
   color: var(--vs-color-foreground);
   line-height: 1.5;
-  margin-block: 0.3rem 0.2rem;
+  margin-block: 0.25rlh;
 }
 
 /* 概要: 全幅・両端揃え・下罫 */
 body > section.level1 > p.abstract {
   font-family: var(--vs-font-family);
-  font-size: 6.9pt;
+  font-size: 1em;
   color: var(--vs-color-foreground);
   line-height: 1.42;
   text-align: justify;
-  margin-block: 0.5rem 0;
-  padding-bottom: 0.45rem;
+  margin-block: 0.5rlh 0;
+  padding-bottom: 0.25rlh;
   border-bottom-width: 0.5px;
   border-bottom-style: solid;
   border-bottom-color: var(--vs-color-border-alt);
@@ -231,7 +225,7 @@ body > section.level1 > p.abstract {
 /* キーワード行: 左寄せ・下罫 */
 body > section.level1 > p.keywords {
   text-align: start;
-  padding-block: 0.35rem;
+  padding-block: 0.25rlh;
   margin-block: 0;
   border-bottom-width: 0.5px;
   border-bottom-style: solid;
@@ -249,7 +243,7 @@ body > section.level1 > p.keywords strong {
    section に包まれないので、キーワード行との隣接でも拾う */
 section.level2:first-of-type > h2,
 p.keywords + h2 {
-  margin-top: 0.6rem;
+  margin-top: 0.5rlh;
 }
 
 /* First line after a heading is not indented */
@@ -289,18 +283,11 @@ a:is([data-ref='eq'], [data-ref='page']) {
 }
 
 /* ---- Figures (single-column) ---- */
-/* 60%: v2 は figure-item-padding-inline の既定 (spacing-inline-indent) が
- * 効いていたため、現行の既定 0 に対して同じ実寸になるよう縮小して換算 */
 figure img {
   width: 60%;
   margin-inline: auto;
   height: auto;
   display: block;
-}
-
-figcaption {
-  font-family: var(--vs-font-family-alt);
-  color: var(--vs-color-foreground-alt);
 }
 
 figcaption::before,
@@ -320,10 +307,10 @@ table {
 p.caption {
   font-family: var(--vs-font-family-alt);
   font-weight: 500;
-  font-size: 6.6pt;
+  font-size: 0.95em;
   text-align: center;
   text-indent: 0;
-  margin-block: 0.5rem 0.3rem;
+  margin-block: 0.5rlh 0.25rlh;
   break-after: avoid;
   counter-increment: vs-counter-tbl;
 }
@@ -343,7 +330,6 @@ p.caption.plain::before {
 
 thead th {
   background-color: var(--vs-color-background-alt);
-  font-family: var(--vs-font-family-alt);
 }
 
 td:first-child {
@@ -353,34 +339,30 @@ td:first-child {
 /* Note line under a table */
 p.note {
   font-family: var(--vs-font-family-alt);
-  font-size: 6pt;
+  font-size: 0.85em;
   color: var(--vs-color-foreground-alt);
   text-indent: 0;
   line-height: 1.4;
-  margin-block: 0.25rem 0.6rem;
+  margin-block: 0.25rlh 0.5rlh;
   break-before: avoid;
 }
 
 /* ---- References ---- */
 section > ol {
-  font-size: 6.4pt;
+  font-size: 0.9em;
   line-height: 1.35;
-}
-
-section > ol > li {
-  margin-block: 0.12rem;
 }
 
 /* Index-terms trailer */
 p.index-terms {
   font-family: var(--vs-font-family-alt);
-  font-size: 6.4pt;
+  font-size: 0.9em;
   color: var(--vs-color-foreground-alt);
   text-align: start;
   text-indent: 0;
   line-height: 1.4;
-  margin-block: 0.55rem 0;
-  padding-top: 0.35rem;
+  margin-block: 0.5rlh 0;
+  padding-top: 0.25rlh;
   border-top-width: 0.5px;
   border-top-style: solid;
   border-top-color: var(--vs-color-border-alt);

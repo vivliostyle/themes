@@ -1,6 +1,6 @@
 # @vivliostyle/theme-centered-heading-bracket-subhead
 
-B5判・単段の民事判例解説テーマ。中央寄せの事件名見出しと裁判所名・事件番号の階層表示、【事実の概要】【判旨】の隅付き小見出し、争点整理の罫線表、末尾の「注」ブロックで組む。
+単段の事例解説集テーマ。中央寄せの番号付き標題見出しと副題・付記の階層表示、【】の隅付き小見出し、罫線表、末尾の「注」ブロックで組む。
 
 ## 使い方
 
@@ -13,7 +13,7 @@ export default {
 
 ## 原稿の書き方
 
-事件番号 (h1)・解説の項番号 (h3の「一・二・三」)・注番号はすべてカウンタで生成する。原稿の見出しには番号を書かない。h1 は事件ごとに改ページする。
+標題番号 (h1)・解説の項番号 (h3の「一・二・三」)・注番号はすべてカウンタで生成する。原稿の見出しには番号を書かない。h1 ごとに改ページする。
 
 ```md
 ---
@@ -44,18 +44,17 @@ class: chapter # base の章カウンタを増やす (柱の「第N章」)
 
 配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
 
-| 変数                                 | 既定値                                                   | 説明                       |
-| ------------------------------------ | -------------------------------------------------------- | -------------------------- |
+| 変数 | 既定値 | 説明 |
+| --- | --- | --- |
 | `--vs-color-foreground` | `#1a1a1a` | 本文の文字色 |
-| `--vs-theme-centered-heading-bracket-subhead--font-display`           | `'Shippori Mincho B1', ...`                              | 事件名見出し(h1)の表示書体 |
-| `--vs-color-background`              | `#fdfcf8` | 地色(生成り)               |
-| `--vs-color-background-alt`         | `--vs-color-foreground` × `--vs-color-background` 95% | 争点整理表ヘッダー行の地色 |
-| `--vs-color-border`             | `--vs-color-foreground` × `--vs-color-background` 30% | 罫線色(柱・表・注の区切り) |
-| `--vs-page--mbox-top-center-content` | `'第' counter(vs-counter-chapter) '章　' env(doc-title)` | 柱の内容                   |
-| `--vs-section--h1-marker-content`    | `counter(vs-counter-sec-h1)`                             | 事件番号の書式             |
-| `--vs-section--h3-marker-content`    | `counter(vs-counter-sec-h3, cjk-ideographic)`            | 解説の項番号の書式         |
-| `--vs-theme-centered-heading-bracket-subhead--note-marker-content`    | `'(' counter(vs-counter-endnote) ')'`                    | 注番号の書式               |
-| `--vs-theme-centered-heading-bracket-subhead--note-call-content`      | `'注(' target-counter(…, vs-counter-endnote) ')'`        | 注参照の書式               |
+| `--vs-theme-centered-heading-bracket-subhead--font-display` | `'Shippori Mincho B1', ...` | 標題見出し(h1)と副題の表示書体 |
+| `--vs-color-background` | `#fdfcf8` | 地色(生成り) |
+| `--vs-color-background-alt` | `--vs-color-foreground` × `--vs-color-background` 95% | 表ヘッダー行の地色 |
+| `--vs-color-border` | `--vs-color-foreground` × `--vs-color-background` 30% | 罫線色(柱・表・注の区切り) |
+| `--vs-page--mbox-top-center-content` | `'第' counter(vs-counter-chapter) '章　' env(doc-title)` | 柱の内容 |
+| `--vs-section--h1-marker-content` | `counter(vs-counter-sec-h1)` | 標題番号の書式 |
+| `--vs-section--h3-marker-content` | `counter(vs-counter-sec-h3, cjk-ideographic)` | 解説の項番号の書式 |
+| `--vs-endnote--marker-content` | `'(' counter(vs-counter-endnote) ')'` | 注番号の書式 |
 
-章番号・事件番号・ノンブルを途中から起こすには、原稿側 (example/example.css) で
+章番号・標題番号・ノンブルを途中から起こすには、原稿側 (templates/default/example.css) で
 `--vs-section--root-counter-sec-h1` と `--vs-document-first-page-counter-reset` を指定する。

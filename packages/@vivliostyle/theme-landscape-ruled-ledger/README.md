@@ -1,6 +1,6 @@
 # @vivliostyle/theme-landscape-ruled-ledger
 
-B5判横書きの現金出納帳テーマ。日付(月/日)・摘要・収入・支出・残高の全幅罫組み表を、外枠・列罫・記入行罫の3階調で組む実務帳簿。
+横書きの帳簿テーマ。日付(月/日)・摘要・金額欄の全幅罫組み表を、外枠・列罫・記入行罫の3階調で組む実務帳簿。
 
 ## 使い方
 
@@ -26,19 +26,13 @@ export default {
 
 | 変数                                   | 既定値                 | 説明                         |
 | -------------------------------------- | ---------------------- | ---------------------------- |
-| `--vs-color-foreground` | `#242424` | 本文の文字色 |
+| `--vs-color-foreground` | `#242424` | 本文の文字色・外枠と表頭罫の色 |
 | `--vs-font-family`                     | `'Noto Sans JP', ...`  | 本文・帳票名の書体           |
 | `--vs-color-background`                | `#faf9f5` | 帳簿用紙の地色               |
 | `--vs-font-family-monospace`                | `'IBM Plex Mono', ...` | 日付・金額欄の等幅数字書体   |
-| `--vs-theme-landscape-ruled-ledger--color-rule-strong`        | `--vs-color-foreground` と同じ | 外枠・表頭罫の濃色           |
 | `--vs-color-border`               | `--vs-color-foreground` × `--vs-color-background` 45% | 列罫・月計行罫の中間色       |
 | `--vs--table-border-color-row`          | `--vs-color-foreground` × `--vs-color-background` 70% | 記入行罫の淡色               |
 | `--vs-color-foreground-alt`              | `--vs-color-foreground` × `--vs-color-background` 35% | 補助文字・ノンブルの色       |
 | `--vs-color-background-alt`               | `--vs-color-foreground` × `--vs-color-background` 95% | 月計行の地色                 |
-| `--vs-theme-landscape-ruled-ledger--ledger-date-width`        | `7%`                   | 月欄・日欄の幅               |
-| `--vs-theme-landscape-ruled-ledger--ledger-description-width` | `39%`                  | 摘要欄の幅                   |
-| `--vs-theme-landscape-ruled-ledger--ledger-amount-width`      | `18%`                  | 金額欄の幅                   |
-| `--vs-theme-landscape-ruled-ledger--date-group-label`         | `'日付'`               | 月/日 にまたがる表頭の見出し |
-| `--vs-theme-landscape-ruled-ledger--date-group-block-size`    | `4.6mm`                | その表頭帯の高さ             |
 
 ノンブルは小口側の変数 `--vs-page--mbox-bottom-outside-content` で指定しているので、右ページでは右下、左ページでは左下に置かれる。片面で全ページ右下に揃えたい場合は `--vs-page--mbox-bottom-right-content: counter(page, decimal-leading-zero)` のように物理位置の変数で上書きする。

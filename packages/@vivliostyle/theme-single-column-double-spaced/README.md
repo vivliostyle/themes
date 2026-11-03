@@ -1,6 +1,6 @@
 # @vivliostyle/theme-single-column-double-spaced
 
-北米APA論文様式 第7版に準拠した学位論文本文向けテーマ。Letter判1段組・ダブルスペース、番号付き見出し階層、水平罫3本のみのAPA式表、上付き脚注、全大文字のランニングヘッドを組む。
+北米APA論文様式 第7版に準拠した学位論文本文向けテーマ。1段組・ダブルスペース、番号付き見出し階層、水平罫3本のみのAPA式表、上付き脚注、全大文字のランニングヘッドを組む。
 
 ## 使い方
 
@@ -23,16 +23,14 @@ export default {
 
 このテーマは [@vivliostyle/theme-base](../theme-base/README.md) の CSS 変数で構成されている。`:root` で `--vs-*` 変数を上書きしてカスタマイズできる。
 
-| 変数                                     | 既定値                             | 説明                              |
-| ---------------------------------------- | ---------------------------------- | --------------------------------- |
-| `--vs-color-foreground` | `#111111` | 本文の文字色 |
-| `--vs-color-background` | `#ffffff` | 紙面の地色 |
-| `--vs-font-family`                       | `'Tinos', ...`                     | 本文書体                          |
-| `--vs-line-height`                       | `2`                                | 本文行送り (ダブルスペース)       |
-| `--vs-page--mbox-top-left-content`       | `string(running-head)`             | ランニングヘッド (全大文字)       |
-| `--vs-section--counter-style`            | `decimal`                          | 章・節番号の書式                  |
-| `--vs-theme-single-column-double-spaced--chapter-call-content`       | `'Chapter ' target-counter(...)`   | `data-ref="chapter"` の参照文字列 |
-| `--vs-table--marker-content`      | `'Table ' counter(vs-counter-tbl)` | 表番号                            |
-| `--vs--table-border-color`               | `--vs-color-foreground` と同じ | APA式表の水平罫の色               |
-| `--vs-footnote--font-size`               | `10pt`                             | 脚注の文字サイズ                  |
-| `--vs-footnote--area-before-size-inline` | `50mm`                             | 脚注の区切り罫の長さ              |
+| 変数                                     | 既定値                             | 説明                        |
+| ---------------------------------------- | ---------------------------------- | --------------------------- |
+| `--vs-color-foreground`                  | `#111111`                          | 本文の文字色                |
+| `--vs-color-background`                  | `#ffffff`                          | 紙面の地色                  |
+| `--vs-font-family`                       | `'Tinos', ...`                     | 本文書体                    |
+| `--vs-line-height`                       | `2`                                | 本文行送り (ダブルスペース) |
+| `--vs-page--mbox-top-left-content`       | `string(running-head)`             | ランニングヘッド (全大文字) |
+| `--vs-section--counter-style`            | `decimal`                          | 章・節番号の書式            |
+| `--vs-table--marker-content`             | `'Table ' counter(vs-counter-tbl)` | 表番号                      |
+| `--vs-footnote--font-size`               | `0.85rem`                          | 脚注の文字サイズ            |
+| `--vs-footnote--area-before-size-inline` | `50mm`                             | 脚注の区切り罫の長さ        |

@@ -1,6 +1,6 @@
 # @vivliostyle/theme-vertical-spanning-title-boxed
 
-A4縦組みの総合誌特集ページテーマ。右端に段抜きの大題と縦罫・著者名、上下2段の縦組み本文と傍注列、下段には肖像・略歴・用語解説の囲み記事を配する、墨一色の戦後論壇誌風の紙面を作る。
+縦組みの総合誌特集ページテーマ。右端に段抜きの大題と縦罫・著者名、上下2段の縦組み本文と傍注列、下段には肖像・略歴・用語解説の囲み記事を配する、戦後論壇誌風の紙面を作る。
 
 ## 使い方
 
@@ -64,9 +64,7 @@ lang: ja
 | `--vs-font-family`                      | `'Noto Serif JP', ...`              | 本文・見出しの明朝書体            |
 | `--vs-color-foreground`                       | `#1a1a1a` | 本文・罫の墨色                    |
 | `--vs-color-background`                 | `#f5f2ea` | 黄味がかった地色                  |
-| `--vs--h1-font-size`                    | `26pt`                              | 大題 (縦組み) の文字サイズ        |
-| `--vs-theme-vertical-spanning-title-boxed--columns`                   | `2`                                 | 段数 (縦組みなので上下に積まれる) |
-| `--vs-theme-vertical-spanning-title-boxed--column-gap`                | `6mm`                               | 段間                              |
-| `--vs-theme-vertical-spanning-title-boxed--headline-margin-block-end` | `5mm`                               | 大題と本文のアキ                  |
-| `--vs-theme-vertical-spanning-title-boxed--card-size-inline`          | `62mm`                              | 囲み記事の高さ                    |
+| `--vs--h1-font-size`                    | `2.9em`                              | 大題 (縦組み) の文字サイズ        |
+| `--vs-columns`                   | `2`                                 | 段数 (縦組みなので上下に積まれる) |
+| `--vs-column-gap`                | `6mm`                               | 段間                              |
 | `--vs-footnote--call-content`           | `'＊' counter(vs-counter-footnote)` | 合印の書式                        |

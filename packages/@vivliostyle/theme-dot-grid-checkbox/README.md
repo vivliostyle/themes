@@ -1,6 +1,6 @@
 # @vivliostyle/theme-dot-grid-checkbox
 
-5mm ドット方眼を敷いた A5 のバレットジャーナル向けデイリーページテーマ。角チェックボックスのタスクリストと丸印のメモを、罫線を使わず短いアクセント罫だけで整列させる。
+5mm ドット方眼を敷いたバレットジャーナル向けデイリーページテーマ。角チェックボックスのタスクリストと丸印のメモを、罫線を使わず短いアクセント罫だけで整列させる。
 
 ## 組み方
 
@@ -28,13 +28,13 @@ export default {
 | ----------------------------------- | ------------------ | --------------------------------------------- |
 | `--vs-color-foreground-alt` | `#34495e` | アクセント色 |
 | `--vs-font-family`                  | `'Noto Sans', ...` | 本文書体                                      |
-| `--vs--heading-font-family`         | `'Inter', ...`     | 見出し・ラベルの表示書体                      |
+| `--vs--heading-font-family`         | `--vs-font-family-alt` と同じ | 見出し・ラベルの表示書体                      |
 | `--vs-color-foreground`                   | `#27313a` | 本文の文字色                                  |
 | `--vs-color-background`             | `#fcfbf7` | 地色 (ドット方眼の紙色)                       |
-| `--vs-font-family-alt`          | `'Inter', ...`     | 日付・図キャプションの表示書体                |
+| `--vs-font-family-alt`          | `'Inter', ...`     | 見出し・日付・図キャプション・ノンブルの表示書体 |
 | `--vs-theme-dot-grid-checkbox--color-accent`          | `--vs-color-foreground-alt` と同じ | 見出し・チェックボックス・罫のアクセント色    |
 | `--vs-theme-dot-grid-checkbox--color-foreground-secondary`           | `--vs-color-foreground-alt` × `--vs-color-background` 45% | 完了タスク・図キャプション・ノンブルの色      |
-| `--vs-theme-dot-grid-checkbox--sketch-size-inline`    | `70mm`             | スケッチ図版の幅 (これより狭い図は拡大しない) |
+| `--vs--figure-item-size-inline`    | `70mm`             | スケッチ図版の幅 (版面幅を超える場合は版面幅) |
 | `--vs-figure--marker-content` | `'fig. — '`        | `figcaption` の頭に付く標識                   |
 
 ## 見開きで組む

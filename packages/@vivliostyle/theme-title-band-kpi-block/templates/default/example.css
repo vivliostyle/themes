@@ -1,0 +1,127 @@
+/* バナー直下のメタ情報 */
+.meta {
+  margin: 0 0 0.75rlh;
+  padding-block-end: 0.25rlh;
+  border-block-end-width: 0.4pt;
+  border-block-end-style: solid;
+  border-block-end-color: var(--vs-color-border);
+  font-size: 0.8em;
+  line-height: 1.4;
+  color: var(--vs-theme-title-band-kpi-block--color-foreground-secondary);
+  text-align: end;
+}
+
+/* KPI ブロックに増減率を添える */
+.kpi-delta {
+  margin: 0.25rlh 0 0;
+  font-family: var(--vs-font-family-alt);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.75em;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--vs-theme-title-band-kpi-block--color-foreground-secondary);
+  white-space: nowrap;
+}
+
+/* 予想値の系列を表す凡例スウォッチ */
+.legend .sw-est {
+  background-color: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 45%
+  );
+}
+
+/* 節内の小見出しは本文と同級のため、色で階層を示す */
+.flow h3 {
+  color: var(--vs-theme-title-band-kpi-block--color-accent-deep);
+}
+
+.flow .note p + p {
+  margin-block-start: 0.25rlh;
+}
+
+/*
+ * 表ごとの見出し列の幅。table-layout: fixed のため、残りの列は等分される。
+ */
+.tbl-pl,
+.tbl-qt {
+  --vs-theme-title-band-kpi-block--table-label-size-inline: 40%;
+}
+
+.tbl-sg {
+  --vs-theme-title-band-kpi-block--table-label-size-inline: 32%;
+}
+
+.tbl-std {
+  --vs-theme-title-band-kpi-block--table-label-size-inline: 27%;
+}
+
+.tbl-cf {
+  --vs-theme-title-band-kpi-block--table-label-size-inline: 46%;
+}
+
+.tbl-fc,
+.tbl-od {
+  --vs-theme-title-band-kpi-block--table-label-size-inline: 30%;
+}
+
+.tbl-sh {
+  --vs-theme-title-band-kpi-block--table-label-size-inline: 44%;
+}
+
+/* 小計行 */
+.tbl-std
+  > table
+  > tbody
+  > tr:is(:nth-child(3), :nth-child(6), :nth-child(7))
+  > td {
+  background-color: var(
+    --vs-theme-title-band-kpi-block--table-sum-background-color
+  );
+  font-weight: 700;
+}
+
+.tbl-cf > table > tbody > tr:nth-child(5) > td {
+  background-color: var(
+    --vs-theme-title-band-kpi-block--table-sum-background-color
+  );
+  border-block-start-color: var(
+    --vs-theme-title-band-kpi-block--color-accent-deep
+  );
+  border-block-start-style: solid;
+  border-block-start-width: 0.9pt;
+  font-weight: 700;
+}
+
+/* 合計列を強調 */
+.tbl-dv > table :is(thead, tbody) :is(th, td):last-child {
+  background-color: var(
+    --vs-theme-title-band-kpi-block--table-sum-background-color
+  );
+  font-weight: 700;
+}
+
+.tbl-dv > table > thead th:last-child {
+  background-color: var(--vs-color-background-alt);
+}
+
+/* 5 行目から期が切り替わる */
+.tbl-qt > table > tbody > tr:nth-child(n + 5) > td {
+  background-color: var(
+    --vs-theme-title-band-kpi-block--table-sum-background-color
+  );
+}
+
+.tbl-qt > table > tbody > tr:nth-child(5) > td {
+  border-block-start-color: var(
+    --vs-theme-title-band-kpi-block--color-accent-deep
+  );
+  border-block-start-style: solid;
+  border-block-start-width: 0.9pt;
+}
+
+/* 奥付は URL を含むため両端揃えにしない */
+.flow .colophon p {
+  text-align: start;
+}

@@ -1,0 +1,69 @@
+{
+  "name": "@vivliostyle/theme-chapter-badge-column-rule",
+  "version": "0.0.0",
+  "description": "Two-column theme for practical guidebooks, using an accent color for chapter number badges, column rules and information boxes",
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "homepage": "https://github.com/vivliostyle/themes",
+  "license": "CC0-1.0",
+  "author": "Vivliostyle <mail@vivliostyle.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivliostyle/themes.git",
+    "directory": "packages/@vivliostyle/theme-chapter-badge-column-rule"
+  },
+  "files": [
+    "*.css",
+    "templates",
+    "vivliostyle.config.js"
+  ],
+  "type": "module",
+  "main": "theme.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "example:build": "vivliostyle build",
+    "example:preview": "vivliostyle preview",
+    "validate": "vivliostyle theme validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "workspace:*"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=11.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "vivliostyle": {
+    "theme": {
+      "name": "Chapter Badge Column Rule",
+      "author": "Vivliostyle <mail@vivliostyle.org>",
+      "style": "theme.css",
+      "category": "misc",
+      "topics": [
+        "practical",
+        "dense",
+        "two-column",
+        "gothic",
+        "navigation-focused"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "2段組の実用ガイドブック本文テーマ。アクセントカラーを章番号バッジ・段間罫・情報ボックスに一貫して差す"
+        }
+      }
+    },
+    "template": {
+      "default": {
+        "name": "Chapter Badge Column Rule sample",
+        "source": "./templates/default"
+      }
+    }
+  }
+}

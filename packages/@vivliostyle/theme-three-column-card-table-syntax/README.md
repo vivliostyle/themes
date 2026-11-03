@@ -1,6 +1,6 @@
 # @vivliostyle/theme-three-column-card-table-syntax
 
-TRPGのカードゲームルールブック向けテーマ。等幅フォントの3段組みで、カード効果対照表とコード風の構文ブロックを1章に組む。
+ルールブック向けテーマ。等幅フォントの3段組みで、カード型チップ付きの対照表とコード風の構文ブロックを1章に組む。
 
 ## 使い方
 
@@ -25,20 +25,22 @@ export default {
 
 配色は `--vs-color-foreground`（文字色）と `--vs-color-background`（地色）から導いている。既定値の「`A` × `B` n%」は `color-mix(in oklab, var(A), var(B) n%)` の略で、元になる色を上書きすれば淡色の地や罫の色も追従する。
 
-| 変数                                  | 既定値                                                  | 説明                           |
-| ------------------------------------- | ------------------------------------------------------- | ------------------------------ |
-| `--vs-font-family`                    | `'IBM Plex Mono', ...`                                  | 本文書体 (等幅)                |
-| `--vs--heading-font-family`           | `'M PLUS 1 Code', ...`                                  | 見出し書体                     |
-| `--vs-section--h1-marker-content`  | `'第' counter(vs-counter-sec-h1) '章　'`                | 章番号の体裁                   |
-| `--vs-theme-three-column-card-table-syntax--appendix-marker-content` | `'付録' counter(vs-counter-appendix, upper-alpha) '　'` | 付録番号の体裁                 |
-| `--vs-theme-three-column-card-table-syntax--entry-marker-content`    | `counter(vs-counter-entry, decimal-leading-zero)`       | 項目番号の体裁                 |
-| `--vs-theme-three-column-card-table-syntax--page-call-content`       | `target-counter(attr(href), page)`                      | `data-ref="page"` の参照文字列 |
-| `--vs-color-foreground`                     | `#1a1a1a` | 本文・罫の基本色               |
-| `--vs-color-background`               | `#fafaf7` | 地色                           |
-| `--vs-color-border`              | `--vs-color-foreground` × `--vs-color-background` 75% | 段区切り罫・表罫の色           |
-| `--vs-color-background-alt`              | `--vs-color-foreground` × `--vs-color-background` 95% | 表見出し行の背景色             |
-| `--vs-theme-three-column-card-table-syntax--color-code-bg`           | `--vs-color-foreground` × `--vs-color-background` 95% | 構文ブロック (`pre`) の背景色  |
-| `--vs-theme-three-column-card-table-syntax--color-card-border`       | `--vs-color-foreground` × `--vs-color-background` 55% | カードアイコンの枠色           |
+| 変数                              | 既定値                                                | 説明                                       |
+| --------------------------------- | ----------------------------------------------------- | ------------------------------------------ |
+| `--vs-font-family-monospace`      | `'IBM Plex Mono', ...`                                | 本文・構文ブロックの等幅書体 (`--vs-font-family` もこれを参照する) |
+| `--vs-font-family-alt`            | `'M PLUS 1 Code', ...`                                | 見出し・ドロップキャップの書体             |
+| `--vs-columns`                    | `3`                                                   | 本文の段数                                 |
+| `--vs-column-gap`                 | `5.2mm`                                               | 段間                                       |
+| `--vs-section--h1-marker-content` | `'第' counter(vs-counter-sec-h1) '章　'`              | 章番号の体裁                               |
+| `--vs-appendix--marker-content`   | base の既定 (`付録A　`)                               | 付録番号の体裁                             |
+| `--vs-page--call-content`         | `target-counter(attr(href), page)`                    | `data-ref="page"` の参照文字列             |
+| `--vs-color-foreground`           | `#1a1a1a`                                             | 本文・罫の基本色                           |
+| `--vs-color-background`           | `#fafaf7`                                             | 地色                                       |
+| `--vs-color-border`               | `--vs-color-foreground` × `--vs-color-background` 75% | 段区切り罫・表罫の色                       |
+| `--vs-color-background-alt`       | `--vs-color-foreground` × `--vs-color-background` 95% | 表見出し行と構文ブロック (`pre`) の背景色 |
+| `--vs--table-border-color`        | `--vs-color-foreground` × `--vs-color-background` 85% | 表の行罫の色                               |
+
+項目番号 (`01`, `02` …) とカードチップの枠は theme.css の規則で組んでいる。
 
 ## 見開きで組む
 

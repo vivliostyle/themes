@@ -1,0 +1,64 @@
+/*
+ * example 専用の上書き。theme.css には手を入れない。
+ */
+
+:root {
+  --vs-theme-title-band-dropcap-profile--running-publication: '随想の庭――十二人の随筆';
+}
+
+/* この example は第二部の抜粋。部扉の部番号を 2 から始める */
+html.part {
+  --vs-document-first-page-counter-reset: vs-counter-part 1;
+}
+
+/* 部扉: 題辞と収録作一覧 */
+.lead {
+  margin-block-end: 2.25rlh;
+  text-align: justify;
+}
+
+.toc {
+  border-block-start: var(--vs-border-width) solid
+    var(--vs-theme-title-band-dropcap-profile--color-accent);
+  padding-block-start: 1.75rlh;
+}
+
+.toc-item {
+  display: flex;
+  align-items: baseline;
+  gap: 4mm;
+  margin-block-end: 1.75rlh;
+  font-size: 1.25em;
+}
+
+.toc-title {
+  flex: 1 1 auto;
+  letter-spacing: 0.06em;
+}
+
+.toc-author {
+  font-size: 0.9rem;
+  letter-spacing: 0.16em;
+}
+
+.toc-page {
+  flex: 0 0 9mm;
+  text-align: end;
+  font-size: 0.95rem;
+  color: var(--vs-theme-title-band-dropcap-profile--color-accent);
+}
+
+.toc-page::after {
+  content: target-counter(attr(href), page);
+}
+
+:is(.toc-title, .toc-page) {
+  --vs--anchor-text-decoration: none;
+  --vs--anchor-text-color: inherit;
+}
+
+.colophon-note {
+  margin-block-start: 2rlh;
+  font-size: 0.8em;
+  text-align: end;
+}

@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-masthead-footnote-two-column",
   "version": "0.0.0",
-  "description": "Precise two-column A5 theme for conference proceedings, packing the masthead, abstract, text, figures, footnotes, references and index terms",
+  "description": "Precise two-column theme for conference proceedings, packing the masthead, abstract, text, figures, footnotes, references and index terms",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -58,7 +58,7 @@
       ],
       "i18n": {
         "ja": {
-          "description": "A5判・精密2段組の学会予稿ページテーマ。マストヘッド + 概要 + 2段組本文 + 図表 + 脚注 + 参考文献 + 索引語を高密度に収める"
+          "description": "精密2段組の学会予稿ページテーマ。マストヘッド + 概要 + 2段組本文 + 図表 + 脚注 + 参考文献 + 索引語を高密度に収める"
         }
       }
     },

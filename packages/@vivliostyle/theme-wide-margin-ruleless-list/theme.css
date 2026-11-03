@@ -1,6 +1,6 @@
 /*
  * wide-margin-ruleless-list
- * A5縦のスペシャルティコーヒー店メニュー向けテーマ。温白の地に細身の英大文字見出しと
+ * A5縦のメニュー向けテーマ。温白の地に細身の英大文字見出しと
  * 本文を疎に置き、罫線のない表形式で品名(左)と価格(右)を整列する。
  * キャメルの極細罫は見出し下と区切りに限定し、装飾は抽象的なマーク1点のみ。
  */
@@ -17,12 +17,6 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  --vs-theme-wide-margin-ruleless-list--color-foreground-secondary: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 50%
-  );
-
   /* Type */
   --vs-font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
   --vs-font-family-alt: 'Inter', 'Helvetica Neue', Arial, sans-serif;
@@ -33,38 +27,37 @@
   --vs-color-background: #faf9f6;
 
   --vs--p-margin-block: 0;
-  --vs--p-text-indent: 0;
   --vs--p-text-align: start;
 
   /* Headings: Inter, uppercase, flush left, spacing handled per level */
-  --vs--heading-font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --vs--heading-font-family: var(--vs-font-family-alt);
   --vs--heading-font-weight: 500;
-  --vs--heading-text-align: start;
   --vs--heading-margin-block: 0;
   --vs--heading-text-transform: uppercase;
 
-  --vs--h1-font-size: 26pt;
+  --vs--h1-font-size: 2.9em;
   --vs--h1-line-height: 1.02;
   --vs--h1-letter-spacing: 0.01em;
-  --vs--h1-margin-block: 7mm 3mm;
+  --vs--h1-margin-block: 1.5rlh 0.75rlh;
 
-  --vs--h2-font-size: 8.1pt;
+  --vs--h2-font-size: 0.9em;
   --vs--h2-letter-spacing: 0.2em;
-  --vs--h2-margin-block: 0 1.6mm;
-  --vs--h2-padding-block: 0 1.4mm;
+  --vs--h2-margin-block: 0 0.25rlh;
+  --vs--h2-padding-block: 0 0.5em;
   --vs--h2-border-width-block-end: 0.75px;
   --vs--h2-border-style-block-end: solid;
   --vs--h2-border-color-block-end: var(--vs-color-foreground-alt);
 
-  /* Masthead mark: flush cup figure, floated beside the title */
-  --vs--figure-margin-block: 8mm 0;
-  --vs--figure-margin-inline: 6mm 0;
+  /* Masthead mark: flush figure, floated beside the title */
+  --vs--figure-margin-block: 1.75rlh 0;
+  --vs--figure-margin-inline: 1.9em 0;
 
   /* Borderless price tables (faint camel divider drawn per-section below) */
   --vs--table-size-inline: 100%;
   --vs--table-table-layout: fixed;
   --vs--table-margin-block: 0;
   --vs--table-margin-inline: 0;
+  --vs--table-border-width: 0;
   --vs--table-cell-padding-block: 0;
   --vs--table-cell-padding-inline: 0;
   --vs--table-cell-line-height: 1.5;
@@ -89,7 +82,7 @@
 
 /* --- Masthead ------------------------------------------------------------ */
 
-/* Abstract cup mark (Markdown 画像 → figure > img)。タイトル脇へ回り込ませる */
+/* Abstract mark (Markdown 画像 → figure > img)。タイトル脇へ回り込ませる */
 body > figure {
   float: right;
   width: 17mm;
@@ -117,7 +110,7 @@ body > figure figcaption {
 
 /* 品目表は分量に関わらず1つの塊として扱い、ページをまたいで割らない */
 section.level2 {
-  margin-block-start: 3mm;
+  margin-block-start: 0.75rlh;
   break-inside: avoid;
 }
 
@@ -151,14 +144,14 @@ section.level2:not(:last-of-type) table {
 
 /* Extra breathing room below the rows, above the faint divider */
 section.level2:not(:last-of-type) tbody tr:last-child td {
-  padding-block-end: 1.6mm;
+  padding-block-end: 0.25rlh;
 }
 
 /* --- Footer note --------------------------------------------------------- */
 
 footer {
   display: block;
-  margin-block-start: 4mm;
+  margin-block-start: 1rlh;
 }
 
 footer p {
@@ -166,9 +159,9 @@ footer p {
   font-size: 0.78em;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--vs-theme-wide-margin-ruleless-list--color-foreground-secondary);
-}
-
-:root {
-  --vs--table-border-width: 0;
+  color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 50%
+  );
 }

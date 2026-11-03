@@ -1,6 +1,6 @@
 # @vivliostyle/theme-masthead-footnote-two-column
 
-A5判・2段組の学会予稿集向けテーマ。全幅マストヘッド (題目・著者・概要・キーワード) と2段組本文、図表・脚注・参考文献・索引語を高密度に組む。
+2段組の学会予稿集向けテーマ。全幅マストヘッド (題目・著者・概要・キーワード) と2段組本文、図表・脚注・参考文献・索引語を高密度に組む。
 
 ## 使い方
 
@@ -29,14 +29,12 @@ export default {
 | 変数                                  | 既定値                        | 説明                                     |
 | ------------------------------------- | ----------------------------- | ---------------------------------------- |
 | `--vs-color-background` | `#fafaf7` | 紙面の地色 |
-| `--vs-theme-masthead-footnote-two-column--equation-marker-content` | `'(' counter(…) ')'`          | 数式の右端に置く式番号                   |
-| `--vs-theme-masthead-footnote-two-column--equation-call-content`   | `'式(' target-counter(…) ')'` | 本文中の式番号の参照                     |
-| `--vs-theme-masthead-footnote-two-column--page-call-content`       | `target-counter(…, page)`     | 本文中のページ参照                       |
+| `--vs-columns`                        | `2`                           | 概要本文の段数                           |
 | `--vs-font-family`                    | `'Noto Serif JP', serif`      | 本文書体                                 |
 | `--vs-font-family-alt`          | `'Noto Sans JP', ...`         | 著者・柱・キャプション等の補助書体       |
 | `--vs-color-foreground`                     | `#161616` | 本文色                                   |
 | `--vs-color-foreground-alt`               | `--vs-color-foreground` × `--vs-color-background` 25% | 著者所属・柱・キャプション等の補助文字色 |
-| `--vs-color-border-alt`              | `--vs-color-foreground` × `--vs-color-background` 55% | 概要・キーワード欄の細罫色               |
+| `--vs-color-border-alt`              | `--vs-color-foreground` × `--vs-color-background` 55% | 概要・キーワード欄と表の細罫色           |
 | `--vs-color-background-alt`              | `--vs-color-foreground` × `--vs-color-background` 90% | 表ヘッダーの淡色面                       |
 
 ## 見開きで組む

@@ -1,6 +1,6 @@
 # @vivliostyle/theme-ornamental-frame-corner-title
 
-四六判 (127×188mm) の短篇アンソロジー向けテーマ。二重の飾り枠と四隅の唐草角飾りを立てた扉・目次・中扉と、柱とノンブルだけを置く本文ページで、複数筆者の作品集を組む。
+短篇アンソロジー向けテーマ。二重の飾り枠と四隅の唐草角飾りを立てた扉・目次・中扉と、柱とノンブルだけを置く本文ページで、複数筆者の作品集を組む。
 
 ## 使い方
 
@@ -77,10 +77,4 @@ class: plate plate--work chapter
 | `--vs-theme-ornamental-frame-corner-title--color-lead`                        | `--vs-color-foreground` × `--vs-color-background` 40% | 内容紹介の色                              |
 | `--vs-theme-ornamental-frame-corner-title--page-height`                       | `188mm`                  | 判型の高さ (`--vs-page--size` と対で持つ) |
 | `--vs-theme-ornamental-frame-corner-title--plate-margin`                      | `6mm`                    | 飾りページの版面余白                      |
-| `--vs-theme-ornamental-frame-corner-title--plate-border-width`                | `1.4pt`                  | 飾り枠 (外) の太さ                        |
-| `--vs-theme-ornamental-frame-corner-title--plate-inner-border-width`          | `0.5pt`                  | 飾り枠 (内) の太さ                        |
-| `--vs-theme-ornamental-frame-corner-title--plate-inner-border-inset`          | `1.9mm`                  | 内枠の食い込み                            |
-| `--vs-theme-ornamental-frame-corner-title--plate-corner-size`                 | `15mm`                   | 角飾りの大きさ                            |
-| `--vs-theme-ornamental-frame-corner-title--plate-headline-margin-block-start` | `58mm`                   | 扉の見出し塊を天から落とす位置            |
-| `--vs-theme-ornamental-frame-corner-title--work-marker-content`               | `'第' counter(...) '篇'` | 中扉の篇番号                              |
-| `--vs-theme-ornamental-frame-corner-title--toc-counter-style`                 | `cjk-ideographic`        | 目次の項番号の表記                        |
+| `--vs-theme-ornamental-frame-corner-title--plate-corner-inset`                | `0.3em`                  | 角飾りを枠の角から離す距離                |

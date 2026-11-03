@@ -27,22 +27,7 @@
 
   /* 飾りページの枠と角飾り */
   --vs-theme-ornamental-frame-corner-title--plate-margin: 6mm;
-  --vs-theme-ornamental-frame-corner-title--plate-min-height: calc(
-    var(--vs-theme-ornamental-frame-corner-title--page-height) -
-      var(--vs-theme-ornamental-frame-corner-title--plate-margin) * 2
-  );
-  --vs-theme-ornamental-frame-corner-title--plate-padding: 5mm 11mm 0;
-  --vs-theme-ornamental-frame-corner-title--plate-border-width: 1.4pt;
-  --vs-theme-ornamental-frame-corner-title--plate-inner-border-inset: 1.9mm;
-  --vs-theme-ornamental-frame-corner-title--plate-inner-border-width: 0.5pt;
-  --vs-theme-ornamental-frame-corner-title--plate-corner-size: 15mm;
-  --vs-theme-ornamental-frame-corner-title--plate-corner-inset: 1.1mm;
-  /* 扉の見出し塊を天から落とす位置 */
-  --vs-theme-ornamental-frame-corner-title--plate-headline-margin-block-start: 58mm;
-  --vs-theme-ornamental-frame-corner-title--plate-folio-inset-block-end: 6mm;
-  /* 中扉の篇番号 */
-  --vs-theme-ornamental-frame-corner-title--work-marker-content: '第'
-    counter(vs-counter-chapter, cjk-ideographic) '篇';
+  --vs-theme-ornamental-frame-corner-title--plate-corner-inset: 0.3em;
 
   --vs-font-family: 'Noto Serif JP', serif;
   --vs-font-family-alt: 'EB Garamond', 'Times New Roman', serif;
@@ -57,12 +42,12 @@
   --vs-color-background: #faf7f1;
 
   --vs--heading-font-family: 'Shippori Mincho', 'Noto Serif JP', serif;
-  --vs--h1-font-size: 23pt;
+  --vs--h1-font-size: 2.3em;
   --vs--h1-font-weight: 600;
   --vs--h1-line-height: 1.1;
   --vs--h1-letter-spacing: 0.4em;
   --vs--h1-text-align: center;
-  --vs--h1-margin-block: 2.5mm 3.5mm;
+  --vs--h1-margin-block: 0.5rlh;
   --vs--h1-margin-inline: 0.4em 0;
 
   --vs--p-margin-block: 0;
@@ -71,7 +56,7 @@
   --vs--lists-margin-block: 0;
 
   /* 篇題のルビは行送りを崩さないよう小振りに。親の明朝・字送りは引き継がせない */
-  --vs--rt-font-family: 'Noto Serif JP', serif;
+  --vs--rt-font-family: var(--vs-font-family);
   --vs--rt-font-weight: 400;
   --vs--rt-letter-spacing: 0;
   --vs--rt-line-height: 1;
@@ -81,9 +66,8 @@
   --vs--hr-margin-inline: auto;
 
   --vs--p-text-indent: 1em;
-  --vs--rt-font-size: 0.5em;
   --vs--hr-size-inline: 14mm;
-  --vs--hr-margin-block: 5.5mm;
+  --vs--hr-margin-block: 1rlh;
 
   --vs-page--size: 127mm 188mm;
 
@@ -95,15 +79,14 @@
 
   --vs-page--mbox-top-center-content: env(doc-title);
   --vs-page--mbox-top-font-family: var(--vs--heading-font-family);
-  --vs-page--mbox-top-font-size: 8pt;
+  --vs-page--mbox-top-font-size: 0.8em;
   --vs-page--mbox-top-letter-spacing: 0.3em;
   --vs-page--mbox-top-text-color: var(--vs-color-foreground-alt);
 
   --vs-page--mbox-bottom-center-content: counter(page);
   --vs-page--mbox-bottom-font-family: var(--vs-font-family-alt);
-  --vs-page--mbox-bottom-font-size: 11pt;
+  --vs-page--mbox-bottom-font-size: 1.1em;
   --vs-page--mbox-bottom-font-feature-settings: 'onum' 1;
-  --vs-page--mbox-bottom-text-color: var(--vs-color-foreground);
 }
 
 /* 篇の起こしページには柱を立てない */
@@ -141,7 +124,7 @@ html.plate {
 
   --vs--p-text-indent: 0;
   --vs--rt-font-size: 0.4em;
-  --vs--hr-margin-block: 2.2mm 0;
+  --vs--hr-margin-block: 0.25rlh 0;
 }
 
 /*
@@ -152,11 +135,12 @@ html.plate {
 body.plate {
   position: relative;
   box-sizing: border-box;
-  min-height: var(--vs-theme-ornamental-frame-corner-title--plate-min-height);
-  padding: var(--vs-theme-ornamental-frame-corner-title--plate-padding);
-  border-width: var(
-    --vs-theme-ornamental-frame-corner-title--plate-border-width
+  min-height: calc(
+    var(--vs-theme-ornamental-frame-corner-title--page-height) -
+      var(--vs-theme-ornamental-frame-corner-title--plate-margin) * 2
   );
+  padding: 0.75rlh 3.1em 0;
+  border-width: 1.4pt;
   border-style: solid;
   box-decoration-break: clone;
 }
@@ -165,12 +149,8 @@ body.plate {
 body.plate::before {
   content: '';
   position: absolute;
-  inset: var(
-    --vs-theme-ornamental-frame-corner-title--plate-inner-border-inset
-  );
-  border-width: var(
-    --vs-theme-ornamental-frame-corner-title--plate-inner-border-width
-  );
+  inset: 0.55em;
+  border-width: 0.5pt;
   border-style: solid;
   pointer-events: none;
 }
@@ -181,8 +161,8 @@ body.plate::before {
 }
 .corner {
   position: absolute;
-  width: var(--vs-theme-ornamental-frame-corner-title--plate-corner-size);
-  height: var(--vs-theme-ornamental-frame-corner-title--plate-corner-size);
+  width: 4.25em;
+  height: 4.25em;
 }
 .corner:nth-of-type(1) {
   top: var(--vs-theme-ornamental-frame-corner-title--plate-corner-inset);
@@ -215,7 +195,7 @@ body.plate--work > header::before {
   text-align: center;
   margin-inline-start: 0.3em;
   font-family: var(--vs--heading-font-family);
-  font-size: 9.5pt;
+  font-size: 0.95em;
   line-height: 1.3;
   letter-spacing: 0.3em;
 }
@@ -225,21 +205,19 @@ body.plate > header hr {
 
 /* 中扉の篇番号は base のドキュメントカウンタから振る */
 body.plate--work > header::before {
-  content: var(--vs-theme-ornamental-frame-corner-title--work-marker-content);
+  content: '第' counter(vs-counter-chapter, cjk-ideographic) '篇';
 }
 
 /* 扉の見出し塊 */
 body.plate--title section,
 body.plate--work section {
-  margin-block-start: var(
-    --vs-theme-ornamental-frame-corner-title--plate-headline-margin-block-start
-  );
+  margin-block-start: 9.75rlh;
 }
 
 body.plate--title .subtitle {
-  margin-block-start: 5mm;
+  margin-block-start: 0.75rlh;
   font-family: var(--vs--heading-font-family);
-  font-size: 13pt;
+  font-size: 1.3em;
   letter-spacing: 0.5em;
   text-align: center;
   text-indent: 0.5em;
@@ -250,24 +228,24 @@ body.plate--work .byline {
   display: block;
   margin-inline: 0;
   font-family: var(--vs--heading-font-family);
-  font-size: 10.5pt;
+  font-size: 1.05em;
   letter-spacing: 0.35em;
   text-align: center;
   text-indent: 0.35em;
 }
 body.plate--title .byline {
-  margin-block-start: 16mm;
+  margin-block-start: 2.75rlh;
 }
 body.plate--work .byline {
-  margin-block-start: 7mm;
+  margin-block-start: 1.25rlh;
 }
 
 body.plate--title .imprint {
   position: absolute;
   inset-inline: 0;
-  bottom: 12mm;
+  bottom: 2rlh;
   font-family: var(--vs--heading-font-family);
-  font-size: 9.5pt;
+  font-size: 0.95em;
   letter-spacing: 0.4em;
   text-align: center;
   text-indent: 0.4em;
@@ -275,8 +253,8 @@ body.plate--title .imprint {
 }
 
 body.plate--work .lead {
-  margin-block-start: 13mm;
-  font-size: 8pt;
+  margin-block-start: 2.25rlh;
+  font-size: 0.8em;
   line-height: 1.6;
   letter-spacing: 0.08em;
   text-align: center;
@@ -288,12 +266,10 @@ body.plate--toc::after {
   content: counter(page);
   position: absolute;
   inset-inline: 0;
-  bottom: var(
-    --vs-theme-ornamental-frame-corner-title--plate-folio-inset-block-end
-  );
+  bottom: 1rlh;
   text-align: center;
   font-family: var(--vs-font-family-alt);
-  font-size: 11pt;
+  font-size: 1.1em;
 }
 
 /* ---- 目次 ---- */
@@ -301,23 +277,17 @@ body.plate--toc::after {
 [role='doc-toc'] {
   --vs-toc--ol-indent-size: 13mm;
   --vs-toc--marker-display: block;
-  --vs-toc--marker-content: counter(
-    vs-counter-toc,
-    var(
-      --vs-theme-ornamental-frame-corner-title--toc-counter-style,
-      cjk-ideographic
-    )
-  );
+  --vs-toc--marker-content: counter(vs-counter-toc, cjk-ideographic);
   --vs-toc--marker-padding-inline-end: 3mm;
 }
 
 [role='doc-toc'] li {
-  margin-block-end: 3.4mm;
+  margin-block-end: 0.5rlh;
 }
 
 [role='doc-toc'] li::before {
   font-family: var(--vs--heading-font-family);
-  font-size: 15pt;
+  font-size: 1.5em;
 }
 
 /*
@@ -332,7 +302,7 @@ body.plate--toc::after {
 [role='doc-toc'] li > p:first-child > a,
 [role='doc-toc'] .afterword > a {
   font-family: var(--vs--heading-font-family);
-  font-size: 15pt;
+  font-size: 1.5rem;
   font-weight: 500;
   letter-spacing: 0.06em;
   color: inherit;
@@ -345,7 +315,7 @@ body.plate--toc::after {
     target-counter(attr(href), page, var(--vs-toc--page-counter-style));
   display: var(--vs-toc--page-counter-display);
   font-family: var(--vs-font-family-alt);
-  font-size: 12pt;
+  font-size: 1.2rem;
   font-weight: 400;
   letter-spacing: 0;
   font-feature-settings: 'onum' 1;
@@ -353,7 +323,7 @@ body.plate--toc::after {
 
 [role='doc-toc'] .byline {
   margin-inline-start: 0.9em;
-  font-size: 8.5pt;
+  font-size: 0.85rem;
   font-weight: 400;
   letter-spacing: 0.03em;
   color: var(--vs-color-foreground-alt);
@@ -361,9 +331,9 @@ body.plate--toc::after {
 
 /* 各項の2行目 = 内容紹介 */
 [role='doc-toc'] li > p + p {
-  margin-block: 0.8mm 0;
+  margin-block: 0.3em 0;
   margin-inline: 13mm 0;
-  font-size: 7pt;
+  font-size: 0.7em;
   line-height: 1.35;
   letter-spacing: 0.08em;
   color: var(--vs-theme-ornamental-frame-corner-title--color-lead);
@@ -371,9 +341,9 @@ body.plate--toc::after {
 
 /* 編者あとがきなど、番号と内容紹介を持たない項 */
 [role='doc-toc'] .afterword {
-  margin-block: 3.5mm 0;
+  margin-block: 0.5rlh 0;
   margin-inline: 13mm 0;
 }
 [role='doc-toc'] .afterword > a {
-  font-size: 12pt;
+  font-size: 1.2rem;
 }

@@ -1,7 +1,7 @@
 {
   "name": "@vivliostyle/theme-vertical-line-drawing-spec-table",
   "version": "0.0.0",
-  "description": "Vertical Shinsho theme in black for pocket bird field guides, packing line drawings and identification tables over observation notes and numbered sections on each page",
+  "description": "Theme for field guides, packing line drawings and identification tables over observation notes and numbered sections on each page",
   "keywords": [
     "vivliostyle",
     "vivliostyle-theme"
@@ -48,7 +48,6 @@
       "category": "misc",
       "topics": [
         "reference",
-        "birds",
         "pocket-size",
         "single-column",
         "monochrome",
@@ -56,7 +55,7 @@
       ],
       "i18n": {
         "ja": {
-          "description": "新書判・縦組・墨一色のポケット野鳥図鑑テーマ。線画+識別スペック表の上半分と、観察メモ傍注+番号付き節の下半分を1ページに密に組む"
+          "description": "横組の図鑑テーマ。線画+識別スペック表の上半分と、観察メモ傍注+番号付き節の下半分を1ページに密に組む"
         }
       }
     },

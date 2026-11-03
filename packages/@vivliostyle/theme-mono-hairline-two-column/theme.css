@@ -1,8 +1,8 @@
 /*
- * 半導体データシート (mono-hairline-two-column)
- * レター判2段組の RF-IC 仕様書。IBM Plex Mono の本文・見出し(見出し直下に細罫)、
- * Roboto Mono の等幅データ表・レジスタマップ、IBM Plex Sans Condensed の図版
- * キャプションで、ブロック図・特性グラフ・電気的特性グリッド・パッケージ寸法図を
+ * データシート (mono-hairline-two-column)
+ * レター判2段組の製品仕様書。IBM Plex Mono の本文・見出し(見出し直下に細罫)、
+ * Roboto Mono の等幅データ表・一覧、IBM Plex Sans Condensed の図版
+ * キャプションで、ブロック図・グラフ・データ表・寸法図を
  * 矩形モジュールとして隙間なく積む。無彩色・極細グレー罫・タブラー数字で工業的な
  * 高情報密度を印象づける。節番号・図表番号は base のカウンタが振り、本文からは
  * data-ref の参照で引く。
@@ -20,12 +20,8 @@
 @import '@vivliostyle/theme-base/section';
 
 :root {
-  --vs-theme-mono-hairline-two-column--color-fill-zebra: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 95%
-  );
-
+  --vs-columns: 2;
+  --vs-column-gap: 5mm;
   --vs-font-family: 'IBM Plex Mono', ui-monospace, monospace;
   --vs-font-size: 7.1pt;
   --vs-line-height: 1.18;
@@ -46,41 +42,37 @@
     var(--vs-color-foreground),
     var(--vs-color-background) 65%
   );
-  --vs-columns: 1;
   --vs-widows-orphans: 2;
   --vs-spacing-inline-indent: 0.95em;
 
-  --vs--p-margin-block: 0 0.34rem;
+  --vs--p-margin-block: 0 0.25rlh;
   --vs--p-text-align: start;
   --vs--p-text-indent: 0;
   --vs--p-hyphens: none;
 
-  --vs--lists-margin-block: 0.1rem 0.34rem;
+  --vs--lists-margin-block: 0 0.25rlh;
 
   /* Headings: mono SemiBold, uppercase, thin rule beneath section heads */
-  --vs--heading-font-family: 'IBM Plex Mono', ui-monospace, monospace;
   --vs--heading-font-weight: 600;
-  --vs--heading-text-align: start;
-  --vs--heading-margin-block: 0.6rem 0.26rem;
-  --vs--h2-font-size: 8.2pt;
+  --vs--heading-margin-block: 0.5rlh 0.25rlh;
+  --vs--h2-font-size: 1.15em;
   --vs--h2-letter-spacing: 0.03em;
   --vs--h2-line-height: 1.15;
-  --vs--h2-margin-block: 0.58rem 0.24rem;
   --vs--h2-text-transform: uppercase;
   --vs--h2-border-width-block-end: 0.5pt;
   --vs--h2-border-style-block-end: solid;
   --vs--h2-border-color-block-end: currentColor;
   --vs--h2-padding-block: 0 0.12rem;
-  --vs--h3-font-size: 7.1pt;
+  --vs--h3-font-size: 1em;
   --vs--h3-font-weight: 500;
   --vs--h3-letter-spacing: 0.02em;
-  --vs--h3-margin-block: 0.42rem 0.2rem;
+  --vs--h3-margin-block: 0.25rlh;
   --vs--h3-text-transform: uppercase;
 
-  /* Register map is a code fence; it must not be clipped inside a flex figure */
+  /* A code fence listing must not be clipped inside a flex figure */
   --vs--monospace-font-family: 'Roboto Mono', 'IBM Plex Mono', monospace;
   --vs--monospace-line-height: 1.28;
-  --vs--pre-font-size: 5.7pt;
+  --vs--pre-font-size: 0.8em;
   --vs--pre-margin-block: 0;
   --vs--pre-overflow-x: visible;
   --vs--pre-padding-block: 0.34rem;
@@ -100,7 +92,6 @@
     var(--vs-color-background) 85%
   );
 
-  --vs--li-margin-block: 0.06rem;
   --vs--lists-marker-text-color: var(--vs-color-foreground-alt);
 
   /* Tables: full thin grey grid, shaded head, tabular figures */
@@ -108,12 +99,12 @@
   --vs--table-font-family: 'Roboto Mono', 'IBM Plex Mono', monospace;
   --vs--table-border-width: 0.4pt;
   --vs--table-border-color-thead-inner: var(--vs-color-foreground);
-  --vs--table-font-size: 6.1pt;
-  --vs--table-margin-block: 0.28rem 0.15rem;
+  --vs--table-font-size: 0.85em;
+  --vs--table-margin-block: 0.25rlh;
   --vs--table-break-inside: auto;
   --vs--table-text-align: center;
-  --vs--table-cell-padding-block: 0.32mm;
-  --vs--table-cell-padding-inline: 1mm;
+  --vs--table-cell-padding-block: 0.15em;
+  --vs--table-cell-padding-inline: 0.45em;
   --vs--table-cell-line-height: 1.2;
   --vs--table-cell-white-space: nowrap;
   --vs--th-font-family: 'Roboto Mono', 'IBM Plex Mono', monospace;
@@ -121,29 +112,23 @@
   --vs--th-background-color: var(--vs-color-background-alt);
 
   /* Figures + small condensed-sans captions */
-  --vs--figure-margin-block: 0.4rem;
+  --vs--figure-gap: 0.25rlh;
+  --vs--figure-margin-block: 0.25rlh;
   --vs--figure-item-size-inline: 100%;
   --vs--figcaption-font-family:
     'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
   --vs--figcaption-text-color: var(--vs-color-foreground-alt);
   --vs--figcaption-line-height: 1.22;
-  --vs--figcaption-font-size: 6.5pt;
+  --vs--figcaption-font-size: 0.9em;
   --vs--figcaption-text-align: center;
-  --vs--figcaption-margin-block: 0.24rem 0;
 
   --vs-page--size: letter;
   --vs-page--margin-top: 14mm;
   --vs-page--margin-bottom: 12mm;
   --vs-page--margin-left: 11mm;
   --vs-page--margin-right: 11mm;
-  --vs-page--mbox-font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  --vs-page--mbox-font-size: 7pt;
   --vs-page--mbox-font-weight: 500;
-  --vs-page--mbox-text-color: color-mix(
-    in oklab,
-    var(--vs-color-foreground),
-    var(--vs-color-background) 30%
-  );
+  --vs-page--mbox-text-color: var(--vs-color-foreground-alt);
   --vs-page--mbox-letter-spacing: 0.04em;
   --vs-page--border-width-top: 0.4pt;
   --vs-page--border-color-top: var(--vs-color-border);
@@ -163,7 +148,7 @@
   --vs-listing--marker-display: none;
 }
 
-/* 印刷時のみ pre を折り返し禁止に (レジスタマップの桁を保つ)。
+/* 印刷時のみ pre を折り返し禁止に (等幅の一覧の桁を保つ)。
    theme-base の print 既定は pre-wrap なのでここで上書きする */
 @media print {
   :root {
@@ -187,9 +172,13 @@ h1 {
 /* Two-column body: multicol lives on the VFM level1 wrapper, not on html/body
    (Vivliostyle mishandles html-level multicol). column-fill: auto packs each
    column to the page bottom so section ends leave no ragged whitespace. */
+html {
+  columns: 1;
+}
+
 body > section.level1 {
-  columns: 2;
-  column-gap: 5mm;
+  columns: var(--vs-columns);
+  column-gap: var(--vs-column-gap);
   column-fill: auto;
 }
 
@@ -201,32 +190,30 @@ section.level1 > section.level2:first-of-type > h2 {
   margin-block-start: 0;
 }
 
-/* Conditions line under a section head */
+/* Lead line under a section head */
 .lead {
-  font-size: 6.6pt;
+  font-size: 0.95em;
   color: var(--vs-color-foreground-alt);
-  margin-block: 0.06rem 0.26rem;
+  margin-block: 0 0.25rlh;
 }
 
 .note {
   display: block;
-  font-size: 6.2pt;
+  font-size: 0.85em;
   line-height: 1.28;
   color: var(--vs-color-foreground-alt);
-  margin-block: 0.2rem 0.24rem;
+  margin-block: 0.25rlh;
 }
 
-/* base は :root:lang(ja) 側にも既定値を持つので両方を上書きする */
+/* 和文の原稿でも英語のラベルを保つため :root:lang(ja) にも書く */
 :root,
 :root:lang(ja) {
-  --vs-figure--marker-content: 'Figure '
+  --vs-figure--label: 'Figure ';
+  --vs-figure--marker-content: var(--vs-figure--label)
     counter(vs-counter-fig, var(--vs-counter-style)) '. ';
-  --vs-table--marker-content: 'Table '
+  --vs-table--label: 'Table ';
+  --vs-table--marker-content: var(--vs-table--label)
     counter(vs-counter-tbl, var(--vs-counter-style)) '. ';
-  --vs-figure--call-content: 'Figure '
-    target-counter(attr(href), vs-counter-fig, var(--vs-counter-style));
-  --vs-table--call-content: 'Table '
-    target-counter(attr(href), vs-counter-tbl, var(--vs-counter-style));
 }
 
 /* 図表番号だけを本文色・太字にしてキャプションから立てる */
@@ -245,10 +232,9 @@ a:is([data-ref='fig'], [data-ref='tbl']) {
 figure.tbl {
   --vs--figure-display: block;
   --vs--figure-break-inside: auto;
-  --vs--figure-margin-block: 0.28rem 0.4rem;
 }
 
-/* Register-map module: VFM emits
+/* Code-fence listing module: VFM emits
    <figure class="language-text"><figcaption>…</figcaption><pre>…</pre></figure>
    column-reverse drops the fence title below the tinted block as a table caption.
    コードフェンスで組んだ一覧も表として数える (base の crossref は table を
@@ -271,7 +257,7 @@ pre code {
 
 /* Tables */
 tbody tr:nth-child(even) td {
-  background-color: var(--vs-theme-mono-hairline-two-column--color-fill-zebra);
+  background-color: var(--vs-color-background-alt);
 }
 
 th:first-child,
