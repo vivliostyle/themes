@@ -5,5 +5,8 @@
   "theme": [{{#if theme}}{{json theme}}{{else}}"@vivliostyle/theme-centered-heading-line-graph"{{/if}}, "example.css"],
   "entry": [
     "econ-data-graph.md"
-  ]
+  ],
+  "vfm": {
+    "disableFormatHtml": true
+  }
 }

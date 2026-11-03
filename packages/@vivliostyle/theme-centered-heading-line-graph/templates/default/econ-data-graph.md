@@ -10,7 +10,7 @@ Economics studies how a society allocates scarce resources among competing uses.
 
 Throughout the chapter we follow a single market, the brewed coffee sold by the cafés of the Ardenport University district. The market is small enough to describe with a handful of numbers and competitive enough to satisfy our assumptions: there are many cafés and many customers, the product is close to uniform, and no participant sells enough to set the price alone. Quantities are measured in cups per day and prices in dollars per cup.
 
-Buyers purchase less of a good when its price rises, provided nothing else changes. This regularity is called the law of demand. Two terms must be kept apart. The quantity demanded is a single number, the amount buyers would purchase at one particular price. Demand is the entire relationship between price and quantity demanded, the whole schedule rather than one entry in it. The qualification that nothing else changes, conventionally written ceteris paribus, does a great deal of work; <a href="#sec-shifts" data-ref="sec"></a>&nbsp;examines what happens when the other conditions do change.
+Buyers purchase less of a good when its price rises, provided nothing else changes. This regularity is called the law of demand. Two terms must be kept apart. The quantity demanded is a single number, the amount buyers would purchase at one particular price. Demand is the entire relationship between price and quantity demanded, the whole schedule rather than one entry in it. The qualification that nothing else changes, conventionally written ceteris paribus, does a great deal of work; <a href="#sec-shifts" data-ref="sec"></a> examines what happens when the other conditions do change.
 
 For the Ardenport market the demand relationship is well approximated by a straight line,
 
@@ -28,7 +28,7 @@ $$
 
 so that at \$1.00 per cup the cafés are willing to brew 40 cups a day, and at \$3.00 per cup they are willing to brew 120.
 
-<a href="#fig-schedules" data-ref="fig"></a>&nbsp;plots the two relationships. Panel&nbsp;(a) shows the demand curve, which slopes downward; panel&nbsp;(b) shows the supply curve, which slopes upward. The marked points are the entries of the underlying schedules, and each curve is drawn through them. Note the convention of the axes: price appears on the vertical axis even though it is the variable we hold in mind when we ask how much will be bought or sold.
+<a href="#fig-schedules" data-ref="fig"></a> plots the two relationships. Panel&nbsp;(a) shows the demand curve, which slopes downward; panel&nbsp;(b) shows the supply curve, which slopes upward. The marked points are the entries of the underlying schedules, and each curve is drawn through them. Note the convention of the axes: price appears on the vertical axis even though it is the variable we hold in mind when we ask how much will be bought or sold.
 
 <div class="panel wide">
 
@@ -42,7 +42,7 @@ Neither curve alone determines anything. Buyers would prefer a price of zero and
 
 Markets are mechanisms through which buyers and sellers interact to determine the price of a good and the quantity that will be exchanged. Each participant enters the market with preferences and goals: buyers seek to obtain goods at the lowest possible price, while sellers seek to receive the highest possible price. The price that emerges in a market reflects the balance of these opposing interests.
 
-Demand refers to the quantities of a good that buyers are willing and able to purchase at various prices during a given period. As the price of a good rises, the quantity demanded typically falls, ceteris paribus, because the good becomes more expensive relative to alternative uses of income. <a href="#tbl-demand" data-ref="tbl"></a>&nbsp;shows a demand schedule for coffee, illustrating this inverse relationship.
+Demand refers to the quantities of a good that buyers are willing and able to purchase at various prices during a given period. As the price of a good rises, the quantity demanded typically falls, ceteris paribus, because the good becomes more expensive relative to alternative uses of income. <a href="#tbl-demand" data-ref="tbl"></a> shows a demand schedule for coffee, illustrating this inverse relationship.
 
 <figure class="tbl" id="tbl-demand">
 
@@ -67,7 +67,7 @@ $$
 160 - 40P = 40P \quad\Longrightarrow\quad P^* = 2.00, \; Q^* = 80 .
 $$
 
-<a href="#fig-supply-demand" data-ref="fig"></a>&nbsp;illustrates the supply and demand curves for coffee. The demand curve slopes downward, indicating that consumers demand less coffee as price increases. The supply curve slopes upward, indicating that producers supply more coffee as price increases. The intersection of the two curves determines the market equilibrium.
+<a href="#fig-supply-demand" data-ref="fig"></a> illustrates the supply and demand curves for coffee. The demand curve slopes downward, indicating that consumers demand less coffee as price increases. The supply curve slopes upward, indicating that producers supply more coffee as price increases. The intersection of the two curves determines the market equilibrium.
 
 <div class="panel">
 
@@ -95,7 +95,7 @@ In the next section, we examine how shifts in the demand or supply curves affect
 
 ## Shifts in Demand and Supply {#sec-shifts}
 
-The analysis of <a href="#sec-equilibrium" data-ref="sec"></a>&nbsp;held constant everything except the price of coffee. That assumption is what allows a single curve to be drawn at all. When one of the constant conditions changes, the curve itself moves, and the equilibrium moves with it.
+The analysis of <a href="#sec-equilibrium" data-ref="sec"></a> held constant everything except the price of coffee. That assumption is what allows a single curve to be drawn at all. When one of the constant conditions changes, the curve itself moves, and the equilibrium moves with it.
 
 The distinction deserves restating. A change in the price of coffee produces a movement along the demand curve, from one point on it to another; the curve itself does not move. A change in anything else that matters to buyers shifts the whole curve to a new position. The first is a change in quantity demanded, the second a change in demand.
 
@@ -107,7 +107,7 @@ $$
 Q_d' = 200 - 40P
 $$
 
-while supply is unchanged. <a href="#tbl-schedules" data-ref="tbl"></a>&nbsp;sets the two demand schedules beside the supply schedule.
+while supply is unchanged. <a href="#tbl-schedules" data-ref="tbl"></a> sets the two demand schedules beside the supply schedule.
 
 <figure class="tbl wide" id="tbl-schedules">
 
@@ -136,7 +136,7 @@ $$
 200 - 40P = 40P \quad\Longrightarrow\quad P' = 2.50, \; Q' = 100 .
 $$
 
-which is the point at which the last column of <a href="#tbl-schedules" data-ref="tbl"></a>&nbsp;changes sign. <a href="#fig-demand-shift" data-ref="fig"></a>&nbsp;shows the same result graphically: the demand curve shifts to the right, from $D$ to $D'$, and the equilibrium travels up the unchanged supply curve from $E$ to $E'$.
+which is the point at which the last column of <a href="#tbl-schedules" data-ref="tbl"></a> changes sign. <a href="#fig-demand-shift" data-ref="fig"></a> shows the same result graphically: the demand curve shifts to the right, from $D$ to $D'$, and the equilibrium travels up the unchanged supply curve from $E$ to $E'$.
 
 The adjustment is worth following step by step. At the old price of \$2.00 buyers now want 120 cups while sellers still offer 80, so 40 cups of excess demand appear. Disappointed buyers bid the price up; the rising price both discourages some of them and draws out additional supply, and the gap closes only when the price has reached \$2.50 and the quantity traded has risen to 100 cups.
 
@@ -160,7 +160,7 @@ $$
 Q_s = 40 \times 1.50 = 60 .
 $$
 
-A shortage of 40 cups per day is the result, and it does not go away. <a href="#fig-price-ceiling" data-ref="fig"></a>&nbsp;draws the ceiling as a horizontal line below the equilibrium price; the horizontal distance between the two curves measured along that line is the shortage.
+A shortage of 40 cups per day is the result, and it does not go away. <a href="#fig-price-ceiling" data-ref="fig"></a> draws the ceiling as a horizontal line below the equilibrium price; the horizontal distance between the two curves measured along that line is the shortage.
 
 <div class="panel">
 
@@ -168,7 +168,7 @@ A shortage of 40 cups per day is the result, and it does not go away. <a href="#
 
 </div>
 
-The lower the ceiling, the wider the gap, as <a href="#tbl-ceilings" data-ref="tbl"></a>&nbsp;shows. A ceiling at the equilibrium price itself leaves the market undisturbed; every ceiling below it creates a shortage that grows as the control tightens.
+The lower the ceiling, the wider the gap, as <a href="#tbl-ceilings" data-ref="tbl"></a> shows. A ceiling at the equilibrium price itself leaves the market undisturbed; every ceiling below it creates a shortage that grows as the control tightens.
 
 <figure class="tbl" id="tbl-ceilings">
 
@@ -204,7 +204,7 @@ $$
 E_d = \frac{20}{0.50} \cdot \frac{4.50}{140} = 1.29 .
 $$
 
-Demand is called elastic when $E_d > 1$, inelastic when $E_d < 1$, and unit elastic when $E_d = 1$. <a href="#tbl-elasticity" data-ref="tbl"></a>&nbsp;reports the elasticity over each interval of the schedule of <a href="#tbl-demand" data-ref="tbl"></a>.
+Demand is called elastic when $E_d > 1$, inelastic when $E_d < 1$, and unit elastic when $E_d = 1$. <a href="#tbl-elasticity" data-ref="tbl"></a> reports the elasticity over each interval of the schedule of <a href="#tbl-demand" data-ref="tbl"></a>.
 
 <figure class="tbl" id="tbl-elasticity">
 
@@ -228,7 +228,7 @@ $$
 \mathrm{TR} = P \times Q_d = P \,(160 - 40P),
 $$
 
-so a price increase pulls revenue in two directions at once. When demand is inelastic the quantity effect is the weaker of the two and revenue rises with price; when demand is elastic the quantity effect dominates and revenue falls. Revenue therefore reaches its maximum where demand is unit elastic, as <a href="#fig-total-revenue" data-ref="fig"></a>&nbsp;shows for the Ardenport schedule.
+so a price increase pulls revenue in two directions at once. When demand is inelastic the quantity effect is the weaker of the two and revenue rises with price; when demand is elastic the quantity effect dominates and revenue falls. Revenue therefore reaches its maximum where demand is unit elastic, as <a href="#fig-total-revenue" data-ref="fig"></a> shows for the Ardenport schedule.
 
 <div class="panel">
 
