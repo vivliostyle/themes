@@ -94,36 +94,48 @@
   /* `:where()` lets `section.level2 { ... }` in a theme win */
   @var h1 {
     :where(section:has(> h1:first-child)) {
+      break-after: ;
+      break-before: ;
       break-inside: ;
     }
   }
 
   @var h2 {
     :where(section:has(> h2:first-child)) {
+      break-after: ;
+      break-before: ;
       break-inside: ;
     }
   }
 
   @var h3 {
     :where(section:has(> h3:first-child)) {
+      break-after: ;
+      break-before: ;
       break-inside: ;
     }
   }
 
   @var h4 {
     :where(section:has(> h4:first-child)) {
+      break-after: ;
+      break-before: ;
       break-inside: ;
     }
   }
 
   @var h5 {
     :where(section:has(> h5:first-child)) {
+      break-after: ;
+      break-before: ;
       break-inside: ;
     }
   }
 
   @var h6 {
     :where(section:has(> h6:first-child)) {
+      break-after: ;
+      break-before: ;
       break-inside: ;
     }
   }
@@ -132,60 +144,30 @@
 section:has(> h1:first-child) {
   counter-increment: vs-counter-sections vs-counter-sec-h1;
   counter-reset: vs-counter-sec-h2;
-
-  @var section.h1 {
-    break-after: ;
-    break-before: ;
-  }
 }
 
 section:has(> h2:first-child) {
   counter-increment: vs-counter-sections vs-counter-sec-h2;
   counter-reset: vs-counter-sec-h3;
-
-  @var section.h2 {
-    break-after: ;
-    break-before: ;
-  }
 }
 
 section:has(> h3:first-child) {
   counter-increment: vs-counter-sections vs-counter-sec-h3;
   counter-reset: vs-counter-sec-h4;
-
-  @var section.h3 {
-    break-after: ;
-    break-before: ;
-  }
 }
 
 section:has(> h4:first-child) {
   counter-increment: vs-counter-sections vs-counter-sec-h4;
   counter-reset: vs-counter-sec-h5;
-
-  @var section.h4 {
-    break-after: ;
-    break-before: ;
-  }
 }
 
 section:has(> h5:first-child) {
   counter-increment: vs-counter-sections vs-counter-sec-h5;
   counter-reset: vs-counter-sec-h6;
-
-  @var section.h5 {
-    break-after: ;
-    break-before: ;
-  }
 }
 
 section:has(> h6:first-child) {
   counter-increment: vs-counter-sections vs-counter-sec-h6;
-
-  @var section.h6 {
-    break-after: ;
-    break-before: ;
-  }
 }
 
 section:has(> h1:first-child) > section:has(> h2:first-child):first-of-type {

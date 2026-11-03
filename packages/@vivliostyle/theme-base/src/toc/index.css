@@ -11,29 +11,33 @@
   }
 
   @media (hover: hover) {
-    :is(#toc, [role='doc-toc']) li > a:hover {
+    :is([id='toc'], [role='doc-toc']) li > a:hover {
       --vs-toc--anchor-text-decoration: underline;
     }
   }
 }
 
-#toc,
+/**
+ *  `[id='toc']` instead of `#toc` keeps the specificity at the level of
+ *  `[role='doc-toc']`, so that a theme can override these rules without an ID.
+ */
+[id='toc'],
 [role='doc-toc'] {
   --vs--ol-padding-inline-start: var(--vs-toc--ol-indent-size);
 }
 
-:is(#toc, [role='doc-toc']) ol {
+:is([id='toc'], [role='doc-toc']) ol {
   counter-reset: vs-counter-toc;
   list-style: none;
 }
 
-:is(#toc, [role='doc-toc']) li {
+:is([id='toc'], [role='doc-toc']) li {
   counter-increment: vs-counter-toc;
   break-inside: avoid;
   position: relative;
 }
 
-:is(#toc, [role='doc-toc']) li::before {
+:is([id='toc'], [role='doc-toc']) li::before {
   position: absolute;
   /* Up to 6 indentations can be displayed (h1-h6) */
   inline-size: calc(var(--vs-toc--ol-indent-size) * 6);
@@ -47,14 +51,14 @@
   }
 }
 
-:is(#toc, [role='doc-toc']) li > a {
+:is([id='toc'], [role='doc-toc']) li > a {
   @var toc.anchor {
     align-items: ;
     text-decoration: ;
   }
 }
 
-:is(#toc, [role='doc-toc']) li > a::after {
+:is([id='toc'], [role='doc-toc']) li > a::after {
   content: var(--vs-toc--page-leader-content)
     target-counter(attr(href), page, var(--vs-toc--page-counter-style));
   display: var(--vs-toc--page-counter-display);

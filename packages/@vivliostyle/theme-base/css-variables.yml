@@ -5808,7 +5808,7 @@ toc:
     _property: 'text-decoration'
     _define:
       - media: '(hover: hover)'
-        selector: ":is(#toc, [role='doc-toc']) li > a:hover"
+        selector: ":is([id='toc'], [role='doc-toc']) li > a:hover"
         value: 'underline'
   marker-content:
     _syntax: '*'
