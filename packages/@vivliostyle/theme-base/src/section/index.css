@@ -90,6 +90,43 @@
       margin-inline-end: ;
     }
   }
+
+  /* `:where()` lets `section.level2 { ... }` in a theme win */
+  @var h1 {
+    :where(section:has(> h1:first-child)) {
+      break-inside: ;
+    }
+  }
+
+  @var h2 {
+    :where(section:has(> h2:first-child)) {
+      break-inside: ;
+    }
+  }
+
+  @var h3 {
+    :where(section:has(> h3:first-child)) {
+      break-inside: ;
+    }
+  }
+
+  @var h4 {
+    :where(section:has(> h4:first-child)) {
+      break-inside: ;
+    }
+  }
+
+  @var h5 {
+    :where(section:has(> h5:first-child)) {
+      break-inside: ;
+    }
+  }
+
+  @var h6 {
+    :where(section:has(> h6:first-child)) {
+      break-inside: ;
+    }
+  }
 }
 
 section:has(> h1:first-child) {

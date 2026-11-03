@@ -1633,6 +1633,9 @@ _basic:
     _syntax: '*'
     _property: 'image-resolution'
     _define: 'from-image'
+  li-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
   li-font-size:
     _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
     _property: 'font-size'
@@ -2233,6 +2236,9 @@ _basic:
     _syntax: 'fit-content | max-content | min-content | none | stretch | <length-percentage>'
     _property: 'max-inline-size'
     _define: '100%'
+  table-row-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
   table-row-even-background-color:
     _syntax: '<color>'
     _property: 'background-color'
@@ -5433,6 +5439,9 @@ section:
   h1-break-before:
     _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
     _property: 'break-before'
+  h1-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
   h1-marker-content:
     _syntax: '*'
     _property: 'content'
@@ -5448,6 +5457,9 @@ section:
   h2-break-before:
     _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
     _property: 'break-before'
+  h2-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
   h2-marker-content:
     _syntax: '*'
     _property: 'content'
@@ -5463,6 +5475,9 @@ section:
   h3-break-before:
     _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
     _property: 'break-before'
+  h3-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
   h3-marker-content:
     _syntax: '*'
     _property: 'content'
@@ -5478,6 +5493,9 @@ section:
   h4-break-before:
     _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
     _property: 'break-before'
+  h4-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
   h4-marker-content:
     _syntax: '*'
     _property: 'content'
@@ -5493,6 +5511,9 @@ section:
   h5-break-before:
     _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
     _property: 'break-before'
+  h5-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
   h5-marker-content:
     _syntax: '*'
     _property: 'content'
@@ -5508,6 +5529,9 @@ section:
   h6-break-before:
     _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
     _property: 'break-before'
+  h6-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
   h6-marker-content:
     _syntax: '*'
     _property: 'content'

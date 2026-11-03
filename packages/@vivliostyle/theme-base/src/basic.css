@@ -1180,6 +1180,7 @@ ol {
 
 @var -li {
   li {
+    break-inside: ;
     font-size: ;
     line-height: ;
     margin-block: ;
@@ -1408,6 +1409,12 @@ pre {
     --vs--table-border-width-column,
     var(--vs--table-border-width-cell, var(--vs--table-border-width, 0))
   );
+}
+
+@var -table-row {
+  :where(tr) {
+    break-inside: ;
+  }
 }
 
 @var -table-row-odd {
