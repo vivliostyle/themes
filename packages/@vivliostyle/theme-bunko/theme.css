@@ -53,7 +53,7 @@
   --vs--p-text-indent: 1em;
   /* 約物の調整、和欧文間スペース */
   --vs--p-text-spacing: space-first allow-end ideograph-alpha ideograph-numeric;
-  --vs--figcaption-margin-block: 1rem;
+  --vs--figure-gap: 1rem;
 
   /* Adding extra 1px to avoid unexpected page feeds */
   --vs-page--width: calc(

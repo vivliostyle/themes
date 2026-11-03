@@ -48,7 +48,7 @@
   --vs--blockquote-margin-inline: 2em var(--vs-spacing-inline-indent);
   --vs--pre-font-size: 0.83rem;
   --vs--figcaption-font-size: 0.83rem;
-  --vs--figcaption-margin-block: 0;
+  --vs--figure-gap: 0;
   --vs--table-font-size: 0.83rem;
 
   --vs-page--mbox-top-right-content: env(pub-title);

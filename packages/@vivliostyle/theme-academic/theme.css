@@ -50,7 +50,7 @@
   --vs--p-text-indent: 1em;
   --vs--figure-item-max-size-block: 8cm;
   --vs--figure-item-max-size-inline: 10cm;
-  --vs--figcaption-margin-block: 0;
+  --vs--figure-gap: 0;
   --vs--table-border-width-cell: 0;
   --vs--table-border-width-inline-start: 0;
   --vs--table-border-width-inline-end: 0;
