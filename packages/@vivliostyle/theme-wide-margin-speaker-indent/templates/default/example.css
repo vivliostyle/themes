@@ -1,0 +1,114 @@
+.chapter-lead {
+  margin-block: -0.25rlh 1rlh;
+  font-size: 0.82em;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--vs-color-foreground-alt);
+}
+
+body.cover {
+  page: cover;
+}
+
+@page cover {
+  --vs-page--border-width-top: 0;
+  --vs-page--mbox-top-left-content: none;
+  --vs-page--mbox-bottom-center-content: none;
+}
+
+.cover h1 {
+  --vs--h1-font-size: 3.6em;
+  --vs--h1-letter-spacing: 0.1em;
+  --vs--h1-line-height: 1.1;
+  --vs--h1-margin-block: 10.25rlh 0;
+  --vs--h1-text-align: center;
+}
+
+.cover-sub {
+  margin-block: 0.75rlh 0;
+  padding-block: 0.75rlh 0;
+  border-block-start-width: 0.6pt;
+  border-block-start-style: solid;
+  border-block-start-color: var(--vs-color-border);
+  font-size: 1.15em;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-align: center;
+  text-indent: 0.3em;
+}
+
+.cover-lead {
+  margin-block: 0.5rlh 0;
+  font-size: 0.95em;
+  letter-spacing: 0.12em;
+  color: var(--vs-color-foreground-alt);
+  text-align: center;
+  text-indent: 0.16em;
+}
+
+.cover-toc {
+  margin-block: 9.25rlh 0;
+  margin-inline: 10rem;
+  padding-block: 0.5rlh 0.75rlh;
+  border-block-start-width: 0.6pt;
+  border-block-start-style: solid;
+  border-block-start-color: var(--vs-color-border);
+  border-block-end-width: 0.6pt;
+  border-block-end-style: solid;
+  border-block-end-color: var(--vs-color-border);
+}
+
+.cover-toc p {
+  margin-block: 0 0.25rlh;
+  font-size: 0.9em;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.cover-toc p:last-child {
+  margin-block-end: 0;
+}
+
+.cover-imprint {
+  margin-block: 6.25rlh 0;
+  font-size: 0.88em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.9;
+  text-align: center;
+  text-indent: 0.14em;
+}
+
+/* The CLI table of contents also picks up the cover file */
+[role='doc-toc'] li:has(> a[href$='#cover']) {
+  display: none;
+}
+
+.toc-note {
+  margin-block: 1.5rlh 0;
+  margin-inline: 2rem 1rem;
+  padding-block-start: 0.5rlh;
+  border-block-start-width: 0.5pt;
+  border-block-start-style: solid;
+  border-block-start-color: var(--vs-color-border-alt);
+  font-size: 0.9em;
+  color: var(--vs-color-foreground-alt);
+}
+
+.colophon-meta {
+  --vs--table-margin-block: 0;
+  --vs--table-font-size: 0.95em;
+  --vs--table-cell-padding-block: 0.45em;
+  --vs--table-cell-padding-inline: 0 1.25em;
+  --vs--th-white-space: nowrap;
+}
+
+.colophon-meta th {
+  width: 8em;
+}
+
+.colophon-note {
+  margin-block: 1.5rlh 0;
+  font-size: 0.9em;
+  color: var(--vs-color-foreground-alt);
+}
