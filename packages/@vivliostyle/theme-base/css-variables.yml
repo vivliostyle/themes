@@ -1799,7 +1799,9 @@ _basic:
     _property: 'word-spacing'
   pre-background-color:
     _syntax: '<color>'
-    _property: 'background-color'
+    _property:
+      - 'background'
+      - 'background-color'
   pre-border-color:
     _syntax: '<color>'
     _property:
@@ -5290,7 +5292,7 @@ prism:
   block-code-padding:
     _syntax: '<length-percentage>+'
     _property: 'padding'
-    _define: '1em'
+    _define: 'var(--vs--pre-padding-block, 1em) var(--vs--pre-padding-inline, 1em)'
   boolean-text-color:
     _syntax: '<color>'
     _property: 'color'

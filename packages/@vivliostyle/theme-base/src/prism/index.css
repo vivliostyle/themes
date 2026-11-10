@@ -4,7 +4,8 @@
     --vs-prism--attr-name-text-color: var(--vs-prism--text-color);
     --vs-prism--attr-value-text-color: var(--vs-prism--text-color);
     --vs-prism--block-code-border-radius: 0.3em;
-    --vs-prism--block-code-padding: 1em;
+    --vs-prism--block-code-padding: var(--vs--pre-padding-block, 1em)
+      var(--vs--pre-padding-inline, 1em);
     --vs-prism--boolean-text-color: var(--vs-prism--text-color);
     --vs-prism--builtin-text-color: var(--vs-prism--text-color);
     --vs-prism--cdata-text-color: var(--vs-prism--text-color);
@@ -38,72 +39,59 @@
   }
 }
 
+/**
+ *  The basic stylesheet lays out `pre` and the monospace text through the
+ *  `--vs--pre-*` and `--vs--monospace-*` variables, so only what Prism adds is
+ *  set here, and a `--vs--pre-*` variable wins over its Prism counterpart.
+ *  `--vs-prism--block-code-padding` is a `padding` shorthand that cannot fall
+ *  back per axis, so its default takes the `--vs--pre-padding-*` instead.
+ *  `:where()` keeps the specificity of a plain `pre` or `code` selector, so a
+ *  theme's `pre {}` or `code {}` still wins.
+ */
 code,
-pre[class*='language-'] {
-  background: none;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
+pre:where([class*='language-']) {
   word-wrap: normal;
-  hyphens: none;
-}
-
-@var prism {
-  @var . {
-    code,
-    pre[class*='language-'] {
-      color: ;
-      text-shadow: ;
-    }
-  }
-}
-
-@media print {
-  code[class*='language-'],
-  pre[class*='language-'] {
-    text-shadow: none;
-    white-space: pre-wrap;
-  }
 }
 
 /* Code blocks */
-pre[class*='language-'] {
-  overflow: auto;
+pre:where([class*='language-']) {
+  background: var(--vs--pre-background-color, var(--vs-prism--background));
+  border-radius: var(
+    --vs--pre-border-radius,
+    var(--vs-prism--block-code-border-radius)
+  );
+  color: var(--vs--pre-text-color, var(--vs-prism--text-color));
+  padding: var(--vs-prism--block-code-padding);
+  text-shadow: var(--vs-prism--text-shadow);
+}
 
-  @var prism.block-code {
-    & {
-      padding: ;
-      border-radius: ;
+/* Inline code */
+:where(:not(pre)) > code {
+  @var prism {
+    @var . {
+      & {
+        background: ;
+        color: ;
+        text-shadow: ;
+      }
+    }
+    @var inline-code {
+      & {
+        padding: ;
+        border-radius: ;
+      }
     }
   }
 }
 
 @media print {
-  pre[class*='language-'] {
-    overflow: unset;
+  pre:where([class*='language-']) {
     line-break: anywhere;
   }
-}
 
-@var prism {
-  @var . {
-    :not(pre) > code,
-    pre[class*='language-'] {
-      background: ;
-    }
-  }
-}
-
-/* Inline code */
-:not(pre) > code {
-  white-space: normal;
-
-  @var prism.inline-code {
-    & {
-      padding: ;
-      border-radius: ;
-    }
+  code:where([class*='language-']),
+  pre:where([class*='language-']) {
+    text-shadow: none;
   }
 }
 
