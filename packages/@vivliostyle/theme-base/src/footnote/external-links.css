@@ -1,11 +1,12 @@
+/* `:where()` lets a later rule on `a[href^='http']` override these */
 @media print {
-  :not(.footnote) > a[href^='http'] {
+  :where(:not(.footnote)) > a[href^='http'] {
     color: unset;
     text-decoration: unset;
     counter-increment: vs-counter-footnote;
   }
 
-  :not(.footnote) > a[href^='http']::before {
+  :where(:not(.footnote)) > a[href^='http']::before {
     content: var(--vs-footnote--marker-content) attr(href);
     display: block;
     float: footnote;
@@ -13,7 +14,7 @@
   }
 
   @var footnote-, * {
-    :not(.footnote) > a[href^='http']::before {
+    :where(:not(.footnote)) > a[href^='http']::before {
       color: ;
       font-family: ;
       font-feature-settings: ;
@@ -33,7 +34,7 @@
     }
   }
 
-  :not(.footnote) > a[href^='http']::after {
+  :where(:not(.footnote)) > a[href^='http']::after {
     content: var(--vs-footnote--call-content);
     font-size: var(--vs-footnote--call-font-size);
     margin-inline: var(--vs-footnote--call-margin-inline);

@@ -44,7 +44,9 @@
    * An inline ::before of a block is wrapped in an anonymous block of its own
    * and falls on a separate line, so the label of a single-paragraph theorem
    * sits on the paragraph to run in with its text. Any other structure keeps
-   * the label on the block, where it forms a label line of its own.
+   * the label on the block, where it forms a label line of its own. The
+   * conditions sit in `:where()`, so that `.theorem::before` in a theme can
+   * override the label without repeating them.
    *
    * The default content is assembled here rather than in a :root definition:
    * a custom property resolves its var() references where it is declared, so
@@ -52,8 +54,8 @@
    * such as `.lemma { --vs-theorem--label: 'Lemma' }` could never apply.
    */
   @var marker {
-    .theorem > p:only-child::before,
-    .theorem:not(:has(> p:only-child))::before {
+    .theorem > p:where(:only-child)::before,
+    .theorem:where(:not(:has(> p:only-child)))::before {
       content: var(--vs-theorem--label, '')
         var(--vs-crossref-marker-counter-prefix, '')
         counter(
