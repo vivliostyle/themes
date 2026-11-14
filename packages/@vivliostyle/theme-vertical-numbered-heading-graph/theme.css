@@ -86,11 +86,16 @@
   --vs-page--mbox-top-letter-spacing: 0.1em;
   --vs-page--mbox-bottom-font-size: 0.9em;
   --vs-page--mbox-bottom-letter-spacing: 0.04em;
-  /* The glyphs sit half the leading inside their line, and 16 lines leave
-     1.1mm empty on the left of the text area. Inset the outer boxes so the
-     running head and the folio line up with the outermost lines of text */
-  --vs-page--mbox-left-inner-margin-left: 2.3mm;
-  --vs-page--mbox-right-inner-margin-right: 1.1mm;
+  /* The glyphs sit half the leading inside their line, and the space left
+     over by the whole lines stays empty on the left of the text area. Inset
+     the outer boxes so the running head and the folio line up with the
+     outermost lines of text. Vivliostyle ignores mod() here but evaluates
+     floor() in calc() */
+  --vs-page--mbox-left-inner-margin-left: calc(100pvw -
+    var(--vs-page--margin-left) - var(--vs-page--margin-right) - 1rlh *
+    floor((100pvw - var(--vs-page--margin-left) - var(--vs-page--margin-right))
+    / 1rlh) + (1rlh - 1rem) / 2);
+  --vs-page--mbox-right-inner-margin-right: calc((1rlh - 1rem) / 2);
 
   --vs-section--counter-style: cjk-ideographic;
   --vs-section--h2-marker-display: inline;
