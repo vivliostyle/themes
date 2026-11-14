@@ -146,7 +146,9 @@ Two results are worth memorizing. An increase in demand raises both the equilibr
 
 ## Price Controls {#sec-controls}
 
-Governments sometimes decide that an equilibrium price is too high or too low and legislate a different one. A price ceiling is a legal maximum, a price floor a legal minimum. A ceiling set above the equilibrium price, or a floor set below it, changes nothing, because the market outcome already obeys the law. Only binding controls are interesting.
+### Price Ceilings {#sec-ceilings}
+
+Governments sometimes decide that an equilibrium price is too high and legislate a lower one. A price ceiling is a legal maximum. A ceiling set above the equilibrium price changes nothing, because the market outcome already obeys the law; only a binding ceiling, set below equilibrium, is interesting.
 
 Suppose the Ardenport council, concerned that students cannot afford their morning coffee, caps the price at \$1.50 per cup. At that price buyers want
 
@@ -184,7 +186,9 @@ The lower the ceiling, the wider the gap, as <a href="#tbl-ceilings" data-ref="t
 
 Because the price is no longer permitted to ration the good, something else must. Queues form, cafés sell out before the morning is over, portions shrink, quality slips, and regular customers are served ahead of strangers. Each of these is a genuine cost borne by buyers, and none of them appears on the posted price. The control lowers what buyers pay in money, but not necessarily what they pay in all.
 
-Price floors produce the mirror image. A minimum price above equilibrium leaves sellers offering more than buyers will take, and the resulting surplus must be stored, exported, destroyed, or bought up by the authority that imposed the floor. Minimum prices for agricultural products and minimum wages in labor markets are the standard examples.
+### Price Floors {#sec-floors}
+
+A price floor is the mirror image of a ceiling: a legal minimum, which binds only when it is set above the equilibrium price. A binding floor leaves sellers offering more than buyers will take, and the resulting surplus must be stored, exported, destroyed, or bought up by the authority that imposed the floor. Minimum prices for agricultural products and minimum wages in labor markets are the standard examples.
 
 The general lesson is that a control fixes a price but not a quantity. The quantity actually traded is the smaller of the quantity demanded and the quantity supplied at the controlled price, which is why both ceilings and floors reduce the volume of trade below its equilibrium level.
 
