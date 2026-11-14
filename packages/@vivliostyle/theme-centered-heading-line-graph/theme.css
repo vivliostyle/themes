@@ -141,6 +141,15 @@ section > h2:first-child {
   column-span: all;
 }
 
+/* A top margin right below a spanning heading lowers only the first column. A subsection heading there passes its margin up through its section. */
+section > :is(h1, h2, h3, h4, h5, h6):first-child + *,
+section
+  > :is(h1, h2, h3, h4, h5, h6):first-child
+  + section
+  > :is(h1, h2, h3, h4, h5, h6):first-child {
+  margin-block-start: 0;
+}
+
 .wide {
   column-span: all;
   margin-block: 1rlh;
