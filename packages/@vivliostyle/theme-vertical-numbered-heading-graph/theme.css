@@ -86,6 +86,11 @@
   --vs-page--mbox-top-letter-spacing: 0.1em;
   --vs-page--mbox-bottom-font-size: 0.9em;
   --vs-page--mbox-bottom-letter-spacing: 0.04em;
+  /* The glyphs sit half the leading inside their line, and 16 lines leave
+     1.1mm empty on the left of the text area. Inset the outer boxes so the
+     running head and the folio line up with the outermost lines of text */
+  --vs-page--mbox-left-inner-margin-left: 2.3mm;
+  --vs-page--mbox-right-inner-margin-right: 1.1mm;
 
   --vs-section--counter-style: cjk-ideographic;
   --vs-section--h2-marker-display: inline;
