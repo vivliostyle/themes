@@ -116,6 +116,9 @@
   --vs-endnote--marker-content: counter(vs-counter-endnote);
   --vs-endnote--marker-text-combine-upright: all;
   --vs-endnote--marker-margin-inline: 0 1em;
+  /* WORD JOINER keeps the call from starting a line, until wrap-before is
+     supported */
+  --vs-endnote--call-content: '\2060';
   --vs-endnote--call-sup-text-combine-upright: all;
 
   --vs-toc--page-counter-style: cjk-decimal;
