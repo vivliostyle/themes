@@ -167,6 +167,12 @@ a:is([data-ref='chap'], [data-ref='chap-num'], [data-ref='sec']) {
   color: inherit;
 }
 
+/* The introduction and the colophon also have a chapter counter value, so
+   the number is copied from the marker that only chapters display */
+[role='doc-toc'] li > a::before {
+  content: target-text(attr(href), before);
+}
+
 /* Lists and tables in a dialogue line up with code blocks so that they read
    as material set apart from the conversation */
 .dialogue {
