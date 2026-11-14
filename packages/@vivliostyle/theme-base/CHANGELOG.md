@@ -1,5 +1,36 @@
 # @vivliostyle/theme-base
 
+## 3.1.0
+
+### Minor Changes
+
+- [#168](https://github.com/vivliostyle/themes/pull/168) [`db35ef8`](https://github.com/vivliostyle/themes/commit/db35ef857f0d950bc9aebb0e192605637d0bea7a) Thanks [@spring-raining](https://github.com/spring-raining)! - Add `--vs--figure-gap` for the space between the items of a `figure`, replacing the default `margin-block` of `figcaption`. Set it instead of `--vs--figcaption-margin-block` to adjust the space between an image and its caption.
+
+- [#168](https://github.com/vivliostyle/themes/pull/168) [`db35ef8`](https://github.com/vivliostyle/themes/commit/db35ef857f0d950bc9aebb0e192605637d0bea7a) Thanks [@spring-raining](https://github.com/spring-raining)! - Add `--vs-section--label` and the number-only `--vs-section--call-counter-content` and `--vs-section--marker-counter-content`. Section references now read `Section 1.2` (`1.2節` in Japanese) instead of `§1.2`.
+
+- [#168](https://github.com/vivliostyle/themes/pull/168) [`db35ef8`](https://github.com/vivliostyle/themes/commit/db35ef857f0d950bc9aebb0e192605637d0bea7a) Thanks [@spring-raining](https://github.com/spring-raining)! - Add variables to control page breaks inside list items, table rows and sections:
+
+  - `--vs--li-break-inside`
+  - `--vs--table-row-break-inside`
+  - `--vs-section--h1-break-inside`
+  - `--vs-section--h2-break-inside`
+  - `--vs-section--h3-break-inside`
+  - `--vs-section--h4-break-inside`
+  - `--vs-section--h5-break-inside`
+  - `--vs-section--h6-break-inside`
+
+### Patch Changes
+
+- [#168](https://github.com/vivliostyle/themes/pull/168) [`db35ef8`](https://github.com/vivliostyle/themes/commit/db35ef857f0d950bc9aebb0e192605637d0bea7a) Thanks [@spring-raining](https://github.com/spring-raining)! - Lower the specificity of the section `break-before` and `break-after` rules, and of the table of contents rules, so that a theme can override them with a selector such as `section.level2` or `[role='doc-toc'] ol`. The table of contents rules matched `#toc` and so outweighed any selector without an ID.
+
+- [#168](https://github.com/vivliostyle/themes/pull/168) [`db35ef8`](https://github.com/vivliostyle/themes/commit/db35ef857f0d950bc9aebb0e192605637d0bea7a) Thanks [@spring-raining](https://github.com/spring-raining)! - Keep the endnote call at the height of other superscripts. The `vertical-align` of `.footnote-ref > sup` fell back to an empty value while `--vs--sup-vertical-align` was unset, so the browser's `vertical-align: super` came back on top of the `inset-block-start` shift of `sup`, and the call rose as high as the previous line. It now falls back to `baseline`.
+
+- [#168](https://github.com/vivliostyle/themes/pull/168) [`db35ef8`](https://github.com/vivliostyle/themes/commit/db35ef857f0d950bc9aebb0e192605637d0bea7a) Thanks [@spring-raining](https://github.com/spring-raining)! - Keep the `--vs--pre-*` variables and a theme's `pre {}` working on code blocks when the `prism` module is loaded. The `--vs--pre-*` variables now take precedence over their `--vs-prism--*` counterparts.
+
+- [#168](https://github.com/vivliostyle/themes/pull/168) [`db35ef8`](https://github.com/vivliostyle/themes/commit/db35ef857f0d950bc9aebb0e192605637d0bea7a) Thanks [@spring-raining](https://github.com/spring-raining)! - Lower the specificity of the theorem label and of the external link footnotes, so that a theme can override them with `.theorem::before` or `a[href^='http']`. The conditions that choose where the theorem label goes, and the `:not(.footnote)` that skips the links inside footnotes, now sit in `:where()`.
+
+- [#168](https://github.com/vivliostyle/themes/pull/168) [`db35ef8`](https://github.com/vivliostyle/themes/commit/db35ef857f0d950bc9aebb0e192605637d0bea7a) Thanks [@spring-raining](https://github.com/spring-raining)! - Lower the specificity of the figure, table and listing numbering rules so that a single class selector can override them.
+
 ## 3.0.1
 
 ### Patch Changes

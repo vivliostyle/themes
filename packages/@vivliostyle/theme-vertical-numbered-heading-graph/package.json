@@ -1,6 +1,6 @@
 {
   "name": "@vivliostyle/theme-vertical-numbered-heading-graph",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Single-column vertical theme for academic nonfiction, with numbered section headings and horizontal graphs at the bottom of the page",
   "keywords": [
     "vivliostyle",

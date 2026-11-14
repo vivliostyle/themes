@@ -127,6 +127,70 @@ module.exports = {
 
 > original author: `Vivliostyle <mail@vivliostyle.org>`
 
+### [Centered Heading Line Graph](packages/@vivliostyle/theme-centered-heading-line-graph)
+
+Two-column theme for English textbooks, with centered numbered headings and many tables and line graphs
+
+[![](https://img.shields.io/npm/v/@vivliostyle/theme-centered-heading-line-graph.svg)](https://npmjs.com/package/@vivliostyle/theme-centered-heading-line-graph)
+[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-centered-heading-line-graph)](https://npmjs.com/package/@vivliostyle/theme-centered-heading-line-graph)
+![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-centered-heading-line-graph)
+
+```js
+module.exports = {
+  theme: '@vivliostyle/theme-centered-heading-line-graph',
+};
+```
+
+> original author: `Vivliostyle <mail@vivliostyle.org>`
+
+### [Mono Hanging Number Sidenote](packages/@vivliostyle/theme-mono-hanging-number-sidenote)
+
+Single-column theme for English university textbooks, set entirely in monospace with hanging section numbers and numbered sidenotes in the outer margin
+
+[![](https://img.shields.io/npm/v/@vivliostyle/theme-mono-hanging-number-sidenote.svg)](https://npmjs.com/package/@vivliostyle/theme-mono-hanging-number-sidenote)
+[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-mono-hanging-number-sidenote)](https://npmjs.com/package/@vivliostyle/theme-mono-hanging-number-sidenote)
+![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-mono-hanging-number-sidenote)
+
+```js
+module.exports = {
+  theme: '@vivliostyle/theme-mono-hanging-number-sidenote',
+};
+```
+
+> original author: `Vivliostyle <mail@vivliostyle.org>`
+
+### [Vertical Numbered Heading Graph](packages/@vivliostyle/theme-vertical-numbered-heading-graph)
+
+Single-column vertical theme for academic nonfiction, with numbered section headings and horizontal graphs at the bottom of the page
+
+[![](https://img.shields.io/npm/v/@vivliostyle/theme-vertical-numbered-heading-graph.svg)](https://npmjs.com/package/@vivliostyle/theme-vertical-numbered-heading-graph)
+[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-vertical-numbered-heading-graph)](https://npmjs.com/package/@vivliostyle/theme-vertical-numbered-heading-graph)
+![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-vertical-numbered-heading-graph)
+
+```js
+module.exports = {
+  theme: '@vivliostyle/theme-vertical-numbered-heading-graph',
+};
+```
+
+> original author: `Vivliostyle <mail@vivliostyle.org>`
+
+### [Wide Margin Speaker Indent](packages/@vivliostyle/theme-wide-margin-speaker-indent)
+
+Single-column theme with wide margins for technical doujinshi, setting interview pages with hanging indents under speaker names
+
+[![](https://img.shields.io/npm/v/@vivliostyle/theme-wide-margin-speaker-indent.svg)](https://npmjs.com/package/@vivliostyle/theme-wide-margin-speaker-indent)
+[![npm: total downloads](https://flat.badgen.net/npm/dt/@vivliostyle/theme-wide-margin-speaker-indent)](https://npmjs.com/package/@vivliostyle/theme-wide-margin-speaker-indent)
+![npm: license](https://flat.badgen.net/npm/license/@vivliostyle/theme-wide-margin-speaker-indent)
+
+```js
+module.exports = {
+  theme: '@vivliostyle/theme-wide-margin-speaker-indent',
+};
+```
+
+> original author: `Vivliostyle <mail@vivliostyle.org>`
+
 <!-- END top -->
 
 ## Credits

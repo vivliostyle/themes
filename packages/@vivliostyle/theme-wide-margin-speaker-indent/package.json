@@ -1,6 +1,6 @@
 {
   "name": "@vivliostyle/theme-wide-margin-speaker-indent",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Single-column theme with wide margins for technical doujinshi, setting interview pages with hanging indents under speaker names",
   "keywords": [
     "vivliostyle",
