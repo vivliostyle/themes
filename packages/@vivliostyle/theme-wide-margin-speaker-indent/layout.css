@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/endnote';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/toc';
+
+:root {
+  --vs-theme-wide-margin-speaker-indent--speaker-size-inline: 6rem;
+
+  --vs-font-family:
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --vs-font-size: 9.5pt;
+  --vs-letter-spacing: 0.01em;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-foreground-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 35%
+  );
+  --vs-color-background: #ffffff;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 95%
+  );
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 15%
+  );
+  --vs-color-border-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 80%
+  );
+
+  --vs--monospace-font-family: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --vs--p-margin-block: 0.5rlh;
+
+  --vs--h1-font-size: 1.75em;
+  --vs--h1-font-weight: 800;
+  --vs--h1-letter-spacing: 0.02em;
+  --vs--h1-line-height: 1.3;
+  --vs--h1-margin-block: 0.25rlh 1rlh;
+
+  --vs--h2-font-size: 1.08em;
+  --vs--h2-font-weight: 700;
+  --vs--h2-letter-spacing: 0.06em;
+  --vs--h2-line-height: 1.4;
+  --vs--h2-margin-block: 1.5rlh 0.75rlh;
+
+  --vs--h3-font-size: 1em;
+  --vs--h3-letter-spacing: 0.06em;
+
+  --vs--h4-font-size: 0.92em;
+  --vs--h4-letter-spacing: 0.04em;
+
+  --vs--blockquote-margin-block: 0.75rlh;
+  --vs--blockquote-margin-inline: 0;
+
+  --vs--lists-margin-block: 0.5rlh;
+  --vs--li-margin-block: 0.25rlh 0;
+
+  --vs--table-size-inline: 100%;
+  --vs--table-margin-block: 0.75rlh;
+  --vs--table-font-size: 0.92em;
+  --vs--table-border-color: var(--vs-color-border-alt);
+  --vs--table-border-width: 0;
+  --vs--table-border-width-block-end: 0.4pt;
+  --vs--table-border-width-row: 0.4pt;
+  --vs--table-border-width-thead-inner: 0.4pt;
+  --vs--table-cell-padding-block: 0.35em;
+  --vs--table-cell-padding-inline: 0 1em;
+  --vs--table-cell-vertical-align: baseline;
+  --vs--th-text-align: start;
+
+  --vs--figure-gap: 0.5rlh;
+  --vs--figure-margin-block: 0.75rlh;
+  --vs--figcaption-font-size: 0.78em;
+  --vs--figcaption-font-weight: 700;
+  --vs--figcaption-letter-spacing: 0.03em;
+  --vs--figcaption-text-color: var(--vs-color-foreground-alt);
+
+  --vs--pre-background-color: var(--vs-color-background-alt);
+  --vs--pre-border-width-inline-start: 0.8mm;
+  --vs--pre-margin-block: 0.5rlh 0.75rlh;
+  --vs--pre-padding-block: 0.6em;
+  --vs--pre-padding-inline: 1.2em;
+
+  --vs-page--size: A4;
+  --vs-page--margin-bottom: 20mm;
+  --vs-page--margin-top: 20mm;
+  --vs-page--margin-left: 22.5mm;
+  --vs-page--margin-right: 22.5mm;
+  --vs-page--padding-top: 1rlh;
+  --vs-page--padding-bottom: 1rlh;
+  --vs-page--border-width-top: 0.5pt;
+  --vs-page--border-color-top: var(--vs-color-border-alt);
+
+  --vs-page--mbox-top-left-content: env(doc-title);
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-font-size: 0.85em;
+  --vs-page--mbox-font-weight: 300;
+  --vs-page--mbox-letter-spacing: 0.04em;
+  --vs-page--mbox-text-color: var(--vs-color-foreground-alt);
+
+  /* The table of contents copies this marker with target-text(), so the
+     separator is a character rather than a margin */
+  --vs-section--h1-marker-content: counter(vs-counter-chapter) '　';
+  --vs-section--h1-marker-margin-inline-end: 0;
+
+  /* The section numbering rule of base decides the content and display of
+     h2::before in a section, so the square is drawn as its marker */
+  --vs-section--h2-marker-content: '';
+  --vs-section--h2-marker-display: block;
+  --vs-section--h2-marker-margin-inline-end: 0;
+
+  --vs-endnote--section-border-color: var(--vs-color-border-alt);
+  --vs-endnote--section-border-width-block-start: 0.5pt;
+  --vs-endnote--section-font-size: 0.9em;
+  --vs-endnote--section-hr-display: none;
+  --vs-endnote--section-margin-block: 1.5rlh 0;
+  --vs-endnote--section-margin-inline: 2rem 1rem;
+  --vs-endnote--section-ol-margin-block: 0;
+  --vs-endnote--section-padding-block: 0.5rlh 0;
+  --vs-endnote--section-text-color: var(--vs-color-foreground-alt);
+}
+
+/* Sections are not numbered, so a section reference shows the heading
+   instead. base sets a separate value for Japanese on :root:lang(ja) */
+:root,
+:root:lang(ja) {
+  --vs-section--call-content: target-text(attr(href));
+}
+
+body.chapter {
+  --vs-section--h1-marker-display: inline;
+}
+
+h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7em;
+}
+
+h2::before {
+  flex: 0 0 auto;
+  width: 0.6em;
+  height: 0.6em;
+  background-color: var(--vs-color-border);
+}
+
+a[data-ref='chap']::before {
+  content: target-counter(attr(href), vs-counter-chapter) '　'
+    target-text(attr(href));
+}
+
+a[data-ref='chap-num']::before {
+  content: target-counter(attr(href), vs-counter-chapter);
+}
+
+a:is([data-ref='chap'], [data-ref='chap-num'], [data-ref='sec']) {
+  color: inherit;
+}
+
+/* The introduction and the colophon also have a chapter counter value, so
+   the number is copied from the marker that only chapters display */
+[role='doc-toc'] li > a::before {
+  content: target-text(attr(href), before);
+}
+
+/* Lists and tables in a dialogue line up with code blocks so that they read
+   as material set apart from the conversation */
+.dialogue {
+  --vs--lists-margin-inline: var(
+      --vs-theme-wide-margin-speaker-indent--speaker-size-inline
+    )
+    1rem;
+  --vs--table-size-inline: calc(
+    100% - var(--vs-theme-wide-margin-speaker-indent--speaker-size-inline) -
+      1rem
+  );
+  --vs--table-margin-inline: var(
+      --vs-theme-wide-margin-speaker-indent--speaker-size-inline
+    )
+    1rem;
+}
+
+.dialogue p {
+  margin: 0 0 0.5rlh;
+  padding-left: var(--vs-theme-wide-margin-speaker-indent--speaker-size-inline);
+  text-indent: calc(
+    -1 * var(--vs-theme-wide-margin-speaker-indent--speaker-size-inline)
+  );
+}
+
+.speaker {
+  display: inline-block;
+  width: var(--vs-theme-wide-margin-speaker-indent--speaker-size-inline);
+  font-weight: 700;
+  font-size: 0.86em;
+  letter-spacing: 0.03em;
+  text-indent: 0;
+}
+
+.speaker::after {
+  content: '\2014\2014';
+}
+
+.note {
+  margin-block: 0.75rlh;
+  margin-inline: 2rem 1rem;
+}
+
+.note p {
+  margin: 0;
+  color: var(--vs-color-foreground-alt);
+  font-size: 0.95em;
+  text-indent: 1em;
+}
+
+blockquote {
+  break-inside: avoid;
+  padding: 0.8em 0;
+  border-top-width: 0.6pt;
+  border-top-style: solid;
+  border-top-color: var(--vs-color-border);
+  border-bottom-width: 0.6pt;
+  border-bottom-style: solid;
+  border-bottom-color: var(--vs-color-border);
+}
+
+blockquote p {
+  margin: 0;
+  font-size: 1.42em;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+blockquote p:first-child::before {
+  content: '\300C';
+}
+blockquote p:first-child::after {
+  content: '\300D';
+}
+
+/* The paragraphs after the first give the source of the quote */
+blockquote p + p {
+  margin-block-start: 0.25rlh;
+  font-size: 0.9em;
+  font-weight: 400;
+  color: var(--vs-color-foreground-alt);
+}
+
+.tbl-caption {
+  margin-block: 0.75rlh 0.25rlh;
+  color: var(--vs--figcaption-text-color);
+  font-size: var(--vs--figcaption-font-size);
+  font-weight: var(--vs--figcaption-font-weight);
+  letter-spacing: var(--vs--figcaption-letter-spacing);
+}
+
+.tbl-caption + table {
+  --vs--table-margin-block: 0 0.75rlh;
+}
+
+figure[class*='language-'] {
+  align-items: stretch;
+  gap: 0.25rlh;
+  margin-block: 0.5rlh 0.75rlh;
+}
+
+.dialogue figure[class*='language-'],
+.dialogue > pre,
+.dialogue .tbl-caption {
+  margin-inline: var(--vs-theme-wide-margin-speaker-indent--speaker-size-inline)
+    1rem;
+}
+
+figure[class*='language-'] > pre {
+  --vs--pre-margin-block: 0;
+}
+
+pre code {
+  font-size: 0.8em;
+  line-height: 1.45;
+}

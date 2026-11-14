@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 430" role="img" aria-label="Supply and demand curves for coffee with equilibrium at price 2.00 dollars and quantity 80 cups">
+  <style>
+    text { font-family: "PT Serif", Georgia, "Times New Roman", serif; fill: #1a1a1a; }
+    .sym { font-style: italic; }
+    .axis { stroke: #1a1a1a; stroke-width: 1.2; }
+    .tick { stroke: #1a1a1a; stroke-width: 1; }
+    .guide { stroke: #1a1a1a; stroke-width: 1; stroke-dasharray: 4 3; }
+    .supply { stroke: #006633; fill: none; stroke-width: 2.4; }
+    .demand { stroke: #b34700; fill: none; stroke-width: 2.4; }
+  </style>
+
+  <text x="48" y="14" font-size="16">Price</text>
+
+  <line class="axis" x1="60" y1="20" x2="60" y2="375" />
+  <line class="axis" x1="60" y1="375" x2="440" y2="375" />
+
+  <line class="tick" x1="55" y1="375" x2="60" y2="375" />
+  <line class="tick" x1="55" y1="325" x2="60" y2="325" />
+  <line class="tick" x1="55" y1="275" x2="60" y2="275" />
+  <line class="tick" x1="55" y1="225" x2="60" y2="225" />
+  <line class="tick" x1="55" y1="175" x2="60" y2="175" />
+  <line class="tick" x1="55" y1="125" x2="60" y2="125" />
+  <line class="tick" x1="55" y1="75" x2="60" y2="75" />
+  <line class="tick" x1="55" y1="25" x2="60" y2="25" />
+  <text x="50" y="379" font-size="15" text-anchor="end">0.00</text>
+  <text x="50" y="329" font-size="15" text-anchor="end">0.50</text>
+  <text x="50" y="279" font-size="15" text-anchor="end">1.00</text>
+  <text x="50" y="229" font-size="15" text-anchor="end">1.50</text>
+  <text x="50" y="129" font-size="15" text-anchor="end">2.50</text>
+  <text x="50" y="79" font-size="15" text-anchor="end">3.00</text>
+  <text x="50" y="29" font-size="15" text-anchor="end">3.50</text>
+
+  <line class="tick" x1="60" y1="375" x2="60" y2="380" />
+  <line class="tick" x1="114.3" y1="375" x2="114.3" y2="380" />
+  <line class="tick" x1="168.6" y1="375" x2="168.6" y2="380" />
+  <line class="tick" x1="222.9" y1="375" x2="222.9" y2="380" />
+  <line class="tick" x1="277.1" y1="375" x2="277.1" y2="380" />
+  <line class="tick" x1="331.4" y1="375" x2="331.4" y2="380" />
+  <line class="tick" x1="385.7" y1="375" x2="385.7" y2="380" />
+  <line class="tick" x1="440" y1="375" x2="440" y2="380" />
+  <text x="60" y="396" font-size="15" text-anchor="middle">0</text>
+  <text x="114.3" y="396" font-size="15" text-anchor="middle">20</text>
+  <text x="168.6" y="396" font-size="15" text-anchor="middle">40</text>
+  <text x="222.9" y="396" font-size="15" text-anchor="middle">60</text>
+  <text x="277.1" y="396" font-size="15" text-anchor="middle">80</text>
+  <text x="331.4" y="396" font-size="15" text-anchor="middle">100</text>
+  <text x="385.7" y="396" font-size="15" text-anchor="middle">120</text>
+  <text x="440" y="396" font-size="15" text-anchor="middle">140</text>
+
+  <line class="guide" x1="60" y1="175" x2="277.1" y2="175" />
+  <line class="guide" x1="277.1" y1="175" x2="277.1" y2="375" />
+
+  <path class="supply" d="M 87 295 C 160 252 222 213 277.1 175 C 332 137 372 90 399 40" />
+  <path class="demand" d="M 93 45 C 152 100 218 141 277.1 175 C 336 209 375 262 407 310" />
+  <circle cx="277.1" cy="175" r="5" fill="#1a1a1a" />
+
+  <text class="sym" x="50" y="180" font-size="16" text-anchor="end">P*</text>
+  <text class="sym" x="277.1" y="418" font-size="16" text-anchor="middle">Q*</text>
+  <text x="440" y="418" font-size="15" text-anchor="end">Quantity</text>
+  <text class="sym" x="409" y="35" font-size="17" fill="#006633">S</text>
+  <text class="sym" x="416" y="318" font-size="17" fill="#b34700">D</text>
+</svg>

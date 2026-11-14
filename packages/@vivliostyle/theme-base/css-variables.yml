@@ -556,7 +556,6 @@ _basic:
   figcaption-margin-block:
     _syntax: '*'
     _property: 'margin-block'
-    _define: 'var(--vs-spacing-rlh)'
   figcaption-margin-inline:
     _syntax: '*'
     _property: 'margin-inline'
@@ -598,6 +597,10 @@ _basic:
     _syntax: 'column | column-reverse | row | row-reverse'
     _property: 'flex-direction'
     _define: 'column'
+  figure-gap:
+    _syntax: 'normal | <length-percentage>'
+    _property: 'gap'
+    _define: 'var(--vs-spacing-rlh)'
   figure-item-max-size-block:
     _syntax: 'fit-content | max-content | min-content | none | stretch | <length-percentage>'
     _property: 'max-block-size'
@@ -1630,6 +1633,9 @@ _basic:
     _syntax: '*'
     _property: 'image-resolution'
     _define: 'from-image'
+  li-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
   li-font-size:
     _syntax: 'large | larger | math | medium | small | smaller | x-large | x-small | xx-large | xx-small | xxx-large | <length-percentage>'
     _property: 'font-size'
@@ -1793,7 +1799,9 @@ _basic:
     _property: 'word-spacing'
   pre-background-color:
     _syntax: '<color>'
-    _property: 'background-color'
+    _property:
+      - 'background'
+      - 'background-color'
   pre-border-color:
     _syntax: '<color>'
     _property:
@@ -2230,6 +2238,9 @@ _basic:
     _syntax: 'fit-content | max-content | min-content | none | stretch | <length-percentage>'
     _property: 'max-inline-size'
     _define: '100%'
+  table-row-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
   table-row-even-background-color:
     _syntax: '<color>'
     _property: 'background-color'
@@ -5281,7 +5292,7 @@ prism:
   block-code-padding:
     _syntax: '<length-percentage>+'
     _property: 'padding'
-    _define: '1em'
+    _define: 'var(--vs--pre-padding-block, 1em) var(--vs--pre-padding-inline, 1em)'
   boolean-text-color:
     _syntax: '<color>'
     _property: 'color'
@@ -5409,7 +5420,13 @@ section:
   call-content:
     _syntax: '*'
     _property: 'content'
-    _define: "'§' target-counters(attr(href), vs-counter-sections, var(--vs-section--counter-delimiter), var(--vs-section--counter-style, var(--vs-counter-style)))"
+    _define:
+      - value: 'var(--vs-section--label) var(--vs-section--call-counter-content)'
+      - selector: ':root:lang(ja)'
+        value: 'var(--vs-section--call-counter-content) var(--vs-section--label)'
+  call-counter-content:
+    _syntax: '*'
+    _define: 'target-counters(attr(href), vs-counter-sections, var(--vs-section--counter-delimiter), var(--vs-section--counter-style, var(--vs-counter-style)))'
   call-display:
     _syntax: '*'
     _property: 'display'
@@ -5424,6 +5441,9 @@ section:
   h1-break-before:
     _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
     _property: 'break-before'
+  h1-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
   h1-marker-content:
     _syntax: '*'
     _property: 'content'
@@ -5439,6 +5459,9 @@ section:
   h2-break-before:
     _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
     _property: 'break-before'
+  h2-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
   h2-marker-content:
     _syntax: '*'
     _property: 'content'
@@ -5454,6 +5477,9 @@ section:
   h3-break-before:
     _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
     _property: 'break-before'
+  h3-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
   h3-marker-content:
     _syntax: '*'
     _property: 'content'
@@ -5469,6 +5495,9 @@ section:
   h4-break-before:
     _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
     _property: 'break-before'
+  h4-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
   h4-marker-content:
     _syntax: '*'
     _property: 'content'
@@ -5484,6 +5513,9 @@ section:
   h5-break-before:
     _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
     _property: 'break-before'
+  h5-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
   h5-marker-content:
     _syntax: '*'
     _property: 'content'
@@ -5499,6 +5531,9 @@ section:
   h6-break-before:
     _syntax: 'all | always | auto | avoid | avoid-column | avoid-page | avoid-region | column | left | page | recto | region | right | verso'
     _property: 'break-before'
+  h6-break-inside:
+    _syntax: 'auto | avoid | avoid-column | avoid-page | avoid-region'
+    _property: 'break-inside'
   h6-marker-content:
     _syntax: '*'
     _property: 'content'
@@ -5508,9 +5543,18 @@ section:
   h6-marker-margin-inline-end:
     _syntax: 'auto | <length-percentage>'
     _property: 'margin-inline-end'
+  label:
+    _syntax: '*'
+    _define:
+      - value: "'Section '"
+      - selector: ':root:lang(ja)'
+        value: "'節'"
   marker-content:
     _syntax: '*'
     _property: 'content'
+    _define: 'var(--vs-section--marker-counter-content)'
+  marker-counter-content:
+    _syntax: '*'
     _define: 'counters(vs-counter-sections, var(--vs-section--counter-delimiter), var(--vs-section--counter-style, var(--vs-counter-style)))'
   marker-display:
     _syntax: '*'
@@ -5766,7 +5810,7 @@ toc:
     _property: 'text-decoration'
     _define:
       - media: '(hover: hover)'
-        selector: ":is(#toc, [role='doc-toc']) li > a:hover"
+        selector: ":is([id='toc'], [role='doc-toc']) li > a:hover"
         value: 'underline'
   marker-content:
     _syntax: '*'

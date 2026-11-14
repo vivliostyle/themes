@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/math';
+
+:root {
+  --vs-theme-centered-heading-line-graph--color-accent: var(
+    --vs-color-foreground-alt
+  );
+  --vs-theme-centered-heading-line-graph--color-panel-bg: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 95%
+  );
+
+  --vs-columns: 2;
+  --vs-column-gap: 7mm;
+  --vs-font-family: 'Source Serif 4', 'Georgia', serif;
+  --vs-font-size: 8.5pt;
+  --vs-line-height: 1.4;
+  --vs-color-foreground: #1a1a1a;
+  --vs-color-foreground-alt: #006633;
+  --vs-color-background: #ffffff;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 90%
+  );
+  --vs-color-border-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground-alt),
+    var(--vs-color-background) 70%
+  );
+  --vs-widows-orphans: 3;
+
+  --vs--h1-font-size: 2.2em;
+  --vs--h1-line-height: 1.2;
+  --vs--h2-font-size: 1.9em;
+  --vs--h2-line-height: 1.2;
+  --vs--h2-text-align: center;
+
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 1.5em;
+  --vs--p-text-align: justify;
+
+  --vs--figure-margin-block: 0.5rlh;
+  --vs--figure-gap: 0.5rlh;
+  --vs--figcaption-font-family: 'PT Serif', 'Georgia', serif;
+  --vs--figcaption-font-style: italic;
+  --vs--figcaption-font-size: 0.9em;
+  --vs--figcaption-text-align: center;
+
+  --vs--table-size-inline: 100%;
+  --vs--table-line-height: 1.25;
+  --vs--table-font-size: 0.9em;
+  --vs--table-margin-block: 2.5mm 1.2mm;
+  --vs--table-margin-inline: 0;
+  --vs--table-text-align: center;
+  --vs--table-border-width: 0;
+  --vs--table-border-width-outer: 0.4pt;
+  --vs--table-border-width-row: 0.4pt;
+  --vs--table-border-color-row: var(--vs-color-foreground);
+  --vs--table-border-color-thead-inner: var(--vs-color-foreground);
+  --vs--table-cell-padding-block: 0.4em;
+  --vs--table-cell-padding-inline: 0.6em;
+  --vs--th-background-color: var(
+    --vs-theme-centered-heading-line-graph--color-accent
+  );
+  --vs--th-text-color: var(--vs-color-background);
+  --vs--th-padding-block: 0.25rlh;
+
+  --vs-page--size: A4;
+  --vs-page--margin-top: 22mm;
+  --vs-page--margin-bottom: 17mm;
+  --vs-page--margin-left: 15mm;
+  --vs-page--margin-right: 15mm;
+  --vs-page--border-width-top: 0.4pt;
+  --vs-page--border-color-top: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 30%
+  );
+  --vs-page--padding-top: 1rlh;
+  --vs-page--padding-bottom: 1rlh;
+
+  /* Heading, figure and table numbers all take the form "chapter.sequence" */
+  --vs-crossref-call-counter-prefix: counter(vs-counter-chapter) '.';
+  --vs-crossref-marker-counter-prefix: counter(vs-counter-chapter) '.';
+  --vs-section--marker-display: inline;
+  --vs-section--h2-marker-content: var(--vs-crossref-marker-counter-prefix)
+    counter(vs-counter-sec-h2);
+  --vs-section--h3-marker-content: var(--vs-crossref-marker-counter-prefix)
+    counter(vs-counter-sec-h2) '.' counter(vs-counter-sec-h3);
+  --vs-section--call-counter-content: var(--vs-crossref-marker-counter-prefix)
+    target-counter(attr(href), vs-counter-sec-h2);
+  --vs-figure--marker-content: var(--vs-figure--label)
+    var(--vs-crossref-marker-counter-prefix, '')
+    counter(
+      vs-counter-fig,
+      var(--vs-figure--counter-style, var(--vs-counter-style))
+    )
+    '\2003';
+  --vs-table--marker-content: var(--vs-table--label)
+    var(--vs-crossref-marker-counter-prefix, '')
+    counter(
+      vs-counter-tbl,
+      var(--vs-table--counter-style, var(--vs-counter-style))
+    )
+    '\2003';
+
+  --vs-page--mbox-font-family: 'PT Serif', 'Georgia', serif;
+  --vs-page--mbox-top-letter-spacing: 0.02em;
+  --vs-page--mbox-bottom-font-size: 1.1em;
+  --vs-page--mbox-top-left-content: 'CHAPTER ' counter(vs-counter-chapter)
+    '\2002' env(doc-title);
+  --vs-page--mbox-top-right-content: env(pub-title);
+  --vs-page--mbox-top-right-font-style: italic;
+  --vs-page--mbox-bottom-center-content: counter(page);
+  --vs-page--mbox-top-vertical-align: bottom;
+  --vs-page--mbox-top-padding-bottom: 0.5rlh;
+}
+
+html {
+  columns: auto;
+}
+
+section:has(> h2:first-child) {
+  columns: var(--vs-columns);
+  column-gap: var(--vs-column-gap);
+}
+
+section > h2:first-child {
+  column-span: all;
+}
+
+/* A top margin right below a spanning heading lowers only the first column. A subsection heading there passes its margin up through its section. */
+section > :is(h1, h2, h3, h4, h5, h6):first-child + *,
+section
+  > :is(h1, h2, h3, h4, h5, h6):first-child
+  + section
+  > :is(h1, h2, h3, h4, h5, h6):first-child {
+  margin-block-start: 0;
+}
+
+.wide {
+  column-span: all;
+  margin-block: 1rlh;
+}
+
+/* Section numbers in headings use the accent color */
+section > h2:first-child::before {
+  color: var(--vs-theme-centered-heading-line-graph--color-accent);
+  margin-inline-end: 0.35em;
+}
+
+/* End-of-chapter summaries and exercises stay sections because columns are applied per section; only their numbers are dropped */
+section:has(> h2.closing:first-child) {
+  counter-increment: none;
+}
+
+section > h2.closing:first-child::before {
+  content: none;
+}
+
+/* Tables: white text on a solid green header, with pale green zebra stripes */
+tbody tr:nth-child(odd) {
+  background-color: var(--vs-color-background-alt);
+}
+
+/* Line charts: no figure number, and the caption sits above the chart (column-reverse) */
+.chart {
+  margin: 0.5rlh 0;
+}
+
+.chart figure {
+  flex-direction: column-reverse;
+  counter-increment: none;
+}
+
+.chart figcaption::before {
+  content: none;
+}
+
+/* Graph figures: pale green panel (the img itself carries the frame, so the caption stays outside it) */
+.panel {
+  margin: 1rlh 0 0.5rlh;
+}
+
+.panel figure img {
+  padding: 0.25rlh;
+  background-color: var(--vs-theme-centered-heading-line-graph--color-panel-bg);
+  border-width: 0.4pt;
+  border-style: solid;
+  border-color: var(--vs-color-border-alt);
+}

@@ -195,6 +195,15 @@ importers:
         specifier: workspace:*
         version: link:../theme-base
 
+  packages/@vivliostyle/theme-centered-heading-line-graph:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
   packages/@vivliostyle/theme-epub3j:
     dependencies:
       '@vivliostyle/cli':
@@ -202,6 +211,15 @@ importers:
         version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
 
   packages/@vivliostyle/theme-gutenberg:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-mono-hanging-number-sidenote:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
@@ -220,6 +238,24 @@ importers:
         version: link:../theme-base
 
   packages/@vivliostyle/theme-techbook:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-vertical-numbered-heading-graph:
+    dependencies:
+      '@vivliostyle/cli':
+        specifier: '>=11.3.1'
+        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+      '@vivliostyle/theme-base':
+        specifier: workspace:*
+        version: link:../theme-base
+
+  packages/@vivliostyle/theme-wide-margin-speaker-indent:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'

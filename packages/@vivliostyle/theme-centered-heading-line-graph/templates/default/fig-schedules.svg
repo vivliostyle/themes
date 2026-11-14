@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 460" role="img" aria-label="Panel a shows a downward sloping demand curve for coffee; panel b shows an upward sloping supply curve">
+  <style>
+    text { font-family: "PT Serif", Georgia, "Times New Roman", serif; fill: #1a1a1a; }
+    .sym { font-style: italic; }
+    .axis { stroke: #1a1a1a; stroke-width: 1.2; }
+    .tick { stroke: #1a1a1a; stroke-width: 1; }
+    .guide { stroke: #1a1a1a; stroke-width: 1; stroke-dasharray: 4 3; }
+    .supply { stroke: #006633; fill: none; stroke-width: 2.4; }
+    .demand { stroke: #b34700; fill: none; stroke-width: 2.4; }
+  </style>
+
+  <g>
+      <text x="48" y="14" font-size="16">Price</text>
+      <line class="axis" x1="60" y1="20" x2="60" y2="375" />
+      <line class="axis" x1="60" y1="375" x2="440" y2="375" />
+      <line class="tick" x1="55" y1="375" x2="60" y2="375" />
+      <text x="50" y="379" font-size="15" text-anchor="end">0.00</text>
+      <line class="tick" x1="55" y1="336.1" x2="60" y2="336.1" />
+      <text x="50" y="340.1" font-size="15" text-anchor="end">0.50</text>
+      <line class="tick" x1="55" y1="297.2" x2="60" y2="297.2" />
+      <text x="50" y="301.2" font-size="15" text-anchor="end">1.00</text>
+      <line class="tick" x1="55" y1="258.3" x2="60" y2="258.3" />
+      <text x="50" y="262.3" font-size="15" text-anchor="end">1.50</text>
+      <line class="tick" x1="55" y1="219.4" x2="60" y2="219.4" />
+      <text x="50" y="223.4" font-size="15" text-anchor="end">2.00</text>
+      <line class="tick" x1="55" y1="180.6" x2="60" y2="180.6" />
+      <text x="50" y="184.6" font-size="15" text-anchor="end">2.50</text>
+      <line class="tick" x1="55" y1="141.7" x2="60" y2="141.7" />
+      <text x="50" y="145.7" font-size="15" text-anchor="end">3.00</text>
+      <line class="tick" x1="55" y1="102.8" x2="60" y2="102.8" />
+      <text x="50" y="106.8" font-size="15" text-anchor="end">3.50</text>
+      <line class="tick" x1="55" y1="63.9" x2="60" y2="63.9" />
+      <text x="50" y="67.9" font-size="15" text-anchor="end">4.00</text>
+      <line class="tick" x1="55" y1="25" x2="60" y2="25" />
+      <text x="50" y="29" font-size="15" text-anchor="end">4.50</text>
+      <line class="tick" x1="60" y1="375" x2="60" y2="380" />
+      <text x="60" y="396" font-size="15" text-anchor="middle">0</text>
+      <line class="tick" x1="107.5" y1="375" x2="107.5" y2="380" />
+      <text x="107.5" y="396" font-size="15" text-anchor="middle">20</text>
+      <line class="tick" x1="155" y1="375" x2="155" y2="380" />
+      <text x="155" y="396" font-size="15" text-anchor="middle">40</text>
+      <line class="tick" x1="202.5" y1="375" x2="202.5" y2="380" />
+      <text x="202.5" y="396" font-size="15" text-anchor="middle">60</text>
+      <line class="tick" x1="250" y1="375" x2="250" y2="380" />
+      <text x="250" y="396" font-size="15" text-anchor="middle">80</text>
+      <line class="tick" x1="297.5" y1="375" x2="297.5" y2="380" />
+      <text x="297.5" y="396" font-size="15" text-anchor="middle">100</text>
+      <line class="tick" x1="345" y1="375" x2="345" y2="380" />
+      <text x="345" y="396" font-size="15" text-anchor="middle">120</text>
+      <line class="tick" x1="392.5" y1="375" x2="392.5" y2="380" />
+      <text x="392.5" y="396" font-size="15" text-anchor="middle">140</text>
+      <line class="tick" x1="440" y1="375" x2="440" y2="380" />
+      <text x="440" y="396" font-size="15" text-anchor="middle">160</text>
+      <text x="440" y="418" font-size="15" text-anchor="end">Quantity</text>
+
+      <path class="demand" d="M 416.2 355.6 L 83.8 83.3" />
+      <circle cx="345" cy="297.2" r="4.5" fill="#b34700" />
+      <circle cx="297.5" cy="258.3" r="4.5" fill="#b34700" />
+      <circle cx="250" cy="219.4" r="4.5" fill="#b34700" />
+      <circle cx="202.5" cy="180.6" r="4.5" fill="#b34700" />
+      <circle cx="155" cy="141.7" r="4.5" fill="#b34700" />
+      <circle cx="107.5" cy="102.8" r="4.5" fill="#b34700" />
+      <text class="sym" x="428.1" y="343.9" font-size="17" fill="#b34700" text-anchor="start">D</text>
+      <text x="250" y="450" font-size="16" text-anchor="middle">(a) The demand curve</text>
+  </g>
+  <g transform="translate(480,0)">
+      <text x="48" y="14" font-size="16">Price</text>
+      <line class="axis" x1="60" y1="20" x2="60" y2="375" />
+      <line class="axis" x1="60" y1="375" x2="440" y2="375" />
+      <line class="tick" x1="55" y1="375" x2="60" y2="375" />
+      <text x="50" y="379" font-size="15" text-anchor="end">0.00</text>
+      <line class="tick" x1="55" y1="336.1" x2="60" y2="336.1" />
+      <text x="50" y="340.1" font-size="15" text-anchor="end">0.50</text>
+      <line class="tick" x1="55" y1="297.2" x2="60" y2="297.2" />
+      <text x="50" y="301.2" font-size="15" text-anchor="end">1.00</text>
+      <line class="tick" x1="55" y1="258.3" x2="60" y2="258.3" />
+      <text x="50" y="262.3" font-size="15" text-anchor="end">1.50</text>
+      <line class="tick" x1="55" y1="219.4" x2="60" y2="219.4" />
+      <text x="50" y="223.4" font-size="15" text-anchor="end">2.00</text>
+      <line class="tick" x1="55" y1="180.6" x2="60" y2="180.6" />
+      <text x="50" y="184.6" font-size="15" text-anchor="end">2.50</text>
+      <line class="tick" x1="55" y1="141.7" x2="60" y2="141.7" />
+      <text x="50" y="145.7" font-size="15" text-anchor="end">3.00</text>
+      <line class="tick" x1="55" y1="102.8" x2="60" y2="102.8" />
+      <text x="50" y="106.8" font-size="15" text-anchor="end">3.50</text>
+      <line class="tick" x1="55" y1="63.9" x2="60" y2="63.9" />
+      <text x="50" y="67.9" font-size="15" text-anchor="end">4.00</text>
+      <line class="tick" x1="55" y1="25" x2="60" y2="25" />
+      <text x="50" y="29" font-size="15" text-anchor="end">4.50</text>
+      <line class="tick" x1="60" y1="375" x2="60" y2="380" />
+      <text x="60" y="396" font-size="15" text-anchor="middle">0</text>
+      <line class="tick" x1="107.5" y1="375" x2="107.5" y2="380" />
+      <text x="107.5" y="396" font-size="15" text-anchor="middle">20</text>
+      <line class="tick" x1="155" y1="375" x2="155" y2="380" />
+      <text x="155" y="396" font-size="15" text-anchor="middle">40</text>
+      <line class="tick" x1="202.5" y1="375" x2="202.5" y2="380" />
+      <text x="202.5" y="396" font-size="15" text-anchor="middle">60</text>
+      <line class="tick" x1="250" y1="375" x2="250" y2="380" />
+      <text x="250" y="396" font-size="15" text-anchor="middle">80</text>
+      <line class="tick" x1="297.5" y1="375" x2="297.5" y2="380" />
+      <text x="297.5" y="396" font-size="15" text-anchor="middle">100</text>
+      <line class="tick" x1="345" y1="375" x2="345" y2="380" />
+      <text x="345" y="396" font-size="15" text-anchor="middle">120</text>
+      <line class="tick" x1="392.5" y1="375" x2="392.5" y2="380" />
+      <text x="392.5" y="396" font-size="15" text-anchor="middle">140</text>
+      <line class="tick" x1="440" y1="375" x2="440" y2="380" />
+      <text x="440" y="396" font-size="15" text-anchor="middle">160</text>
+      <text x="440" y="418" font-size="15" text-anchor="end">Quantity</text>
+
+      <path class="supply" d="M 83.8 355.6 L 416.2 83.3" />
+      <circle cx="155" cy="297.2" r="4.5" fill="#006633" />
+      <circle cx="202.5" cy="258.3" r="4.5" fill="#006633" />
+      <circle cx="250" cy="219.4" r="4.5" fill="#006633" />
+      <circle cx="297.5" cy="180.6" r="4.5" fill="#006633" />
+      <circle cx="345" cy="141.7" r="4.5" fill="#006633" />
+      <circle cx="392.5" cy="102.8" r="4.5" fill="#006633" />
+      <text class="sym" x="423.4" y="75.6" font-size="17" fill="#006633" text-anchor="start">S</text>
+      <text x="250" y="450" font-size="16" text-anchor="middle">(b) The supply curve</text>
+  </g>
+</svg>

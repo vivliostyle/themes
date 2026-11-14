@@ -72,12 +72,12 @@
     --vs--del-text-decoration: line-through;
     --vs--emphasis-font-style: italic;
     --vs--figcaption-break-inside: avoid;
-    --vs--figcaption-margin-block: var(--vs-spacing-rlh);
     --vs--figcaption-text-indent: 0;
     --vs--figure-align-items: center;
     --vs--figure-break-inside: avoid;
     --vs--figure-display: flex;
     --vs--figure-flex-direction: column;
+    --vs--figure-gap: var(--vs-spacing-rlh);
     --vs--figure-item-max-size-block: 100%;
     --vs--figure-item-max-size-inline: 100%;
     --vs--figure-margin-block: var(--vs-spacing-rlh);
@@ -1033,6 +1033,7 @@ em :is(b, strong) {
     break-inside: ;
     display: block;
     flex-direction: ;
+    gap: ;
     margin-block: ;
     margin-inline: ;
     text-align: ;
@@ -1179,6 +1180,7 @@ ol {
 
 @var -li {
   li {
+    break-inside: ;
     font-size: ;
     line-height: ;
     margin-block: ;
@@ -1407,6 +1409,12 @@ pre {
     --vs--table-border-width-column,
     var(--vs--table-border-width-cell, var(--vs--table-border-width, 0))
   );
+}
+
+@var -table-row {
+  :where(tr) {
+    break-inside: ;
+  }
 }
 
 @var -table-row-odd {

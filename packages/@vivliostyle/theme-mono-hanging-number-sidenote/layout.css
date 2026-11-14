@@ -1,0 +1,394 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap');
+@import '@vivliostyle/theme-base';
+@import '@vivliostyle/theme-base/appendix';
+@import '@vivliostyle/theme-base/citation';
+@import '@vivliostyle/theme-base/equation';
+@import '@vivliostyle/theme-base/figure';
+@import '@vivliostyle/theme-base/listing';
+@import '@vivliostyle/theme-base/table';
+@import '@vivliostyle/theme-base/theorem';
+@import '@vivliostyle/theme-base/page';
+@import '@vivliostyle/theme-base/section';
+@import '@vivliostyle/theme-base/math';
+@import '@vivliostyle/theme-base/sidenote';
+
+:root {
+  --vs-theme-mono-hanging-number-sidenote--color-lineno: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 60%
+  );
+
+  --vs-theme-mono-hanging-number-sidenote--lineno-display: block;
+  --vs-theme-mono-hanging-number-sidenote--section-hang-size-inline: 14mm;
+  --vs-theme-mono-hanging-number-sidenote--sidenote-band-size-inline: 46mm;
+  --vs-theme-mono-hanging-number-sidenote--sidenote-float: outside;
+  --vs-theme-mono-hanging-number-sidenote--sidenote-paragraph-float: inside;
+
+  --vs-font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+  --vs-font-family-monospace:
+    'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
+  --vs-font-size: 9pt;
+  --vs-line-height: 1.4;
+  --vs-color-foreground: #111111;
+  --vs-color-foreground-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 45%
+  );
+  --vs-color-background: #ffffff;
+  --vs-color-background-alt: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 95%
+  );
+  --vs-color-border: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 15%
+  );
+  --vs-orphans: 2;
+
+  --vs--p-margin-block: 0 0.75rlh;
+  --vs--p-text-align: start;
+
+  --vs--h1-font-size: 2.1em;
+  --vs--h1-font-weight: 600;
+  --vs--h1-line-height: 1.15;
+  --vs--h1-margin-block: 0 0.75rlh;
+  --vs--h1-padding-block: 0 0.45em;
+  --vs--h1-border-width-block-end: 0.8pt;
+  --vs--h1-border-color-block-end: var(--vs-color-border);
+
+  --vs--h2-font-size: 1.45em;
+  --vs--h2-font-weight: 600;
+  --vs--h2-line-height: 1.25;
+  --vs--h2-letter-spacing: 0.01em;
+  --vs--h2-margin-block: 0 1rlh;
+  --vs--h2-margin-inline: calc(
+      -1 *
+        var(--vs-theme-mono-hanging-number-sidenote--section-hang-size-inline)
+    )
+    0;
+
+  --vs--blockquote-font-size: 1.15em;
+  --vs--blockquote-margin-block: 0.75rlh;
+  --vs--blockquote-margin-inline: 0;
+
+  --vs--sup-font-size: 0.7em;
+
+  --vs--pre-background-color: var(--vs-color-background-alt);
+  --vs--pre-break-inside: avoid;
+  --vs--pre-font-size: 0.8em;
+  --vs--pre-line-height: 1.35;
+  --vs--pre-margin-block: 0.5rlh 0.75rlh;
+  --vs--pre-padding-block: 0.7em;
+  --vs--pre-padding-inline: 3mm;
+
+  --vs--h1-string-set: chapter-title content();
+  --vs--h2-string-set: section-title content();
+
+  --vs--lists-margin-block: 0 0.75rlh;
+  --vs--lists-padding-inline-start: 9mm;
+  /* Chrome places the disc marker using the font ascent and a margin in px.
+     A string marker sticks out of the line start by exactly the width of the
+     symbol and the space */
+  --vs--ul-list-style-type: '• ';
+  --vs--ul-padding-inline-start: 0;
+  --vs--li-break-inside: avoid;
+  --vs--li-font-size: 0.95em;
+  --vs--li-line-height: 1.45;
+  --vs--li-margin-block: 0;
+
+  --vs-page--size: A4;
+  --vs-page--margin-top: 14mm;
+  --vs-page--margin-bottom: 12mm;
+  --vs-page--margin-left: 12mm;
+  --vs-page--margin-right: 12mm;
+  /* The margin boxes of the running heads follow the page margin, so taking
+     the band and the hang as margin would pull the running heads toward the
+     text too. The 1px subtracted here goes to the padding of body */
+  --vs-page--padding-inside: calc(
+    var(--vs-theme-mono-hanging-number-sidenote--section-hang-size-inline) - 1px
+  );
+  --vs-page--padding-outside: calc(
+    var(--vs-theme-mono-hanging-number-sidenote--sidenote-band-size-inline) -
+      1px
+  );
+  /* Unless the theme variable is set, this is invalid and base uses the
+     inside / outside values */
+  --vs-page--padding-left: calc(
+    var(--vs-theme-mono-hanging-number-sidenote--page-padding-left) - 1px
+  );
+  --vs-page--padding-right: calc(
+    var(--vs-theme-mono-hanging-number-sidenote--page-padding-right) - 1px
+  );
+
+  --vs-sidenote--float: var(
+    --vs-theme-mono-hanging-number-sidenote--sidenote-float
+  );
+  --vs-sidenote--clear: var(
+    --vs-theme-mono-hanging-number-sidenote--sidenote-float
+  );
+  --vs-sidenote--size-inline: 34mm;
+  --vs-sidenote--margin-block: 0.25rlh 1.25rlh;
+  /* With negative margins on both sides, a sidenote lands in the band
+     whichever side it floats to, and since its width plus margins is
+     negative, it does not shorten the lines of the text */
+  --vs-sidenote--margin-inline: calc(
+    -1 * var(--vs-theme-mono-hanging-number-sidenote--sidenote-band-size-inline)
+  );
+  --vs-sidenote--font-size: 0.75em;
+  --vs-sidenote--line-height: 1.4;
+  --vs-sidenote--break-inside: auto;
+  --vs-sidenote--call-font-size: 0.7em;
+
+  --vs-math--font-size: 0.95em;
+  --vs-math--display-margin-block: 0.75rlh;
+
+  --vs-section--marker-display: inline;
+  --vs-section--h1-marker-display: block;
+  --vs-section--h1-marker-content: 'Chapter ' counter(vs-counter-chapter);
+  --vs-section--h2-marker-display: inline-block;
+  --vs-section--h2-marker-margin-inline-end: 0;
+  --vs-section--h2-marker-content: counter(vs-counter-chapter) '.'
+    counter(vs-counter-sec-h2);
+  --vs-section--h3-marker-content: counter(vs-counter-chapter) '.'
+    counter(vs-counter-sec-h2) '.' counter(vs-counter-sec-h3);
+  --vs-section--label: '\A7';
+  --vs-section--call-counter-content: counter(vs-counter-chapter) '.'
+    target-counter(attr(href), vs-counter-sec-h2);
+
+  --vs-page--mbox-font-family: 'IBM Plex Mono', monospace;
+  --vs-page--mbox-font-size: 0.9em;
+  --vs-page--mbox-letter-spacing: 0.02em;
+  --vs-page--mbox-top-left-content: 'Chapter ' counter(vs-counter-chapter) ' · '
+    string(chapter-title);
+  --vs-page--mbox-top-left-text-transform: uppercase;
+  --vs-page--mbox-top-right-content: string(section-title, start);
+  --vs-page--mbox-bottom-outside-content: counter(page);
+  --vs-page--mbox-bottom-padding-top: 1rlh;
+  --vs-page--mbox-bottom-vertical-align: top;
+  --vs-page--mbox-top-padding-bottom: 1rlh;
+  --vs-page--mbox-top-vertical-align: bottom;
+}
+
+/* Paragraphs with a sidenote float at full width. If they fill the whole
+   column, Vivliostyle cannot place a sidenote beside its paragraph at the top
+   of a page and pushes it below the paragraph. Leave a gap for floats at both
+   ends of the column. Vivliostyle snaps the edge of a band within 0.5px of the
+   column edge to the column edge, so the gap must be wider than that */
+body {
+  padding-inline: 1px;
+}
+
+section > h2:first-child::before {
+  inline-size: var(
+    --vs-theme-mono-hanging-number-sidenote--section-hang-size-inline
+  );
+}
+
+/* A heading next to the rest of a preceding sidenote would push the text out
+   into the band */
+h2 {
+  clear: both;
+}
+
+/* Space above a heading is needed only between sections (not right after the
+   chapter opening). A heading that does not create a section (such as
+   unnumbered end-of-chapter exercises) directly follows its siblings */
+section:has(> h2:first-child) + section:has(> h2:first-child),
+* + h2 {
+  margin-block-start: 1.75rlh;
+}
+
+/* An unnumbered heading has no number to hang, so align it with the start of
+   the text */
+* + h2 {
+  --vs--h2-margin-inline: 0;
+}
+
+section > h1:first-child::before {
+  margin-block-end: 0.25rlh;
+  color: var(--vs-color-foreground-alt);
+  font-size: 0.9rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* With a margin after each item, the margin of the last item would not
+   collapse inside a floated list or the table of contents frame. So the
+   spacing goes before each item, and since the first item of a nested list
+   has no preceding sibling, the nested list itself takes it */
+li + li,
+li > :is(ul, ol) {
+  margin-block-start: 0.5rlh;
+}
+
+/* The font size of items is in em, so nesting would shrink it at every level
+   and tighten the line spacing */
+li li {
+  font-size: inherit;
+}
+
+/* The marker sits just outside the item box and is set in the font size of
+   the item. Taking two characters for the symbol and the space as the margin
+   of the item in ch, instead of the padding of ul, aligns the marker with the
+   start of paragraph lines */
+ul > li {
+  margin-inline-start: 2ch;
+}
+
+.chapter-lead {
+  margin-block: 0 1rlh;
+  font-size: 1.05em;
+  line-height: 1.45;
+}
+
+.chapter-toc {
+  margin-block: 0 1.5rlh;
+  padding-block: 0.75em;
+  border-block-style: solid;
+  border-block-width: 0.4pt;
+  border-block-color: var(--vs-color-border);
+}
+
+.chapter-toc ul {
+  margin-block: 0;
+  padding-inline-start: 0;
+  font-size: 0.9em;
+  line-height: 1.5;
+  list-style: none;
+}
+
+.chapter-toc li {
+  margin-inline-start: 0;
+}
+
+.chapter-toc a[data-ref='sec'] {
+  --vs-section--call-content: var(--vs-section--call-counter-content) ' '
+    target-text(attr(href));
+}
+
+pre {
+  /* Keep the JetBrains Mono ligatures from turning -> and == into arrows */
+  font-variant-ligatures: none;
+}
+
+/* VFM also gives fences without a language the language-text class. Code that
+   never needs to be pointed to by line number, such as grammars and sample
+   output, is written this way. Line numbers and code are placed in a grid so
+   that hiding the numbers also removes their column */
+pre[class*='language-']:not(.language-text) {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+}
+
+pre[class*='language-']:not(.language-text) > code {
+  grid-column: 2;
+}
+
+/* CSS cannot count lines, so pour in numbers for 99 lines and clip them at
+   the height of pre. A block size of 0 keeps them out of the row height, and
+   they stretch to the height of the grid area */
+pre[class*='language-']:not(.language-text)::before {
+  display: var(--vs-theme-mono-hanging-number-sidenote--lineno-display);
+  block-size: 0;
+  min-block-size: 100%;
+  inline-size: 2ch;
+  margin-inline-end: 3.6mm;
+  overflow: hidden;
+  color: var(--vs-theme-mono-hanging-number-sidenote--color-lineno);
+  content: '1\A 2\A 3\A 4\A 5\A 6\A 7\A 8\A 9\A '
+    '10\A 11\A 12\A 13\A 14\A 15\A 16\A 17\A 18\A 19\A '
+    '20\A 21\A 22\A 23\A 24\A 25\A 26\A 27\A 28\A 29\A '
+    '30\A 31\A 32\A 33\A 34\A 35\A 36\A 37\A 38\A 39\A '
+    '40\A 41\A 42\A 43\A 44\A 45\A 46\A 47\A 48\A 49\A '
+    '50\A 51\A 52\A 53\A 54\A 55\A 56\A 57\A 58\A 59\A '
+    '60\A 61\A 62\A 63\A 64\A 65\A 66\A 67\A 68\A 69\A '
+    '70\A 71\A 72\A 73\A 74\A 75\A 76\A 77\A 78\A 79\A '
+    '80\A 81\A 82\A 83\A 84\A 85\A 86\A 87\A 88\A 89\A '
+    '90\A 91\A 92\A 93\A 94\A 95\A 96\A 97\A 98\A 99';
+  text-align: end;
+  white-space: pre;
+}
+
+blockquote {
+  break-inside: avoid;
+  padding-block: 0.75em;
+  border-block-style: solid;
+  border-block-width: 0.4pt;
+  border-block-color: var(--vs-color-border);
+  line-height: 1.3;
+  text-align: center;
+}
+
+blockquote p {
+  margin-block: 0;
+  text-align: center;
+}
+
+/* A sidenote is written after its paragraph or list but should line up with
+   its top. A float is never placed above its position in the source, so the
+   paragraph floats at full width to the side opposite the sidenote, and the
+   sidenote starts at the same height as the paragraph.
+   Vivliostyle moves a float to the next page together with the following
+   content, so when the following block does not fit on the page, the sidenote
+   alone is separated from its paragraph. break-after moves the paragraph
+   along with it */
+:is(p, ul, ol):has(+ .sidenote) {
+  float: var(--vs-theme-mono-hanging-number-sidenote--sidenote-paragraph-float);
+  inline-size: 100%;
+  break-after: avoid;
+}
+
+.sidenote + :not(.sidenote) {
+  clear: var(--vs-theme-mono-hanging-number-sidenote--sidenote-paragraph-float);
+}
+
+/* Vivliostyle cancels the margin-top of an element pushed down by clear with
+   a filler, but not a margin collapsing through from a child, which it adds
+   to the margin of the paragraph. Display math is wrapped in p and its margin
+   collapses through, so p itself takes the margin */
+.sidenote + p:has(> .math.display:first-child),
+.sidenote + p:has(> math[display='block']:first-child) {
+  margin-block-start: var(--vs-math--display-margin-block);
+}
+
+.sidenote :is(p, h3, h4, h5, h6) {
+  margin-block: 0 0.25rlh;
+  padding-inline-start: 5mm;
+  text-align: start;
+}
+
+.sidenote :is(h3, h4, h5, h6) {
+  font-size: inherit;
+  font-weight: 600;
+  line-height: inherit;
+  letter-spacing: 0.01em;
+}
+
+/* VFM wraps headings in section, which would otherwise advance the section
+   numbers of the text */
+.sidenote section:has(> :is(h3, h4, h5, h6):first-child) {
+  counter-increment: none;
+}
+
+.sidenote :is(p, h3, h4, h5, h6):first-child {
+  text-indent: -5mm;
+}
+
+/* The number should hang at the start of the heading (or of the first
+   paragraph if there is none), so it goes in their ::before instead of the
+   base marker (.sidenote::before), which takes a line of its own. The
+   ::before of a heading also carries the base section number, so override it */
+.sidenote::before {
+  content: none;
+}
+
+.sidenote :is(p, h3, h4, h5, h6):first-child::before {
+  display: inline;
+  margin-inline-end: 0;
+  font-weight: normal;
+  content: var(--vs-sidenote--marker-content);
+}

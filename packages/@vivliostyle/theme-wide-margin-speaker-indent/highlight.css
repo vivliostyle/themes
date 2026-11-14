@@ -1,0 +1,23 @@
+.token.key,
+.token.tag {
+  font-weight: 500;
+}
+.token.string,
+.token.number {
+  color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 25%
+  );
+}
+.token.comment {
+  color: color-mix(
+    in oklab,
+    var(--vs-color-foreground),
+    var(--vs-color-background) 55%
+  );
+}
+.token.punctuation,
+.token.operator {
+  color: var(--vs-color-foreground-alt);
+}

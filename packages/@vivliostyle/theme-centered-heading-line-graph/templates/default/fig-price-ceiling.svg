@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 430" role="img" aria-label="A price ceiling of 1.50 dollars set below the equilibrium price of 2.00 dollars produces a shortage of 40 cups">
+  <style>
+    text { font-family: "PT Serif", Georgia, "Times New Roman", serif; fill: #1a1a1a; }
+    .sym { font-style: italic; }
+    .axis { stroke: #1a1a1a; stroke-width: 1.2; }
+    .tick { stroke: #1a1a1a; stroke-width: 1; }
+    .guide { stroke: #1a1a1a; stroke-width: 1; stroke-dasharray: 4 3; }
+    .supply { stroke: #006633; fill: none; stroke-width: 2.4; }
+    .demand { stroke: #b34700; fill: none; stroke-width: 2.4; }
+  </style>
+
+    <text x="48" y="14" font-size="16">Price</text>
+    <line class="axis" x1="60" y1="20" x2="60" y2="375" />
+    <line class="axis" x1="60" y1="375" x2="440" y2="375" />
+    <line class="tick" x1="55" y1="375" x2="60" y2="375" />
+    <text x="50" y="379" font-size="15" text-anchor="end">0.00</text>
+    <line class="tick" x1="55" y1="336.1" x2="60" y2="336.1" />
+    <text x="50" y="340.1" font-size="15" text-anchor="end">0.50</text>
+    <line class="tick" x1="55" y1="297.2" x2="60" y2="297.2" />
+    <text x="50" y="301.2" font-size="15" text-anchor="end">1.00</text>
+    <line class="tick" x1="55" y1="258.3" x2="60" y2="258.3" />
+    <text x="50" y="262.3" font-size="15" text-anchor="end">1.50</text>
+    <line class="tick" x1="55" y1="219.4" x2="60" y2="219.4" />
+    <line class="tick" x1="55" y1="180.6" x2="60" y2="180.6" />
+    <text x="50" y="184.6" font-size="15" text-anchor="end">2.50</text>
+    <line class="tick" x1="55" y1="141.7" x2="60" y2="141.7" />
+    <text x="50" y="145.7" font-size="15" text-anchor="end">3.00</text>
+    <line class="tick" x1="55" y1="102.8" x2="60" y2="102.8" />
+    <text x="50" y="106.8" font-size="15" text-anchor="end">3.50</text>
+    <line class="tick" x1="55" y1="63.9" x2="60" y2="63.9" />
+    <text x="50" y="67.9" font-size="15" text-anchor="end">4.00</text>
+    <line class="tick" x1="55" y1="25" x2="60" y2="25" />
+    <text x="50" y="29" font-size="15" text-anchor="end">4.50</text>
+    <line class="tick" x1="60" y1="375" x2="60" y2="380" />
+    <text x="60" y="396" font-size="15" text-anchor="middle">0</text>
+    <line class="tick" x1="107.5" y1="375" x2="107.5" y2="380" />
+    <text x="107.5" y="396" font-size="15" text-anchor="middle">20</text>
+    <line class="tick" x1="155" y1="375" x2="155" y2="380" />
+    <text x="155" y="396" font-size="15" text-anchor="middle">40</text>
+    <line class="tick" x1="202.5" y1="375" x2="202.5" y2="380" />
+    <text x="202.5" y="396" font-size="15" text-anchor="middle">60</text>
+    <line class="tick" x1="250" y1="375" x2="250" y2="380" />
+    <text x="250" y="396" font-size="15" text-anchor="middle">80</text>
+    <line class="tick" x1="297.5" y1="375" x2="297.5" y2="380" />
+    <text x="297.5" y="396" font-size="15" text-anchor="middle">100</text>
+    <line class="tick" x1="345" y1="375" x2="345" y2="380" />
+    <text x="345" y="396" font-size="15" text-anchor="middle">120</text>
+    <line class="tick" x1="392.5" y1="375" x2="392.5" y2="380" />
+    <text x="392.5" y="396" font-size="15" text-anchor="middle">140</text>
+    <line class="tick" x1="440" y1="375" x2="440" y2="380" />
+    <text x="440" y="396" font-size="15" text-anchor="middle">160</text>
+    <text x="440" y="418" font-size="15" text-anchor="end">Quantity</text>
+
+    <path class="supply" d="M 83.8 355.6 L 416.2 83.3" />
+    <path class="demand" d="M 416.2 355.6 L 83.8 83.3" />
+
+    <line class="guide" x1="60" y1="219.4" x2="250" y2="219.4" />
+    <line class="guide" x1="250" y1="219.4" x2="250" y2="375" />
+    <circle cx="250" cy="219.4" r="5" fill="#1a1a1a" />
+    <text class="sym" x="250" y="210" font-size="16" text-anchor="middle">E</text>
+    <text class="sym" x="50" y="224.4" font-size="16" text-anchor="end">P*</text>
+
+    <line class="tick" x1="60" y1="258.3" x2="392.5" y2="258.3" stroke-width="1.8" />
+    <text x="397.2" y="252.3" font-size="14.5" text-anchor="end">Price ceiling</text>
+    <line class="guide" x1="202.5" y1="258.3" x2="202.5" y2="375" />
+    <line class="guide" x1="297.5" y1="258.3" x2="297.5" y2="375" />
+    <circle cx="202.5" cy="258.3" r="4" fill="#1a1a1a" />
+    <circle cx="297.5" cy="258.3" r="4" fill="#1a1a1a" />
+    <text class="sym" x="197.8" y="278.3" font-size="15" text-anchor="end">Q<tspan font-size="11" dy="4">S</tspan></text>
+    <text class="sym" x="302.2" y="278.3" font-size="15" text-anchor="start">Q<tspan font-size="11" dy="4">D</tspan></text>
+
+    <line class="tick" x1="202.5" y1="353" x2="297.5" y2="353" stroke-width="1.4" />
+    <path d="M 202.5 353 L 216.8 348.5 L 216.8 357.5 Z" fill="#1a1a1a" />
+    <path d="M 297.5 353 L 283.2 348.5 L 283.2 357.5 Z" fill="#1a1a1a" />
+    <text x="250" y="344" font-size="14.5" text-anchor="middle">Shortage</text>
+
+    <text class="sym" x="423.4" y="75.6" font-size="17" fill="#006633">S</text>
+    <text class="sym" x="428.1" y="343.9" font-size="17" fill="#b34700">D</text>
+</svg>

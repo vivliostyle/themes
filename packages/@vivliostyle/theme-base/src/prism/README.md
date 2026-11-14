@@ -17,6 +17,7 @@ Styles compatible with [Prism](https://prismjs.com/) (code highlighting library)
 ```
 
 - Name of CSS variable starts with `--vs-prism--`
+- Code blocks keep the `--vs--pre-*` variables of the basic stylesheet. `--vs--pre-background-color`, `--vs--pre-border-radius` and `--vs--pre-text-color` take precedence over `--vs-prism--background`, `--vs-prism--block-code-border-radius` and `--vs-prism--text-color`, and `--vs--pre-padding-block` and `--vs--pre-padding-inline` apply unless `--vs-prism--block-code-padding` is set
 - [**prism/theme-prism**](theme-prism.css) enables Prism.js default theme
   - Original theme: https://github.com/PrismJS/prism/blob/master/themes/prism.css
 

@@ -39,7 +39,7 @@
   }
 
   @var marker {
-    figure:is(.fig, :has(> :is(img, picture))) figcaption::before,
+    figure:where(.fig, :has(> :where(img, picture))) figcaption::before,
     .fig-caption::before {
       content: ;
       display: ;
@@ -48,7 +48,7 @@
   }
 }
 
-figure:is(.fig, :has(> :is(img, picture))),
+figure:where(.fig, :has(> :where(img, picture))),
 .fig-caption {
   counter-increment: vs-counter-fig;
 }
