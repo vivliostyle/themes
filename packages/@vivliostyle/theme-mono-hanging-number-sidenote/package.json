@@ -1,6 +1,6 @@
 {
   "name": "@vivliostyle/theme-mono-hanging-number-sidenote",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Single-column theme for English university textbooks, set entirely in monospace with hanging section numbers and numbered sidenotes in the outer margin",
   "keywords": [
     "vivliostyle",

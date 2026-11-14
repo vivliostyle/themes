@@ -1,5 +1,12 @@
 # @vivliostyle/theme-gutenberg
 
+## 3.1.1
+
+### Patch Changes
+
+- Updated dependencies [[`db35ef8`](https://github.com/vivliostyle/themes/commit/db35ef857f0d950bc9aebb0e192605637d0bea7a), [`db35ef8`](https://github.com/vivliostyle/themes/commit/db35ef857f0d950bc9aebb0e192605637d0bea7a), [`db35ef8`](https://github.com/vivliostyle/themes/commit/db35ef857f0d950bc9aebb0e192605637d0bea7a), [`db35ef8`](https://github.com/vivliostyle/themes/commit/db35ef857f0d950bc9aebb0e192605637d0bea7a), [`db35ef8`](https://github.com/vivliostyle/themes/commit/db35ef857f0d950bc9aebb0e192605637d0bea7a), [`db35ef8`](https://github.com/vivliostyle/themes/commit/db35ef857f0d950bc9aebb0e192605637d0bea7a), [`db35ef8`](https://github.com/vivliostyle/themes/commit/db35ef857f0d950bc9aebb0e192605637d0bea7a), [`db35ef8`](https://github.com/vivliostyle/themes/commit/db35ef857f0d950bc9aebb0e192605637d0bea7a)]:
+  - @vivliostyle/theme-base@3.1.0
+
 ## 3.1.0
 
 ### Minor Changes
