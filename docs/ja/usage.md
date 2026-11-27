@@ -130,6 +130,30 @@ module.exports = {
 
 ![theme-epub3jのサンプル画像。](../assets/captures/theme-epub3j.webp)
 
+### [@vivliostyle/theme-centered-heading-line-graph](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-centered-heading-line-graph)
+
+2段組の英語教科書向け。センタリングした番号付き見出し、表、折れ線グラフ対応。
+
+![theme-centered-heading-line-graphのサンプル画像。センタリングした番号付き見出し、表、折れ線グラフを含む2段組の英語教科書。](../assets/captures/theme-centered-heading-line-graph.webp)
+
+### [@vivliostyle/theme-mono-hanging-number-sidenote](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-mono-hanging-number-sidenote)
+
+全面モノスペースの大学教科書向け。ハンギング節番号、外側の余白に並ぶ番号付き傍注対応。
+
+![theme-mono-hanging-number-sidenoteのサンプル画像。ハンギング節番号と外側の余白の傍注を持つモノスペースの教科書。](../assets/captures/theme-mono-hanging-number-sidenote.webp)
+
+### [@vivliostyle/theme-vertical-numbered-heading-graph](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-vertical-numbered-heading-graph)
+
+縦組みの学術教養書向け。漢数字の番号付き節見出し、版面下部の横組みグラフ、後注対応。
+
+![theme-vertical-numbered-heading-graphのサンプル画像。縦組みの本文、番号付き見出し、版面下部の横組みグラフ。](../assets/captures/theme-vertical-numbered-heading-graph.webp)
+
+### [@vivliostyle/theme-wide-margin-speaker-indent](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-wide-margin-speaker-indent)
+
+広めの余白の技術同人誌向け。対談ページを話者名のぶら下げインデントで組む。
+
+![theme-wide-margin-speaker-indentのサンプル画像。表紙と、話者名のぶら下げインデントで組んだ対談ページ。](../assets/captures/theme-wide-margin-speaker-indent.webp)
+
 ### [@vivliostyle/theme-base](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-base)
 
 他テーマの基盤となるCSSツールキット。モジュール単位で `@import` 可能。

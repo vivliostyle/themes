@@ -4,7 +4,7 @@ npm packageとして公開されているVivliostyle Themesのギャラリーで
 
 ## 公式のVivliostyle Themes
 
-現在、6つの公式のテーマがあります。
+現在、10の公式のテーマがあります。
 
 ### [@vivliostyle/theme-bunko](https://www.npmjs.com/package/@vivliostyle/theme-bunko)
 
@@ -63,6 +63,38 @@ npm packageとして公開されているVivliostyle Themesのギャラリーで
 - [README](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-epub3j#readme)
 
 ![theme-epub3jのサンプル画像。](../assets/captures/theme-epub3j.webp)
+
+### [@vivliostyle/theme-centered-heading-line-graph](https://www.npmjs.com/package/@vivliostyle/theme-centered-heading-line-graph)
+
+英語教科書向けの2段組テーマです。センタリングした番号付き見出し、色付きヘッダの表、折れ線グラフを多用するデータ重視のページを組みます。
+
+- [README](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-centered-heading-line-graph#readme)
+
+![theme-centered-heading-line-graphのサンプル画像。センタリングした番号付き見出し、表、折れ線グラフを含む2段組の英語教科書。](../assets/captures/theme-centered-heading-line-graph.webp)
+
+### [@vivliostyle/theme-mono-hanging-number-sidenote](https://www.npmjs.com/package/@vivliostyle/theme-mono-hanging-number-sidenote)
+
+全面モノスペースで組む大学教科書向けのテーマです。ハンギングした節番号と、版面の外側の余白に並ぶ番号付き傍注が特徴です。
+
+- [README](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-mono-hanging-number-sidenote#readme)
+
+![theme-mono-hanging-number-sidenoteのサンプル画像。ハンギング節番号と外側の余白の傍注を持つモノスペースの教科書。](../assets/captures/theme-mono-hanging-number-sidenote.webp)
+
+### [@vivliostyle/theme-vertical-numbered-heading-graph](https://www.npmjs.com/package/@vivliostyle/theme-vertical-numbered-heading-graph)
+
+学術教養書向けのテーマです。縦組み明朝1段で、漢数字の番号付き節見出しを組み、グラフなどの横組みの図版を版面下部に配置します。後注にも対応しています。
+
+- [README](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-vertical-numbered-heading-graph#readme)
+
+![theme-vertical-numbered-heading-graphのサンプル画像。縦組みの本文、番号付き見出し、版面下部の横組みグラフ。](../assets/captures/theme-vertical-numbered-heading-graph.webp)
+
+### [@vivliostyle/theme-wide-margin-speaker-indent](https://www.npmjs.com/package/@vivliostyle/theme-wide-margin-speaker-indent)
+
+広めの余白を取った1段組の技術同人誌向けテーマです。対談形式のページを話者名のぶら下げインデントで組み、発言の合間にプルクォートやコードブロックを置けます。
+
+- [README](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-wide-margin-speaker-indent#readme)
+
+![theme-wide-margin-speaker-indentのサンプル画像。表紙と、話者名のぶら下げインデントで組んだ対談ページ。](../assets/captures/theme-wide-margin-speaker-indent.webp)
 
 ## 非公式のVivliostyle Themes
 

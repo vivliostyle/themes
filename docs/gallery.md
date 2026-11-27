@@ -4,7 +4,7 @@ This is a gallery of Vivliostyle Themes released as npm packages. Newly released
 
 ## Official Vivliostyle Themes
 
-Currently, there are six official themes.
+Currently, there are ten official themes.
 
 ### [@vivliostyle/theme-bunko](https://www.npmjs.com/package/@vivliostyle/theme-bunko)
 
@@ -63,6 +63,38 @@ This is a theme for creating EPUB compatible with the [EBPAJ EPUB 3 File Creatio
 - [README](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-epub3j#readme)
 
 ![Screenshot of theme-epub3j example.](./assets/captures/theme-epub3j.webp)
+
+### [@vivliostyle/theme-centered-heading-line-graph](https://www.npmjs.com/package/@vivliostyle/theme-centered-heading-line-graph)
+
+A two-column theme for English textbooks. It typesets data-heavy pages with centered numbered headings, tables with colored headers, and line graphs.
+
+- [README](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-centered-heading-line-graph#readme)
+
+![Sample images from theme-centered-heading-line-graph. A two-column English textbook with centered numbered headings, tables and line graphs.](./assets/captures/theme-centered-heading-line-graph.webp)
+
+### [@vivliostyle/theme-mono-hanging-number-sidenote](https://www.npmjs.com/package/@vivliostyle/theme-mono-hanging-number-sidenote)
+
+A theme for university textbooks set entirely in monospace. It features hanging section numbers and numbered sidenotes lined up in a band along the outer margin.
+
+- [README](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-mono-hanging-number-sidenote#readme)
+
+![Sample images from theme-mono-hanging-number-sidenote. A monospace textbook with hanging section numbers and sidenotes in the outer margin.](./assets/captures/theme-mono-hanging-number-sidenote.webp)
+
+### [@vivliostyle/theme-vertical-numbered-heading-graph](https://www.npmjs.com/package/@vivliostyle/theme-vertical-numbered-heading-graph)
+
+A theme for academic nonfiction. It sets the text in a single column of vertical Mincho with section headings numbered in kanji numerals, and places horizontal figures such as graphs at the bottom of the page. Endnotes are supported.
+
+- [README](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-vertical-numbered-heading-graph#readme)
+
+![Sample images from theme-vertical-numbered-heading-graph. Vertical Japanese text with a numbered heading and a horizontal graph at the bottom of the page.](./assets/captures/theme-vertical-numbered-heading-graph.webp)
+
+### [@vivliostyle/theme-wide-margin-speaker-indent](https://www.npmjs.com/package/@vivliostyle/theme-wide-margin-speaker-indent)
+
+A single-column theme for technical doujinshi with wide margins. It sets interview pages with hanging indents under speaker names, and pull quotes and code blocks can be placed among the remarks.
+
+- [README](https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-wide-margin-speaker-indent#readme)
+
+![Sample images from theme-wide-margin-speaker-indent. A cover page and interview pages with speaker names and hanging indents.](./assets/captures/theme-wide-margin-speaker-indent.webp)
 
 ## Unofficial Vivliostyle Themes
 
