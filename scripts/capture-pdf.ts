@@ -56,6 +56,19 @@ async function main() {
     });
     fs.writeFileSync('docs/assets/captures/theme-bunko.webp', img);
   }
+  // @vivliostyle/theme-centered-heading-line-graph
+  {
+    const img = await pdfToImg(
+      'packages/@vivliostyle/theme-centered-heading-line-graph/book.pdf',
+      {
+        pageNumbers: [1, 2, 4],
+      },
+    );
+    fs.writeFileSync(
+      'docs/assets/captures/theme-centered-heading-line-graph.webp',
+      img,
+    );
+  }
   // @vivliostyle/theme-epub3j
   {
     const img = await pdfToImg('packages/@vivliostyle/theme-epub3j/book.pdf', {
@@ -90,6 +103,19 @@ async function main() {
       sherlock,
     );
   }
+  // @vivliostyle/theme-mono-hanging-number-sidenote
+  {
+    const img = await pdfToImg(
+      'packages/@vivliostyle/theme-mono-hanging-number-sidenote/book.pdf',
+      {
+        pageNumbers: [1, 3],
+      },
+    );
+    fs.writeFileSync(
+      'docs/assets/captures/theme-mono-hanging-number-sidenote.webp',
+      img,
+    );
+  }
   // @vivliostyle/theme-slide
   {
     const img = await pdfToImg('packages/@vivliostyle/theme-slide/book.pdf', {
@@ -106,6 +132,32 @@ async function main() {
       },
     );
     fs.writeFileSync('docs/assets/captures/theme-techbook.webp', img);
+  }
+  // @vivliostyle/theme-vertical-numbered-heading-graph
+  {
+    const img = await pdfToImg(
+      'packages/@vivliostyle/theme-vertical-numbered-heading-graph/book.pdf',
+      {
+        pageNumbers: [3, 2],
+      },
+    );
+    fs.writeFileSync(
+      'docs/assets/captures/theme-vertical-numbered-heading-graph.webp',
+      img,
+    );
+  }
+  // @vivliostyle/theme-wide-margin-speaker-indent
+  {
+    const img = await pdfToImg(
+      'packages/@vivliostyle/theme-wide-margin-speaker-indent/book.pdf',
+      {
+        pageNumbers: [1, 4, 9],
+      },
+    );
+    fs.writeFileSync(
+      'docs/assets/captures/theme-wide-margin-speaker-indent.webp',
+      img,
+    );
   }
 }
 
