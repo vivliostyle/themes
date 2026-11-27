@@ -153,7 +153,7 @@ importers:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
-        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+        version: 11.6.0(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
       '@vivliostyle/theme-base':
         specifier: workspace:*
         version: link:../theme-base
@@ -162,7 +162,7 @@ importers:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
-        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+        version: 11.6.0(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
     devDependencies:
       '@types/css-tree':
         specifier: 3.2.0
@@ -190,7 +190,7 @@ importers:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
-        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+        version: 11.6.0(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
       '@vivliostyle/theme-base':
         specifier: workspace:*
         version: link:../theme-base
@@ -199,7 +199,7 @@ importers:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
-        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+        version: 11.6.0(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
       '@vivliostyle/theme-base':
         specifier: workspace:*
         version: link:../theme-base
@@ -208,13 +208,13 @@ importers:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
-        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+        version: 11.6.0(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
 
   packages/@vivliostyle/theme-gutenberg:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
-        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+        version: 11.6.0(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
       '@vivliostyle/theme-base':
         specifier: workspace:*
         version: link:../theme-base
@@ -223,7 +223,7 @@ importers:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
-        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+        version: 11.6.0(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
       '@vivliostyle/theme-base':
         specifier: workspace:*
         version: link:../theme-base
@@ -232,7 +232,7 @@ importers:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
-        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+        version: 11.6.0(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
       '@vivliostyle/theme-base':
         specifier: workspace:*
         version: link:../theme-base
@@ -241,7 +241,7 @@ importers:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
-        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+        version: 11.6.0(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
       '@vivliostyle/theme-base':
         specifier: workspace:*
         version: link:../theme-base
@@ -250,7 +250,7 @@ importers:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
-        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+        version: 11.6.0(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
       '@vivliostyle/theme-base':
         specifier: workspace:*
         version: link:../theme-base
@@ -259,7 +259,7 @@ importers:
     dependencies:
       '@vivliostyle/cli':
         specifier: '>=11.3.1'
-        version: 11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
+        version: 11.6.0(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)
       '@vivliostyle/theme-base':
         specifier: workspace:*
         version: link:../theme-base
@@ -577,9 +577,6 @@ packages:
     peerDependencies:
       '@emnapi/core': ^2.0.0-alpha.3
       '@emnapi/runtime': ^2.0.0-alpha.3
-
-  '@nodable/entities@2.2.0':
-    resolution: {integrity: sha512-9uGyhaQavEUMC8AIddIjau4NsnsXhou+j5sBAGojCM1oxmQpVKTWR/9JxABD6UAv12vpIms55fPZKFQEhG6uBg==}
 
   '@nodable/entities@3.1.0':
     resolution: {integrity: sha512-LsS/DjHr+uDM647Gru/cA8+J3a3HfhttwCKLyuoyN7yXTFCxKBtSgMQBvrW9yNPa2/zDRUNuGPaH5QUFoa4arQ==}
@@ -935,12 +932,6 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@pdf-lib/standard-fonts@1.0.0':
-    resolution: {integrity: sha512-hU30BK9IUN/su0Mn9VdlVKsWBS6GyhVfqjwl1FjZN4TxP6cCw0jP2w7V3Hf5uX7M0AZJ16vey9yE0ny7Sa59ZA==}
-
-  '@pdf-lib/upng@1.0.1':
-    resolution: {integrity: sha512-dQK2FUMQtowVP00mtIksrlZhdFXQZPC+taih1q4CvPZ5vqdxR/LKBaFg0oAfzd1GlHZXXSPdQfzQnt+ViGvEIQ==}
-
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
@@ -1201,23 +1192,12 @@ packages:
   '@ungap/structured-clone@1.3.3':
     resolution: {integrity: sha512-60YRaenCQcVjYEKOcG824+DRGGIQ3VKErcBoAEDJZz5bKIs2ZG+X/H9Nk+Q6EVkwJk5QNApxbrc5QtBSwtrXAg==}
 
-  '@vivliostyle/cli@11.3.1':
-    resolution: {integrity: sha512-hwmRNYyEymwgyvBOjPr0nQhjkA8guungmLoeCH9uNjYvnc0Xb0Bd2NP9dntjt3jUc9W+VlZPBfh4CbN1vflY3g==}
-    engines: {node: '>=22.12.0'}
-    hasBin: true
-    peerDependencies:
-      vite: '>=8'
-
   '@vivliostyle/cli@11.6.0':
     resolution: {integrity: sha512-xGo4Tw9UqiP5H7EejCu5KRw5+ZyWp0X6xTbJMUcZXkkLZldI+80kc18Kbp7/DusfUuAHiKBsWujk/7s7XyCgbw==}
     engines: {node: '>=22.12.0'}
     hasBin: true
     peerDependencies:
       vite: '>=8'
-
-  '@vivliostyle/core@2.45.1':
-    resolution: {integrity: sha512-4GdAGhDUWcRKdTulUXLHMrZ7ywVXiWStsJ3qeE9FOEjKLgtA4s806S+HOUv16ciOh6RuC8bJhToNKWc9xxEGpw==}
-    engines: {node: '>=20'}
 
   '@vivliostyle/core@2.47.0':
     resolution: {integrity: sha512-XiVYHi0+zQ6gXw/zeCW+Eo6pEmEhcwufugZL2Tp8BKXo16/7sGFprBb6XRxA8v2/GZFgqoAoiR0nU6jPQpEnXg==}
@@ -1260,10 +1240,6 @@ packages:
     resolution: {integrity: sha512-VHHhriZQGSis9z4Jd+E4IqqWlm+lC0IgeVSliVYDK/IfgIwyyeUKAKidc4En94U0Uf1BtuicvEu1Gv3s94KNJA==}
     engines: {node: '>= 22'}
     hasBin: true
-
-  '@vivliostyle/viewer@2.45.1':
-    resolution: {integrity: sha512-JjcY+eboH8jARIN7QVjFYEAT8pQBSW83gbCC1/dh2UZFqHOEKroQkArKggjtAz+HT0aJtmossMVq+EAtnjMg+g==}
-    engines: {node: '>=20'}
 
   '@vivliostyle/viewer@2.47.0':
     resolution: {integrity: sha512-xtwX/GCUYVFvRYVTLLmTL+I7NiwvVWzGWgSaswROU6MRO3nEkXshuE/dXZml/sc0hdMlctnXU/8JjdQgcrMWcg==}
@@ -1673,9 +1649,6 @@ packages:
   doctype@3.0.1:
     resolution: {integrity: sha512-Ha+ox5/0B5VFY316bJgY9ed2KlZw7Fh6US9xoLuYNztgMX49JvE6lB39hWd097bu7pJhETDuoZ7kS1Nc35kVRg==}
 
-  dompurify@3.4.13:
-    resolution: {integrity: sha512-2vmYIoqjze2d+kakP8S/nS5shfsl587kzwEjcGlTdiksUVgFHnFCsLYDVj/JNqJVOQZGSYBTmuycv0PodwmnMQ==}
-
   dompurify@3.4.17:
     resolution: {integrity: sha512-B/pSlYVHQ58kqISD/yDjuJ1yfzI34m1gF4lAod2bwSRhiN4K5Cl3H8Af7hqB2PmTL911tdEudnnXn5FnhRoz0w==}
 
@@ -1800,18 +1773,11 @@ packages:
   fast-wrap-ansi@0.1.3:
     resolution: {integrity: sha512-iLg8mLuZBztzm8jmY6/xjr+ci4WYo6eYgHAioTA1ElxkE1BJ9J4tPuDlnHaLfljkRZ2vYfP0CDIpCHBBag4InA==}
 
-  fast-xml-builder@1.1.7:
-    resolution: {integrity: sha512-Yh7/7rQuMXICNr0oMYDR2yHP6oUvmQsTToFeOWj/kIDhAwQ+c4Ol/lbcwOmEM5OHYQmh6S6EQSQ1sljCKP36bQ==}
-
   fast-xml-builder@1.3.2:
     resolution: {integrity: sha512-OX91VSlShLPDgRZV7tk/YQ4l8tT75QziF5Ixg8g4PFbCVPjuTWwN+yQfAxLJ0dufJpprdOd6HlM74Jhd39TcBQ==}
 
   fast-xml-parser@5.12.0:
     resolution: {integrity: sha512-/pXxRBtwxY9w8z7YbgsvIPPcPvFDsTbIkWwTQJhzNJPokj+TbN6ftmcv4j/pEQDvOCNnKGDzuk5Bo2oogIOiFg==}
-    hasBin: true
-
-  fast-xml-parser@5.7.0:
-    resolution: {integrity: sha512-MTcrUoRQ1GSQ9iG3QJzBGquYYYeA7piZaJoIWbPFGbRn6Jj6z7xgoAyi4DrZX4y2ZIQQBF59gc/zmvvejjgoFQ==}
     hasBin: true
 
   fastq@1.20.1:
@@ -1935,11 +1901,6 @@ packages:
 
   handlebars@4.7.10:
     resolution: {integrity: sha512-P5VJMVM7qgBn6vjXMw8WG9uVI+ncf2pi72j4de4yz5ZULLj2RGqLYaKOYGsgyrViQ0tePOVlN1tDCCXXtFqXKg==}
-    engines: {node: '>=0.4.7'}
-    hasBin: true
-
-  handlebars@4.7.9:
-    resolution: {integrity: sha512-4E71E0rpOaQuJR2A3xDZ+GM1HyWYv1clR58tC8emQNeQe3RH7MAzSbat+V0wG78LQBo6m6bzSG/L4pBuCsgnUQ==}
     engines: {node: '>=0.4.7'}
     hasBin: true
 
@@ -2523,9 +2484,6 @@ packages:
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
-  mupdf@1.28.0:
-    resolution: {integrity: sha512-ACUnbpECaQ5JLq04pwd89lS+0IGMest5qL5tb08g9TAR7bDtfqflHEkb2Xm3o4rvC/szguLiV+WEbW9kstj8Sg==}
-
   mustache@4.2.0:
     resolution: {integrity: sha512-71ippSywq5Yb7/tVYyGbkBggbU8H3u5Rz56fH60jGFgr8uHwxs+aSKeqmluIVzM0m0kB7xQjKS6qPfd0b2ZoqQ==}
     hasBin: true
@@ -2546,9 +2504,6 @@ packages:
 
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
-
-  node-fetch-native@1.6.7:
-    resolution: {integrity: sha512-g9yhqoedzIUm0nTnTqAQvueMPVOuIY16bqgAJJC8XOOubYFNwz6IER9qs0Gq2Xd0+CecCKFjtdDTMA4u4xG06Q==}
 
   node-fetch@2.7.0:
     resolution: {integrity: sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==}
@@ -2706,9 +2661,6 @@ packages:
     engines: {node: ^20.17.0 || >=22.9.0}
     hasBin: true
 
-  pako@1.0.11:
-    resolution: {integrity: sha512-4hLB8Py4zZce5s4yd9XzopqwVv/yGNhV1Bl8NTmCq1763HeK2+EwVTv+leGeL13Dnh2wfbqowVPXCIO0z4taYw==}
-
   parse-conflict-json@5.0.1:
     resolution: {integrity: sha512-ZHEmNKMq1wyJXNwLxyHnluPfRAFSIliBvbK/UiOceROt4Xh9Pz0fq49NytIaeaCUf5VR86hwQ/34FCcNU5/LKQ==}
     engines: {node: ^20.17.0 || >=22.9.0}
@@ -2756,9 +2708,6 @@ packages:
   path2d@0.2.2:
     resolution: {integrity: sha512-+vnG6S4dYcYxZd+CZxzXCNKdELYZSKfohrk98yajCo1PtRoDgCTrrwOvK1GT0UoAdVszagDVllQc0U1vaX4NUQ==}
     engines: {node: '>=6'}
-
-  pdf-lib@1.17.1:
-    resolution: {integrity: sha512-V/mpyJAoTsN4cnP31vc0wfNA1+p20evqqnap0KLoRUN0Yk/p3wN52DOEsL4oBFcLdb76hlpKPtzJIgo67j/XLw==}
 
   pdfjs-dist@4.6.82:
     resolution: {integrity: sha512-BUOryeRFwvbLe0lOU6NhkJNuVQUp06WxlJVVCsxdmJ4y5cU3O3s3/0DunVdK1PMm7v2MUw52qKYaidhDH1Z9+w==}
@@ -3204,9 +3153,6 @@ packages:
     resolution: {integrity: sha512-BrpvfNAE3dcvq7ll3xVumzjKjZQ5tI1sEUIKr3Uoks0XUl45St3FlatVqef9prk4jRDzhW6WZg+3bk93y6pLjA==}
     engines: {node: '>=6'}
 
-  strnum@2.4.1:
-    resolution: {integrity: sha512-M9eUSMT2dCB2cTNPG7UYj6KuK7RJR2SN2+yCV/fTW3xzTCS6EaGZ5pSMgDIjB7r8zSfTGk+dvvn9rTjpVS9Mwg==}
-
   strnum@2.5.1:
     resolution: {integrity: sha512-UM4nTLWzQiDBseVxUGxN0wJzIk0UU89Qi7pKXz9qISo+lhviJikTuikBsK/oFRlpvYHvSdz0TVoLyQ+sEpYwxA==}
 
@@ -3328,9 +3274,6 @@ packages:
 
   trough@1.0.5:
     resolution: {integrity: sha512-rvuRbTarPXmMb79SmzEp8aqXNKcK+y0XaB298IXueQ8I2PsrATcPBCSPyK/dDNa2iWOhKlfNnOjdAOTBU/nkFA==}
-
-  tslib@1.14.1:
-    resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
 
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
@@ -4113,8 +4056,6 @@ snapshots:
       '@tybys/wasm-util': 0.10.3
     optional: true
 
-  '@nodable/entities@2.2.0': {}
-
   '@nodable/entities@3.1.0': {}
 
   '@nodelib/fs.scandir@2.1.5':
@@ -4384,14 +4325,6 @@ snapshots:
   '@oxlint/binding-win32-x64-msvc@1.76.0':
     optional: true
 
-  '@pdf-lib/standard-fonts@1.0.0':
-    dependencies:
-      pako: 1.0.11
-
-  '@pdf-lib/upng@1.0.1':
-    dependencies:
-      pako: 1.0.11
-
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
@@ -4579,85 +4512,6 @@ snapshots:
 
   '@ungap/structured-clone@1.3.3': {}
 
-  '@vivliostyle/cli@11.3.1(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)':
-    dependencies:
-      '@babel/code-frame': 7.26.2
-      '@bluwy/giget-core': 0.1.3
-      '@clack/core': 1.0.0-alpha.6
-      '@clack/prompts': 1.0.0-alpha.6
-      '@humanwhocodes/momoa': 3.3.8
-      '@napi-rs/canvas': 0.1.69
-      '@npmcli/arborist': 9.1.7(supports-color@7.2.0)
-      '@puppeteer/browsers': 3.2.2
-      '@types/command-exists': 1.2.3
-      '@vivliostyle/jsdom': 25.0.1-vivliostyle-cli.2(@napi-rs/canvas@0.1.69)(supports-color@7.2.0)
-      '@vivliostyle/vfm': 2.7.2(supports-color@7.2.0)(typescript@5.9.3)
-      '@vivliostyle/viewer': 2.45.1
-      ajv: 8.18.0
-      ajv-formats: 3.0.1(ajv@8.18.0)
-      archiver: 7.0.1
-      bcp-47-match: 2.0.3
-      change-case: 5.4.4
-      command-exists: 1.2.9
-      commander: 13.1.0
-      debug: 4.4.0(supports-color@7.2.0)
-      decamelize: 6.0.0
-      dompurify: 3.4.13
-      escape-string-regexp: 5.0.0
-      fast-wrap-ansi: 0.1.3
-      fast-xml-builder: 1.1.7
-      fast-xml-parser: 5.7.0
-      fs-extra: 11.2.0
-      github-slugger: 2.0.0
-      handlebars: 4.7.9
-      hast-util-to-html: 9.0.5
-      hastscript: 9.0.1
-      mime-types: 3.0.1
-      mupdf: 1.28.0
-      node-fetch-native: 1.6.7
-      node-stream-zip: 1.15.0
-      npm-package-arg: 12.0.2
-      os-locale: 8.0.0
-      pdf-lib: 1.17.1
-      picomatch: 4.0.4
-      postcss: 8.5.26
-      postcss-load-config: 6.0.1(postcss@8.5.26)(yaml@2.9.0)
-      postcss-value-parser: 4.2.0
-      press-ready: 4.0.3(supports-color@7.2.0)
-      puppeteer-core: 25.10.0
-      resolve.exports: 2.0.3
-      semver: 7.7.1
-      sirv: 3.0.1
-      sisteransi: 1.0.5
-      terminal-link: 4.0.0
-      tinyexec: 1.0.2
-      tinyglobby: 0.2.13
-      title-case: 4.3.2
-      tmp: 0.2.7
-      upath: 2.0.1
-      uuid: 14.0.0
-      valibot: 1.2.0(typescript@5.9.3)
-      validate-npm-package-name: 7.0.0
-      vfile: 4.2.1
-      vite: 8.1.5(@types/node@24.13.3)(yaml@2.9.0)
-      w3c-xmlserializer: 5.0.0
-      whatwg-mimetype: 4.0.0
-      yocto-spinner: 1.2.2
-      yoctocolors: 2.1.1
-    transitivePeerDependencies:
-      - bare-abort-controller
-      - bare-buffer
-      - bufferutil
-      - jiti
-      - proxy-agent
-      - react-native-b4a
-      - supports-color
-      - tsx
-      - typescript
-      - utf-8-validate
-      - yaml
-      - yauzl
-
   '@vivliostyle/cli@11.6.0(supports-color@7.2.0)(typescript@5.9.3)(vite@8.1.5(@types/node@24.13.3)(yaml@2.9.0))(yaml@2.9.0)':
     dependencies:
       '@babel/code-frame': 7.26.2
@@ -4735,10 +4589,6 @@ snapshots:
       - utf-8-validate
       - yaml
       - yauzl
-
-  '@vivliostyle/core@2.45.1':
-    dependencies:
-      fast-diff: 1.3.0
 
   '@vivliostyle/core@2.47.0':
     dependencies:
@@ -4890,12 +4740,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
       - typescript
-
-  '@vivliostyle/viewer@2.45.1':
-    dependencies:
-      '@vivliostyle/core': 2.45.1
-      i18next-ko: 3.0.1
-      knockout: 3.5.3
 
   '@vivliostyle/viewer@2.47.0':
     dependencies:
@@ -5265,10 +5109,6 @@ snapshots:
 
   doctype@3.0.1: {}
 
-  dompurify@3.4.13:
-    optionalDependencies:
-      '@types/trusted-types': 2.0.7
-
   dompurify@3.4.17:
     optionalDependencies:
       '@types/trusted-types': 2.0.7
@@ -5381,10 +5221,6 @@ snapshots:
     dependencies:
       fast-string-width: 1.1.0
 
-  fast-xml-builder@1.1.7:
-    dependencies:
-      path-expression-matcher: 1.6.2
-
   fast-xml-builder@1.3.2:
     dependencies:
       path-expression-matcher: 1.6.2
@@ -5398,13 +5234,6 @@ snapshots:
       path-expression-matcher: 1.6.2
       strnum: 2.5.1
       xml-naming: 0.3.0
-
-  fast-xml-parser@5.7.0:
-    dependencies:
-      '@nodable/entities': 2.2.0
-      fast-xml-builder: 1.1.7
-      path-expression-matcher: 1.6.2
-      strnum: 2.4.1
 
   fastq@1.20.1:
     dependencies:
@@ -5550,15 +5379,6 @@ snapshots:
   graceful-fs@4.2.11: {}
 
   handlebars@4.7.10:
-    dependencies:
-      minimist: 1.2.8
-      neo-async: 2.6.2
-      source-map: 0.6.1
-      wordwrap: 1.0.0
-    optionalDependencies:
-      uglify-js: 3.19.3
-
-  handlebars@4.7.9:
     dependencies:
       minimist: 1.2.8
       neo-async: 2.6.2
@@ -6203,8 +6023,6 @@ snapshots:
 
   ms@2.1.3: {}
 
-  mupdf@1.28.0: {}
-
   mustache@4.2.0: {}
 
   nanoid@3.3.16: {}
@@ -6214,8 +6032,6 @@ snapshots:
   negotiator@1.0.0: {}
 
   neo-async@2.6.2: {}
-
-  node-fetch-native@1.6.7: {}
 
   node-fetch@2.7.0:
     dependencies:
@@ -6421,8 +6237,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  pako@1.0.11: {}
-
   parse-conflict-json@5.0.1:
     dependencies:
       json-parse-even-better-errors: 5.0.0
@@ -6468,13 +6282,6 @@ snapshots:
 
   path2d@0.2.2:
     optional: true
-
-  pdf-lib@1.17.1:
-    dependencies:
-      '@pdf-lib/standard-fonts': 1.0.0
-      '@pdf-lib/upng': 1.0.1
-      pako: 1.0.11
-      tslib: 1.14.1
 
   pdfjs-dist@4.6.82:
     optionalDependencies:
@@ -6968,10 +6775,6 @@ snapshots:
 
   strip-final-newline@2.0.0: {}
 
-  strnum@2.4.1:
-    dependencies:
-      anynum: 1.0.1
-
   strnum@2.5.1:
     dependencies:
       anynum: 1.0.1
@@ -7092,8 +6895,6 @@ snapshots:
   trim@0.0.1: {}
 
   trough@1.0.5: {}
-
-  tslib@1.14.1: {}
 
   tslib@2.8.1:
     optional: true
